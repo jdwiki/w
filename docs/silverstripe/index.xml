@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>silverstripe Tutorial on </title>
+    <link>https://www.wikiod.com/docs/silverstripe/</link>
+    <description>Recent content in silverstripe Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/silverstripe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with silverstripe</title>
+      <link>https://www.wikiod.com/silverstripe/getting-started-with-silverstripe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/silverstripe/getting-started-with-silverstripe/</guid>
+      <description>Installation # SilverStripe can be installed via composer or through the extraction of downloaded zip file.
+To install through composer we run the following command
+composer create-project silverstripe/installer /path/to/project 3.4.0 A download zip file can be found on the download page of the SilverStripe website. Once downloaded, this file needs to be extracted into the root directory of the desired project.
+Upon visiting the website for the first time an installation wizard will be presented to configure and set up the SilverStripe install.</description>
+    </item>
+    
+    <item>
+      <title>Forms</title>
+      <link>https://www.wikiod.com/silverstripe/forms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/silverstripe/forms/</guid>
+      <description>Syntax # Form::create($this, __FUNCTION__, $fields, $actions, $validator) // standard form creation Form::create(&amp;hellip;)-&amp;gt;addExtraClass(&amp;lsquo;my-css-class another-class&amp;rsquo;) // add CSS classes to your Form Form::create(&amp;hellip;)-&amp;gt;loadDataFrom(Member::get()-&amp;gt;byID(1)); // populate a form with the details of an object Creating a Form # Here is a basic example form with one required text field and one submit button, which submits to a custom function:
+class Page_Controller extends ContentController { private static $allowed_actions = array( &#39;ExampleForm&#39; ); public function ExampleForm() { $fields = FieldList::create( TextField::create(&#39;Name&#39;, &#39;Your Name&#39;) ); $actions = FieldList::create( FormAction::create(&#39;doExampleFormAction&#39;, &#39;Go&#39;) ); $requiredFields = RequiredFields::create(&#39;Name&#39;); $form = Form::create( $this, &#39;ExampleForm&#39;, $fields, $actions, $requiredFields ); return $form; } public function doExampleFormAction($data, Form $form) { $form-&amp;gt;sessionMessage(&#39;Hello &#39;.</description>
+    </item>
+    
+    <item>
+      <title>The autoloader</title>
+      <link>https://www.wikiod.com/silverstripe/the-autoloader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/silverstripe/the-autoloader/</guid>
+      <description>When you make any changes to the classes then you need to run a dev/build?flush=1 to rebuild the manifest.
+MyClass.php # &amp;lt;?php class MyClass { ... } class OtherClass { ... } ?&amp;gt; Any class that has the same name as it&amp;rsquo;s file name will be auto loaded by Silverstripe.
+OtherClass will be loaded too because it is in a file which is being read.
+MyPage.php
+&amp;lt;?php class MyPage_Controller extends BookingPage_Controller { .</description>
+    </item>
+    
+    <item>
+      <title>ModelAdmin</title>
+      <link>https://www.wikiod.com/silverstripe/modeladmin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/silverstripe/modeladmin/</guid>
+      <description>Control the DataObject name displayed in the UI # class MyDataObject extends DataObject { private static $singular_name = &#39;My Object&#39;; private static $plural_name = &#39;My Objects&#39;; ... } DataObjects can be sorted by default # class SortDataObject extends DataObject { private static $db = array( &#39;Name&#39; =&amp;gt; &#39;Varchar&#39;, &#39;SortOrder&#39; =&amp;gt; &#39;Int&#39; ); private static $default_sort = &#39;SortOrder DESC&#39;; } Control columns displayed for the DataObject # class MyDataObject extends DataObject { private static $db = array( &#39;Name&#39; =&amp;gt; &#39;Varchar&#39; ); private static $has_one = array( &#39;OtherDataObject&#39; =&amp;gt; &#39;OtherDataObject&#39; ); private static $summary_fields = array( &#39;Name&#39;, &#39;OtherDataObject.</description>
+    </item>
+    
+    <item>
+      <title>The Config System</title>
+      <link>https://www.wikiod.com/silverstripe/the-config-system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/silverstripe/the-config-system/</guid>
+      <description>What is the config system # SilverStripe uses a global config system to store settings for classes and the application. These config variables can be used to define the structure of Models, security settings on Controllers or API keys for third party services.
+How it works # Config values are populated by the SS_ConfigStaticManifest during a dev/build and cache flush (appending ?flush to any URL`) or on first ever run of the application code.</description>
+    </item>
+    
+    <item>
+      <title>Using the ORM</title>
+      <link>https://www.wikiod.com/silverstripe/using-the-orm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/silverstripe/using-the-orm/</guid>
+      <description>Reading and writing DataObjects # DataObjects in SilverStripe represent a database table row. The fields in the model have magic methods that handle getting and setting data via their property names.
+Given we have a simple DataObject as an example:
+class Fruit extends DataObject { private static $db = [&#39;Name&#39; =&amp;gt; &#39;Varchar&#39;]; } You can create, set data and write a Fruit as follows:
+$apple = Fruit::create(); $apple-&amp;gt;Name = &#39;Apple&#39;; $apple-&amp;gt;write(); You can similarly retrieve the Fruit object as follows:</description>
+    </item>
+    
+    <item>
+      <title>DataExtensions</title>
+      <link>https://www.wikiod.com/silverstripe/dataextensions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/silverstripe/dataextensions/</guid>
+      <description>Adding fields to a DataObject # You can use the DataExtension mechanism to add extra database fields to an existing DataObject:
+class MyMemberExtension extends DataExtension { private static $db = [ &#39;HairColour&#39; =&amp;gt; &#39;Varchar&#39; ]; } And apply the extension:
+# File: mysite/_config/app.yml Member: extensions: - MyMemberExtension This will add HairColour as a field to Member objects.
+Adding methods to a DataObject # You can add public methods to a DataObject using the extension mechanism, for example:</description>
+    </item>
+    
+    <item>
+      <title>LeftAndMain</title>
+      <link>https://www.wikiod.com/silverstripe/leftandmain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/silverstripe/leftandmain/</guid>
+      <description>LeftAndMain is more of a lower-level API and not often required due to the existence of ModelAdmin. However if you wanted to create a custom user interface that did not necessarily require the functionality of ModelAdmin in the administration panel for your module, than LeftAndMain is where you would want to start.
+1. Getting Started # This guide is intended to get you started on creating your own User Interface by subclassing the LeftAndMain class.</description>
+    </item>
+    
+    <item>
+      <title>Add Ons and Modules</title>
+      <link>https://www.wikiod.com/silverstripe/add-ons-and-modules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/silverstripe/add-ons-and-modules/</guid>
+      <description>Addons and modules are encouraged to be registered with Packagist which then means they are found and registered with the SilverStripe add-on repository
+Installation of modules is recommended through use of Composer
+SilverStripe Grid Field Extensions Module # The SilverStripe Grid Field Extensions Module has some very nice features to enhance the basic GridField&amp;hellip;
+GridFieldAddExistingSearchButton - a more advanced search form for adding items GridFieldAddNewInlineButton - builds on GridFieldEditableColumns to allow inline creation of records.</description>
+    </item>
+    
+  </channel>
+</rss>

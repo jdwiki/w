@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>awk Tutorial on </title>
+    <link>https://www.wikiod.com/docs/awk/</link>
+    <description>Recent content in awk Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/awk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with awk</title>
+      <link>https://www.wikiod.com/awk/getting-started-with-awk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/awk/getting-started-with-awk/</guid>
+      <description>AWK by examples # AWK is string manipulation language, used largely in UNIX systems. The idea behind AWK was to create a versatile language to use when working on files, which wasn&amp;rsquo;t too complex to understand.
+AWK has some other variants, but the main concept is the same, just with additional features. These other variants are NAWK and GAWK. GAWK contains all of the features of both, whilst NAWK is one step above AWK, if you like.</description>
+    </item>
+    
+    <item>
+      <title>String manipulation functions</title>
+      <link>https://www.wikiod.com/awk/string-manipulation-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/awk/string-manipulation-functions/</guid>
+      <description>Syntax # index(big, little) length or length() length(string) match(string, regex) split(string, array, separator) split(string, array) sprintf(format, &amp;hellip;) sub(regex, subst, string) sub(regex, subst) gsub(regex, subst) gsub(regex, subst, string) substr(string, start, end) substr(string, start) tolower(string) toupper(string) Parameters # Parameter Details big The string which is scanned for &amp;ldquo;little&amp;rdquo;. end The index at which to end the sub-string. format A printf format string. little The string to scan for in &amp;ldquo;big&amp;rdquo;. regex An Extended-Regular-Expression.</description>
+    </item>
+    
+    <item>
+      <title>Built-in Variables</title>
+      <link>https://www.wikiod.com/awk/built-in-variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/awk/built-in-variables/</guid>
+      <description>FS - Field Separator # The variable FS is used to set the input field separator. In awk, space and tab act as default field separators. The corresponding field value can be accessed through $1, $2, $3&amp;hellip; and so on.
+awk -F&#39;=&#39; &#39;{print $1}&#39; file -F - command-line option for setting input field separator.
+awk &amp;lsquo;BEGIN { FS=&amp;quot;=&amp;quot; } { print $1 }&amp;rsquo; file
+OFS - Output Field Separator # This variable is used to set the output field separator which is a space by default.</description>
+    </item>
+    
+    <item>
+      <title>Variables</title>
+      <link>https://www.wikiod.com/awk/variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/awk/variables/</guid>
+      <description>Command-line variable assignment # To assign variables from the command-line, -v can be used:
+$ awk -v myvar=&amp;quot;hello&amp;quot; &#39;BEGIN {print myvar}&#39; hello Note that there are no spaces around the equal sign.
+This allows to use shell variables:
+$ shell_var=&amp;quot;hello&amp;quot; $ awk -v myvar=&amp;quot;$shell_var&amp;quot; &#39;BEGIN {print myvar}&#39; hello Also, this allows to set built-in variables that control awk:
+See an example with FS (field separator):
+$ cat file 1,2;3,4 $ awk -v FS=&amp;quot;,&amp;quot; &#39;{print $2}&#39; file 2;3 $ awk -v FS=&amp;quot;;&amp;quot; &#39;{print $2}&#39; file 3,4 Or with OFS (output field separator):</description>
+    </item>
+    
+    <item>
+      <title>Useful one-liners - calculating average from a CSV etc</title>
+      <link>https://www.wikiod.com/awk/useful-one-liners---calculating-average-from-a-csv-etc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/awk/useful-one-liners---calculating-average-from-a-csv-etc/</guid>
+      <description>Compute the average of values in a column from tabular data # Given a file using ; as a column delimiter. We compute the mean of the values in the second column with the following program, the provided input is the list of grades of a student group:
+awk -F&#39;;&#39; &#39;{ sum += $2 } END { print(sum / NR) }&#39; &amp;lt;&amp;lt;EOF Alice;2 Victor;1 Barbara;1 Casper;4 Deborah;0 Ernest;1 Fabiola;4 Giuseppe;4 EOF The output of this program is 2.</description>
+    </item>
+    
+    <item>
+      <title>Two-file processing</title>
+      <link>https://www.wikiod.com/awk/two-file-processing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/awk/two-file-processing/</guid>
+      <description>Check matching fields in two files # Given these two CSV files:
+$ cat file1 1,line1 2,line2 3,line3 4,line4 $ cat file2 1,line3 2,line4 3,line5 4,line6 To print those lines in file2 whose second column occurs also in the first file we can say:
+$ awk -F, &#39;FNR==NR {lines[$2]; next} $2 in lines&#39; file1 file2 1,line3 2,line4 Here, lines[] holds an array that gets populated when reading file1 with the contents of the second field of each line.</description>
+    </item>
+    
+    <item>
+      <title>Patterns</title>
+      <link>https://www.wikiod.com/awk/patterns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/awk/patterns/</guid>
+      <description>Regexp Patterns # Patterns can be specified as regular expressions:
+/regular expression/ {action} For example:
+echo &amp;quot;user@hostname.com not an email&amp;quot; | awk &#39;/[^@]+@.+/ {print}&#39; Produces:
+user@hostname.com Note that an action consisting only of the print statement can be omitted entirely. The above example is equivalent to:
+echo &amp;quot;user@hostname.com not an email&amp;quot; | awk &#39;/[^@]+@.+/&#39; </description>
+    </item>
+    
+    <item>
+      <title>Patterns and Actions</title>
+      <link>https://www.wikiod.com/awk/patterns-and-actions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/awk/patterns-and-actions/</guid>
+      <description>Introduction # An awk consists of patterns and actions, enclosed in curly brackets, to be taken if a pattern matches. The most basic pattern is the empty pattern, which matches any record. The most basic action is the empty action, which is equivalent to { print }, which is, in turn, equivalent to { print $0 }. If both the pattern and the action are empty, awk will simply do nothing.</description>
+    </item>
+    
+    <item>
+      <title>Row Manipulation</title>
+      <link>https://www.wikiod.com/awk/row-manipulation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/awk/row-manipulation/</guid>
+      <description>Extract specific lines from a text file # Suppose we have a file
+cat -n lorem_ipsum.txt 1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 2 Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 3 It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</description>
+    </item>
+    
+    <item>
+      <title>Built-in functions</title>
+      <link>https://www.wikiod.com/awk/built-in-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/awk/built-in-functions/</guid>
+      <description>length([String]) # Returns the number of characters of the given String
+Considerations # If a number is given instead a String, the result will be the length of the String representing the given number. I.e. If we execute length(12345) the result will be the same as length(&amp;quot;12345&amp;quot;), that is 5
+If no value is given, the result will be the length of the actual row being processed, that is length($0)</description>
+    </item>
+    
+  </channel>
+</rss>

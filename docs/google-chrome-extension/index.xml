@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>google-chrome-extension Tutorial on </title>
+    <link>https://www.wikiod.com/docs/google-chrome-extension/</link>
+    <description>Recent content in google-chrome-extension Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/google-chrome-extension/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with google-chrome-extension</title>
+      <link>https://www.wikiod.com/google-chrome-extension/getting-started-with-google-chrome-extension/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/google-chrome-extension/getting-started-with-google-chrome-extension/</guid>
+      <description>Absolute minimum example # Any Chrome extension starts as an unpacked extension: a folder containing the extension&amp;rsquo;s files.
+One file it must contain is manifest.json, which describes the basic properties of the extension. Many of the properties in that file are optional, but here is an absolute minimum manifest.json file:
+{ &amp;quot;manifest_version&amp;quot;: 2, &amp;quot;name&amp;quot;: &amp;quot;My Extension&amp;quot;, &amp;quot;version&amp;quot;: &amp;quot;1.0&amp;quot; } Create a folder (for example, myExtension) somewhere, add manifest.json as listed above to it.</description>
+    </item>
+    
+    <item>
+      <title>Content scripts</title>
+      <link>https://www.wikiod.com/google-chrome-extension/content-scripts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/google-chrome-extension/content-scripts/</guid>
+      <description>Official documentation # Content Scripts
+Content Security Policy &amp;gt; Content Scripts
+Declaring content scripts in the manifest # Content scripts can be declared in manifest.json to be always injected into pages that match a set of URL patterns.
+Minimal example # &amp;quot;content_scripts&amp;quot; : [ { &amp;quot;js&amp;quot;: [&amp;quot;content.js&amp;quot;], &amp;quot;css&amp;quot;: [&amp;quot;content.css&amp;quot;] &amp;quot;matches&amp;quot;: [&amp;quot;http://example.com/*&amp;quot;] } ] This manifest entry instructs Chrome to inject a content script content.js, along with the CSS file content.css, after any navigation to a page matching the match pattern http://example.</description>
+    </item>
+    
+    <item>
+      <title>manifest.json</title>
+      <link>https://www.wikiod.com/google-chrome-extension/manifestjson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/google-chrome-extension/manifestjson/</guid>
+      <description>Official documentation # Manifest File Format
+Format # Manifest file is written in JSON (JavaScript Object Notation) format.
+This format differs from more loose rules of writing object literals in JavaScript code. Among important differences:
+Every key name and string literal must be in double quotes.
+Correct: &amp;quot;key&amp;quot;: &amp;quot;value&amp;quot;
+Wrong: key: &amp;quot;value&amp;quot;, &#39;key&#39;: &#39;value&#39;
+No comments are allowed by the format.
+Wrong: &amp;quot;key&amp;quot;: &amp;quot;value&amp;quot; // This controls feature foo Strict comma rules: items separated by commas, no dangling commas.</description>
+    </item>
+    
+    <item>
+      <title>Message Passing</title>
+      <link>https://www.wikiod.com/google-chrome-extension/message-passing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/google-chrome-extension/message-passing/</guid>
+      <description>Official documentation # Message Passing
+Native Messaging
+chrome.runtime API (most messaging functions and all messaging events)
+Send a response asynchronously # In attempt to send a response asynchronously from chrome.runtime.onMessage callback we might try this wrong code: chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) { $.ajax({ url: &#39;https://www.google.com&#39;, method: &#39;GET&#39;, success: function(data) { // data won&#39;t be sent sendResponse(data); }, }); }); However, we would find that data is never sent. This happens because we have put sendResponse inside an asynchronous ajax call, when the success method is executed, the message channel has been closed.</description>
+    </item>
+    
+    <item>
+      <title>Porting tofrom Firefox</title>
+      <link>https://www.wikiod.com/google-chrome-extension/porting-tofrom-firefox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/google-chrome-extension/porting-tofrom-firefox/</guid>
+      <description>If you&amp;rsquo;re using a Firefox version before 48, you&amp;rsquo;ll also need an additional key in manifest.json called applications:
+&amp;quot;applications&amp;quot;: { &amp;quot;gecko&amp;quot;: { &amp;quot;id&amp;quot;: &amp;quot;borderify@example.com&amp;quot;, &amp;quot;strict_min_version&amp;quot;: &amp;quot;42.0&amp;quot;, &amp;quot;strict_max_version&amp;quot;: &amp;quot;50.*&amp;quot;, &amp;quot;update_url&amp;quot;: &amp;quot;https://example.com/updates.json&amp;quot; } } applications
+Note:
+Extension Signing:
+With the release of Firefox 48, extension signing can no longer be disabled in the release and beta channel builds by using a preference. As outlined when extension signing was announced, we are publishing specialized builds that support this preference so developers can continue to test against the code that beta and release builds are generated from.</description>
+    </item>
+    
+    <item>
+      <title>Background pages</title>
+      <link>https://www.wikiod.com/google-chrome-extension/background-pages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/google-chrome-extension/background-pages/</guid>
+      <description>Declaring background page in the manifest # There are two ways to register a background page in the extension manifest.
+The scripts property
+In the common case, a background page doesn&amp;rsquo;t require any HTML markup. We can register these kinds of background pages using the scripts property.
+In this case, a background page will be generated by the extension system that includes each of files listed in the scripts property.</description>
+    </item>
+    
+    <item>
+      <title>Debugging Chrome Extensions</title>
+      <link>https://www.wikiod.com/google-chrome-extension/debugging-chrome-extensions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/google-chrome-extension/debugging-chrome-extensions/</guid>
+      <description>Using the Developer tools to debug your extension # A chrome extension is seperated into a maximum of 4 parts:
+the background page the popup page one or more content scripts the options page Each part, since they are innately separate, require individual debugging.
+Keep in mind that these pages are separate, meaning that variables are not directly shared between them and that a console.log() in one of these pages will not be visible in any other part&amp;rsquo;s logs.</description>
+    </item>
+    
+    <item>
+      <title>Developer Tool Integration</title>
+      <link>https://www.wikiod.com/google-chrome-extension/developer-tool-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/google-chrome-extension/developer-tool-integration/</guid>
+      <description>Debugging the background page/script # The background script is like any other JavaScript code. You can debug it using same tools you debug other JavaScript code in Chrome.
+To open the Chrome Developer Tools, go to chrome://extensions, and turn on Developer mode: Now you can debug any extension that have a background page or script. Just scroll to the extension you want to debug and click on the background page link to inspect it.</description>
+    </item>
+    
+  </channel>
+</rss>

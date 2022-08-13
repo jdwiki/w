@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Django Tutorial on </title>
+    <link>https://www.wikiod.com/docs/django/</link>
+    <description>Recent content in Django Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/django/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Django</title>
+      <link>https://www.wikiod.com/django/getting-started-with-django/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django/getting-started-with-django/</guid>
+      <description>Starting a Project # Django is a web development framework based on Python. Django 1.11 (the latest stable release) requires Python 2.7, 3.4, 3.5 or 3.6 to be installed. Assuming pip is available, installation is as simple as running the following command. Keep in mind, omitting the version as shown below will install the latest version of django:
+$ pip install django For installing specific version of django, let&amp;rsquo;s suppose the version is django 1.</description>
+    </item>
+    
+    <item>
+      <title>Management Commands</title>
+      <link>https://www.wikiod.com/django/management-commands/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django/management-commands/</guid>
+      <description>Management commands are powerful and flexible scripts that can perform actions on your Django project or the underlying database. In addition to various default commands, it&amp;rsquo;s possible to write your own!
+Compared to regular Python scripts, using the management command framework means that some tedious setup work is automatically done for you behind the scenes.
+Management commands can be called either from:
+django-admin &amp;lt;command&amp;gt; [options] python -m django &amp;lt;command&amp;gt; [options] python manage.</description>
+    </item>
+    
+    <item>
+      <title>Models</title>
+      <link>https://www.wikiod.com/django/models/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django/models/</guid>
+      <description>In the basic case, a model is Python class that maps to a single database table. The attributes of the class map to columns in the table and an instance of the class represents a row in database table. The models inherit from django.db.models.Model which provides a rich API for adding and filtering results from the database.
+[Create Your First Model](https://www.wikiod.com/django/models#Creating your first model)
+Adding a string representation of a model # To create a human-readable presentation of a model object you need to implement Model.</description>
+    </item>
+    
+    <item>
+      <title>Middleware</title>
+      <link>https://www.wikiod.com/django/middleware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django/middleware/</guid>
+      <description>Middleware in Django is a framework that allows code to hook into the response / request processing and alter the input or output of Django.
+Middleware needs to be added to your settings.py MIDDLEWARE_CLASSES list before it will be included in execution. The default list that Django provides when creating a new project is as follows:
+MIDDLEWARE_CLASSES = [ &#39;django.middleware.security.SecurityMiddleware&#39;, &#39;django.contrib.sessions.middleware.SessionMiddleware&#39;, &#39;django.middleware.common.CommonMiddleware&#39;, &#39;django.middleware.csrf.CsrfViewMiddleware&#39;, &#39;django.contrib.auth.middleware.AuthenticationMiddleware&#39;, &#39;django.contrib.auth.middleware.SessionAuthenticationMiddleware&#39;, &#39;django.contrib.messages.middleware.MessageMiddleware&#39;, &#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;, ] These are all functions that will run in order on every request (once before it reaches your view code in views.</description>
+    </item>
+    
+    <item>
+      <title>Settings</title>
+      <link>https://www.wikiod.com/django/settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django/settings/</guid>
+      <description>Hiding secret data using a JSON file # When using a VCS such as Git or SVN, there are some secret data that must never be versioned (whether the repository is public or private).
+Among those data, you find the SECRET_KEY setting and the database password.
+A common practice to hide these settings from version control is to create a file secrets.json at the root of your project (thanks &amp;ldquo;Two Scoops of Django&amp;rdquo; for the idea):</description>
+    </item>
+    
+    <item>
+      <title>URL routing</title>
+      <link>https://www.wikiod.com/django/url-routing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django/url-routing/</guid>
+      <description>Set the URL namespace for a reusable app (Django 1.9+) # Configure your app&amp;rsquo;s URLconf to automatically use a URL namespace by setting the app_name attribute:
+# In &amp;lt;myapp&amp;gt;/urls.py from django.conf.urls import url from .views import overview app_name = &#39;myapp&#39; urlpatterns = [ url(r&#39;^$&#39;, overview, name=&#39;overview&#39;), ] This will set the application namespace to &#39;myapp&#39; when it is included in the root URLconf&amp;gt;. The user of your reusable app does not need to do any configuration other than including your URLs:</description>
+    </item>
+    
+    <item>
+      <title>Authentication Backends</title>
+      <link>https://www.wikiod.com/django/authentication-backends/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django/authentication-backends/</guid>
+      <description>Email Authentication Backend # Django&amp;rsquo;s default authentication works on username and password fields. Email authentication backend will authenticate users based on email and password.
+from django.contrib.auth import get_user_model class EmailBackend(object): &amp;quot;&amp;quot;&amp;quot; Custom Email Backend to perform authentication via email &amp;quot;&amp;quot;&amp;quot; def authenticate(self, username=None, password=None): user_model = get_user_model() try: user = user_model.objects.get(email=username) if user.check_password(password): # check valid password return user # return user to be authenticated except user_model.DoesNotExist: # no matching user exists return None def get_user(self, user_id): user_model = get_user_model() try: return user_model.</description>
+    </item>
+    
+    <item>
+      <title>ArrayField - a PostgreSQL-specific field</title>
+      <link>https://www.wikiod.com/django/arrayfield---a-postgresql-specific-field/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django/arrayfield---a-postgresql-specific-field/</guid>
+      <description>Syntax # from django.contrib.postgres.fields import ArrayField class ArrayField(base_field, size=None, **options) FooModel.objects.filter(array_field_name__contains=[objects, to, check]) FooModel.objects.filter(array_field_name__contained_by=[objects, to, check]) Note that although the size parameter is passed to PostgreSQL, PostgreSQL will not enforce it.
+When using ArrayFields one should keep in mind this word of warning from the Postgresql arrays documentation.
+Tip: Arrays are not sets; searching for specific array elements can be a sign of database misdesign. Consider using a separate table with a row for each item that would be an array element.</description>
+    </item>
+    
+    <item>
+      <title>Templating</title>
+      <link>https://www.wikiod.com/django/templating/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django/templating/</guid>
+      <description>Prevent sensitive methods from being called in templates # When an object is exposed to the template context, its arguments-less methods are available. This is useful when these functions are &amp;ldquo;getters&amp;rdquo;. But it can be hazardeous if these methods alter some data or have some side effects. Eventhough you likely trust the template writer, he may not be aware of a function&amp;rsquo;s side effects or think call the wrong attribute by mistake.</description>
+    </item>
+    
+    <item>
+      <title>Querysets</title>
+      <link>https://www.wikiod.com/django/querysets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django/querysets/</guid>
+      <description>A Queryset is fundamentally a list of objects derived from a Model, by a compilation of database queries.
+Reduce number of queries on ForeignKey field (n+1 issue) # Problem # Django querysets are evaluated in a lazy fashion. For example:
+# models.py: class Author(models.Model): name = models.CharField(max_length=100) class Book(models.Model): author = models.ForeignKey(Author, related_name=&#39;books&#39;) title = models.CharField(max_length=100) # views.py def myview(request): # Query the database books = Book.objects.all() for book in books: # Query the database on each iteration to get author (len(books) times) # if there is 100 books, there will have 100 queries plus the initial query book.</description>
+    </item>
+    
+  </channel>
+</rss>

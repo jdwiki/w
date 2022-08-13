@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>alfresco Tutorial on </title>
+    <link>https://www.wikiod.com/docs/alfresco/</link>
+    <description>Recent content in alfresco Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/alfresco/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with alfresco</title>
+      <link>https://www.wikiod.com/alfresco/getting-started-with-alfresco/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/alfresco/getting-started-with-alfresco/</guid>
+      <description>Installation or Setup # Development and Evaluation Installations
+Alfresco provides a number of different installers for different operating systems and platforms. However, these installers are not recommended for production environments.
+https://www.alfresco.com/alfresco-community-download
+https://sourceforge.net/projects/alfresco - more Alfresco instalation files, and separate modules a avaiable also there
+Production Installations
+You can install Alfresco on Ubuntu distributions for by using Alfresco Ubuntu Install script from Loftux AB.
+While you are installing using the script, you can select between Alfresco Community Edition (No commercial support) and LXCommunity ECM (With commercial support).</description>
+    </item>
+    
+    <item>
+      <title>Administration</title>
+      <link>https://www.wikiod.com/alfresco/administration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/alfresco/administration/</guid>
+      <description>Starting and Stopping # To start Alfresco:
+Switch to the alfresco user Change to the $ALFRESCO_HOME directory Run ./alfresco.sh start To stop Alfresco:
+Switch to the alfresco user Change to the $ALFRESCO_HOME directory Run ./alfresco.sh start Logging # Alfresco logs live in $ALFRESCO_HOME/tomcat/logs/catalina.out.
+Backups # There are many ways to backup an Alfresco system. It is important that you backup the database as well as the content store. You may also want to back up the Solr indices.</description>
+    </item>
+    
+    <item>
+      <title>Web Scripts</title>
+      <link>https://www.wikiod.com/alfresco/web-scripts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/alfresco/web-scripts/</guid>
+      <description>Webscripts are functional modules in the Alfresco, which can just show some informations or also make some things inside the Alfresco (eg. run workflow, working with files, users, groups, or other entities).
+Every webscripts has two main parts- code (.js, .java) and Freemaker template (.ftl)
+Webscript can have also additional .properties file with text strings used in. Parts are paired in the context.xml file (Spring framework logic).
+It&amp;rsquo;s binded to any URL described in this file.</description>
+    </item>
+    
+    <item>
+      <title>Alfresco model with dynamic list</title>
+      <link>https://www.wikiod.com/alfresco/alfresco-model-with-dynamic-list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/alfresco/alfresco-model-with-dynamic-list/</guid>
+      <description>Basic example # content-model.xml :
+.... &amp;lt;constraints&amp;gt; &amp;lt;constraint name=&amp;quot;my:aConstraintList&amp;quot; type=&amp;quot;x.y.z.project.model.constraint.AConstraintList&amp;quot;&amp;gt; &amp;lt;/constraint&amp;gt; .... &amp;lt;property name=&amp;quot;my:aValue&amp;quot;&amp;gt; &amp;lt;title&amp;gt;My Value&amp;lt;/title&amp;gt; &amp;lt;type&amp;gt;d:text&amp;lt;/type&amp;gt; &amp;lt;constraints&amp;gt; &amp;lt;constraint ref=&amp;quot;my:aConstraintList&amp;quot;&amp;gt;&amp;lt;/constraint&amp;gt; &amp;lt;/constraints&amp;gt; &amp;lt;/property&amp;gt; and the Java class declared before :
+public class AConstraintList extends ListOfValuesConstraint implements Serializable { .... @Override public final List&amp;lt;String&amp;gt; getAllowedValues() { // Return here the list of values. Enum, call a webservice, etc. } @Override public final String getDisplayLabel(final String value, final MessageLookup messageLookup) { // Return here the label for the value } } </description>
+    </item>
+    
+    <item>
+      <title>T-SQL script for creating Alfresco database in SQLServer 2008 - 2014</title>
+      <link>https://www.wikiod.com/alfresco/t-sql-script-for-creating-alfresco-database-in-sqlserver-2008---2014/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/alfresco/t-sql-script-for-creating-alfresco-database-in-sqlserver-2008---2014/</guid>
+      <description>It&amp;rsquo;s useful to have a T-SQL script for creating and configuring a new database and user for Alfresco Installation purposes. It&amp;rsquo;s boring and time-consuming to jump around many pages on MSDN.
+I provide the script hereafter:
+Guidelines for preparing Alfresco Instalation to a SQLServer database, can be read here:
+http://docs.alfresco.com/3.4/tasks/sqlserver-config.html
+T-SQL_script_4_alfresco # /* creates a database for Alfresco, on SQLServer 2008- 2014 */ use master; GO CREATE DATABASE alfresco; GO /* creates a new LOGIN and associated User use alfresco; GO CREATE LOGIN alfresco WITH PASSWORD = &#39;alfresco&#39;; GO use alfresco; go CREATE USER alfresco FOR LOGIN alfresco; GO /* Now try to add alfresco user to the db_owner Role NOTICE: coinnect to alfresco database before you can also connect as a local Windows user, in order to successfully execute the followings: */ use alfresco; GO EXEC sp_addrolemember N&#39;db_owner&#39;, N&#39;alfresco&#39;; GO /* sets Isolation level */ ALTER DATABASE alfresco SET ALLOW_SNAPSHOT_ISOLATION ON; GO /* creates and sets the alfesco schema as the default one */ use alfresco; go CREATE SCHEMA alfresco AUTHORIZATION alfresco; GO ALTER USER alfresco WITH DEFAULT_SCHEMA = alfresco; GO /* tests table creation */ drop table _buttamiVia_; GO create table _buttamiVia_ ( id int not null ); GO </description>
+    </item>
+    
+    <item>
+      <title>Behaviour and Policy</title>
+      <link>https://www.wikiod.com/alfresco/behaviour-and-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/alfresco/behaviour-and-policy/</guid>
+      <description>Auto Version File If Exists With The same name # If file exists with same name then it will update the file with new version.
+For register bean Class in service-context.xml file
+&amp;lt;bean id=&amp;quot;autoVersionByNameBehaviour&amp;quot; class=&amp;quot;test.demoamp.AutoVersionByNameBehaviour&amp;quot; init-method=&amp;quot;init&amp;quot;&amp;gt; &amp;lt;property name=&amp;quot;policyComponent&amp;quot; ref=&amp;quot;policyComponent&amp;quot;/&amp;gt; &amp;lt;property name=&amp;quot;nodeService&amp;quot; ref=&amp;quot;NodeService&amp;quot;/&amp;gt; &amp;lt;property name=&amp;quot;contentService&amp;quot; ref=&amp;quot;ContentService&amp;quot;/&amp;gt; &amp;lt;property name=&amp;quot;siteService&amp;quot; ref=&amp;quot;SiteService&amp;quot; /&amp;gt; &amp;lt;property name=&amp;quot;fileFolderService&amp;quot; ref=&amp;quot;FileFolderService&amp;quot;/&amp;gt; &amp;lt;property name=&amp;quot;activityService&amp;quot; ref=&amp;quot;activityService&amp;quot;/&amp;gt; &amp;lt;/bean&amp;gt; and the java class
+import java.net.URLEncoder; import org.alfresco.model.ContentModel; import org.alfresco.repo.node.NodeServicePolicies; import org.alfresco.repo.policy.Behaviour; import org.alfresco.repo.policy.JavaBehaviour; import org.</description>
+    </item>
+    
+  </channel>
+</rss>

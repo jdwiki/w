@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sh Tutorial on </title>
+    <link>https://www.wikiod.com/docs/sh/</link>
+    <description>Recent content in sh Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/sh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with sh</title>
+      <link>https://www.wikiod.com/sh/getting-started-with-sh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sh/getting-started-with-sh/</guid>
+      <description>Hello, world! # With echo:
+$ echo Hello, world! Hello, world! With printf:
+$ printf &#39;Hello, world!\n&#39; Hello, world! As a file:
+#!/bin/sh printf &#39;%s\n&#39; &#39;Hello, world!&#39; Echo Portability # $ for shell in ash bash dash ksh ksh93 zsh; do &amp;gt; $shell -c &amp;quot;echo &#39;\\\\&#39;$shell&#39;\\\\&#39;&amp;quot; &amp;gt; done \\ash\\ \\bash\\ \dash\ \pdksh\ \\ksh93\\ \zsh\ &amp;rsquo;echo&amp;rsquo; can only be used consistently, across implementations, if its arguments do not contain any backslashes (reverse-solidi), and if the first argument does not start with a dash (hyphen-minus).</description>
+    </item>
+    
+    <item>
+      <title>Arithmetic Expansion</title>
+      <link>https://www.wikiod.com/sh/arithmetic-expansion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sh/arithmetic-expansion/</guid>
+      <description>Numbers in arithmetic expansions must match the following ERE:
+[-+]?(0[0-7]+|[1-9][0-9]*|0[Xx][0-9A-Fa-f]+) Arithmetic expressions support signed integer operators, comparisons, Boolean expressions, assignments, and ternary expressions from C.
+Resources # Arithmetic expansion in POSIX Operator precedence Line Count # i=0 while read -r line; do i=$((i+1)) done &amp;lt; file echo $i With a file containing:
+Alpha Beta Gamma Delta Epsilon The above script prints: 5
+Parameter Expansion # Loop n times:
+while [ $((i=${i:=0}+1)) -le &amp;quot;$n&amp;quot; ]; do echo line $i done Output for n=5:</description>
+    </item>
+    
+    <item>
+      <title>Job Control</title>
+      <link>https://www.wikiod.com/sh/job-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sh/job-control/</guid>
+      <description>Pause, run in background, run in foreground # Let&amp;rsquo;s create a process which is rather long to complete :
+$ sleep 1000 To pause the process, type Ctrl + Z :
+^Z [1]+ Stopped sleep 1000 You can use jobs to see the list of processes running or stopped in the current terminal :
+$ jobs [1]+ Stopped sleep 1000 To bring back a job on the foreground, use fg with the id written between brackets in the list provided by jobs :</description>
+    </item>
+    
+    <item>
+      <title>The `read` command</title>
+      <link>https://www.wikiod.com/sh/the-read-command/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sh/the-read-command/</guid>
+      <description>Read a line verbatim # $ IFS= read -r foo &amp;lt;&amp;lt;EOF &amp;gt; this is a \n line &amp;gt;EOF $ printf &#39;%s\n&#39; &amp;quot;$foo&amp;quot; this is a \n line Read a line, stripping leading and trailing whitespace # $ read -r foo &amp;lt;&amp;lt;EOF &amp;gt; this is a line &amp;gt;EOF $ printf &#39;%s\n&#39; &amp;quot;$foo&amp;quot; this is a line </description>
+    </item>
+    
+    <item>
+      <title>IO Redirection</title>
+      <link>https://www.wikiod.com/sh/io-redirection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sh/io-redirection/</guid>
+      <description>Generally a command takes inputs from terminal and outputs back to terminal. Normally a command reads input from keyboard and outputs result to the screen. Here is the importance of Input/Output Redirection
+Syntax # [fd]&amp;lt;file [fd]&amp;lt;&amp;amp;fd [fd]&amp;lt;&amp;amp;- [fd]&amp;gt;file [fd]&amp;gt;&amp;amp;fd [fd]&amp;gt;&amp;amp;- [fd]&amp;gt;|file [fd]&amp;raquo;file [fd]&amp;lt;&amp;gt;file [fd]&amp;laquo;[-] word
+&amp;hellip;
+word Resources # The POSIX &amp;lsquo;Shell Command Language&amp;rsquo; section on &amp;lsquo;Redirection&amp;rsquo; Output Redirection # Usually output of a command goes to the terminal. Using the concept of Output redirection, the output of a command can be redirected to a file.</description>
+    </item>
+    
+    <item>
+      <title>Quoting</title>
+      <link>https://www.wikiod.com/sh/quoting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sh/quoting/</guid>
+      <description>References # The POSIX &amp;lsquo;Shell Command Language&amp;rsquo; section on &amp;lsquo;Quoting&amp;rsquo; Single-Quotes # Single-quotes are literal strings, and the lack of escape characters means that the only character that can not occur inside of a single-quoted string is a single-quote.
+$ echo &#39;$var \$var \\$var \\\$var&#39; $var \$var \\$var \\\$var $ echo &#39;&amp;quot;quoted string&amp;quot;&#39; &amp;quot;quoted string&amp;quot; $ echo &#39;var=$(echo $var)&#39; var=$(echo $var) Double-Quotes # Double-quotes preserve all characters other than &amp;quot; terminator, $ expansions, ` command substitutions, and \ escapes of any of these characters (and newline removal).</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://www.wikiod.com/sh/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sh/test/</guid>
+      <description>Syntax # test test [!] [ -n | -z ] string test [!] { -b | -c | -d | -e | -f | -g | -h | -L | -p | -r | -S | -s | -u | -w | -x } file test [!] -t fd test [!] string { = | != } string test [!] integer { -eq | -ne | -gt | -ge | -lt | -le } integer [ ] [ [!</description>
+    </item>
+    
+  </channel>
+</rss>

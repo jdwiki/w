@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de Dapper.NET on </title>
+    <link>https://www.wikiod.com/es/docs/dapper/</link>
+    <description>Recent content in Tutorial de Dapper.NET on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/dapper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con Dapper.NET</title>
+      <link>https://www.wikiod.com/es/dapper/primeros-pasos-con-dappernet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dapper/primeros-pasos-con-dappernet/</guid>
+      <description>Instalar Dapper desde Nuget # Busque en la GUI de Visual Studio:
+Herramientas &amp;gt; Administrador de paquetes NuGet &amp;gt; Administrar paquetes para la solución&amp;hellip; (Visual Studio 2015)
+O ejecute este comando en una instancia de Nuget Power Shell para instalar la última versión estable
+Install-Package Dapper O para una versión específica
+Install-Package Dapper -Version 1.42.0 Usando Dapper en C# # using System.Data; using System.Linq; using Dapper; class Program { static void Main() { using (IDbConnection db = new SqlConnection(&amp;quot;Server=myServer;Trusted_Connection=true&amp;quot;)) { db.</description>
+    </item>
+    
+    <item>
+      <title>Parámetros dinámicos</title>
+      <link>https://www.wikiod.com/es/dapper/parametros-dinamicos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dapper/parametros-dinamicos/</guid>
+      <description>Uso básico # No siempre es posible empaquetar ordenadamente todos los parámetros en un solo objeto/llamada. Para ayudar con escenarios más complicados, dapper permite que el parámetro param sea una instancia IDynamicParameters. Si hace esto, su método AddParameters personalizado se llama en el momento apropiado y se le entrega el comando para agregarlo. En la mayoría de los casos, sin embargo, es suficiente usar el tipo DynamicParameters preexistente:
+var p = new DynamicParameters(new { a = 1, b = 2 }); p.</description>
+    </item>
+    
+    <item>
+      <title>Actas</title>
+      <link>https://www.wikiod.com/es/dapper/actas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dapper/actas/</guid>
+      <description>Sintaxis # conn.Execute(sql, transacción: tran); // especificar el parámetro por nombre conn.Execute(sql, parámetros, tran); conn.Query(sql, transacción: tran); conn.Query(sql, parámetros, tran); espera conn.ExecuteAsync(sql, transacción: tran); // asíncrono espera conn.ExecuteAsync(sql, parámetros, tran); espera conn.QueryAsync(sql, transacción: tran); espera conn.QueryAsync(sql, parámetros, tran); Acelerar las inserciones # Envolver un grupo de insertos en una transacción los acelerará de acuerdo con esta [Pregunta/respuesta de StackOverflow] (http://stackoverflow.com/questions/10689779/bulk-inserts-take-longer-than-expected-using-dapper) .
+Puede usar esta técnica, o puede usar Bulk Copy para acelerar una serie de operaciones relacionadas para realizar.</description>
+    </item>
+    
+    <item>
+      <title>Consulta básica</title>
+      <link>https://www.wikiod.com/es/dapper/consulta-basica/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dapper/consulta-basica/</guid>
+      <description>Sintaxis # público estático IEnumerable&amp;lt;T&amp;gt; Consulta&amp;lt;T&amp;gt;(esta IDbConnection cnn, cadena sql, parámetro de objeto = nulo, transacción SqlTransaction = nulo, bool almacenado en búfer = verdadero) public static IEnumerable&amp;lt;dynamic&amp;gt; Consulta (este IDbConnection cnn, cadena sql, parámetro de objeto = nulo, transacción SqlTransaction = nulo, bool almacenado en búfer = verdadero) Parámetros # Parámetro Detalles CNN Su conexión a la base de datos, que ya debe estar abierta. sql Comando a ejecutar. parámetro Objeto del que extraer parámetros.</description>
+    </item>
+    
+    <item>
+      <title>Referencia de sintaxis de parámetros</title>
+      <link>https://www.wikiod.com/es/dapper/referencia-de-sintaxis-de-parametros/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dapper/referencia-de-sintaxis-de-parametros/</guid>
+      <description>Parámetros # Parámetro Detalles esta cnn La conexión de la base de datos subyacente: this denota un método de extensión; no es necesario que la conexión esté abierta; si no está abierta, se abre y se cierra automáticamente. &amp;lt;T&amp;gt; / Tipo (opcional) El tipo de objeto a devolver; si se usa la API no genérica / no Type, se devuelve un objeto dynamic por fila, simulando una propiedad nombrada por nombre de columna devuelta por la consulta (este objeto dynamic también implementa IDicionary&amp;lt;string,object &amp;gt;).</description>
+    </item>
+    
+    <item>
+      <title>Resultados múltiples</title>
+      <link>https://www.wikiod.com/es/dapper/resultados-multiples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dapper/resultados-multiples/</guid>
+      <description>Sintaxis # SqlMapper.GridReader QueryMultiple estático público (este IDbConnection cnn, cadena sql, parámetro de objeto = nulo, transacción IDbTransaction = nulo, int? commandTimeout = nulo, CommandType? commandType = null) público estático SqlMapper.GridReader QueryMultiple (este IDbConnection cnn, comando CommandDefinition) Parámetros # Parámetro Detalles CNN Su conexión a la base de datos, ya debe estar abierta sql La cadena sql a procesar contiene múltiples consultas parámetro Objeto del que extraer parámetros SqlMapper.GridReader Proporciona interfaces para leer múltiples conjuntos de resultados de una consulta Dapper Ejemplo base de resultados múltiples # Para obtener varias cuadrículas en una sola consulta, se utiliza el método QueryMultiple.</description>
+    </item>
+    
+    <item>
+      <title>multimapeo</title>
+      <link>https://www.wikiod.com/es/dapper/multimapeo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dapper/multimapeo/</guid>
+      <description>Sintaxis # public static IEnumerable&amp;lt;TReturn&amp;gt; Query&amp;lt;TFirst, TSecond, TReturn&amp;gt;( this IDbConnection cnn, string sql, Func&amp;lt;TFirst, TSecond, TReturn&amp;gt; map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = &amp;quot;Id&amp;quot;, int? commandTimeout = null, CommandType? commandType = null) public static IEnumerable&amp;lt;TReturn&amp;gt; Query&amp;lt;TFirst, TSecond, TTird, TFourth, TFifth, TSixth, TSeventh, TReturn&amp;gt;(this IDbConnection cnn, string sql, Func&amp;lt;TFirst, TSecond, TTird, TFourth, TFifth, TSixth, TSeventh, TReturn&amp;gt; map, object param = null, IDbTransaction transacción = null, bool buffered = true, string splitOn = &amp;quot;Id&amp;quot;, int?</description>
+    </item>
+    
+    <item>
+      <title>Controladores de tipo</title>
+      <link>https://www.wikiod.com/es/dapper/controladores-de-tipo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dapper/controladores-de-tipo/</guid>
+      <description>Los controladores de tipos permiten que los tipos de bases de datos se conviertan en tipos personalizados de .Net.
+Instalar un controlador de tipos # El controlador de tipo anterior se puede instalar en SqlMapper utilizando el método AddTypeHandler.
+SqlMapper.AddTypeHandler&amp;lt;IHtmlString&amp;gt;(new IHtmlStringTypeHandler()); La inferencia de tipo le permite omitir el parámetro de tipo genérico:
+SqlMapper.AddTypeHandler(new IHtmlStringTypeHandler()); También hay una sobrecarga de dos argumentos que toma un argumento Tipo explícito:
+SqlMapper.AddTypeHandler(typeof(IHtmlString), new IHtmlStringTypeHandler()); Convirtiendo varchar a IHtmlString # public class IHtmlStringTypeHandler : SqlMapper.</description>
+    </item>
+    
+    <item>
+      <title>Ejecutando Comandos</title>
+      <link>https://www.wikiod.com/es/dapper/ejecutando-comandos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dapper/ejecutando-comandos/</guid>
+      <description>Procedimientos almacenados # Uso sencillo # Dapper es totalmente compatible con los procesos almacenados:
+var user = conn.Query&amp;lt;User&amp;gt;(&amp;quot;spGetUser&amp;quot;, new { Id = 1 }, commandType: CommandType.StoredProcedure) .SingleOrDefault(); Parámetros de entrada, salida y retorno # Si quieres algo más elegante, puedes hacer:
+var p = new DynamicParameters(); p.Add(&amp;quot;@a&amp;quot;, 11); p.Add(&amp;quot;@b&amp;quot;, dbType: DbType.Int32, direction: ParameterDirection.Output); p.Add(&amp;quot;@c&amp;quot;, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue); conn.Execute(&amp;quot;spMagicProc&amp;quot;, p, commandType: CommandType.StoredProcedure); var b = p.Get&amp;lt;int&amp;gt;(&amp;quot;@b&amp;quot;); var c = p.Get&amp;lt;int&amp;gt;(&amp;quot;@c&amp;quot;); Parámetros con valores de tabla # Si tiene un procedimiento almacenado que acepta un parámetro de valor de tabla, debe pasar un DataTable que tenga la misma estructura que el tipo de tabla en SQL Server.</description>
+    </item>
+    
+    <item>
+      <title>tablas temporales</title>
+      <link>https://www.wikiod.com/es/dapper/tablas-temporales/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dapper/tablas-temporales/</guid>
+      <description>Tabla temporal que existe mientras la conexión permanece abierta # Cuando la tabla temporal se crea sola, permanecerá mientras la conexión esté abierta.
+// Widget has WidgetId, Name, and Quantity properties public async Task PurchaseWidgets(IEnumerable&amp;lt;Widget&amp;gt; widgets) { using(var conn = new SqlConnection(&amp;quot;{connection string}&amp;quot;)) { await conn.OpenAsync(); await conn.ExecuteAsync(&amp;quot;CREATE TABLE #tmpWidget(WidgetId int, Quantity int)&amp;quot;); // populate the temp table using(var bulkCopy = new SqlBulkCopy(conn)) { bulkCopy.BulkCopyTimeout = SqlTimeoutSeconds; bulkCopy.BatchSize = 500; bulkCopy.</description>
+    </item>
+    
+  </channel>
+</rss>

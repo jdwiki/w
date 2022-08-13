@@ -1,0 +1,4429 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.43b0b023adae2e6795d9e4443770a29ec36c5d80b552b920a387882f38dd59fc45f95bfed41ea5491dbbc99f117f2037d021e7a3764c15fcb25d77146327b1af.css" integrity="sha512-Q7CwI62uLmeV2eREN3CinsNsXYC1Urkgo4eILzjdWfxF&#43;Vv&#43;1B6lSR27yZ8RfyA30CHno3ZMFfyyXXcUYyexrw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Méthodes d&#39;extension - WikiOD</title>
+<meta name="description" content="Syntaxe # public static ReturnType MyExtensionMethod (cette cible TargetType) public static ReturnType MyExtensionMethod (cette cible TargetType, TArg1 arg1, &amp;hellip;) Paramètres # Paramètre Détails ce Le premier paramètre d&amp;rsquo;une méthode d&amp;rsquo;extension doit toujours être précédé du mot clé this, suivi de l&amp;rsquo;identifiant avec lequel se référer à l&amp;rsquo;instance &amp;ldquo;actuelle&amp;rdquo; de l&amp;rsquo;objet que vous étendez Les méthodes d&amp;rsquo;extension sont du sucre syntaxique qui permet d&amp;rsquo;invoquer des méthodes statiques sur des instances d&amp;rsquo;objet comme si elles étaient un membre du type lui-même.">
+  <link rel="canonical" href="https://www.wikiod.com/fr/csharp/methodes-dextension/">
+<meta property="og:locale" content="fr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Méthodes d&#39;extension">
+<meta property="og:description" content="Syntaxe # public static ReturnType MyExtensionMethod (cette cible TargetType) public static ReturnType MyExtensionMethod (cette cible TargetType, TArg1 arg1, &hellip;) Paramètres # Paramètre Détails ce Le premier paramètre d&rsquo;une méthode d&rsquo;extension doit toujours être précédé du mot clé this, suivi de l&rsquo;identifiant avec lequel se référer à l&rsquo;instance &ldquo;actuelle&rdquo; de l&rsquo;objet que vous étendez Les méthodes d&rsquo;extension sont du sucre syntaxique qui permet d&rsquo;invoquer des méthodes statiques sur des instances d&rsquo;objet comme si elles étaient un membre du type lui-même.">
+<meta property="og:url" content="https://www.wikiod.com/fr/csharp/methodes-dextension/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Méthodes d&#39;extension">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Méthodes d&#39;extension">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "Bienvenue sur WikiOD - Wiki Documentation en ligne WikiOD est un projet d\u0027écriture collaborative visant à créer une documentation en ligne de la plus haute qualité sur tous les langages de programmation, sujets et concepts liés à l\u0027éducation.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/fr/csharp/methodes-dextension/",
+      "url": "https://www.wikiod.com/fr/csharp/methodes-dextension/",
+      "name": "Méthodes d\u0027extension",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/fr/csharp/methodes-dextension/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/fr/csharp/methodes-dextension/#/schema/image/2"
+      },
+      "inLanguage": "fr",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/fr/csharp/methodes-dextension/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/fr/csharp/methodes-dextension/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/fr/",
+          "url": "https://www.wikiod.com/fr/",
+          "name": "Fr"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/fr/csharp/",
+          "url": "https://www.wikiod.com/fr/csharp/",
+          "name": "Csharp"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/fr/csharp/methodes-dextension/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Méthodes d\u0027extension",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/fr/csharp/methodes-dextension/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/fr/csharp/methodes-dextension/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/fr/csharp/methodes-dextension/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/fr/csharp/methodes-dextension/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Méthodes d\u0027extension"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/fr/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Parcourir docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/csharp/"><h3 class="h6 text-uppercase mb-2">Tutoriel sur le langage C#</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/premiers-pas-avec-le-langage-c/">Premiers pas avec le langage C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-60/">Fonctionnalités C# 6.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-70/">Fonctionnalités C# 7.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/csharp/methodes-dextension/">Méthodes d&#39;extension</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/requetes-linq/">Requêtes LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/mots-cles/">Mots clés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/mot-cle-de-rendement/">Mot clé de rendement</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utilisation-de-linstruction/">Utilisation de l&#39;instruction</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/gestion-des-exceptions/">Gestion des exceptions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/attente-asynchrone/">Attente asynchrone</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/reflexion/">Réflexion</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generiques/">Génériques</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/enumeration/">Énumération</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/chaines-textuelles/">Chaînes textuelles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operateur-de-fusion-nulle/">Opérateur de fusion nulle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/stringformat/">String.Format</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/les-operateurs/">Les opérateurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/constructeurs-et-finaliseurs/">Constructeurs et finaliseurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operateurs-conditionnels-nuls/">Opérateurs conditionnels nuls</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/tableaux/">Tableaux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/implementation-singleton/">Implémentation singleton</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/delegues/">Délégués</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/initialiseurs-de-collection/">Initialiseurs de collection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/assemblyinfocs-exemples/">AssemblyInfo.cs Exemples</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interpolation-de-chaine/">Interpolation de chaîne</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/evenements/">Événements</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/heritage/">Héritage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/arbres-dexpressions/">Arbres d&#39;expressions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interfaces/">Interfaces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/enfilage/">Enfilage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/commentaires-sur-la-documentation-xml/">Commentaires sur la documentation XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/modeles-de-conception-de-creation/">Modèles de conception de création</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/programmation-fonctionnelle/">Programmation fonctionnelle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interface-jetable/">Interface jetable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/conventions-de-nommage/">Conventions de nommage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contextetravailleur/">ContexteTravailleur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/un-apercu-des-collections-c/">Un aperçu des collections c#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/garbage-collector-dans-net/">Garbage Collector dans .Net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/declaration-de-verrouillage/">Déclaration de verrouillage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/methodes-dateheure/">Méthodes DateHeure</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/nom-de-loperateur/">nom de l&#39;opérateur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/es-de-fichiers-et-de-flux/">ES de fichiers et de flux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/polymorphisme/">Polymorphisme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/cryptographie-systemsecuritycryptography/">Cryptographie (System.Security.Cryptography)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/tuples/">Tuples</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interoperabilite/">Interopérabilité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/asyncwait-backgroundworker-exemples-de-taches-et-de-threads/">Asyncwait, Backgroundworker, exemples de tâches et de threads</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/executer-des-requetes-http/">Exécuter des requêtes HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/les-attributs/">Les attributs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operations-courantes-sur-les-chaines/">Opérations courantes sur les chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonction-avec-plusieurs-valeurs-de-retour/">Fonction avec plusieurs valeurs de retour</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/compilation-dexecution/">Compilation d&#39;exécution</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/sequences-dechappement-de-chaine/">Séquences d&#39;échappement de chaîne</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/type-de-valeur-vs-type-de-reference/">Type de valeur vs type de référence</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/plate-forme-de-compilation-net-roslyn/">Plate-forme de compilation .NET (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/premiers-pas-avec-json-avec-c/">Premiers pas avec Json avec C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/proprietes/">Propriétés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/la-mise-en-reseau/">La mise en réseau</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/code-non-securise-dans-net/">Code non sécurisé dans .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/constructions-de-flux-de-donnees-de-la-bibliotheque-parallele-de-taches-tpl/">Constructions de flux de données de la bibliothèque parallèle de tâches (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/directives-du-preprocesseur/">Directives du préprocesseur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/type-dynamique/">Type dynamique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/bouclage/">Bouclage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/methodes/">Méthodes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/classes-statiques/">Classes statiques</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/serialisation-binaire/">Sérialisation binaire</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/script-c/">Script C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utiliser-sqlite-en-c/">Utiliser SQLite en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/acceder-aux-bases-de-donnees/">Accéder aux bases de données</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-40/">Fonctionnalités C# 4.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generation-de-nombres-aleatoires-en-c/">Génération de nombres aléatoires en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/liaison-aux-objets/">Liaison aux objets</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/recursivite/">Récursivité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contrats-de-code/">Contrats de code</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/indexeur/">Indexeur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/comment-utiliser-c--structs-pour-creer-un-type-dunion-similaire-aux-unions-c/">Comment utiliser C # Structs pour créer un type d&#39;union (similaire aux unions C)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/injection-de-dependance/">Injection de dépendance</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/guide/">Guide</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/iterateurs/">Itérateurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/mise-en-cache/">Mise en cache</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/flux/">Flux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generateur-de-chaines/">Générateur de chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/gestionnaire-dauthentification-c/">Gestionnaire d&#39;authentification C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/modificateurs-dacces/">Modificateurs d&#39;accès</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/types-anonymes/">Types anonymes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/annotation-des-donnees/">Annotation des données</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interface-interrogeable/">Interface interrogeable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/xmldocument-et-lespace-de-noms-systemxml/">XmlDocument et l&#39;espace de noms System.Xml</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utilisation-de-la-directive/">Utilisation de la directive</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/pointeurs-et-code-dangereux/">Pointeurs et code dangereux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/coche-et-decoche/">Coché et décoché</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonderie/">Fonderie</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interface-inotifypropertychangedinotifypropertychanged-interface/">Interface INotifyPropertyChangedINotifyPropertyChanged interface</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/minuteries/">Minuteries</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctions-de-hachage/">Fonctions de hachage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/types-nullables/">Types nullables</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/lire-et-ecrire-des-fichiers-zip/">Lire et écrire des fichiers .zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-50/">Fonctionnalités C# 5.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/linq-parallele-plinq/">LINQ parallèle (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/expressions-lambda/">Expressions lambda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/ilgenerator/">ILGenerator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/initialiseurs-dobjet/">Initialiseurs d&#39;objet</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/linq-vers-xml/">LINQ vers XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/diagnostique/">Diagnostique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/filtres-dactions/">Filtres d&#39;actions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/socket-asynchrone/">Socket asynchrone</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/filesystemwatcher/">FileSystemWatcher</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/immutabilite/">Immutabilité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/initialisation-des-proprietes/">Initialisation des propriétés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/bibliotheque-parallele-de-taches/">Bibliothèque parallèle de tâches</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/classe-partielle-et-methodes/">Classe partielle et méthodes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contexte-de-synchronisation-dans-async-await/">Contexte de synchronisation dans Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/delegues-fonctionnels/">Délégués fonctionnels</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/egal-et-gethashcode/">Égal et GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/expressions-conditionnelles/">Expressions conditionnelles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generation-de-codes-t4/">Génération de codes T4</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/nullreferenceexception/">NullReferenceException</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/analyse-des-expressions-regulieres/">Analyse des expressions régulières</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/commentaires-et-regions/">Commentaires et régions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/extensions-reactives-rx/">Extensions réactives (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/chronometres/">Chronomètres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/concatener-des-chaines/">Concaténer des chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/observablecollectiont/">ObservableCollection&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/structures/">Structures</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/debordement/">Débordement</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/identite-aspnet/">Identité ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/ienumerable/">IEnumerable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/implementation-du-modele-de-conception-poids-mouche/">Implémentation du modèle de conception poids mouche</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/litteraux/">Littéraux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/systemmanagementautomation/">System.Management.Automation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/grandentier/">GrandEntier</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/modeles-de-conception-structurelle/">Modèles de conception structurelle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/programmation-orientee-objet-en-c/">Programmation orientée objet en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/resolution-de-surcharge/">Résolution de surcharge</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/securiser-un-thread-variable/">Sécuriser un thread variable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-30/">Fonctionnalités C# 3.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generateur-de-requete-lambda-generique/">Générateur de requête Lambda générique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/importer-des-contacts-google/">Importer des contacts Google</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/manipulation-de-chaines/">Manipulation de chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/xdocument-et-lespace-de-noms-systemxmllinq/">XDocument et l&#39;espace de noms System.Xml.Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/alias-des-types-integres/">Alias ​​des types intégrés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/iclonable/">IClonable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/arguments-nommes/">Arguments nommés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/implementation-du-modele-de-conception-de-decorateur/">Implémentation du modèle de conception de décorateur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utiliser-jsonnet/">Utiliser json.net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/conversion-de-types/">Conversion de types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/icomparable/">IComparable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operateur-degalite/">Opérateur d&#39;égalité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/pointeurs/">Pointeurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/on-algorithme-de-rotation-circulaire-dun-tableau/">O(n) Algorithme de rotation circulaire d&#39;un tableau</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/types-integres/">Types intégrés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/lire-et-comprendre-stacktraces/">Lire et comprendre Stacktraces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/clscompliantattributeclscompliantattribute/">CLSCompliantAttributeCLSCompliantAttribute</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contrats-de-code-et-assertions/">Contrats de code et assertions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/arguments-nommes-et-facultatifs/">Arguments nommés et facultatifs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/creation-dune-application-console-a-laide-dun-editeur-de-texte-brut-et-du-compilateur-c-cscexe/">Création d&#39;une application console à l&#39;aide d&#39;un éditeur de texte brut et du compilateur C# (csc.exe)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/creer-sa-propre-messagebox-dans-lapplication-windows-form/">Créer sa propre MessageBox dans l&#39;application Windows Form</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/microsoftexchangewebservicesmicrosoftexchangewebservices/">Microsoft.Exchange.WebServicesMicrosoft.Exchange.WebServices</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fondation-de-communication-windows/">Fondation de communication Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/gestion-de-formatexception-lors-de-la-conversion-de-chaine-en-dautres-types/">Gestion de FormatException lors de la conversion de chaîne en d&#39;autres types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/acceder-au-dossier-partage-du-reseau-avec-nom-dutilisateur-et-mot-de-passe/">Accéder au dossier partagé du réseau avec nom d&#39;utilisateur et mot de passe</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/inclure-les-ressources-de-police/">Inclure les ressources de police</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/fr/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/fr/docs/">Tutoriels</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/fr/blog/">Des articles</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Français
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/fr/csharp/methodes-dextension/">Français</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/csharp/extension-methods/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/csharp/metodos-de-extension/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/csharp/metodos-de-extensao/" hreflang="pt" lang="pt">Português</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/tr/csharp/uzatma-yontemleri/" hreflang="tr" lang="tr">Türk</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/csharp/"><h3 class="h6 text-uppercase mb-2">Tutoriel sur le langage C#</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/premiers-pas-avec-le-langage-c/">Premiers pas avec le langage C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-60/">Fonctionnalités C# 6.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-70/">Fonctionnalités C# 7.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/csharp/methodes-dextension/">Méthodes d&#39;extension</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/requetes-linq/">Requêtes LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/mots-cles/">Mots clés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/mot-cle-de-rendement/">Mot clé de rendement</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utilisation-de-linstruction/">Utilisation de l&#39;instruction</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/gestion-des-exceptions/">Gestion des exceptions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/attente-asynchrone/">Attente asynchrone</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/reflexion/">Réflexion</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generiques/">Génériques</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/enumeration/">Énumération</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/chaines-textuelles/">Chaînes textuelles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operateur-de-fusion-nulle/">Opérateur de fusion nulle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/stringformat/">String.Format</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/les-operateurs/">Les opérateurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/constructeurs-et-finaliseurs/">Constructeurs et finaliseurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operateurs-conditionnels-nuls/">Opérateurs conditionnels nuls</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/tableaux/">Tableaux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/implementation-singleton/">Implémentation singleton</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/delegues/">Délégués</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/initialiseurs-de-collection/">Initialiseurs de collection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/assemblyinfocs-exemples/">AssemblyInfo.cs Exemples</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interpolation-de-chaine/">Interpolation de chaîne</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/evenements/">Événements</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/heritage/">Héritage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/arbres-dexpressions/">Arbres d&#39;expressions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interfaces/">Interfaces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/enfilage/">Enfilage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/commentaires-sur-la-documentation-xml/">Commentaires sur la documentation XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/modeles-de-conception-de-creation/">Modèles de conception de création</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/programmation-fonctionnelle/">Programmation fonctionnelle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interface-jetable/">Interface jetable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/conventions-de-nommage/">Conventions de nommage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contextetravailleur/">ContexteTravailleur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/un-apercu-des-collections-c/">Un aperçu des collections c#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/garbage-collector-dans-net/">Garbage Collector dans .Net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/declaration-de-verrouillage/">Déclaration de verrouillage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/methodes-dateheure/">Méthodes DateHeure</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/nom-de-loperateur/">nom de l&#39;opérateur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/es-de-fichiers-et-de-flux/">ES de fichiers et de flux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/polymorphisme/">Polymorphisme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/cryptographie-systemsecuritycryptography/">Cryptographie (System.Security.Cryptography)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/tuples/">Tuples</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interoperabilite/">Interopérabilité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/asyncwait-backgroundworker-exemples-de-taches-et-de-threads/">Asyncwait, Backgroundworker, exemples de tâches et de threads</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/executer-des-requetes-http/">Exécuter des requêtes HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/les-attributs/">Les attributs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operations-courantes-sur-les-chaines/">Opérations courantes sur les chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonction-avec-plusieurs-valeurs-de-retour/">Fonction avec plusieurs valeurs de retour</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/compilation-dexecution/">Compilation d&#39;exécution</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/sequences-dechappement-de-chaine/">Séquences d&#39;échappement de chaîne</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/type-de-valeur-vs-type-de-reference/">Type de valeur vs type de référence</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/plate-forme-de-compilation-net-roslyn/">Plate-forme de compilation .NET (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/premiers-pas-avec-json-avec-c/">Premiers pas avec Json avec C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/proprietes/">Propriétés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/la-mise-en-reseau/">La mise en réseau</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/code-non-securise-dans-net/">Code non sécurisé dans .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/constructions-de-flux-de-donnees-de-la-bibliotheque-parallele-de-taches-tpl/">Constructions de flux de données de la bibliothèque parallèle de tâches (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/directives-du-preprocesseur/">Directives du préprocesseur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/type-dynamique/">Type dynamique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/bouclage/">Bouclage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/methodes/">Méthodes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/classes-statiques/">Classes statiques</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/serialisation-binaire/">Sérialisation binaire</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/script-c/">Script C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utiliser-sqlite-en-c/">Utiliser SQLite en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/acceder-aux-bases-de-donnees/">Accéder aux bases de données</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-40/">Fonctionnalités C# 4.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generation-de-nombres-aleatoires-en-c/">Génération de nombres aléatoires en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/liaison-aux-objets/">Liaison aux objets</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/recursivite/">Récursivité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contrats-de-code/">Contrats de code</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/indexeur/">Indexeur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/comment-utiliser-c--structs-pour-creer-un-type-dunion-similaire-aux-unions-c/">Comment utiliser C # Structs pour créer un type d&#39;union (similaire aux unions C)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/injection-de-dependance/">Injection de dépendance</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/guide/">Guide</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/iterateurs/">Itérateurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/mise-en-cache/">Mise en cache</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/flux/">Flux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generateur-de-chaines/">Générateur de chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/gestionnaire-dauthentification-c/">Gestionnaire d&#39;authentification C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/modificateurs-dacces/">Modificateurs d&#39;accès</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/types-anonymes/">Types anonymes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/annotation-des-donnees/">Annotation des données</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interface-interrogeable/">Interface interrogeable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/xmldocument-et-lespace-de-noms-systemxml/">XmlDocument et l&#39;espace de noms System.Xml</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utilisation-de-la-directive/">Utilisation de la directive</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/pointeurs-et-code-dangereux/">Pointeurs et code dangereux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/coche-et-decoche/">Coché et décoché</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonderie/">Fonderie</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interface-inotifypropertychangedinotifypropertychanged-interface/">Interface INotifyPropertyChangedINotifyPropertyChanged interface</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/minuteries/">Minuteries</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctions-de-hachage/">Fonctions de hachage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/types-nullables/">Types nullables</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/lire-et-ecrire-des-fichiers-zip/">Lire et écrire des fichiers .zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-50/">Fonctionnalités C# 5.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/linq-parallele-plinq/">LINQ parallèle (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/expressions-lambda/">Expressions lambda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/ilgenerator/">ILGenerator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/initialiseurs-dobjet/">Initialiseurs d&#39;objet</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/linq-vers-xml/">LINQ vers XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/diagnostique/">Diagnostique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/filtres-dactions/">Filtres d&#39;actions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/socket-asynchrone/">Socket asynchrone</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/filesystemwatcher/">FileSystemWatcher</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/immutabilite/">Immutabilité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/initialisation-des-proprietes/">Initialisation des propriétés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/bibliotheque-parallele-de-taches/">Bibliothèque parallèle de tâches</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/classe-partielle-et-methodes/">Classe partielle et méthodes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contexte-de-synchronisation-dans-async-await/">Contexte de synchronisation dans Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/delegues-fonctionnels/">Délégués fonctionnels</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/egal-et-gethashcode/">Égal et GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/expressions-conditionnelles/">Expressions conditionnelles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generation-de-codes-t4/">Génération de codes T4</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/nullreferenceexception/">NullReferenceException</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/analyse-des-expressions-regulieres/">Analyse des expressions régulières</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/commentaires-et-regions/">Commentaires et régions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/extensions-reactives-rx/">Extensions réactives (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/chronometres/">Chronomètres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/concatener-des-chaines/">Concaténer des chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/observablecollectiont/">ObservableCollection&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/structures/">Structures</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/debordement/">Débordement</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/identite-aspnet/">Identité ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/ienumerable/">IEnumerable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/implementation-du-modele-de-conception-poids-mouche/">Implémentation du modèle de conception poids mouche</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/litteraux/">Littéraux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/systemmanagementautomation/">System.Management.Automation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/grandentier/">GrandEntier</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/modeles-de-conception-structurelle/">Modèles de conception structurelle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/programmation-orientee-objet-en-c/">Programmation orientée objet en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/resolution-de-surcharge/">Résolution de surcharge</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/securiser-un-thread-variable/">Sécuriser un thread variable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-30/">Fonctionnalités C# 3.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generateur-de-requete-lambda-generique/">Générateur de requête Lambda générique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/importer-des-contacts-google/">Importer des contacts Google</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/manipulation-de-chaines/">Manipulation de chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/xdocument-et-lespace-de-noms-systemxmllinq/">XDocument et l&#39;espace de noms System.Xml.Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/alias-des-types-integres/">Alias ​​des types intégrés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/iclonable/">IClonable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/arguments-nommes/">Arguments nommés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/implementation-du-modele-de-conception-de-decorateur/">Implémentation du modèle de conception de décorateur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utiliser-jsonnet/">Utiliser json.net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/conversion-de-types/">Conversion de types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/icomparable/">IComparable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operateur-degalite/">Opérateur d&#39;égalité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/pointeurs/">Pointeurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/on-algorithme-de-rotation-circulaire-dun-tableau/">O(n) Algorithme de rotation circulaire d&#39;un tableau</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/types-integres/">Types intégrés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/lire-et-comprendre-stacktraces/">Lire et comprendre Stacktraces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/clscompliantattributeclscompliantattribute/">CLSCompliantAttributeCLSCompliantAttribute</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contrats-de-code-et-assertions/">Contrats de code et assertions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/arguments-nommes-et-facultatifs/">Arguments nommés et facultatifs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/creation-dune-application-console-a-laide-dun-editeur-de-texte-brut-et-du-compilateur-c-cscexe/">Création d&#39;une application console à l&#39;aide d&#39;un éditeur de texte brut et du compilateur C# (csc.exe)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/creer-sa-propre-messagebox-dans-lapplication-windows-form/">Créer sa propre MessageBox dans l&#39;application Windows Form</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/microsoftexchangewebservicesmicrosoftexchangewebservices/">Microsoft.Exchange.WebServicesMicrosoft.Exchange.WebServices</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fondation-de-communication-windows/">Fondation de communication Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/gestion-de-formatexception-lors-de-la-conversion-de-chaine-en-dautres-types/">Gestion de FormatException lors de la conversion de chaîne en d&#39;autres types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/acceder-au-dossier-partage-du-reseau-avec-nom-dutilisateur-et-mot-de-passe/">Accéder au dossier partagé du réseau avec nom d&#39;utilisateur et mot de passe</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/inclure-les-ressources-de-police/">Inclure les ressources de police</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/csharp/"><h3 class="h6 text-uppercase mb-2">Tutoriel sur le langage C#</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/premiers-pas-avec-le-langage-c/">Premiers pas avec le langage C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-60/">Fonctionnalités C# 6.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-70/">Fonctionnalités C# 7.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/csharp/methodes-dextension/">Méthodes d&#39;extension</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/requetes-linq/">Requêtes LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/mots-cles/">Mots clés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/mot-cle-de-rendement/">Mot clé de rendement</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utilisation-de-linstruction/">Utilisation de l&#39;instruction</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/gestion-des-exceptions/">Gestion des exceptions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/attente-asynchrone/">Attente asynchrone</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/reflexion/">Réflexion</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generiques/">Génériques</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/enumeration/">Énumération</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/chaines-textuelles/">Chaînes textuelles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operateur-de-fusion-nulle/">Opérateur de fusion nulle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/stringformat/">String.Format</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/les-operateurs/">Les opérateurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/constructeurs-et-finaliseurs/">Constructeurs et finaliseurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operateurs-conditionnels-nuls/">Opérateurs conditionnels nuls</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/tableaux/">Tableaux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/implementation-singleton/">Implémentation singleton</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/delegues/">Délégués</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/initialiseurs-de-collection/">Initialiseurs de collection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/assemblyinfocs-exemples/">AssemblyInfo.cs Exemples</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interpolation-de-chaine/">Interpolation de chaîne</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/evenements/">Événements</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/heritage/">Héritage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/arbres-dexpressions/">Arbres d&#39;expressions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interfaces/">Interfaces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/enfilage/">Enfilage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/commentaires-sur-la-documentation-xml/">Commentaires sur la documentation XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/modeles-de-conception-de-creation/">Modèles de conception de création</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/programmation-fonctionnelle/">Programmation fonctionnelle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interface-jetable/">Interface jetable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/conventions-de-nommage/">Conventions de nommage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contextetravailleur/">ContexteTravailleur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/un-apercu-des-collections-c/">Un aperçu des collections c#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/garbage-collector-dans-net/">Garbage Collector dans .Net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/declaration-de-verrouillage/">Déclaration de verrouillage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/methodes-dateheure/">Méthodes DateHeure</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/nom-de-loperateur/">nom de l&#39;opérateur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/es-de-fichiers-et-de-flux/">ES de fichiers et de flux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/polymorphisme/">Polymorphisme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/cryptographie-systemsecuritycryptography/">Cryptographie (System.Security.Cryptography)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/tuples/">Tuples</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interoperabilite/">Interopérabilité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/asyncwait-backgroundworker-exemples-de-taches-et-de-threads/">Asyncwait, Backgroundworker, exemples de tâches et de threads</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/executer-des-requetes-http/">Exécuter des requêtes HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/les-attributs/">Les attributs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operations-courantes-sur-les-chaines/">Opérations courantes sur les chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonction-avec-plusieurs-valeurs-de-retour/">Fonction avec plusieurs valeurs de retour</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/compilation-dexecution/">Compilation d&#39;exécution</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/sequences-dechappement-de-chaine/">Séquences d&#39;échappement de chaîne</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/type-de-valeur-vs-type-de-reference/">Type de valeur vs type de référence</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/plate-forme-de-compilation-net-roslyn/">Plate-forme de compilation .NET (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/premiers-pas-avec-json-avec-c/">Premiers pas avec Json avec C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/proprietes/">Propriétés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/la-mise-en-reseau/">La mise en réseau</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/code-non-securise-dans-net/">Code non sécurisé dans .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/constructions-de-flux-de-donnees-de-la-bibliotheque-parallele-de-taches-tpl/">Constructions de flux de données de la bibliothèque parallèle de tâches (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/directives-du-preprocesseur/">Directives du préprocesseur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/type-dynamique/">Type dynamique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/bouclage/">Bouclage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/methodes/">Méthodes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/classes-statiques/">Classes statiques</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/serialisation-binaire/">Sérialisation binaire</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/script-c/">Script C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utiliser-sqlite-en-c/">Utiliser SQLite en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/acceder-aux-bases-de-donnees/">Accéder aux bases de données</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-40/">Fonctionnalités C# 4.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generation-de-nombres-aleatoires-en-c/">Génération de nombres aléatoires en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/liaison-aux-objets/">Liaison aux objets</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/recursivite/">Récursivité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contrats-de-code/">Contrats de code</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/indexeur/">Indexeur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/comment-utiliser-c--structs-pour-creer-un-type-dunion-similaire-aux-unions-c/">Comment utiliser C # Structs pour créer un type d&#39;union (similaire aux unions C)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/injection-de-dependance/">Injection de dépendance</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/guide/">Guide</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/iterateurs/">Itérateurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/mise-en-cache/">Mise en cache</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/flux/">Flux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generateur-de-chaines/">Générateur de chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/gestionnaire-dauthentification-c/">Gestionnaire d&#39;authentification C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/modificateurs-dacces/">Modificateurs d&#39;accès</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/types-anonymes/">Types anonymes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/annotation-des-donnees/">Annotation des données</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interface-interrogeable/">Interface interrogeable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/xmldocument-et-lespace-de-noms-systemxml/">XmlDocument et l&#39;espace de noms System.Xml</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utilisation-de-la-directive/">Utilisation de la directive</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/pointeurs-et-code-dangereux/">Pointeurs et code dangereux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/coche-et-decoche/">Coché et décoché</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonderie/">Fonderie</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/interface-inotifypropertychangedinotifypropertychanged-interface/">Interface INotifyPropertyChangedINotifyPropertyChanged interface</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/minuteries/">Minuteries</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctions-de-hachage/">Fonctions de hachage</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/types-nullables/">Types nullables</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/lire-et-ecrire-des-fichiers-zip/">Lire et écrire des fichiers .zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-50/">Fonctionnalités C# 5.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/linq-parallele-plinq/">LINQ parallèle (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/expressions-lambda/">Expressions lambda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/ilgenerator/">ILGenerator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/initialiseurs-dobjet/">Initialiseurs d&#39;objet</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/linq-vers-xml/">LINQ vers XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/diagnostique/">Diagnostique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/filtres-dactions/">Filtres d&#39;actions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/socket-asynchrone/">Socket asynchrone</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/filesystemwatcher/">FileSystemWatcher</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/immutabilite/">Immutabilité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/initialisation-des-proprietes/">Initialisation des propriétés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/bibliotheque-parallele-de-taches/">Bibliothèque parallèle de tâches</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/classe-partielle-et-methodes/">Classe partielle et méthodes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contexte-de-synchronisation-dans-async-await/">Contexte de synchronisation dans Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/delegues-fonctionnels/">Délégués fonctionnels</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/egal-et-gethashcode/">Égal et GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/expressions-conditionnelles/">Expressions conditionnelles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generation-de-codes-t4/">Génération de codes T4</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/nullreferenceexception/">NullReferenceException</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/analyse-des-expressions-regulieres/">Analyse des expressions régulières</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/commentaires-et-regions/">Commentaires et régions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/extensions-reactives-rx/">Extensions réactives (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/chronometres/">Chronomètres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/concatener-des-chaines/">Concaténer des chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/observablecollectiont/">ObservableCollection&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/structures/">Structures</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/debordement/">Débordement</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/identite-aspnet/">Identité ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/ienumerable/">IEnumerable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/implementation-du-modele-de-conception-poids-mouche/">Implémentation du modèle de conception poids mouche</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/litteraux/">Littéraux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/systemmanagementautomation/">System.Management.Automation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/grandentier/">GrandEntier</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/modeles-de-conception-structurelle/">Modèles de conception structurelle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/programmation-orientee-objet-en-c/">Programmation orientée objet en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/resolution-de-surcharge/">Résolution de surcharge</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/securiser-un-thread-variable/">Sécuriser un thread variable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fonctionnalites-c-30/">Fonctionnalités C# 3.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/generateur-de-requete-lambda-generique/">Générateur de requête Lambda générique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/importer-des-contacts-google/">Importer des contacts Google</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/manipulation-de-chaines/">Manipulation de chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/xdocument-et-lespace-de-noms-systemxmllinq/">XDocument et l&#39;espace de noms System.Xml.Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/alias-des-types-integres/">Alias ​​des types intégrés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/iclonable/">IClonable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/arguments-nommes/">Arguments nommés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/implementation-du-modele-de-conception-de-decorateur/">Implémentation du modèle de conception de décorateur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/utiliser-jsonnet/">Utiliser json.net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/conversion-de-types/">Conversion de types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/icomparable/">IComparable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/operateur-degalite/">Opérateur d&#39;égalité</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/pointeurs/">Pointeurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/on-algorithme-de-rotation-circulaire-dun-tableau/">O(n) Algorithme de rotation circulaire d&#39;un tableau</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/types-integres/">Types intégrés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/lire-et-comprendre-stacktraces/">Lire et comprendre Stacktraces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/clscompliantattributeclscompliantattribute/">CLSCompliantAttributeCLSCompliantAttribute</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/contrats-de-code-et-assertions/">Contrats de code et assertions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/arguments-nommes-et-facultatifs/">Arguments nommés et facultatifs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/creation-dune-application-console-a-laide-dun-editeur-de-texte-brut-et-du-compilateur-c-cscexe/">Création d&#39;une application console à l&#39;aide d&#39;un éditeur de texte brut et du compilateur C# (csc.exe)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/creer-sa-propre-messagebox-dans-lapplication-windows-form/">Créer sa propre MessageBox dans l&#39;application Windows Form</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/microsoftexchangewebservicesmicrosoftexchangewebservices/">Microsoft.Exchange.WebServicesMicrosoft.Exchange.WebServices</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/fondation-de-communication-windows/">Fondation de communication Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/gestion-de-formatexception-lors-de-la-conversion-de-chaine-en-dautres-types/">Gestion de FormatException lors de la conversion de chaîne en d&#39;autres types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/acceder-au-dossier-partage-du-reseau-avec-nom-dutilisateur-et-mot-de-passe/">Accéder au dossier partagé du réseau avec nom d&#39;utilisateur et mot de passe</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/csharp/inclure-les-ressources-de-police/">Inclure les ressources de police</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Sur cette page</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#syntaxe">Syntaxe</a></li>
+    <li><a href="#paramètres">Paramètres</a></li>
+    <li><a href="#méthodes-dextension---aperçu">Méthodes d&rsquo;extension - aperçu</a></li>
+    <li><a href="#vérification-nulle">Vérification nulle</a></li>
+    <li><a href="#utiliser-explicitement-une-méthode-dextension">Utiliser explicitement une méthode d&rsquo;extension</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#les-méthodes-dextension-ne-peuvent-voir-que-les-membres-publics-ou-internes-de-la-classe-étendue">Les méthodes d&rsquo;extension ne peuvent voir que les membres publics (ou internes) de la classe étendue</a></li>
+    <li><a href="#méthodes-dextension-génériques">Méthodes d&rsquo;extension génériques</a></li>
+    <li><a href="#méthodes-dextension-pour-le-chaînage">Méthodes d&rsquo;extension pour le chaînage</a></li>
+    <li><a href="#méthodes-dextension-avec-énumération">Méthodes d&rsquo;extension avec énumération</a></li>
+    <li><a href="#distribution-des-méthodes-dextension-en-fonction-du-type-statique">Distribution des méthodes d&rsquo;extension en fonction du type statique</a></li>
+    <li><a href="#méthodes-dextension-sur-les-interfaces">Méthodes d&rsquo;extension sur les interfaces</a></li>
+    <li><a href="#les-méthodes-dextension-ne-sont-pas-prises-en-charge-par-le-code-dynamique">Les méthodes d&rsquo;extension ne sont pas prises en charge par le code dynamique.</a></li>
+    <li><a href="#méthodes-dextension-en-combinaison-avec-des-interfaces">Méthodes d&rsquo;extension en combinaison avec des interfaces</a></li>
+    <li><a href="#les-extensions-et-les-interfaces-permettent-ensemble-le-code-dry-et-les-fonctionnalités-de-type-mixin">Les extensions et les interfaces permettent ensemble le code DRY et les fonctionnalités de type mixin</a></li>
+    <li><a href="#exemple-de-méthode-dextension-ilistt-comparaison-de-2-listes">Exemple de méthode d&rsquo;extension IList<T> : comparaison de 2 listes</a></li>
+    <li><a href="#méthodes-dextension-en-tant-que-wrappers-fortement-typés">Méthodes d&rsquo;extension en tant que wrappers fortement typés</a></li>
+    <li><a href="#utilisation-des-méthodes-dextension-pour-créer-de-belles-classes-de-mappeur">Utilisation des méthodes d&rsquo;extension pour créer de belles classes de mappeur</a></li>
+    <li><a href="#utilisation-de-méthodes-dextension-pour-créer-de-nouveaux-types-de-collections-par-exemple-dictlist">Utilisation de méthodes d&rsquo;extension pour créer de nouveaux types de collections (par exemple, DictList)</a></li>
+    <li><a href="#méthodes-dextension-pour-gérer-les-cas-particuliers">Méthodes d&rsquo;extension pour gérer les cas particuliers</a></li>
+    <li><a href="#utilisation-de-méthodes-dextension-avec-des-méthodes-statiques-et-des-rappels">Utilisation de méthodes d&rsquo;extension avec des méthodes statiques et des rappels</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Sur cette page</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#syntaxe">Syntaxe</a></li>
+    <li><a href="#paramètres">Paramètres</a></li>
+    <li><a href="#méthodes-dextension---aperçu">Méthodes d&rsquo;extension - aperçu</a></li>
+    <li><a href="#vérification-nulle">Vérification nulle</a></li>
+    <li><a href="#utiliser-explicitement-une-méthode-dextension">Utiliser explicitement une méthode d&rsquo;extension</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#les-méthodes-dextension-ne-peuvent-voir-que-les-membres-publics-ou-internes-de-la-classe-étendue">Les méthodes d&rsquo;extension ne peuvent voir que les membres publics (ou internes) de la classe étendue</a></li>
+    <li><a href="#méthodes-dextension-génériques">Méthodes d&rsquo;extension génériques</a></li>
+    <li><a href="#méthodes-dextension-pour-le-chaînage">Méthodes d&rsquo;extension pour le chaînage</a></li>
+    <li><a href="#méthodes-dextension-avec-énumération">Méthodes d&rsquo;extension avec énumération</a></li>
+    <li><a href="#distribution-des-méthodes-dextension-en-fonction-du-type-statique">Distribution des méthodes d&rsquo;extension en fonction du type statique</a></li>
+    <li><a href="#méthodes-dextension-sur-les-interfaces">Méthodes d&rsquo;extension sur les interfaces</a></li>
+    <li><a href="#les-méthodes-dextension-ne-sont-pas-prises-en-charge-par-le-code-dynamique">Les méthodes d&rsquo;extension ne sont pas prises en charge par le code dynamique.</a></li>
+    <li><a href="#méthodes-dextension-en-combinaison-avec-des-interfaces">Méthodes d&rsquo;extension en combinaison avec des interfaces</a></li>
+    <li><a href="#les-extensions-et-les-interfaces-permettent-ensemble-le-code-dry-et-les-fonctionnalités-de-type-mixin">Les extensions et les interfaces permettent ensemble le code DRY et les fonctionnalités de type mixin</a></li>
+    <li><a href="#exemple-de-méthode-dextension-ilistt-comparaison-de-2-listes">Exemple de méthode d&rsquo;extension IList<T> : comparaison de 2 listes</a></li>
+    <li><a href="#méthodes-dextension-en-tant-que-wrappers-fortement-typés">Méthodes d&rsquo;extension en tant que wrappers fortement typés</a></li>
+    <li><a href="#utilisation-des-méthodes-dextension-pour-créer-de-belles-classes-de-mappeur">Utilisation des méthodes d&rsquo;extension pour créer de belles classes de mappeur</a></li>
+    <li><a href="#utilisation-de-méthodes-dextension-pour-créer-de-nouveaux-types-de-collections-par-exemple-dictlist">Utilisation de méthodes d&rsquo;extension pour créer de nouveaux types de collections (par exemple, DictList)</a></li>
+    <li><a href="#méthodes-dextension-pour-gérer-les-cas-particuliers">Méthodes d&rsquo;extension pour gérer les cas particuliers</a></li>
+    <li><a href="#utilisation-de-méthodes-dextension-avec-des-méthodes-statiques-et-des-rappels">Utilisation de méthodes d&rsquo;extension avec des méthodes statiques et des rappels</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/fr/">Home</a></li>
+<li class="breadcrumb-item"><a href="/fr/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/fr/docs/csharp/">Tutoriel sur le langage C#</a></li>
+<li class="breadcrumb-item active" aria-current="page">Méthodes d&#39;extension</li>
+					</ol>
+				</nav>
+			
+			<h1>Méthodes d&#39;extension</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Sur cette page</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#syntaxe">Syntaxe</a></li>
+    <li><a href="#paramètres">Paramètres</a></li>
+    <li><a href="#méthodes-dextension---aperçu">Méthodes d&rsquo;extension - aperçu</a></li>
+    <li><a href="#vérification-nulle">Vérification nulle</a></li>
+    <li><a href="#utiliser-explicitement-une-méthode-dextension">Utiliser explicitement une méthode d&rsquo;extension</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#les-méthodes-dextension-ne-peuvent-voir-que-les-membres-publics-ou-internes-de-la-classe-étendue">Les méthodes d&rsquo;extension ne peuvent voir que les membres publics (ou internes) de la classe étendue</a></li>
+    <li><a href="#méthodes-dextension-génériques">Méthodes d&rsquo;extension génériques</a></li>
+    <li><a href="#méthodes-dextension-pour-le-chaînage">Méthodes d&rsquo;extension pour le chaînage</a></li>
+    <li><a href="#méthodes-dextension-avec-énumération">Méthodes d&rsquo;extension avec énumération</a></li>
+    <li><a href="#distribution-des-méthodes-dextension-en-fonction-du-type-statique">Distribution des méthodes d&rsquo;extension en fonction du type statique</a></li>
+    <li><a href="#méthodes-dextension-sur-les-interfaces">Méthodes d&rsquo;extension sur les interfaces</a></li>
+    <li><a href="#les-méthodes-dextension-ne-sont-pas-prises-en-charge-par-le-code-dynamique">Les méthodes d&rsquo;extension ne sont pas prises en charge par le code dynamique.</a></li>
+    <li><a href="#méthodes-dextension-en-combinaison-avec-des-interfaces">Méthodes d&rsquo;extension en combinaison avec des interfaces</a></li>
+    <li><a href="#les-extensions-et-les-interfaces-permettent-ensemble-le-code-dry-et-les-fonctionnalités-de-type-mixin">Les extensions et les interfaces permettent ensemble le code DRY et les fonctionnalités de type mixin</a></li>
+    <li><a href="#exemple-de-méthode-dextension-ilistt-comparaison-de-2-listes">Exemple de méthode d&rsquo;extension IList<T> : comparaison de 2 listes</a></li>
+    <li><a href="#méthodes-dextension-en-tant-que-wrappers-fortement-typés">Méthodes d&rsquo;extension en tant que wrappers fortement typés</a></li>
+    <li><a href="#utilisation-des-méthodes-dextension-pour-créer-de-belles-classes-de-mappeur">Utilisation des méthodes d&rsquo;extension pour créer de belles classes de mappeur</a></li>
+    <li><a href="#utilisation-de-méthodes-dextension-pour-créer-de-nouveaux-types-de-collections-par-exemple-dictlist">Utilisation de méthodes d&rsquo;extension pour créer de nouveaux types de collections (par exemple, DictList)</a></li>
+    <li><a href="#méthodes-dextension-pour-gérer-les-cas-particuliers">Méthodes d&rsquo;extension pour gérer les cas particuliers</a></li>
+    <li><a href="#utilisation-de-méthodes-dextension-avec-des-méthodes-statiques-et-des-rappels">Utilisation de méthodes d&rsquo;extension avec des méthodes statiques et des rappels</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Sur cette page</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#syntaxe">Syntaxe</a></li>
+    <li><a href="#paramètres">Paramètres</a></li>
+    <li><a href="#méthodes-dextension---aperçu">Méthodes d&rsquo;extension - aperçu</a></li>
+    <li><a href="#vérification-nulle">Vérification nulle</a></li>
+    <li><a href="#utiliser-explicitement-une-méthode-dextension">Utiliser explicitement une méthode d&rsquo;extension</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#les-méthodes-dextension-ne-peuvent-voir-que-les-membres-publics-ou-internes-de-la-classe-étendue">Les méthodes d&rsquo;extension ne peuvent voir que les membres publics (ou internes) de la classe étendue</a></li>
+    <li><a href="#méthodes-dextension-génériques">Méthodes d&rsquo;extension génériques</a></li>
+    <li><a href="#méthodes-dextension-pour-le-chaînage">Méthodes d&rsquo;extension pour le chaînage</a></li>
+    <li><a href="#méthodes-dextension-avec-énumération">Méthodes d&rsquo;extension avec énumération</a></li>
+    <li><a href="#distribution-des-méthodes-dextension-en-fonction-du-type-statique">Distribution des méthodes d&rsquo;extension en fonction du type statique</a></li>
+    <li><a href="#méthodes-dextension-sur-les-interfaces">Méthodes d&rsquo;extension sur les interfaces</a></li>
+    <li><a href="#les-méthodes-dextension-ne-sont-pas-prises-en-charge-par-le-code-dynamique">Les méthodes d&rsquo;extension ne sont pas prises en charge par le code dynamique.</a></li>
+    <li><a href="#méthodes-dextension-en-combinaison-avec-des-interfaces">Méthodes d&rsquo;extension en combinaison avec des interfaces</a></li>
+    <li><a href="#les-extensions-et-les-interfaces-permettent-ensemble-le-code-dry-et-les-fonctionnalités-de-type-mixin">Les extensions et les interfaces permettent ensemble le code DRY et les fonctionnalités de type mixin</a></li>
+    <li><a href="#exemple-de-méthode-dextension-ilistt-comparaison-de-2-listes">Exemple de méthode d&rsquo;extension IList<T> : comparaison de 2 listes</a></li>
+    <li><a href="#méthodes-dextension-en-tant-que-wrappers-fortement-typés">Méthodes d&rsquo;extension en tant que wrappers fortement typés</a></li>
+    <li><a href="#utilisation-des-méthodes-dextension-pour-créer-de-belles-classes-de-mappeur">Utilisation des méthodes d&rsquo;extension pour créer de belles classes de mappeur</a></li>
+    <li><a href="#utilisation-de-méthodes-dextension-pour-créer-de-nouveaux-types-de-collections-par-exemple-dictlist">Utilisation de méthodes d&rsquo;extension pour créer de nouveaux types de collections (par exemple, DictList)</a></li>
+    <li><a href="#méthodes-dextension-pour-gérer-les-cas-particuliers">Méthodes d&rsquo;extension pour gérer les cas particuliers</a></li>
+    <li><a href="#utilisation-de-méthodes-dextension-avec-des-méthodes-statiques-et-des-rappels">Utilisation de méthodes d&rsquo;extension avec des méthodes statiques et des rappels</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h2 id="syntaxe">Syntaxe <a href="#syntaxe" class="anchor" aria-hidden="true">#</a></h2>
+<ul>
+<li>public static ReturnType MyExtensionMethod (cette cible TargetType)</li>
+<li>public static ReturnType MyExtensionMethod (cette cible TargetType, TArg1 arg1, &hellip;)</li>
+</ul>
+<h2 id="paramètres">Paramètres <a href="#param%c3%a8tres" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Détails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ce</td>
+<td>Le premier paramètre d&rsquo;une méthode d&rsquo;extension doit toujours être précédé du mot clé <code>this</code>, suivi de l&rsquo;identifiant avec lequel se référer à l&rsquo;instance &ldquo;actuelle&rdquo; de l&rsquo;objet que vous étendez</td>
+</tr>
+</tbody>
+</table>
+<p>Les méthodes d&rsquo;extension sont du sucre syntaxique qui permet d&rsquo;invoquer des méthodes statiques sur des instances d&rsquo;objet comme si elles étaient un membre du type lui-même.</p>
+<p>Les méthodes d&rsquo;extension nécessitent un objet cible explicite. Vous devrez utiliser le mot clé <code>this</code> pour accéder à la méthode à partir du type étendu lui-même.</p>
+<p>Les méthodes d&rsquo;extension doivent être déclarées statiques et doivent vivre dans une classe statique.</p>
+<p><strong>Quel espace de noms ?</strong></p>
+<p>Le choix de l&rsquo;espace de noms pour votre classe de méthode d&rsquo;extension est un compromis entre visibilité et détectabilité.</p>
+<p>L&rsquo;[option][1] la plus souvent mentionnée est d&rsquo;avoir un espace de noms personnalisé pour vos méthodes d&rsquo;extension. Cependant cela impliquera un effort de communication afin que les utilisateurs de votre code sachent que les méthodes d&rsquo;extension existent, et où les trouver.</p>
+<p>Une alternative consiste à choisir un espace de noms tel que les développeurs découvriront vos méthodes d&rsquo;extension via Intellisense. Donc, si vous voulez étendre la classe <code>Foo</code>, il est logique de mettre les méthodes d&rsquo;extension dans le même espace de noms que <code>Foo</code>.</p>
+<p>Il est important de réaliser que <strong>rien ne vous empêche d&rsquo;utiliser l&rsquo;espace de noms de &ldquo;quelqu&rsquo;un d&rsquo;autre&rdquo;</strong> : ainsi, si vous souhaitez étendre <code>IEnumerable</code>, vous pouvez ajouter votre méthode d&rsquo;extension dans l&rsquo;espace de noms <code>System.Linq</code>.</p>
+<p>Ce n&rsquo;est pas <em>toujours</em> une bonne idée. Par exemple, dans un cas précis, vous pouvez vouloir étendre un type commun (<code>bool IsApproxEqualTo(this double value, double other)</code> par exemple), mais sans que cela &ldquo;pollue&rdquo; l&rsquo;ensemble de <code>System</code>. Dans ce cas, il est préférable de choisir un espace de noms local et spécifique.</p>
+<p>Enfin, il est également possible de mettre les méthodes d&rsquo;extension dans <em>aucun espace de noms</em> !</p>
+<p>Une bonne question de référence : [Comment gérez-vous les espaces de noms de vos méthodes d&rsquo;extension ?][2]</p>
+<p><strong>Applicabilité</strong></p>
+<p>Des précautions doivent être prises lors de la création de méthodes de vulgarisation pour s&rsquo;assurer qu&rsquo;elles sont appropriées pour toutes les entrées possibles et ne sont pas seulement pertinentes pour des situations spécifiques. Par exemple, il est possible d&rsquo;étendre des classes système telles que <code>string</code>, ce qui rend votre nouveau code disponible pour <strong>n&rsquo;importe quelle</strong> chaîne. Si votre code doit exécuter une logique spécifique au domaine sur un format de chaîne spécifique au domaine, une méthode d&rsquo;extension ne serait pas appropriée car sa présence confondrait les appelants travaillant avec d&rsquo;autres chaînes dans le système.</p>
+<p><strong>La liste suivante contient les fonctionnalités et propriétés de base des méthodes d&rsquo;extension</strong></p>
+<ol>
+<li>Il doit s&rsquo;agir d&rsquo;une méthode statique.</li>
+<li>Il doit être situé dans une classe statique.</li>
+<li>Il utilise le mot clé &ldquo;this&rdquo; comme premier paramètre avec un type dans .NET et cette méthode sera appelée par une instance de type donnée côté client.</li>
+<li>Il a également montré par VS intellisense. Lorsque nous appuyons sur le point <code>.</code> après une instance de type, il apparaît alors dans VS intellisense.</li>
+<li>Une méthode d&rsquo;extension doit se trouver dans le même espace de noms qu&rsquo;elle est utilisée ou vous devez importer l&rsquo;espace de noms de la classe à l&rsquo;aide d&rsquo;une instruction using.</li>
+<li>Vous pouvez donner n&rsquo;importe quel nom à la classe qui a une méthode d&rsquo;extension, mais la classe doit être statique.</li>
+<li>Si vous souhaitez ajouter de nouvelles méthodes à un type et que vous ne disposez pas du code source correspondant, la solution consiste à utiliser et à implémenter des méthodes d&rsquo;extension de ce type.</li>
+<li>Si vous créez des méthodes d&rsquo;extension qui ont les mêmes méthodes de signature que le type que vous étendez, les méthodes d&rsquo;extension ne seront jamais appelées.</li>
+</ol>
+<p>[1] : http://stackoverflow.com/q/1226189
+[2] : http://stackoverflow.com/questions/2520446/how-do-you-manage-the-namespaces-of-your-extension-methods</p>
+<h2 id="méthodes-dextension---aperçu">Méthodes d&rsquo;extension - aperçu <a href="#m%c3%a9thodes-dextension---aper%c3%a7u" class="anchor" aria-hidden="true">#</a></h2>
+<p>Les méthodes d&rsquo;extension ont été introduites dans C# 3.0. Les méthodes d&rsquo;extension étendent et ajoutent un comportement aux types existants sans créer de nouveau type dérivé, recompiler ou modifier le type d&rsquo;origine. <em>Elles sont particulièrement utiles lorsque vous ne pouvez pas modifier la source d&rsquo;un type que vous cherchez à améliorer.</em> Des méthodes d&rsquo;extension peuvent être créées pour les types de système, les types définis par des tiers et les types que vous avez définis vous-même. La méthode d&rsquo;extension peut être invoquée comme s&rsquo;il s&rsquo;agissait d&rsquo;une méthode membre du type d&rsquo;origine. Cela permet d&rsquo;utiliser <strong>Method Chaining</strong> pour implémenter une <strong>Fluent Interface</strong>.</p>
+<p>Une méthode d&rsquo;extension est créée en ajoutant une <strong>méthode statique</strong> à une <strong>classe statique</strong> qui est distincte du type d&rsquo;origine étendu. La classe statique contenant la méthode d&rsquo;extension est souvent créée dans le seul but de contenir les méthodes d&rsquo;extension.</p>
+<p>Les méthodes d&rsquo;extension prennent un premier paramètre spécial qui désigne le type d&rsquo;origine étendu. Ce premier paramètre est agrémenté du mot-clé <code>this</code> (qui constitue un usage particulier et distinct de <code>this</code> en C#—il doit être compris comme différent de l&rsquo;usage de <code>this</code> qui permet de se référer aux membres de l&rsquo;instance courante de l&rsquo;objet) .</p>
+<p>Dans l&rsquo;exemple suivant, le type d&rsquo;origine étendu est la classe <code>string</code>. <code>String</code> a été étendu par une méthode <code>Shorten()</code>, qui fournit la fonctionnalité supplémentaire de raccourcissement. La classe statique <code>StringExtensions</code> a été créée pour contenir la méthode d&rsquo;extension. La méthode d&rsquo;extension <code>Shorten()</code> montre qu&rsquo;il s&rsquo;agit d&rsquo;une extension de <code>string</code> via le premier paramètre spécialement marqué. Pour montrer que la méthode <code>Shorten()</code> étend <code>string</code>, le premier paramètre est marqué par <code>this</code>. Par conséquent, la signature complète du premier paramètre est <code>ce texte de chaîne</code>, où <code>chaîne</code> est le type d&rsquo;origine étendu et <code>texte</code> est le nom du paramètre choisi.</p>
+<pre><code>static class StringExtensions
+{
+    public static string Shorten(this string text, int length) 
+    {
+        return text.Substring(0, length);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // This calls method String.ToUpper()
+        var myString = &quot;Hello World!&quot;.ToUpper();
+
+        // This calls the extension method StringExtensions.Shorten()
+        var newString = myString.Shorten(5); 
+
+        // It is worth noting that the above call is purely syntactic sugar
+        // and the assignment below is functionally equivalent
+        var newString2 = StringExtensions.Shorten(myString, 5);
+    }
+}
+</code></pre>
+<p>[Démo en direct sur .NET Fiddle] (https://dotnetfiddle.net/uiPhpP)</p>
+<hr>
+<p>L&rsquo;objet passé comme <em>premier argument d&rsquo;une méthode d&rsquo;extension</em> (qui est accompagné du mot clé <code>this</code>) est l&rsquo;instance sur laquelle la méthode d&rsquo;extension est appelée.</p>
+<p>Par exemple, lorsque ce code est exécuté :</p>
+<pre><code>&quot;some string&quot;.Shorten(5);
+</code></pre>
+<p>Les valeurs des arguments sont les suivantes :</p>
+<pre><code>text: &quot;some string&quot;
+length: 5
+</code></pre>
+<ul>
+<li>Notez que les méthodes d&rsquo;extension ne sont utilisables que si elles se trouvent dans le même espace de noms que leur définition, si l&rsquo;espace de noms est importé explicitement par le code à l&rsquo;aide de la méthode d&rsquo;extension ou si la classe d&rsquo;extension est sans espace de noms. * Les directives du framework .NET recommandent mettre les classes d&rsquo;extension dans leur propre espace de noms. Cependant, cela peut entraîner des problèmes de découverte.</li>
+</ul>
+<p>Cela n&rsquo;entraîne aucun conflit entre les méthodes d&rsquo;extension et les bibliothèques utilisées, à moins que les espaces de noms susceptibles d&rsquo;entrer en conflit ne soient explicitement extraits. Par exemple [LINQ Extensions] [1] :</p>
+<pre><code>using System.Linq; // Allows use of extension methods from the System.Linq namespace
+
+class Program
+{
+    static void Main()
+    {
+        var ints = new int[] {1, 2, 3, 4};
+
+        // Call Where() extension method from the System.Linq namespace
+        var even = ints.Where(x =&gt; x % 2 == 0); 
+    }
+}
+</code></pre>
+<p>[Démo en direct sur .NET Fiddle] (https://dotnetfiddle.net/IF223c)</p>
+<hr>
+<p>Depuis C# 6.0, il est également possible de mettre une directive <code>using static</code> à la <em>class</em> contenant les méthodes d&rsquo;extension. Par exemple, <code>using static System.Linq.Enumerable;</code>. Cela rend les méthodes d&rsquo;extension de cette classe particulière disponibles sans amener d&rsquo;autres types du même espace de noms dans la portée.</p>
+<hr>
+<p>Lorsqu&rsquo;une méthode de classe avec la même signature est disponible, le compilateur lui donne la priorité sur l&rsquo;appel de méthode d&rsquo;extension. Par exemple:</p>
+<pre><code>class Test
+{
+   public void Hello()
+   {
+       Console.WriteLine(&quot;From Test&quot;);
+   }
+}
+
+static class TestExtensions
+{
+    public static void Hello(this Test test)
+    {
+        Console.WriteLine(&quot;From extension method&quot;);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Test t = new Test();
+        t.Hello(); // Prints &quot;From Test&quot;
+    }
+}
+</code></pre>
+<!-- fin de version si -->
+<p><a href="https://dotnetfiddle.net/fI3sCJ">Démo en direct sur .NET Fiddle</a></p>
+<hr>
+<p>Notez que s&rsquo;il y a deux fonctions d&rsquo;extension avec la même signature, et que l&rsquo;une d&rsquo;entre elles se trouve dans le même espace de noms, alors celle-ci sera prioritaire. D&rsquo;un autre côté, si les deux sont accessibles par <code>using</code>, une erreur de compilation s&rsquo;ensuivra avec le message :</p>
+<blockquote>
+<p><strong>L&rsquo;appel est ambigu entre les méthodes ou propriétés suivantes</strong></p>
+</blockquote>
+<hr>
+<p>Notez que la commodité syntaxique d&rsquo;appeler une méthode d&rsquo;extension via <code>originalTypeInstance.ExtensionMethod()</code> est une commodité facultative. La méthode peut également être appelée de manière traditionnelle, de sorte que le premier paramètre spécial est utilisé comme paramètre de la méthode.</p>
+<p>C&rsquo;est-à-dire les deux travaux suivants :</p>
+<pre><code>//Calling as though method belongs to string--it seamlessly extends string
+String s = &quot;Hello World&quot;;
+s.Shorten(5);  
+
+//Calling as a traditional static method with two parameters
+StringExtensions.Shorten(s, 5);
+</code></pre>
+<p>[1] : https://www.wikiod.com/fr/docs/c%23/68/linq-queries</p>
+<h2 id="vérification-nulle">Vérification nulle <a href="#v%c3%a9rification-nulle" class="anchor" aria-hidden="true">#</a></h2>
+<p>Les méthodes d&rsquo;extension sont des méthodes statiques qui se comportent comme des méthodes d&rsquo;instance. Cependant, contrairement à ce qui se passe lors de l&rsquo;appel d&rsquo;une méthode d&rsquo;instance sur une référence <code>null</code>, lorsqu&rsquo;une méthode d&rsquo;extension est appelée avec une référence <code>null</code>, elle ne lève pas de [<code>NullReferenceException</code>][1]. Cela peut être très utile dans certains scénarios.</p>
+<p>Par exemple, considérez la classe statique suivante :</p>
+<pre><code>public static class StringExtensions
+{
+    public static string EmptyIfNull(this string text)
+    {
+        return text ?? String.Empty;
+    }
+
+    public static string NullIfEmpty(this string text)
+    {
+        return String.Empty == text ? null : text;
+    }
+}
+</code></pre>
+<!-- séparé -->
+<pre><code>string nullString = null;
+string emptyString = nullString.EmptyIfNull();// will return &quot;&quot;
+string anotherNullString = emptyString.NullIfEmpty(); // will return null
+</code></pre>
+<p>[Démo en direct sur .NET Fiddle][2]</p>
+<p>[1] : https://msdn.microsoft.com/en-us/library/system.nullreferenceexception(v=vs.110).aspx
+[2] : https://dotnetfiddle.net/jNQWqg</p>
+<h2 id="utiliser-explicitement-une-méthode-dextension">Utiliser explicitement une méthode d&rsquo;extension <a href="#utiliser-explicitement-une-m%c3%a9thode-dextension" class="anchor" aria-hidden="true">#</a></h2>
+<p>Les méthodes d&rsquo;extension peuvent également être utilisées comme des méthodes de classe statique ordinaires. Cette façon d&rsquo;appeler une méthode d&rsquo;extension est plus détaillée, mais est nécessaire dans certains cas.</p>
+<pre><code>static class StringExtensions
+{
+    public static string Shorten(this string text, int length) 
+    {
+        return text.Substring(0, length);
+    }
+}
+</code></pre>
+<p>Usage:</p>
+<pre><code>var newString = StringExtensions.Shorten(&quot;Hello World&quot;, 5);
+</code></pre>
+<h1 id="quand-appeler-les-méthodes-dextension-en-tant-que-méthodes-statiques">Quand appeler les méthodes d&rsquo;extension en tant que méthodes statiques <a href="#quand-appeler-les-m%c3%a9thodes-dextension-en-tant-que-m%c3%a9thodes-statiques" class="anchor" aria-hidden="true">#</a></h1>
+<p>Il existe encore des scénarios dans lesquels vous auriez besoin d&rsquo;utiliser une méthode d&rsquo;extension en tant que méthode statique :</p>
+<ul>
+<li>Résoudre les conflits avec une méthode membre. Cela peut se produire si une nouvelle version d&rsquo;une bibliothèque introduit une nouvelle méthode membre avec la même signature. Dans ce cas, la méthode membre sera préférée par le compilateur.</li>
+<li>Résoudre les conflits avec une autre méthode d&rsquo;extension avec la même signature. Cela peut se produire si deux bibliothèques incluent des méthodes d&rsquo;extension similaires et que les espaces de noms des deux classes avec des méthodes d&rsquo;extension sont utilisés dans le même fichier.</li>
+<li>Passer la méthode d&rsquo;extension en tant que groupe de méthodes dans le paramètre délégué.</li>
+<li>Faire votre propre reliure via <code>Reflection</code>.</li>
+<li>Utilisation de la méthode d&rsquo;extension dans la fenêtre Exécution de Visual Studio.</li>
+</ul>
+<h1 id="utilisation-statique">Utilisation statique <a href="#utilisation-statique" class="anchor" aria-hidden="true">#</a></h1>
+<p>Si une directive <code>using static</code> est utilisée pour amener les membres statiques d&rsquo;une classe statique dans la portée globale, les méthodes d&rsquo;extension sont ignorées. Exemple:</p>
+<pre><code>using static OurNamespace.StringExtensions; // refers to class in previous example
+
+// OK: extension method syntax still works.
+&quot;Hello World&quot;.Shorten(5);
+// OK: static method syntax still works.
+OurNamespace.StringExtensions.Shorten(&quot;Hello World&quot;, 5);
+// Compile time error: extension methods can't be called as static without specifying class.
+Shorten(&quot;Hello World&quot;, 5);
+</code></pre>
+<p>Si vous supprimez le modificateur <code>this</code> du premier argument de la méthode <code>Shorten</code>, la dernière ligne sera compilée.</p>
+<h2 id="les-méthodes-dextension-ne-peuvent-voir-que-les-membres-publics-ou-internes-de-la-classe-étendue">Les méthodes d&rsquo;extension ne peuvent voir que les membres publics (ou internes) de la classe étendue <a href="#les-m%c3%a9thodes-dextension-ne-peuvent-voir-que-les-membres-publics-ou-internes-de-la-classe-%c3%a9tendue" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code>public class SomeClass
+{
+    public void DoStuff()
+    {
+        
+    }
+
+    protected void DoMagic()
+    {
+        
+    }
+}
+
+public static class SomeClassExtensions
+{
+    public static void DoStuffWrapper(this SomeClass someInstance)
+    {
+        someInstance.DoStuff(); // ok
+    }
+
+    public static void DoMagicWrapper(this SomeClass someInstance)
+    {
+        someInstance.DoMagic(); // compilation error
+    }
+}
+</code></pre>
+<p>Les méthodes d&rsquo;extension ne sont qu&rsquo;un sucre syntaxique et ne sont pas réellement membres de la classe qu&rsquo;elles étendent. Cela signifie qu&rsquo;ils ne peuvent pas casser l&rsquo;encapsulation - ils n&rsquo;ont accès qu&rsquo;aux champs, propriétés et méthodes &ldquo;publics&rdquo; (ou lorsqu&rsquo;ils sont implémentés dans le même assembly, &ldquo;internes&rdquo;).</p>
+<h2 id="méthodes-dextension-génériques">Méthodes d&rsquo;extension génériques <a href="#m%c3%a9thodes-dextension-g%c3%a9n%c3%a9riques" class="anchor" aria-hidden="true">#</a></h2>
+<p>Tout comme les autres méthodes, les méthodes d&rsquo;extension peuvent utiliser des génériques. Par exemple:</p>
+<pre><code>static class Extensions
+{
+    public static bool HasMoreThanThreeElements&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable)
+    {
+        return enumerable.Take(4).Count() &gt; 3;
+    }
+}
+</code></pre>
+<p>et l&rsquo;appeler serait comme:</p>
+<pre><code>IEnumerable&lt;int&gt; numbers = new List&lt;int&gt; {1,2,3,4,5,6};
+var hasMoreThanThreeElements = numbers.HasMoreThanThreeElements();
+</code></pre>
+<p>[Voir la démo][1]</p>
+<p>De même pour plusieurs arguments de type :</p>
+<pre><code>public static TU GenericExt&lt;T, TU&gt;(this T obj)
+{
+     TU ret = default(TU);
+     // do some stuff with obj
+     return ret;
+}
+</code></pre>
+<p>L&rsquo;appeler serait comme:</p>
+<pre><code>IEnumerable&lt;int&gt; numbers = new List&lt;int&gt; {1,2,3,4,5,6};
+var result = numbers.GenericExt&lt;IEnumerable&lt;int&gt;,String&gt;();
+</code></pre>
+<p>[Voir la démo][2]</p>
+<p>Vous pouvez également créer des méthodes d&rsquo;extension pour les types partiellement liés dans plusieurs types génériques :</p>
+<pre><code>class MyType&lt;T1, T2&gt;
+{
+}
+
+static class Extensions
+{
+    public static void Example&lt;T&gt;(this MyType&lt;int, T&gt; test)
+    {        
+    }
+}
+</code></pre>
+<p>L&rsquo;appeler serait comme:</p>
+<pre><code>MyType&lt;int, string&gt; t = new MyType&lt;int, string&gt;();
+t.Example();
+</code></pre>
+<p>[Voir la démo][4]</p>
+<p>Vous pouvez également spécifier des contraintes de type avec [<code>where</code>][3] :</p>
+<pre><code>public static bool IsDefault&lt;T&gt;(this T obj) where T : struct, IEquatable&lt;T&gt;
+{
+     return EqualityComparer&lt;T&gt;.Default.Equals(obj, default(T));
+}
+</code></pre>
+<p>Indicatif d&rsquo;appel :</p>
+<pre><code>int number = 5;
+var IsDefault = number.IsDefault();
+</code></pre>
+<p>[Voir la démo][5]</p>
+<p>[1] : https://dotnetfiddle.net/UlCa3i
+[2] : https://dotnetfiddle.net/aMNO0X
+[3] : https://www.wikiod.com/fr/docs/c%23/26/keywords/8137/where-type-constraints#t=201607221442171394675
+[4] : https://dotnetfiddle.net/1FjUOH
+[5] : https://dotnetfiddle.net/Jom3cS</p>
+<h2 id="méthodes-dextension-pour-le-chaînage">Méthodes d&rsquo;extension pour le chaînage <a href="#m%c3%a9thodes-dextension-pour-le-cha%c3%aenage" class="anchor" aria-hidden="true">#</a></h2>
+<p>Lorsqu&rsquo;une méthode d&rsquo;extension renvoie une valeur qui a le même type que son argument <code>this</code>, elle peut être utilisée pour &ldquo;chaîner&rdquo; un ou plusieurs appels de méthode avec une signature compatible. Cela peut être utile pour les types scellés et/ou primitifs, et permet la création d&rsquo;API dites &ldquo;fluides&rdquo; si les noms de méthodes se lisent comme un langage humain naturel.</p>
+<pre><code>void Main()
+{
+    int result = 5.Increment().Decrement().Increment(); 
+    // result is now 6
+}
+
+public static class IntExtensions 
+{
+    public static int Increment(this int number) {
+        return ++number;
+    }
+
+    public static int Decrement(this int number) {
+        return --number;
+    }
+}
+</code></pre>
+<p>Ou comme ça</p>
+<pre><code>void Main()
+{
+    int[] ints = new[] { 1, 2, 3, 4, 5, 6};
+    int[] a = ints.WhereEven();
+    //a is { 2, 4, 6 };
+    int[] b = ints.WhereEven().WhereGreaterThan(2);
+    //b is { 4, 6 };
+}
+
+public static class IntArrayExtensions
+{
+    public static int[] WhereEven(this int[] array)
+    {
+        //Enumerable.* extension methods use a fluent approach
+        return array.Where(i =&gt; (i%2) == 0).ToArray();
+    }
+
+    public static int[] WhereGreaterThan(this int[] array, int value)
+    {
+        return array.Where(i =&gt; i &gt; value).ToArray();
+    }
+}
+</code></pre>
+<h2 id="méthodes-dextension-avec-énumération">Méthodes d&rsquo;extension avec énumération <a href="#m%c3%a9thodes-dextension-avec-%c3%a9num%c3%a9ration" class="anchor" aria-hidden="true">#</a></h2>
+<p>Les méthodes d&rsquo;extension sont utiles pour ajouter des fonctionnalités aux énumérations.</p>
+<p>Une utilisation courante consiste à implémenter une méthode de conversion.</p>
+<pre><code>public enum YesNo
+{
+    Yes,
+    No,
+}
+
+public static class EnumExtentions
+{
+    public static bool ToBool(this YesNo yn)
+    {
+        return yn == YesNo.Yes;
+    }
+    public static YesNo ToYesNo(this bool yn)
+    {
+        return yn ? YesNo.Yes : YesNo.No;
+    }
+}
+</code></pre>
+<p>Vous pouvez maintenant convertir rapidement votre valeur enum en un type différent. Dans ce cas, un booléen.</p>
+<pre><code>bool yesNoBool = YesNo.Yes.ToBool(); // yesNoBool == true
+YesNo yesNoEnum = false.ToYesNo();   // yesNoEnum == YesNo.No
+</code></pre>
+<p>Alternativement, les méthodes d&rsquo;extension peuvent être utilisées pour ajouter des propriétés comme des méthodes.</p>
+<pre><code>public enum Element
+{
+    Hydrogen,
+    Helium,
+    Lithium,
+    Beryllium,
+    Boron,
+    Carbon,
+    Nitrogen,
+    Oxygen
+    //Etc
+}
+
+public static class ElementExtensions
+{
+    public static double AtomicMass(this Element element)
+    {
+        switch(element)
+        {
+            case Element.Hydrogen:  return 1.00794;
+            case Element.Helium:    return 4.002602;
+            case Element.Lithium:   return 6.941;
+            case Element.Beryllium: return 9.012182;
+            case Element.Boron:     return 10.811;
+            case Element.Carbon:    return 12.0107;
+            case Element.Nitrogen:  return 14.0067;
+            case Element.Oxygen:    return 15.9994;
+            //Etc
+        }
+        return double.Nan;
+    }
+}
+
+var massWater = 2*Element.Hydrogen.AtomicMass() + Element.Oxygen.AtomicMass();
+</code></pre>
+<h2 id="distribution-des-méthodes-dextension-en-fonction-du-type-statique">Distribution des méthodes d&rsquo;extension en fonction du type statique <a href="#distribution-des-m%c3%a9thodes-dextension-en-fonction-du-type-statique" class="anchor" aria-hidden="true">#</a></h2>
+<p>Le type statique (à la compilation) est utilisé plutôt que le type dynamique (à l&rsquo;exécution) pour faire correspondre les paramètres.</p>
+<pre><code>public class Base 
+{ 
+    public virtual string GetName()
+    {
+        return &quot;Base&quot;;
+    }
+}
+
+public class Derived : Base
+{ 
+    public override string GetName()
+    {
+        return &quot;Derived&quot;;
+    }
+}
+
+public static class Extensions
+{
+    public static string GetNameByExtension(this Base item)
+    {
+        return &quot;Base&quot;;
+    }
+
+    public static string GetNameByExtension(this Derived item)
+    {
+        return &quot;Derived&quot;;
+    }
+}
+
+public static class Program   
+{
+    public static void Main()
+    {
+        Derived derived = new Derived();
+        Base @base = derived;
+
+        // Use the instance method &quot;GetName&quot;
+        Console.WriteLine(derived.GetName()); // Prints &quot;Derived&quot;
+        Console.WriteLine(@base.GetName()); // Prints &quot;Derived&quot;
+
+        // Use the static extension method &quot;GetNameByExtension&quot;
+        Console.WriteLine(derived.GetNameByExtension()); // Prints &quot;Derived&quot;
+        Console.WriteLine(@base.GetNameByExtension()); // Prints &quot;Base&quot;
+    }
+}
+</code></pre>
+<p>[Démo en direct sur .NET Fiddle] (https://dotnetfiddle.net/7BGp8o)</p>
+<p>De plus, la répartition basée sur le type statique ne permet pas d&rsquo;appeler une méthode d&rsquo;extension sur un objet &ldquo;dynamique&rdquo; :</p>
+<pre><code>public class Person
+{
+    public string Name { get; set; }
+}
+
+public static class ExtenionPerson
+{
+    public static string GetPersonName(this Person person)
+    {
+        return person.Name;
+    }
+}
+
+dynamic person = new Person { Name = &quot;Jon&quot; };
+var name = person.GetPersonName(); // RuntimeBinderException is thrown
+</code></pre>
+<h2 id="méthodes-dextension-sur-les-interfaces">Méthodes d&rsquo;extension sur les interfaces <a href="#m%c3%a9thodes-dextension-sur-les-interfaces" class="anchor" aria-hidden="true">#</a></h2>
+<p>Une fonctionnalité utile des méthodes d&rsquo;extension est que vous pouvez créer des méthodes communes pour une interface. Normalement, une interface ne peut pas avoir d&rsquo;implémentations partagées, mais avec les méthodes d&rsquo;extension, elles le peuvent.</p>
+<pre><code>public interface IVehicle
+{
+    int MilesDriven { get; set; }
+}
+
+public static class Extensions
+{
+    public static int FeetDriven(this IVehicle vehicle)
+    {
+        return vehicle.MilesDriven * 5028;
+    }
+}
+</code></pre>
+<p>Dans cet exemple, la méthode <code>FeetDriven</code> peut être utilisée sur n&rsquo;importe quel <code>IVehicle</code>. Cette logique dans cette méthode s&rsquo;appliquerait à tous les <code>IVehicle</code>s, donc cela peut être fait de cette façon afin qu&rsquo;il n&rsquo;y ait pas besoin d&rsquo;avoir un <code>FeetDriven</code> dans la définition de <code>IVehicle</code> qui serait implémenté de la même manière pour tous les enfants .</p>
+<h2 id="les-méthodes-dextension-ne-sont-pas-prises-en-charge-par-le-code-dynamique">Les méthodes d&rsquo;extension ne sont pas prises en charge par le code dynamique. <a href="#les-m%c3%a9thodes-dextension-ne-sont-pas-prises-en-charge-par-le-code-dynamique" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code>static class Program
+{
+    static void Main()
+    {
+        dynamic dynamicObject = new ExpandoObject();
+
+        string awesomeString = &quot;Awesome&quot;;
+
+        // Prints True
+        Console.WriteLine(awesomeString.IsThisAwesome());
+
+        dynamicObject.StringValue = awesomeString;
+
+        // Prints True
+        Console.WriteLine(StringExtensions.IsThisAwesome(dynamicObject.StringValue)); 
+        
+        // No compile time error or warning, but on runtime throws RuntimeBinderException
+        Console.WriteLine(dynamicObject.StringValue.IsThisAwesome());
+    }
+}
+
+static class StringExtensions
+{
+    public static bool IsThisAwesome(this string value)
+    {
+        return value.Equals(&quot;Awesome&quot;);
+    }
+}
+</code></pre>
+<blockquote>
+<p>La raison pour laquelle [l&rsquo;appel des méthodes d&rsquo;extension à partir du code dynamique] ne fonctionne pas est que, dans le code normal, les méthodes d&rsquo;extension non dynamiques fonctionnent en effectuant une recherche complète de toutes les classes connues du compilateur pour une classe statique qui a une méthode d&rsquo;extension qui allumettes. La recherche s&rsquo;effectue dans l&rsquo;ordre en fonction de l&rsquo;imbrication de l&rsquo;espace de noms et des directives &ldquo;using&rdquo; disponibles dans chaque espace de noms.</p>
+<p>Cela signifie que pour obtenir une invocation de méthode d&rsquo;extension dynamique résolue correctement, le DLR doit savoir <em>au moment de l&rsquo;exécution</em> ce que toutes les imbrications d&rsquo;espace de noms et les directives &ldquo;using&rdquo; étaient <em>dans votre code source</em>. Nous n&rsquo;avons pas de mécanisme pratique pour coder toutes ces informations dans le site d&rsquo;appel. Nous avons envisagé d&rsquo;inventer un tel mécanisme, mais nous avons décidé qu&rsquo;il était trop coûteux et qu&rsquo;il produisait trop de risques liés au calendrier pour en valoir la peine.</p>
+</blockquote>
+<p><a href="http://stackoverflow.com/a/5313149/1610754">Source</a></p>
+<h2 id="méthodes-dextension-en-combinaison-avec-des-interfaces">Méthodes d&rsquo;extension en combinaison avec des interfaces <a href="#m%c3%a9thodes-dextension-en-combinaison-avec-des-interfaces" class="anchor" aria-hidden="true">#</a></h2>
+<p>Il est très pratique d&rsquo;utiliser des méthodes d&rsquo;extension avec des interfaces car l&rsquo;implémentation peut être stockée en dehors de la classe et tout ce qu&rsquo;il faut pour ajouter des fonctionnalités à la classe est de décorer la classe avec l&rsquo;interface.</p>
+<pre><code>public interface IInterface
+{
+   string Do()
+}
+
+public static class ExtensionMethods{
+    public static string DoWith(this IInterface obj){
+      //does something with IInterface instance
+    }
+}
+
+public class Classy : IInterface
+{
+   // this is a wrapper method; you could also call DoWith() on a Classy instance directly,
+   // provided you import the namespace containing the extension method
+   public Do(){
+       return this.DoWith();
+   }
+}
+</code></pre>
+<p>utiliser comme:</p>
+<pre><code> var classy = new Classy();
+ classy.Do(); // will call the extension
+ classy.DoWith(); // Classy implements IInterface so it can also be called this way
+</code></pre>
+<h2 id="les-extensions-et-les-interfaces-permettent-ensemble-le-code-dry-et-les-fonctionnalités-de-type-mixin">Les extensions et les interfaces permettent ensemble le code DRY et les fonctionnalités de type mixin <a href="#les-extensions-et-les-interfaces-permettent-ensemble-le-code-dry-et-les-fonctionnalit%c3%a9s-de-type-mixin" class="anchor" aria-hidden="true">#</a></h2>
+<p>Les méthodes d&rsquo;extension vous permettent de simplifier vos définitions d&rsquo;interface en n&rsquo;incluant que les fonctionnalités essentielles requises dans l&rsquo;interface elle-même et en vous permettant de définir des méthodes pratiques et des surcharges en tant que méthodes d&rsquo;extension. Les interfaces avec moins de méthodes sont plus faciles à implémenter dans les nouvelles classes. Conserver les surcharges en tant qu&rsquo;extensions plutôt que de les inclure directement dans l&rsquo;interface vous évite de copier du code passe-partout dans chaque implémentation, ce qui vous aide à garder votre code SEC. Ceci est en fait similaire au modèle mixin que C # ne prend pas en charge.</p>
+<p>Les extensions de <code>System.Linq.Enumerable</code> à <code>IEnumerable&lt;T&gt;</code> en sont un excellent exemple. <code>IEnumerable&lt;T&gt;</code> nécessite uniquement que la classe d&rsquo;implémentation implémente deux méthodes : générique et non générique <code>GetEnumerator()</code>. Mais <code>System.Linq.Enumerable</code> fournit d&rsquo;innombrables utilitaires utiles en tant qu&rsquo;extensions permettant une utilisation concise et claire de <code>IEnumerable&lt;T&gt;</code>.</p>
+<p>Ce qui suit est une interface très simple avec des surcharges pratiques fournies en tant qu&rsquo;extensions.</p>
+<pre><code>public interface ITimeFormatter
+{
+   string Format(TimeSpan span);
+}
+
+public static class TimeFormatter
+{
+    // Provide an overload to *all* implementers of ITimeFormatter.
+    public static string Format(
+        this ITimeFormatter formatter,
+        int millisecondsSpan)
+        =&gt; formatter.Format(TimeSpan.FromMilliseconds(millisecondsSpan));
+}
+
+// Implementations only need to provide one method. Very easy to
+// write additional implementations.
+public class SecondsTimeFormatter : ITimeFormatter
+{
+   public string Format(TimeSpan span)
+   {
+       return $&quot;{(int)span.TotalSeconds}s&quot;;
+   }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var formatter = new SecondsTimeFormatter();
+        // Callers get two method overloads!
+        Console.WriteLine($&quot;4500ms is rougly {formatter.Format(4500)}&quot;);
+        var span = TimeSpan.FromSeconds(5);
+        Console.WriteLine($&quot;{span} is formatted as {formatter.Format(span)}&quot;);
+    }
+}
+</code></pre>
+<h2 id="exemple-de-méthode-dextension-ilistt-comparaison-de-2-listes">Exemple de méthode d&rsquo;extension IList<T> : comparaison de 2 listes <a href="#exemple-de-m%c3%a9thode-dextension-ilistt-comparaison-de-2-listes" class="anchor" aria-hidden="true">#</a></h2>
+<p>Vous pouvez utiliser la méthode d&rsquo;extension suivante pour comparer le contenu de deux instances IList&lt; T &gt; du même type.</p>
+<p>Par défaut, les éléments sont comparés en fonction de leur ordre dans la liste et des éléments eux-mêmes, passer false au paramètre <code>isOrdered</code> ne comparera que les éléments eux-mêmes, quel que soit leur ordre.</p>
+<p>Pour que cette méthode fonctionne, le type générique (<code>T</code>) doit remplacer les méthodes <code>Equals</code> et <code>GetHashCode</code>.</p>
+<p><strong>Usage:</strong></p>
+<pre><code>List&lt;string&gt; list1 = new List&lt;string&gt; {&quot;a1&quot;, &quot;a2&quot;, null, &quot;a3&quot;};
+List&lt;string&gt; list2 = new List&lt;string&gt; {&quot;a1&quot;, &quot;a2&quot;, &quot;a3&quot;, null};
+
+list1.Compare(list2);//this gives false
+list1.Compare(list2, false);//this gives true. they are equal when the order is disregarded
+</code></pre>
+<p><strong>Méthode:</strong></p>
+<pre><code>public static bool Compare&lt;T&gt;(this IList&lt;T&gt; list1, IList&lt;T&gt; list2, bool isOrdered = true) 
+{
+    if (list1 == null &amp;&amp; list2 == null)
+        return true;
+    if (list1 == null || list2 == null || list1.Count != list2.Count)
+        return false;
+
+    if (isOrdered)
+    {
+        for (int i = 0; i &lt; list2.Count; i++)
+        {
+            var l1 = list1[i]; 
+            var l2 = list2[i];
+            if (
+                 (l1 == null &amp;&amp; l2 != null) || 
+                 (l1 != null &amp;&amp; l2 == null) || 
+                 (!l1.Equals(l2)))
+            {
+                    return false;
+            }
+        }
+        return true;
+    }
+    else
+    {
+        List&lt;T&gt; list2Copy = new List&lt;T&gt;(list2);
+        //Can be done with Dictionary without O(n^2)
+        for (int i = 0; i &lt; list1.Count; i++)
+        {
+            if (!list2Copy.Remove(list1[i]))
+                return false;
+        }
+        return true;
+    }
+}
+</code></pre>
+<h2 id="méthodes-dextension-en-tant-que-wrappers-fortement-typés">Méthodes d&rsquo;extension en tant que wrappers fortement typés <a href="#m%c3%a9thodes-dextension-en-tant-que-wrappers-fortement-typ%c3%a9s" class="anchor" aria-hidden="true">#</a></h2>
+<p>Les méthodes d&rsquo;extension peuvent être utilisées pour écrire des wrappers fortement typés pour des objets de type dictionnaire. Par exemple un cache, <code>HttpContext.Items</code> et cetera&hellip;</p>
+<pre><code>public static class CacheExtensions
+{
+    public static void SetUserInfo(this Cache cache, UserInfo data) =&gt; 
+        cache[&quot;UserInfo&quot;] = data;
+
+    public static UserInfo GetUserInfo(this Cache cache) =&gt; 
+        cache[&quot;UserInfo&quot;] as UserInfo;
+}
+</code></pre>
+<p>Cette approche supprime la nécessité d&rsquo;utiliser des littéraux de chaîne comme clés dans toute la base de code ainsi que la nécessité de convertir le type requis lors de l&rsquo;opération de lecture. Dans l&rsquo;ensemble, cela crée une manière plus sécurisée et fortement typée d&rsquo;interagir avec des objets aussi vaguement typés que les dictionnaires.</p>
+<h2 id="utilisation-des-méthodes-dextension-pour-créer-de-belles-classes-de-mappeur">Utilisation des méthodes d&rsquo;extension pour créer de belles classes de mappeur <a href="#utilisation-des-m%c3%a9thodes-dextension-pour-cr%c3%a9er-de-belles-classes-de-mappeur" class="anchor" aria-hidden="true">#</a></h2>
+<p>Nous pouvons créer de meilleures classes de mappeur avec des méthodes d&rsquo;extension,
+Supposons que si j&rsquo;ai des classes DTO comme</p>
+<pre><code> public class UserDTO
+ {
+        public AddressDTO Address { get; set; }
+ }
+
+ public class AddressDTO
+ {
+        public string Name { get; set; }
+ }
+</code></pre>
+<p>et j&rsquo;ai besoin de mapper aux classes de modèles de vue correspondantes</p>
+<pre><code>public class UserViewModel
+{
+    public AddressViewModel Address { get; set; }
+}
+
+public class AddressViewModel
+{
+    public string Name { get; set; }
+}
+</code></pre>
+<p>alors je peux créer ma classe mapper comme ci-dessous</p>
+<pre><code>public static class ViewModelMapper
+{
+      public static UserViewModel ToViewModel(this UserDTO user)
+      {
+            return user == null ?
+                null :
+                new UserViewModel()
+                {
+                    Address = user.Address.ToViewModel()
+                    // Job = user.Job.ToViewModel(),
+                    // Contact = user.Contact.ToViewModel() .. and so on
+                };
+      }
+
+      public static AddressViewModel ToViewModel(this AddressDTO userAddr)
+      {
+            return userAddr == null ?
+                null :
+                new AddressViewModel()
+                {
+                    Name = userAddr.Name
+                };
+      }
+}
+</code></pre>
+<p>Enfin, je peux invoquer mon mappeur comme ci-dessous</p>
+<pre><code>    UserDTO userDTOObj = new UserDTO() {
+            Address = new AddressDTO() {
+                Name = &quot;Address of the user&quot;
+            }
+        };
+
+    UserViewModel user = userDTOObj.ToViewModel(); // My DTO mapped to Viewmodel
+</code></pre>
+<p>La beauté ici est que toutes les méthodes de mappage ont un nom commun (ToViewModel) et nous pouvons les réutiliser de plusieurs façons</p>
+<h2 id="utilisation-de-méthodes-dextension-pour-créer-de-nouveaux-types-de-collections-par-exemple-dictlist">Utilisation de méthodes d&rsquo;extension pour créer de nouveaux types de collections (par exemple, DictList) <a href="#utilisation-de-m%c3%a9thodes-dextension-pour-cr%c3%a9er-de-nouveaux-types-de-collections-par-exemple-dictlist" class="anchor" aria-hidden="true">#</a></h2>
+<p>Vous pouvez créer des méthodes d&rsquo;extension pour améliorer la convivialité des collections imbriquées comme un <code>Dictionary</code> avec une valeur <code>List&lt;T&gt;</code>.</p>
+<p>Considérez les méthodes d&rsquo;extension suivantes :</p>
+<pre><code>public static class DictListExtensions
+{
+    public static void Add&lt;TKey, TValue, TCollection&gt;(this Dictionary&lt;TKey, TCollection&gt; dict, TKey key, TValue value)
+            where TCollection : ICollection&lt;TValue&gt;, new()
+    {
+        TCollection list;
+        if (!dict.TryGetValue(key, out list))
+        {
+            list = new TCollection();
+            dict.Add(key, list);
+        }
+
+        list.Add(value);
+    }
+
+    public static bool Remove&lt;TKey, TValue, TCollection&gt;(this Dictionary&lt;TKey, TCollection&gt; dict, TKey key, TValue value)
+        where TCollection : ICollection&lt;TValue&gt;
+    {
+        TCollection list;
+        if (!dict.TryGetValue(key, out list))
+        {
+            return false;
+        }
+
+        var ret = list.Remove(value);
+        if (list.Count == 0)
+        {
+            dict.Remove(key);
+        }
+        return ret;
+    }
+}
+</code></pre>
+<p>vous pouvez utiliser les méthodes d&rsquo;extension comme suit :</p>
+<pre><code>var dictList = new Dictionary&lt;string, List&lt;int&gt;&gt;();
+
+dictList.Add(&quot;example&quot;, 5);
+dictList.Add(&quot;example&quot;, 10);
+dictList.Add(&quot;example&quot;, 15);
+
+Console.WriteLine(String.Join(&quot;, &quot;, dictList[&quot;example&quot;])); // 5, 10, 15
+
+dictList.Remove(&quot;example&quot;, 5);
+dictList.Remove(&quot;example&quot;, 10);
+
+Console.WriteLine(String.Join(&quot;, &quot;, dictList[&quot;example&quot;])); // 15
+
+dictList.Remove(&quot;example&quot;, 15);
+
+Console.WriteLine(dictList.ContainsKey(&quot;example&quot;)); // False
+</code></pre>
+<p>[Voir la démo] (https://dotnetfiddle.net/UbdQuC)</p>
+<h2 id="méthodes-dextension-pour-gérer-les-cas-particuliers">Méthodes d&rsquo;extension pour gérer les cas particuliers <a href="#m%c3%a9thodes-dextension-pour-g%c3%a9rer-les-cas-particuliers" class="anchor" aria-hidden="true">#</a></h2>
+<p>Les méthodes d&rsquo;extension peuvent être utilisées pour &ldquo;masquer&rdquo; le traitement de règles métier inélégantes qui, autrement, nécessiteraient d&rsquo;encombrer une fonction appelante avec des instructions if/then. Ceci est similaire et analogue à la gestion des valeurs nulles avec les méthodes d&rsquo;extension. Par exemple,</p>
+<pre><code>public static class CakeExtensions
+{
+    public static Cake EnsureTrueCake(this Cake cake)
+    {
+        //If the cake is a lie, substitute a cake from grandma, whose cakes aren't as tasty but are known never to be lies. If the cake isn't a lie, don't do anything and return it.
+        return CakeVerificationService.IsCakeLie(cake) ? GrandmasKitchen.Get1950sCake() : cake;
+    }
+}
+</code></pre>
+<!-- séparé -->
+<pre><code>Cake myCake = Bakery.GetNextCake().EnsureTrueCake();
+myMouth.Eat(myCake);//Eat the cake, confident that it is not a lie.
+</code></pre>
+<h2 id="utilisation-de-méthodes-dextension-avec-des-méthodes-statiques-et-des-rappels">Utilisation de méthodes d&rsquo;extension avec des méthodes statiques et des rappels <a href="#utilisation-de-m%c3%a9thodes-dextension-avec-des-m%c3%a9thodes-statiques-et-des-rappels" class="anchor" aria-hidden="true">#</a></h2>
+<p>Envisagez d&rsquo;utiliser des méthodes d&rsquo;extension en tant que fonctions qui encapsulent d&rsquo;autres codes, voici un excellent exemple qui utilise à la fois une méthode statique et une méthode d&rsquo;extension pour encapsuler la construction Try Catch. Rendez votre code à l&rsquo;épreuve des balles&hellip;</p>
+<pre><code>using System;
+using System.Diagnostics;
+
+namespace Samples
+{
+    /// &lt;summary&gt;
+    /// Wraps a try catch statement as a static helper which uses 
+    /// Extension methods for the exception
+    /// &lt;/summary&gt;
+    public static class Bullet
+    {
+        /// &lt;summary&gt;
+        /// Wrapper for Try Catch Statement
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;code&quot;&gt;Call back for code&lt;/param&gt;
+        /// &lt;param name=&quot;error&quot;&gt;Already handled and logged exception&lt;/param&gt;
+        public static void Proof(Action code, Action&lt;Exception&gt; error)
+        {
+            try
+            {
+                code();
+            }
+            catch (Exception iox)
+            {
+                //extension method used here
+                iox.Log(&quot;BP2200-ERR-Unexpected Error&quot;);
+                //callback, exception already handled and logged
+                error(iox);
+            }
+        }
+        /// &lt;summary&gt;
+        /// Example of a logging method helper, this is the extension method
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;error&quot;&gt;The Exception to log&lt;/param&gt;
+        /// &lt;param name=&quot;messageID&quot;&gt;A unique error ID header&lt;/param&gt;
+        public static void Log(this Exception error, string messageID)
+        {
+            Trace.WriteLine(messageID);
+            Trace.WriteLine(error.Message);
+            Trace.WriteLine(error.StackTrace);
+            Trace.WriteLine(&quot;&quot;);
+        }
+    }
+    /// &lt;summary&gt;
+    /// Shows how to use both the wrapper and extension methods.
+    /// &lt;/summary&gt;
+    public class UseBulletProofing
+    {
+        public UseBulletProofing()
+        {
+            var ok = false;
+            var result = DoSomething();
+            if (!result.Contains(&quot;ERR&quot;))
+            {
+                ok = true;
+                DoSomethingElse();
+            }
+        }
+
+        /// &lt;summary&gt;
+        /// How to use Bullet Proofing in your code.
+        /// &lt;/summary&gt;
+        /// &lt;returns&gt;A string&lt;/returns&gt;
+        public string DoSomething()
+        {
+            string result = string.Empty;
+            //Note that the Bullet.Proof method forces this construct.
+            Bullet.Proof(() =&gt;
+            {
+                //this is the code callback
+                result = &quot;DST5900-INF-No Exceptions in this code&quot;;
+            }, error =&gt;
+            {
+                //error is the already logged and handled exception
+                //determine the base result
+                result = &quot;DTS6200-ERR-An exception happened look at console log&quot;;
+                if (error.Message.Contains(&quot;SomeMarker&quot;))
+                {
+                    //filter the result for Something within the exception message
+                    result = &quot;DST6500-ERR-Some marker was found in the exception&quot;;
+                }
+            });
+            return result;
+        }
+
+        /// &lt;summary&gt;
+        /// Next step in workflow
+        /// &lt;/summary&gt;
+        public void DoSomethingElse()
+        {
+            //Only called if no exception was thrown before
+        }
+    }
+}
+</code></pre>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/fr/csharp/fonctionnalites-c-70/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Fonctionnalités C# 7.0
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/fr/csharp/requetes-linq/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Requêtes LINQ &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/fr/about/">À propos de</a></li>
+          <li class="list-inline-item"><a href="/fr/disclaimers/">Avis de non-responsabilité</a></li>
+          <li class="list-inline-item"><a href="/fr/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/fr/terms-of-use/">Conditions d&#39;utilisation</a></li>
+          <li class="list-inline-item"><a href="/fr/privacy-policy/">Politique de confidentialité</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

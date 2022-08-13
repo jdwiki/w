@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rx-java Tutorial on </title>
+    <link>https://www.wikiod.com/docs/rx-java/</link>
+    <description>Recent content in rx-java Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/rx-java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with rx-java</title>
+      <link>https://www.wikiod.com/rx-java/getting-started-with-rx-java/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rx-java/getting-started-with-rx-java/</guid>
+      <description>An introduction to RxJava # The core concepts of RxJava are its Observables and Subscribers. An Observable emits objects, while a Subscriber consumes them.
+Observable
+Observable is a class that implements the reactive design pattern. These Observables provide methods that allow consumers to subscribe to event changes. The event changes are triggered by the observable. There is no restriction to the number of subscribers that an Observable can have, or the number of objects that an Observable can emit.</description>
+    </item>
+    
+    <item>
+      <title>Backpressure</title>
+      <link>https://www.wikiod.com/rx-java/backpressure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rx-java/backpressure/</guid>
+      <description>Introduction # Backpressure is when in an Observable processing pipeline, some asynchronous stages can&amp;rsquo;t process the values fast enough and need a way to tell the upstream producer to slow down.
+The classic case of the need for backpressure is when the producer is a hot source:
+PublishSubject&amp;lt;Integer&amp;gt; source = PublishSubject.create(); source .observeOn(Schedulers.computation()) .subscribe(v -&amp;gt; compute(v), Throwable::printStackTrace); for (int i = 0; i &amp;lt; 1_000_000; i++) { source.onNext(i); } Thread.sleep(10_000); In this example, the main thread will produce 1 million items to an end consumer which is processing it on a background thread.</description>
+    </item>
+    
+    <item>
+      <title>Unit Testing</title>
+      <link>https://www.wikiod.com/rx-java/unit-testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rx-java/unit-testing/</guid>
+      <description>Because all the Schedulers methods are static, unit tests utilizing the RxJava hooks cannot be ran in parallel on the same JVM instance. If they where, one TestScheduler would be removed in the middle of a unit test. That is basically the downside of using the Schedulers class.
+TestScheduler # TestSchedulers allows you to control time and execution of Observables instead of having to do busy waits, joining threads or anything to manipulate system time.</description>
+    </item>
+    
+    <item>
+      <title>Android with RxJava</title>
+      <link>https://www.wikiod.com/rx-java/android-with-rxjava/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rx-java/android-with-rxjava/</guid>
+      <description>RxAndroid used to be a library with lot of features. It has been splitted in many different libraries moving from version 0.25.0 to 1.x.
+A list of libraries that implement the features available before the 1.0 is maintained here.
+RxAndroid - AndroidSchedulers # This is literally the only thing you need to start using RxJava on Android.
+Include RxJava and RxAndroid in your gradle dependencies:
+// use the last version compile &#39;io.</description>
+    </item>
+    
+    <item>
+      <title>RxJava2 Flowable and Subscriber</title>
+      <link>https://www.wikiod.com/rx-java/rxjava2-flowable-and-subscriber/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rx-java/rxjava2-flowable-and-subscriber/</guid>
+      <description>This topic shows examples and documentation with regard to the reactive concepts of Flowable and Subscriber that were introduced in rxjava version2
+the example needs rxjava2 as a dependency, the maven coordinates for the used version are:
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;io.reactivex.rxjava2&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxjava&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.8&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; producer consumer example with backpressure support in the producer # The TestProducerfrom this example produces Integerobjects in a given range and pushes them to its Subscriber. It extends the Flowable&amp;lt;Integer&amp;gt; class.</description>
+    </item>
+    
+    <item>
+      <title>Observable</title>
+      <link>https://www.wikiod.com/rx-java/observable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rx-java/observable/</guid>
+      <description>Create an Observable # There are several ways to create an Observable in RxJava. The most powerful way is to use the Observable.create method. But it&amp;rsquo;s also the most complicated way. So you must avoid using it, as much as possible.
+Emitting an exiting value # If you already have a value, you can use Observable.just to emit your value.
+Observable.just(&amp;quot;Hello World&amp;quot;).subscribe(System.out::println); Emitting a value that should be computed # If you want to emit a value that is not already computed, or that can take long to be computed, you can use Observable.</description>
+    </item>
+    
+    <item>
+      <title>Subjects</title>
+      <link>https://www.wikiod.com/rx-java/subjects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rx-java/subjects/</guid>
+      <description>Syntax # Subject&amp;lt;T, R&amp;gt; subject = AsyncSubject.create(); // Default AsyncSubject Subject&amp;lt;T, R&amp;gt; subject = BehaviorSubject.create(); // Default BehaviorSubject Subject&amp;lt;T, R&amp;gt; subject = PublishSubject.create(); // Default PublishSubject Subject&amp;lt;T, R&amp;gt; subject = ReplaySubject.create(); // Default ReplaySubject mySafeSubject = new SerializedSubject(unSafeSubject); // Convert an unsafeSubject to a safeSubject - generally for multi threaded Subjects Parameters # Parameters Details T Input type R Output type This documentation provides details and explanations about Subject. For more information and further reading, please visit the official documentation.</description>
+    </item>
+    
+    <item>
+      <title>Operators</title>
+      <link>https://www.wikiod.com/rx-java/operators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rx-java/operators/</guid>
+      <description>This document describes the basic behaviour of an operator.
+Operators, an introduction # An operator can be used to manipulate the flow of objects from Observable to Subscriber.
+Observable&amp;lt;Integer&amp;gt; integerObservable = Observable.just(1, 2, 3); // creating a simple Integer observable Subscriber&amp;lt;String&amp;gt; mSubscriber = new Subscriber&amp;lt;String&amp;gt;() { @Override public void onCompleted() { System.out.println(&amp;quot;onCompleted called!&amp;quot;); } @Override public void onError(Throwable throwable) { System.out.println(&amp;quot;onError called&amp;quot;); } @Override public void onNext(String string) { System.out.println(&amp;quot;onNext called with: &amp;quot; + string); } }; // a simple String subscriber integerObservable .</description>
+    </item>
+    
+    <item>
+      <title>Schedulers</title>
+      <link>https://www.wikiod.com/rx-java/schedulers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rx-java/schedulers/</guid>
+      <description>Basic Examples # Schedulers are an RxJava abstraction about processing unit. A scheduler can be backed by a Executor service, but you can implement your own scheduler implementation.
+A Scheduler should meet this requirement :
+Should process undelayed task sequencially (FIFO order) Task can be delayed A Scheduler can be used as parameter in some operators (example : delay), or used with the subscribeOn / observeOn method.
+With some operator, the Scheduler will be used to process the task of the specific operator.</description>
+    </item>
+    
+    <item>
+      <title>Retrofit and RxJava</title>
+      <link>https://www.wikiod.com/rx-java/retrofit-and-rxjava/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rx-java/retrofit-and-rxjava/</guid>
+      <description>Set up Retrofit and RxJava # Retrofit2 comes with support for multiple pluggable execution mechanisms, one of them is RxJava.
+To use retrofit with RxJava you first need to add the Retrofit RxJava adapter to your project:
+compile &#39;com.squareup.retrofit2:adapter-rxjava:2.1.0&#39; then you need to add the adapter when building your retrofit instance:
+Retrofit retrofit = new Retrofit.Builder() .baseUrl(&amp;quot;https://api.example.com&amp;quot;) .addCallAdapterFactory(RxJavaCallAdapterFactory.create()) .build(); In your interface when you define the API the return type should be Observable eg:</description>
+    </item>
+    
+  </channel>
+</rss>

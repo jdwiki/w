@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spring-integration Tutorial on </title>
+    <link>https://www.wikiod.com/docs/spring-integration/</link>
+    <description>Recent content in spring-integration Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/spring-integration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with spring-integration</title>
+      <link>https://www.wikiod.com/spring-integration/getting-started-with-spring-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/spring-integration/getting-started-with-spring-integration/</guid>
+      <description>Installation or Setup # The best way to get started using Spring-Integration in your project is with a dependency management system, like gradle.
+dependencies { compile &#39;org.springframework.integration:spring-integration-core:4.3.5.RELEASE&#39; } Below is a very simple example using the gateway, service-activator message endpoints.
+//these annotations will enable Spring integration and scan for components @Configuration @EnableIntegration @IntegrationComponentScan public class Application { //a channel has two ends, this Messaging Gateway is acting as input from one side of inChannel @MessagingGateway interface Greeting { @Gateway(requestChannel = &amp;quot;inChannel&amp;quot;) String greet(String name); } @Component static class HelloMessageProvider { //a service activator act as a handler when message is received from inChannel, in this example, it is acting as the handler on the output side of inChannel @ServiceActivator(inputChannel = &amp;quot;inChannel&amp;quot;) public String sayHello(String name) { return &amp;quot;Hi, &amp;quot; + name; } } @Bean MessageChannel inChannel() { return new DirectChannel(); } public static void main(String[] args) { ApplicationContext context = new AnnotationConfigApplicationContext(Application.</description>
+    </item>
+    
+    <item>
+      <title>Jdbc Integration</title>
+      <link>https://www.wikiod.com/spring-integration/jdbc-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/spring-integration/jdbc-integration/</guid>
+      <description>Jdbc Inbound Adapter - xml configuration # In the official reference document, it says:
+The main function of an inbound Channel Adapter is to execute a SQL SELECT query and turn the result set as a message. The message payload is the whole result set, expressed as a List, and the types of the items in the list depend on the row-mapping strategy that is used. The default strategy is a generic mapper that just returns a Map for each row in the query result.</description>
+    </item>
+    
+  </channel>
+</rss>

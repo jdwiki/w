@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>junit Tutorial on </title>
+    <link>https://www.wikiod.com/docs/junit/</link>
+    <description>Recent content in junit Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/junit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with junit</title>
+      <link>https://www.wikiod.com/junit/getting-started-with-junit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/junit/getting-started-with-junit/</guid>
+      <description>Catch expected exception # It is possible to easily catch the exception without any try catch block.
+public class ListTest { private final List&amp;lt;Object&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); @Test(expected = IndexOutOfBoundsException.class) public void testIndexOutOfBoundsException() { list.get(0); } } The example above should suffice for simpler cases, when you don&amp;rsquo;t want/need to check the message carried by the thrown exception.
+If you want to check information about exception you may want to use try/catch block:</description>
+    </item>
+    
+    <item>
+      <title>Testing with DataProviders</title>
+      <link>https://www.wikiod.com/junit/testing-with-dataproviders/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/junit/testing-with-dataproviders/</guid>
+      <description>Installation and usage # Installation:
+In order to use DataProviders, you need junit-dataprovider .jar :
+Github
+Direct download
+Hamcrest-core-1.3.jar :
+Github
+Direct download
+And add both of this .jar to your project.
+Usage:
+Add this import to your code:
+import com.tngtech.java.junit.dataprovider.DataProvider; import com.tngtech.java.junit.dataprovider.DataProviderRunner; import com.tngtech.java.junit.dataprovider.UseDataProvider; Before the declaration of your class:
+@RunWith(DataProviderRunner.class) So it looks like this:
+@RunWith(DataProviderRunner.class) public class example { //code } How to create DataProviders:
+Before whichever function you want it to be a DataProvider, add this decorator:</description>
+    </item>
+    
+    <item>
+      <title>Tests</title>
+      <link>https://www.wikiod.com/junit/tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/junit/tests/</guid>
+      <description>Parameter Context Details @BeforeClass Static Executed when the class is first created @Before Instance Executed before each test in the class @Test Instance Should be declared each method to test @After Instance Executed after each test in the class @AfterClass Static Executed before destruction of the class Example Test Class Format
+public class TestFeatureA { @BeforeClass public static void setupClass() {} @Before public void setupTest() {} @Test public void testA() {} @Test public void testB() {} @After public void tearDownTest() {} @AfterClass public static void tearDownClass() {} } } Performance measurement # If you need to check if your testing method takes too long to execute, you can do that by mentioning your expected execution time using timeout property of @Test annotation.</description>
+    </item>
+    
+    <item>
+      <title>Generate Junit test cases skeleton for existing code</title>
+      <link>https://www.wikiod.com/junit/generate-junit-test-cases-skeleton-for-existing-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/junit/generate-junit-test-cases-skeleton-for-existing-code/</guid>
+      <description>Sometimes you need to generate the skeleton for the test cases based on the classes you have in your project.
+Generate Junit test cases skeleton for existing code in Eclipse # Here are the steps to generate test skeleton for existing code:
+Open Eclipse, and choose the project you want to create test cases for In the Package Explorer, select the java class you want to generate the Junit test for Go to File -&amp;gt; New -&amp;gt; Junit Test Cases Change the Source folder to point to the test using Browse (Note: It is better to separate the source code from the testing code) Change the Package based on the destination package you want In the Class under test, make sure you enter the class you want to generate the test cases for.</description>
+    </item>
+    
+    <item>
+      <title>Custom Test Rules</title>
+      <link>https://www.wikiod.com/junit/custom-test-rules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/junit/custom-test-rules/</guid>
+      <description>There are benefits for either. Extending ExternalResource it&amp;rsquo;s convenient, especially if we only require a before() to set something up.
+However, we should be aware that, since the before() method is executed outside of the try...finally, any code that is required to do clean up in after() won&amp;rsquo;t get executed if there is an error during the execution of before().
+This is how it looks inside ExternalResource:
+before(); try { base.</description>
+    </item>
+    
+    <item>
+      <title>Test Execution Order</title>
+      <link>https://www.wikiod.com/junit/test-execution-order/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/junit/test-execution-order/</guid>
+      <description>Syntax # @FixMethodOrder // Runs test using default method sorter @FixMethodOrder(MethodSorters) // Runs test using MethodSorter associated with the MethodSorters enum. Default Order # Use the annotation &amp;ndash; @FixMethodOrder(MethodSorters.DEFAULT). This runs all tests within the class in a deterministic and somewhat predictable order. The implementation hashes the method names and compares them. In the scenario of a tie, it sorts by lexicographical order.
+Code Segment Below Taken from JUnit Github &amp;ndash; MethodSorter.</description>
+    </item>
+    
+    <item>
+      <title>Paramaterizing Tests</title>
+      <link>https://www.wikiod.com/junit/paramaterizing-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/junit/paramaterizing-tests/</guid>
+      <description>Sometimes you have a test you need to run multiple times, each time with different data. Parameterizing the test allows you to do this in an easy and maintainable way.
+Syntax # @RunWith(Parameterized.class) //annotation for test class
+@Parameters//annotation for data
+One benefit to using parameters is that if one set of data fails, execution will just move to the next set of data instead of stopping the whole test.
+Using a Constructor # import static org.</description>
+    </item>
+    
+    <item>
+      <title>Ignore test cases in Junit</title>
+      <link>https://www.wikiod.com/junit/ignore-test-cases-in-junit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/junit/ignore-test-cases-in-junit/</guid>
+      <description>Sometimes you want to ignore some of the test cases you have in Junit. For instance, they are partially done and you want to come back to them later.
+Ignore test case in Junit # Go to the test method you want to ignore Before the @Test annotation, enter @Ignore optional: You can add description why are you ignoring this test method, something like: @Ignore (&amp;quot;ignoring this test case for now&amp;quot;) a sample method would be:</description>
+    </item>
+    
+  </channel>
+</rss>

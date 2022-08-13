@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cassandra Tutorial on </title>
+    <link>https://www.wikiod.com/docs/cassandra/</link>
+    <description>Recent content in cassandra Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/cassandra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with cassandra</title>
+      <link>https://www.wikiod.com/cassandra/getting-started-with-cassandra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cassandra/getting-started-with-cassandra/</guid>
+      <description>Installation or Setup # Single node Installation # Pre-install NodeJS, Python and Java Select your installation document based on your platform http://docs.datastax.com/en/cassandra/3.x/cassandra/install/installTOC.html Download Cassandra binaries from http://cassandra.apache.org/download/ Untar the downloaded file to &amp;lt;installation location&amp;gt; Start the cassandra using &amp;lt;installation location&amp;gt;/bin/cassandra OR start Cassandra as a service - [sudo] service cassandra start Check whether cassandra is up and running using &amp;lt;installation location&amp;gt;/bin/nodetool status. Ex:
+On Windows environment run cassandra.bat file to start Cassandra server and cqlsh.</description>
+    </item>
+    
+    <item>
+      <title>Repairs in Cassandra</title>
+      <link>https://www.wikiod.com/cassandra/repairs-in-cassandra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cassandra/repairs-in-cassandra/</guid>
+      <description>Parameters # Option/Flag Description option option description -h hostname. Defaults to &amp;ldquo;localhost.&amp;rdquo; If you do not specify a host repair is run on the same host that the command is executed from. -p JMX port. The default is 7199. -u username. Only required if JMX security is enabled. -pw password. Only required if JMX security is enabled. flag flag description -local Only compare and stream data from nodes in the &amp;ldquo;local&amp;rdquo; data center.</description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>https://www.wikiod.com/cassandra/security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cassandra/security/</guid>
+      <description>Cassandra security resources # CQL: Database roles syntax definition CQL: List of object permissions DataStax Documentation: Internal authentication DataStax Documentation: Internal authorization Configuring internal authentication # Cassandra will not require users to login using the default configuration. Instead password-less, anonymous logins are permitted for anyone able to connect to the native_transport_port. This behaviour can be changed by editing the cassandra.yaml config to use a different authenticator:
+# Allow anonymous logins without authentication # authenticator: AllowAllAuthenticator # Use username/password based logins authenticator: PasswordAuthenticator The login credentials validated by PasswordAuthenticator will be stored in the internal system_auth keyspace.</description>
+    </item>
+    
+    <item>
+      <title>Connecting to Cassandra</title>
+      <link>https://www.wikiod.com/cassandra/connecting-to-cassandra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cassandra/connecting-to-cassandra/</guid>
+      <description>The Cassandra Driver from Datastax very much mirrors the Java JDBC MySQL driver.
+Session, Statement, PreparedStatement are present in both drivers.
+The Singleton Connection is from this question and answer: http://stackoverflow.com/a/24691456/671896
+Feature wise, Cassandra 2 and 3 are identical. Cassandra 3 introduced a complete rewrite of the data storage system.
+Java: Include the Cassandra DSE Driver # In your Maven project, add the following to your pom.xml file. The following versions are for Cassandra 3.</description>
+    </item>
+    
+    <item>
+      <title>Cassandra - PHP</title>
+      <link>https://www.wikiod.com/cassandra/cassandra---php/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cassandra/cassandra---php/</guid>
+      <description>Simple console application # Download the Datastax PHP driver for Apache Cassandra from the Git project site, and follow the installation instructions.
+We will be using the &amp;ldquo;users&amp;rdquo; table from the KillrVideo app and the Datastax PHP driver. Once you have Cassandra up and running, create the following keyspace and table:
+//Create the keyspace CREATE KEYSPACE killrvideo WITH REPLICATION = { &#39;class&#39; : &#39;SimpleStrategy&#39;, &#39;replication_factor&#39; : 1 }; //Use the keyspace USE killrvideo; // Users keyed by id CREATE TABLE users ( userid uuid, firstname text, lastname text, email text, created_date timestamp, PRIMARY KEY (userid) ); Create a PHP file with your favorite editor.</description>
+    </item>
+    
+    <item>
+      <title>Running Repair on Cassandra</title>
+      <link>https://www.wikiod.com/cassandra/running-repair-on-cassandra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cassandra/running-repair-on-cassandra/</guid>
+      <description>Syntax # Synopsis
+nodetool [node-options] repair [other-options]
+Node options
+[(-h &amp;lt;host&amp;gt; | --host &amp;lt;host&amp;gt;)]
+[(-p &amp;lt;port&amp;gt; | --port &amp;lt;port&amp;gt;)]
+[(-pw &amp;lt;password&amp;gt; | --password &amp;lt;password&amp;gt;)]
+[(-pwf &amp;lt;passwordFilePath&amp;gt; | --password-file &amp;lt;passwordFilePath&amp;gt;)]
+[(-u &amp;lt;username&amp;gt; | --username &amp;lt;username&amp;gt;)]
+Other options
+[(-dc &amp;lt;specific_dc&amp;gt; | --in-dc &amp;lt;specific_dc&amp;gt;)...]
+[(-dcpar | --dc-parallel)]
+[(-et &amp;lt;end_token&amp;gt; | --end-token &amp;lt;end_token&amp;gt;)]
+[(-full | --full)]
+[(-hosts &amp;lt;specific_host&amp;gt; | --in-hosts &amp;lt;specific_host&amp;gt;)...]
+[(-j &amp;lt;job_threads&amp;gt; | --job-threads &amp;lt;job_threads&amp;gt;)]
+[(-local | --in-local-dc)]
+[(-pl | --pull)]
+[(-pr | --partitioner-range)]</description>
+    </item>
+    
+    <item>
+      <title>Cassandra keys</title>
+      <link>https://www.wikiod.com/cassandra/cassandra-keys/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cassandra/cassandra-keys/</guid>
+      <description>Partition key, clustering key, primary key # Cassandra uses two kinds of keys:
+the Partition Keys is responsible for data distribution across nodes the Clustering Key is responsible for data sorting within a partition A primary key is a combination of those to types. The vocabulary depends on the combination:
+simple primary key: only the partition key, composed of one column composite partition key: only the partition key, composed of multiple columns compound primary key: one partition key with one or more clustering keys.</description>
+    </item>
+    
+    <item>
+      <title>Cassandra as a Service</title>
+      <link>https://www.wikiod.com/cassandra/cassandra-as-a-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cassandra/cassandra-as-a-service/</guid>
+      <description>This topic describes how to start Apache Cassandra as a service in windows and linux platforms. Remember you also start Cassandra from bin directory by running the batch or shell script.
+Linux # Create the /etc/init.d/cassandra startup script.
+Edit the contents of the file:
+#!/bin/sh # # chkconfig: - 80 45 # description: Starts and stops Cassandra # update daemon path to point to the cassandra executable DAEMON=&amp;lt;Cassandra installed directory&amp;gt;/bin/cassandra start() { echo -n &amp;quot;Starting Cassandra.</description>
+    </item>
+    
+  </channel>
+</rss>

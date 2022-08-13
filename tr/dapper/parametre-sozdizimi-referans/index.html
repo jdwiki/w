@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.43b0b023adae2e6795d9e4443770a29ec36c5d80b552b920a387882f38dd59fc45f95bfed41ea5491dbbc99f117f2037d021e7a3764c15fcb25d77146327b1af.css" integrity="sha512-Q7CwI62uLmeV2eREN3CinsNsXYC1Urkgo4eILzjdWfxF&#43;Vv&#43;1B6lSR27yZ8RfyA30CHno3ZMFfyyXXcUYyexrw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Parametre Sözdizimi Referansı - WikiOD</title>
+<meta name="description" content="Parametreler # parametre Ayrıntılar bu cnn Temel veritabanı bağlantısı - &amp;ldquo;bu&amp;rdquo;, bir uzantı yöntemini belirtir; bağlantının açık olması gerekmez - açık değilse otomatik olarak açılır ve kapanır. &amp;lt;T&amp;gt; / Tür (isteğe bağlı) Döndürülecek nesnenin türü; genel olmayan / &amp;ldquo;Tür&amp;rdquo; olmayan API kullanılırsa, sorgudan döndürülen sütun adı başına adlandırılan bir özelliği simüle ederek satır başına bir &amp;ldquo;dinamik&amp;rdquo; nesne döndürülür (bu &amp;ldquo;dinamik&amp;rdquo; nesne ayrıca &amp;ldquo;Kimlik&amp;lt;dize, nesne &amp;gt;`). sql Çalıştırılacak SQL &amp;ldquo;param&amp;rdquo; (isteğe bağlı) Dahil edilecek parametreler.">
+  <link rel="canonical" href="https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/">
+<meta property="og:locale" content="tr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Parametre Sözdizimi Referansı">
+<meta property="og:description" content="Parametreler # parametre Ayrıntılar bu cnn Temel veritabanı bağlantısı - &ldquo;bu&rdquo;, bir uzantı yöntemini belirtir; bağlantının açık olması gerekmez - açık değilse otomatik olarak açılır ve kapanır. &lt;T&gt; / Tür (isteğe bağlı) Döndürülecek nesnenin türü; genel olmayan / &ldquo;Tür&rdquo; olmayan API kullanılırsa, sorgudan döndürülen sütun adı başına adlandırılan bir özelliği simüle ederek satır başına bir &ldquo;dinamik&rdquo; nesne döndürülür (bu &ldquo;dinamik&rdquo; nesne ayrıca &ldquo;Kimlik&lt;dize, nesne &gt;`). sql Çalıştırılacak SQL &ldquo;param&rdquo; (isteğe bağlı) Dahil edilecek parametreler.">
+<meta property="og:url" content="https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Parametre Sözdizimi Referansı">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Parametre Sözdizimi Referansı">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "WikiOD\u0027ye Hoş Geldiniz - Wiki Çevrimiçi Belgeleme WikiOD, tüm programlama dilleri, eğitimle ilgili konular ve kavramların en yüksek kalitede çevrimiçi belgelerini oluşturmak için ortak bir yazma projesidir.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/",
+      "url": "https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/",
+      "name": "Parametre Sözdizimi Referansı",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/#/schema/image/2"
+      },
+      "inLanguage": "tr",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/",
+          "url": "https://www.wikiod.com/tr/",
+          "name": "Tr"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/dapper/",
+          "url": "https://www.wikiod.com/tr/dapper/",
+          "name": "Dapper"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Parametre Sözdizimi Referansı",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Parametre Sözdizimi Referansı"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/tr/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Araştır docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/dapper/"><h3 class="h6 text-uppercase mb-2">Dapper.NET Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/dapperneti-kullanmaya-baslama/">Dapper.NET&#39;i kullanmaya başlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/dinamik-parametreler/">Dinamik Parametreler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/islemler/">işlemler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/temel-sorgulama/">Temel Sorgulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/">Parametre Sözdizimi Referansı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/coklu-sonuclar/">Çoklu Sonuçlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/coklu-esleme/">çoklu eşleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/tip-isleyiciler/">Tip İşleyiciler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/komutlar-yurutme/">Komutları Yürütme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/scaklk-tablolar/">Sıcaklık Tabloları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/zaman-uyumsuz-kullanma/">Zaman uyumsuz kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/null-islemleri/">Null İşlemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/dbgeography-ve-dbgeometryyi-kullanma/">DbGeography ve DbGeometry&#39;yi Kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/toplu-ekler/">Toplu ekler</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/tr/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/docs/">öğreticiler</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/blog/">Nesne</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Türk
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/tr/dapper/parametre-sozdizimi-referans/">Türk</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/dapper/parameter-syntax-reference/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/dapper/referencia-de-sintaxis-de-parametros/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/fr/dapper/reference-de-la-syntaxe-des-parametres/" hreflang="fr" lang="fr">Français</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/dapper/referencia-de-sintaxe-de-parametro/" hreflang="pt" lang="pt">Português</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/dapper/"><h3 class="h6 text-uppercase mb-2">Dapper.NET Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/dapperneti-kullanmaya-baslama/">Dapper.NET&#39;i kullanmaya başlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/dinamik-parametreler/">Dinamik Parametreler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/islemler/">işlemler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/temel-sorgulama/">Temel Sorgulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/">Parametre Sözdizimi Referansı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/coklu-sonuclar/">Çoklu Sonuçlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/coklu-esleme/">çoklu eşleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/tip-isleyiciler/">Tip İşleyiciler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/komutlar-yurutme/">Komutları Yürütme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/scaklk-tablolar/">Sıcaklık Tabloları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/zaman-uyumsuz-kullanma/">Zaman uyumsuz kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/null-islemleri/">Null İşlemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/dbgeography-ve-dbgeometryyi-kullanma/">DbGeography ve DbGeometry&#39;yi Kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/toplu-ekler/">Toplu ekler</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/dapper/"><h3 class="h6 text-uppercase mb-2">Dapper.NET Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/dapperneti-kullanmaya-baslama/">Dapper.NET&#39;i kullanmaya başlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/dinamik-parametreler/">Dinamik Parametreler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/islemler/">işlemler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/temel-sorgulama/">Temel Sorgulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/dapper/parametre-sozdizimi-referans/">Parametre Sözdizimi Referansı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/coklu-sonuclar/">Çoklu Sonuçlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/coklu-esleme/">çoklu eşleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/tip-isleyiciler/">Tip İşleyiciler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/komutlar-yurutme/">Komutları Yürütme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/scaklk-tablolar/">Sıcaklık Tabloları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/zaman-uyumsuz-kullanma/">Zaman uyumsuz kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/null-islemleri/">Null İşlemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/dbgeography-ve-dbgeometryyi-kullanma/">DbGeography ve DbGeometry&#39;yi Kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/dapper/toplu-ekler/">Toplu ekler</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#parametreler">Parametreler</a></li>
+    <li><a href="#değer-satır-içi">Değer Satır İçi</a></li>
+    <li><a href="#temel-parametreli-sql">Temel Parametreli SQL</a></li>
+    <li><a href="#nesne-modelinizi-kullanma">Nesne Modelinizi Kullanma</a></li>
+    <li><a href="#saklı-prosedürler">Saklı Prosedürler</a></li>
+    <li><a href="#liste-genişletmeleri">Liste Genişletmeleri</a></li>
+    <li><a href="#birden-çok-girdi-kümesine-karşı-işlem-gerçekleştirme">Birden Çok Girdi Kümesine Karşı İşlem Gerçekleştirme</a></li>
+    <li><a href="#sözde-konumsal-parametreler-adlandırılmış-parametreleri-desteklemeyen-sağlayıcılar-için">Sözde Konumsal Parametreler (adlandırılmış parametreleri desteklemeyen sağlayıcılar için)</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#parametreler">Parametreler</a></li>
+    <li><a href="#değer-satır-içi">Değer Satır İçi</a></li>
+    <li><a href="#temel-parametreli-sql">Temel Parametreli SQL</a></li>
+    <li><a href="#nesne-modelinizi-kullanma">Nesne Modelinizi Kullanma</a></li>
+    <li><a href="#saklı-prosedürler">Saklı Prosedürler</a></li>
+    <li><a href="#liste-genişletmeleri">Liste Genişletmeleri</a></li>
+    <li><a href="#birden-çok-girdi-kümesine-karşı-işlem-gerçekleştirme">Birden Çok Girdi Kümesine Karşı İşlem Gerçekleştirme</a></li>
+    <li><a href="#sözde-konumsal-parametreler-adlandırılmış-parametreleri-desteklemeyen-sağlayıcılar-için">Sözde Konumsal Parametreler (adlandırılmış parametreleri desteklemeyen sağlayıcılar için)</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/tr/">Home</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/dapper/">Dapper.NET Eğitimi</a></li>
+<li class="breadcrumb-item active" aria-current="page">Parametre Sözdizimi Referansı</li>
+					</ol>
+				</nav>
+			
+			<h1>Parametre Sözdizimi Referansı</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#parametreler">Parametreler</a></li>
+    <li><a href="#değer-satır-içi">Değer Satır İçi</a></li>
+    <li><a href="#temel-parametreli-sql">Temel Parametreli SQL</a></li>
+    <li><a href="#nesne-modelinizi-kullanma">Nesne Modelinizi Kullanma</a></li>
+    <li><a href="#saklı-prosedürler">Saklı Prosedürler</a></li>
+    <li><a href="#liste-genişletmeleri">Liste Genişletmeleri</a></li>
+    <li><a href="#birden-çok-girdi-kümesine-karşı-işlem-gerçekleştirme">Birden Çok Girdi Kümesine Karşı İşlem Gerçekleştirme</a></li>
+    <li><a href="#sözde-konumsal-parametreler-adlandırılmış-parametreleri-desteklemeyen-sağlayıcılar-için">Sözde Konumsal Parametreler (adlandırılmış parametreleri desteklemeyen sağlayıcılar için)</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#parametreler">Parametreler</a></li>
+    <li><a href="#değer-satır-içi">Değer Satır İçi</a></li>
+    <li><a href="#temel-parametreli-sql">Temel Parametreli SQL</a></li>
+    <li><a href="#nesne-modelinizi-kullanma">Nesne Modelinizi Kullanma</a></li>
+    <li><a href="#saklı-prosedürler">Saklı Prosedürler</a></li>
+    <li><a href="#liste-genişletmeleri">Liste Genişletmeleri</a></li>
+    <li><a href="#birden-çok-girdi-kümesine-karşı-işlem-gerçekleştirme">Birden Çok Girdi Kümesine Karşı İşlem Gerçekleştirme</a></li>
+    <li><a href="#sözde-konumsal-parametreler-adlandırılmış-parametreleri-desteklemeyen-sağlayıcılar-için">Sözde Konumsal Parametreler (adlandırılmış parametreleri desteklemeyen sağlayıcılar için)</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h2 id="parametreler">Parametreler <a href="#parametreler" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>parametre</th>
+<th>Ayrıntılar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bu cnn</code></td>
+<td>Temel veritabanı bağlantısı - &ldquo;bu&rdquo;, bir uzantı yöntemini belirtir; bağlantının açık olması gerekmez - açık değilse otomatik olarak açılır ve kapanır.</td>
+</tr>
+<tr>
+<td><code>&lt;T&gt;</code> / <code>Tür</code></td>
+<td>(isteğe bağlı) Döndürülecek nesnenin türü; genel olmayan / &ldquo;Tür&rdquo; olmayan API kullanılırsa, sorgudan döndürülen sütun adı başına adlandırılan bir özelliği simüle ederek satır başına bir &ldquo;dinamik&rdquo; nesne döndürülür (bu &ldquo;dinamik&rdquo; nesne ayrıca &ldquo;Kimlik&lt;dize, nesne &gt;`).</td>
+</tr>
+<tr>
+<td><code>sql</code></td>
+<td>Çalıştırılacak SQL</td>
+</tr>
+<tr>
+<td>&ldquo;param&rdquo;</td>
+<td>(isteğe bağlı) Dahil edilecek parametreler.</td>
+</tr>
+<tr>
+<td>&ldquo;işlem&rdquo;</td>
+<td>(isteğe bağlı) Komutla ilişkilendirilecek veritabanı işlemi</td>
+</tr>
+<tr>
+<td>&ldquo;arabelleğe alınmış&rdquo;</td>
+<td>(isteğe bağlı) Canlı okuyucu üzerinde açık bir &ldquo;IEnumerable&rdquo; öğesinin gösterilmesine karşı verilerin bir listede önceden tüketilip tüketilmeyeceği (varsayılan)</td>
+</tr>
+<tr>
+<td>&ldquo;komutZaman aşımı&rdquo;</td>
+<td>(isteğe bağlı) Komutta kullanılacak zaman aşımı; belirtilmemişse, <code>SqlMapper.Settings.CommandTimeout</code> varsayılır (belirtilmişse)</td>
+</tr>
+<tr>
+<td>&ldquo;komutTürü&rdquo;</td>
+<td>Gerçekleştirilen komutun türü; varsayılan olarak &ldquo;Komut Metni&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<p>Parametreleri ifade etmek için sözdizimi RDBMS arasında değişir. Yukarıdaki tüm örnekler SQL Server sözdizimini kullanır, yani <code>@foo</code>; ancak, &ldquo;?foo&rdquo; ve &ldquo;:foo&rdquo; da düzgün çalışmalıdır.</p>
+<h2 id="değer-satır-içi">Değer Satır İçi <a href="#de%c4%9fer-sat%c4%b1r-i%c3%a7i" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bazen bir parametrenin uygunluğu (bakım ve ifade açısından), onu bir parametre olarak ele almak için performans maliyetinden daha ağır basabilir. Örneğin, sayfa boyutu bir yapılandırma ayarıyla sabitlendiğinde. Veya bir durum değeri bir &ldquo;enum&rdquo; değeriyle eşleştirilir. Düşünmek:</p>
+<pre><code>var orders = connection.Query&lt;Order&gt;(@&quot;
+select top (@count) * -- these brackets are an oddity of SQL Server
+from Orders
+where CustomerId = @customerId
+and Status = @open&quot;, new { customerId, count = PageSize, open = OrderStatus.Open });
+</code></pre>
+<p>Buradaki tek <em>gerçek</em> parametre &ldquo;customerId&quot;dir - diğer ikisi aslında değişmeyecek olan sözde parametrelerdir. Bunları sabit olarak algılarsa, RDBMS genellikle daha iyi bir iş çıkarabilir. Dapper&rsquo;ın bunun için özel bir sözdizimi vardır - <code>@name</code> yerine <code>{=name}</code> - bu <em>yalnızca</em> sayısal türler için geçerlidir. (Bu, SQL enjeksiyonundan kaynaklanan herhangi bir saldırı yüzeyini en aza indirir). Bir örnek aşağıdaki gibidir:</p>
+<pre><code>var orders = connection.Query&lt;Order&gt;(@&quot;
+select top {=count} *
+from Orders
+where CustomerId = @customerId
+and Status = {=open}&quot;, new { customerId, count = PageSize, open = OrderStatus.Open });
+</code></pre>
+<p>Dapper, SQL&rsquo;i yayınlamadan önce değerleri değişmez değerlerle değiştirir, böylece RDBMS aslında şöyle bir şey görür:</p>
+<pre><code>select top 10 *
+from Orders
+where CustomerId = @customerId
+and Status = 3
+</code></pre>
+<p>Bu, özellikle RDBMS sistemlerinin yalnızca daha iyi kararlar almasına değil, aynı zamanda gerçek parametrelerin önlediği sorgu planlarını açmasına izin verirken kullanışlıdır. Örneğin, bir sütun yüklemi bir parametreye karşıysa, o sütunlarda belirli değerlere sahip filtrelenmiş bir dizin kullanılamaz. Bunun nedeni, <em>sonraki</em> sorgunun belirtilen değerlerden birinden farklı bir parametreye sahip olabilmesidir.</p>
+<p>Değişmez değerlerle, sorgu iyileştirici, değerin gelecekteki sorgularda değişemeyeceğini bildiği için filtrelenmiş dizinleri kullanabilir.</p>
+<h2 id="temel-parametreli-sql">Temel Parametreli SQL <a href="#temel-parametreli-sql" class="anchor" aria-hidden="true">#</a></h2>
+<p>Dapper, tamamen parametreli SQL yoluyla en iyi uygulamayı takip etmeyi kolaylaştırır.</p>
+<p><img class="img-fluid lazyload blur-up" src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" alt="Bobby Tabloları"></p>
+<p>Parametreler önemlidir, bu nedenle zarif, doğru olanı yapmayı kolaylaştırır. Sadece parametrelerinizi RDBMS&rsquo;niz için normal şekilde ifade edin (genellikle <code>@foo</code>, <code>?foo</code> veya <code>:foo</code>) ve dapper&rsquo;a * <code>foo</code>* adlı bir üyesi olan bir nesne verin. Bunu yapmanın en yaygın yolu, anonim bir türdür:</p>
+<pre><code>int id = 123;
+string name = &quot;abc&quot;;
+connection.Execute(&quot;insert [KeyLookup](Id, Name) values(@id, @name)&quot;,
+    new { id, name });
+</code></pre>
+<p>Ve bu kadar. Dapper gerekli parametreleri ekleyecektir ve her şey çalışmalıdır.</p>
+<h2 id="nesne-modelinizi-kullanma">Nesne Modelinizi Kullanma <a href="#nesne-modelinizi-kullanma" class="anchor" aria-hidden="true">#</a></h2>
+<p>Mevcut nesne modelinizi parametre olarak da kullanabilirsiniz:</p>
+<pre><code>KeyLookup lookup = ... // some existing instance
+connection.Execute(&quot;insert [KeyLookup](Id, Name) values(@Id, @Name)&quot;, lookup);
+</code></pre>
+<p>Dapper, nesnenin hangi üyelerinin ekleneceğini belirlemek için komut metnini kullanır - genellikle &ldquo;Description&rdquo;, &ldquo;IsActive&rdquo;, &ldquo;CreationDate&rdquo; gibi gereksiz şeyler eklemez çünkü verdiğimiz komut açıkça onları içermez - bunu yapabileceği durumlar olsa da, örneğin komutunuz şunları içeriyorsa:</p>
+<pre><code>// TODO - removed for now; include the @Description in the insert
+</code></pre>
+<p>Yukarıdakilerin sadece bir yorum olduğunu anlamaya çalışmaz.</p>
+<h2 id="saklı-prosedürler">Saklı Prosedürler <a href="#sakl%c4%b1-prosed%c3%bcrler" class="anchor" aria-hidden="true">#</a></h2>
+<p>Saklı yordamların parametreleri tam olarak aynı şekilde çalışır, ancak bu zarif, neyin dahil edilmesi gerektiğini/ edilmemesi gerektiğini belirlemeye çalışamaz - mevcut her şey bir parametre olarak değerlendirilir. Bu nedenle anonim türler genellikle tercih edilir:</p>
+<pre><code>connection.Execute(&quot;KeyLookupInsert&quot;, new { id, name },
+    commandType: CommandType.StoredProcedure);
+</code></pre>
+<h2 id="liste-genişletmeleri">Liste Genişletmeleri <a href="#liste-geni%c5%9fletmeleri" class="anchor" aria-hidden="true">#</a></h2>
+<p>Veritabanı sorgularında yaygın bir senaryo, buradaki listenin çalışma zamanında oluşturulduğu &ldquo;IN (&hellip;)&ldquo;dir. Çoğu RDBMS bunun için iyi bir metafordan yoksundur - ve bunun için evrensel bir <em>çapraz RDBMS</em> çözümü yoktur. Bunun yerine, zarif bir otomatik komut genişletmesi sağlar. Tek gereken, sağlanan &ldquo;IEnumerable&rdquo; parametre değeridir. <code>@foo</code> içeren bir komut, <code>(@foo0,@foo1,@foo2,@foo3)</code> şeklinde genişletilir (4 öğelik bir dizi için). Bunun en yaygın kullanımı &ldquo;IN&rdquo; olacaktır:</p>
+<pre><code>int[] orderIds = ...
+var orders = connection.Query&lt;Order&gt;(@&quot;
+select *
+from Orders
+where Id in @orderIds&quot;, new { orderIds });
+</code></pre>
+<p>Bu daha sonra otomatik olarak çok satırlı getirme için uygun SQL&rsquo;i vermek üzere genişler:</p>
+<pre><code>select *
+from Orders
+where Id in (@orderIds0, @orderIds1, @orderIds2, @orderIds3)
+</code></pre>
+<p><code>@orderIds0</code> vb. parametreleri diziden alınan değerler olarak eklenir.
+Orijinal olarak geçerli SQL olmadığı gerçeğinin, bu özelliğin yanlışlıkla kullanılmamasını sağlamak için kasıtlı olduğunu unutmayın. Bu özellik ayrıca SQL Server&rsquo;daki <code>OPTIMIZE FOR</code> / <code>UNKNOWN</code> sorgu ipucuyla da doğru şekilde çalışır; Eğer kullanırsan:</p>
+<pre><code>option (optimize for
+    (@orderIds unknown))
+</code></pre>
+<p>bunu doğru bir şekilde genişletecek:</p>
+<pre><code>option (optimize for
+    (@orderIds0 unknown, @orderIds1 unknown, @orderIds2 unknown, @orderIds3 unknown))
+</code></pre>
+<h2 id="birden-çok-girdi-kümesine-karşı-işlem-gerçekleştirme">Birden Çok Girdi Kümesine Karşı İşlem Gerçekleştirme <a href="#birden-%c3%a7ok-girdi-k%c3%bcmesine-kar%c5%9f%c4%b1-i%c5%9flem-ger%c3%a7ekle%c5%9ftirme" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bazen aynı şeyi defalarca yapmak istersiniz. Dapper, <em>en dıştaki</em> parametre (genellikle tek bir anonim tür veya bir etki alanı modeli örneğidir) gerçekten bir &ldquo;IEnumerable&rdquo; dizisi olarak sağlanmışsa, bunu &ldquo;Execute&rdquo; yönteminde destekler. Örneğin:</p>
+<pre><code>Order[] orders = ...
+// update the totals
+connection.Execute(&quot;update Orders set Total=@Total where Id=@Id&quot;, orders);
+</code></pre>
+<p>Burada zarif, verilerimiz üzerinde basit bir döngü yapıyor, aslında bizim yaptığımızla aynı:</p>
+<pre><code>Order[] orders = ...
+// update the totals
+foreach(Order order in orders) {
+    connection.Execute(&quot;update Orders set Total=@Total where Id=@Id&quot;, order);
+}
+</code></pre>
+<p>Bu kullanım, tüm &ldquo;Birden Çok Etkin Sonuç Kümesine&rdquo; açıkça yapılandırılmış bir bağlantıda &ldquo;async&rdquo; API ile birleştirildiğinde <em>özellikle</em> ilginç hale gelir - bu kullanımda, zarif işlemler otomatik olarak <em>boru hattı</em> yapar, böylece ödeme yapmazsınız satır başına gecikme maliyeti. Bu biraz daha karmaşık bir kullanım gerektirir,</p>
+<pre><code>await connection.ExecuteAsync(
+    new CommandDefinition(
+        &quot;update Orders set Total=@Total where Id=@Id&quot;, 
+         orders, flags: CommandFlags.Pipelined))
+</code></pre>
+<p>Ancak, tablo değerli parametreleri de araştırmak isteyebileceğinizi unutmayın.</p>
+<h2 id="sözde-konumsal-parametreler-adlandırılmış-parametreleri-desteklemeyen-sağlayıcılar-için">Sözde Konumsal Parametreler (adlandırılmış parametreleri desteklemeyen sağlayıcılar için) <a href="#s%c3%b6zde-konumsal-parametreler-adland%c4%b1r%c4%b1lm%c4%b1%c5%9f-parametreleri-desteklemeyen-sa%c4%9flay%c4%b1c%c4%b1lar-i%c3%a7in" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bazı ADO.NET sağlayıcıları (en önemlisi: OleDB) <em>adlandırılmış</em> parametreleri desteklemez; parametreler bunun yerine yalnızca <em>konum</em> ile, <code>?</code> yer tutucusu ile belirtilir. Dapper bunlar için hangi üyeyi kullanacağını bilemez, bu nedenle zarif alternatif bir sözdizimine izin verir, <code>?foo?</code>; bu, diğer SQL türevlerinde &lsquo;@foo&rsquo; veya &lsquo;:foo&rsquo; ile aynı olacaktır, ancak bu şık, sorguyu yürütmeden önce parametre belirtecini tamamen &lsquo;?&rsquo; ile <strong>değiştirir</strong>.</p>
+<p>Bu, liste genişletme gibi diğer özelliklerle birlikte çalışır, dolayısıyla aşağıdakiler geçerlidir:</p>
+<pre><code>string region = &quot;North&quot;;
+int[] users = ...
+var docs = conn.Query&lt;Document&gt;(@&quot;
+     select * from Documents
+     where Region = ?region?
+     and OwnerId in ?users?&quot;, new { region, users }).AsList();
+</code></pre>
+<p>&lsquo;.region&rsquo; ve &lsquo;.users&rsquo; üyeleri buna göre kullanılır ve verilen SQL (örneğin, 3 kullanıcı ile):</p>
+<pre><code>     select * from Documents
+     where Region = ?
+     and OwnerId in (?,?,?)
+</code></pre>
+<p>Ancak, bu özelliği kullanırken aynı parametrenin birden çok kez kullanılmasına <strong>dapper</strong> izin vermediğine dikkat edin; bu, aynı parametre değerini (büyük olabilir) birden çok kez eklemek zorunda kalmamak içindir. Aynı değere birden çok kez başvurmanız gerekiyorsa, bir değişken bildirmeyi düşünün, örneğin:</p>
+<pre><code>declare @id int = ?id?; // now we can use @id multiple times in the SQL
+</code></pre>
+<p>Değişkenler mevcut değilse, parametrelerde yinelenen üye adları kullanabilirsiniz - bu, değerin birden çok kez gönderildiğini de açıkça gösterecektir:</p>
+<pre><code>int id = 42;
+connection.Execute(&quot;... where ParentId = $id0$ ... SomethingElse = $id1$ ...&quot;,
+      new { id0 = id, id1 = id });
+</code></pre>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/tr/dapper/temel-sorgulama/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Temel Sorgulama
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/tr/dapper/coklu-sonuclar/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Çoklu Sonuçlar &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/tr/about/">Hakkında</a></li>
+          <li class="list-inline-item"><a href="/tr/disclaimers/">Sorumluluk Reddi</a></li>
+          <li class="list-inline-item"><a href="/tr/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/tr/terms-of-use/">Kullanım Şartları</a></li>
+          <li class="list-inline-item"><a href="/tr/privacy-policy/">Gizlilik Politikası</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

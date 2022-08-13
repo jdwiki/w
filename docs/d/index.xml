@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>D Language Tutorial on </title>
+    <link>https://www.wikiod.com/docs/d/</link>
+    <description>Recent content in D Language Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with D Language</title>
+      <link>https://www.wikiod.com/d/getting-started-with-d-language/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/d/getting-started-with-d-language/</guid>
+      <description>Installation or Setup # The D programming language&amp;rsquo;s standard compiler DMD can run on all major platforms. To install DMD see here. To install by command line you may run the command (found on the D website):
+curl -fsS https://dlang.org/install.sh | bash -s dmd Package Managers # Arch Linux # pacman -S dlang Chocolatey # choco install dmd Gentoo # layman -f -a dlang OSX Homebrew # brew install dmd Debian/Ubuntu # Installation on Debian/Ubuntu distributions needs that the APT repository be added to the sources list.</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Arrays &amp; Slices</title>
+      <link>https://www.wikiod.com/d/dynamic-arrays--slices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/d/dynamic-arrays--slices/</guid>
+      <description>Syntax # &amp;lt;type&amp;gt;[] &amp;lt;name&amp;gt;; Slices generate a new view on existing memory. They don&amp;rsquo;t create a new copy. If no slice holds a reference to that memory anymore - or a sliced part of it - it will be freed by the garbage collector.
+Using slices it&amp;rsquo;s possible to write very efficient code for e.g. parsers that just operate on one memory block and just slice the parts they really need to work on - no need allocating new memory blocks.</description>
+    </item>
+    
+    <item>
+      <title>Ranges</title>
+      <link>https://www.wikiod.com/d/ranges/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/d/ranges/</guid>
+      <description>If a foreach is encountered by the compiler
+foreach (element; range) { it&amp;rsquo;s internally rewritten similar to the following:
+for (auto it = range; !it.empty; it.popFront()) { auto element = it.front; ... } Any object which fulfills the above interface is called an input range and is thus a type that can be iterated over:
+struct InputRange { @property bool empty(); @property T front(); void popFront(); } Strings and arrays are ranges # import std.</description>
+    </item>
+    
+    <item>
+      <title>Associative Arrays</title>
+      <link>https://www.wikiod.com/d/associative-arrays/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/d/associative-arrays/</guid>
+      <description>Standard use # int[string] wordCount(string[] wordList) { int[string] words; foreach (word; wordList) { words[word]++; } return words; } void main() { int[string] count = wordCount([&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;, &amp;quot;I&amp;quot;, &amp;quot;say&amp;quot;, &amp;quot;hello&amp;quot;]); foreach (key; count.keys) { writefln(&amp;quot;%s: %s&amp;quot;, key, count[key]); } // hello: 2 // world: 1 // I: 1 // say: 1 // note: the order in the foreach is unspecified } Literals # int[string] aa0 = [&amp;quot;x&amp;quot;: 5, &amp;quot;y&amp;quot;: 6]; //int values, string keys auto aa1 = [&amp;quot;x&amp;quot;: 5.</description>
+    </item>
+    
+    <item>
+      <title>Compile Time Function Evaluation (CTFE)</title>
+      <link>https://www.wikiod.com/d/compile-time-function-evaluation-ctfe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/d/compile-time-function-evaluation-ctfe/</guid>
+      <description>CTFE is a mechanism which allows the compiler to execute functions at compile time. There is no special set of the D language necessary to use this feature - whenever a function just depends on compile time known values the D compiler might decide to interpret it during compilation.
+You can also play interactively with CTFE.
+Evaluate a function at compile-time # long fib(long n) { return n &amp;lt; 2 ?</description>
+    </item>
+    
+    <item>
+      <title>UFCS - Uniform Function Call Syntax</title>
+      <link>https://www.wikiod.com/d/ufcs---uniform-function-call-syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/d/ufcs---uniform-function-call-syntax/</guid>
+      <description>Syntax # aThirdFun(anotherFun(myFun(), 42); // common notation (also valid) myFun().anotherFun(42).aThirdFun(); // UFCS myFun.anotherFun(42).aThirdFun; // empty braces can be removed In a call a.b(args...), if the type a does not have a method named b, then the compiler will try to rewrite the call as b(a, args...).
+Checking if a Number is Prime # import std.stdio; bool isPrime(int number) { foreach(i; 2..number) { if (number % i == 0) { return false; } } return true; } void main() { writeln(2.</description>
+    </item>
+    
+    <item>
+      <title>Scope guards</title>
+      <link>https://www.wikiod.com/d/scope-guards/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/d/scope-guards/</guid>
+      <description>Syntax # scope(exit) - statements are called no matter how the current block was exited scope(success) - statements are called when the current block was exited normally scope(failure) - statements are called when the current block was exited through exception throwing Using scope guards makes code much cleaner and allows to place resource allocation and clean up code next to each other. These little helpers also improve safety because they make sure certain cleanup code is always called independent of which paths are actually taken at runtime.</description>
+    </item>
+    
+    <item>
+      <title>Contracts</title>
+      <link>https://www.wikiod.com/d/contracts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/d/contracts/</guid>
+      <description>The assertions will be optimized away in an release build.
+Function contracts # Function contracts allow the programer to check for inconsistencies. Inconsistencies include invalid parameters, checks for the correct return value or an invalid state of the object.
+The checks can happen before and after the body of the function or method is executed.
+void printNotGreaterThan42(uint number) in { assert(number &amp;lt; 42); } body { import std.stdio : writeln; writeln(number); } The assertions will be optimized away in an release build.</description>
+    </item>
+    
+    <item>
+      <title>Structs</title>
+      <link>https://www.wikiod.com/d/structs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/d/structs/</guid>
+      <description>Defining a new Struct # To define the struct called Person with an integer type variable age, integer type variable height and float type variable ageXHeight:
+struct Person { int age; int height; float ageXHeight; } Generally:
+struct structName { /+ values go here +/ } Struct Constructors # In D we can use constructors to initialize structs just like a class. To define a construct for the struct declared in the previous example we can type:</description>
+    </item>
+    
+    <item>
+      <title>Imports and modules</title>
+      <link>https://www.wikiod.com/d/imports-and-modules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/d/imports-and-modules/</guid>
+      <description>Syntax # module my.package; import my.package; import my.package : function; import fancyName = mypackage; import my.package : fancyFunctionName = function; Modules automatically provide a namespace scope for their contents. Modules superficially resemble classes, but differ in that:
+There&amp;rsquo;s only one instance of each module, and it is statically allocated. There is no virtual table. Modules do not inherit, they have no super modules, etc. Only one module per file. Module symbols can be imported.</description>
+    </item>
+    
+  </channel>
+</rss>

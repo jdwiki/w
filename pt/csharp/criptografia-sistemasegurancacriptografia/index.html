@@ -1,0 +1,4520 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.43b0b023adae2e6795d9e4443770a29ec36c5d80b552b920a387882f38dd59fc45f95bfed41ea5491dbbc99f117f2037d021e7a3764c15fcb25d77146327b1af.css" integrity="sha512-Q7CwI62uLmeV2eREN3CinsNsXYC1Urkgo4eILzjdWfxF&#43;Vv&#43;1B6lSR27yZ8RfyA30CHno3ZMFfyyXXcUYyexrw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Criptografia (Sistema.Segurança.Criptografia) - WikiOD</title>
+<meta name="description" content="Exemplos modernos de criptografia autenticada simétrica de uma string # Criptografia é algo muito difícil e depois de passar muito tempo lendo diferentes exemplos e vendo como é fácil introduzir alguma forma de vulnerabilidade encontrei uma resposta originalmente escrita por @jbtule que acho muito boa. Gostar de ler:
+&amp;ldquo;A prática recomendada geral para criptografia simétrica é usar a criptografia autenticada com dados associados (AEAD), no entanto, isso não faz parte das bibliotecas de criptografia .">
+  <link rel="canonical" href="https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/">
+<meta property="og:locale" content="pt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Criptografia (Sistema.Segurança.Criptografia)">
+<meta property="og:description" content="Exemplos modernos de criptografia autenticada simétrica de uma string # Criptografia é algo muito difícil e depois de passar muito tempo lendo diferentes exemplos e vendo como é fácil introduzir alguma forma de vulnerabilidade encontrei uma resposta originalmente escrita por @jbtule que acho muito boa. Gostar de ler:
+&ldquo;A prática recomendada geral para criptografia simétrica é usar a criptografia autenticada com dados associados (AEAD), no entanto, isso não faz parte das bibliotecas de criptografia .">
+<meta property="og:url" content="https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Criptografia (Sistema.Segurança.Criptografia)">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Criptografia (Sistema.Segurança.Criptografia)">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "Bem-vindo ao WikiOD - Documentação online do Wiki O WikiOD é um projeto de escrita colaborativa para construir documentação online da mais alta qualidade de todas as linguagens de programação, assuntos e conceitos relacionados à educação.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/",
+      "url": "https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/",
+      "name": "Criptografia (Sistema.Segurança.Criptografia)",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/#/schema/image/2"
+      },
+      "inLanguage": "pt",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/pt/",
+          "url": "https://www.wikiod.com/pt/",
+          "name": "Pt"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/pt/csharp/",
+          "url": "https://www.wikiod.com/pt/csharp/",
+          "name": "Csharp"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Criptografia (Sistema.Segurança.Criptografia)",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Criptografia (Sistema.Segurança.Criptografia)"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/pt/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Navegar docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/pt/docs/csharp/"><h3 class="h6 text-uppercase mb-2">Tutorial de linguagem C#</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/introducao-a-linguagem-c/">Introdução à linguagem C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-60/">Recursos do C# 6.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-70/">Recursos do C# 7.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/metodos-de-extensao/">Métodos de extensão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/consultas-linq/">Consultas LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/palavras-chave/">Palavras-chave</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/palavra-chave-de-rendimento/">Palavra-chave de rendimento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-declaracao/">Usando Declaração</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulacao-de-excecao/">Manipulação de exceção</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/async-await/">Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/reflexao/">Reflexão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/genericos/">Genéricos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/enum/">Enum</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/strings-literais/">Strings literais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operador-de-coalescencia-nula/">Operador de coalescência nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/stringformat/">String.Format</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operadores/">Operadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/construtores-e-finalizadores/">Construtores e Finalizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operadores-condicionais-nulos/">Operadores condicionais nulos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/matrizes/">Matrizes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/implementacao-singleton/">Implementação Singleton</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/delegados/">Delegados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/inicializadores-de-colecao/">Inicializadores de coleção</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/exemplos-de-assemblyinfocs/">Exemplos de AssemblyInfo.cs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interpolacao-de-string/">Interpolação de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/eventos/">Eventos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/heranca/">Herança</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/arvores-de-expressao/">Árvores de Expressão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interfaces/">Interfaces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/rosqueamento/">Rosqueamento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/comentarios-da-documentacao-xml/">Comentários da Documentação XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/padroes-de-design-de-criacao/">Padrões de design de criação</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/programacao-funcional/">Programação Funcional</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interface-descartavel/">Interface descartável</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/convencoes-de-nomenclatura/">Convenções de nomenclatura</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/trabalhador-em-segundo-plano/">Trabalhador em segundo plano</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/uma-visao-geral-das-colecoes-c/">Uma visão geral das coleções c#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/coletor-de-lixo-em-net/">Coletor de lixo em .Net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/declaracao-de-bloqueio/">Declaração de bloqueio</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/metodos-datetime/">Métodos DateTime</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/nome-do-operador/">nome do operador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/es-de-arquivo-e-fluxo/">ES de arquivo e fluxo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/polimorfismo/">Polimorfismo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/">Criptografia (Sistema.Segurança.Criptografia)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tuplas/">Tuplas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interoperabilidade/">Interoperabilidade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/asyncawait-backgroundworker-exemplos-de-tarefas-e-threads/">Asyncawait, Backgroundworker, Exemplos de tarefas e threads</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/executando-solicitacoes-http/">Executando solicitações HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/atributos/">Atributos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operacoes-comuns-de-string/">Operações Comuns de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/funcao-com-varios-valores-de-retorno/">Função com vários valores de retorno</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/compilacao-de-tempo-de-execucao/">Compilação de tempo de execução</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/sequencias-de-escape-de-string/">Sequências de Escape de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipo-de-valor-x-tipo-de-referencia/">Tipo de valor x tipo de referência</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/introducao-json-com-c/">Introdução Json com C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/plataforma-do-compilador-net-roslyn/">Plataforma do compilador .NET (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/propriedades/">Propriedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/rede/">Rede</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/codigo-inseguro-em-net/">Código inseguro em .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/construcoes-de-fluxo-de-dados-da-biblioteca-paralela-de-tarefas-tpl/">Construções de fluxo de dados da biblioteca paralela de tarefas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/diretivas-do-pre-processador/">Diretivas do pré-processador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipo-dinamico/">Tipo dinâmico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/loop/">Loop</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/metodos/">Métodos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/classes-estaticas/">Classes estáticas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/serializacao-binaria/">Serialização Binária</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/script-c/">Script C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-sqlite-em-c/">Usando SQLite em C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/acessando-bancos-de-dados/">Acessando Bancos de Dados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-40/">Recursos do C# 4.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/gerando-numeros-aleatorios-em-c/">Gerando números aleatórios em C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/linq-para-objetos/">Linq para objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursao/">Recursão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/contratos-de-codigo/">Contratos de código</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/indexador/">Indexador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/como-usar-c-structs-para-criar-um-tipo-de-uniao-semelhante-a-c-unions/">Como usar C# Structs para criar um tipo de união (semelhante a C Unions)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/injecao-de-dependencia/">Injeção de dependência</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/cache/">Cache</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/guia/">Guia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/iteradores/">Iteradores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/fluxo/">Fluxo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulador-de-autenticacao-c/">Manipulador de autenticação C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/modificadores-de-acesso/">Modificadores de acesso</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/stringbuilder/">StringBuilder</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipos-anonimos/">Tipos anônimos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/anotacao-de-dados/">Anotação de dados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interface-que-pode-ser-consultada/">Interface que pode ser consultada</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/xmldocument-e-o-namespace-systemxml/">XmlDocument e o namespace System.Xml</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-a-diretiva/">Usando a Diretiva</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ponteiros-e-codigo-inseguro/">Ponteiros e código inseguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/fundicao/">Fundição</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interface-inotifypropertychanged/">Interface INotifyPropertyChanged</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/temporizadores/">Temporizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/verificado-e-desmarcado/">Verificado e desmarcado</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/funcoes-de-hash/">Funções de hash</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipos-anulaveis/">Tipos anuláveis</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/lendo-e-gravando-arquivos-zip/">Lendo e gravando arquivos .zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-50/">Recursos do C# 5.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/linq-paralelo-plinq/">LINQ Paralelo (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/expressoes-lambda/">Expressões lambda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ilgenerator/">ILGenerator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/inicializadores-de-objetos/">Inicializadores de objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/linq-para-xml/">LINQ para XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/diagnostico/">Diagnóstico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/filtros-de-acao/">Filtros de ação</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/soquete-assincrono/">Soquete Assíncrono</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/filesystemwatcher/">FileSystemWatcher</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/imutabilidade/">Imutabilidade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/inicializando-propriedades/">Inicializando Propriedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/biblioteca-paralela-de-tarefas/">Biblioteca paralela de tarefas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/classe-e-metodos-parciais/">Classe e métodos parciais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/contexto-de-sincronizacao-em-async-await/">Contexto de sincronização em Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/declaracoes-condicionais/">Declarações Condicionais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/delegados-de-funcoes/">Delegados de funções</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/equals-e-gethashcode/">Equals e GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/excecao-de-referencia-nula/">Exceção de Referência Nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/geracao-de-codigo-t4/">Geração de código T4</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/analise-de-regex/">Análise de Regex</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/comentarios-e-regioes/">Comentários e regiões</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/extensoes-reativas-rx/">Extensões reativas (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/colecao-observablet/">Coleção Observable&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/concatenar-string/">Concatenar String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/cronometros/">Cronômetros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/estruturas/">Estruturas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/identidade-aspnet/">Identidade ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ienumerable/">IEnumerable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/implementando-o-padrao-de-design-flyweight/">Implementando o padrão de design Flyweight</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/transbordar/">Transbordar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/literais/">Literais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/systemmanagementautomation/">System.Management.Automation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/biginteger/">BigInteger</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/padroes-de-projeto-estrutural/">Padrões de Projeto Estrutural</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/programacao-orientada-a-objetos-em-c/">Programação Orientada a Objetos em C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/resolucao-de-sobrecarga/">Resolução de sobrecarga</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tornando-um-thread-variavel-seguro/">Tornando um thread variável seguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/construtor-de-consultas-lambda-generico/">Construtor de consultas Lambda genérico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/importar-contatos-do-google/">Importar contatos do Google</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulacao-de-string/">Manipulação de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-30/">Recursos do C# 3.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/xdocument-e-o-namespace-systemxmllinq/">XDocument e o namespace System.Xml.Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/aliases-de-tipos-integrados/">Aliases de tipos integrados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/icloneable/">ICloneable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/argumentos-nomeados/">Argumentos nomeados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/implementando-o-padrao-de-design-do-decorador/">Implementando o padrão de design do decorador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-jsonnet/">Usando json.net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/conversao-de-tipo/">Conversão de tipo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/icomparavel/">IComparável</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operador-de-igualdade/">Operador de igualdade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ponteiros/">Ponteiros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/on-algoritmo-para-rotacao-circular-de-uma-matriz/">O(n) Algoritmo para rotação circular de uma matriz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipos-integrados/">Tipos integrados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ler-e-entender-stacktraces/">Ler e entender Stacktraces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/atributo-compativel-com-cls/">Atributo compatível com CLS</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/contratos-e-declaracoes-de-codigo/">Contratos e declarações de código</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/argumentos-nomeados-e-opcionais/">Argumentos nomeados e opcionais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/criando-o-proprio-messagebox-no-aplicativo-windows-form/">Criando o próprio MessageBox no aplicativo Windows Form</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/criando-um-aplicativo-de-console-usando-um-editor-de-texto-simples-e-o-compilador-c-cscexe/">Criando um aplicativo de console usando um editor de texto simples e o compilador C# (csc.exe)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/microsoftexchangewebservices/">Microsoft.Exchange.WebServices</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/fundacao-de-comunicacao-do-windows/">Fundação de Comunicação do Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulando-formatexception-ao-converter-string-para-outros-tipos/">Manipulando FormatException ao converter string para outros tipos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/acesse-a-pasta-compartilhada-de-rede-com-nome-de-usuario-e-senha/">Acesse a pasta compartilhada de rede com nome de usuário e senha</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/incluindo-recursos-de-fonte/">Incluindo recursos de fonte</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/pt/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/pt/docs/">Tutoriais</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/pt/blog/">Artigos</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Português
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/pt/csharp/criptografia-sistemasegurancacriptografia/">Português</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/csharp/cryptography-systemsecuritycryptography/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/csharp/criptografia-sistemaseguridadcriptografia/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/fr/csharp/cryptographie-systemsecuritycryptography/" hreflang="fr" lang="fr">Français</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/tr/csharp/kriptografi-systemsecuritycryptography/" hreflang="tr" lang="tr">Türk</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/pt/docs/csharp/"><h3 class="h6 text-uppercase mb-2">Tutorial de linguagem C#</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/introducao-a-linguagem-c/">Introdução à linguagem C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-60/">Recursos do C# 6.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-70/">Recursos do C# 7.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/metodos-de-extensao/">Métodos de extensão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/consultas-linq/">Consultas LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/palavras-chave/">Palavras-chave</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/palavra-chave-de-rendimento/">Palavra-chave de rendimento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-declaracao/">Usando Declaração</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulacao-de-excecao/">Manipulação de exceção</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/async-await/">Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/reflexao/">Reflexão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/genericos/">Genéricos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/enum/">Enum</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/strings-literais/">Strings literais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operador-de-coalescencia-nula/">Operador de coalescência nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/stringformat/">String.Format</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operadores/">Operadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/construtores-e-finalizadores/">Construtores e Finalizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operadores-condicionais-nulos/">Operadores condicionais nulos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/matrizes/">Matrizes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/implementacao-singleton/">Implementação Singleton</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/delegados/">Delegados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/inicializadores-de-colecao/">Inicializadores de coleção</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/exemplos-de-assemblyinfocs/">Exemplos de AssemblyInfo.cs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interpolacao-de-string/">Interpolação de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/eventos/">Eventos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/heranca/">Herança</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/arvores-de-expressao/">Árvores de Expressão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interfaces/">Interfaces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/rosqueamento/">Rosqueamento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/comentarios-da-documentacao-xml/">Comentários da Documentação XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/padroes-de-design-de-criacao/">Padrões de design de criação</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/programacao-funcional/">Programação Funcional</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interface-descartavel/">Interface descartável</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/convencoes-de-nomenclatura/">Convenções de nomenclatura</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/trabalhador-em-segundo-plano/">Trabalhador em segundo plano</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/uma-visao-geral-das-colecoes-c/">Uma visão geral das coleções c#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/coletor-de-lixo-em-net/">Coletor de lixo em .Net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/declaracao-de-bloqueio/">Declaração de bloqueio</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/metodos-datetime/">Métodos DateTime</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/nome-do-operador/">nome do operador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/es-de-arquivo-e-fluxo/">ES de arquivo e fluxo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/polimorfismo/">Polimorfismo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/">Criptografia (Sistema.Segurança.Criptografia)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tuplas/">Tuplas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interoperabilidade/">Interoperabilidade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/asyncawait-backgroundworker-exemplos-de-tarefas-e-threads/">Asyncawait, Backgroundworker, Exemplos de tarefas e threads</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/executando-solicitacoes-http/">Executando solicitações HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/atributos/">Atributos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operacoes-comuns-de-string/">Operações Comuns de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/funcao-com-varios-valores-de-retorno/">Função com vários valores de retorno</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/compilacao-de-tempo-de-execucao/">Compilação de tempo de execução</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/sequencias-de-escape-de-string/">Sequências de Escape de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipo-de-valor-x-tipo-de-referencia/">Tipo de valor x tipo de referência</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/introducao-json-com-c/">Introdução Json com C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/plataforma-do-compilador-net-roslyn/">Plataforma do compilador .NET (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/propriedades/">Propriedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/rede/">Rede</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/codigo-inseguro-em-net/">Código inseguro em .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/construcoes-de-fluxo-de-dados-da-biblioteca-paralela-de-tarefas-tpl/">Construções de fluxo de dados da biblioteca paralela de tarefas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/diretivas-do-pre-processador/">Diretivas do pré-processador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipo-dinamico/">Tipo dinâmico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/loop/">Loop</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/metodos/">Métodos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/classes-estaticas/">Classes estáticas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/serializacao-binaria/">Serialização Binária</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/script-c/">Script C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-sqlite-em-c/">Usando SQLite em C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/acessando-bancos-de-dados/">Acessando Bancos de Dados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-40/">Recursos do C# 4.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/gerando-numeros-aleatorios-em-c/">Gerando números aleatórios em C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/linq-para-objetos/">Linq para objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursao/">Recursão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/contratos-de-codigo/">Contratos de código</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/indexador/">Indexador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/como-usar-c-structs-para-criar-um-tipo-de-uniao-semelhante-a-c-unions/">Como usar C# Structs para criar um tipo de união (semelhante a C Unions)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/injecao-de-dependencia/">Injeção de dependência</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/cache/">Cache</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/guia/">Guia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/iteradores/">Iteradores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/fluxo/">Fluxo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulador-de-autenticacao-c/">Manipulador de autenticação C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/modificadores-de-acesso/">Modificadores de acesso</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/stringbuilder/">StringBuilder</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipos-anonimos/">Tipos anônimos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/anotacao-de-dados/">Anotação de dados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interface-que-pode-ser-consultada/">Interface que pode ser consultada</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/xmldocument-e-o-namespace-systemxml/">XmlDocument e o namespace System.Xml</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-a-diretiva/">Usando a Diretiva</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ponteiros-e-codigo-inseguro/">Ponteiros e código inseguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/fundicao/">Fundição</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interface-inotifypropertychanged/">Interface INotifyPropertyChanged</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/temporizadores/">Temporizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/verificado-e-desmarcado/">Verificado e desmarcado</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/funcoes-de-hash/">Funções de hash</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipos-anulaveis/">Tipos anuláveis</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/lendo-e-gravando-arquivos-zip/">Lendo e gravando arquivos .zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-50/">Recursos do C# 5.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/linq-paralelo-plinq/">LINQ Paralelo (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/expressoes-lambda/">Expressões lambda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ilgenerator/">ILGenerator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/inicializadores-de-objetos/">Inicializadores de objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/linq-para-xml/">LINQ para XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/diagnostico/">Diagnóstico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/filtros-de-acao/">Filtros de ação</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/soquete-assincrono/">Soquete Assíncrono</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/filesystemwatcher/">FileSystemWatcher</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/imutabilidade/">Imutabilidade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/inicializando-propriedades/">Inicializando Propriedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/biblioteca-paralela-de-tarefas/">Biblioteca paralela de tarefas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/classe-e-metodos-parciais/">Classe e métodos parciais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/contexto-de-sincronizacao-em-async-await/">Contexto de sincronização em Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/declaracoes-condicionais/">Declarações Condicionais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/delegados-de-funcoes/">Delegados de funções</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/equals-e-gethashcode/">Equals e GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/excecao-de-referencia-nula/">Exceção de Referência Nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/geracao-de-codigo-t4/">Geração de código T4</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/analise-de-regex/">Análise de Regex</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/comentarios-e-regioes/">Comentários e regiões</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/extensoes-reativas-rx/">Extensões reativas (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/colecao-observablet/">Coleção Observable&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/concatenar-string/">Concatenar String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/cronometros/">Cronômetros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/estruturas/">Estruturas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/identidade-aspnet/">Identidade ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ienumerable/">IEnumerable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/implementando-o-padrao-de-design-flyweight/">Implementando o padrão de design Flyweight</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/transbordar/">Transbordar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/literais/">Literais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/systemmanagementautomation/">System.Management.Automation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/biginteger/">BigInteger</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/padroes-de-projeto-estrutural/">Padrões de Projeto Estrutural</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/programacao-orientada-a-objetos-em-c/">Programação Orientada a Objetos em C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/resolucao-de-sobrecarga/">Resolução de sobrecarga</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tornando-um-thread-variavel-seguro/">Tornando um thread variável seguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/construtor-de-consultas-lambda-generico/">Construtor de consultas Lambda genérico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/importar-contatos-do-google/">Importar contatos do Google</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulacao-de-string/">Manipulação de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-30/">Recursos do C# 3.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/xdocument-e-o-namespace-systemxmllinq/">XDocument e o namespace System.Xml.Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/aliases-de-tipos-integrados/">Aliases de tipos integrados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/icloneable/">ICloneable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/argumentos-nomeados/">Argumentos nomeados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/implementando-o-padrao-de-design-do-decorador/">Implementando o padrão de design do decorador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-jsonnet/">Usando json.net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/conversao-de-tipo/">Conversão de tipo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/icomparavel/">IComparável</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operador-de-igualdade/">Operador de igualdade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ponteiros/">Ponteiros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/on-algoritmo-para-rotacao-circular-de-uma-matriz/">O(n) Algoritmo para rotação circular de uma matriz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipos-integrados/">Tipos integrados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ler-e-entender-stacktraces/">Ler e entender Stacktraces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/atributo-compativel-com-cls/">Atributo compatível com CLS</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/contratos-e-declaracoes-de-codigo/">Contratos e declarações de código</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/argumentos-nomeados-e-opcionais/">Argumentos nomeados e opcionais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/criando-o-proprio-messagebox-no-aplicativo-windows-form/">Criando o próprio MessageBox no aplicativo Windows Form</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/criando-um-aplicativo-de-console-usando-um-editor-de-texto-simples-e-o-compilador-c-cscexe/">Criando um aplicativo de console usando um editor de texto simples e o compilador C# (csc.exe)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/microsoftexchangewebservices/">Microsoft.Exchange.WebServices</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/fundacao-de-comunicacao-do-windows/">Fundação de Comunicação do Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulando-formatexception-ao-converter-string-para-outros-tipos/">Manipulando FormatException ao converter string para outros tipos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/acesse-a-pasta-compartilhada-de-rede-com-nome-de-usuario-e-senha/">Acesse a pasta compartilhada de rede com nome de usuário e senha</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/incluindo-recursos-de-fonte/">Incluindo recursos de fonte</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/pt/docs/csharp/"><h3 class="h6 text-uppercase mb-2">Tutorial de linguagem C#</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/introducao-a-linguagem-c/">Introdução à linguagem C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-60/">Recursos do C# 6.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-70/">Recursos do C# 7.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/metodos-de-extensao/">Métodos de extensão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/consultas-linq/">Consultas LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/palavras-chave/">Palavras-chave</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/palavra-chave-de-rendimento/">Palavra-chave de rendimento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-declaracao/">Usando Declaração</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulacao-de-excecao/">Manipulação de exceção</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/async-await/">Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/reflexao/">Reflexão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/genericos/">Genéricos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/enum/">Enum</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/strings-literais/">Strings literais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operador-de-coalescencia-nula/">Operador de coalescência nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/stringformat/">String.Format</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operadores/">Operadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/construtores-e-finalizadores/">Construtores e Finalizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operadores-condicionais-nulos/">Operadores condicionais nulos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/matrizes/">Matrizes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/implementacao-singleton/">Implementação Singleton</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/delegados/">Delegados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/inicializadores-de-colecao/">Inicializadores de coleção</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/exemplos-de-assemblyinfocs/">Exemplos de AssemblyInfo.cs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interpolacao-de-string/">Interpolação de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/eventos/">Eventos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/heranca/">Herança</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/arvores-de-expressao/">Árvores de Expressão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interfaces/">Interfaces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/rosqueamento/">Rosqueamento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/comentarios-da-documentacao-xml/">Comentários da Documentação XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/padroes-de-design-de-criacao/">Padrões de design de criação</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/programacao-funcional/">Programação Funcional</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interface-descartavel/">Interface descartável</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/convencoes-de-nomenclatura/">Convenções de nomenclatura</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/trabalhador-em-segundo-plano/">Trabalhador em segundo plano</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/uma-visao-geral-das-colecoes-c/">Uma visão geral das coleções c#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/coletor-de-lixo-em-net/">Coletor de lixo em .Net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/declaracao-de-bloqueio/">Declaração de bloqueio</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/metodos-datetime/">Métodos DateTime</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/nome-do-operador/">nome do operador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/es-de-arquivo-e-fluxo/">ES de arquivo e fluxo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/polimorfismo/">Polimorfismo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/pt/csharp/criptografia-sistemasegurancacriptografia/">Criptografia (Sistema.Segurança.Criptografia)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tuplas/">Tuplas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interoperabilidade/">Interoperabilidade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/asyncawait-backgroundworker-exemplos-de-tarefas-e-threads/">Asyncawait, Backgroundworker, Exemplos de tarefas e threads</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/executando-solicitacoes-http/">Executando solicitações HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/atributos/">Atributos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operacoes-comuns-de-string/">Operações Comuns de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/funcao-com-varios-valores-de-retorno/">Função com vários valores de retorno</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/compilacao-de-tempo-de-execucao/">Compilação de tempo de execução</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/sequencias-de-escape-de-string/">Sequências de Escape de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipo-de-valor-x-tipo-de-referencia/">Tipo de valor x tipo de referência</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/introducao-json-com-c/">Introdução Json com C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/plataforma-do-compilador-net-roslyn/">Plataforma do compilador .NET (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/propriedades/">Propriedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/rede/">Rede</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/codigo-inseguro-em-net/">Código inseguro em .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/construcoes-de-fluxo-de-dados-da-biblioteca-paralela-de-tarefas-tpl/">Construções de fluxo de dados da biblioteca paralela de tarefas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/diretivas-do-pre-processador/">Diretivas do pré-processador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipo-dinamico/">Tipo dinâmico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/loop/">Loop</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/metodos/">Métodos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/classes-estaticas/">Classes estáticas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/serializacao-binaria/">Serialização Binária</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/script-c/">Script C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-sqlite-em-c/">Usando SQLite em C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/acessando-bancos-de-dados/">Acessando Bancos de Dados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-40/">Recursos do C# 4.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/gerando-numeros-aleatorios-em-c/">Gerando números aleatórios em C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/linq-para-objetos/">Linq para objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursao/">Recursão</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/contratos-de-codigo/">Contratos de código</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/indexador/">Indexador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/como-usar-c-structs-para-criar-um-tipo-de-uniao-semelhante-a-c-unions/">Como usar C# Structs para criar um tipo de união (semelhante a C Unions)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/injecao-de-dependencia/">Injeção de dependência</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/cache/">Cache</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/guia/">Guia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/iteradores/">Iteradores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/fluxo/">Fluxo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulador-de-autenticacao-c/">Manipulador de autenticação C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/modificadores-de-acesso/">Modificadores de acesso</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/stringbuilder/">StringBuilder</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipos-anonimos/">Tipos anônimos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/anotacao-de-dados/">Anotação de dados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interface-que-pode-ser-consultada/">Interface que pode ser consultada</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/xmldocument-e-o-namespace-systemxml/">XmlDocument e o namespace System.Xml</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-a-diretiva/">Usando a Diretiva</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ponteiros-e-codigo-inseguro/">Ponteiros e código inseguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/fundicao/">Fundição</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/interface-inotifypropertychanged/">Interface INotifyPropertyChanged</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/temporizadores/">Temporizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/verificado-e-desmarcado/">Verificado e desmarcado</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/funcoes-de-hash/">Funções de hash</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipos-anulaveis/">Tipos anuláveis</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/lendo-e-gravando-arquivos-zip/">Lendo e gravando arquivos .zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-50/">Recursos do C# 5.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/linq-paralelo-plinq/">LINQ Paralelo (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/expressoes-lambda/">Expressões lambda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ilgenerator/">ILGenerator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/inicializadores-de-objetos/">Inicializadores de objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/linq-para-xml/">LINQ para XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/diagnostico/">Diagnóstico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/filtros-de-acao/">Filtros de ação</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/soquete-assincrono/">Soquete Assíncrono</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/filesystemwatcher/">FileSystemWatcher</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/imutabilidade/">Imutabilidade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/inicializando-propriedades/">Inicializando Propriedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/biblioteca-paralela-de-tarefas/">Biblioteca paralela de tarefas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/classe-e-metodos-parciais/">Classe e métodos parciais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/contexto-de-sincronizacao-em-async-await/">Contexto de sincronização em Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/declaracoes-condicionais/">Declarações Condicionais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/delegados-de-funcoes/">Delegados de funções</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/equals-e-gethashcode/">Equals e GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/excecao-de-referencia-nula/">Exceção de Referência Nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/geracao-de-codigo-t4/">Geração de código T4</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/analise-de-regex/">Análise de Regex</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/comentarios-e-regioes/">Comentários e regiões</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/extensoes-reativas-rx/">Extensões reativas (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/colecao-observablet/">Coleção Observable&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/concatenar-string/">Concatenar String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/cronometros/">Cronômetros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/estruturas/">Estruturas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/identidade-aspnet/">Identidade ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ienumerable/">IEnumerable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/implementando-o-padrao-de-design-flyweight/">Implementando o padrão de design Flyweight</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/transbordar/">Transbordar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/literais/">Literais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/systemmanagementautomation/">System.Management.Automation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/biginteger/">BigInteger</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/padroes-de-projeto-estrutural/">Padrões de Projeto Estrutural</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/programacao-orientada-a-objetos-em-c/">Programação Orientada a Objetos em C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/resolucao-de-sobrecarga/">Resolução de sobrecarga</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tornando-um-thread-variavel-seguro/">Tornando um thread variável seguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/construtor-de-consultas-lambda-generico/">Construtor de consultas Lambda genérico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/importar-contatos-do-google/">Importar contatos do Google</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulacao-de-string/">Manipulação de String</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/recursos-do-c-30/">Recursos do C# 3.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/xdocument-e-o-namespace-systemxmllinq/">XDocument e o namespace System.Xml.Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/aliases-de-tipos-integrados/">Aliases de tipos integrados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/icloneable/">ICloneable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/argumentos-nomeados/">Argumentos nomeados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/implementando-o-padrao-de-design-do-decorador/">Implementando o padrão de design do decorador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/usando-jsonnet/">Usando json.net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/conversao-de-tipo/">Conversão de tipo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/icomparavel/">IComparável</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/operador-de-igualdade/">Operador de igualdade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ponteiros/">Ponteiros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/on-algoritmo-para-rotacao-circular-de-uma-matriz/">O(n) Algoritmo para rotação circular de uma matriz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/tipos-integrados/">Tipos integrados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/ler-e-entender-stacktraces/">Ler e entender Stacktraces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/atributo-compativel-com-cls/">Atributo compatível com CLS</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/contratos-e-declaracoes-de-codigo/">Contratos e declarações de código</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/argumentos-nomeados-e-opcionais/">Argumentos nomeados e opcionais</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/criando-o-proprio-messagebox-no-aplicativo-windows-form/">Criando o próprio MessageBox no aplicativo Windows Form</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/criando-um-aplicativo-de-console-usando-um-editor-de-texto-simples-e-o-compilador-c-cscexe/">Criando um aplicativo de console usando um editor de texto simples e o compilador C# (csc.exe)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/microsoftexchangewebservices/">Microsoft.Exchange.WebServices</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/fundacao-de-comunicacao-do-windows/">Fundação de Comunicação do Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/manipulando-formatexception-ao-converter-string-para-outros-tipos/">Manipulando FormatException ao converter string para outros tipos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/acesse-a-pasta-compartilhada-de-rede-com-nome-de-usuario-e-senha/">Acesse a pasta compartilhada de rede com nome de usuário e senha</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/csharp/incluindo-recursos-de-fonte/">Incluindo recursos de fonte</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Nesta página</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#exemplos-modernos-de-criptografia-autenticada-simétrica-de-uma-string">Exemplos modernos de criptografia autenticada simétrica de uma string</a></li>
+    <li><a href="#introdução-à-criptografia-simétrica-e-assimétrica">Introdução à criptografia simétrica e assimétrica</a></li>
+    <li><a href="#criptografia-simétrica1"><a href="http://en.wikipedia.org/wiki/Galois/Counter_Mode"><strong>Criptografia Simétrica</strong></a></a></li>
+    <li><a href="#criptografia-assimétrica17"><a href="https://en.wikipedia.org/wiki/Public-key_cryptography"><strong>Criptografia Assimétrica</strong></a></a></li>
+    <li><a href="#hash-de-senha">Hash de senha</a></li>
+    <li><a href="#criptografia-de-arquivo-simétrica-simples">Criptografia de arquivo simétrica simples</a></li>
+    <li><a href="#dados-aleatórios-criptograficamente-seguros">Dados aleatórios criptograficamente seguros</a></li>
+    <li><a href="#criptografia-de-arquivo-assimétrica-rápida">Criptografia de arquivo assimétrica rápida</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Nesta página</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#exemplos-modernos-de-criptografia-autenticada-simétrica-de-uma-string">Exemplos modernos de criptografia autenticada simétrica de uma string</a></li>
+    <li><a href="#introdução-à-criptografia-simétrica-e-assimétrica">Introdução à criptografia simétrica e assimétrica</a></li>
+    <li><a href="#criptografia-simétrica1"><a href="http://en.wikipedia.org/wiki/Galois/Counter_Mode"><strong>Criptografia Simétrica</strong></a></a></li>
+    <li><a href="#criptografia-assimétrica17"><a href="https://en.wikipedia.org/wiki/Public-key_cryptography"><strong>Criptografia Assimétrica</strong></a></a></li>
+    <li><a href="#hash-de-senha">Hash de senha</a></li>
+    <li><a href="#criptografia-de-arquivo-simétrica-simples">Criptografia de arquivo simétrica simples</a></li>
+    <li><a href="#dados-aleatórios-criptograficamente-seguros">Dados aleatórios criptograficamente seguros</a></li>
+    <li><a href="#criptografia-de-arquivo-assimétrica-rápida">Criptografia de arquivo assimétrica rápida</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/pt/">Home</a></li>
+<li class="breadcrumb-item"><a href="/pt/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/pt/docs/csharp/">Tutorial de linguagem C#</a></li>
+<li class="breadcrumb-item active" aria-current="page">Criptografia (Sistema.Segurança.Criptografia)</li>
+					</ol>
+				</nav>
+			
+			<h1>Criptografia (Sistema.Segurança.Criptografia)</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Nesta página</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#exemplos-modernos-de-criptografia-autenticada-simétrica-de-uma-string">Exemplos modernos de criptografia autenticada simétrica de uma string</a></li>
+    <li><a href="#introdução-à-criptografia-simétrica-e-assimétrica">Introdução à criptografia simétrica e assimétrica</a></li>
+    <li><a href="#criptografia-simétrica1"><a href="http://en.wikipedia.org/wiki/Galois/Counter_Mode"><strong>Criptografia Simétrica</strong></a></a></li>
+    <li><a href="#criptografia-assimétrica17"><a href="https://en.wikipedia.org/wiki/Public-key_cryptography"><strong>Criptografia Assimétrica</strong></a></a></li>
+    <li><a href="#hash-de-senha">Hash de senha</a></li>
+    <li><a href="#criptografia-de-arquivo-simétrica-simples">Criptografia de arquivo simétrica simples</a></li>
+    <li><a href="#dados-aleatórios-criptograficamente-seguros">Dados aleatórios criptograficamente seguros</a></li>
+    <li><a href="#criptografia-de-arquivo-assimétrica-rápida">Criptografia de arquivo assimétrica rápida</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Nesta página</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#exemplos-modernos-de-criptografia-autenticada-simétrica-de-uma-string">Exemplos modernos de criptografia autenticada simétrica de uma string</a></li>
+    <li><a href="#introdução-à-criptografia-simétrica-e-assimétrica">Introdução à criptografia simétrica e assimétrica</a></li>
+    <li><a href="#criptografia-simétrica1"><a href="http://en.wikipedia.org/wiki/Galois/Counter_Mode"><strong>Criptografia Simétrica</strong></a></a></li>
+    <li><a href="#criptografia-assimétrica17"><a href="https://en.wikipedia.org/wiki/Public-key_cryptography"><strong>Criptografia Assimétrica</strong></a></a></li>
+    <li><a href="#hash-de-senha">Hash de senha</a></li>
+    <li><a href="#criptografia-de-arquivo-simétrica-simples">Criptografia de arquivo simétrica simples</a></li>
+    <li><a href="#dados-aleatórios-criptograficamente-seguros">Dados aleatórios criptograficamente seguros</a></li>
+    <li><a href="#criptografia-de-arquivo-assimétrica-rápida">Criptografia de arquivo assimétrica rápida</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h2 id="exemplos-modernos-de-criptografia-autenticada-simétrica-de-uma-string">Exemplos modernos de criptografia autenticada simétrica de uma string <a href="#exemplos-modernos-de-criptografia-autenticada-sim%c3%a9trica-de-uma-string" class="anchor" aria-hidden="true">#</a></h2>
+<p>Criptografia é algo muito difícil e depois de passar muito tempo lendo diferentes exemplos e vendo como é fácil introduzir alguma forma de vulnerabilidade encontrei uma resposta originalmente escrita por @jbtule que acho muito boa. Gostar de ler:</p>
+<p>&ldquo;A prática recomendada geral para criptografia simétrica é usar a criptografia autenticada com dados associados (AEAD), no entanto, isso não faz parte das bibliotecas de criptografia .net padrão. Portanto, o primeiro exemplo usa <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES256</a> e depois <a href="http://en.wikipedia.org/wiki/HMAC">HMAC256 </a>, a dois passos <a href="http://crypto.stackexchange.com/a/205/1934">Encrypt then MAC</a>, que requer mais overhead e mais chaves.</p>
+<p>O segundo exemplo usa a prática mais simples de AES256-<a href="http://en.wikipedia.org/wiki/Galois/Counter_Mode">GCM</a> usando o Bouncy Castle de código aberto (via nuget).</p>
+<p>Ambos os exemplos têm uma função principal que recebe string de mensagem secreta, chave(s) e uma carga útil não secreta opcional e retorna e string criptografada autenticada opcionalmente prefixada com os dados não secretos. Idealmente, você os usaria com chaves de 256 bits geradas aleatoriamente, veja <code>NewKey()</code>.</p>
+<p>Ambos os exemplos também possuem métodos auxiliares que usam uma senha de string para gerar as chaves. Esses métodos auxiliares são fornecidos como uma conveniência para combinar com outros exemplos, no entanto, eles são <em>muito menos seguros</em> porque a força da senha será <em>muito mais fraca que uma chave de 256 bits</em>.</p>
+<p><strong>Atualizar:</strong>
+Adicionadas sobrecargas de <code>byte[]</code>, e apenas o <a href="https://gist.github.com/4336842">Gist</a> tem a formatação completa com recuo de 4 espaços e documentos de API devido aos limites de resposta do StackOverflow.&rdquo;</p>
+<hr>
+<p>** Criptografia integrada do .NET (AES)-Then-MAC (HMAC) <a href="https://gist.github.com/jbtule/4336842#file-aesthenhmac-cs">[Gist]</a>**</p>
+<pre><code>/*
+ * This work (Modern Encryption of a String C#, by James Tuley), 
+ * identified by James Tuley, is free of known copyright restrictions.
+ * https://gist.github.com/4336842
+ * http://creativecommons.org/publicdomain/mark/1.0/ 
+ */
+
+using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace Encryption
+{
+  public static class AESThenHMAC
+  {
+    private static readonly RandomNumberGenerator Random = RandomNumberGenerator.Create();
+    
+    //Preconfigured Encryption Parameters
+    public static readonly int BlockBitSize = 128;
+    public static readonly int KeyBitSize = 256;
+
+    //Preconfigured Password Key Derivation Parameters
+    public static readonly int SaltBitSize = 64;
+    public static readonly int Iterations = 10000;
+    public static readonly int MinPasswordLength = 12;
+
+    /// &lt;summary&gt;
+    /// Helper that generates a random key on each call.
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public static byte[] NewKey()
+    {
+      var key = new byte[KeyBitSize / 8];
+      Random.GetBytes(key);
+      return key;
+    }
+
+    /// &lt;summary&gt;
+    /// Simple Encryption (AES) then Authentication (HMAC) for a UTF8 Message.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;secretMessage&quot;&gt;The secret message.&lt;/param&gt;
+    /// &lt;param name=&quot;cryptKey&quot;&gt;The crypt key.&lt;/param&gt;
+    /// &lt;param name=&quot;authKey&quot;&gt;The auth key.&lt;/param&gt;
+    /// &lt;param name=&quot;nonSecretPayload&quot;&gt;(Optional) Non-Secret Payload.&lt;/param&gt;
+    /// &lt;returns&gt;
+    /// Encrypted Message
+    /// &lt;/returns&gt;
+    /// &lt;exception cref=&quot;System.ArgumentException&quot;&gt;Secret Message Required!;secretMessage&lt;/exception&gt;
+    /// &lt;remarks&gt;
+    /// Adds overhead of (Optional-Payload + BlockSize(16) + Message-Padded-To-Blocksize +  HMac-Tag(32)) * 1.33 Base64
+    /// &lt;/remarks&gt;
+    public static string SimpleEncrypt(string secretMessage, byte[] cryptKey, byte[] authKey,
+                       byte[] nonSecretPayload = null)
+    {
+      if (string.IsNullOrEmpty(secretMessage))
+        throw new ArgumentException(&quot;Secret Message Required!&quot;, &quot;secretMessage&quot;);
+
+      var plainText = Encoding.UTF8.GetBytes(secretMessage);
+      var cipherText = SimpleEncrypt(plainText, cryptKey, authKey, nonSecretPayload);
+      return Convert.ToBase64String(cipherText);
+    }
+
+    /// &lt;summary&gt;
+    /// Simple Authentication (HMAC) then Decryption (AES) for a secrets UTF8 Message.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;encryptedMessage&quot;&gt;The encrypted message.&lt;/param&gt;
+    /// &lt;param name=&quot;cryptKey&quot;&gt;The crypt key.&lt;/param&gt;
+    /// &lt;param name=&quot;authKey&quot;&gt;The auth key.&lt;/param&gt;
+    /// &lt;param name=&quot;nonSecretPayloadLength&quot;&gt;Length of the non secret payload.&lt;/param&gt;
+    /// &lt;returns&gt;
+    /// Decrypted Message
+    /// &lt;/returns&gt;
+    /// &lt;exception cref=&quot;System.ArgumentException&quot;&gt;Encrypted Message Required!;encryptedMessage&lt;/exception&gt;
+    public static string SimpleDecrypt(string encryptedMessage, byte[] cryptKey, byte[] authKey,
+                       int nonSecretPayloadLength = 0)
+    {
+      if (string.IsNullOrWhiteSpace(encryptedMessage))
+        throw new ArgumentException(&quot;Encrypted Message Required!&quot;, &quot;encryptedMessage&quot;);
+
+      var cipherText = Convert.FromBase64String(encryptedMessage);
+      var plainText = SimpleDecrypt(cipherText, cryptKey, authKey, nonSecretPayloadLength);
+      return plainText == null ? null : Encoding.UTF8.GetString(plainText);
+    }
+
+    /// &lt;summary&gt;
+    /// Simple Encryption (AES) then Authentication (HMAC) of a UTF8 message
+    /// using Keys derived from a Password (PBKDF2).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;secretMessage&quot;&gt;The secret message.&lt;/param&gt;
+    /// &lt;param name=&quot;password&quot;&gt;The password.&lt;/param&gt;
+    /// &lt;param name=&quot;nonSecretPayload&quot;&gt;The non secret payload.&lt;/param&gt;
+    /// &lt;returns&gt;
+    /// Encrypted Message
+    /// &lt;/returns&gt;
+    /// &lt;exception cref=&quot;System.ArgumentException&quot;&gt;password&lt;/exception&gt;
+    /// &lt;remarks&gt;
+    /// Significantly less secure than using random binary keys.
+    /// Adds additional non secret payload for key generation parameters.
+    /// &lt;/remarks&gt;
+    public static string SimpleEncryptWithPassword(string secretMessage, string password,
+                             byte[] nonSecretPayload = null)
+    {
+      if (string.IsNullOrEmpty(secretMessage))
+        throw new ArgumentException(&quot;Secret Message Required!&quot;, &quot;secretMessage&quot;);
+
+      var plainText = Encoding.UTF8.GetBytes(secretMessage);
+      var cipherText = SimpleEncryptWithPassword(plainText, password, nonSecretPayload);
+      return Convert.ToBase64String(cipherText);
+    }
+
+    /// &lt;summary&gt;
+    /// Simple Authentication (HMAC) and then Descryption (AES) of a UTF8 Message
+    /// using keys derived from a password (PBKDF2). 
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;encryptedMessage&quot;&gt;The encrypted message.&lt;/param&gt;
+    /// &lt;param name=&quot;password&quot;&gt;The password.&lt;/param&gt;
+    /// &lt;param name=&quot;nonSecretPayloadLength&quot;&gt;Length of the non secret payload.&lt;/param&gt;
+    /// &lt;returns&gt;
+    /// Decrypted Message
+    /// &lt;/returns&gt;
+    /// &lt;exception cref=&quot;System.ArgumentException&quot;&gt;Encrypted Message Required!;encryptedMessage&lt;/exception&gt;
+    /// &lt;remarks&gt;
+    /// Significantly less secure than using random binary keys.
+    /// &lt;/remarks&gt;
+    public static string SimpleDecryptWithPassword(string encryptedMessage, string password,
+                             int nonSecretPayloadLength = 0)
+    {
+      if (string.IsNullOrWhiteSpace(encryptedMessage))
+        throw new ArgumentException(&quot;Encrypted Message Required!&quot;, &quot;encryptedMessage&quot;);
+
+      var cipherText = Convert.FromBase64String(encryptedMessage);
+      var plainText = SimpleDecryptWithPassword(cipherText, password, nonSecretPayloadLength);
+      return plainText == null ? null : Encoding.UTF8.GetString(plainText);
+    }
+
+    public static byte[] SimpleEncrypt(byte[] secretMessage, byte[] cryptKey, byte[] authKey, byte[] nonSecretPayload = null)
+    {
+      //User Error Checks
+      if (cryptKey == null || cryptKey.Length != KeyBitSize / 8)
+        throw new ArgumentException(String.Format(&quot;Key needs to be {0} bit!&quot;, KeyBitSize), &quot;cryptKey&quot;);
+
+      if (authKey == null || authKey.Length != KeyBitSize / 8)
+        throw new ArgumentException(String.Format(&quot;Key needs to be {0} bit!&quot;, KeyBitSize), &quot;authKey&quot;);
+
+      if (secretMessage == null || secretMessage.Length &lt; 1)
+        throw new ArgumentException(&quot;Secret Message Required!&quot;, &quot;secretMessage&quot;);
+
+      //non-secret payload optional
+      nonSecretPayload = nonSecretPayload ?? new byte[] { };
+
+      byte[] cipherText;
+      byte[] iv;
+
+      using (var aes = new AesManaged
+      {
+        KeySize = KeyBitSize,
+        BlockSize = BlockBitSize,
+        Mode = CipherMode.CBC,
+        Padding = PaddingMode.PKCS7
+      })
+      {
+
+        //Use random IV
+        aes.GenerateIV();
+        iv = aes.IV;
+
+        using (var encrypter = aes.CreateEncryptor(cryptKey, iv))
+        using (var cipherStream = new MemoryStream())
+        {
+          using (var cryptoStream = new CryptoStream(cipherStream, encrypter, CryptoStreamMode.Write))
+          using (var binaryWriter = new BinaryWriter(cryptoStream))
+          {
+            //Encrypt Data
+            binaryWriter.Write(secretMessage);
+          }
+
+          cipherText = cipherStream.ToArray();
+        }
+
+      }
+
+      //Assemble encrypted message and add authentication
+      using (var hmac = new HMACSHA256(authKey))
+      using (var encryptedStream = new MemoryStream())
+      {
+        using (var binaryWriter = new BinaryWriter(encryptedStream))
+        {
+          //Prepend non-secret payload if any
+          binaryWriter.Write(nonSecretPayload);
+          //Prepend IV
+          binaryWriter.Write(iv);
+          //Write Ciphertext
+          binaryWriter.Write(cipherText);
+          binaryWriter.Flush();
+
+          //Authenticate all data
+          var tag = hmac.ComputeHash(encryptedStream.ToArray());
+          //Postpend tag
+          binaryWriter.Write(tag);
+        }
+        return encryptedStream.ToArray();
+      }
+
+    }
+
+    public static byte[] SimpleDecrypt(byte[] encryptedMessage, byte[] cryptKey, byte[] authKey, int nonSecretPayloadLength = 0)
+    {
+
+      //Basic Usage Error Checks
+      if (cryptKey == null || cryptKey.Length != KeyBitSize / 8)
+        throw new ArgumentException(String.Format(&quot;CryptKey needs to be {0} bit!&quot;, KeyBitSize), &quot;cryptKey&quot;);
+
+      if (authKey == null || authKey.Length != KeyBitSize / 8)
+        throw new ArgumentException(String.Format(&quot;AuthKey needs to be {0} bit!&quot;, KeyBitSize), &quot;authKey&quot;);
+
+      if (encryptedMessage == null || encryptedMessage.Length == 0)
+        throw new ArgumentException(&quot;Encrypted Message Required!&quot;, &quot;encryptedMessage&quot;);
+
+      using (var hmac = new HMACSHA256(authKey))
+      {
+        var sentTag = new byte[hmac.HashSize / 8];
+        //Calculate Tag
+        var calcTag = hmac.ComputeHash(encryptedMessage, 0, encryptedMessage.Length - sentTag.Length);
+        var ivLength = (BlockBitSize / 8);
+
+        //if message length is to small just return null
+        if (encryptedMessage.Length &lt; sentTag.Length + nonSecretPayloadLength + ivLength)
+          return null;
+
+        //Grab Sent Tag
+        Array.Copy(encryptedMessage, encryptedMessage.Length - sentTag.Length, sentTag, 0, sentTag.Length);
+
+        //Compare Tag with constant time comparison
+        var compare = 0;
+        for (var i = 0; i &lt; sentTag.Length; i++)
+          compare |= sentTag[i] ^ calcTag[i]; 
+
+        //if message doesn't authenticate return null
+        if (compare != 0)
+          return null;
+
+        using (var aes = new AesManaged
+        {
+          KeySize = KeyBitSize,
+          BlockSize = BlockBitSize,
+          Mode = CipherMode.CBC,
+          Padding = PaddingMode.PKCS7
+        })
+        {
+
+          //Grab IV from message
+          var iv = new byte[ivLength];
+          Array.Copy(encryptedMessage, nonSecretPayloadLength, iv, 0, iv.Length);
+
+          using (var decrypter = aes.CreateDecryptor(cryptKey, iv))
+          using (var plainTextStream = new MemoryStream())
+          {
+            using (var decrypterStream = new CryptoStream(plainTextStream, decrypter, CryptoStreamMode.Write))
+            using (var binaryWriter = new BinaryWriter(decrypterStream))
+            {
+              //Decrypt Cipher Text from Message
+              binaryWriter.Write(
+                encryptedMessage,
+                nonSecretPayloadLength + iv.Length,
+                encryptedMessage.Length - nonSecretPayloadLength - iv.Length - sentTag.Length
+              );
+            }
+            //Return Plain Text
+            return plainTextStream.ToArray();
+          }
+        }
+      }
+    }
+
+    public static byte[] SimpleEncryptWithPassword(byte[] secretMessage, string password, byte[] nonSecretPayload = null)
+    {
+      nonSecretPayload = nonSecretPayload ?? new byte[] {};
+
+      //User Error Checks
+      if (string.IsNullOrWhiteSpace(password) || password.Length &lt; MinPasswordLength)
+        throw new ArgumentException(String.Format(&quot;Must have a password of at least {0} characters!&quot;, MinPasswordLength), &quot;password&quot;);
+
+      if (secretMessage == null || secretMessage.Length ==0)
+        throw new ArgumentException(&quot;Secret Message Required!&quot;, &quot;secretMessage&quot;);
+
+      var payload = new byte[((SaltBitSize / 8) * 2) + nonSecretPayload.Length];
+
+      Array.Copy(nonSecretPayload, payload, nonSecretPayload.Length);
+      int payloadIndex = nonSecretPayload.Length;
+
+      byte[] cryptKey;
+      byte[] authKey;
+      //Use Random Salt to prevent pre-generated weak password attacks.
+      using (var generator = new Rfc2898DeriveBytes(password, SaltBitSize / 8, Iterations))
+      {
+        var salt = generator.Salt;
+
+        //Generate Keys
+        cryptKey = generator.GetBytes(KeyBitSize / 8);
+
+        //Create Non Secret Payload
+        Array.Copy(salt, 0, payload, payloadIndex, salt.Length);
+        payloadIndex += salt.Length;
+      }
+
+      //Deriving separate key, might be less efficient than using HKDF, 
+      //but now compatible with RNEncryptor which had a very similar wireformat and requires less code than HKDF.
+      using (var generator = new Rfc2898DeriveBytes(password, SaltBitSize / 8, Iterations))
+      {
+        var salt = generator.Salt;
+
+        //Generate Keys
+        authKey = generator.GetBytes(KeyBitSize / 8);
+
+        //Create Rest of Non Secret Payload
+        Array.Copy(salt, 0, payload, payloadIndex, salt.Length);
+      }
+
+      return SimpleEncrypt(secretMessage, cryptKey, authKey, payload);
+    }
+
+    public static byte[] SimpleDecryptWithPassword(byte[] encryptedMessage, string password, int nonSecretPayloadLength = 0)
+    {
+      //User Error Checks
+      if (string.IsNullOrWhiteSpace(password) || password.Length &lt; MinPasswordLength)
+        throw new ArgumentException(String.Format(&quot;Must have a password of at least {0} characters!&quot;, MinPasswordLength), &quot;password&quot;);
+
+      if (encryptedMessage == null || encryptedMessage.Length == 0)
+        throw new ArgumentException(&quot;Encrypted Message Required!&quot;, &quot;encryptedMessage&quot;);
+
+      var cryptSalt = new byte[SaltBitSize / 8];
+      var authSalt = new byte[SaltBitSize / 8];
+
+      //Grab Salt from Non-Secret Payload
+      Array.Copy(encryptedMessage, nonSecretPayloadLength, cryptSalt, 0, cryptSalt.Length);
+      Array.Copy(encryptedMessage, nonSecretPayloadLength + cryptSalt.Length, authSalt, 0, authSalt.Length);
+
+      byte[] cryptKey;
+      byte[] authKey;
+
+      //Generate crypt key
+      using (var generator = new Rfc2898DeriveBytes(password, cryptSalt, Iterations))
+      {
+        cryptKey = generator.GetBytes(KeyBitSize / 8);
+      }
+      //Generate auth key
+      using (var generator = new Rfc2898DeriveBytes(password, authSalt, Iterations))
+      {
+        authKey = generator.GetBytes(KeyBitSize / 8);
+      }
+
+      return SimpleDecrypt(encryptedMessage, cryptKey, authKey, cryptSalt.Length + authSalt.Length + nonSecretPayloadLength);
+    }
+  }
+}
+</code></pre>
+<hr>
+<p><strong>Castelo inflável AES-GCM <a href="https://gist.github.com/jbtule/4336842#file-aesgcm-cs">[Gist]</a></strong></p>
+<pre><code>/*
+ * This work (Modern Encryption of a String C#, by James Tuley), 
+ * identified by James Tuley, is free of known copyright restrictions.
+ * https://gist.github.com/4336842
+ * http://creativecommons.org/publicdomain/mark/1.0/ 
+ */
+
+using System;
+using System.IO;
+using System.Text;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Engines;
+using Org.BouncyCastle.Crypto.Generators;
+using Org.BouncyCastle.Crypto.Modes;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Security;
+namespace Encryption
+{
+
+  public static class AESGCM
+  {
+    private static readonly SecureRandom Random = new SecureRandom();
+
+    //Preconfigured Encryption Parameters
+    public static readonly int NonceBitSize = 128;
+    public static readonly int MacBitSize = 128;
+    public static readonly int KeyBitSize = 256;
+
+    //Preconfigured Password Key Derivation Parameters
+    public static readonly int SaltBitSize = 128;
+    public static readonly int Iterations = 10000;
+    public static readonly int MinPasswordLength = 12;
+
+
+    /// &lt;summary&gt;
+    /// Helper that generates a random new key on each call.
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public static byte[] NewKey()
+    {
+      var key = new byte[KeyBitSize / 8];
+      Random.NextBytes(key);
+      return key;
+    }
+
+    /// &lt;summary&gt;
+    /// Simple Encryption And Authentication (AES-GCM) of a UTF8 string.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;secretMessage&quot;&gt;The secret message.&lt;/param&gt;
+    /// &lt;param name=&quot;key&quot;&gt;The key.&lt;/param&gt;
+    /// &lt;param name=&quot;nonSecretPayload&quot;&gt;Optional non-secret payload.&lt;/param&gt;
+    /// &lt;returns&gt;
+    /// Encrypted Message
+    /// &lt;/returns&gt;
+    /// &lt;exception cref=&quot;System.ArgumentException&quot;&gt;Secret Message Required!;secretMessage&lt;/exception&gt;
+    /// &lt;remarks&gt;
+    /// Adds overhead of (Optional-Payload + BlockSize(16) + Message +  HMac-Tag(16)) * 1.33 Base64
+    /// &lt;/remarks&gt;
+    public static string SimpleEncrypt(string secretMessage, byte[] key, byte[] nonSecretPayload = null)
+    {
+      if (string.IsNullOrEmpty(secretMessage))
+        throw new ArgumentException(&quot;Secret Message Required!&quot;, &quot;secretMessage&quot;);
+
+      var plainText = Encoding.UTF8.GetBytes(secretMessage);
+      var cipherText = SimpleEncrypt(plainText, key, nonSecretPayload);
+      return Convert.ToBase64String(cipherText);
+    }
+
+
+    /// &lt;summary&gt;
+    /// Simple Decryption &amp; Authentication (AES-GCM) of a UTF8 Message
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;encryptedMessage&quot;&gt;The encrypted message.&lt;/param&gt;
+    /// &lt;param name=&quot;key&quot;&gt;The key.&lt;/param&gt;
+    /// &lt;param name=&quot;nonSecretPayloadLength&quot;&gt;Length of the optional non-secret payload.&lt;/param&gt;
+    /// &lt;returns&gt;Decrypted Message&lt;/returns&gt;
+    public static string SimpleDecrypt(string encryptedMessage, byte[] key, int nonSecretPayloadLength = 0)
+    {
+      if (string.IsNullOrEmpty(encryptedMessage))
+        throw new ArgumentException(&quot;Encrypted Message Required!&quot;, &quot;encryptedMessage&quot;);
+
+      var cipherText = Convert.FromBase64String(encryptedMessage);
+      var plainText = SimpleDecrypt(cipherText, key, nonSecretPayloadLength);
+      return plainText == null ? null : Encoding.UTF8.GetString(plainText);
+    }
+
+    /// &lt;summary&gt;
+    /// Simple Encryption And Authentication (AES-GCM) of a UTF8 String
+    /// using key derived from a password (PBKDF2).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;secretMessage&quot;&gt;The secret message.&lt;/param&gt;
+    /// &lt;param name=&quot;password&quot;&gt;The password.&lt;/param&gt;
+    /// &lt;param name=&quot;nonSecretPayload&quot;&gt;The non secret payload.&lt;/param&gt;
+    /// &lt;returns&gt;
+    /// Encrypted Message
+    /// &lt;/returns&gt;
+    /// &lt;remarks&gt;
+    /// Significantly less secure than using random binary keys.
+    /// Adds additional non secret payload for key generation parameters.
+    /// &lt;/remarks&gt;
+    public static string SimpleEncryptWithPassword(string secretMessage, string password,
+                             byte[] nonSecretPayload = null)
+    {
+      if (string.IsNullOrEmpty(secretMessage))
+        throw new ArgumentException(&quot;Secret Message Required!&quot;, &quot;secretMessage&quot;);
+
+      var plainText = Encoding.UTF8.GetBytes(secretMessage);
+      var cipherText = SimpleEncryptWithPassword(plainText, password, nonSecretPayload);
+      return Convert.ToBase64String(cipherText);
+    }
+
+
+    /// &lt;summary&gt;
+    /// Simple Decryption and Authentication (AES-GCM) of a UTF8 message
+    /// using a key derived from a password (PBKDF2)
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;encryptedMessage&quot;&gt;The encrypted message.&lt;/param&gt;
+    /// &lt;param name=&quot;password&quot;&gt;The password.&lt;/param&gt;
+    /// &lt;param name=&quot;nonSecretPayloadLength&quot;&gt;Length of the non secret payload.&lt;/param&gt;
+    /// &lt;returns&gt;
+    /// Decrypted Message
+    /// &lt;/returns&gt;
+    /// &lt;exception cref=&quot;System.ArgumentException&quot;&gt;Encrypted Message Required!;encryptedMessage&lt;/exception&gt;
+    /// &lt;remarks&gt;
+    /// Significantly less secure than using random binary keys.
+    /// &lt;/remarks&gt;
+    public static string SimpleDecryptWithPassword(string encryptedMessage, string password,
+                             int nonSecretPayloadLength = 0)
+    {
+      if (string.IsNullOrWhiteSpace(encryptedMessage))
+        throw new ArgumentException(&quot;Encrypted Message Required!&quot;, &quot;encryptedMessage&quot;);
+
+      var cipherText = Convert.FromBase64String(encryptedMessage);
+      var plainText = SimpleDecryptWithPassword(cipherText, password, nonSecretPayloadLength);
+      return plainText == null ? null : Encoding.UTF8.GetString(plainText);
+    }
+
+    public static byte[] SimpleEncrypt(byte[] secretMessage, byte[] key, byte[] nonSecretPayload = null)
+    {
+      //User Error Checks
+      if (key == null || key.Length != KeyBitSize / 8)
+        throw new ArgumentException(String.Format(&quot;Key needs to be {0} bit!&quot;, KeyBitSize), &quot;key&quot;);
+
+      if (secretMessage == null || secretMessage.Length == 0)
+        throw new ArgumentException(&quot;Secret Message Required!&quot;, &quot;secretMessage&quot;);
+
+      //Non-secret Payload Optional
+      nonSecretPayload = nonSecretPayload ?? new byte[] { };
+
+      //Using random nonce large enough not to repeat
+      var nonce = new byte[NonceBitSize / 8];
+      Random.NextBytes(nonce, 0, nonce.Length);
+
+      var cipher = new GcmBlockCipher(new AesFastEngine());
+      var parameters = new AeadParameters(new KeyParameter(key), MacBitSize, nonce, nonSecretPayload);
+      cipher.Init(true, parameters);
+
+      //Generate Cipher Text With Auth Tag
+      var cipherText = new byte[cipher.GetOutputSize(secretMessage.Length)];
+      var len = cipher.ProcessBytes(secretMessage, 0, secretMessage.Length, cipherText, 0);
+      cipher.DoFinal(cipherText, len);
+
+      //Assemble Message
+      using (var combinedStream = new MemoryStream())
+      {
+        using (var binaryWriter = new BinaryWriter(combinedStream))
+        {
+          //Prepend Authenticated Payload
+          binaryWriter.Write(nonSecretPayload);
+          //Prepend Nonce
+          binaryWriter.Write(nonce);
+          //Write Cipher Text
+          binaryWriter.Write(cipherText);
+        }
+        return combinedStream.ToArray();
+      }
+    }
+
+    public static byte[] SimpleDecrypt(byte[] encryptedMessage, byte[] key, int nonSecretPayloadLength = 0)
+    {
+      //User Error Checks
+      if (key == null || key.Length != KeyBitSize / 8)
+        throw new ArgumentException(String.Format(&quot;Key needs to be {0} bit!&quot;, KeyBitSize), &quot;key&quot;);
+
+      if (encryptedMessage == null || encryptedMessage.Length == 0)
+        throw new ArgumentException(&quot;Encrypted Message Required!&quot;, &quot;encryptedMessage&quot;);
+
+      using (var cipherStream = new MemoryStream(encryptedMessage))
+      using (var cipherReader = new BinaryReader(cipherStream))
+      {
+        //Grab Payload
+        var nonSecretPayload = cipherReader.ReadBytes(nonSecretPayloadLength);
+
+        //Grab Nonce
+        var nonce = cipherReader.ReadBytes(NonceBitSize / 8);
+       
+        var cipher = new GcmBlockCipher(new AesFastEngine());
+        var parameters = new AeadParameters(new KeyParameter(key), MacBitSize, nonce, nonSecretPayload);
+        cipher.Init(false, parameters);
+
+        //Decrypt Cipher Text
+        var cipherText = cipherReader.ReadBytes(encryptedMessage.Length - nonSecretPayloadLength - nonce.Length);
+        var plainText = new byte[cipher.GetOutputSize(cipherText.Length)];  
+
+        try
+        {
+          var len = cipher.ProcessBytes(cipherText, 0, cipherText.Length, plainText, 0);
+          cipher.DoFinal(plainText, len);
+
+        }
+        catch (InvalidCipherTextException)
+        {
+          //Return null if it doesn't authenticate
+          return null;
+        }
+
+        return plainText;
+      }
+
+    }
+
+    public static byte[] SimpleEncryptWithPassword(byte[] secretMessage, string password, byte[] nonSecretPayload = null)
+    {
+      nonSecretPayload = nonSecretPayload ?? new byte[] {};
+
+      //User Error Checks
+      if (string.IsNullOrWhiteSpace(password) || password.Length &lt; MinPasswordLength)
+        throw new ArgumentException(String.Format(&quot;Must have a password of at least {0} characters!&quot;, MinPasswordLength), &quot;password&quot;);
+
+      if (secretMessage == null || secretMessage.Length == 0)
+        throw new ArgumentException(&quot;Secret Message Required!&quot;, &quot;secretMessage&quot;);
+
+      var generator = new Pkcs5S2ParametersGenerator();
+
+      //Use Random Salt to minimize pre-generated weak password attacks.
+      var salt = new byte[SaltBitSize / 8];
+      Random.NextBytes(salt);
+
+      generator.Init(
+        PbeParametersGenerator.Pkcs5PasswordToBytes(password.ToCharArray()),
+        salt,
+        Iterations);
+
+      //Generate Key
+      var key = (KeyParameter)generator.GenerateDerivedMacParameters(KeyBitSize);
+
+      //Create Full Non Secret Payload
+      var payload = new byte[salt.Length + nonSecretPayload.Length];
+      Array.Copy(nonSecretPayload, payload, nonSecretPayload.Length);
+      Array.Copy(salt,0, payload,nonSecretPayload.Length, salt.Length);
+
+      return SimpleEncrypt(secretMessage, key.GetKey(), payload);
+    }
+
+    public static byte[] SimpleDecryptWithPassword(byte[] encryptedMessage, string password, int nonSecretPayloadLength = 0)
+    {
+      //User Error Checks
+      if (string.IsNullOrWhiteSpace(password) || password.Length &lt; MinPasswordLength)
+        throw new ArgumentException(String.Format(&quot;Must have a password of at least {0} characters!&quot;, MinPasswordLength), &quot;password&quot;);
+
+      if (encryptedMessage == null || encryptedMessage.Length == 0)
+        throw new ArgumentException(&quot;Encrypted Message Required!&quot;, &quot;encryptedMessage&quot;);
+
+      var generator = new Pkcs5S2ParametersGenerator();
+
+      //Grab Salt from Payload
+      var salt = new byte[SaltBitSize / 8];
+      Array.Copy(encryptedMessage, nonSecretPayloadLength, salt, 0, salt.Length);
+
+      generator.Init(
+        PbeParametersGenerator.Pkcs5PasswordToBytes(password.ToCharArray()),
+        salt,
+        Iterations);
+
+      //Generate Key
+      var key = (KeyParameter)generator.GenerateDerivedMacParameters(KeyBitSize);
+
+      return SimpleDecrypt(encryptedMessage, key.GetKey(), salt.Length + nonSecretPayloadLength);
+    }
+  }
+}
+</code></pre>
+<h2 id="introdução-à-criptografia-simétrica-e-assimétrica">Introdução à criptografia simétrica e assimétrica <a href="#introdu%c3%a7%c3%a3o-%c3%a0-criptografia-sim%c3%a9trica-e-assim%c3%a9trica" class="anchor" aria-hidden="true">#</a></h2>
+<p>Você pode melhorar a segurança do trânsito ou armazenamento de dados implementando técnicas de criptografia. Basicamente, há duas abordagens ao usar <em>System.Security.Cryptography</em>: <strong>simétrico</strong> e <strong>assimétrico.</strong></p>
+<hr>
+<h2 id="criptografia-simétrica1"><a href="http://en.wikipedia.org/wiki/Galois/Counter_Mode"><strong>Criptografia Simétrica</strong></a> <a href="#criptografia-sim%c3%a9trica1" class="anchor" aria-hidden="true">#</a></h2>
+<p>Este método usa uma chave privada para realizar a transformação de dados.</p>
+<p>Prós:</p>
+<ul>
+<li>Algoritmos simétricos consomem menos recursos e são mais rápidos que os assimétricos.</li>
+<li>A quantidade de dados que você pode criptografar é ilimitada.</li>
+</ul>
+<p>Contras:</p>
+<ul>
+<li>Criptografia e descriptografia usam a mesma chave. Alguém poderá descriptografar seus dados se a chave estiver comprometida.</li>
+<li>Você pode acabar com muitas chaves secretas diferentes para gerenciar se optar por usar uma chave secreta diferente para dados diferentes.</li>
+</ul>
+<p>Em System.Security.Cryptography você tem diferentes classes que realizam criptografia simétrica, elas são conhecidas como <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">block ciphers</a>:</p>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/HMAC">AesManaged</a> (algoritmo <a href="http://crypto.stackexchange.com/a/205/1934">AES</a>).</li>
+<li><a href="https://msdn.microsoft.com/en-us/library/system.security.cryptography.aescryptoserviceprovider">AesCryptoServiceProvider</a> (<a href="http://crypto.stackexchange.com/a/205/1934">AES</a> algoritmo <a href="https://blogs.msdn.microsoft.com/winsdk/2010/05/28/behaviour-of-aescryptoserviceprovider-class-with-fips-policy-set-unset/">reclamação FIPS 140-2</a>).</li>
+<li><a href="https://msdn.microsoft.com/en-us/library/system.security.cryptography.descryptoserviceprovider">DESCryptoServiceProvider</a> (algoritmo <a href="https://en.wikipedia.org/wiki/Data_Encryption_Standard">DES</a>).</li>
+<li><a href="https://msdn.microsoft.com/en-us/library/system.security.cryptography.rc2cryptoserviceprovider">RC2CryptoServiceProvider</a> (algoritmo <a href="https://en.wikipedia.org/wiki/RC2">Rivest Cipher 2</a>).</li>
+<li><a href="https://msdn.microsoft.com/en-us/library/system.security.cryptography.rijndaelmanaged">RijndaelManaged</a> (algoritmo <a href="http://crypto.stackexchange.com/a/205/1934">AES</a>). <em>Observação</em>: RijndaelManaged <strong>não</strong> é uma reclamação <a href="https://blogs.msdn.microsoft.com/shawnfa/2006/10/09/the-differences-between-rijndael-and-aes/">FIPS-197</a>.</li>
+<li><a href="https://msdn.microsoft.com/en-us/library/system.security.cryptography.tripledes">TripleDES</a> (algoritmo <a href="https://en.wikipedia.org/wiki/Triple_DES">TripleDES</a>).</li>
+</ul>
+<hr>
+<h2 id="criptografia-assimétrica17"><a href="https://en.wikipedia.org/wiki/Public-key_cryptography"><strong>Criptografia Assimétrica</strong></a> <a href="#criptografia-assim%c3%a9trica17" class="anchor" aria-hidden="true">#</a></h2>
+<p>Este método usa uma combinação de chaves públicas e privadas para realizar a transformação de dados.</p>
+<p>Prós:</p>
+<ul>
+<li>Ele usa chaves maiores do que algoritmos simétricos, portanto, eles são menos suscetíveis a serem quebrados usando força bruta.</li>
+<li>É mais fácil garantir quem é capaz de criptografar e descriptografar os dados porque depende de duas chaves (pública e privada).</li>
+</ul>
+<p>Contras:</p>
+<ul>
+<li>Há um limite na quantidade de dados que você pode criptografar. O limite é diferente para cada algoritmo e normalmente é proporcional ao tamanho da chave do algoritmo. Por exemplo, um objeto RSACryptoServiceProvider com um comprimento de chave de 1.024 bits só pode criptografar uma mensagem menor que 128 bytes.</li>
+<li>Algoritmos assimétricos são muito lentos em comparação com algoritmos simétricos.</li>
+</ul>
+<p>Em System.Security.Cryptography você tem acesso a diferentes classes que realizam criptografia assimétrica:</p>
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/library/system.security.cryptography.dsacryptoserviceprovider.aspx">DSACryptoServiceProvider</a> (algoritmo <a href="https://en.wikipedia.org/wiki/Digital_Signature_Algorithm">Algoritmo de Assinatura Digital</a>)</li>
+<li><a href="https://msdn.microsoft.com/en-us/library/system.security.cryptography.rsacryptoserviceprovider.aspx">RSACryptoServiceProvider</a> (algoritmo <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA Algorithm</a>)</li>
+</ul>
+<h2 id="hash-de-senha">Hash de senha <a href="#hash-de-senha" class="anchor" aria-hidden="true">#</a></h2>
+<p>As senhas nunca devem ser armazenadas como texto simples! Eles devem ser hash com um sal gerado aleatoriamente (para se defender contra ataques de tabela de arco-íris) usando um algoritmo de hash de senha lento. Um grande número de iterações (&gt; 10k) pode ser usado para desacelerar ataques de força bruta. Um atraso de aproximadamente 100 ms é aceitável para um usuário efetuar login, mas dificulta a quebra de uma senha longa. Ao escolher um número de iterações, você deve usar o valor máximo tolerável para seu aplicativo e aumentá-lo à medida que o desempenho do computador melhorar. Você também precisará considerar interromper solicitações repetidas que podem ser usadas como um ataque DoS.</p>
+<p>Ao fazer o hash pela primeira vez, um sal pode ser gerado para você, o hash e o sal resultantes podem ser armazenados em um arquivo.</p>
+<pre><code>private void firstHash(string userName, string userPassword, int numberOfItterations)
+{
+    Rfc2898DeriveBytes PBKDF2 = new Rfc2898DeriveBytes(userPassword, 8, numberOfItterations);    //Hash the password with a 8 byte salt
+    byte[] hashedPassword = PBKDF2.GetBytes(20);    //Returns a 20 byte hash
+    byte[] salt = PBKDF2.Salt;
+    writeHashToFile(userName, hashedPassword, salt, numberOfItterations); //Store the hashed password with the salt and number of itterations to check against future password entries
+}
+</code></pre>
+<p>Verificando uma senha de usuário existente, leia seu hash e salt de um arquivo e compare com o hash da senha inserida</p>
+<pre><code>private bool checkPassword(string userName, string userPassword, int numberOfItterations)
+{
+    byte[] usersHash = getUserHashFromFile(userName);
+    byte[] userSalt = getUserSaltFromFile(userName);
+    Rfc2898DeriveBytes PBKDF2 = new Rfc2898DeriveBytes(userPassword, userSalt, numberOfItterations);    //Hash the password with the users salt
+    byte[] hashedPassword = PBKDF2.GetBytes(20);    //Returns a 20 byte hash            
+    bool passwordsMach = comparePasswords(usersHash, hashedPassword);    //Compares byte arrays
+    return passwordsMach;
+}
+</code></pre>
+<h2 id="criptografia-de-arquivo-simétrica-simples">Criptografia de arquivo simétrica simples <a href="#criptografia-de-arquivo-sim%c3%a9trica-simples" class="anchor" aria-hidden="true">#</a></h2>
+<p>O exemplo de código a seguir demonstra um meio rápido e fácil de criptografar e descriptografar arquivos usando o algoritmo de criptografia simétrica AES.</p>
+<p>O código gera aleatoriamente os Vetores Salt e de Inicialização cada vez que um arquivo é criptografado, o que significa que criptografar o mesmo arquivo com a mesma senha sempre levará a uma saída diferente. O salt e o IV são gravados no arquivo de saída para que apenas a senha seja necessária para descriptografá-lo.</p>
+<pre><code>public static void ProcessFile(string inputPath, string password, bool encryptMode, string outputPath)
+{
+    using (var cypher = new AesManaged())
+    using (var fsIn = new FileStream(inputPath, FileMode.Open))
+    using (var fsOut = new FileStream(outputPath, FileMode.Create))
+    {
+        const int saltLength = 256;
+        var salt = new byte[saltLength];
+        var iv = new byte[cypher.BlockSize / 8];
+
+        if (encryptMode)
+        {
+            // Generate random salt and IV, then write them to file
+            using (var rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(salt);
+                rng.GetBytes(iv);
+            }
+            fsOut.Write(salt, 0, salt.Length);
+            fsOut.Write(iv, 0, iv.Length);
+        }
+        else
+        {
+            // Read the salt and IV from the file
+            fsIn.Read(salt, 0, saltLength);
+            fsIn.Read(iv, 0, iv.Length);
+        }
+
+        // Generate a secure password, based on the password and salt provided
+        var pdb = new Rfc2898DeriveBytes(password, salt);
+        var key = pdb.GetBytes(cypher.KeySize / 8);
+
+        // Encrypt or decrypt the file
+        using (var cryptoTransform = encryptMode
+            ? cypher.CreateEncryptor(key, iv)
+            : cypher.CreateDecryptor(key, iv))
+        using (var cs = new CryptoStream(fsOut, cryptoTransform, CryptoStreamMode.Write))
+        {
+            fsIn.CopyTo(cs);
+        }
+    }
+}
+</code></pre>
+<h2 id="dados-aleatórios-criptograficamente-seguros">Dados aleatórios criptograficamente seguros <a href="#dados-aleat%c3%b3rios-criptograficamente-seguros" class="anchor" aria-hidden="true">#</a></h2>
+<p>Há momentos em que a classe Random() do framework pode não ser considerada aleatória o suficiente, já que é baseada em um gerador de números pseudo-aleatórios. As classes Crypto da estrutura, no entanto, fornecem algo mais robusto na forma de RNGCryptoServiceProvider.</p>
+<p>Os exemplos de código a seguir demonstram como gerar matrizes, strings e números de bytes criptograficamente seguros.</p>
+<p><strong>Matriz de bytes aleatórios</strong></p>
+<pre><code>public static byte[] GenerateRandomData(int length)
+{
+    var rnd = new byte[length];
+    using (var rng = new RNGCryptoServiceProvider())
+        rng.GetBytes(rnd);
+    return rnd;
+}
+</code></pre>
+<p><strong>Random Integer</strong> (com distribuição uniforme)</p>
+<pre><code>public static int GenerateRandomInt(int minVal=0, int maxVal=100)
+{
+    var rnd = new byte[4];
+    using (var rng = new RNGCryptoServiceProvider())
+        rng.GetBytes(rnd);
+    var i = Math.Abs(BitConverter.ToInt32(rnd, 0));
+    return Convert.ToInt32(i % (maxVal - minVal + 1) + minVal);
+}
+</code></pre>
+<p><strong>String Aleatória</strong></p>
+<pre><code>public static string GenerateRandomString(int length, string allowableChars=null)
+{
+    if (string.IsNullOrEmpty(allowableChars))
+        allowableChars = @&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+
+    // Generate random data
+    var rnd = new byte[length];
+    using (var rng = new RNGCryptoServiceProvider())
+        rng.GetBytes(rnd);
+
+    // Generate the output string
+    var allowable = allowableChars.ToCharArray();
+    var l = allowable.Length;
+    var chars = new char[length];
+    for (var i = 0; i &lt; length; i++)
+        chars[i] = allowable[rnd[i] % l];
+
+    return new string(chars);
+}
+</code></pre>
+<h2 id="criptografia-de-arquivo-assimétrica-rápida">Criptografia de arquivo assimétrica rápida <a href="#criptografia-de-arquivo-assim%c3%a9trica-r%c3%a1pida" class="anchor" aria-hidden="true">#</a></h2>
+<p>A criptografia assimétrica é frequentemente considerada preferível à criptografia simétrica para transferir mensagens para outras partes. Isso ocorre principalmente porque nega muitos dos riscos relacionados à troca de uma chave compartilhada e garante que, embora qualquer pessoa com a chave pública possa criptografar uma mensagem para o destinatário pretendido, apenas esse destinatário pode descriptografá-la. Infelizmente, a principal desvantagem dos algoritmos de criptografia assimétrica é que eles são significativamente mais lentos do que seus primos simétricos. Como tal, a criptografia assimétrica de arquivos, especialmente os grandes, muitas vezes pode ser um processo computacionalmente intensivo.</p>
+<p>Para fornecer segurança E desempenho, uma abordagem híbrida pode ser adotada. Isso envolve a geração criptograficamente aleatória de uma chave e vetor de inicialização para criptografia <em>Simétrica</em>. Esses valores são então criptografados usando um algoritmo <em>Assimétrico</em> e gravados no arquivo de saída, antes de serem usados ​​para criptografar os dados de origem <em>Simetricamente</em> e anexá-los à saída.</p>
+<p>Essa abordagem oferece um alto grau de desempenho e segurança, pois os dados são criptografados usando um algoritmo simétrico (rápido) e a chave e iv, ambos gerados aleatoriamente (seguro) são criptografados por um algoritmo assimétrico (seguro). Ele também tem a vantagem adicional de que a mesma carga útil criptografada em diferentes ocasiões terá um texto cifrado muito diferente, porque as chaves simétricas são geradas aleatoriamente a cada vez.</p>
+<p>A classe a seguir demonstra a criptografia assimétrica de cadeias de caracteres e matrizes de bytes, bem como a criptografia de arquivo híbrida.</p>
+<pre><code>public static class AsymmetricProvider
+{
+    #region Key Generation
+    public class KeyPair
+    {
+        public string PublicKey { get; set; }
+        public string PrivateKey { get; set; }
+    }
+
+    public static KeyPair GenerateNewKeyPair(int keySize = 4096)
+    {
+        // KeySize is measured in bits. 1024 is the default, 2048 is better, 4096 is more robust but takes a fair bit longer to generate.
+        using (var rsa = new RSACryptoServiceProvider(keySize))
+        {
+            return new KeyPair {PublicKey = rsa.ToXmlString(false), PrivateKey = rsa.ToXmlString(true)};
+        }
+    }
+
+    #endregion
+
+    #region Asymmetric Data Encryption and Decryption
+
+    public static byte[] EncryptData(byte[] data, string publicKey)
+    {
+        using (var asymmetricProvider = new RSACryptoServiceProvider())
+        {
+            asymmetricProvider.FromXmlString(publicKey);
+            return asymmetricProvider.Encrypt(data, true);
+        }
+    }
+
+    public static byte[] DecryptData(byte[] data, string publicKey)
+    {
+        using (var asymmetricProvider = new RSACryptoServiceProvider())
+        {
+            asymmetricProvider.FromXmlString(publicKey);
+            if (asymmetricProvider.PublicOnly)
+                throw new Exception(&quot;The key provided is a public key and does not contain the private key elements required for decryption&quot;);
+            return asymmetricProvider.Decrypt(data, true);
+        }
+    }
+
+    public static string EncryptString(string value, string publicKey)
+    {
+        return Convert.ToBase64String(EncryptData(Encoding.UTF8.GetBytes(value), publicKey));
+    }
+
+    public static string DecryptString(string value, string privateKey)
+    {
+        return Encoding.UTF8.GetString(EncryptData(Convert.FromBase64String(value), privateKey));
+    }
+
+    #endregion
+
+    #region Hybrid File Encryption and Decription
+
+    public static void EncryptFile(string inputFilePath, string outputFilePath, string publicKey)
+    {
+        using (var symmetricCypher = new AesManaged())
+        {
+            // Generate random key and IV for symmetric encryption
+            var key = new byte[symmetricCypher.KeySize / 8];
+            var iv = new byte[symmetricCypher.BlockSize / 8];
+            using (var rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(key);
+                rng.GetBytes(iv);
+            }
+
+            // Encrypt the symmetric key and IV
+            var buf = new byte[key.Length + iv.Length];
+            Array.Copy(key, buf, key.Length);
+            Array.Copy(iv, 0, buf, key.Length, iv.Length);
+            buf = EncryptData(buf, publicKey);
+
+            var bufLen = BitConverter.GetBytes(buf.Length);
+
+            // Symmetrically encrypt the data and write it to the file, along with the encrypted key and iv
+            using (var cypherKey = symmetricCypher.CreateEncryptor(key, iv))
+            using (var fsIn = new FileStream(inputFilePath, FileMode.Open))
+            using (var fsOut = new FileStream(outputFilePath, FileMode.Create))
+            using (var cs = new CryptoStream(fsOut, cypherKey, CryptoStreamMode.Write))
+            {
+                fsOut.Write(bufLen,0, bufLen.Length);
+                fsOut.Write(buf, 0, buf.Length);
+                fsIn.CopyTo(cs);
+            }
+        }
+    }
+
+    public static void DecryptFile(string inputFilePath, string outputFilePath, string privateKey)
+    {
+        using (var symmetricCypher = new AesManaged())
+        using (var fsIn = new FileStream(inputFilePath, FileMode.Open))
+        {
+            // Determine the length of the encrypted key and IV
+            var buf = new byte[sizeof(int)];
+            fsIn.Read(buf, 0, buf.Length);
+            var bufLen = BitConverter.ToInt32(buf, 0);
+
+            // Read the encrypted key and IV data from the file and decrypt using the asymmetric algorithm
+            buf = new byte[bufLen];
+            fsIn.Read(buf, 0, buf.Length);
+            buf = DecryptData(buf, privateKey);
+
+            var key = new byte[symmetricCypher.KeySize / 8];
+            var iv = new byte[symmetricCypher.BlockSize / 8];
+            Array.Copy(buf, key, key.Length);
+            Array.Copy(buf, key.Length, iv, 0, iv.Length);
+
+            // Decript the file data using the symmetric algorithm
+            using (var cypherKey = symmetricCypher.CreateDecryptor(key, iv))
+            using (var fsOut = new FileStream(outputFilePath, FileMode.Create))
+            using (var cs = new CryptoStream(fsOut, cypherKey, CryptoStreamMode.Write))
+            {
+                fsIn.CopyTo(cs);
+            }
+        }
+    }
+
+    #endregion
+
+    #region Key Storage
+
+    public static void WritePublicKey(string publicKeyFilePath, string publicKey)
+    {
+        File.WriteAllText(publicKeyFilePath, publicKey);
+    }
+    public static string ReadPublicKey(string publicKeyFilePath)
+    {
+        return File.ReadAllText(publicKeyFilePath);
+    }
+
+    private const string SymmetricSalt = &quot;Stack_Overflow!&quot;; // Change me!
+
+    public static string ReadPrivateKey(string privateKeyFilePath, string password)
+    {
+        var salt = Encoding.UTF8.GetBytes(SymmetricSalt);
+        var cypherText = File.ReadAllBytes(privateKeyFilePath);
+
+        using (var cypher = new AesManaged())
+        {
+            var pdb = new Rfc2898DeriveBytes(password, salt);
+            var key = pdb.GetBytes(cypher.KeySize / 8);
+            var iv = pdb.GetBytes(cypher.BlockSize / 8);
+
+            using (var decryptor = cypher.CreateDecryptor(key, iv))
+            using (var msDecrypt = new MemoryStream(cypherText))
+            using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+            using (var srDecrypt = new StreamReader(csDecrypt))
+            {
+                return srDecrypt.ReadToEnd();
+            }
+        }
+    }
+
+    public static void WritePrivateKey(string privateKeyFilePath, string privateKey, string password)
+    {
+        var salt = Encoding.UTF8.GetBytes(SymmetricSalt);
+        using (var cypher = new AesManaged())
+        {
+            var pdb = new Rfc2898DeriveBytes(password, salt);
+            var key = pdb.GetBytes(cypher.KeySize / 8);
+            var iv = pdb.GetBytes(cypher.BlockSize / 8);
+
+            using (var encryptor = cypher.CreateEncryptor(key, iv))
+            using (var fsEncrypt = new FileStream(privateKeyFilePath, FileMode.Create))
+            using (var csEncrypt = new CryptoStream(fsEncrypt, encryptor, CryptoStreamMode.Write))
+            using (var swEncrypt = new StreamWriter(csEncrypt))
+            {
+                swEncrypt.Write(privateKey);
+            }
+        }
+    }
+
+    #endregion
+}
+</code></pre>
+<p>Exemplo de uso:</p>
+<pre><code>private static void HybridCryptoTest(string privateKeyPath, string privateKeyPassword, string inputPath)
+{
+    // Setup the test
+    var publicKeyPath = Path.ChangeExtension(privateKeyPath, &quot;.public&quot;);
+    var outputPath = Path.Combine(Path.ChangeExtension(inputPath, &quot;.enc&quot;));
+    var testPath = Path.Combine(Path.ChangeExtension(inputPath, &quot;.test&quot;));
+
+    if (!File.Exists(privateKeyPath))
+    {
+        var keys = AsymmetricProvider.GenerateNewKeyPair(2048);
+        AsymmetricProvider.WritePublicKey(publicKeyPath, keys.PublicKey);
+        AsymmetricProvider.WritePrivateKey(privateKeyPath, keys.PrivateKey, privateKeyPassword);
+    }
+
+    // Encrypt the file
+    var publicKey = AsymmetricProvider.ReadPublicKey(publicKeyPath);
+    AsymmetricProvider.EncryptFile(inputPath, outputPath, publicKey);
+
+    // Decrypt it again to compare against the source file
+    var privateKey = AsymmetricProvider.ReadPrivateKey(privateKeyPath, privateKeyPassword);
+    AsymmetricProvider.DecryptFile(outputPath, testPath, privateKey);
+
+    // Check that the two files match
+    var source = File.ReadAllBytes(inputPath);
+    var dest = File.ReadAllBytes(testPath);
+
+    if (source.Length != dest.Length)
+        throw new Exception(&quot;Length does not match&quot;);
+
+    if (source.Where((t, i) =&gt; t != dest[i]).Any())
+        throw new Exception(&quot;Data mismatch&quot;);
+}
+</code></pre>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/pt/csharp/polimorfismo/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Polimorfismo
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/pt/csharp/tuplas/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Tuplas &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/pt/about/">cerca de</a></li>
+          <li class="list-inline-item"><a href="/pt/disclaimers/">Isenções de responsabilidade</a></li>
+          <li class="list-inline-item"><a href="/pt/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/pt/terms-of-use/">Termos de uso</a></li>
+          <li class="list-inline-item"><a href="/pt/privacy-policy/">Política de Privacidade</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

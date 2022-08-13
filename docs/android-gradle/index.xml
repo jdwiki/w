@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>android-gradle Tutorial on </title>
+    <link>https://www.wikiod.com/docs/android-gradle/</link>
+    <description>Recent content in android-gradle Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/android-gradle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with android-gradle</title>
+      <link>https://www.wikiod.com/android-gradle/getting-started-with-android-gradle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/android-gradle/getting-started-with-android-gradle/</guid>
+      <description>Android Plugin for Gradle # As described in the remarks section the Android build system uses the Android Plugin for Gradle to support building Android applications with Gradle.
+You can specify the Android Plugin for Gradle version in the top-level build.gradle file. The plugin version applies to all modules built in that Android Studio project.
+buildscript { ... dependencies { classpath &#39;com.android.tools.build:gradle:2.2.0&#39; } } Gradle wrapper # As described in the remarks section you can specify the Gradle version used by each project editing the Gradle distribution reference in the gradle/wrapper/gradle-wrapper.</description>
+    </item>
+    
+    <item>
+      <title>Configure Product Flavors</title>
+      <link>https://www.wikiod.com/android-gradle/configure-product-flavors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/android-gradle/configure-product-flavors/</guid>
+      <description>The product flavors support the same properties as defaultConfig this is because defaultConfig actually belongs to the ProductFlavor class. This means you can provide the base configuration for all flavors in the defaultConfig {} block, and each flavor can override any of these default values, such as the applicationId.
+Flavor Constants and Resources in build.gradle # You can use gradle to have BuildConfig constants and res values on a per flavor basis.</description>
+    </item>
+    
+    <item>
+      <title>Configure Your Build with Gradle</title>
+      <link>https://www.wikiod.com/android-gradle/configure-your-build-with-gradle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/android-gradle/configure-your-build-with-gradle/</guid>
+      <description>The Android build system compiles app resources and source code, and packages them into APKs that you can test, deploy, sign, and distribute. Android Studio uses Gradle, an advanced build toolkit, to automate and manage the build process, while allowing you to define flexible custom build configurations.
+Official Documentation # https://developer.android.com/studio/build/index.html
+Why are there two build.gradle files in an Android Studio project? # &amp;lt;PROJECT_ROOT&amp;gt;\app\build.gradle is specific for app module.
+&amp;lt;PROJECT_ROOT&amp;gt;\build.gradle is a &amp;ldquo;Top-level build file&amp;rdquo; where you can add configuration options common to all sub-projects/modules.</description>
+    </item>
+    
+    <item>
+      <title>Configure Signing Settings</title>
+      <link>https://www.wikiod.com/android-gradle/configure-signing-settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/android-gradle/configure-signing-settings/</guid>
+      <description>Define the signing configuration in an external file # You can define the signing configuration in an external file as a signing.properties in the root directory of your project.
+For example you can define these keys (you can use your favorite names):
+STORE_FILE=myStoreFileLocation STORE_PASSWORD=myStorePassword KEY_ALIAS=myKeyAlias KEY_PASSWORD=mykeyPassword Then in your build.gradle file:
+android { signingConfigs { release } buildTypes { release { signingConfig signingConfigs.release } } } Then you can introduce some checks to avoid gradle issues in the build process.</description>
+    </item>
+    
+    <item>
+      <title>Shrink Code and Resources</title>
+      <link>https://www.wikiod.com/android-gradle/shrink-code-and-resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/android-gradle/shrink-code-and-resources/</guid>
+      <description>To make your APK file as small as possible, you should enable shrinking to remove unused code and resources in your release build.
+Shrink the code with ProGuard # To enable code shrinking with ProGuard, add minifyEnabled true to the appropriate build type in your build.gradle file.
+android { buildTypes { release { minifyEnabled true proguardFiles getDefaultProguardFile(‘proguard-android.txt&#39;), &#39;proguard-rules.pro&#39; } } } where:
+minifyEnabled true : enable code shrinking The getDefaultProguardFile(‘proguard-android.txt&#39;) method gets the default ProGuard settings from the Android SDK The proguard-rules.</description>
+    </item>
+    
+    <item>
+      <title>Declare Dependencies</title>
+      <link>https://www.wikiod.com/android-gradle/declare-dependencies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/android-gradle/declare-dependencies/</guid>
+      <description>Declare dependencies for flavors # Dependencies can be added for specific product flavors in a similar fashion as build configurations.
+android { ... productFlavors { flavor1 { //... } flavor2 { //... } } } dependencies { flavor1Compile &#39;com.android.support:appcompat-v7:24.1.1&#39; flavor1Compile &#39;com.google.firebase:firebase-crash:9.4.0&#39; flavor2Compile &#39;com.android.support:appcompat-v7:24.1.1&#39; } 1: https://www.wikiod.com/android-gradle/declare-dependencies#Declare Dependencies for Configurations
+How to add dependencies # The example below describes how to declare three different types of direct dependencies in the app/ module&amp;rsquo;s build.</description>
+    </item>
+    
+    <item>
+      <title>Configure Build Types</title>
+      <link>https://www.wikiod.com/android-gradle/configure-build-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/android-gradle/configure-build-types/</guid>
+      <description>Parameters # Parameter Detail applicationIdSuffix Application id suffix applied to this base config consumerProguardFiles ProGuard rule files to be included in the published AAR debuggable Whether this build type should generate a debuggable apk embedMicroApp Whether a linked Android Wear app should be embedded in variant using this build type jniDebuggable Whether this build type is configured to generate an APK with debuggable native code manifestPlaceholders The manifest placeholders minifyEnabled Whether Minify is enabled for this build type multiDexEnabled Whether Multi-Dex is enabled for this variant name Name of this build type proguardFiles Returns ProGuard configuration files to be used pseudoLocalesEnabled Whether to generate pseudo locale in the APK renderscriptDebuggable Whether the build type is configured to generate an apk with debuggable RenderScript code renderscriptOptimLevel Optimization level to use by the renderscript compiler shrinkResources Whether shrinking of unused resources is enabled.</description>
+    </item>
+    
+    <item>
+      <title>How to include aar files in a project in Android</title>
+      <link>https://www.wikiod.com/android-gradle/how-to-include-aar-files-in-a-project-in-android/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/android-gradle/how-to-include-aar-files-in-a-project-in-android/</guid>
+      <description>How to add .aar dependency in a module? # In a module (library or application) where you need the aar file you have to add in your build.gradle the repository:
+repositories { flatDir { dirs &#39;libs&#39; } } and add the dependency:
+dependencies { compile(name:&#39;nameOfYourAARFileWithoutExtension&#39;, ext:&#39;aar&#39;) } Pay attention to the relative path of the libs folder that you are using in the module.
+The aar file doesn&amp;rsquo;t include the transitive dependencies # The aar file doesn&amp;rsquo;t contain the transitive dependencies and doesn&amp;rsquo;t have a pom file which describes the dependencies used by the library.</description>
+    </item>
+    
+    <item>
+      <title>Gradle - Information of Tags</title>
+      <link>https://www.wikiod.com/android-gradle/gradle---information-of-tags/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/android-gradle/gradle---information-of-tags/</guid>
+      <description>Gradle - Information of Tags # Gradle: It is used to make build for any software, it is a Domain specific language used to configure and fulfill all plugins, libraries downloaded from repositories.
+Use Plugins:
+Apply plugin: ‘com.android.application’ Plugin is property in key value form. In above statement plugin denotes to key and right side string in single coats becomes its value.
+Gradle is DSL (Domain specific language):
+It contains different blocks:Tags</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux-kernel Tutorial on </title>
+    <link>https://www.wikiod.com/docs/linux-kernel/</link>
+    <description>Recent content in linux-kernel Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/linux-kernel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with linux-kernel</title>
+      <link>https://www.wikiod.com/linux-kernel/getting-started-with-linux-kernel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/linux-kernel/getting-started-with-linux-kernel/</guid>
+      <description>Installation or Setup # Linux kernel source code can be found in https://www.kernel.org/
+Download extract and enter to the kernel directory # Type these commands step by steps in your terminal.(Choose the appropriate version you needed instead of linux-4.7.tar.gz )
+wget http://www.kernel.org/pub/linux/kernel/v4.7/linux-4.7.tar.gz tar zxvf linux-4.7.tar.gz cd linux-4.7 make menuconfig will select the features required for the kernel. Old kernel configurations can be copied by using old .config file and executing make oldconfig.</description>
+    </item>
+    
+    <item>
+      <title>Event Tracing</title>
+      <link>https://www.wikiod.com/linux-kernel/event-tracing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/linux-kernel/event-tracing/</guid>
+      <description>Tracing I2C Events # Note: I am assuming that debugfs is mounted under /sys/kernel/debug
+If not, try:
+mount -t debugfs none /sys/kernel/debug Change into the tracing directory:
+cd /sys/kernel/debug/tracing/ Make sure the function tracer is disabled:
+echo nop &amp;gt; current_tracer Enable all I2C events:
+echo 1 &amp;gt; events/i2c/enable Make sure tracing is enabled:
+echo 1 &amp;gt; tracing_on The trace messages can be viewed in /sys/kernel/debug/tracing/trace, example:
+... i2c_write: i2c-5 #0 a=044 f=0000 l=2 [02-14] .</description>
+    </item>
+    
+    <item>
+      <title>Linux Hello World Device driver</title>
+      <link>https://www.wikiod.com/linux-kernel/linux-hello-world-device-driver/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/linux-kernel/linux-hello-world-device-driver/</guid>
+      <description>An empty kernel module # #include &amp;lt;linux/init.h&amp;gt; #include &amp;lt;linux/module.h&amp;gt; /** * This function is called when the module is first loaded. */ static int __init hello_kernel_init(void) { printk(&amp;quot;Hello, World!\n&amp;quot;); return 0; } /** * This function is called when is called if and when the module is unloaded. */ static void __exit hello_kernel_exit(void) { printk(&amp;quot;Goodbye, cruel world...\n&amp;quot;); } /* The names of the init/exit functions are arbitrary, and they are bound using the following macro definitions */ module_init(hello_kernel_init); module_exit(hello_kernel_exit); In order to write a Linux device driver (Character-device, Block-device, etc&amp;hellip;), it is necessary to create a kernel module that has an entry and exit points.</description>
+    </item>
+    
+    <item>
+      <title>Fork System call</title>
+      <link>https://www.wikiod.com/linux-kernel/fork-system-call/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/linux-kernel/fork-system-call/</guid>
+      <description>fork() system call # fork() is a system call. fork is used to create a child process from the running process, which is a replica of the parent process(Process which executed fork() ). Child process is derived from the parent process. Both the parent and child have different address space, each is independent of the changes made to the variables.
+The child process has its own PID(process identification). PPID(Parent Process ID) of child process is same as PID of parent process.</description>
+    </item>
+    
+    <item>
+      <title>Linux Named Pipes(FIFO)</title>
+      <link>https://www.wikiod.com/linux-kernel/linux-named-pipesfifo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/linux-kernel/linux-named-pipesfifo/</guid>
+      <description>What is Named Pipe (FIFO) # A named pipe is really just a special kind of file (a FIFO file) on the local hard drive. Unlike a regular file, a FIFO file does not contain any user information. Instead, it allows two or more processes to communicate with each other by reading/writing to/from this file. A named pipe works much like a regular pipe, but does have some noticeable differences. Named pipes exist as a device special file in the file system.</description>
+    </item>
+    
+    <item>
+      <title>Creation and usage of Kernel Threads</title>
+      <link>https://www.wikiod.com/linux-kernel/creation-and-usage-of-kernel-threads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/linux-kernel/creation-and-usage-of-kernel-threads/</guid>
+      <description>This topic discusses how to create and use kernel threads.
+Creation of kernel threads # kern_thread.c
+#include &amp;lt;linux/module.h&amp;gt; #include &amp;lt;linux/kernel.h&amp;gt; #include &amp;lt;linux/init.h&amp;gt; #include &amp;lt;linux/kthread.h&amp;gt; #include &amp;lt;linux/sched.h&amp;gt; #define AUTHOR &amp;quot;Nachiket Kulkarni&amp;quot; #define DESCRIPTION &amp;quot;Simple module that demonstrates creation of 2 kernel threads&amp;quot; static int kthread_func(void *arg) { /* Every kthread has a struct task_struct associated with it which is it&#39;s identifier. * Whenever a thread is schedule for execution, the kernel sets &amp;quot;current&amp;quot; pointer to * it&#39;s struct task_struct.</description>
+    </item>
+    
+    <item>
+      <title>How to find the right person for help.</title>
+      <link>https://www.wikiod.com/linux-kernel/how-to-find-the-right-person-for-help/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/linux-kernel/how-to-find-the-right-person-for-help/</guid>
+      <description>This should mirror some of the official Linux kernel docs, and post links to the latest versions of said documents in tovalds/linux on GitHub.com. The idea is to encourage individuals to make use of the MAINTAINERS files, linux-kernel mailing list, git log, and scripts/get-maintainer, so that they are familiar with the commonly-used ways of identifying a key point of contact.
+Find the &amp;ldquo;likely&amp;rdquo; maintainers for the FTDI USB serial converter # First, determine the source file for this particular driver.</description>
+    </item>
+    
+  </channel>
+</rss>

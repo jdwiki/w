@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>thymeleaf Tutorial on </title>
+    <link>https://www.wikiod.com/docs/thymeleaf/</link>
+    <description>Recent content in thymeleaf Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/thymeleaf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with thymeleaf</title>
+      <link>https://www.wikiod.com/thymeleaf/getting-started-with-thymeleaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/thymeleaf/getting-started-with-thymeleaf/</guid>
+      <description>Configuration # To get started with Thymeleaf visit official download page.
+Maven dependency
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.0.1.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Gradle dependency
+compile group: &#39;org.thymeleaf&#39;, name: &#39;thymeleaf&#39;, version: &#39;3.0.1.RELEASE&#39; Example configuration
+Starting from version 3.0, Thymeleaf supports only Java config.
+public ViewResolver viewResolver() { ThymeleafViewResolver resolver = new ThymeleafViewResolver(); resolver.setTemplateEngine(templateEngine()); resolver.setCharacterEncoding(&amp;quot;UTF-8&amp;quot;); resolver.setContentType(&amp;quot;text/html; charset=UTF-8&amp;quot;); return resolver; } In viewResolver() method you can setup e.g. encoding and content type for views. more information
+public TemplateEngine templateEngine() { SpringTemplateEngine engine = new SpringTemplateEngine(); engine.</description>
+    </item>
+    
+    <item>
+      <title>Spring Security and Thymeleaf</title>
+      <link>https://www.wikiod.com/thymeleaf/spring-security-and-thymeleaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/thymeleaf/spring-security-and-thymeleaf/</guid>
+      <description>Secure your WebApp with Login and Logout # This example is a very simple Spring Boot application.
+Maven Dependencies # At first add the following dependencies to your project. Spring Initializr is recommended when you create a new project.
+&amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.5.1.RELEASE&amp;lt;/version&amp;gt; &amp;lt;relativePath/&amp;gt; &amp;lt;/parent&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-security&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-thymeleaf&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf.extras&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf-extras-springsecurity4&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; Create your WebApp # Create a web application with websites and controller.</description>
+    </item>
+    
+    <item>
+      <title>Externalizing Text in Thymeleaf</title>
+      <link>https://www.wikiod.com/thymeleaf/externalizing-text-in-thymeleaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/thymeleaf/externalizing-text-in-thymeleaf/</guid>
+      <description>Localization # Create files for your messages
+messages.properties
+messages_en.properties messages_fr.properties
+&amp;hellip;
+Write messages in this files like this
+header.label.title=Title
+Configure path to this files (in this case in folder D:/project/messages) in application properties like:
+messages.basename.path=D:/project/messages/messages
+Configure MessageSource
+@Value(&amp;quot;${messages.basename.path}&amp;quot;) private String messagesBasename;
+@Bean public MessageSource messageSource() { ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource(); messageSource.setFallbackToSystemLocale(false); messageSource.setBasenames(&amp;ldquo;file:&amp;rdquo; + messagesBasename); return messageSource; }
+Use messages on pages
+&amp;lt;p th:text=&amp;quot;#{header.label.title}&amp;quot;&amp;gt;Title&amp;lt;/p&amp;gt;
+Localization messages with parameters # Write message in messages.</description>
+    </item>
+    
+    <item>
+      <title>Using Lists with Thymeleaf</title>
+      <link>https://www.wikiod.com/thymeleaf/using-lists-with-thymeleaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/thymeleaf/using-lists-with-thymeleaf/</guid>
+      <description>Using list in select # You can use list variable to form &amp;lt;select&amp;gt; elements
+&amp;lt;select th:field=&amp;quot;*{countries}&amp;quot;&amp;gt; &amp;lt;option th:each=&amp;quot;country: ${countries}&amp;quot; th:value=&amp;quot;${country.id}&amp;quot; th:text=&amp;quot;#{${&#39;selected.label.&#39; + country.name}}&amp;quot;/&amp;gt; &amp;lt;/select&amp;gt; Form table # &amp;lt;table id=&amp;quot;countryList&amp;quot;&amp;gt; &amp;lt;thead&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;th th:text=&amp;quot;#{country.label.name}&amp;quot;&amp;gt; Country &amp;lt;/th&amp;gt; &amp;lt;th th:text=&amp;quot;#{country.label.capital}&amp;quot;&amp;gt; Capital &amp;lt;/th&amp;gt; &amp;lt;th th:text=&amp;quot;#{country.label.square}&amp;quot;&amp;gt; Square &amp;lt;/th&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/thead&amp;gt; &amp;lt;tbody&amp;gt; &amp;lt;tr th:each=&amp;quot;country : ${countryList}&amp;quot;&amp;gt; &amp;lt;td th:text=&amp;quot;${country.name}&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td th:text=&amp;quot;${country.capital}&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td th:text=&amp;quot;${country.square}&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Expression Utility Objects</title>
+      <link>https://www.wikiod.com/thymeleaf/expression-utility-objects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/thymeleaf/expression-utility-objects/</guid>
+      <description>Format date # &amp;lt;p&amp;gt; Today: &amp;lt;span th:text=&amp;quot;${#calendars.format(today,&#39;dd MMMM yyyy&#39;)}&amp;quot;&amp;gt;30 May 2017&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; String length # &amp;lt;div th:if=&amp;quot;*{userMessage!=null and #strings.length(userMessage)&amp;gt;0}&amp;quot;&amp;gt; &amp;lt;label th:text = &amp;quot;*{userMessage}&amp;quot;/&amp;gt; &amp;lt;/div&amp;gt; String contains # &amp;lt;div th:if=&amp;quot;${#strings.contains(#httpServletRequest.requestURI, &#39;email&#39;)}&amp;quot;&amp;gt; &amp;lt;div th:replace=&amp;quot;fragments/email::welcome&amp;quot;&amp;gt; &amp;lt;/div&amp;gt; Parsing date # Get year from date
+&amp;lt;p&amp;gt; Year: &amp;lt;span th:text=&amp;quot;${#dates.year(today)}&amp;quot;&amp;gt;2017&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; Get month
+&amp;lt;p&amp;gt; Month number: &amp;lt;span th:text=&amp;quot;${#dates.month(today)}&amp;quot;&amp;gt;8&amp;lt;/span&amp;gt; Month: &amp;lt;span th:text=&amp;quot;${#dates.monthName(today)}&amp;quot;&amp;gt;August&amp;lt;/span&amp;gt; Month short name: &amp;lt;span th:text=&amp;quot;${#dates.monthNameShort(today)}&amp;quot;&amp;gt;Aug&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; Get day
+&amp;lt;p&amp;gt; Day: &amp;lt;span th:text=&amp;quot;${#dates.day(today)}&amp;quot;&amp;gt;26&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; Get day of week</description>
+    </item>
+    
+  </channel>
+</rss>

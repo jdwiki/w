@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de StackExchange.Redis on </title>
+    <link>https://www.wikiod.com/es/docs/stackexchange-redis/</link>
+    <description>Recent content in Tutorial de StackExchange.Redis on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/stackexchange-redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con StackExchange.Redis</title>
+      <link>https://www.wikiod.com/es/stackexchange-redis/primeros-pasos-con-stackexchangeredis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/stackexchange-redis/primeros-pasos-con-stackexchangeredis/</guid>
+      <description>Uso básico # using StackExchange.Redis; // ... // connect to the server ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(&amp;quot;localhost&amp;quot;); // select a database (by default, DB = 0) IDatabase db = connection.GetDatabase(); // run a command, in this case a GET RedisValue myVal = db.StringGet(&amp;quot;mykey&amp;quot;); Reutilice el multiplexor en todas las aplicaciones # class Program { private static Lazy&amp;lt;ConnectionMultiplexer&amp;gt; _multiplexer = new Lazy&amp;lt;ConnectionMultiplexer&amp;gt;( () =&amp;gt; ConnectionMultiplexer.Connect(&amp;quot;localhost&amp;quot;), LazyThreadSafetyMode.ExecutionAndPublication); static void Main(string[] args) { IDatabase db1 = _multiplexer.</description>
+    </item>
+    
+    <item>
+      <title>Publicar Suscribirse</title>
+      <link>https://www.wikiod.com/es/stackexchange-redis/publicar-suscribirse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/stackexchange-redis/publicar-suscribirse/</guid>
+      <description>Conceptos básicos # Una vez conectado puede publicar mensajes llamando al método ISubscriber.Publish:
+// grab an instance of an ISubscriber var subscriber = connection.GetSubscriber(); // publish a message to the &#39;chat&#39; channel subscriber.Publish(&amp;quot;chat&amp;quot;, &amp;quot;This is a message&amp;quot;) Los consumidores pueden suscribirse al canal usando el método ISubscriber.Subscribe. Los mensajes enviados por el editor serán manejados por el controlador pasado a este método.
+// grab an instance of an ISubscriber var subscriber = connection.</description>
+    </item>
+    
+    <item>
+      <title>Escanear</title>
+      <link>https://www.wikiod.com/es/stackexchange-redis/escanear/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/stackexchange-redis/escanear/</guid>
+      <description>Sintaxis # Public IEnumerable&amp;lt;RedisKey&amp;gt; Keys(int base de datos = 0, RedisValue patrón = predeterminado(RedisValue), int pageSize = CursorUtils.DefaultPageSize, cursor largo = CursorUtils.Origin, int pageOffset = 0, CommandFlags flags = CommandFlags.None) Parámetros # Parámetro Detalles base de datos Índice de la base de datos de Redis a la que conectarse patrón No estoy seguro tamaño de página Número de artículos a devolver por página cursor No estoy seguro Desplazamiento de página Número de páginas para compensar los resultados por banderas No estoy seguro La llamada Keys() seleccionará el comando KEYS o SCAN según la versión del servidor Redis.</description>
+    </item>
+    
+    <item>
+      <title>Canalización</title>
+      <link>https://www.wikiod.com/es/stackexchange-redis/canalizacion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/stackexchange-redis/canalizacion/</guid>
+      <description>Canalización y multiplexación # var multiplexer = ConnectionMultiplexer.Connect(&amp;quot;localhost&amp;quot;); IDatabase db = multiplexer.GetDatabase(); // intialize key with empty string await db.StringSetAsync(&amp;quot;key&amp;quot;, &amp;quot;&amp;quot;); // create transaction that utilize multiplexing and pipelining ITransaction transacton = db.CreateTransaction(); Task&amp;lt;long&amp;gt; appendA = transacton.StringAppendAsync(&amp;quot;key&amp;quot;, &amp;quot;a&amp;quot;); Task&amp;lt;long&amp;gt; appendB = transacton.StringAppendAsync(&amp;quot;key&amp;quot;, &amp;quot;b&amp;quot;); if (await transacton.ExecuteAsync()) // sends &amp;quot;MULTI APPEND KEY a APPEND KEY b EXEC // in single request to redis server { // order here doesn&#39;t matter, result is always - &amp;quot;abc&amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title>Claves y valores</title>
+      <link>https://www.wikiod.com/es/stackexchange-redis/claves-y-valores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/stackexchange-redis/claves-y-valores/</guid>
+      <description>Configuración de valores # Todos los valores en Redis se almacenan finalmente como un tipo RedisValue:
+//&amp;quot;myvalue&amp;quot; here is implicitly converted to a RedisValue type //The RedisValue type is rarely seen in practice. db.StringSet(&amp;quot;key&amp;quot;, &amp;quot;aValue&amp;quot;); Establecer y obtener un int # db.StringSet(&amp;quot;key&amp;quot;, 11021); int i = (int)db.StringGet(&amp;quot;key&amp;quot;); O usando StackExchange.Redis.Extensions:
+db.Add(&amp;quot;key&amp;quot;, 11021); int i = db.Get&amp;lt;int&amp;gt;(&amp;quot;key&amp;quot;); </description>
+    </item>
+    
+    <item>
+      <title>perfilado</title>
+      <link>https://www.wikiod.com/es/stackexchange-redis/perfilado/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/stackexchange-redis/perfilado/</guid>
+      <description>Las funciones de generación de perfiles de StackExchange.Redis se componen de la interfaz IProfiler y los métodos ConnectionMultiplexer.RegisterProfiler(IProfiler), ConnectionMultiplexer.BeginProfiling(objeto), ConnectionMultiplexer.FinishProfiling(objeto).
+Comenzar y finalizar la creación de perfiles toman un &amp;ldquo;objeto&amp;rdquo; de contexto para que los comandos relacionados se puedan agrupar.
+Esta agrupación funciona consultando su interfaz IProfiler para un objeto de contexto al comienzo de un comando, antes de que haya ocurrido cualquier travesura de subprocesamiento, y asociando ese comando con cualquier otro comando que tenga el mismo objeto de contexto.</description>
+    </item>
+    
+  </channel>
+</rss>

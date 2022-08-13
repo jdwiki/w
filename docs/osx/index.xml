@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>osx Tutorial on </title>
+    <link>https://www.wikiod.com/docs/osx/</link>
+    <description>Recent content in osx Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/osx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with osx</title>
+      <link>https://www.wikiod.com/osx/getting-started-with-osx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/osx/getting-started-with-osx/</guid>
+      <description>Overview of Frameworks # Apps written for macOS are usually written with Apple&amp;rsquo;s Frameworks. The frameworks that almost every app will use are:
+AppKit - for creating and managing UI elements Foundation - for common non-UI objects and operations There are other common frameworks that are used in many, but not all apps:
+CoreData - for data storage Dispatch - for management of multiple threads CoreGraphics - for drawing a graphics related tasks CoreAnimation - for animation of UI elements </description>
+    </item>
+    
+    <item>
+      <title>NSStoryBoard</title>
+      <link>https://www.wikiod.com/osx/nsstoryboard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/osx/nsstoryboard/</guid>
+      <description>Open a New Window Controller # To open a new window, add the following code somewhere where you can keep a reference to the new window (I.E., the app delegate).
+Swift
+let storyboard:NSStoryboard = NSStoryboard(name: &amp;quot;Main&amp;quot;, bundle: nil) guard let controller:NSWindowController = storyboard.instantiateControllerWithIdentifier(&amp;quot;myWindowController&amp;quot;) as? NSWindowController else { return /*or handle error*/ } controller.showWindow(self) Objective-C
+NSStoryboard *storyBoard = [NSStoryboard storyboardWithName:@&amp;quot;Main&amp;quot; bundle:nil]; // get a reference to the storyboard myController = [storyBoard instantiateControllerWithIdentifier:@&amp;quot;secondWindowController&amp;quot;]; // instantiate your window controller [myController showWindow:self]; Once you create your controller make sure you keep a reference it to somewhere outside of the function call.</description>
+    </item>
+    
+    <item>
+      <title>NSMenuItem</title>
+      <link>https://www.wikiod.com/osx/nsmenuitem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/osx/nsmenuitem/</guid>
+      <description>See Apple&amp;rsquo;s Documentation here: https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSMenuItem_Class/
+Enabling menu items # Manually enabling menu items # To manually control the enabled state of a menu items the menu that contains it must disable automatic enabling of its items
+Menus can turn off automatic enabling in one of two ways:
+In the Interface Builder In code menu.autoenablesItems = false
+Both of the mechanisms set the autoenablesItems property on NSMenu.
+Once the menu is menu is no longer enabling and disabling menu items the menu items can be programmatically set in one of two ways</description>
+    </item>
+    
+    <item>
+      <title>NSTextView</title>
+      <link>https://www.wikiod.com/osx/nstextview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/osx/nstextview/</guid>
+      <description>NSTextView is Apple&amp;rsquo;s main handler of AppKit&amp;rsquo;s text system. It contains everything you need to create a text viewer/editor space in OS X (renamed macOS) applications.
+Creating an NSTextView # Graphically # In XCode a simple NSTextView can be created by dragging and dropping one from the Object Library.
+This NSTextView sits inside an NSScrollView that is automatically set to expand vertically with the text view. Make sure when option(⌥)-dragging you make connections to the text view and not the scroll view.</description>
+    </item>
+    
+    <item>
+      <title>NSRunLoop</title>
+      <link>https://www.wikiod.com/osx/nsrunloop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/osx/nsrunloop/</guid>
+      <description>simple daemon application # A daemon process executes a program in the background, usually without user interaction. The example below shows how to create a daemon and register a listener, which monitors all open applications. The main part is the function call NSRunLoop.mainRunLoop().run(), which starts the daemon.
+class MyObserver: NSObject { override init() { super.init() // app listeners NSWorkspace.sharedWorkspace().notificationCenter.addObserver(self, selector: &amp;quot;SwitchedApp:&amp;quot;, name: NSWorkspaceDidActivateApplicationNotification, object: nil) } func SwitchedApp(notification: NSNotification!) { print(notification) } } let observer = MyObserver() // simply to keep the command line tool alive - as a daemon process NSRunLoop.</description>
+    </item>
+    
+    <item>
+      <title>NSFont</title>
+      <link>https://www.wikiod.com/osx/nsfont/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/osx/nsfont/</guid>
+      <description>NSFont is the object that provides Mac applications with glyph information and font characteristics to be used for primarily for display. You&amp;rsquo;ll learn how to create and use NSFont objects in a variety of ways, both common and uncommon.
+Creating an NSFont object # The preferred and most common way of making an NSFont object is the following:
+Objective-C # // Name is PostScript name of font; size is in points.</description>
+    </item>
+    
+    <item>
+      <title>Prompting the user for a file</title>
+      <link>https://www.wikiod.com/osx/prompting-the-user-for-a-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/osx/prompting-the-user-for-a-file/</guid>
+      <description>NSOpenPanel provides an API for prompting the user for a file to open. This menu is the standard UI presented by the Open (⌘O) menu item.
+Opening files # Opening any file # NSOpenPanel *openPanel = [NSOpenPanel openPanel]; [openPanel beginWithCompletionHandler:^(NSInteger result) { NSURL *url = openPanel.URL; if (result == NSFileHandlingPanelCancelButton || !url) { return; } // do something with a URL }]; Allowing opening multiple files # NSOpenPanel *openPanel = [NSOpenPanel openPanel]; openPanel.</description>
+    </item>
+    
+    <item>
+      <title>Set environment variables</title>
+      <link>https://www.wikiod.com/osx/set-environment-variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/osx/set-environment-variables/</guid>
+      <description>In Mac OS X, you can set the environment variables in one of the following files :
+~/.bashrc
+~/.bash_profile
+~/.profile
+By default, Mac OS X does not has above files, you need to create it manually.
+Add a path # 1.vim ~/.bash_profile
+The file may not exist (if not, you can just create it).
+2.type in this and save the file:
+export PATH=$PATH:YOUR_PATH_HERE </description>
+    </item>
+    
+    <item>
+      <title>File association</title>
+      <link>https://www.wikiod.com/osx/file-association/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/osx/file-association/</guid>
+      <description>Set my app as default app for a file type # - (NSString *) UTIforFileExtension:(NSString *) extension { NSString * UTIString = (NSString *)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)extension, NULL); return [UTIString autorelease]; } - (BOOL) setMyselfAsDefaultApplicationForFileExtension:(NSString *) fileExtension { OSStatus returnStatus = LSSetDefaultRoleHandlerForContentType ( (CFStringRef) [self UTIforFileExtension:fileExtension], kLSRolesAll, (CFStringRef) [[NSBundle mainBundle] bundleIdentifier] ); if (returnStatus != 0) { NSLog(@&amp;quot;Got an error when setting default application - %d&amp;quot;, returnStatus); // Please see the documentation or LSInfo.</description>
+    </item>
+    
+  </channel>
+</rss>

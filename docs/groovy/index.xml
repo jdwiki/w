@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>groovy Tutorial on </title>
+    <link>https://www.wikiod.com/docs/groovy/</link>
+    <description>Recent content in groovy Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/groovy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with groovy</title>
+      <link>https://www.wikiod.com/groovy/getting-started-with-groovy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/groovy/getting-started-with-groovy/</guid>
+      <description>Installation or Setup # There are two common ways to install Groovy.
+Download
+The Groovy binary can be downloaded on the download page of the Groovy website. You can unpack archive and add path to %GROOVY_HOME%/bin/groovy.bat to the PATH system environment variable, where %GROOVY_HOME% is the directory where Groovy is unpacked.
+SDKMAN
+The other option is to use SDKMAN. This option has grown quickly in popularity, and makes managing multiple versions of Groovy very simple.</description>
+    </item>
+    
+    <item>
+      <title>Groovy Truth (true-ness)</title>
+      <link>https://www.wikiod.com/groovy/groovy-truth-true-ness/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/groovy/groovy-truth-true-ness/</guid>
+      <description>Groovy evaluates conditions in if, while and for statements the same way as Java does for standard Java conditions : in Java you must provide a boolean expression (an expression that evaluates to a boolean) and the result is the result of the evaluation.
+In Groovy , the result is the same as in Java for thoses conditions (no examples provided, this is standard Java).
+The other truthfulness evaluation mechanism shown by examples can be summarized as:</description>
+    </item>
+    
+    <item>
+      <title>String Interpolation</title>
+      <link>https://www.wikiod.com/groovy/string-interpolation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/groovy/string-interpolation/</guid>
+      <description>Syntax # $ ${} ${-&amp;gt;} Basic # def str = &#39;nice&#39; assert &amp;quot;Groovy is $str&amp;quot; == &#39;Groovy is nice&#39; Dotted Expression # def arg = [phrase: &#39;interpolated&#39;] assert &amp;quot;This is $arg.phrase&amp;quot; == &#39;This is interpolated&#39; Eager expression # def str = &#39;old&#39; def interpolated = &amp;quot;I am the ${str} value&amp;quot; assert interpolated == &#39;I am the old value&#39; str = &#39;new&#39; assert interpolated == &#39;I am the old value&#39; Lazy expression # We can have lazy interpolation in Strings.</description>
+    </item>
+    
+    <item>
+      <title>Strings and GString literals</title>
+      <link>https://www.wikiod.com/groovy/strings-and-gstring-literals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/groovy/strings-and-gstring-literals/</guid>
+      <description>Syntax # &amp;lsquo;Single quoted string&amp;rsquo; &amp;ldquo;Double quoted string&amp;rdquo; &amp;lsquo;&amp;lsquo;&amp;lsquo;Multiline string&amp;rsquo;&amp;rsquo;&amp;rsquo; &amp;ldquo;&amp;ldquo;&amp;ldquo;Triple double quoted string&amp;rdquo;&amp;rdquo;&amp;rdquo; /Slashy string/ $/Dollar slash string/$ Groovy has two string types the java java.lang.String and groovy.lang.GString, as well as multiple forms of string literals (see syntax and examples).
+The main difference between the two types of strings is that GString supports string interpolation.
+Dollar slash string # def param = &#39;string&#39; def str = $/ multiline $param no need to escape slash \n $ $$ /$ assert str instanceof GString assert str.</description>
+    </item>
+    
+    <item>
+      <title>Closures</title>
+      <link>https://www.wikiod.com/groovy/closures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/groovy/closures/</guid>
+      <description>Closure with implicit parameters # [&#39;cat&#39;, &#39;dog&#39;, &#39;fish&#39;].collect { it.length() } it is the default name of the parameter if you have a single parameter and do not explicitly name the parameter. You can optionally declare the parameter as well.
+[&#39;cat&#39;, &#39;dog&#39;, &#39;fish&#39;].collect { animal -&amp;gt; animal.length() } Closure with explicit parameters # def addNumbers = { a, b -&amp;gt; a + b } addNumbers(-7, 15) // returns 8 Closure with custom target for method calls with implicit receiver # class MyHello { def sayHello() { &amp;quot;Hello, world&amp;quot; } } def cl = { sayHello() } cl() // groovy.</description>
+    </item>
+    
+    <item>
+      <title>JSON</title>
+      <link>https://www.wikiod.com/groovy/json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/groovy/json/</guid>
+      <description>Parse a json string # import groovy.json.JsonSlurper; def jsonSlurper = new JsonSlurper() def obj = jsonSlurper.parseText(&#39;{ &amp;quot;foo&amp;quot;: &amp;quot;bar&amp;quot;, &amp;quot;baz&amp;quot;: [1] }&#39;) assert obj.foo == &#39;bar&#39; assert obj.baz == [1] Pretty-print a json string # import groovy.json.JsonOutput; def json = JsonOutput.toJson([foo: &#39;bar&#39;, baz: [1]]) assert json == &#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;,&amp;quot;baz&amp;quot;:[1]}&#39; def pretty = JsonOutput.prettyPrint(json) assert pretty == &#39;&#39;&#39;{ &amp;quot;foo&amp;quot;: &amp;quot;bar&amp;quot;, &amp;quot;baz&amp;quot;: [ 1 ] }&#39;&#39;&#39; Parse a json file # import groovy.json.JsonSlurper; def jsonSlurper = new JsonSlurper() File fl = new File(&#39;/path/to/fils.</description>
+    </item>
+    
+    <item>
+      <title>Spread Operator</title>
+      <link>https://www.wikiod.com/groovy/spread-operator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/groovy/spread-operator/</guid>
+      <description>In most cases, the spread operator *. is identical to calling .collect { it.________ }.
+def animals = [&#39;cat&#39;, &#39;dog&#39;, &#39;fish&#39;] assert animals*.length() == animals.collect { it.length() } But if the subject is null, they behave a differently:
+def animals = null assert animals*.length() == null assert animals.collect { it.length() } == [] Accessing a property # class Vector { double x double y } def points = [ new Vector(x: 10, y: -5), new Vector(x: -17.</description>
+    </item>
+    
+    <item>
+      <title>Collection Operators</title>
+      <link>https://www.wikiod.com/groovy/collection-operators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/groovy/collection-operators/</guid>
+      <description>Iterate over a collection # Lists # def lst = [&#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39;] // using implicit argument lst.each { println it } // using explicit argument lst.each { val -&amp;gt; println val } // both print: // foo // bar // baz Iterate with index # def lst = [&#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39;] // explicit arguments are required lst.eachWithIndex { val, idx -&amp;gt; println &amp;quot;$val in position $idx&amp;quot; }​​​​​​​​​​​​​​ // prints: // foo in position 0 // bar in position 1 // baz in position 2 Maps # def map = [foo: &#39;FOO&#39;, bar: &#39;BAR&#39;, baz: &#39;BAZ&#39;] // using implicit argument map.</description>
+    </item>
+    
+    <item>
+      <title>Spaceship Operator</title>
+      <link>https://www.wikiod.com/groovy/spaceship-operator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/groovy/spaceship-operator/</guid>
+      <description>Spaceship operator for custom sortings # class User { String name int age } def users = [ new User(name: &amp;quot;Bob&amp;quot;, age: 20), new User(name: &amp;quot;Tom&amp;quot;, age: 50), new User(name: &amp;quot;Bill&amp;quot;, age: 45) ] // sort by age users.sort { a, b -&amp;gt; a.age &amp;lt;=&amp;gt; b.age } Basic usage # the spaceship operator returns -1 when the left operator is smaller, 0 when the operators are equal and 1 otherwise:</description>
+    </item>
+    
+    <item>
+      <title>RESTClient</title>
+      <link>https://www.wikiod.com/groovy/restclient/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/groovy/restclient/</guid>
+      <description>Groovy&amp;rsquo;s HTTP Client usage, examples and pitfalls.
+GET Request # @Grab(group=&#39;org.codehaus.groovy.modules.http-builder&#39;, module=&#39;http-builder&#39;, version=&#39;0.7&#39; ) import groovyx.net.http.RESTClient try { def restClient = new RESTClient(&amp;quot;http://weathers.co&amp;quot;) def response = restClient.get(path: &#39;/api.php&#39;, query: [&#39;city&#39;: &#39;Prague&#39;]) println &amp;quot;Status : ${response.status}&amp;quot; println &amp;quot;Body : ${response.data.text}&amp;quot; } catch (Exception e) { println &amp;quot;Error : ${e.statusCode}&amp;quot; println &amp;quot;Message : ${e.response.data}&amp;quot; } </description>
+    </item>
+    
+  </channel>
+</rss>

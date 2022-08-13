@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lucene Tutorial on </title>
+    <link>https://www.wikiod.com/docs/lucene/</link>
+    <description>Recent content in lucene Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/lucene/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with lucene</title>
+      <link>https://www.wikiod.com/lucene/getting-started-with-lucene/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/lucene/getting-started-with-lucene/</guid>
+      <description>Hello World # This basic Lucene example creates a simple index, and searches on it.
+Note: RAMDirectory creates a memory-resident index, and is handy for experimenting and testing, but in practice most people will need to have an index stored in the file system (see FSDirectory.open).
+import java.io.IOException; import org.apache.lucene.analysis.Analyzer; import org.apache.lucene.analysis.standard.StandardAnalyzer; import org.apache.lucene.document.*; import org.apache.lucene.index.*; import org.apache.lucene.queryparser.classic.*; import org.apache.lucene.search.*; import org.apache.lucene.store.*; public class HelloLucene { public static void main(String[] args) throws IOException, ParseException { //Create a new index and open a writer Directory dir = new RAMDirectory(); Analyzer analyzer = new StandardAnalyzer(); IndexWriterConfig config = new IndexWriterConfig(analyzer); IndexWriter writer = new IndexWriter(dir, config); //Create a document to index Document doc = new Document(); doc.</description>
+    </item>
+    
+    <item>
+      <title>Queries</title>
+      <link>https://www.wikiod.com/lucene/queries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/lucene/queries/</guid>
+      <description>BooleanQuery # BooleanQuery is used to combine other queries.
+They can be combined using three BooleanClause.Occur parameters:
+BooleanClause.Occur.MUST - The subquery must be matched. BooleanClause.Occur.SHOULD - The subquery may not be matched, but will be scored more highly if it is. If there are no MUST clauses, then at least one SHOULD clause must be matched. BooleanClause.Occur.MUST_NOT - The subquery must not match the document. In this example, a document will match if it has &amp;ldquo;important&amp;rdquo;, but not &amp;ldquo;forbidden&amp;rdquo;, and will get a higher score if it also has &amp;ldquo;helpful&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Analysis</title>
+      <link>https://www.wikiod.com/lucene/analysis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/lucene/analysis/</guid>
+      <description>Creating a custom analyzer # Most analysis customization is in the createComponents class, where the Tokenizer and TokenFilters are defined.
+CharFilters can be added in the initReader method.
+Analyzer analyzer = new Analyzer() { @Override protected Reader initReader(String fieldName, Reader reader) { return new HTMLStripCharFilter(reader); } @Override protected TokenStreamComponents createComponents(String fieldName) { Tokenizer tokenizer = new StandardTokenizer(); TokenStream stream = new StandardFilter(tokenizer); //Order matters! If LowerCaseFilter and StopFilter were swapped here, StopFilter&#39;s //matching would be case sensitive, so &amp;quot;the&amp;quot; would be eliminated, but not &amp;quot;The&amp;quot; stream = new LowerCaseFilter(stream); stream = new StopFilter(stream, StopAnalyzer.</description>
+    </item>
+    
+    <item>
+      <title>Deleting Documents using a Multi-Term Query</title>
+      <link>https://www.wikiod.com/lucene/deleting-documents-using-a-multi-term-query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/lucene/deleting-documents-using-a-multi-term-query/</guid>
+      <description>Deleting documents from a Lucene index is easy when you have a primary key field in your document (like in traditional SQL databases).
+However, sometimes deleting a number of documents based on multiple fields in the document is what you need. The Lucene API allows you to achieve this by specifying a query to use for deletion.
+To do this, pick the right Analyzer, construct the query, pass the query to the indexWriter to delete the documents.</description>
+    </item>
+    
+  </channel>
+</rss>

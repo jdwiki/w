@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ansible Tutorial on </title>
+    <link>https://www.wikiod.com/docs/ansible/</link>
+    <description>Recent content in ansible Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/ansible/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with ansible</title>
+      <link>https://www.wikiod.com/ansible/getting-started-with-ansible/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ansible/getting-started-with-ansible/</guid>
+      <description>Hello, World # Create a directory called ansible-helloworld-playbook
+mkdir ansible-helloworld-playbook Create a file hosts and add remote systems how want to manage. As ansible relies on ssh to connect the machines, you should make sure they are already accessible to you in ssh from your computer.
+192.168.1.1 192.168.1.2 Test connection to your remote systems using the Ansible ping module.
+ansible all -m ping -k In case of success it should return something like that</description>
+    </item>
+    
+    <item>
+      <title>Using Ansible with OpenStack</title>
+      <link>https://www.wikiod.com/ansible/using-ansible-with-openstack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ansible/using-ansible-with-openstack/</guid>
+      <description>OpenStack is an open-source software platform for cloud computing. Linux instances can be launched/stopped manualy using the graphical web interface or automated thanks to ansible&amp;rsquo;s openstack cloud module.
+Configuring ansible can be tricky, but once well configured using it is really easy and powerfull for testing and Continuous Integration environment.
+Parameters # parameters Comments hosts: localhost OpenStack commands are launched from our localhost gather_facts: False We dont need to gather information on our localhost auth_url: https://openstack-identity.</description>
+    </item>
+    
+    <item>
+      <title>Inventory</title>
+      <link>https://www.wikiod.com/ansible/inventory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ansible/inventory/</guid>
+      <description>Parameters # Parameter Explanation ansible_connection Connection type to the host. This can be the name of any of ansible’s connection plugins. SSH protocol types are smart, ssh or paramiko. The default is smart. Non-SSH based types are described in the next section. ansible_host The name of the host to connect to, if different from the alias you wish to give to it. ansible_port The ssh port number, if not 22 ansible_user The default ssh user name to use.</description>
+    </item>
+    
+    <item>
+      <title>Installation</title>
+      <link>https://www.wikiod.com/ansible/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ansible/installation/</guid>
+      <description>Installing Ansible in any OS, including Windows using Virtual Box and Vagrant. An alternate solution is also available if you just want to practice ansible ad-hoc commands and playbooks and do not wish to set up the local environment.
+Installing Ansible on Ubuntu # Ansible maintains a PPA repository that can be used to install the Ansible binaries:
+sudo apt-add-repository ppa:ansible/ansible -y sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install ansible -y To install a specific version, use pip.</description>
+    </item>
+    
+    <item>
+      <title>Ansible Loops and Conditionals</title>
+      <link>https://www.wikiod.com/ansible/ansible-loops-and-conditionals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ansible/ansible-loops-and-conditionals/</guid>
+      <description>Official docs explains playbook conditionals.
+http://docs.ansible.com/ansible/playbooks_conditionals.html Ansible (github)
+https://github.com/marxwang/ansible-learn-resources What kinds of conditionals to use? # Use Conditionals via (syntax is in [brackets]):
+when [when:]
+Task: - name: run if operating system is debian command: echo &amp;quot;I am a Debian Computer&amp;quot; when: ansible_os_family == &amp;quot;Debian&amp;quot; loops [with_items:]
+loops [with_dicts:]
+Custom Facts [ when: my_custom_facts == &amp;lsquo;1234&amp;rsquo;]
+Conditional imports
+Select files and Templates based on variables
+[When] Condition: ansible_os_family Lists # Common use # when: ansible_os_family == &amp;ldquo;CentOS&amp;rdquo; when: ansible_os_family == &amp;ldquo;Redhat&amp;rdquo; when: ansible_os_family == &amp;ldquo;Darwin&amp;rdquo; when: ansible_os_family == &amp;ldquo;Debian&amp;rdquo; when: ansible_os_family == &amp;ldquo;Windows&amp;rdquo; All Lists # based on discuss here http://comments.</description>
+    </item>
+    
+    <item>
+      <title>Introduction to playbooks</title>
+      <link>https://www.wikiod.com/ansible/introduction-to-playbooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ansible/introduction-to-playbooks/</guid>
+      <description>Overview # In Ansible, a playbook is is a YAML file containing the definition of how a server should look. In a playbook you define what actions Ansible should take to get the server in the state you want. Only what you define gets done.
+This is a basic Ansible playbook that installs git on every host belonging to the web group:
+--- - name: Git installation hosts: web remote_user: root tasks: - name: Install Git apt: name=git state=present Playbook&amp;rsquo;s structure # The format of a playbook is quite straightforward, but strict in terms of spacing and layout.</description>
+    </item>
+    
+    <item>
+      <title>Using Ansible with Amazon Web Services</title>
+      <link>https://www.wikiod.com/ansible/using-ansible-with-amazon-web-services/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ansible/using-ansible-with-amazon-web-services/</guid>
+      <description>example-2: This is serves as an example so just don&amp;rsquo;t copy/past it. Instead, to suit your needs, you should customize its variables; ansible_key, security group rules etc..
+example-1: To disable the ssh strict host key checking, a behavior we don&amp;rsquo;t want when automating tasks, we set it to no in ansible.cfg file. ie: StrictHostKeyChecking=no
+The ec2.py file is a python script that executes and returns your AWS ressources based on the ec2.</description>
+    </item>
+    
+    <item>
+      <title>Roles</title>
+      <link>https://www.wikiod.com/ansible/roles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ansible/roles/</guid>
+      <description>Role dependencies # Roles also enable you to define other roles as a dependency by creating a meta/main.yml file with a dependencies block:
+dependencies: - role: common It&amp;rsquo;s also possible to pass a value to a parameter/variable in the dependent role:
+dependencies: - { role: common, some_parameter: 3 } Or even execute the dependent role conditionally:
+dependencies: - { role: common, some_parameter: 3 } - { role: sshd, enable_sshd: false, when: environment == &#39;production&#39; } Dependent roles are always executed before the roles that depend on them.</description>
+    </item>
+    
+    <item>
+      <title>Dynamic inventory</title>
+      <link>https://www.wikiod.com/ansible/dynamic-inventory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ansible/dynamic-inventory/</guid>
+      <description>Environment variables in dynamic inventory won&amp;rsquo;t work, f.e.
+&amp;quot;ansible_ssh_private_key_file&amp;quot;: $HOME/.ssh/key.pem&amp;quot; If the dynamic inventory server side passes $HOME for example, replace the variable in the client code (Python):
+json_input.replace(&amp;quot;$HOME&amp;quot;, os.environ.get(&amp;quot;HOME&amp;quot;)) Dynamic inventory with login credentials # Pass dynamic inventory to ansible-playbook:
+ansible-playbook -i inventory/dyn.py -l targethost my_playbook.yml python inventory/dyn.py should print out something like this:
+{ &amp;quot;_meta&amp;quot;: { &amp;quot;hostvars&amp;quot;: { &amp;quot;10.1.0.10&amp;quot;: { &amp;quot;ansible_user&amp;quot;: &amp;quot;vagrant&amp;quot;, &amp;quot;ansible_ssh_private_key_file&amp;quot;: &amp;quot;/home/mrtuovinen/.ssh/id_rsa&amp;quot;, &amp;quot;ansible_port&amp;quot;: 22 }, &amp;quot;10.1.0.11&amp;quot;: { &amp;quot;ansible_user&amp;quot;: &amp;quot;ubuntu&amp;quot;, &amp;quot;ansible_ssh_private_key_file&amp;quot;: &amp;quot;/home/mrtuovinen/.</description>
+    </item>
+    
+    <item>
+      <title>Secret encryption</title>
+      <link>https://www.wikiod.com/ansible/secret-encryption/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ansible/secret-encryption/</guid>
+      <description>Ansible offers Vault (not to be mistaken with HashiCorp Vault!) to handle sensitive data encryption. Vault primarily targets to encrypt any structured data such as variables, tasks, handlers.
+Encrypting sensitive structured data # First, create a key file, e.g., vault_pass_file, which ideally contains a long sequence of random characters. In linux systems you could use pwgen to create a random password file:
+pwgen 256 1 &amp;gt; vault_pass_file Then, use this file to encrypt sensitive data, e.</description>
+    </item>
+    
+  </channel>
+</rss>

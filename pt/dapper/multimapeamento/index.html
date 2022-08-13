@@ -1,0 +1,1092 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.43b0b023adae2e6795d9e4443770a29ec36c5d80b552b920a387882f38dd59fc45f95bfed41ea5491dbbc99f117f2037d021e7a3764c15fcb25d77146327b1af.css" integrity="sha512-Q7CwI62uLmeV2eREN3CinsNsXYC1Urkgo4eILzjdWfxF&#43;Vv&#43;1B6lSR27yZ8RfyA30CHno3ZMFfyyXXcUYyexrw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Multimapeamento - WikiOD</title>
+<meta name="description" content="Sintaxe # public static IEnumerable&amp;lt;TReturn&amp;gt; Query&amp;lt;TFirst, TSecond, TReturn&amp;gt;( this IDbConnection cnn, string sql, Func&amp;lt;TFirst, TSecond, TReturn&amp;gt; map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = &amp;quot;Id&amp;quot;, int? commandTimeout = null, CommandType? commandType = null) public static IEnumerable&amp;lt;TReturn&amp;gt; Query&amp;lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn&amp;gt;(este IDbConnection cnn, string sql, Func&amp;lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn&amp;gt; map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = &amp;quot;Id&amp;quot;, int?">
+  <link rel="canonical" href="https://www.wikiod.com/pt/dapper/multimapeamento/">
+<meta property="og:locale" content="pt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multimapeamento">
+<meta property="og:description" content="Sintaxe # public static IEnumerable&lt;TReturn&gt; Query&lt;TFirst, TSecond, TReturn&gt;( this IDbConnection cnn, string sql, Func&lt;TFirst, TSecond, TReturn&gt; map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = &quot;Id&quot;, int? commandTimeout = null, CommandType? commandType = null) public static IEnumerable&lt;TReturn&gt; Query&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn&gt;(este IDbConnection cnn, string sql, Func&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn&gt; map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = &quot;Id&quot;, int?">
+<meta property="og:url" content="https://www.wikiod.com/pt/dapper/multimapeamento/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Multimapeamento">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Multimapeamento">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "Bem-vindo ao WikiOD - Documentação online do Wiki O WikiOD é um projeto de escrita colaborativa para construir documentação online da mais alta qualidade de todas as linguagens de programação, assuntos e conceitos relacionados à educação.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/pt/dapper/multimapeamento/",
+      "url": "https://www.wikiod.com/pt/dapper/multimapeamento/",
+      "name": "Multimapeamento",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/pt/dapper/multimapeamento/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/pt/dapper/multimapeamento/#/schema/image/2"
+      },
+      "inLanguage": "pt",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/pt/dapper/multimapeamento/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/pt/dapper/multimapeamento/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/pt/",
+          "url": "https://www.wikiod.com/pt/",
+          "name": "Pt"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/pt/dapper/",
+          "url": "https://www.wikiod.com/pt/dapper/",
+          "name": "Dapper"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/pt/dapper/multimapeamento/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Multimapeamento",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/pt/dapper/multimapeamento/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/pt/dapper/multimapeamento/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/pt/dapper/multimapeamento/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/pt/dapper/multimapeamento/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Multimapeamento"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/pt/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Navegar docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/pt/docs/dapper/"><h3 class="h6 text-uppercase mb-2">Tutorial Dapper.NET</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/introducao-ao-dappernet/">Introdução ao Dapper.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/parametros-dinamicos/">Parâmetros dinâmicos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/transacoes/">Transações</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/consulta-basica/">Consulta básica</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/referencia-de-sintaxe-de-parametro/">Referência de sintaxe de parâmetro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/varios-resultados/">Vários resultados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/pt/dapper/multimapeamento/">Multimapeamento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/manipuladores-de-tipo/">Manipuladores de tipo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/executando-comandos/">Executando Comandos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/tabelas-temporarias/">Tabelas temporárias</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/usando-assincrono/">Usando assíncrono</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/manipulando-nulos/">Manipulando Nulos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/usando-dbgeography-e-dbgeometry/">Usando DbGeography e DbGeometry</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/insercoes-a-granel/">Inserções a granel</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/pt/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/pt/docs/">Tutoriais</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/pt/blog/">Artigos</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Português
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/pt/dapper/multimapeamento/">Português</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/dapper/multimapping/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/dapper/multimapeo/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/fr/dapper/multicartographie/" hreflang="fr" lang="fr">Français</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/tr/dapper/coklu-esleme/" hreflang="tr" lang="tr">Türk</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/pt/docs/dapper/"><h3 class="h6 text-uppercase mb-2">Tutorial Dapper.NET</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/introducao-ao-dappernet/">Introdução ao Dapper.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/parametros-dinamicos/">Parâmetros dinâmicos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/transacoes/">Transações</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/consulta-basica/">Consulta básica</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/referencia-de-sintaxe-de-parametro/">Referência de sintaxe de parâmetro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/varios-resultados/">Vários resultados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/pt/dapper/multimapeamento/">Multimapeamento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/manipuladores-de-tipo/">Manipuladores de tipo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/executando-comandos/">Executando Comandos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/tabelas-temporarias/">Tabelas temporárias</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/usando-assincrono/">Usando assíncrono</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/manipulando-nulos/">Manipulando Nulos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/usando-dbgeography-e-dbgeometry/">Usando DbGeography e DbGeometry</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/insercoes-a-granel/">Inserções a granel</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/pt/docs/dapper/"><h3 class="h6 text-uppercase mb-2">Tutorial Dapper.NET</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/introducao-ao-dappernet/">Introdução ao Dapper.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/parametros-dinamicos/">Parâmetros dinâmicos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/transacoes/">Transações</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/consulta-basica/">Consulta básica</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/referencia-de-sintaxe-de-parametro/">Referência de sintaxe de parâmetro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/varios-resultados/">Vários resultados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/pt/dapper/multimapeamento/">Multimapeamento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/manipuladores-de-tipo/">Manipuladores de tipo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/executando-comandos/">Executando Comandos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/tabelas-temporarias/">Tabelas temporárias</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/usando-assincrono/">Usando assíncrono</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/manipulando-nulos/">Manipulando Nulos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/usando-dbgeography-e-dbgeometry/">Usando DbGeography e DbGeometry</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/pt/dapper/insercoes-a-granel/">Inserções a granel</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Nesta página</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sintaxe">Sintaxe</a></li>
+    <li><a href="#parâmetros">Parâmetros</a></li>
+    <li><a href="#mapeamento-simples-de-várias-tabelas">Mapeamento simples de várias tabelas</a></li>
+    <li><a href="#mapeamento-de-um-para-muitos">Mapeamento de um para muitos</a></li>
+    <li><a href="#mapeamentos-personalizados">Mapeamentos personalizados</a></li>
+    <li><a href="#mapeando-mais-de-7-tipos">Mapeando mais de 7 tipos</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Nesta página</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sintaxe">Sintaxe</a></li>
+    <li><a href="#parâmetros">Parâmetros</a></li>
+    <li><a href="#mapeamento-simples-de-várias-tabelas">Mapeamento simples de várias tabelas</a></li>
+    <li><a href="#mapeamento-de-um-para-muitos">Mapeamento de um para muitos</a></li>
+    <li><a href="#mapeamentos-personalizados">Mapeamentos personalizados</a></li>
+    <li><a href="#mapeando-mais-de-7-tipos">Mapeando mais de 7 tipos</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/pt/">Home</a></li>
+<li class="breadcrumb-item"><a href="/pt/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/pt/docs/dapper/">Tutorial Dapper.NET</a></li>
+<li class="breadcrumb-item active" aria-current="page">Multimapeamento</li>
+					</ol>
+				</nav>
+			
+			<h1>Multimapeamento</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Nesta página</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sintaxe">Sintaxe</a></li>
+    <li><a href="#parâmetros">Parâmetros</a></li>
+    <li><a href="#mapeamento-simples-de-várias-tabelas">Mapeamento simples de várias tabelas</a></li>
+    <li><a href="#mapeamento-de-um-para-muitos">Mapeamento de um para muitos</a></li>
+    <li><a href="#mapeamentos-personalizados">Mapeamentos personalizados</a></li>
+    <li><a href="#mapeando-mais-de-7-tipos">Mapeando mais de 7 tipos</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Nesta página</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sintaxe">Sintaxe</a></li>
+    <li><a href="#parâmetros">Parâmetros</a></li>
+    <li><a href="#mapeamento-simples-de-várias-tabelas">Mapeamento simples de várias tabelas</a></li>
+    <li><a href="#mapeamento-de-um-para-muitos">Mapeamento de um para muitos</a></li>
+    <li><a href="#mapeamentos-personalizados">Mapeamentos personalizados</a></li>
+    <li><a href="#mapeando-mais-de-7-tipos">Mapeando mais de 7 tipos</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h2 id="sintaxe">Sintaxe <a href="#sintaxe" class="anchor" aria-hidden="true">#</a></h2>
+<ul>
+<li><code>public static IEnumerable&lt;TReturn&gt; Query&lt;TFirst, TSecond, TReturn&gt;( this IDbConnection cnn, string sql, Func&lt;TFirst, TSecond, TReturn&gt; map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = &quot;Id&quot;, int? commandTimeout = null, CommandType? commandType = null)</code></li>
+<li><code>public static IEnumerable&lt;TReturn&gt; Query&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn&gt;(este IDbConnection cnn, string sql, Func&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn&gt; map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = &quot;Id&quot;, int? commandTimeout = null, CommandType? commandType = null)</code></li>
+<li><code>public static IEnumerable&lt;TReturn&gt; Query&lt;TReturn&gt;(este IDbConnection cnn, string sql, Type[] tipos, Func&lt;object[], TReturn&gt; map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = &quot;Id&quot;, int? commandTimeout = null, CommandType? commandType = null) </code></li>
+</ul>
+<h2 id="parâmetros">Parâmetros <a href="#par%c3%a2metros" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Detalhes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cnn</td>
+<td>Sua conexão com o banco de dados, que já deve estar aberta.</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>Comando a ser executado.</td>
+</tr>
+<tr>
+<td>tipos</td>
+<td>Matriz de tipos no conjunto de registros.</td>
+</tr>
+<tr>
+<td>mapa</td>
+<td><code>Func&lt;&gt;</code> que trata da construção do resultado de retorno.</td>
+</tr>
+<tr>
+<td>parâmetro</td>
+<td>Objeto do qual extrair parâmetros.</td>
+</tr>
+<tr>
+<td>transação</td>
+<td>Transação da qual esta consulta faz parte, se houver.</td>
+</tr>
+<tr>
+<td>tamponado</td>
+<td>Se deve ou não armazenar em buffer a leitura dos resultados da consulta. Este é um parâmetro opcional com o padrão sendo true. Quando buffer é true, os resultados são armazenados em buffer em um <code>List&lt;T&gt;</code> e, em seguida, retornados como um <code>IEnumerable&lt;T&gt;</code> que é seguro para enumeração múltipla. Quando o buffer é false, a conexão sql é mantida aberta até que você termine de ler, permitindo que você processe uma única linha de cada vez na memória. Várias enumerações gerarão conexões adicionais com o banco de dados. Embora o buffer false seja altamente eficiente para reduzir o uso de memória, se você mantiver apenas fragmentos muito pequenos dos registros retornados, ele terá uma <a href="http://stackoverflow.com/a/30493725/37055">sobrecarga de desempenho considerável</a> em comparação com a materialização ansiosa do resultado definir. Por fim, se você tiver várias conexões sql sem buffer simultâneas, precisará considerar a inanição do pool de conexões, fazendo com que as solicitações bloqueiem até que as conexões fiquem disponíveis.</td>
+</tr>
+<tr>
+<td>splitOn</td>
+<td>O campo que devemos dividir e ler o segundo objeto (padrão: id). Esta pode ser uma lista delimitada por vírgulas quando mais de 1 tipo está contido em um registro.</td>
+</tr>
+<tr>
+<td>comandoTimeout</td>
+<td>Número de segundos antes do tempo limite de execução do comando.</td>
+</tr>
+<tr>
+<td>tipodecomando</td>
+<td>É um proc armazenado ou um lote?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mapeamento-simples-de-várias-tabelas">Mapeamento simples de várias tabelas <a href="#mapeamento-simples-de-v%c3%a1rias-tabelas" class="anchor" aria-hidden="true">#</a></h2>
+<p>Digamos que temos uma consulta dos cavaleiros restantes que precisam preencher uma classe Person.</p>
+<p>| Nome | Nascido | Residência |
+|&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; &ndash;|
+| Daniel Dennet | 1942 | Estados Unidos da América |
+| Sam Harris | 1967 | Estados Unidos da América |
+| Richard Dawkins | 1941 | Reino Unido |</p>
+<pre><code>public class Person
+{
+    public string Name { get; set; }
+    public int Born { get; set; }
+    public Country Residience { get; set; }
+}
+
+public class Country
+{
+    public string Residence { get; set; }
+}
+</code></pre>
+<p>Podemos preencher a classe person assim como a propriedade Residence com uma instância de Country usando uma sobrecarga <code>Query&lt;&gt;</code> que recebe um <code>Func&lt;&gt;</code> que pode ser usado para compor a instância retornada. O <code>Func&lt;&gt;</code> pode receber até 7 tipos de entrada com o argumento genérico final sempre sendo o tipo de retorno.</p>
+<pre><code>var sql = @&quot;SELECT 'Daniel Dennett' AS Name, 1942 AS Born, 'United States of America' AS Residence
+UNION ALL SELECT 'Sam Harris' AS Name, 1967 AS Born, 'United States of America' AS Residence
+UNION ALL SELECT 'Richard Dawkins' AS Name, 1941 AS Born, 'United Kingdom' AS Residence&quot;;
+
+var result = connection.Query&lt;Person, Country, Person&gt;(sql, (person, country) =&gt; {
+        if(country == null)
+        {
+            country = new Country { Residence = &quot;&quot; };
+        }
+        person.Residience = country;
+        return person;
+    }, 
+    splitOn: &quot;Residence&quot;);
+</code></pre>
+<blockquote>
+<p>Observe o uso do argumento <code>splitOn: &quot;Residence&quot;</code> que é a 1ª coluna do próximo tipo de classe a ser preenchida (neste caso <code>Country</code>). Dapper irá procurar automaticamente por uma coluna chamada <em>Id</em> para dividir, mas se não encontrar uma e <code>splitOn</code> não for fornecido, um <code>System.ArgumentException</code> será lançado com uma mensagem útil. Portanto, embora seja opcional, você normalmente terá que fornecer um valor <code>splitOn</code>.</p>
+</blockquote>
+<h2 id="mapeamento-de-um-para-muitos">Mapeamento de um para muitos <a href="#mapeamento-de-um-para-muitos" class="anchor" aria-hidden="true">#</a></h2>
+<p>Vejamos um exemplo mais complexo que contém um relacionamento um-para-muitos. Nossa consulta agora conterá várias linhas contendo dados duplicados e precisaremos lidar com isso. Fazemos isso com uma pesquisa em um encerramento.</p>
+<p>A consulta muda um pouco, assim como as classes de exemplo.</p>
+<p>| ID | Nome | Nascido | PaísId | PaísName | BookId | Nome do livro |
+|&mdash;-|&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;|&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;- &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-|&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-|
+| 1 | Daniel Dennet | 1942 | 1 | Estados Unidos da América | 1 | Tempestades de Ideias |
+| 1 | Daniel Dennet | 1942 | 1 | Estados Unidos da América | 2 | Quarto Cotovelo |
+| 2 | Sam Harris | 1967 | 1 | Estados Unidos da América | 3 | A paisagem moral |
+| 2 | Sam Harris | 1967 | 1 | Estados Unidos da América | 4 | Acordar: Um Guia para Espiritualidade Sem Religião |
+| 3 | Richard Dawkins | 1941 | 2 | Reino Unido | 5 | A magia da realidade: como sabemos o que é realmente verdade |
+| 3 | Richard Dawkins | 1941 | 2 | Reino Unido | 6 | Um Apetite por Maravilha: A Criação de um Cientista |</p>
+<pre><code>public class Person
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Born { get; set; }
+    public Country Residience { get; set; }
+    public ICollection&lt;Book&gt; Books { get; set; }
+}
+
+public class Country
+{
+    public int CountryId { get; set; }
+    public string CountryName { get; set; }
+}
+
+public class Book
+{
+    public int BookId { get; set; }
+    public string BookName { get; set; }
+}
+</code></pre>
+<p>O dicionário<code>remainingHorsemen</code> será preenchido com instâncias totalmente materializadas dos objetos pessoa. Para cada linha do resultado da consulta são passados ​​os valores mapeados de instâncias dos tipos definidos nos argumentos lambda e cabe a você como lidar com isso.</p>
+<pre><code>            var sql = @&quot;SELECT 1 AS Id, 'Daniel Dennett' AS Name, 1942 AS Born, 1 AS CountryId, 'United States of America' AS CountryName, 1 AS BookId, 'Brainstorms' AS BookName
+UNION ALL SELECT 1 AS Id, 'Daniel Dennett' AS Name, 1942 AS Born, 1 AS CountryId, 'United States of America' AS CountryName, 2 AS BookId, 'Elbow Room' AS BookName
+UNION ALL SELECT 2 AS Id, 'Sam Harris' AS Name, 1967 AS Born, 1 AS CountryId,  'United States of America' AS CountryName, 3 AS BookId, 'The Moral Landscape' AS BookName
+UNION ALL SELECT 2 AS Id, 'Sam Harris' AS Name, 1967 AS Born, 1 AS CountryId,  'United States of America' AS CountryName, 4 AS BookId, 'Waking Up: A Guide to Spirituality Without Religion' AS BookName
+UNION ALL SELECT 3 AS Id, 'Richard Dawkins' AS Name, 1941 AS Born, 2 AS CountryId,  'United Kingdom' AS CountryName, 5 AS BookId, 'The Magic of Reality: How We Know What`s Really True' AS BookName
+UNION ALL SELECT 3 AS Id, 'Richard Dawkins' AS Name, 1941 AS Born, 2 AS CountryId,  'United Kingdom' AS CountryName, 6 AS BookId, 'An Appetite for Wonder: The Making of a Scientist' AS BookName&quot;;
+
+var remainingHorsemen = new Dictionary&lt;int, Person&gt;();
+connection.Query&lt;Person, Country, Book, Person&gt;(sql, (person, country, book) =&gt; {
+    //person
+    Person personEntity;
+    //trip
+    if (!remainingHorsemen.TryGetValue(person.Id, out personEntity))
+    {
+        remainingHorsemen.Add(person.Id, personEntity = person);
+    }
+
+    //country
+    if(personEntity.Residience == null)
+    {
+        if (country == null)
+        {
+            country = new Country { CountryName = &quot;&quot; };
+        }
+        personEntity.Residience = country;
+    }                    
+
+    //books
+    if(personEntity.Books == null)
+    {
+        personEntity.Books = new List&lt;Book&gt;();
+    }
+
+    if (book != null)
+    {
+        if (!personEntity.Books.Any(x =&gt; x.BookId == book.BookId))
+        {
+            personEntity.Books.Add(book);
+        }
+    }
+
+    return personEntity;
+}, 
+splitOn: &quot;CountryId,BookId&quot;);
+</code></pre>
+<blockquote>
+<p>Observe como o argumento <code>splitOn</code> é uma lista delimitada por vírgulas das primeiras colunas do próximo tipo.</p>
+</blockquote>
+<h2 id="mapeamentos-personalizados">Mapeamentos personalizados <a href="#mapeamentos-personalizados" class="anchor" aria-hidden="true">#</a></h2>
+<p>Se os nomes das colunas de consulta não corresponderem às suas classes, você poderá configurar mapeamentos para tipos. Este exemplo demonstra o mapeamento usando <code>System.Data.Linq.Mapping.ColumnAttribute</code>, bem como um mapeamento personalizado.</p>
+<blockquote>
+<p>Os mapeamentos só precisam ser configurados uma vez por tipo, portanto, defina-os na inicialização do aplicativo ou em outro lugar para que sejam inicializados apenas uma vez.</p>
+</blockquote>
+<p>Assumindo a mesma consulta do exemplo Um para muitos novamente e as classes refatoradas para nomes melhores, como:</p>
+<pre><code>public class Person
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Born { get; set; }
+    public Country Residience { get; set; }
+    public ICollection&lt;Book&gt; Books { get; set; }
+}
+
+public class Country
+{
+    [System.Data.Linq.Mapping.Column(Name = &quot;CountryId&quot;)]
+    public int Id { get; set; }
+
+    [System.Data.Linq.Mapping.Column(Name = &quot;CountryName&quot;)]
+    public string Name { get; set; }
+}
+
+public class Book
+{
+    public int Id { get; set; }
+
+    public string Name { get; set; }
+}
+</code></pre>
+<blockquote>
+<p>Observe como <code>Book</code> não depende de <code>ColumnAttribute</code> mas precisaríamos manter a instrução <code>if</code></p>
+</blockquote>
+<p>Agora coloque este código de mapeamento em algum lugar em seu aplicativo onde ele é executado apenas uma vez:</p>
+<pre><code>Dapper.SqlMapper.SetTypeMap(
+    typeof(Country),
+    new CustomPropertyTypeMap(
+        typeof(Country),
+        (type, columnName) =&gt;
+            type.GetProperties().FirstOrDefault(prop =&gt;
+                prop.GetCustomAttributes(false)
+                    .OfType&lt;System.Data.Linq.Mapping.ColumnAttribute&gt;()
+                    .Any(attr =&gt; attr.Name == columnName)))
+);
+
+
+var bookMap = new CustomPropertyTypeMap(
+    typeof(Book),
+    (type, columnName) =&gt;
+    {
+        if(columnName == &quot;BookId&quot;)
+        {
+            return type.GetProperty(&quot;Id&quot;);
+        }
+
+        if (columnName == &quot;BookName&quot;)
+        {
+            return type.GetProperty(&quot;Name&quot;);
+        }
+
+        throw new InvalidOperationException($&quot;No matching mapping for {columnName}&quot;);
+    }        
+);
+Dapper.SqlMapper.SetTypeMap(typeof(Book), bookMap);
+</code></pre>
+<p>Em seguida, a consulta é executada usando qualquer um dos exemplos anteriores de <code>Query&lt;&gt;</code>.</p>
+<p>Uma maneira mais simples de adicionar os mapeamentos é mostrada em <a href="http://stackoverflow.com/a/12615036/2613363">esta resposta</a>.</p>
+<h2 id="mapeando-mais-de-7-tipos">Mapeando mais de 7 tipos <a href="#mapeando-mais-de-7-tipos" class="anchor" aria-hidden="true">#</a></h2>
+<p>Às vezes, o número de tipos que você está mapeando excede os 7 fornecidos pelo Func&lt;&gt; que faz a construção.</p>
+<p>Em vez de usar o <code>Query&lt;&gt;</code> com as entradas de argumento de tipo genérico, forneceremos os tipos para mapear como um array, seguido pela função de mapeamento. Além da configuração manual inicial e da conversão dos valores, o restante da função não muda.</p>
+<pre><code>            var sql = @&quot;SELECT 1 AS Id, 'Daniel Dennett' AS Name, 1942 AS Born, 1 AS CountryId, 'United States of America' AS CountryName, 1 AS BookId, 'Brainstorms' AS BookName
+UNION ALL SELECT 1 AS Id, 'Daniel Dennett' AS Name, 1942 AS Born, 1 AS CountryId, 'United States of America' AS CountryName, 2 AS BookId, 'Elbow Room' AS BookName
+UNION ALL SELECT 2 AS Id, 'Sam Harris' AS Name, 1967 AS Born, 1 AS CountryId,  'United States of America' AS CountryName, 3 AS BookId, 'The Moral Landscape' AS BookName
+UNION ALL SELECT 2 AS Id, 'Sam Harris' AS Name, 1967 AS Born, 1 AS CountryId,  'United States of America' AS CountryName, 4 AS BookId, 'Waking Up: A Guide to Spirituality Without Religion' AS BookName
+UNION ALL SELECT 3 AS Id, 'Richard Dawkins' AS Name, 1941 AS Born, 2 AS CountryId,  'United Kingdom' AS CountryName, 5 AS BookId, 'The Magic of Reality: How We Know What`s Really True' AS BookName
+UNION ALL SELECT 3 AS Id, 'Richard Dawkins' AS Name, 1941 AS Born, 2 AS CountryId,  'United Kingdom' AS CountryName, 6 AS BookId, 'An Appetite for Wonder: The Making of a Scientist' AS BookName&quot;;
+
+var remainingHorsemen = new Dictionary&lt;int, Person&gt;();
+connection.Query&lt;Person&gt;(sql,
+    new[]
+    {
+        typeof(Person),
+        typeof(Country),
+        typeof(Book)
+    }
+    , obj =&gt; {
+
+        Person person = obj[0] as Person;
+        Country country = obj[1] as Country;
+        Book book = obj[2] as Book;
+
+        //person
+        Person personEntity;
+        //trip
+        if (!remainingHorsemen.TryGetValue(person.Id, out personEntity))
+        {
+            remainingHorsemen.Add(person.Id, personEntity = person);
+        }
+
+        //country
+        if(personEntity.Residience == null)
+        {
+            if (country == null)
+            {
+                country = new Country { CountryName = &quot;&quot; };
+            }
+            personEntity.Residience = country;
+        }                    
+
+        //books
+        if(personEntity.Books == null)
+        {
+            personEntity.Books = new List&lt;Book&gt;();
+        }
+
+        if (book != null)
+        {
+            if (!personEntity.Books.Any(x =&gt; x.BookId == book.BookId))
+            {
+                personEntity.Books.Add(book);
+            }
+        }
+
+        return personEntity;
+},
+splitOn: &quot;CountryId,BookId&quot;);
+</code></pre>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/pt/dapper/varios-resultados/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Vários resultados
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/pt/dapper/manipuladores-de-tipo/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Manipuladores de tipo &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/pt/about/">cerca de</a></li>
+          <li class="list-inline-item"><a href="/pt/disclaimers/">Isenções de responsabilidade</a></li>
+          <li class="list-inline-item"><a href="/pt/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/pt/terms-of-use/">Termos de uso</a></li>
+          <li class="list-inline-item"><a href="/pt/privacy-policy/">Política de Privacidade</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

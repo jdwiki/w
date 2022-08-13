@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dropbox API Tutorial on </title>
+    <link>https://www.wikiod.com/docs/dropbox-api/</link>
+    <description>Recent content in Dropbox API Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/dropbox-api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Dropbox API</title>
+      <link>https://www.wikiod.com/dropbox-api/getting-started-with-dropbox-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/dropbox-api/getting-started-with-dropbox-api/</guid>
+      <description>Getting an OAuth 2 access token for the Dropbox API via the code grant using curl # Abbreviated from https://blogs.dropbox.com/developers/2013/07/using-oauth-2-0-with-the-core-api/:
+Step 1: Begin authorization
+Send the user to this web page, with your values filled in:
+https://www.dropbox.com/oauth2/authorize?client_id=&amp;lt;app key&amp;gt;&amp;amp;response_type=code&amp;amp;redirect_uri=&amp;lt;redirect URI&amp;gt;&amp;amp;state=&amp;lt;CSRF token&amp;gt; The authorization code will be included as the code parameter on the redirect URI.
+Step 2: Obtain an access token
+curl https://api.dropbox.com/oauth2/token -d code=&amp;lt;authorization code&amp;gt; -d grant_type=authorization_code -d redirect_uri=&amp;lt;redirect URI&amp;gt; -u &amp;lt;app key&amp;gt;:&amp;lt;app secret&amp;gt; Step 3: Call the API</description>
+    </item>
+    
+    <item>
+      <title>Downloading a file</title>
+      <link>https://www.wikiod.com/dropbox-api/downloading-a-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/dropbox-api/downloading-a-file/</guid>
+      <description>Downloading a file using the Dropbox Python library # This uses the Dropbox Python SDK to download a file from the Dropbox API at the remote path /Homework/math/Prime_Numbers.txt to the local file Prime_Numbers.txt:
+import dropbox dbx = dropbox.Dropbox(&amp;quot;&amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot;) with open(&amp;quot;Prime_Numbers.txt&amp;quot;, &amp;quot;wb&amp;quot;) as f: metadata, res = dbx.files_download(path=&amp;quot;/Homework/math/Prime_Numbers.txt&amp;quot;) f.write(res.content) &amp;lt;ACCESS_TOKEN&amp;gt; should be replaced with your access token.
+Downloading a piece of a file via curl using Range Retrieval Requests # This downloads just a piece of a file, using Range Retrieval Requests, from the Dropbox API at the remote path /Homework/math/Prime_Numbers.</description>
+    </item>
+    
+    <item>
+      <title>Sharing a folder</title>
+      <link>https://www.wikiod.com/dropbox-api/sharing-a-folder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/dropbox-api/sharing-a-folder/</guid>
+      <description>Inviting a member to a shared folder using curl # curl -X POST https://api.dropboxapi.com/2/sharing/add_folder_member \ --header &amp;quot;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot; \ --header &amp;quot;Content-Type: application/json&amp;quot; \ --data &amp;quot;{\&amp;quot;shared_folder_id\&amp;quot;: \&amp;quot;&amp;lt;SHARED_FOLDER_ID\&amp;quot;,\&amp;quot;members\&amp;quot;: [{\&amp;quot;member\&amp;quot;: {\&amp;quot;.tag\&amp;quot;: \&amp;quot;email\&amp;quot;,\&amp;quot;email\&amp;quot;: \&amp;quot;&amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt;\&amp;quot;},\&amp;quot;access_level\&amp;quot;: {\&amp;quot;.tag\&amp;quot;: \&amp;quot;editor\&amp;quot;}}],\&amp;quot;quiet\&amp;quot;: false,\&amp;quot;custom_message\&amp;quot;: \&amp;quot;Code examples\&amp;quot;}&amp;quot; &amp;lt;ACCESS_TOKEN&amp;gt; should be replaced with the OAuth 2 access token.
+&amp;lt;SHARED_FOLDER_ID&amp;gt; should be replaced with the shared folder ID, e.g., as returned by /2/sharing/share_folder or /2/sharing/list_folders.
+&amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt; should be replaced with the email address of the user to invite.</description>
+    </item>
+    
+    <item>
+      <title>Uploading a file</title>
+      <link>https://www.wikiod.com/dropbox-api/uploading-a-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/dropbox-api/uploading-a-file/</guid>
+      <description>Uploading a file using the Dropbox .NET library # This example uses the Dropbox .NET library to upload a file to a Dropbox account, using upload sessions for larger files:
+private async Task Upload(string localPath, string remotePath) { const int ChunkSize = 4096 * 1024; using (var fileStream = File.Open(localPath, FileMode.Open)) { if (fileStream.Length &amp;lt;= ChunkSize) { await this.client.Files.UploadAsync(remotePath, body: fileStream); } else { await this.ChunkUpload(remotePath, fileStream, (int)ChunkSize); } } } private async Task ChunkUpload(String path, FileStream stream, int chunkSize) { ulong numChunks = (ulong)Math.</description>
+    </item>
+    
+    <item>
+      <title>Listing a folder</title>
+      <link>https://www.wikiod.com/dropbox-api/listing-a-folder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/dropbox-api/listing-a-folder/</guid>
+      <description>Listing the root folder via curl # This lists the root folder, which is identified by the empty string &amp;quot;&amp;quot; for Dropbox API v2, using curl, using /files/list_folder:
+curl -X POST https://api.dropboxapi.com/2/files/list_folder \ --header &amp;quot;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot; \ --header &amp;quot;Content-Type: application/json&amp;quot; \ --data &amp;quot;{\&amp;quot;path\&amp;quot;: \&amp;quot;\&amp;quot;}&amp;quot; &amp;lt;ACCESS_TOKEN&amp;gt; should be replaced with the OAuth 2 access token.
+Note that the response may contain has_more=true, in which case your app should call back to /files/list_folder/continue to continue getting more entries.</description>
+    </item>
+    
+    <item>
+      <title>Getting a shared link for a file or folder</title>
+      <link>https://www.wikiod.com/dropbox-api/getting-a-shared-link-for-a-file-or-folder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/dropbox-api/getting-a-shared-link-for-a-file-or-folder/</guid>
+      <description>Creating a shared link for a file using curl in PHP # &amp;lt;?php $parameters = array(&#39;path&#39; =&amp;gt; &#39;/test.txt&#39;); $headers = array(&#39;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&#39;, &#39;Content-Type: application/json&#39;); $curlOptions = array( CURLOPT_HTTPHEADER =&amp;gt; $headers, CURLOPT_POST =&amp;gt; true, CURLOPT_POSTFIELDS =&amp;gt; json_encode($parameters), CURLOPT_RETURNTRANSFER =&amp;gt; true, CURLOPT_VERBOSE =&amp;gt; true ); $ch = curl_init(&#39;https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings&#39;); curl_setopt_array($ch, $curlOptions); $response = curl_exec($ch); echo $response; curl_close($ch); ?&amp;gt; &amp;lt;ACCESS_TOKEN&amp;gt; should be replaced with the OAuth 2 access token.
+Creating a shared link for a folder using the Dropbox Python library # This uses the Dropbox Python SDK to create a shared link for a folder:</description>
+    </item>
+    
+    <item>
+      <title>Getting file metadata</title>
+      <link>https://www.wikiod.com/dropbox-api/getting-file-metadata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/dropbox-api/getting-file-metadata/</guid>
+      <description>Handling the error when getting metadata for a non-existing path using the Dropbox .NET library # This example uses the Dropbox .NET library to try to get the metadata for an item at a particular path, and checks for a NotFound error:
+try { var metadata = await this.client.Files.GetMetadataAsync(&amp;quot;/non-existant path&amp;quot;); Console.WriteLine(metadata.Name); } catch (Dropbox.Api.ApiException&amp;lt;Dropbox.Api.Files.GetMetadataError&amp;gt; e) { if (e.ErrorResponse.IsPath) { var pathError = e.ErrorResponse.AsPath.Value; if (pathError.IsNotFound) { Console.WriteLine (&amp;quot;File or folder not found.</description>
+    </item>
+    
+    <item>
+      <title>Getting account information</title>
+      <link>https://www.wikiod.com/dropbox-api/getting-account-information/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/dropbox-api/getting-account-information/</guid>
+      <description>Getting account information for the linked user via curl # curl -X POST https://api.dropboxapi.com/2/users/get_current_account \ --header &amp;quot;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot; &amp;lt;ACCESS_TOKEN&amp;gt; should be replaced with your access token.
+Getting account information for the linked user via curl in C++ # #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curl/curl.h&amp;gt; int main (int argc, char *argv[]) { CURL *curl; CURLcode res; /* In windows, this will init the winsock stuff */ curl_global_init(CURL_GLOBAL_ALL); /* get a curl handle */ curl = curl_easy_init(); if(curl) { printf (&amp;quot;Running curl test.</description>
+    </item>
+    
+    <item>
+      <title>Sharing a file</title>
+      <link>https://www.wikiod.com/dropbox-api/sharing-a-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/dropbox-api/sharing-a-file/</guid>
+      <description>Inviting a member to a shared file using the Dropbox Java library # This uses the Dropbox Java SDK to share a file at &amp;ldquo;/test.txt&amp;rdquo; with a specific user:
+List&amp;lt;MemberSelector&amp;gt; newMembers = new ArrayList&amp;lt;MemberSelector&amp;gt;(); MemberSelector newMember = MemberSelector.email(&amp;quot;&amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt;&amp;quot;); newMembers.add(newMember); List&amp;lt;FileMemberActionResult&amp;gt; fileMemberActionResults = client.sharing().addFileMember(&amp;quot;/test.txt&amp;quot;, newMembers); System.out.print(fileMemberActionResults); &amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt; should be replaced with the email address of the user to invite. Also, newMembers is an array and can contain multiple users.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mpi Tutorial on </title>
+    <link>https://www.wikiod.com/docs/mpi/</link>
+    <description>Recent content in mpi Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/mpi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with mpi</title>
+      <link>https://www.wikiod.com/mpi/getting-started-with-mpi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mpi/getting-started-with-mpi/</guid>
+      <description>Hello World! # Three things are usually important when starting to learn to use MPI. First, you must initialize the library when you are ready to use it (you also need to finalize it when you are done). Second, you will want to know the size of your communicator (the thing you use to send messages to other processes). Third, you will want to know your rank within that communicator (which process number are you within that communicator).</description>
+    </item>
+    
+    <item>
+      <title>Collectives</title>
+      <link>https://www.wikiod.com/mpi/collectives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mpi/collectives/</guid>
+      <description>Collectives operations are MPI calls designed communicate the processes pointed out by a communicator in a single operation or to perform a synchronization among them. These are often used to calculate one or more values based on data contributed by other processes or to distribute or collect data from all other processes.
+Note that all the processes in the communicator should invoke the same collective operations in order, otherwise the application would block.</description>
+    </item>
+    
+    <item>
+      <title>Process creation and management</title>
+      <link>https://www.wikiod.com/mpi/process-creation-and-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mpi/process-creation-and-management/</guid>
+      <description>Spawn # Master process spawns two worker processes and scatters sendbuf to workers.
+master.c
+#include &amp;quot;mpi.h&amp;quot; int main(int argc, char *argv[]) { int n_spawns = 2; MPI_Comm intercomm; MPI_Init(&amp;amp;argc, &amp;amp;argv); MPI_Comm_spawn(&amp;quot;worker_program&amp;quot;, MPI_ARGV_NULL, n_spawns, MPI_INFO_NULL, 0, MPI_COMM_SELF, &amp;amp;intercomm, MPI_ERRCODES_IGNORE); int sendbuf[2] = {3, 5}; int recvbuf; // redundant for master. MPI_Scatter(sendbuf, 1, MPI_INT, &amp;amp;recvbuf, 1, MPI_INT, MPI_ROOT, intercomm); MPI_Finalize(); return 0; } worker.c
+#include &amp;quot;mpi.h&amp;quot; #include &amp;lt;stdio.h&amp;gt; int main(int argc, char *argv[]) { MPI_Init(&amp;amp;argc, &amp;amp;argv); MPI_Comm intercomm; MPI_Comm_get_parent(&amp;amp;intercomm); int sendbuf[2]; // redundant for worker.</description>
+    </item>
+    
+    <item>
+      <title>Running an MPI Program</title>
+      <link>https://www.wikiod.com/mpi/running-an-mpi-program/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mpi/running-an-mpi-program/</guid>
+      <description>Parameters # Parameter Details -n &amp;lt;num_procs&amp;gt; The number of MPI processes to start up for the job Execute your job # The simplest way to run your job is to use mpiexec or mpirun (they are usually the same thing and aliases of each other).
+mpiexec -n 2 ./my_prog </description>
+    </item>
+    
+    <item>
+      <title>Compiling an MPI Program</title>
+      <link>https://www.wikiod.com/mpi/compiling-an-mpi-program/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mpi/compiling-an-mpi-program/</guid>
+      <description>MPI needs to add extra libraries and include directories to your compilation line when compiling your program. Rather than tracking all of them yourself, you can usually use one of the compiler wrappers.
+C Wrapper # mpicc -o my_prog my_prog.c </description>
+    </item>
+    
+    <item>
+      <title>MPI Implementations</title>
+      <link>https://www.wikiod.com/mpi/mpi-implementations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mpi/mpi-implementations/</guid>
+      <description>MPI is a standard, not a programming library. There are many implementations of the standard. The most common open source ones are MPICH and Open MPI. There are many derivatives of these two libraries that are either open source or commercial (or both).
+It&amp;rsquo;s important to know which implementation you have because the way you compile or run your program might change subtly.
+Installing MPICH on Mac with Homebrew # brew install mpich Installing Open MPI on Mac with Homebrew # brew install open-mpi </description>
+    </item>
+    
+    <item>
+      <title>Process Topologies</title>
+      <link>https://www.wikiod.com/mpi/process-topologies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mpi/process-topologies/</guid>
+      <description>Graph topology creation and communication # Creates a graph topology in a distributed manner so that each node defines its neighbors. Each node communicates its rank among neighbors with MPI_Neighbor_allgather.
+#include &amp;lt;mpi.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #define nnode 4 int main() { MPI_Init(NULL, NULL); int rank; MPI_Comm_rank(MPI_COMM_WORLD, &amp;amp;rank); int source = rank; int degree; int dest[nnode]; int weight[nnode] = {1, 1, 1, 1}; int recv[nnode] = {-1, -1, -1, -1}; int send = rank; // set dest and degree.</description>
+    </item>
+    
+  </channel>
+</rss>

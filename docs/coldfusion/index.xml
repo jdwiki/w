@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>coldfusion Tutorial on </title>
+    <link>https://www.wikiod.com/docs/coldfusion/</link>
+    <description>Recent content in coldfusion Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/coldfusion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with coldfusion</title>
+      <link>https://www.wikiod.com/coldfusion/getting-started-with-coldfusion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/coldfusion/getting-started-with-coldfusion/</guid>
+      <description>Hello World # File: test.cfm
+Tag Implementation
+&amp;lt;cfoutput&gt;Hello World!&amp;lt;/cfoutput&gt; CFScript Implementation
+&amp;lt;cfscript&gt; writeOutput(&#34;Hello World!&#34;); &amp;lt;/cfscript&gt; Installation or Setup # Linux (Ubuntu) Installation # Lucee (Open Source) # ColdFusion / CFML Interpretor # Download the appropriate file from their site (http://lucee.org/downloads.html) and execute their installer
+wget http://cdn.lucee.org/downloader.cfm/id/155/file/lucee-5.0.0.252-pl0-linux-x64-installer.run sudo chmod +x lucee-5.0.0.252-pl0-linux-x64-installer.run sudo ./lucee-5.0.0.252-pl0-linux-x64-installer.run Step through installer.
+Nginx # Install Nginx on your server
+sudo apt-get install nginx Edit your /etc/nginx/sites-available/default
+server { listen 80; server_name _; root /opt/lucee/tomcat/webapps/ROOT; index index.</description>
+    </item>
+    
+    <item>
+      <title>CFLOOP How-To</title>
+      <link>https://www.wikiod.com/coldfusion/cfloop-how-to/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/coldfusion/cfloop-how-to/</guid>
+      <description>Big thanks to
+Pete Freitag for his CFScript Cheat Sheet Adam Cameron for CF 11: CFLOOP in CFScript is Very Broken (and it still is in CF 2016). Array # The ability to directly use an array object with cfloop was added in ColdFusion 8.
+Consider this array;
+&amp;lt;cfset aFoo = [ &amp;quot;one&amp;quot; , &amp;quot;two&amp;quot; , &amp;quot;three&amp;quot; , &amp;quot;four&amp;quot; ] /&amp;gt; Tag syntax ColdFusion 8 through current Using the attribute index by itself.</description>
+    </item>
+    
+    <item>
+      <title>ColdFusion Arrays</title>
+      <link>https://www.wikiod.com/coldfusion/coldfusion-arrays/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/coldfusion/coldfusion-arrays/</guid>
+      <description>Syntax # ArrayNew(dimension, isSynchronized) Parameters # Name Description Dimension Number of dimensions in new array: 1, 2, or 3 isSynchronized When false, creates an unsynchronized array, When true, the function returns a synchronized array. In a synchronized array, more than two threads cannot access the array simultaneously. Other threads has to wait until the active thread completes its job, resulting in significant performance.
+In 2016 ColdFusion release, you can use an unsynchronized array and let multiple threads access the same array object simultaneously.</description>
+    </item>
+    
+    <item>
+      <title>Variables</title>
+      <link>https://www.wikiod.com/coldfusion/variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/coldfusion/variables/</guid>
+      <description>Parameters # Attribute Description name (Required) Name of the parameter/variable. default (Optional) Value to set parameter to if it does not exist. max (Optional) The maximum valid value; used only for range validation. min (Optional) The minimum valid value; used only for range validation. pattern (Optional) A JavaScript regular expression that the parameter must match; used only for regex or regular_expression validation. type (Optional) The valid format for the data. Using cfparam # The &amp;lt;cfparam&amp;gt; tag creates a variable if it does not already exist.</description>
+    </item>
+    
+    <item>
+      <title>Database Queries</title>
+      <link>https://www.wikiod.com/coldfusion/database-queries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/coldfusion/database-queries/</guid>
+      <description>Working with databases # One of ColdFusion&amp;rsquo;s strengths is how easy it is to work with databases. And of course, query inputs can and should be parameterized.
+Tag Implementation
+&amp;lt;cfquery name=&amp;quot;myQuery&amp;quot; datasource=&amp;quot;myDatasource&amp;quot; result=&amp;quot;myResult&amp;quot;&amp;gt; select firstName, lastName from users where lastName = &amp;lt;cfqueryparam value=&amp;quot;Allaire&amp;quot; cfsqltype=&amp;quot;cf_sql_varchar&amp;quot;&amp;gt; &amp;lt;/cfquery&amp;gt; CFScript Implementation
+// ColdFusion 9+ var queryService = new query(name=&amp;quot;myQuery&amp;quot;, datasource=&amp;quot;myDatasource&amp;quot;); queryService.addParam(name=&amp;quot;lName&amp;quot;, value=&amp;quot;Allaire&amp;quot;, cfsqltype=&amp;quot;cf_sql_varchar&amp;quot;); var result = queryService.execute(sql=&amp;quot;select firstName, lastName from users where lastName = :lName&amp;quot;); var myQuery = result.</description>
+    </item>
+    
+    <item>
+      <title>How to invoke a private method dynamically</title>
+      <link>https://www.wikiod.com/coldfusion/how-to-invoke-a-private-method-dynamically/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/coldfusion/how-to-invoke-a-private-method-dynamically/</guid>
+      <description>Use of &amp;lt;cfinvoke&amp;gt; or invoke() should be faster than evaluate()
+CFML # &amp;lt;cfinvoke method=&amp;quot;#somePrivateMethodName#&amp;quot;&amp;gt; &amp;lt;cfinvokeargument name=&amp;quot;argument1&amp;quot; value=&amp;quot;one&amp;quot;&amp;gt; &amp;lt;/cfinvoke&amp;gt; CFSCRIPT (CF10+) # invoke(&amp;quot;&amp;quot;, somePrivateMethodName, {argument1=&#39;one&#39;}); </description>
+    </item>
+    
+    <item>
+      <title>cfquery</title>
+      <link>https://www.wikiod.com/coldfusion/cfquery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/coldfusion/cfquery/</guid>
+      <description>Parameters # Parameter Details name Value: string, Default: yes dbtype Value: query/hql, Default: no, Remarks: when left blank, it&amp;rsquo;s a normal query datasource Default: no, Remarks: database params Value: structure, Default: no, Remarks: cfscript syntax only! In cfml they are written inside SLQ stament using &amp;lt;cfqueryparam /&amp;gt; Query of Query # Function Calls # &amp;lt;!--- Load the user object based on the component path. ---&amp;gt; &amp;lt;cfset local.user = new com.User() /&amp;gt; &amp;lt;cfset local.</description>
+    </item>
+    
+    <item>
+      <title>Scopes in Coldfusion</title>
+      <link>https://www.wikiod.com/coldfusion/scopes-in-coldfusion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/coldfusion/scopes-in-coldfusion/</guid>
+      <description>A scope is &amp;ldquo;the range in which a variable can be referenced&amp;rdquo;. ColdFusion knows — as well as most other programming and script languages — several scopes. The following text deals with these types and trys to bring clarity about them, their differences and their characteristics.
+Overview # Components and functions
+variables this local arguments Custom tags
+attributes thisTag caller Global Scopes
+Server Application Session Request Scopes
+request variables form url cgi Request Scopes # request</description>
+    </item>
+    
+    <item>
+      <title>Creating REST APIs in coldfusion</title>
+      <link>https://www.wikiod.com/coldfusion/creating-rest-apis-in-coldfusion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/coldfusion/creating-rest-apis-in-coldfusion/</guid>
+      <description>REST APIs are interesting when data should be accessed from everywhere including different languages (server and client side). That requires separation from data and processing.
+Creating backend # &amp;lt;cfcomponent displayname=&amp;quot;myAPI&amp;quot; output=&amp;quot;false&amp;quot;&amp;gt; &amp;lt;cffunction name=&amp;quot;init&amp;quot; access=&amp;quot;public&amp;quot; output=&amp;quot;no&amp;quot;&amp;gt; &amp;lt;!--- do some basic stuff ---&amp;gt; &amp;lt;cfreturn this&amp;gt; &amp;lt;/cffunction&amp;gt; &amp;lt;cffunction name=&amp;quot;welcome&amp;quot;&amp;gt; &amp;lt;cfreturn &amp;quot;Hello World!&amp;quot;&amp;gt; &amp;lt;/cffunction&amp;gt; &amp;lt;/cfcomponent&amp;gt; The interface # &amp;lt;cfscript&amp;gt; api_request = GetHttpRequestData(); api = createObject(&amp;quot;component&amp;quot;,&amp;quot;myAPI&amp;quot;).init(); &amp;lt;/cfscript&amp;gt; &amp;lt;cfif api_request.method is &#39;GET&#39;&amp;gt; &amp;lt;cfoutput&amp;gt;#api.welcome()#&amp;lt;/cfoutput&amp;gt; &amp;lt;cfelseif api_request.method is &#39;POST&#39;&amp;gt; &amp;lt;cfheader statuscode=&amp;quot;500&amp;quot; statustext=&amp;quot;Internal Server Error&amp;quot; /&amp;gt; &amp;lt;/cfif&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Working with RegExp Replace callbacks</title>
+      <link>https://www.wikiod.com/coldfusion/working-with-regexp-replace-callbacks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/coldfusion/working-with-regexp-replace-callbacks/</guid>
+      <description>If you want more than a simple string replacement with common regular expressions you certainly run into trouble and hit the wall when discovering the limits of the regex functions Coldfusion has. There is no build-in function like php&amp;rsquo;s preg_replace_callback.
+Parameters # Parameter Details re The regular expression str The string which should be applyed the the regex callback The function where the captured grouped will be passed in if a match was found.</description>
+    </item>
+    
+  </channel>
+</rss>

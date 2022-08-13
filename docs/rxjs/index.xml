@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rxjs Tutorial on </title>
+    <link>https://www.wikiod.com/docs/rxjs/</link>
+    <description>Recent content in rxjs Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/rxjs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with rxjs</title>
+      <link>https://www.wikiod.com/rxjs/getting-started-with-rxjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rxjs/getting-started-with-rxjs/</guid>
+      <description>Installation or Setup # Using a CDN: # &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.jsdelivr.net/rxjs/4.1.0/rx.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;script&amp;gt; // `Rx` is available var one$ = Rx.Observable.of(1); var onesub = one$.subscribe(function (one) { console.log(one); // 1 }); // alternatively: subscribe(console.log) &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; CDN if using RxJS 5 (RC):
+&amp;lt;script src=&amp;quot;https://npmcdn.com/@reactivex/rxjs@5.0.0-rc.1/dist/global/Rx.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; Using a bundler: # First install into your project directory with npm:
+npm install rx Or using RxJS 5 (RC):
+npm install rxjs Then, in your JavaScript file:</description>
+    </item>
+    
+    <item>
+      <title>Common recipes</title>
+      <link>https://www.wikiod.com/rxjs/common-recipes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rxjs/common-recipes/</guid>
+      <description>A collection of common use cases and their implementation in RxJS.
+Caching HTTP responses # A typical use case for RxJS is creating HTTP requests and caching their results for some period of time. Also, we always want to run only one request at a time and share its response.
+For example the following code caches 1 item for max. 1000ms:
+var updateRequest = Observable.defer(() =&amp;gt; makeMockHttpRequest()) .publishReplay(1, 1000) .refCount() .</description>
+    </item>
+    
+    <item>
+      <title>Operator PublishReplay</title>
+      <link>https://www.wikiod.com/rxjs/operator-publishreplay/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rxjs/operator-publishreplay/</guid>
+      <description>How does PublishReplay work # It internally creates a ReplaySubject and makes it multicast compatible. The minimal replay value of ReplaySubject is 1 emission. This results in the following:
+First subscription will trigger the publishReplay(1) to internally subscribe to the source stream and pipe all emissions through the ReplaySubject, effectively caching the last n(=1) emissions If a second subscription is started while the source is still active the multicast() will connect us to the same replaySubject and we will receive all next emissions until the source stream completes.</description>
+    </item>
+    
+    <item>
+      <title>Operator map  select</title>
+      <link>https://www.wikiod.com/rxjs/operator-map--select/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rxjs/operator-map--select/</guid>
+      <description>Syntax # Rx.Observable.prototype.map(selector, [thisArg]) Rx.Observable.prototype.select(selector, [thisArg]) Parameters # Parameter, Type Details selector, Function or Object Transform function to apply to each source element or an element to yield. If selector is a function, it is called with the following information: 1. the value of the element, 2. the index of the element, 3. the Observable object being subscribed. [thisArg], Any Object to use as this when executing the predicate. map and select are aliases.</description>
+    </item>
+    
+    <item>
+      <title>Retry and RetryWhen Operators</title>
+      <link>https://www.wikiod.com/rxjs/retry-and-retrywhen-operators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rxjs/retry-and-retrywhen-operators/</guid>
+      <description>Retry and RetryWhen can be used to attempt to recover Observables that might have errors in their stream.
+Syntax # .retry(n: number): Observable n: retry will attempt the source Observable this many times. .retryWhen(receives: notificationHandler, the: scheduler): Observable receives: an Observable of notifications which the use can complete or error. If the &amp;lsquo;receives&amp;rsquo; Observable returns cleanly (completes) the source Observable will be reattempted. If the &amp;lsquo;receives&amp;rsquo; Observable returns an error, the source Observable is aborted.</description>
+    </item>
+    
+    <item>
+      <title>Subject</title>
+      <link>https://www.wikiod.com/rxjs/subject/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rxjs/subject/</guid>
+      <description>Subjects are classes that behave as Observables and observers at the same time.
+http://reactivex.io/documentation/subject.html
+Subject and its internal state # In Rx Subjects have internal states that can control their behavior.
+A common use-case form Subject is subscribing it to multiple Observables. The following example creates two different Observables and subscribes a Subject to both of them. Then it tries to print all values that went through:
+let subject = new Subject(); subject.</description>
+    </item>
+    
+    <item>
+      <title>Scheduler</title>
+      <link>https://www.wikiod.com/rxjs/scheduler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/rxjs/scheduler/</guid>
+      <description>Using a TestScheduler to advance time manually # Most Rx operators take an optional scheduler on which to schedule their future iterations. If not supplied they will use their default configured scheduler. Supplying a scheduler can be useful for testing purposes in which we like to talk about virtual time instead of real time for speed of test execution.
+const scheduler = new Rx.TestScheduler(); scheduler.stop(); Rx.Observable.interval(100, scheduler) .do(i =&amp;gt; console.log(i)) .</description>
+    </item>
+    
+  </channel>
+</rss>

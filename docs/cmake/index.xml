@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cmake Tutorial on </title>
+    <link>https://www.wikiod.com/docs/cmake/</link>
+    <description>Recent content in cmake Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/cmake/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with cmake</title>
+      <link>https://www.wikiod.com/cmake/getting-started-with-cmake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cmake/getting-started-with-cmake/</guid>
+      <description>CMake Installation # Head over to CMake download page and get a binary for your operating system, e.g. Windows, Linux, or Mac OS X. On Windows double click the binary to install. On Linux run the binary from a terminal.
+On Linux, you can also install the packages from the distribution&amp;rsquo;s package manager. On Ubuntu 16.04 you can install the command-line and graphical application with:
+sudo apt-get install cmake sudo apt-get install cmake-gui On FreeBSD you can install the command-line and the Qt-based graphical application with:</description>
+    </item>
+    
+    <item>
+      <title>Configure file</title>
+      <link>https://www.wikiod.com/cmake/configure-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cmake/configure-file/</guid>
+      <description>configure_file is a CMake function for copying a file to another location and modify its contents.
+This function is very useful for generating configuration files with paths, custom variables, using a generic template.
+Copy a file to another location and modify its contents.
+configure_file(&amp;lt;input&amp;gt; &amp;lt;output&amp;gt; [COPYONLY] [ESCAPE_QUOTES] [@ONLY] [NEWLINE_STYLE [UNIX|DOS|WIN32|LF|CRLF] ]) Copies a file to file and substitutes variable values referenced in the file content. If is a relative path it is evaluated with respect to the current source directory.</description>
+    </item>
+    
+    <item>
+      <title>Variables and Properties</title>
+      <link>https://www.wikiod.com/cmake/variables-and-properties/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cmake/variables-and-properties/</guid>
+      <description>The simplicity of basic CMake variables belies the complexity of the full variable syntax. This page documents the various variable cases, with examples, and points out the pitfalls to avoid.
+Syntax # set(variable_name value [CACHE type description [FORCE]]) Variable names are case-sensitive. Their values are of type string. The value of a variable is referenced via:
+${variable_name} and is evaluated inside a quoted argument
+&amp;quot;${variable_name}/directory&amp;quot; Variables and the Global Variables Cache # Mostly you will use &amp;ldquo;normal variables&amp;rdquo;:</description>
+    </item>
+    
+    <item>
+      <title>Test and Debug</title>
+      <link>https://www.wikiod.com/cmake/test-and-debug/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cmake/test-and-debug/</guid>
+      <description>General approach to debug when building with Make # Suppose the make fails:
+$ make Launch it instead with make VERBOSE=1 to see the commands executed. Then directly run the linker or compiler command that you&amp;rsquo;ll see. Try to make it work by adding necessary flags or libraries.
+Then figure out what to change, so CMake itself can pass correct arguments to the compiler/linker command:
+what to change in the system (what libraries to install, which versions, versions of CMake itself) if previous fails, what environment variables to set or parameters to pass to CMake otherwise, what to change in the CMakeLists.</description>
+    </item>
+    
+    <item>
+      <title>Hierarchical project</title>
+      <link>https://www.wikiod.com/cmake/hierarchical-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cmake/hierarchical-project/</guid>
+      <description>Simple approach without packages # Example that builds an executable (editor) and links a library (highlight) to it. Project structure is straightforward, it needs a master CMakeLists and a directory for each subproject:
+CMakeLists.txt editor/ CMakeLists.txt src/ editor.cpp highlight/ CMakeLists.txt include/ highlight.h src/ highlight.cpp The master CMakeLists.txt contains global definitions and add_subdirectory call for each subproject:
+cmake_minimum_required(VERSION 3.0) project(Example) add_subdirectory(highlight) add_subdirectory(editor) CMakeLists.txt for the library assigns sources and include directories to it.</description>
+    </item>
+    
+    <item>
+      <title>Compile features and CC&#43;&#43; standard selection</title>
+      <link>https://www.wikiod.com/cmake/compile-features-and-cc-standard-selection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cmake/compile-features-and-cc-standard-selection/</guid>
+      <description>Syntax # target_compile_features(target PRIVATE|PUBLIC|INTERFACE feature1 [feature2 &amp;hellip;]) Compile Feature Requirements # Required compiler features can be specified on a target using the command target_compile_features:
+add_library(foo foo.cpp ) target_compile_features(foo PRIVATE # scope of the feature cxx_constexpr # list of features ) The features must be part of CMAKE_C_COMPILE_FEATURES or CMAKE_CXX_COMPILE_FEATURES; cmake reports an error otherwise. Cmake will add any necessary flags such as -std=gnu++11 to the compile options of the target.</description>
+    </item>
+    
+    <item>
+      <title>Create test suites with CTest</title>
+      <link>https://www.wikiod.com/cmake/create-test-suites-with-ctest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cmake/create-test-suites-with-ctest/</guid>
+      <description>Basic Test Suite # # the usual boilerplate setup cmake_minimum_required(2.8) project(my_test_project LANGUAGES CXX) # tell CMake to use CTest extension enable_testing() # create an executable, which instantiates a runner from # GoogleTest, Boost.Test, QtTest or whatever framework you use add_executable(my_test test_main.cpp) # depending on the framework, you need to link to it target_link_libraries(my_test gtest_main) # now register the executable with CTest add_test(NAME my_test COMMAND my_test) The macro enable_testing() does a lot of magic.</description>
+    </item>
+    
+    <item>
+      <title>Packaging and Distributing Projects</title>
+      <link>https://www.wikiod.com/cmake/packaging-and-distributing-projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cmake/packaging-and-distributing-projects/</guid>
+      <description>Syntax # # Package a build directory
+pack [PATH] # Use a specific generator
+cpack -G [GENERATOR] [PATH] # Provide optional overrides cpack -G [GENERATOR] -C [CONFIGURATION] -P [PACKAGE NAME] -R [PACKAGE VERSION] -B [PACKAGE DIRECTORY] &amp;ndash;vendor [PACKAGE VENDOR] CPack is an external tool allowing the fast packaging of built CMake projects by gathering all the required data straight from the CMakeLists.txt files and the utilized installation commands like install_targets().</description>
+    </item>
+    
+    <item>
+      <title>Build Targets</title>
+      <link>https://www.wikiod.com/cmake/build-targets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cmake/build-targets/</guid>
+      <description>Syntax # add_executable(target_name [EXCLUDE_FROM_ALL] source1 [source2&amp;hellip;]) add_library(lib_name [STATIC|SHARED|MODULE] [EXCLUDE_FROM_ALL] source1 [source2 &amp;hellip;]) Executables # To create a build target producing an executable, one should use the add_executable command:
+add_executable(my_exe main.cpp utilities.cpp) This creates a build target, e.g. make my_exe for GNU make, with the appropriate invocations of the configured compiler to produce an executable my_exe from the two source files main.cpp and utilities.cpp.
+By default, all executable targets are added to the builtin all target (all for GNU make, BUILD_ALL for MSVC).</description>
+    </item>
+    
+    <item>
+      <title>CMake integration in GitHub CI tools</title>
+      <link>https://www.wikiod.com/cmake/cmake-integration-in-github-ci-tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/cmake/cmake-integration-in-github-ci-tools/</guid>
+      <description>Configure Travis CI with stock CMake # Travis CI has CMake 2.8.7 pre-installed.
+A minimal .travis.yml script for an out-of source build
+language: cpp compiler: - gcc before_script: # create a build folder for the out-of-source build - mkdir build # switch to build directory - cd build # run cmake; here we assume that the project&#39;s # top-level CMakeLists.txt is located at &#39;..&#39; - cmake .. script: # once CMake has done its job we just build using make as usual - make # if the project uses ctest we can run the tests like this - make test Configure Travis CI with newest CMake # The CMake version preinstalled on Travis is very old.</description>
+    </item>
+    
+  </channel>
+</rss>

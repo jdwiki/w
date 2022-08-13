@@ -1,0 +1,3768 @@
+<!doctype html>
+<html lang="es">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.43b0b023adae2e6795d9e4443770a29ec36c5d80b552b920a387882f38dd59fc45f95bfed41ea5491dbbc99f117f2037d021e7a3764c15fcb25d77146327b1af.css" integrity="sha512-Q7CwI62uLmeV2eREN3CinsNsXYC1Urkgo4eILzjdWfxF&#43;Vv&#43;1B6lSR27yZ8RfyA30CHno3ZMFfyyXXcUYyexrw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Async-Await - WikiOD</title>
+<meta name="description" content="En C#, un método declarado async no se bloqueará dentro de un proceso síncrono, en caso de que esté utilizando operaciones basadas en E/S (por ejemplo, acceso web, trabajo con archivos, &amp;hellip;). Se puede esperar el resultado de dichos métodos marcados asíncronamente mediante el uso de la palabra clave await.
+Un método async puede devolver void, Task o Task&amp;lt;T&amp;gt;.
+El tipo de retorno Tarea esperará a que finalice el método y el resultado será vacío.">
+  <link rel="canonical" href="https://www.wikiod.com/es/csharp/async-await/">
+<meta property="og:locale" content="es">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Async-Await">
+<meta property="og:description" content="En C#, un método declarado async no se bloqueará dentro de un proceso síncrono, en caso de que esté utilizando operaciones basadas en E/S (por ejemplo, acceso web, trabajo con archivos, &hellip;). Se puede esperar el resultado de dichos métodos marcados asíncronamente mediante el uso de la palabra clave await.
+Un método async puede devolver void, Task o Task&lt;T&gt;.
+El tipo de retorno Tarea esperará a que finalice el método y el resultado será vacío.">
+<meta property="og:url" content="https://www.wikiod.com/es/csharp/async-await/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Async-Await">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Async-Await">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "Bienvenido a WikiOD - Wiki Documentación en línea WikiOD es un proyecto de escritura colaborativo para crear documentación en línea de la más alta calidad de todos los lenguajes de programación, temas y conceptos relacionados con la educación.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/es/csharp/async-await/",
+      "url": "https://www.wikiod.com/es/csharp/async-await/",
+      "name": "Async-Await",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/es/csharp/async-await/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/es/csharp/async-await/#/schema/image/2"
+      },
+      "inLanguage": "es",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/es/csharp/async-await/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/es/csharp/async-await/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/es/",
+          "url": "https://www.wikiod.com/es/",
+          "name": "Es"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/es/csharp/",
+          "url": "https://www.wikiod.com/es/csharp/",
+          "name": "Csharp"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/es/csharp/async-await/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Async-Await",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/es/csharp/async-await/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/es/csharp/async-await/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/es/csharp/async-await/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/es/csharp/async-await/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Async-Await"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/es/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Navegar docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/es/docs/csharp/"><h3 class="h6 text-uppercase mb-2">Tutorial del lenguaje C#</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/primeros-pasos-con-el-lenguaje-c/">Primeros pasos con el lenguaje C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-60/">Características de C# 6.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-70/">Características de C# 7.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/metodos-de-extension/">Métodos de extensión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/consultas-linq/">Consultas LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/palabras-clave/">Palabras clave</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/palabra-clave-de-rendimiento/">Palabra clave de rendimiento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/declaracion-de-uso/">Declaración de uso</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/manejo-de-excepciones/">Manejo de excepciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/es/csharp/async-await/">Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/reflexion/">Reflexión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/genericos/">Genéricos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/enumeracion/">enumeración</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/cadenas-textuales/">Cadenas textuales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operador-de-fusion-nula/">Operador de fusión nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/cadenaformato/">Cadena.Formato</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operadores/">Operadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/constructores-y-finalizadores/">Constructores y Finalizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operadores-condicionales-nulos/">Operadores condicionales nulos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/arreglos/">arreglos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/implementacion-singleton/">Implementación Singleton</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/delegados/">delegados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inicializadores-de-coleccion/">Inicializadores de colección</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/ejemplos-de-assemblyinfocs/">Ejemplos de AssemblyInfo.cs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interpolacion-de-cadenas/">Interpolación de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/eventos/">Eventos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/herencia/">Herencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/arboles-de-expresion/">Árboles de expresión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaces/">Interfaces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/enhebrar/">enhebrar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/comentarios-de-documentacion-xml/">Comentarios de documentación XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/patrones-de-diseno-creacional/">Patrones de diseño creacional</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/programacion-funcional/">Programación funcional</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaz-desechable/">Interfaz desechable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/convenciones-de-nombres/">Convenciones de nombres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/fondotrabajador/">FondoTrabajador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/una-descripcion-general-de-las-colecciones-de-c/">Una descripción general de las colecciones de C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/recolector-de-basura-en-net/">Recolector de basura en .Net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/declaracion-de-bloqueo/">Declaración de bloqueo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/metodos-de-fecha-y-hora/">Métodos de fecha y hora</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/nombre-del-operador/">nombre del operador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/es-de-archivos-y-secuencias/">ES de archivos y secuencias</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/polimorfismo/">Polimorfismo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/criptografia-sistemaseguridadcriptografia/">Criptografía (Sistema.Seguridad.Criptografía)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tuplas/">tuplas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interoperabilidad/">interoperabilidad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/ejemplos-de-asyncawait-backgroundworker-task-y-thread/">Ejemplos de Asyncawait, Backgroundworker, Task y Thread</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/realizacion-de-solicitudes-http/">Realización de solicitudes HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/atributos/">Atributos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operaciones-comunes-de-cadenas/">Operaciones comunes de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/funcion-con-multiples-valores-de-retorno/">Función con múltiples valores de retorno</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/compilacion-en-tiempo-de-ejecucion/">Compilación en tiempo de ejecución</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/secuencias-de-escape-de-cadenas/">Secuencias de escape de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipo-de-valor-frente-a-tipo-de-referencia/">Tipo de valor frente a tipo de referencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/plataforma-del-compilador-net-roslyn/">Plataforma del compilador .NET (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/primeros-pasos-json-con-c/">Primeros pasos Json con C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/propiedades/">Propiedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/redes/">Redes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/codigo-no-seguro-en-net/">Código no seguro en .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/construcciones-de-flujo-de-datos-de-la-biblioteca-paralela-de-tareas-tpl/">Construcciones de flujo de datos de la biblioteca paralela de tareas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/directivas-del-pre-procesador/">Directivas del pre procesador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipo-dinamico/">tipo dinámico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/bucle/">Bucle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/metodos/">Métodos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/clases-estaticas/">Clases estáticas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/serializacion-binaria/">Serialización binaria</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/guion-c/">Guión C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/usando-sqlite-en-c/">Usando SQLite en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/acceso-a-bases-de-datos/">Acceso a bases de datos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-40/">Características de C# 4.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/enlace-a-objetos/">Enlace a objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generando-numeros-aleatorios-en-c/">Generando Números Aleatorios en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/recursividad/">recursividad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/codigo-de-contratos/">Código de Contratos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/indexador/">indexador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/como-usar-estructuras-de-c-para-crear-un-tipo-de-union-similar-a-las-uniones-de-c/">Cómo usar estructuras de C# para crear un tipo de unión (similar a las uniones de C)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inyeccion-de-dependencia/">Inyección de dependencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/almacenamiento-en-cache/">almacenamiento en caché</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/guia/">guía</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/iteradores/">iteradores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/corriente/">Corriente</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/constructor-de-cadenas/">Constructor de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/controlador-de-autenticacion-c/">Controlador de autenticación C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/modificadores-de-acceso/">Modificadores de acceso</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipos-anonimos/">Tipos anónimos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/anotacion-de-datos/">Anotación de datos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaz-consultable/">Interfaz consultable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/xmldocument-y-el-espacio-de-nombres-systemxml/">XmlDocument y el espacio de nombres System.Xml</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/uso-de-directiva/">Uso de directiva</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/punteros-y-codigo-no-seguro/">Punteros y código no seguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/fundicion/">Fundición</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaz-inotifypropertychanged/">Interfaz INotifyPropertyChanged</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/marcado-y-sin-marcar/">Marcado y sin marcar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/temporizadores/">Temporizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/funciones-hash/">Funciones hash</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipos-anulables/">Tipos anulables</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/leer-y-escribir-archivos-zip/">Leer y escribir archivos .zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-50/">Características de C# 5.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/linq-paralelo-plinq/">LINQ paralelo (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/expresiones-lambda/">Expresiones Lambda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generador-de-il/">Generador de IL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inicializadores-de-objetos/">Inicializadores de objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/linq-a-xml/">LINQ a XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/diagnostico/">Diagnóstico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/filtros-de-accion/">Filtros de acción</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/zocalo-asincrono/">Zócalo asíncrono</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inicializando-propiedades/">Inicializando Propiedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inmutabilidad/">Inmutabilidad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/observador-del-sistema-de-archivos/">Observador del sistema de archivos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/biblioteca-paralela-de-tareas/">Biblioteca paralela de tareas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/clase-parcial-y-metodos/">Clase parcial y métodos.</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/contexto-de-sincronizacion-en-async-await/">Contexto de sincronización en Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/declaraciones-condicionales/">Declaraciones condicionales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/delegados-de-funciones/">Delegados de funciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/es-igual-a-y-gethashcode/">Es igual a y GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/excepcion-de-referencia-nula/">Excepcion de referencia nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generacion-de-codigo-t4/">Generación de código T4</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/analisis-de-expresiones-regulares/">Análisis de expresiones regulares</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/comentarios-y-regiones/">Comentarios y regiones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/extensiones-reactivas-rx/">Extensiones Reactivas (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/coleccion-observablet/">Colección Observable&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/concatenar-cadenas/">Concatenar cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/cronometros/">Cronómetros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/estructuras/">estructuras</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/desbordamiento/">Desbordamiento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/identidad-de-aspnet/">Identidad de ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/ienumerable/">IEnumerable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/implementacion-del-patron-de-diseno-flyweight/">Implementación del patrón de diseño Flyweight</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/automatizaciondegestiondesistemas/">Automatización.de.Gestión.de.Sistemas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/literales/">literales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/entero-grande/">Entero grande</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/hacer-que-un-subproceso-variable-sea-seguro/">Hacer que un subproceso variable sea seguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/patrones-de-diseno-estructural/">Patrones de diseño estructural</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/programacion-orientada-a-objetos-en-c/">Programación Orientada a Objetos en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/resolucion-de-sobrecarga/">Resolución de sobrecarga</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-30/">Características de C# 3.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generador-de-consultas-de-lambda-generico/">Generador de consultas de Lambda genérico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/importar-contactos-de-google/">Importar contactos de Google</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/manipulacion-de-cadenas/">Manipulación de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/xdocument-y-el-espacio-de-nombres-systemxmllinq/">XDocument y el espacio de nombres System.Xml.Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/alias-de-tipos-incorporados/">Alias ​​de tipos incorporados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/icloneable/">ICloneable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/argumentos-con-nombre/">Argumentos con nombre</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/implementacion-del-patron-de-diseno-decorator/">Implementación del patrón de diseño Decorator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/usando-jsonnet/">Usando json.net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/conversion-de-tipo/">Conversión de tipo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/icomparable/">IComparable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operador-de-igualdad/">Operador de igualdad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/punteros/">Punteros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/on-algoritmo-para-la-rotacion-circular-de-una-matriz/">O(n) Algoritmo para la rotación circular de una matriz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipos-incorporados/">Tipos incorporados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/leer-y-comprender-stacktraces/">Leer y comprender Stacktraces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/clscompliantattribute/">CLSCompliantAttribute</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/codigo-de-contratos-y-afirmaciones/">Código de Contratos y Afirmaciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/argumentos-con-nombre-y-opcionales/">Argumentos con nombre y opcionales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/creacion-de-un-cuadro-de-mensaje-propio-en-la-aplicacion-de-formulario-de-windows/">Creación de un cuadro de mensaje propio en la aplicación de formulario de Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/creacion-de-una-aplicacion-de-consola-con-un-editor-de-texto-sin-formato-y-el-compilador-de-c-cscexe/">Creación de una aplicación de consola con un editor de texto sin formato y el compilador de C# (csc.exe)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/microsoftexchangewebservices/">Microsoft.Exchange.WebServices</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/fundacion-de-comunicacion-de-windows/">Fundación de comunicación de Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/manejo-de-formatexception-al-convertir-cadenas-a-otros-tipos/">Manejo de FormatException al convertir cadenas a otros tipos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/acceda-a-la-carpeta-compartida-de-la-red-con-nombre-de-usuario-y-contrasena/">Acceda a la carpeta compartida de la red con nombre de usuario y contraseña</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/incluir-recursos-de-fuentes/">Incluir recursos de fuentes</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/es/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/es/docs/">Tutoriales</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/es/blog/">Artículos</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Español
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/es/csharp/async-await/">Español</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/csharp/async-await/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/fr/csharp/attente-asynchrone/" hreflang="fr" lang="fr">Français</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/csharp/async-await/" hreflang="pt" lang="pt">Português</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/tr/csharp/zaman-uyumsuz-bekliyor/" hreflang="tr" lang="tr">Türk</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/es/docs/csharp/"><h3 class="h6 text-uppercase mb-2">Tutorial del lenguaje C#</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/primeros-pasos-con-el-lenguaje-c/">Primeros pasos con el lenguaje C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-60/">Características de C# 6.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-70/">Características de C# 7.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/metodos-de-extension/">Métodos de extensión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/consultas-linq/">Consultas LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/palabras-clave/">Palabras clave</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/palabra-clave-de-rendimiento/">Palabra clave de rendimiento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/declaracion-de-uso/">Declaración de uso</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/manejo-de-excepciones/">Manejo de excepciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/es/csharp/async-await/">Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/reflexion/">Reflexión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/genericos/">Genéricos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/enumeracion/">enumeración</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/cadenas-textuales/">Cadenas textuales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operador-de-fusion-nula/">Operador de fusión nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/cadenaformato/">Cadena.Formato</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operadores/">Operadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/constructores-y-finalizadores/">Constructores y Finalizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operadores-condicionales-nulos/">Operadores condicionales nulos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/arreglos/">arreglos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/implementacion-singleton/">Implementación Singleton</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/delegados/">delegados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inicializadores-de-coleccion/">Inicializadores de colección</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/ejemplos-de-assemblyinfocs/">Ejemplos de AssemblyInfo.cs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interpolacion-de-cadenas/">Interpolación de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/eventos/">Eventos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/herencia/">Herencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/arboles-de-expresion/">Árboles de expresión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaces/">Interfaces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/enhebrar/">enhebrar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/comentarios-de-documentacion-xml/">Comentarios de documentación XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/patrones-de-diseno-creacional/">Patrones de diseño creacional</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/programacion-funcional/">Programación funcional</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaz-desechable/">Interfaz desechable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/convenciones-de-nombres/">Convenciones de nombres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/fondotrabajador/">FondoTrabajador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/una-descripcion-general-de-las-colecciones-de-c/">Una descripción general de las colecciones de C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/recolector-de-basura-en-net/">Recolector de basura en .Net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/declaracion-de-bloqueo/">Declaración de bloqueo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/metodos-de-fecha-y-hora/">Métodos de fecha y hora</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/nombre-del-operador/">nombre del operador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/es-de-archivos-y-secuencias/">ES de archivos y secuencias</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/polimorfismo/">Polimorfismo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/criptografia-sistemaseguridadcriptografia/">Criptografía (Sistema.Seguridad.Criptografía)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tuplas/">tuplas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interoperabilidad/">interoperabilidad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/ejemplos-de-asyncawait-backgroundworker-task-y-thread/">Ejemplos de Asyncawait, Backgroundworker, Task y Thread</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/realizacion-de-solicitudes-http/">Realización de solicitudes HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/atributos/">Atributos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operaciones-comunes-de-cadenas/">Operaciones comunes de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/funcion-con-multiples-valores-de-retorno/">Función con múltiples valores de retorno</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/compilacion-en-tiempo-de-ejecucion/">Compilación en tiempo de ejecución</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/secuencias-de-escape-de-cadenas/">Secuencias de escape de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipo-de-valor-frente-a-tipo-de-referencia/">Tipo de valor frente a tipo de referencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/plataforma-del-compilador-net-roslyn/">Plataforma del compilador .NET (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/primeros-pasos-json-con-c/">Primeros pasos Json con C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/propiedades/">Propiedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/redes/">Redes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/codigo-no-seguro-en-net/">Código no seguro en .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/construcciones-de-flujo-de-datos-de-la-biblioteca-paralela-de-tareas-tpl/">Construcciones de flujo de datos de la biblioteca paralela de tareas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/directivas-del-pre-procesador/">Directivas del pre procesador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipo-dinamico/">tipo dinámico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/bucle/">Bucle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/metodos/">Métodos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/clases-estaticas/">Clases estáticas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/serializacion-binaria/">Serialización binaria</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/guion-c/">Guión C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/usando-sqlite-en-c/">Usando SQLite en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/acceso-a-bases-de-datos/">Acceso a bases de datos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-40/">Características de C# 4.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/enlace-a-objetos/">Enlace a objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generando-numeros-aleatorios-en-c/">Generando Números Aleatorios en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/recursividad/">recursividad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/codigo-de-contratos/">Código de Contratos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/indexador/">indexador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/como-usar-estructuras-de-c-para-crear-un-tipo-de-union-similar-a-las-uniones-de-c/">Cómo usar estructuras de C# para crear un tipo de unión (similar a las uniones de C)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inyeccion-de-dependencia/">Inyección de dependencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/almacenamiento-en-cache/">almacenamiento en caché</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/guia/">guía</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/iteradores/">iteradores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/corriente/">Corriente</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/constructor-de-cadenas/">Constructor de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/controlador-de-autenticacion-c/">Controlador de autenticación C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/modificadores-de-acceso/">Modificadores de acceso</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipos-anonimos/">Tipos anónimos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/anotacion-de-datos/">Anotación de datos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaz-consultable/">Interfaz consultable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/xmldocument-y-el-espacio-de-nombres-systemxml/">XmlDocument y el espacio de nombres System.Xml</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/uso-de-directiva/">Uso de directiva</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/punteros-y-codigo-no-seguro/">Punteros y código no seguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/fundicion/">Fundición</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaz-inotifypropertychanged/">Interfaz INotifyPropertyChanged</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/marcado-y-sin-marcar/">Marcado y sin marcar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/temporizadores/">Temporizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/funciones-hash/">Funciones hash</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipos-anulables/">Tipos anulables</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/leer-y-escribir-archivos-zip/">Leer y escribir archivos .zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-50/">Características de C# 5.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/linq-paralelo-plinq/">LINQ paralelo (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/expresiones-lambda/">Expresiones Lambda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generador-de-il/">Generador de IL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inicializadores-de-objetos/">Inicializadores de objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/linq-a-xml/">LINQ a XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/diagnostico/">Diagnóstico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/filtros-de-accion/">Filtros de acción</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/zocalo-asincrono/">Zócalo asíncrono</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inicializando-propiedades/">Inicializando Propiedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inmutabilidad/">Inmutabilidad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/observador-del-sistema-de-archivos/">Observador del sistema de archivos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/biblioteca-paralela-de-tareas/">Biblioteca paralela de tareas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/clase-parcial-y-metodos/">Clase parcial y métodos.</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/contexto-de-sincronizacion-en-async-await/">Contexto de sincronización en Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/declaraciones-condicionales/">Declaraciones condicionales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/delegados-de-funciones/">Delegados de funciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/es-igual-a-y-gethashcode/">Es igual a y GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/excepcion-de-referencia-nula/">Excepcion de referencia nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generacion-de-codigo-t4/">Generación de código T4</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/analisis-de-expresiones-regulares/">Análisis de expresiones regulares</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/comentarios-y-regiones/">Comentarios y regiones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/extensiones-reactivas-rx/">Extensiones Reactivas (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/coleccion-observablet/">Colección Observable&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/concatenar-cadenas/">Concatenar cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/cronometros/">Cronómetros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/estructuras/">estructuras</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/desbordamiento/">Desbordamiento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/identidad-de-aspnet/">Identidad de ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/ienumerable/">IEnumerable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/implementacion-del-patron-de-diseno-flyweight/">Implementación del patrón de diseño Flyweight</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/automatizaciondegestiondesistemas/">Automatización.de.Gestión.de.Sistemas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/literales/">literales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/entero-grande/">Entero grande</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/hacer-que-un-subproceso-variable-sea-seguro/">Hacer que un subproceso variable sea seguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/patrones-de-diseno-estructural/">Patrones de diseño estructural</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/programacion-orientada-a-objetos-en-c/">Programación Orientada a Objetos en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/resolucion-de-sobrecarga/">Resolución de sobrecarga</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-30/">Características de C# 3.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generador-de-consultas-de-lambda-generico/">Generador de consultas de Lambda genérico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/importar-contactos-de-google/">Importar contactos de Google</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/manipulacion-de-cadenas/">Manipulación de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/xdocument-y-el-espacio-de-nombres-systemxmllinq/">XDocument y el espacio de nombres System.Xml.Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/alias-de-tipos-incorporados/">Alias ​​de tipos incorporados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/icloneable/">ICloneable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/argumentos-con-nombre/">Argumentos con nombre</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/implementacion-del-patron-de-diseno-decorator/">Implementación del patrón de diseño Decorator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/usando-jsonnet/">Usando json.net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/conversion-de-tipo/">Conversión de tipo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/icomparable/">IComparable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operador-de-igualdad/">Operador de igualdad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/punteros/">Punteros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/on-algoritmo-para-la-rotacion-circular-de-una-matriz/">O(n) Algoritmo para la rotación circular de una matriz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipos-incorporados/">Tipos incorporados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/leer-y-comprender-stacktraces/">Leer y comprender Stacktraces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/clscompliantattribute/">CLSCompliantAttribute</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/codigo-de-contratos-y-afirmaciones/">Código de Contratos y Afirmaciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/argumentos-con-nombre-y-opcionales/">Argumentos con nombre y opcionales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/creacion-de-un-cuadro-de-mensaje-propio-en-la-aplicacion-de-formulario-de-windows/">Creación de un cuadro de mensaje propio en la aplicación de formulario de Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/creacion-de-una-aplicacion-de-consola-con-un-editor-de-texto-sin-formato-y-el-compilador-de-c-cscexe/">Creación de una aplicación de consola con un editor de texto sin formato y el compilador de C# (csc.exe)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/microsoftexchangewebservices/">Microsoft.Exchange.WebServices</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/fundacion-de-comunicacion-de-windows/">Fundación de comunicación de Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/manejo-de-formatexception-al-convertir-cadenas-a-otros-tipos/">Manejo de FormatException al convertir cadenas a otros tipos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/acceda-a-la-carpeta-compartida-de-la-red-con-nombre-de-usuario-y-contrasena/">Acceda a la carpeta compartida de la red con nombre de usuario y contraseña</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/incluir-recursos-de-fuentes/">Incluir recursos de fuentes</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/es/docs/csharp/"><h3 class="h6 text-uppercase mb-2">Tutorial del lenguaje C#</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/primeros-pasos-con-el-lenguaje-c/">Primeros pasos con el lenguaje C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-60/">Características de C# 6.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-70/">Características de C# 7.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/metodos-de-extension/">Métodos de extensión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/consultas-linq/">Consultas LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/palabras-clave/">Palabras clave</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/palabra-clave-de-rendimiento/">Palabra clave de rendimiento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/declaracion-de-uso/">Declaración de uso</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/manejo-de-excepciones/">Manejo de excepciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/es/csharp/async-await/">Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/reflexion/">Reflexión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/genericos/">Genéricos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/enumeracion/">enumeración</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/cadenas-textuales/">Cadenas textuales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operador-de-fusion-nula/">Operador de fusión nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/cadenaformato/">Cadena.Formato</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operadores/">Operadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/constructores-y-finalizadores/">Constructores y Finalizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operadores-condicionales-nulos/">Operadores condicionales nulos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/arreglos/">arreglos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/implementacion-singleton/">Implementación Singleton</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/delegados/">delegados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inicializadores-de-coleccion/">Inicializadores de colección</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/ejemplos-de-assemblyinfocs/">Ejemplos de AssemblyInfo.cs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interpolacion-de-cadenas/">Interpolación de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/eventos/">Eventos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/herencia/">Herencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/arboles-de-expresion/">Árboles de expresión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaces/">Interfaces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/enhebrar/">enhebrar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/comentarios-de-documentacion-xml/">Comentarios de documentación XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/patrones-de-diseno-creacional/">Patrones de diseño creacional</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/programacion-funcional/">Programación funcional</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaz-desechable/">Interfaz desechable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/convenciones-de-nombres/">Convenciones de nombres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/fondotrabajador/">FondoTrabajador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/una-descripcion-general-de-las-colecciones-de-c/">Una descripción general de las colecciones de C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/recolector-de-basura-en-net/">Recolector de basura en .Net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/declaracion-de-bloqueo/">Declaración de bloqueo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/metodos-de-fecha-y-hora/">Métodos de fecha y hora</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/nombre-del-operador/">nombre del operador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/es-de-archivos-y-secuencias/">ES de archivos y secuencias</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/polimorfismo/">Polimorfismo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/criptografia-sistemaseguridadcriptografia/">Criptografía (Sistema.Seguridad.Criptografía)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tuplas/">tuplas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interoperabilidad/">interoperabilidad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/ejemplos-de-asyncawait-backgroundworker-task-y-thread/">Ejemplos de Asyncawait, Backgroundworker, Task y Thread</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/realizacion-de-solicitudes-http/">Realización de solicitudes HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/atributos/">Atributos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operaciones-comunes-de-cadenas/">Operaciones comunes de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/funcion-con-multiples-valores-de-retorno/">Función con múltiples valores de retorno</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/compilacion-en-tiempo-de-ejecucion/">Compilación en tiempo de ejecución</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/secuencias-de-escape-de-cadenas/">Secuencias de escape de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipo-de-valor-frente-a-tipo-de-referencia/">Tipo de valor frente a tipo de referencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/plataforma-del-compilador-net-roslyn/">Plataforma del compilador .NET (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/primeros-pasos-json-con-c/">Primeros pasos Json con C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/propiedades/">Propiedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/redes/">Redes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/codigo-no-seguro-en-net/">Código no seguro en .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/construcciones-de-flujo-de-datos-de-la-biblioteca-paralela-de-tareas-tpl/">Construcciones de flujo de datos de la biblioteca paralela de tareas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/directivas-del-pre-procesador/">Directivas del pre procesador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipo-dinamico/">tipo dinámico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/bucle/">Bucle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/metodos/">Métodos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/clases-estaticas/">Clases estáticas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/serializacion-binaria/">Serialización binaria</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/guion-c/">Guión C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/usando-sqlite-en-c/">Usando SQLite en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/acceso-a-bases-de-datos/">Acceso a bases de datos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-40/">Características de C# 4.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/enlace-a-objetos/">Enlace a objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generando-numeros-aleatorios-en-c/">Generando Números Aleatorios en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/recursividad/">recursividad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/codigo-de-contratos/">Código de Contratos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/indexador/">indexador</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/como-usar-estructuras-de-c-para-crear-un-tipo-de-union-similar-a-las-uniones-de-c/">Cómo usar estructuras de C# para crear un tipo de unión (similar a las uniones de C)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inyeccion-de-dependencia/">Inyección de dependencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/almacenamiento-en-cache/">almacenamiento en caché</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/guia/">guía</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/iteradores/">iteradores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/corriente/">Corriente</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/constructor-de-cadenas/">Constructor de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/controlador-de-autenticacion-c/">Controlador de autenticación C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/modificadores-de-acceso/">Modificadores de acceso</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipos-anonimos/">Tipos anónimos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/anotacion-de-datos/">Anotación de datos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaz-consultable/">Interfaz consultable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/xmldocument-y-el-espacio-de-nombres-systemxml/">XmlDocument y el espacio de nombres System.Xml</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/uso-de-directiva/">Uso de directiva</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/punteros-y-codigo-no-seguro/">Punteros y código no seguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/fundicion/">Fundición</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/interfaz-inotifypropertychanged/">Interfaz INotifyPropertyChanged</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/marcado-y-sin-marcar/">Marcado y sin marcar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/temporizadores/">Temporizadores</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/funciones-hash/">Funciones hash</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipos-anulables/">Tipos anulables</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/leer-y-escribir-archivos-zip/">Leer y escribir archivos .zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-50/">Características de C# 5.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/linq-paralelo-plinq/">LINQ paralelo (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/expresiones-lambda/">Expresiones Lambda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generador-de-il/">Generador de IL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inicializadores-de-objetos/">Inicializadores de objetos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/linq-a-xml/">LINQ a XML</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/diagnostico/">Diagnóstico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/filtros-de-accion/">Filtros de acción</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/zocalo-asincrono/">Zócalo asíncrono</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inicializando-propiedades/">Inicializando Propiedades</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/inmutabilidad/">Inmutabilidad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/observador-del-sistema-de-archivos/">Observador del sistema de archivos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/biblioteca-paralela-de-tareas/">Biblioteca paralela de tareas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/clase-parcial-y-metodos/">Clase parcial y métodos.</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/contexto-de-sincronizacion-en-async-await/">Contexto de sincronización en Async-Await</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/declaraciones-condicionales/">Declaraciones condicionales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/delegados-de-funciones/">Delegados de funciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/es-igual-a-y-gethashcode/">Es igual a y GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/excepcion-de-referencia-nula/">Excepcion de referencia nula</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generacion-de-codigo-t4/">Generación de código T4</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/analisis-de-expresiones-regulares/">Análisis de expresiones regulares</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/comentarios-y-regiones/">Comentarios y regiones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/extensiones-reactivas-rx/">Extensiones Reactivas (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/coleccion-observablet/">Colección Observable&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/concatenar-cadenas/">Concatenar cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/cronometros/">Cronómetros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/estructuras/">estructuras</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/desbordamiento/">Desbordamiento</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/identidad-de-aspnet/">Identidad de ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/ienumerable/">IEnumerable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/implementacion-del-patron-de-diseno-flyweight/">Implementación del patrón de diseño Flyweight</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/automatizaciondegestiondesistemas/">Automatización.de.Gestión.de.Sistemas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/literales/">literales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/entero-grande/">Entero grande</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/hacer-que-un-subproceso-variable-sea-seguro/">Hacer que un subproceso variable sea seguro</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/patrones-de-diseno-estructural/">Patrones de diseño estructural</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/programacion-orientada-a-objetos-en-c/">Programación Orientada a Objetos en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/resolucion-de-sobrecarga/">Resolución de sobrecarga</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/caracteristicas-de-c-30/">Características de C# 3.0</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/generador-de-consultas-de-lambda-generico/">Generador de consultas de Lambda genérico</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/importar-contactos-de-google/">Importar contactos de Google</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/manipulacion-de-cadenas/">Manipulación de cadenas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/xdocument-y-el-espacio-de-nombres-systemxmllinq/">XDocument y el espacio de nombres System.Xml.Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/alias-de-tipos-incorporados/">Alias ​​de tipos incorporados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/icloneable/">ICloneable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/argumentos-con-nombre/">Argumentos con nombre</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/implementacion-del-patron-de-diseno-decorator/">Implementación del patrón de diseño Decorator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/usando-jsonnet/">Usando json.net</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/conversion-de-tipo/">Conversión de tipo</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/icomparable/">IComparable</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/operador-de-igualdad/">Operador de igualdad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/punteros/">Punteros</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/on-algoritmo-para-la-rotacion-circular-de-una-matriz/">O(n) Algoritmo para la rotación circular de una matriz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/tipos-incorporados/">Tipos incorporados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/leer-y-comprender-stacktraces/">Leer y comprender Stacktraces</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/clscompliantattribute/">CLSCompliantAttribute</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/codigo-de-contratos-y-afirmaciones/">Código de Contratos y Afirmaciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/argumentos-con-nombre-y-opcionales/">Argumentos con nombre y opcionales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/creacion-de-un-cuadro-de-mensaje-propio-en-la-aplicacion-de-formulario-de-windows/">Creación de un cuadro de mensaje propio en la aplicación de formulario de Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/creacion-de-una-aplicacion-de-consola-con-un-editor-de-texto-sin-formato-y-el-compilador-de-c-cscexe/">Creación de una aplicación de consola con un editor de texto sin formato y el compilador de C# (csc.exe)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/microsoftexchangewebservices/">Microsoft.Exchange.WebServices</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/fundacion-de-comunicacion-de-windows/">Fundación de comunicación de Windows</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/manejo-de-formatexception-al-convertir-cadenas-a-otros-tipos/">Manejo de FormatException al convertir cadenas a otros tipos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/acceda-a-la-carpeta-compartida-de-la-red-con-nombre-de-usuario-y-contrasena/">Acceda a la carpeta compartida de la red con nombre de usuario y contraseña</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/csharp/incluir-recursos-de-fuentes/">Incluir recursos de fuentes</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>En esta página</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#operador-de-espera-y-palabra-clave-asíncrona">Operador de espera y palabra clave asíncrona</a></li>
+    <li><a href="#llamadas-simultáneas">Llamadas simultáneas</a></li>
+    <li><a href="#probaratraparfinalmente">Probar/Atrapar/Finalmente</a></li>
+    <li><a href="#devolver-una-tarea-sin-esperar">Devolver una tarea sin esperar</a></li>
+    <li><a href="#configuración-de-webconfig-para-apuntar-a-45-para-un-comportamiento-asíncrono-correcto">Configuración de Web.config para apuntar a 4.5 para un comportamiento asíncrono correcto.</a></li>
+    <li><a href="#asyncawait-solo-mejorará-el-rendimiento-si-permite-que-la-máquina-realice-un-trabajo-adicional">Async/await solo mejorará el rendimiento si permite que la máquina realice un trabajo adicional</a></li>
+    <li><a href="#llamadas-consecutivas-simples">Llamadas consecutivas simples</a></li>
+    <li><a href="#el-bloqueo-en-código-asíncrono-puede-causar-interbloqueos">El bloqueo en código asíncrono puede causar interbloqueos</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>En esta página</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#operador-de-espera-y-palabra-clave-asíncrona">Operador de espera y palabra clave asíncrona</a></li>
+    <li><a href="#llamadas-simultáneas">Llamadas simultáneas</a></li>
+    <li><a href="#probaratraparfinalmente">Probar/Atrapar/Finalmente</a></li>
+    <li><a href="#devolver-una-tarea-sin-esperar">Devolver una tarea sin esperar</a></li>
+    <li><a href="#configuración-de-webconfig-para-apuntar-a-45-para-un-comportamiento-asíncrono-correcto">Configuración de Web.config para apuntar a 4.5 para un comportamiento asíncrono correcto.</a></li>
+    <li><a href="#asyncawait-solo-mejorará-el-rendimiento-si-permite-que-la-máquina-realice-un-trabajo-adicional">Async/await solo mejorará el rendimiento si permite que la máquina realice un trabajo adicional</a></li>
+    <li><a href="#llamadas-consecutivas-simples">Llamadas consecutivas simples</a></li>
+    <li><a href="#el-bloqueo-en-código-asíncrono-puede-causar-interbloqueos">El bloqueo en código asíncrono puede causar interbloqueos</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/es/">Home</a></li>
+<li class="breadcrumb-item"><a href="/es/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/es/docs/csharp/">Tutorial del lenguaje C#</a></li>
+<li class="breadcrumb-item active" aria-current="page">Async-Await</li>
+					</ol>
+				</nav>
+			
+			<h1>Async-Await</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>En esta página</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#operador-de-espera-y-palabra-clave-asíncrona">Operador de espera y palabra clave asíncrona</a></li>
+    <li><a href="#llamadas-simultáneas">Llamadas simultáneas</a></li>
+    <li><a href="#probaratraparfinalmente">Probar/Atrapar/Finalmente</a></li>
+    <li><a href="#devolver-una-tarea-sin-esperar">Devolver una tarea sin esperar</a></li>
+    <li><a href="#configuración-de-webconfig-para-apuntar-a-45-para-un-comportamiento-asíncrono-correcto">Configuración de Web.config para apuntar a 4.5 para un comportamiento asíncrono correcto.</a></li>
+    <li><a href="#asyncawait-solo-mejorará-el-rendimiento-si-permite-que-la-máquina-realice-un-trabajo-adicional">Async/await solo mejorará el rendimiento si permite que la máquina realice un trabajo adicional</a></li>
+    <li><a href="#llamadas-consecutivas-simples">Llamadas consecutivas simples</a></li>
+    <li><a href="#el-bloqueo-en-código-asíncrono-puede-causar-interbloqueos">El bloqueo en código asíncrono puede causar interbloqueos</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>En esta página</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#operador-de-espera-y-palabra-clave-asíncrona">Operador de espera y palabra clave asíncrona</a></li>
+    <li><a href="#llamadas-simultáneas">Llamadas simultáneas</a></li>
+    <li><a href="#probaratraparfinalmente">Probar/Atrapar/Finalmente</a></li>
+    <li><a href="#devolver-una-tarea-sin-esperar">Devolver una tarea sin esperar</a></li>
+    <li><a href="#configuración-de-webconfig-para-apuntar-a-45-para-un-comportamiento-asíncrono-correcto">Configuración de Web.config para apuntar a 4.5 para un comportamiento asíncrono correcto.</a></li>
+    <li><a href="#asyncawait-solo-mejorará-el-rendimiento-si-permite-que-la-máquina-realice-un-trabajo-adicional">Async/await solo mejorará el rendimiento si permite que la máquina realice un trabajo adicional</a></li>
+    <li><a href="#llamadas-consecutivas-simples">Llamadas consecutivas simples</a></li>
+    <li><a href="#el-bloqueo-en-código-asíncrono-puede-causar-interbloqueos">El bloqueo en código asíncrono puede causar interbloqueos</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<p>En C#, un método declarado <code>async</code> no se bloqueará dentro de un proceso síncrono, en caso de que esté utilizando operaciones basadas en E/S (por ejemplo, acceso web, trabajo con archivos, &hellip;). Se puede esperar el resultado de dichos métodos marcados asíncronamente mediante el uso de la palabra clave <code>await</code>.</p>
+<p>Un método <code>async</code> puede devolver <code>void</code>, <code>Task</code> o <code>Task&lt;T&gt;</code>.</p>
+<p>El tipo de retorno <code>Tarea</code> esperará a que finalice el método y el resultado será <code>vacío</code>. <code>Task&lt;T&gt;</code> devolverá un valor del tipo <code>T</code> después de que se complete el método.</p>
+<p>Los métodos <code>async</code> deberían devolver <code>Task</code> o <code>Task&lt;T&gt;</code>, en lugar de <code>void</code>, en casi todas las circunstancias. Los métodos <code>async void</code> no se pueden <code>esperar</code>, lo que conduce a una variedad de problemas. El único escenario en el que un <code>async</code> debería devolver <code>void</code> es en el caso de un controlador de eventos.</p>
+<p><code>async</code>/<code>await</code> funciona al transformar su método <code>async</code> en una máquina de estado. Lo hace mediante la creación de una estructura entre bastidores que almacena el estado actual y cualquier contexto (como variables locales), y expone un método <code>MoveNext()</code> para avanzar estados (y ejecutar cualquier código asociado) cada vez que se completa una espera esperada.</p>
+<h2 id="operador-de-espera-y-palabra-clave-asíncrona">Operador de espera y palabra clave asíncrona <a href="#operador-de-espera-y-palabra-clave-as%c3%adncrona" class="anchor" aria-hidden="true">#</a></h2>
+<p>El operador <code>await</code> y la palabra clave <code>async</code> se juntan:</p>
+<blockquote>
+<p>El método asíncrono en el que se usa <strong>await</strong> debe ser modificado por
+la palabra clave <strong>async</strong>.</p>
+</blockquote>
+<p>Lo contrario no siempre es cierto: puede marcar un método como <code>async</code> sin usar <code>await</code> en su cuerpo.</p>
+<p>Lo que <code>await</code> en realidad hace es suspender la ejecución del código hasta que se complete la tarea esperada; se puede esperar cualquier tarea.</p>
+<p><strong>Nota:</strong> no puede esperar el método asíncrono que no devuelve nada (vacío).</p>
+<p>En realidad, la palabra &lsquo;suspende&rsquo; es un poco engañosa porque no solo se detiene la ejecución, sino que el subproceso puede quedar libre para ejecutar otras operaciones. Bajo el capó, <code>await</code> se implementa con un poco de magia del compilador: divide un método en dos partes: antes y después de <code>await</code>. La última parte se ejecuta cuando se completa la tarea esperada.</p>
+<p>Si ignoramos algunos detalles importantes, el compilador hace esto por usted:</p>
+<pre><code>public async Task&lt;TResult&gt; DoIt()
+{
+    // do something and acquire someTask of type Task&lt;TSomeResult&gt;  
+    var awaitedResult = await someTask;
+    // ... do something more and produce result of type TResult
+    return result;
+}
+</code></pre>
+<p>se convierte en:</p>
+<pre><code>public Task&lt;TResult&gt; DoIt()
+{
+    // ...
+    return someTask.ContinueWith(task =&gt; {
+        var result = ((Task&lt;TSomeResult&gt;)task).Result;
+        return DoIt_Continuation(result);
+    });
+}
+
+private TResult DoIt_Continuation(TSomeResult awaitedResult)
+{
+    // ...
+}
+</code></pre>
+<p>Cualquier método habitual se puede convertir en asíncrono de la siguiente manera:</p>
+<pre><code>await Task.Run(() =&gt; YourSyncMethod());
+</code></pre>
+<p>Esto puede ser ventajoso cuando necesita ejecutar un método de ejecución prolongada en el subproceso de la interfaz de usuario sin congelar la interfaz de usuario.</p>
+<p>Pero hay una observación muy importante aquí: <strong>Asíncrono no siempre significa concurrente (paralelo o incluso multihilo).</strong> Incluso en un solo hilo, <code>async</code>-<code>await</code> aún permite el código asíncrono. Por ejemplo, vea este [programador de tareas] personalizado <a href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskscheduler(v=vs.110).aspx">1</a>. Un programador de tareas tan &rsquo;loco&rsquo; puede simplemente convertir las tareas en funciones que se llaman dentro del procesamiento de bucle de mensajes.</p>
+<p>Necesitamos preguntarnos: ¿Qué hilo ejecutará la continuación de nuestro método <code>DoIt_Continuation</code>?</p>
+<p>Por defecto, el operador <code>await</code> programa la ejecución de la continuación con el [contexto de sincronización] actual<a href="https://msdn.microsoft.com/en-us/library/system.threading.synchronizationcontext(v=vs.110).aspx">2</a>. Significa que, de forma predeterminada, la continuación de WinForms y WPF se ejecuta en el subproceso de la interfaz de usuario. Si, por alguna razón, necesita cambiar este comportamiento, use <a href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.configureawait(v=vs.110).aspx">método</a> <code>Task.ConfigureAwait()</code>:</p>
+<pre><code>await Task.Run(() =&gt; YourSyncMethod()).ConfigureAwait(continueOnCapturedContext: false);
+</code></pre>
+<h2 id="llamadas-simultáneas">Llamadas simultáneas <a href="#llamadas-simult%c3%a1neas" class="anchor" aria-hidden="true">#</a></h2>
+<p>Es posible esperar varias llamadas al mismo tiempo invocando primero las tareas en espera y <em>luego</em> esperándolas.</p>
+<pre><code>public async Task RunConcurrentTasks()
+{
+    var firstTask = DoSomethingAsync();
+    var secondTask = DoSomethingElseAsync();
+
+    await firstTask;
+    await secondTask;
+}
+</code></pre>
+<p>Alternativamente, <code>Task.WhenAll</code> se puede usar para agrupar varias tareas en una sola <code>Tarea</code>, que se completa cuando se completan todas las tareas pasadas.</p>
+<pre><code>public async Task RunConcurrentTasks()
+{
+    var firstTask = DoSomethingAsync();
+    var secondTask = DoSomethingElseAsync();
+
+    await Task.WhenAll(firstTask, secondTask);
+}
+</code></pre>
+<p>También puede hacer esto dentro de un bucle, por ejemplo:</p>
+<pre><code>List&lt;Task&gt; tasks = new List&lt;Task&gt;();
+while (something) {
+    // do stuff
+    Task someAsyncTask = someAsyncMethod();
+    tasks.Add(someAsyncTask);
+}
+
+await Task.WhenAll(tasks);
+</code></pre>
+<p>Para obtener resultados de una tarea después de esperar varias tareas con Task.WhenAll, simplemente espere la tarea nuevamente. Dado que la tarea ya está completa, simplemente devolverá el resultado.</p>
+<pre><code>var task1 = SomeOpAsync();
+var task2 = SomeOtherOpAsync();
+
+await Task.WhenAll(task1, task2);
+
+var result = await task2;
+</code></pre>
+<p>Además, <code>Task.WhenAny</code> se puede usar para ejecutar varias tareas en paralelo, como <code>Task.WhenAll</code> anterior, con la diferencia de que este método se completará cuando se complete <em>cualquiera</em> de las tareas proporcionadas.</p>
+<pre><code>public async Task RunConcurrentTasksWhenAny()
+{
+    var firstTask = TaskOperation(&quot;#firstTask executed&quot;);
+    var secondTask = TaskOperation(&quot;#secondTask executed&quot;);
+    var thirdTask = TaskOperation(&quot;#thirdTask executed&quot;);
+    await Task.WhenAny(firstTask, secondTask, thirdTask);
+}
+</code></pre>
+<p>La &lsquo;Tarea&rsquo; devuelta por &lsquo;RunConcurrentTasksWhenAny&rsquo; se completará cuando se complete cualquiera de las &lsquo;primera tarea&rsquo;, &lsquo;segunda tarea&rsquo; o &rsquo;tercera tarea&rsquo;.</p>
+<h2 id="probaratraparfinalmente">Probar/Atrapar/Finalmente <a href="#probaratraparfinalmente" class="anchor" aria-hidden="true">#</a></h2>
+<!-- si la versión [gte 6.0] -->
+<p>A partir de C# 6.0, la palabra clave <code>await</code> ahora se puede usar dentro de un bloque <code>catch</code> y <code>finally</code>.</p>
+<pre><code>try {
+   var client = new AsyncClient();
+   await client.DoSomething();
+} catch (MyException ex) {
+   await client.LogExceptionAsync();
+   throw;
+} finally {
+   await client.CloseAsync();
+}
+</code></pre>
+<!-- versión final si -->
+<!-- si la versión [gte 5.0] [lt 6.0] -->
+<p>Antes de C# 6.0, tendría que hacer algo como lo siguiente. Tenga en cuenta que 6.0 también limpió las comprobaciones nulas con el <a href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskscheduler(v=vs.110).aspx">operador de propagación nula</a>.</p>
+<pre><code>AsynClient client;
+MyException caughtException;
+try {
+     client = new AsyncClient();
+     await client.DoSomething();
+} catch (MyException ex) {
+     caughtException = ex;
+}
+
+if (client != null) {
+    if (caughtException != null) {
+       await client.LogExceptionAsync();
+    }
+    await client.CloseAsync();
+    if (caughtException != null) throw caughtException;
+}
+</code></pre>
+<!-- versión final si -->
+<p>Tenga en cuenta que si espera una tarea no creada por <code>async</code> (por ejemplo, una tarea creada por <code>Task.Run</code>), algunos depuradores pueden fallar en las excepciones lanzadas por la tarea incluso cuando aparentemente es manejado por el try/catch circundante. Esto sucede porque el depurador considera que no está controlado con respecto al código de usuario. En Visual Studio, hay una opción llamada <a href="https://msdn.microsoft.com/en-us/library/system.threading.synchronizationcontext(v=vs.110).aspx">&ldquo;Solo mi código&rdquo;</a>, que se puede deshabilitar para evitar que el depurador se rompa en tales situaciones.</p>
+<h2 id="devolver-una-tarea-sin-esperar">Devolver una tarea sin esperar <a href="#devolver-una-tarea-sin-esperar" class="anchor" aria-hidden="true">#</a></h2>
+<p>Los métodos que realizan operaciones asincrónicas no necesitan usar <code>await</code> si:</p>
+<ul>
+<li>Solo hay una llamada asíncrona dentro del método</li>
+<li>La llamada asíncrona está al final del método</li>
+<li>La excepción de captura/manejo que puede ocurrir dentro de la tarea no es necesaria</li>
+</ul>
+<p>Considere este método que devuelve una <code>Tarea</code>:</p>
+<pre><code>public async Task&lt;User&gt; GetUserAsync(int id)
+{
+    var lookupKey = &quot;Users&quot; + id;
+
+    return await dataStore.GetByKeyAsync(lookupKey);
+}
+</code></pre>
+<p>Si <code>GetByKeyAsync</code> tiene la misma firma que <code>GetUserAsync</code> (devolviendo una <code>Tarea&lt;Usuario&gt;</code>), el método se puede simplificar:</p>
+<pre><code>public Task&lt;User&gt; GetUserAsync(int id)
+{
+    var lookupKey = &quot;Users&quot; + id;
+
+    return dataStore.GetByKeyAsync(lookupKey);
+}
+</code></pre>
+<p>En este caso, no es necesario marcar el método como <code>asincrónico</code>, aunque esté realizando una operación asincrónica. La tarea devuelta por <code>GetByKeyAsync</code> se pasa directamente al método de llamada, donde estará en <code>espera</code>.</p>
+<p><strong>Importante</strong>: Al devolver la <code>Tarea</code> en lugar de esperarla, cambia el comportamiento de excepción del método, ya que no lanzará la excepción dentro del método que inicia la tarea sino en el método que la espera.</p>
+<pre><code>public Task SaveAsync()
+{
+    try {
+        return dataStore.SaveChangesAsync();
+    }
+    catch(Exception ex)
+    {
+        // this will never be called
+        logger.LogException(ex);
+    }
+}
+
+// Some other code calling SaveAsync()
+
+// If exception happens, it will be thrown here, not inside SaveAsync()
+await SaveAsync();
+</code></pre>
+<p>Esto mejorará el rendimiento, ya que le ahorrará al compilador la generación de una máquina de estado extra <strong>asincrónica</strong>.</p>
+<h2 id="configuración-de-webconfig-para-apuntar-a-45-para-un-comportamiento-asíncrono-correcto">Configuración de Web.config para apuntar a 4.5 para un comportamiento asíncrono correcto. <a href="#configuraci%c3%b3n-de-webconfig-para-apuntar-a-45-para-un-comportamiento-as%c3%adncrono-correcto" class="anchor" aria-hidden="true">#</a></h2>
+<p>El tiempo de ejecución web.config system.web.http debe apuntar a 4.5 para garantizar que el subproceso alquile el contexto de la solicitud antes de reanudar su método asíncrono.</p>
+<pre><code>&lt;httpRuntime targetFramework=&quot;4.5&quot; /&gt;
+</code></pre>
+<p>Async y await tienen un comportamiento indefinido en ASP.NET antes de 4.5. Async/await se reanudará en un subproceso arbitrario que puede no tener el contexto de la solicitud. Las aplicaciones bajo carga fallarán aleatoriamente con excepciones de referencia nula que acceden a HttpContext después de await. http://stackoverflow.com/questions/24956178/using-httpcontext-current-in-webapi-is-dangerous-because-of-async</p>
+<h2 id="asyncawait-solo-mejorará-el-rendimiento-si-permite-que-la-máquina-realice-un-trabajo-adicional">Async/await solo mejorará el rendimiento si permite que la máquina realice un trabajo adicional <a href="#asyncawait-solo-mejorar%c3%a1-el-rendimiento-si-permite-que-la-m%c3%a1quina-realice-un-trabajo-adicional" class="anchor" aria-hidden="true">#</a></h2>
+<p>Considere el siguiente código:</p>
+<pre><code>public async Task MethodA()
+{
+     await MethodB();
+     // Do other work
+}
+
+public async Task MethodB()
+{
+     await MethodC();
+     // Do other work
+}
+
+public async Task MethodC()
+{
+     // Or await some other async work
+     await Task.Delay(100);
+}
+</code></pre>
+<p>Esto no funcionará mejor que</p>
+<pre><code>public void MethodA()
+{
+     MethodB();
+     // Do other work
+}
+
+public void MethodB()
+{
+     MethodC();
+     // Do other work
+}
+
+public void MethodC()
+{
+     Thread.Sleep(100);
+}
+</code></pre>
+<p>El objetivo principal de async/await es permitir que la máquina realice un trabajo adicional; por ejemplo, permitir que el subproceso de llamada realice otro trabajo mientras espera el resultado de alguna operación de E/S. En este caso, nunca se permite que el subproceso de llamada haga más trabajo del que hubiera podido hacer de otro modo, por lo que no hay ganancia de rendimiento con respecto a simplemente llamar a <code>MethodA()</code>, <code>MethodB()</code> ​​y <code>MethodC()</code>. sincrónicamente</p>
+<h2 id="llamadas-consecutivas-simples">Llamadas consecutivas simples <a href="#llamadas-consecutivas-simples" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code>public async Task&lt;JobResult&gt; GetDataFromWebAsync()
+{
+  var nextJob = await _database.GetNextJobAsync();
+  var response = await _httpClient.GetAsync(nextJob.Uri);
+  var pageContents = await response.Content.ReadAsStringAsync();
+  return await _database.SaveJobResultAsync(pageContents);
+}
+</code></pre>
+<p>Lo más importante a tener en cuenta aquí es que, si bien cada método <code>await</code>-ed se llama de forma asíncrona, y en el momento de esa llamada, el control se devuelve al sistema, el flujo dentro del método es lineal y no requiere ningún tratamiento especial. por asincronía. Si alguno de los métodos llamados falla, la excepción se procesará &ldquo;como se esperaba&rdquo;, lo que en este caso significa que la ejecución del método se cancelará y la excepción subirá a la pila.</p>
+<h2 id="el-bloqueo-en-código-asíncrono-puede-causar-interbloqueos">El bloqueo en código asíncrono puede causar interbloqueos <a href="#el-bloqueo-en-c%c3%b3digo-as%c3%adncrono-puede-causar-interbloqueos" class="anchor" aria-hidden="true">#</a></h2>
+<p>Es una mala práctica bloquear las llamadas asincrónicas, ya que puede provocar interbloqueos en entornos que tienen un contexto de sincronización. La mejor práctica es usar async/await &ldquo;hasta el final&rdquo;. Por ejemplo, el siguiente código de Windows Forms provoca un interbloqueo:</p>
+<pre><code>private async Task&lt;bool&gt; TryThis()
+{
+    Trace.TraceInformation(&quot;Starting TryThis&quot;);
+    await Task.Run(() =&gt;
+    {
+        Trace.TraceInformation(&quot;In TryThis task&quot;);
+        for (int i = 0; i &lt; 100; i++)
+        {
+            // This runs successfully - the loop runs to completion
+            Trace.TraceInformation(&quot;For loop &quot; + i);
+            System.Threading.Thread.Sleep(10);
+        }
+    });
+
+    // This never happens due to the deadlock
+    Trace.TraceInformation(&quot;About to return&quot;);
+    return true;
+}
+
+// Button click event handler
+private void button1_Click(object sender, EventArgs e)
+{
+    // .Result causes this to block on the asynchronous call
+    bool result = TryThis().Result;
+    // Never actually gets here
+    Trace.TraceInformation(&quot;Done with result&quot;);
+}
+</code></pre>
+<p>Básicamente, una vez que se completa la llamada asíncrona, espera a que el contexto de sincronización esté disponible. Sin embargo, el controlador de eventos &ldquo;retiene&rdquo; el contexto de sincronización mientras espera que se complete el método <code>TryThis()</code>, lo que provoca una espera circular.</p>
+<p>Para solucionar esto, el código debe modificarse para</p>
+<pre><code>private async void button1_Click(object sender, EventArgs e)
+{
+  bool result = await TryThis();
+  Trace.TraceInformation(&quot;Done with result&quot;);
+}
+</code></pre>
+<p>Nota: los controladores de eventos son el único lugar donde se debe usar <code>async void</code> (porque no puede esperar un método <code>async void</code>).</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/es/csharp/manejo-de-excepciones/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Manejo de excepciones
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/es/csharp/reflexion/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Reflexión &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/es/about/">Sobre</a></li>
+          <li class="list-inline-item"><a href="/es/disclaimers/">Descargos de responsabilidad</a></li>
+          <li class="list-inline-item"><a href="/es/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/es/terms-of-use/">Términos de Uso</a></li>
+          <li class="list-inline-item"><a href="/es/privacy-policy/">Política de privacidad</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

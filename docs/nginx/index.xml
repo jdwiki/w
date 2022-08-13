@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx Tutorial on </title>
+    <link>https://www.wikiod.com/docs/nginx/</link>
+    <description>Recent content in nginx Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with nginx</title>
+      <link>https://www.wikiod.com/nginx/getting-started-with-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nginx/getting-started-with-nginx/</guid>
+      <description>Reload NGINX configuration file # As a root user:
+sudo nginx -s reload Ubuntu 14.04 example # sudo service nginx reload Ubuntu 16.04 example # sudo systemctl reload nginx Before reloading, it is a good idea to check config for syntax errors:
+sudo nginx -t Or
+sudo service nginx configtest Installation and setup # Nginx is a Web server used to serve HTTP requests over the Internet.
+Nginx is available on Linux, Windows and other OSes as direct download, and can also be built from source.</description>
+    </item>
+    
+    <item>
+      <title>Useful Redirects</title>
+      <link>https://www.wikiod.com/nginx/useful-redirects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nginx/useful-redirects/</guid>
+      <description>HTTPS Redirect # server { listen 80 default_server; listen [::]:80 default_server; server_name example.com www.example.com; return 307 https://$host$request_uri; } A 301 redirect is also an alternative but if a POST is made to a 301, then many clients will resubmit the request as a GET - which almost always will fail serverside. A 307 mandates the same request type.
+Redirect requests to another server # server { server_name example.com; return 301 $scheme://example.</description>
+    </item>
+    
+    <item>
+      <title>Nginx Configurations</title>
+      <link>https://www.wikiod.com/nginx/nginx-configurations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nginx/nginx-configurations/</guid>
+      <description>Test NGINX configuration file # You can check for syntax errors and referenced files in an NGINX configuration file before running it with:
+nginx -t Alternatively you can run service script
+service nginx configtest While both of these commands will tell you if your new nginx configuration is ok [without killing your current instance]. Configtest uses the running service and tells you if it passes or fails the check whereas nginx -t will not only check the config but print any info, warning as well as error messages.</description>
+    </item>
+    
+    <item>
+      <title>Logging</title>
+      <link>https://www.wikiod.com/nginx/logging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nginx/logging/</guid>
+      <description>Basic example # Syntax # Syntax: log_format name string ...; Syntax: access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]]; access_log off; Using them together
+log_format compression &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&amp;quot;$request&amp;quot; $status $bytes_sent &#39; &#39;&amp;quot;$http_referer&amp;quot; &amp;quot;$http_user_agent&amp;quot; &amp;quot;$gzip_ratio&amp;quot;&#39;; access_log /spool/logs/nginx-access.log compression buffer=32k; error_log /spool/logs/nginx-error.log; Reopen log files # As a root user run:
+nginx -s reopen Avoid logging for favicon.ico and robots.txt # location = /favicon.ico { log_not_found off; access_log off; } location = /robots.</description>
+    </item>
+    
+    <item>
+      <title>nginx reverse proxy</title>
+      <link>https://www.wikiod.com/nginx/nginx-reverse-proxy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nginx/nginx-reverse-proxy/</guid>
+      <description>simple reverse proxy # # Define which servers to include in the load balancing scheme. # It&#39;s best to use the servers&#39; private IPs for better performance and security. upstream backend { ip_hash; server 10.10.10.10 slow_start=30s max_fails=3 fail_timeout=15s; server 10.10.10.12 slow_start=30s max_fails=3 fail_timeout=15s; # Activates the cache for connections to upstream servers. keepalive 20; } # This server accepts all traffic to port 80 and passes it to the upstream. # Notice that the upstream name and the proxy_pass need to match.</description>
+    </item>
+    
+    <item>
+      <title>Using nginx to provide clean browser URLs</title>
+      <link>https://www.wikiod.com/nginx/using-nginx-to-provide-clean-browser-urls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nginx/using-nginx-to-provide-clean-browser-urls/</guid>
+      <description>Redirect vs reverse proxy # Professionally made web applications don&amp;rsquo;t expose the internal details of the server environment to the user. When you place an order at your retailer, you don&amp;rsquo;t see (or have to type) https://mydealer.com:8443/Dealerapp/entryPage.html, but just mydealer.com, although the app server needs all the details given in the longer URL. This can be achieved via:
+if ($scheme = http) { return 301 https://$server_name$request_uri; } This does a redirect.</description>
+    </item>
+    
+    <item>
+      <title>Wordpress blog integration with rails application using nginx</title>
+      <link>https://www.wikiod.com/nginx/wordpress-blog-integration-with-rails-application-using-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nginx/wordpress-blog-integration-with-rails-application-using-nginx/</guid>
+      <description>nginx server block # Once you have setup and configured the php5-fpm and wordpress settings you can configure the /etc/nginx/conf/nginx.conf file as below.
+You need to define the location blocks inside the server block and rewrite the url there as defined.
+server { listen 443 ssl; server_name abc.co.uk; root /home/ubuntu/www/abc/current/public; try_files $uri/index.html $uri @unicorn; ssl on; ssl_certificate /etc/nginx/ssl/abc.crt; ssl_certificate_key /etc/nginx/ssl/abc.key; location /blog/wp-admin/ { root /var/www/html/; index index.php; try_files $uri $uri/ /index.</description>
+    </item>
+    
+  </channel>
+</rss>

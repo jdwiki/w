@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>akka Tutorial on </title>
+    <link>https://www.wikiod.com/docs/akka/</link>
+    <description>Recent content in akka Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/akka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with akka</title>
+      <link>https://www.wikiod.com/akka/getting-started-with-akka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/akka/getting-started-with-akka/</guid>
+      <description>Installation or Setup # Install JDK 8 (Windows, Linux) and set the path (Windows). Install Scala (Linux), For Windows visit http://www.scala-lang.org/download/ download and install binary distribution, set the environment variable for scala in PATH which is in \scala\bin. Installing Typesafe activator (It contains Scala, Akka, Play, SBT) + project scaffolding and templates. For quick start download the mini-package. Extract the Typesafe activator and set the PATH to activator-x.x.xx-minimal\bin (It includes the bash and bat scripts to run the activator).</description>
+    </item>
+    
+    <item>
+      <title>akka-streams custom shapes</title>
+      <link>https://www.wikiod.com/akka/akka-streams-custom-shapes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/akka/akka-streams-custom-shapes/</guid>
+      <description>akka provides some pre-defined shapes, that should probably fit 99.9% of your usage. creating a new shape should only be done in some very rare cases. the pre-defined shapes are:
+Source - 1 outlet, no inlets Sink - 1 inlet, no outlets Flow - 1 inlet, 1 outlet BidiFlow - 2 inlets, 2 outlets Closed - no inlets, no outlets FanInN - N inlets (N &amp;lt;= 22), 1 outlet FanOutN - N outlets (N &amp;lt;= 22), 1 inlet UniformFanIn - any number of inlets of the same type, 1 outlet UniformFanOut - any number of outlets of the same type, 1 inlet Amorphous - any number of inlets or outlets, but untyped.</description>
+    </item>
+    
+    <item>
+      <title>Actor DSL</title>
+      <link>https://www.wikiod.com/akka/actor-dsl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/akka/actor-dsl/</guid>
+      <description>Simple Actor DSL # To create simple actors without creating a new class, you can use:
+import akka.actor.ActorDSL._ import akka.actor.ActorSystem implicit val system = ActorSystem(&amp;quot;demo&amp;quot;) val a = actor(new Act { become { case &amp;quot;hello&amp;quot; ⇒ sender() ! &amp;quot;hi&amp;quot; } }) Context switching # The two possible ways of issuing a context.become (replacing or adding the new behavior) are offered separately to enable a clutter-free notation of nested receives:
+val a = actor(new Act { become { // this will replace the initial (empty) behavior case &amp;quot;info&amp;quot; ⇒ sender() !</description>
+    </item>
+    
+    <item>
+      <title>Hello world</title>
+      <link>https://www.wikiod.com/akka/hello-world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/akka/hello-world/</guid>
+      <description>Akka hello world (Scala) # Add akka-actor dependency (SBT example) libraryDependencies += &amp;quot;com.typesafe.akka&amp;quot; % &amp;quot;akka-actor_2.11&amp;quot; % &amp;quot;2.4.8&amp;quot; Create actor classes: Actor for string output:
+class OutputActor extends Actor { override def receive: Receive = { case message =&amp;gt; println(message) } } Actor for string modifying:
+class AppendActor(outputActor: ActorRef) extends Actor { override def receive: Receive = { case message: String =&amp;gt; val changed = s&amp;quot;Hello, $message!&amp;quot; outputActor ! changed case unknown =&amp;gt; println(s&amp;quot;unknown message: $unknown&amp;quot;) } } Create actor systems and send message object HelloWorld extends App { val system = ActorSystem(&amp;quot;HelloWorld&amp;quot;) val outputActor = system.</description>
+    </item>
+    
+    <item>
+      <title>Supervision and Monitoring in Akka</title>
+      <link>https://www.wikiod.com/akka/supervision-and-monitoring-in-akka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/akka/supervision-and-monitoring-in-akka/</guid>
+      <description>References: akka.io/docs
+Check out my blog: https://blog.knoldus.com/2016/08/07/supervision-and-monitoring-in-akka/
+What is supervision? # Describes a dependency relationship between actors, the parent and child releationship. Parent is unique because it has created the child actor, so the parent is responsible for reacting when failures happens in his child.
+And parent decides which choice needs to be selected. When a parent receives the failure signal from it’s child then depending on the nature of failure, the parent decides from following options:</description>
+    </item>
+    
+    <item>
+      <title>Akka Streams</title>
+      <link>https://www.wikiod.com/akka/akka-streams/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/akka/akka-streams/</guid>
+      <description>Akka Streams: Hello World # Akka Streams allows you to easily create a stream leveraging the power of the Akka framework without explicitly defining actor behaviors and messages. Every stream will have at least one Source (origin of the data) and at least one Sink (destination of the data).
+import akka.actor.ActorSystem import akka.stream.ActorMaterializer import akka.stream.scaladsl.{Sink, Source} import java.io.File val stream = Source(Seq(&amp;quot;test1.txt&amp;quot;, &amp;quot;test2.txt&amp;quot;, &amp;quot;test3.txt&amp;quot;)) .map(new File(_)) .filter(_.exists()) .filter(_.length() != 0) .</description>
+    </item>
+    
+    <item>
+      <title>Dispatchers</title>
+      <link>https://www.wikiod.com/akka/dispatchers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/akka/dispatchers/</guid>
+      <description>Default Dispatcher # An Akka MessageDispatcher is what makes Akka Actors &amp;ldquo;tick&amp;rdquo;, it is the engine of the machine so to speak. All MessageDispatcher implementations are also an ExecutionContext, which means that they can be used to execute arbitrary code, for instance Futures.
+Every ActorSystem will have a default dispatcher that will be used in case nothing else is configured for an Actor. The default dispatcher can be configured, and is by default a Dispatcher with the specified default-executor.</description>
+    </item>
+    
+    <item>
+      <title>Injecting dependencies into an actor</title>
+      <link>https://www.wikiod.com/akka/injecting-dependencies-into-an-actor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/akka/injecting-dependencies-into-an-actor/</guid>
+      <description>Spring-wired actor # Due to very specific way of actor instantiation, injecting dependencies into an actor instance is not trivial. In order to intervene in actor instantiation and allow Spring to inject dependencies one should implement a couple of akka extensions. First of those is an IndirectActorProducer:
+import akka.actor.Actor; import akka.actor.IndirectActorProducer; import java.lang.reflect.Constructor; import java.util.Arrays; import org.springframework.beans.factory.config.AutowireCapableBeanFactory; import org.springframework.context.ApplicationContext; /** * An actor producer that lets Spring autowire dependencies into created actors.</description>
+    </item>
+    
+    <item>
+      <title>Akka HTTP</title>
+      <link>https://www.wikiod.com/akka/akka-http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/akka/akka-http/</guid>
+      <description>Akka HTTP is a light-weight HTTP server and client library, using akka-streams under the hood
+Akka HTTP server: Hello World (Scala DSL) # The following app will start an HTTP server listening on port 8080 that returns Hello world on GET /hello/world
+import akka.actor.ActorSystem import akka.http.scaladsl.Http import akka.http.scaladsl.server.Directives._ import akka.http.scaladsl.server._ import akka.stream.ActorMaterializer import scala.concurrent.Await import scala.concurrent.duration.Duration object HelloWorld extends App { implicit val system = ActorSystem(&amp;quot;ProxySystem&amp;quot;) implicit val mat = ActorMaterializer() val route: Route = get { path(&amp;quot;hello&amp;quot; / &amp;quot;world&amp;quot;) { complete(&amp;quot;Hello world&amp;quot;) } } val bindingFuture = Http().</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redux Tutorial on </title>
+    <link>https://www.wikiod.com/docs/redux/</link>
+    <description>Recent content in redux Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/redux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with redux</title>
+      <link>https://www.wikiod.com/redux/getting-started-with-redux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/redux/getting-started-with-redux/</guid>
+      <description>Installation or Setup # Basic installation:
+You can download redux javascript file, using this link.
+Also you can install redux, using bower :
+bower install https://npmcdn.com/redux@latest/dist/redux.min.js Next, you need to include redux to your page:
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/path/to/redux.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; // Redux is available as `window.Redux` variable. &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Npm installation:
+If you are using npm, to install redux, you need to run:
+npm install redux --save Next, to use redux, you need to require it (assuming you are using module bundler, like webpack):</description>
+    </item>
+    
+    <item>
+      <title>Asynchronous Data Flow</title>
+      <link>https://www.wikiod.com/redux/asynchronous-data-flow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/redux/asynchronous-data-flow/</guid>
+      <description>Redux-thunk: basics # While redux itself is entirely synchronous, you can use a middleware such as redux-thunk to handle asynchronous actions.
+A &amp;ldquo;thunk&amp;rdquo; is another name for a callback. It is a function that is usually passed as an argument to be called at a later time.
+To use, apply the middleware to your redux store:
+import ReduxThunk from &#39;redux-thunk&#39;; const store = createStore( reducer, applyMiddleware(ReduxThunk) ); This allows you to pass a thunk to dispatch instead of a plain object.</description>
+    </item>
+    
+    <item>
+      <title>Pure Redux - Redux without any framework</title>
+      <link>https://www.wikiod.com/redux/pure-redux---redux-without-any-framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/redux/pure-redux---redux-without-any-framework/</guid>
+      <description>Parameters # Paramenter Description action It must be an object with at least the type property. Any other property can be passed and will be accessible within the reducer function. If you&amp;rsquo;re not using bundlers like Webpack and Browserify, change the first line to:
+const { createStore } = Redux; Or just call it directly from the Redux global when creating the store:
+const store = Redux.createStore(counter); Full example # index.</description>
+    </item>
+    
+    <item>
+      <title>Testing Redux apps</title>
+      <link>https://www.wikiod.com/redux/testing-redux-apps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/redux/testing-redux-apps/</guid>
+      <description>Redux + Mocha # Redux is very functional, so unit testing is very straightforward.
+Action creator:
+export function showSidebar () { return { type: &#39;SHOW_SIDEBAR&#39; } } Action creators unit test:
+import expect from &#39;expect&#39; import actions from &#39;./actions&#39; import * as type from &#39;./constants&#39; describe(&#39;actions&#39;, () =&amp;gt; { it(&#39;should show sidebar&#39;, () =&amp;gt; { const expectedAction = { type: type.SHOW_SIDEBAR } expect(actions.showSidebar()).toEqual(expectedAction) }) }) Testing a Redux store with Mocha and Chai # import { expect } from &#39;chai&#39;; import { createStore } from &#39;redux&#39;; describe(&#39;redux store test demonstration&#39;, () =&amp;gt; { describe(&#39;testReducer&#39;, () =&amp;gt; { it(&#39;should increment value on TEST_ACTION&#39;, () =&amp;gt; { // define a test reducer with initial state: test: 0 const testReducer = (state = { test: 0 }, action) =&amp;gt; { switch (action.</description>
+    </item>
+    
+    <item>
+      <title>How to link redux and react</title>
+      <link>https://www.wikiod.com/redux/how-to-link-redux-and-react/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/redux/how-to-link-redux-and-react/</guid>
+      <description>Syntax # &amp;lt;Provider store&amp;gt; connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options]) Parameters # Argument Description store Redux store mapStateToProps User provided mapping: (state, ownProps) =&amp;gt; resultProps Provider # To easily link your Redux store to your React components you can use an additional library: react-redux.
+First, you need to wrap your app in a Provider, which is a component that passes your store to be used by child components:
+import { Provider } from &#39;react-redux&#39;; /// .</description>
+    </item>
+    
+    <item>
+      <title>Reducer</title>
+      <link>https://www.wikiod.com/redux/reducer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/redux/reducer/</guid>
+      <description>Reducers change the application state based on the actions fired.
+The state is immutable, that means reducers should be pure: for the same input, you should always get the same output. Because of this, mutability is forbidden in reducers.
+Basic reducer # A basic reducer would look like this:
+// Import the action types to recognise them import { ACTION_ERROR, ACTION_ENTITIES_LOADED, ACTION_ENTITY_CREATED } from &#39;./actions&#39;; // Set up a default state const initialState = { error: undefined, entities: [] }; // If no state is provided, we take the default state export default (state = initilState, action) =&amp;gt; { // Based on the type of action received, we calculate the new state switch(action.</description>
+    </item>
+    
+  </channel>
+</rss>

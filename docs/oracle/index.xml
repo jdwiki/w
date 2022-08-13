@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oracle Database Tutorial on </title>
+    <link>https://www.wikiod.com/docs/oracle/</link>
+    <description>Recent content in Oracle Database Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/oracle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Oracle Database</title>
+      <link>https://www.wikiod.com/oracle/getting-started-with-oracle-database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/oracle/getting-started-with-oracle-database/</guid>
+      <description>Hello World # SELECT &#39;Hello world!&#39; FROM dual; In Oracle&amp;rsquo;s flavor of SQL, &amp;ldquo;dual is just a convienence table&amp;rdquo;. It was originally intended to double rows via a JOIN, but now contains one row with a DUMMY value of &amp;lsquo;X&amp;rsquo;.
+SQL Query # List employees earning more than $50000 born this century. List their name, date of birth and salary, sorted alphabetically by name.
+SELECT employee_name, date_of_birth, salary FROM employees WHERE salary &amp;gt; 50000 AND date_of_birth &amp;gt;= DATE &#39;2000-01-01&#39; ORDER BY employee_name; Show the number of employees in each department with at least 5 employees.</description>
+    </item>
+    
+    <item>
+      <title>Creating a Context</title>
+      <link>https://www.wikiod.com/oracle/creating-a-context/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/oracle/creating-a-context/</guid>
+      <description>Syntax # CREATE [OR REPLACE] CONTEXT namespace USING [schema.]package; CREATE [OR REPLACE] CONTEXT namespace USING [schema.]package INITIALIZED EXTERNALLY; CREATE [OR REPLACE] CONTEXT namespace USING [schema.]package INITIALIZED GLOBALLY; CREATE [OR REPLACE] CONTEXT namespace USING [schema.]package ACCESSED GLOBALLY; Parameters # Parameter Details OR REPLACE Redefine an existing context namespace namespace Name of the context - this is the namespace for calls to SYS_CONTEXT schema Owner of the package package Database package that sets or resets the context attributes.</description>
+    </item>
+    
+    <item>
+      <title>Splitting Delimited Strings</title>
+      <link>https://www.wikiod.com/oracle/splitting-delimited-strings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/oracle/splitting-delimited-strings/</guid>
+      <description>Splitting Strings using a Hierarchical Query # Sample Data:
+CREATE TABLE table_name ( id, list ) AS SELECT 1, &#39;a,b,c,d&#39; FROM DUAL UNION ALL -- Multiple items in the list SELECT 2, &#39;e&#39; FROM DUAL UNION ALL -- Single item in the list SELECT 3, NULL FROM DUAL UNION ALL -- NULL list SELECT 4, &#39;f,,g&#39; FROM DUAL; -- NULL item in the list Query:
+SELECT t.id, REGEXP_SUBSTR( list, &#39;([^,]*)(,|$)&#39;, 1, LEVEL, NULL, 1 ) AS value, LEVEL AS lvl FROM table_name t CONNECT BY id = PRIOR id AND PRIOR SYS_GUID() IS NOT NULL AND LEVEL &amp;lt; REGEXP_COUNT( list, &#39;([^,]*)(,|$)&#39; ) Output:</description>
+    </item>
+    
+    <item>
+      <title>Oracle Advanced Queuing (AQ)</title>
+      <link>https://www.wikiod.com/oracle/oracle-advanced-queuing-aq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/oracle/oracle-advanced-queuing-aq/</guid>
+      <description>Never use DDL or DML against tables created by dbms_aqadm.create_queue_table. Only use dbms_aqadm and dbms_aq to work with these tables. Oracle may make several supporting tables, indexes, etc that you will not be aware of. Manually running DDL or DML against the table may lead you to a scenario where Oracle Support will need you to drop and recreate the table and queues to resolve the situation.
+It&amp;rsquo;s strongly recommended you do not use dbms_aq.</description>
+    </item>
+    
+    <item>
+      <title>Dates</title>
+      <link>https://www.wikiod.com/oracle/dates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/oracle/dates/</guid>
+      <description>Date Arithmetic - Difference between Dates in Days, Hours, Minutes and/or Seconds # In oracle, the difference (in days and/or fractions thereof) between two DATEs can be found using subtraction:
+SELECT DATE &#39;2016-03-23&#39; - DATE &#39;2015-12-25&#39; AS difference FROM DUAL; Outputs the number of days between the two dates:
+DIFFERENCE ---------- 89 And:
+SELECT TO_DATE( &#39;2016-01-02 01:01:12&#39;, &#39;YYYY-MM-DD HH24:MI:SS&#39; ) - TO_DATE( &#39;2016-01-01 00:00:00&#39;, &#39;YYYY-MM-DD HH24:MI:SS&#39; ) AS difference FROM DUAL Outputs the fraction of days between two dates:</description>
+    </item>
+    
+    <item>
+      <title>Hints</title>
+      <link>https://www.wikiod.com/oracle/hints/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/oracle/hints/</guid>
+      <description>Parameters # Parameters Details Degree of Parallelism (DOP) It is the number of parallel connection/processes which you want your query to open up. It is usually 2, 4, 8, 16 so on. Table Name Parallel Hint # Statement-level parallel hints are the easiest:
+SELECT /*+ PARALLEL(8) */ first_name, last_name FROM employee emp; Object-level parallel hints give more control but are more prone to errors; developers often forget to use the alias instead of the object name, or they forget to include some objects.</description>
+    </item>
+    
+    <item>
+      <title>JOINS</title>
+      <link>https://www.wikiod.com/oracle/joins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/oracle/joins/</guid>
+      <description>CROSS JOIN # A CROSS JOIN performs a join between two tables that does not use an explicit join clause and results in the Cartesian product of two tables. A Cartesian product means each row of one table is combined with each row of the second table in the join. For example, if TABLEA has 20 rows and TABLEB has 20 rows, the result would be 20*20 = 400 output rows.</description>
+    </item>
+    
+    <item>
+      <title>Data Dictionary</title>
+      <link>https://www.wikiod.com/oracle/data-dictionary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/oracle/data-dictionary/</guid>
+      <description>The data dictionary views, also known as catalog views, let you monitor the state of the database in real time:
+The views prefixed with USER_, ALL_, and DBA_, show information about schema objects that are owned by you (USER_), accessible by you (ALL_) or accessible by a user with SYSDBA privilege (DBA_). For example, the view ALL_TABLES shows all tables that you have privileges on.
+The V$ views show performance-related information.</description>
+    </item>
+    
+    <item>
+      <title>Limiting the rows returned by a query (Pagination)</title>
+      <link>https://www.wikiod.com/oracle/limiting-the-rows-returned-by-a-query-pagination/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/oracle/limiting-the-rows-returned-by-a-query-pagination/</guid>
+      <description>Get first N rows with row limiting clause # The FETCH clause was introduced in Oracle 12c R1:
+SELECT val FROM mytable ORDER BY val DESC FETCH FIRST 5 ROWS ONLY; An example without FETCH that works also in earlier versions:
+SELECT * FROM ( SELECT val FROM mytable ORDER BY val DESC ) WHERE ROWNUM &amp;lt;= 5; Pagination in SQL # SELECT val FROM (SELECT val, rownum AS rnum FROM (SELECT val FROM rownum_order_test ORDER BY val) WHERE rownum &amp;lt;= :upper_limit) WHERE rnum &amp;gt;= :lower_limit ; this way we can paginate the table data , just like web serch page</description>
+    </item>
+    
+    <item>
+      <title>Working with Dates</title>
+      <link>https://www.wikiod.com/oracle/working-with-dates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/oracle/working-with-dates/</guid>
+      <description>Date Arithmetic # Oracle supports DATE (includes time to the nearest second) and TIMESTAMP (includes time to fractions of a second) datatypes, which allow arithmetic (addition and subtraction) natively. For example:
+To get the next day:
+select to_char(sysdate + 1, &#39;YYYY-MM-DD&#39;) as tomorrow from dual; To get the previous day:
+select to_char(sysdate - 1, &#39;YYYY-MM-DD&#39;) as yesterday from dual; To add 5 days to the current date:
+select to_char(sysdate + 5, &#39;YYYY-MM-DD&#39;) as five_days_from_now from dual; To add 5 hours to the current date:</description>
+    </item>
+    
+  </channel>
+</rss>

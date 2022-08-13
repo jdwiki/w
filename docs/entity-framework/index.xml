@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Entity Framework Tutorial on </title>
+    <link>https://www.wikiod.com/docs/entity-framework/</link>
+    <description>Recent content in Entity Framework Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/entity-framework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Entity Framework</title>
+      <link>https://www.wikiod.com/entity-framework/getting-started-with-entity-framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/entity-framework/getting-started-with-entity-framework/</guid>
+      <description>Installing The Entity Framework NuGet Package # In your Visual Studio open the Solution Explorer window then right click on your project then choose Manage NuGet Packages from the menu:
+In the window that opens type EntityFramework in the search box in the top right.
+Or if you are using Visual Studio 2015 you&amp;rsquo;ll see something like this:
+Then click Install.
+We can also install entity framework using the package manager console.</description>
+    </item>
+    
+    <item>
+      <title>Tracking vs. No-Tracking</title>
+      <link>https://www.wikiod.com/entity-framework/tracking-vs-no-tracking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/entity-framework/tracking-vs-no-tracking/</guid>
+      <description>Tracking behavior controls whether or not Entity Framework will keep information about an entity instance in its change tracker. If an entity is tracked, any changes detected in the entity will be persisted to the database during SaveChanges().
+No-tracking queries # No tracking queries are useful when the results are used in a read-only scenario They are quicker to execute because there is no need to setup change tracking information Example :</description>
+    </item>
+    
+    <item>
+      <title>Loading related entities</title>
+      <link>https://www.wikiod.com/entity-framework/loading-related-entities/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/entity-framework/loading-related-entities/</guid>
+      <description>If models are correctly related you can easily load related data using EntityFramework. You have three options to chose from: lazy loading, eager loading and explicit loading.
+Models used in examples:
+public class Company { public int Id { get; set; } public string FullName { get; set; } public string ShortName { get; set; } // Navigation properties public virtual Person Founder { get; set; } public virtual ICollection&amp;lt;Address&amp;gt; Addresses { get; set; } } public class Address { public int Id { get; set; } public int CompanyId { get; set; } public int CountryId { get; set; } public int CityId { get; set; } public string Street { get; set; } // Navigation properties public virtual Company Company { get; set; } public virtual Country Country { get; set; } public virtual City City { get; set; } } Eager loading # Eager loading lets you load all your needed entities at once.</description>
+    </item>
+    
+    <item>
+      <title>Best Practices For Entity Framework (Simple &amp; Professional)</title>
+      <link>https://www.wikiod.com/entity-framework/best-practices-for-entity-framework-simple--professional/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/entity-framework/best-practices-for-entity-framework-simple--professional/</guid>
+      <description>This article is to introduce a simple and professional practice to use Entity Framework.
+Simple: because it only needs one class (with one interface)
+Professional: because it applies SOLID architecture principles
+I don&amp;rsquo;t wish to talk more&amp;hellip;. let&amp;rsquo;s enjoy it!
+1- Entity Framework @ Data layer (Basics) # In this article we will use a simple database called “Company” with two tables:
+[dbo].[Categories]([CategoryID], [CategoryName])
+[dbo].[Products]([ProductID], [CategoryID], [ProductName])
+1-1 Generate Entity Framework code</description>
+    </item>
+    
+    <item>
+      <title>Code First DataAnnotations</title>
+      <link>https://www.wikiod.com/entity-framework/code-first-dataannotations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/entity-framework/code-first-dataannotations/</guid>
+      <description>Entity Framework Code-First provides a set of DataAnnotation attributes, which you can apply to your domain classes and properties. DataAnnotation attributes override default Code-First conventions.
+System.ComponentModel.DataAnnotations includes attributes that impacts on nullability or size of the column. System.ComponentModel.DataAnnotations.Schema namespace includes attributes that impacts the schema of the database. Note: DataAnnotations only give you a subset of configuration options. Fluent API provides a full set of configuration options available in Code-First.</description>
+    </item>
+    
+    <item>
+      <title>Optimization Techniques in EF</title>
+      <link>https://www.wikiod.com/entity-framework/optimization-techniques-in-ef/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/entity-framework/optimization-techniques-in-ef/</guid>
+      <description>Using AsNoTracking # Bad Example:
+var location = dbContext.Location .Where(l =&amp;gt; l.Location.ID == location_ID) .SingleOrDefault(); return location; Since the above code is simply returning an entity without modifying or adding it, we can avoid tracking cost.
+Good Example:
+var location = dbContext.Location.AsNoTracking() .Where(l =&amp;gt; l.Location.ID == location_ID) .SingleOrDefault(); return location; When we use function AsNoTracking() we are explicitly telling Entity Framework that the entities are not tracked by the context. This can be especially useful when retrieving large amounts of data from your data store.</description>
+    </item>
+    
+    <item>
+      <title>Code First Conventions</title>
+      <link>https://www.wikiod.com/entity-framework/code-first-conventions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/entity-framework/code-first-conventions/</guid>
+      <description>Convention is a set of default rules to automatically configure a conceptual model based on domain class definitions when working with Code-First. Code-First conventions are defined in System.Data.Entity.ModelConfiguration.Conventions namespace (EF 5 &amp;amp; EF 6).
+Removing Conventions # You can remove any of the conventions defined in the System.Data.Entity.ModelConfiguration.Conventions namespace, by overriding OnModelCreating method.
+The following example removes PluralizingTableNameConvention.
+public class EshopContext : DbContext { public DbSet&amp;lt;Product&amp;gt; Products { set; get; } .</description>
+    </item>
+    
+    <item>
+      <title>Code First - Fluent API</title>
+      <link>https://www.wikiod.com/entity-framework/code-first---fluent-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/entity-framework/code-first---fluent-api/</guid>
+      <description>There are two general ways of specifying HOW Entity Framework will map POCO classes to database tables, columns, etc.: Data Annotations and Fluent API.
+While Data Annotations are a simple to read and understand, they lack of certain features such as specifying the &amp;ldquo;Cascade on Delete&amp;rdquo; behavior for an entity. The Fluent API on the other hand is a bit more complex to use, but provides a far more advanced set of features.</description>
+    </item>
+    
+    <item>
+      <title>Entity-framework Code First Migrations</title>
+      <link>https://www.wikiod.com/entity-framework/entity-framework-code-first-migrations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/entity-framework/entity-framework-code-first-migrations/</guid>
+      <description>Enable Migrations # To enable Code First Migrations in entity framework, use the command
+Enable-Migrations on the Package Manager Console.
+You need to have a valid DbContext implementation containing your database objects managed by EF. In this example the database context will contain to objects BlogPost and Author:
+internal class DatabaseContext: DbContext { public DbSet&amp;lt;Author&amp;gt; Authors { get; set; } public DbSet&amp;lt;BlogPost&amp;gt; BlogPosts { get; set; } } After executing the command, the following output should appear:</description>
+    </item>
+    
+    <item>
+      <title>.t4 templates in entity-framework</title>
+      <link>https://www.wikiod.com/entity-framework/t4-templates-in-entity-framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/entity-framework/t4-templates-in-entity-framework/</guid>
+      <description>Dynamically adding Interfaces to model # When working with existing model that is quite big and is being regenerated quite often in cases where abstraction needed it might be costly to manually go around redecorating model with interfaces. In such cases one might want to add some dynamic behavior to model generation.
+Following example will show how automatically add interfaces on classes that have specific column names:
+In your model go to .</description>
+    </item>
+    
+  </channel>
+</rss>

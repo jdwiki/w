@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>opencl Tutorial on </title>
+    <link>https://www.wikiod.com/docs/opencl/</link>
+    <description>Recent content in opencl Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/opencl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with opencl</title>
+      <link>https://www.wikiod.com/opencl/getting-started-with-opencl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/opencl/getting-started-with-opencl/</guid>
+      <description>What is OpenCL? # OpenCL is short for Open Computing Language. OpenCL is a Framework for parallel programming across heterogeneous platforms, called compute devices, ranging from CPUs over GPUs to more special platforms like FPGAs. OpenCL provides a standard interface for parallel computing on these compute devices but also inter-device parallelism. It specifies a programming language, based on C99, and minimum requirements of basic functions implemented on OpenCL capable devices. OpenCL furthermore describes an abstract computing and memory model, being as general as possible to make the reuse of code between different platforms straightforward.</description>
+    </item>
+    
+    <item>
+      <title>Atomic Operations</title>
+      <link>https://www.wikiod.com/opencl/atomic-operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/opencl/atomic-operations/</guid>
+      <description>Syntax # int atomic_add ( volatile __global int *p , int val)
+unsigned int atomic_add ( volatile __global unsigned int *p , unsigned int val)
+int atomic_add ( volatile __local int *p , int val)
+unsigned int atomic_add ( volatile __local unsigned int *p ,unsigned int val)
+Parameters # p val pointer to cell added to cell Performance depends on atomic operations number and memory space. Doing serial work almost always slows kernel execution because of gpu being a SIMD array and each unit in an array waits other units if they don&amp;rsquo;t do same type of work.</description>
+    </item>
+    
+    <item>
+      <title>Pseudo-Random Number Generator Kernel Example</title>
+      <link>https://www.wikiod.com/opencl/pseudo-random-number-generator-kernel-example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/opencl/pseudo-random-number-generator-kernel-example/</guid>
+      <description>Parameters # Parameter Details __global unsigned int * rnd_buffer unsigned int is standardised by the OpenCL standard as being 32-bit * __global means device&amp;rsquo;s main memory for read/write access * rnd_buffer is just a name in scope of &amp;ldquo;opencl program&amp;rdquo;(not host but device) Using Thomas Wang&amp;rsquo;s integer hash function # Auxilliary function that takes a seed and evaluates:
+uint wang_hash(uint seed) { seed = (seed ^ 61) ^ (seed &amp;gt;&amp;gt; 16); seed *= 9; seed = seed ^ (seed &amp;gt;&amp;gt; 4); seed *= 0x27d4eb2d; seed = seed ^ (seed &amp;gt;&amp;gt; 15); return seed; } another auxilliary function that uses it to initialize a buffer location shown by &amp;ldquo;id&amp;rdquo;:</description>
+    </item>
+    
+    <item>
+      <title>OpenCL hardware basics</title>
+      <link>https://www.wikiod.com/opencl/opencl-hardware-basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/opencl/opencl-hardware-basics/</guid>
+      <description>This topic introduces some of the underlying core mechanics of parallel computing which are needed to fully understand and utilize OpenCL.
+Threads and Execution # The key of parallelism is to use multiple threads to solve a problem (duh.) but there are some differences to classical multithreaded programming in how threads are organized.
+First lets talk about your typical GPU, for simplicities sake I&amp;rsquo;ll focus on
+A GPU has many processing cores, which make it ideal to execute many threads in parallel.</description>
+    </item>
+    
+    <item>
+      <title>Kernel Basics</title>
+      <link>https://www.wikiod.com/opencl/kernel-basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/opencl/kernel-basics/</guid>
+      <description>This topic aims to explain the fundamentals of writing kernels for opencl
+Grayscale kernel # Lets build a kernel to generate a grayscale image. We will use image data which is defined using uints for each component and with order RGBA.
+__constant sampler_t sampler = CLK_NORMALIZED_COORDS_FALSE | CLK_ADDRESS_CLAMP_TO_EDGE | CLK_FILTER_LINEAR; __kernel void Grayscale(__read_only image2d_t input, __write_only image2d_t output) { int2 gid = (int2)(get_global_id(0), get_global_id(1)); int2 size = get_image_dim(input); if(all(gid &amp;lt; size)){ uint4 pixel = read_imageui(input, sampler, gid); float4 color = convert_float4(pixel) / 255; color.</description>
+    </item>
+    
+    <item>
+      <title>OpenCL basic setup</title>
+      <link>https://www.wikiod.com/opencl/opencl-basic-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/opencl/opencl-basic-setup/</guid>
+      <description>Before utilizing OpenCL, one has to set up their code to use it. This topic focuses on how to get opencl up and running in your project and execute a basic kernel. The examples are based on the C# wrapper OpenCL.NET but as the wrapper adds no abstraction to OpenCL the code will probably run with very few changes on C/C++ aswell.
+Calls in C# may look as follows: &amp;lsquo;Cl.GetPlatformIDs&amp;rsquo;. For the C-Style OpenCL Api you would call &amp;lsquo;clGetPlatformIDs&amp;rsquo; and for the C++ style one &amp;lsquo;cl::GetPlatformIDs&amp;rsquo;</description>
+    </item>
+    
+    <item>
+      <title>Host memory interaction</title>
+      <link>https://www.wikiod.com/opencl/host-memory-interaction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/opencl/host-memory-interaction/</guid>
+      <description>This topic highlights different ways to put data somewhere where your device can access it.
+Reading an array # To read an array from the device back to the host, one calls
+clEnqueueReadBuffer($queue, $memobj, $blocking, $offset, $size, $target, 0, null, null); The $queue is the CommandQueue which was used to allocate the memory on the device. The $memobj contains the address to the device memory, $offset and $size further define from where and how much data is copied.</description>
+    </item>
+    
+  </channel>
+</rss>

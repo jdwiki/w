@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WordPress Tutorial on </title>
+    <link>https://www.wikiod.com/docs/wordpress/</link>
+    <description>Recent content in WordPress Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with WordPress</title>
+      <link>https://www.wikiod.com/wordpress/getting-started-with-wordpress/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/wordpress/getting-started-with-wordpress/</guid>
+      <description>Introduction to WordPress # WordPress [WP] is an open source Content Management System for building apps, websites, and blogs. WP is written in PHP and uses MySQL as the data store for the user content and configuration. It has a rich ecosystem of plugins and themes and enjoys a vibrant open source community, good documentation, and low barriers to entry. Usability and developer documentation can be found in the WP Codex.</description>
+    </item>
+    
+    <item>
+      <title>get_bloginfo()</title>
+      <link>https://www.wikiod.com/wordpress/get_bloginfo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/wordpress/get_bloginfo/</guid>
+      <description>Retrieves information about the current site.
+Syntax # get_bloginfo( $show , $filter ) Parameters # Parameter Details $show (string) The site setting information to retrieve. $filter (string) The specification on whether to return a filtered value or not. $show
+Values Description Example &amp;rsquo;name&amp;rsquo; (Default) Site title &#39;Matt Mullenweg&#39; &amp;lsquo;description&amp;rsquo; Site tagline &#39;Just another WordPress site&#39; &amp;lsquo;wpurl&amp;rsquo; URL of the WordPress installation. Same as the site_url() function &#39;http://example.com&#39; , &#39;http://localhost/wordpress&#39; &amp;lsquo;url&amp;rsquo; URL of the site.</description>
+    </item>
+    
+    <item>
+      <title>AJAX</title>
+      <link>https://www.wikiod.com/wordpress/ajax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/wordpress/ajax/</guid>
+      <description>AJAX with .ajax() and WordPress Nonce # functions.php
+//Localize the AJAX URL and Nonce add_action(&#39;wp_enqueue_scripts&#39;, &#39;example_localize_ajax&#39;); function example_localize_ajax(){ wp_localize_script(&#39;jquery&#39;, &#39;ajax&#39;, array( &#39;url&#39; =&amp;gt; admin_url(&#39;admin-ajax.php&#39;), &#39;nonce&#39; =&amp;gt; wp_create_nonce(&#39;example_ajax_nonce&#39;), )); } //Example AJAX Function add_action(&#39;wp_ajax_example_function&#39;, &#39;example_function&#39;); add_action(&#39;wp_ajax_nopriv_example_function&#39;, &#39;example_function&#39;); function example_function(){ if ( !wp_verify_nonce($_POST[&#39;nonce&#39;], &#39;example_ajax_nonce&#39;) ){ die(&#39;Permission Denied.&#39;); } $firstname = sanitize_text_field($_POST[&#39;data&#39;][&#39;firstname&#39;]); $lastname = sanitize_text_field($_POST[&#39;data&#39;][&#39;lastname&#39;]); //Do something with data here echo $firstname . &#39; &#39; . $lastname; //Echo for response wp_die(); // this is required to terminate immediately and return a proper response:- https://codex.</description>
+    </item>
+    
+    <item>
+      <title>Customizer Basics (Add Panel, Section, Setting, Control)</title>
+      <link>https://www.wikiod.com/wordpress/customizer-basics-add-panel-section-setting-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/wordpress/customizer-basics-add-panel-section-setting-control/</guid>
+      <description>Add a Customizer Panel # &amp;lt;?php /** * Panel: WPCustomize * * Basic Customizer panel with basic controls. * * @since 1.0.0 * @package WPC */ // Exit if accessed directly. if ( ! defined( &#39;ABSPATH&#39; ) ) { exit; } // Customize function. if ( ! function_exists( &#39;wpc_panel_wpcustomize&#39; ) ) { // Customize Register action. add_action( &#39;customize_register&#39;, &#39;wpc_panel_wpcustomize&#39; ); /** * Customize Panel. * * Adds a Panel, Section with basic controls.</description>
+    </item>
+    
+    <item>
+      <title>Custom Post Types</title>
+      <link>https://www.wikiod.com/wordpress/custom-post-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/wordpress/custom-post-types/</guid>
+      <description>Syntax # register_post_type( $post_type, $args ); Parameters # Parameter Details $post_type (string) (Required) $args (array/string) (Optional) Add Custom Post Types to Main Query # Registering a custom post type does not mean it gets added to the main query automatically. You need to use pre_get_posts filter to add custom post types to main query.
+// Show posts of &#39;post&#39; and &#39;book&#39; custom post types on home page add_action( &#39;pre_get_posts&#39;, &#39;add_my_post_types_to_query&#39; ); function add_my_post_types_to_query( $query ) { if ( is_home() &amp;amp;&amp;amp; $query-&amp;gt;is_main_query() ) $query-&amp;gt;set( &#39;post_type&#39;, array( &#39;post&#39;, &#39;book&#39; ) ); return $query; } Registering a Custom Post Type # Say you have a library website, and you want to have a custom post type named Books.</description>
+    </item>
+    
+    <item>
+      <title>get_the_category()</title>
+      <link>https://www.wikiod.com/wordpress/get_the_category/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/wordpress/get_the_category/</guid>
+      <description>This function returns all categories as an array of the current post or page or the designated post or page.
+Syntax # get_the_category( $id ) Parameters # Parameter Details $id (int) (Optional) default to current post ID. The post ID. Please note that get_the_category() returns an array, which means that you can&amp;rsquo;t directly echo the value returned.
+Here is a list of objects of each category that you can print:</description>
+    </item>
+    
+    <item>
+      <title>The Loop (main WordPress loop)</title>
+      <link>https://www.wikiod.com/wordpress/the-loop-main-wordpress-loop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/wordpress/the-loop-main-wordpress-loop/</guid>
+      <description>Alternative loop syntax # You can also use loop with curly brackets like this:
+if ( have_posts() ) { while ( have_posts() ) { the_post(); var_dump( $post ); } } Basic WordPress loop structure # Each time WordPress loads the page, it will run main loop.
+The loop is the way to iterate over all elements related to the page you are currently on.
+Main loop will work on a global WP_Query object.</description>
+    </item>
+    
+    <item>
+      <title>Function add_action()</title>
+      <link>https://www.wikiod.com/wordpress/function-add_action/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/wordpress/function-add_action/</guid>
+      <description>Syntax # add_action( $tag, $function_to_add ) add_action( $tag, $function_to_add, $priority ) add_action( $tag, $function_to_add, $priority, $accepted_args ) Parameters # Parameter Details $tag (string) (Required) The name of the action to which the $function_to_add is hooked $function_to_add (callable) (Required) The function which should be called when the action indicated by $tag is executed $priority (int) (Optional) Default value: 10 Used to specify the order in which the functions associated with a particular action are executed.</description>
+    </item>
+    
+    <item>
+      <title>Shortcode</title>
+      <link>https://www.wikiod.com/wordpress/shortcode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/wordpress/shortcode/</guid>
+      <description>Adding New Shortcodes # function footag_func( $atts ) { return &amp;quot;foo = {$atts[&#39;foo&#39;]}&amp;quot;; } add_shortcode( &#39;footag&#39;, &#39;footag_func&#39; ); In plugins we can add shortcodes using the add_shortcode function.
+The shortcode can be used in any Wordpress page or post just by enclosing it in square brackets.
+[footag] Registering shortcode # Shortcode is a small piece of code that can be added into the WordPress editor and will output something different once the page is published or previewed.</description>
+    </item>
+    
+    <item>
+      <title>add_menu_page()</title>
+      <link>https://www.wikiod.com/wordpress/add_menu_page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/wordpress/add_menu_page/</guid>
+      <description>This function is to add an item in the admin panel&amp;rsquo;s nav bar.
+Syntax # add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position) Parameters # Parameter Details $page_title (string) The text to be displayed in the title tags of the page when the menu is selected. $menu_title (string) The text to be used for the menu. $capability (string) The capability required for this menu to be displayed to the user. $menu_slug (string) The slug name to refer to this menu by (should be unique for this menu).</description>
+    </item>
+    
+  </channel>
+</rss>

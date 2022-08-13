@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hive Tutorial on </title>
+    <link>https://www.wikiod.com/docs/hive/</link>
+    <description>Recent content in hive Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/hive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with hive</title>
+      <link>https://www.wikiod.com/hive/getting-started-with-hive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/hive/getting-started-with-hive/</guid>
+      <description>Installation of Hive(linux) # Start by downloading the latest stable release from https://hive.apache.org/downloads.html
+-&amp;gt; Now untar the file with
+$ tar -xvf hive-2.x.y-bin.tar.gz
+-&amp;gt; Create a directory in the /usr/local/ with
+$ sudo mkdir /usr/local/hive
+-&amp;gt; Move the file to root with
+$ mv ~/Downloads/hive-2.x.y /usr/local/hive
+-&amp;gt; Edit environment variablesfor hadoop and hive in .bashrc
+$ gedit ~/.bashrc
+like this
+export HIVE_HOME=/usr/local/hive/apache-hive-2.0.1-bin/
+export PATH=$PATH:$HIVE_HOME/bin
+export CLASSPATH=$CLASSPATH:/usr/local/Hadoop/lib/*:.
+export CLASSPATH=$CLASSPATH:/usr/local/hive/apache-hive-2.0.1-bin/lib/*:.
+-&amp;gt; Now, start hadoop if it is not already running.</description>
+    </item>
+    
+    <item>
+      <title>File formats in HIVE</title>
+      <link>https://www.wikiod.com/hive/file-formats-in-hive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/hive/file-formats-in-hive/</guid>
+      <description>PARQUET # Parquet columnar storage format in Hive 0.13.0 and later. Parquet is built from the ground up with complex nested data structures in mind, and uses the record shredding and assembly algorithm described in the Dremel paper. We believe this approach is superior to simple flattening of nested name spaces.
+Parquet is built to support very efficient compression and encoding schemes. Multiple projects have demonstrated the performance impact of applying the right compression and encoding scheme to the data.</description>
+    </item>
+    
+    <item>
+      <title>Create Database and Table Statement</title>
+      <link>https://www.wikiod.com/hive/create-database-and-table-statement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/hive/create-database-and-table-statement/</guid>
+      <description>Syntax # CREATE [TEMPORARY] [EXTERNAL] TABLE [IF NOT EXISTS] [db_name.]table_name
+[(col_name data_type [COMMENT col_comment], &amp;hellip;)] [COMMENT table_comment] [PARTITIONED BY (col_name data_type [COMMENT col_comment], &amp;hellip;)] [CLUSTERED BY (col_name, col_name, &amp;hellip;) [SORTED BY (col_name [ASC|DESC], &amp;hellip;)] INTO num_buckets BUCKETS] [SKEWED BY (col_name, col_name, &amp;hellip;) &amp;ndash; (Note: Available in Hive 0.10.0 and later)] ON ((col_value, col_value, &amp;hellip;), (col_value, col_value, &amp;hellip;), &amp;hellip;) [STORED AS DIRECTORIES] [ [ROW FORMAT row_format] [STORED AS file_format] | STORED BY &amp;lsquo;storage.</description>
+    </item>
+    
+    <item>
+      <title>Hive User Defined Functions (UDF&#39;s)</title>
+      <link>https://www.wikiod.com/hive/hive-user-defined-functions-udfs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/hive/hive-user-defined-functions-udfs/</guid>
+      <description>Hive UDF creation # To create a UDF, we need to extend UDF (org.apache.hadoop.hive.ql.exec.UDF) class and implement evaluate method.
+Once UDF is complied and JAR is build, we need to add jar to hive context to create a temporary/permanent function.
+import org.apache.hadoop.hive.ql.exec.UDF; class UDFExample extends UDF { public String evaluate(String input) { return new String(&amp;quot;Hello &amp;quot; + input); } } hive&amp;gt; ADD JAR &amp;lt;JAR NAME&amp;gt;.jar; hive&amp;gt; CREATE TEMPORARY FUNCTION helloworld as &#39;package.</description>
+    </item>
+    
+    <item>
+      <title>User Defined Aggregate Functions (UDAF)</title>
+      <link>https://www.wikiod.com/hive/user-defined-aggregate-functions-udaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/hive/user-defined-aggregate-functions-udaf/</guid>
+      <description>UDAF mean example # Create a Java class which extends org.apache.hadoop.hive.ql.exec.hive.UDAF Create an inner class which implements UDAFEvaluator
+Implement five methods
+init() – This method initializes the evaluator and resets its internal state. We are using new Column() in the code below to indicate that no values have been aggregated yet.
+iterate() – This method is called every time there is a new value to be aggregated. The evaluator should update its internal state with the result of performing the aggregation (we are doing sum – see below).</description>
+    </item>
+    
+    <item>
+      <title>User Defined Table Functions (UDTF&#39;s)</title>
+      <link>https://www.wikiod.com/hive/user-defined-table-functions-udtfs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/hive/user-defined-table-functions-udtfs/</guid>
+      <description>UDTF Example and Usage # User defined table functions represented by org.apache.hadoop.hive.ql.udf.generic.GenericUDTF interface. This function allows to output multiple rows and multiple columns for a single input.
+We have to overwrite below methods :
+1.we specify input and output parameters abstract StructObjectInspector initialize(ObjectInspector[] args) throws UDFArgumentException; 2.we process an input record and write out any resulting records abstract void process(Object[] record) throws HiveException; 3.function is Called to notify the UDTF that there are no more rows to process.</description>
+    </item>
+    
+    <item>
+      <title>Insert Statement</title>
+      <link>https://www.wikiod.com/hive/insert-statement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/hive/insert-statement/</guid>
+      <description>Syntax # Standard syntax:
+INSERT OVERWRITE TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 &amp;hellip;) [IF NOT EXISTS]] select_statement1 FROM from_statement;
+INSERT INTO TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 &amp;hellip;)] select_statement1 FROM from_statement;
+INSERT INTO TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 &amp;hellip;)] (z,y) select_statement1 FROM from_statement;
+Hive extension (multiple inserts):
+FROM from_statement
+INSERT OVERWRITE TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 &amp;hellip;) [IF NOT EXISTS]] select_statement1
+[INSERT OVERWRITE TABLE tablename2 [PARTITION &amp;hellip; [IF NOT EXISTS]] select_statement2]
+[INSERT INTO TABLE tablename2 [PARTITION &amp;hellip;] select_statement2] &amp;hellip;;</description>
+    </item>
+    
+    <item>
+      <title>Indexing</title>
+      <link>https://www.wikiod.com/hive/indexing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/hive/indexing/</guid>
+      <description>Structure # CREATE INDEX index_name ON TABLE base_table_name (col_name, ...) AS &#39;index.handler.class.name&#39; [WITH DEFERRED REBUILD] [IDXPROPERTIES (property_name=property_value, ...)] [IN TABLE index_table_name] [PARTITIONED BY (col_name, ...)] [ [ ROW FORMAT ...] STORED AS ... | STORED BY ... ] [LOCATION hdfs_path] [TBLPROPERTIES (...)] Example:
+CREATE INDEX inedx_salary ON TABLE employee(salary) AS &#39;org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler&#39; WITH DEFERRED REBUILD; Alter Index
+ALTER INDEX index_name ON table_name [PARTITION (&amp;hellip;)] REBUILD
+Drop Index
+DROP INDEX &amp;lt;index_name&amp;gt; ON &amp;lt;table_name&amp;gt; If WITH DEFERRED REBUILD is specified on CREATE INDEX, then the newly created index is initially empty (regardless of whether the table contains any data).</description>
+    </item>
+    
+    <item>
+      <title>SELECT Statement</title>
+      <link>https://www.wikiod.com/hive/select-statement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/hive/select-statement/</guid>
+      <description>Syntax # SELECT [ALL | DISTINCT] select_expr, select_expr, select_expr, …. FROM table_reference [WHERE where_condition] [GROUP BY col_list] [HAVING having condition] [ORDER BY col_list] [LIMIT n] Select Specific Rows # This query will return all columns from the table sales where the values in the column amount is greater than 10 and the data in the region column in &amp;ldquo;US&amp;rdquo;.
+SELECT * FROM sales WHERE amount &amp;gt; 10 AND region = &amp;quot;US&amp;quot; You can use regular expressions to select the columns you want to obtain.</description>
+    </item>
+    
+    <item>
+      <title>Export Data in Hive</title>
+      <link>https://www.wikiod.com/hive/export-data-in-hive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/hive/export-data-in-hive/</guid>
+      <description>Export feature in hive # Exporting data from employees table to /tmp/ca_employees
+INSERT OVERWRITE LOCAL DIRECTORY &amp;lsquo;/tmp/ca_employees&amp;rsquo; SELECT name, salary, address FROM employees WHERE se.state = &amp;lsquo;CA&amp;rsquo;;
+Exporting data from employees table to multiple local directories based on specific condition
+The below query shows how a single construct can be used to export data to multiple directories based on specific criteria
+FROM employees se INSERT OVERWRITE DIRECTORY &#39;/tmp/or_employees&#39; SELECT * WHERE se.</description>
+    </item>
+    
+  </channel>
+</rss>

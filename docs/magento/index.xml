@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>magento Tutorial on </title>
+    <link>https://www.wikiod.com/docs/magento/</link>
+    <description>Recent content in magento Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/magento/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with magento</title>
+      <link>https://www.wikiod.com/magento/getting-started-with-magento/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/magento/getting-started-with-magento/</guid>
+      <description>Installation and Setup # Prerequisites and Requirements for Magento Community Edition 1.9 # Hosting
+Apache 2.x ( with mod_rewrite ) or Nginx 1.7.x
+Due to the demands of processing Magento operations, it is recommended that you install Magento on a server with at least 2 GB of RAM. This will ensure that all of the software involved in managing the store will have enough memory to work.
+Ability to run scheduled jobs (crontab) with PHP 5.</description>
+    </item>
+    
+    <item>
+      <title>Get Products from Database</title>
+      <link>https://www.wikiod.com/magento/get-products-from-database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/magento/get-products-from-database/</guid>
+      <description>Get product by sku # $sku = &#39;sku-goes-here&#39;; $product = Mage::getModel(&#39;catalog/product&#39;)-&amp;gt;loadByAttribute(&#39;sku&#39;, $sku); Get product by ID # $id = 1; $product = Mage::getModel(&#39;catalog/product&#39;)-&amp;gt;load($id); if($product-&amp;gt;getId()){ //product was found } Get product collection by attribute # $collection = Mage::getModel(&#39;catalog/product&#39;)-&amp;gt;getCollection(); // Using operator $collection-&amp;gt;addAttributeToFilter(&#39;status&#39;, array(&#39;eq&#39; =&amp;gt; 1)); // Without operator (automatically uses &#39;equal&#39; operator $collection-&amp;gt;addAttributeToFilter(&#39;status&#39;, 1); Product collection - LIKE query # $collection = Mage::getModel(&#39;catalog/product&#39;)-&amp;gt;getCollection(); $collection-&amp;gt;addAttributeToFilter(&#39;sku&#39;, array(&#39;like&#39; =&amp;gt; &#39;UX%&#39;)); Product collection - with attributes # //all attributes $collection = Mage::getModel(&#39;catalog/product&#39;) -&amp;gt;getCollection() -&amp;gt;addAttributeToSelect(&#39;*&#39;); //specific attributes $collection = Mage::getModel(&#39;catalog/product&#39;) -&amp;gt;getCollection() -&amp;gt;addAttributeToSelect(&#39;name&#39;); //certain attributes are special, such as price and images //for images, then you can use &#39;getMediaGalleryImages&#39; $product-&amp;gt;load(&#39;media_galley&#39;); Get product collection from a list of SKUs # $skuList = array(&#39;SKU-1&#39;, &#39;SKU-2&#39;,.</description>
+    </item>
+    
+    <item>
+      <title>Module structure</title>
+      <link>https://www.wikiod.com/magento/module-structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/magento/module-structure/</guid>
+      <description>Modules exist to be extended. You cannot change the app/code/ files without prohibiting any future updates. Instead we add a module to the app/code/local directory (the local directory may be missing, if so, it needs to be manually created. This is common in later versions of Magento) for added custom local functionality.
+All Module config files begin with a &amp;lt;config&amp;gt; tag. The new module is declared inside of the &amp;lt;modules&amp;gt; tag.</description>
+    </item>
+    
+    <item>
+      <title>MVC Structure</title>
+      <link>https://www.wikiod.com/magento/mvc-structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/magento/mvc-structure/</guid>
+      <description>MVC stands for Model-View-Controller. Any application that separates it’s data access, business logicand user interface is called MVC. There can be two types of MVC: convention-based and configuration-based. Example, cakePHP is convention-based, i.e. you just need to follow the instructions of the core system to get your module ready in just few lines. Magento is configuration-based, i.e. you need to specify each and every thing to your module’s config file in order to get it work.</description>
+    </item>
+    
+    <item>
+      <title>EAV (Entity Attribute Value)</title>
+      <link>https://www.wikiod.com/magento/eav-entity-attribute-value/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/magento/eav-entity-attribute-value/</guid>
+      <description>Entity
+Stores information about the type of the data being stored. In the case of Magento this is customer, product, category, etc.
+Attribute
+The individual properties of each of the entities, e.g. name, weight, email address etc.
+Value
+The value of a given entity and attribute. For example, we may specify the customer entity and the email attribute and then give it the value hello@example.com.
+Database Schema
+eav_entity
+The entity table.</description>
+    </item>
+    
+    <item>
+      <title>Orders</title>
+      <link>https://www.wikiod.com/magento/orders/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/magento/orders/</guid>
+      <description>Get order by ID # $orderid = 12345; $order = Mage::getModel(&#39;sales/order&#39;)-&amp;gt;load($orderid); The above code is roughly analogous to the following SQL query.
+select * from sales_flat_order where entity_id=12345; Get order by Increment ID # $incrementid = 100000000; $order = Mage::getModel(&#39;sales/order&#39;)-&amp;gt;loadByIncrementId($incrementid); The above code is roughly analogous to the following SQL query.
+select * from sales_flat_order where increment_id=100000000; The increment_id is the customer facing order identifier, whereas the entity_id is the database level identifier for the order.</description>
+    </item>
+    
+    <item>
+      <title>Shell, CLI</title>
+      <link>https://www.wikiod.com/magento/shell-cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/magento/shell-cli/</guid>
+      <description>Basics # You need to have a Linux command line or connect using SSH to your server in order to use shell scripts. Go to your MAGENTO_ROOT/shell Script can be run by typing i.e. php -f indexer.php help Core shell methods by files # abstract.php
+indexer.php
+compiler.php
+log.php
+Custom php shell scripts # Sometimes we need to access Magento outside of a webbrowser to ommmit execution times or set different things that won&amp;rsquo;t affect the frontend.</description>
+    </item>
+    
+    <item>
+      <title>Understanding product types</title>
+      <link>https://www.wikiod.com/magento/understanding-product-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/magento/understanding-product-types/</guid>
+      <description>There are six different product types built-in to Magento.
+Simple A single stock unit
+Configurable First of the composite products. Allow customers to configure their product and add a single simple product to basket.
+Grouped The second composite product, a grouped product relates simple products and provides customers with the ability to choose quantities of each item.
+Bundle The third composite product type , a bundle relates simple products together to purchase as a single item.</description>
+    </item>
+    
+    <item>
+      <title>Magento error handling, messages and reports</title>
+      <link>https://www.wikiod.com/magento/magento-error-handling-messages-and-reports/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/magento/magento-error-handling-messages-and-reports/</guid>
+      <description>Error Log Locations # /var/log/ # Typically the system.log and exception.log file will exist in the /var/log/ folder. These contain most of the information you will need. You can check to see if these are enabled and what the names of the exception and system log are by going to System &amp;gt; Configuration &amp;gt; System &amp;gt; Developer &amp;gt; Log Settings.
+/var/report/ # Report files are generated in this folder after a user has encountered an error.</description>
+    </item>
+    
+    <item>
+      <title>Get current User</title>
+      <link>https://www.wikiod.com/magento/get-current-user/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/magento/get-current-user/</guid>
+      <description>Get current Customer # Mage::helper(&#39;customer&#39;)-&amp;gt;getCustomer(); or
+Mage::getSingleton(&#39;customer/session&#39;)-&amp;gt;getCustomer(); Get current Admin User # Mage::getSingleton(&#39;admin/session&#39;)-&amp;gt;getUser(); Check if user is logged in # Mage::getSingleton(&#39;customer/session&#39;)-&amp;gt;isLoggedIn() </description>
+    </item>
+    
+  </channel>
+</rss>

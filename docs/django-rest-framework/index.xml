@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>django-rest-framework Tutorial on </title>
+    <link>https://www.wikiod.com/docs/django-rest-framework/</link>
+    <description>Recent content in django-rest-framework Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/django-rest-framework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with django-rest-framework</title>
+      <link>https://www.wikiod.com/django-rest-framework/getting-started-with-django-rest-framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django-rest-framework/getting-started-with-django-rest-framework/</guid>
+      <description>Install or Setup # Requirements
+Python (2.7, 3.2, 3.3, 3.4, 3.5, 3.6) Django (1.7+, 1.8, 1.9, 1.10, 1.11) Install
+You can either use pip to install or clone the project from github.
+Using pip:
+pip install djangorestframework Using git clone:
+git clone git@github.com:tomchristie/django-rest-framework.git After installing, you need to add rest_framework to your INSTALLED_APPS settings.
+INSTALLED_APPS = ( ... &#39;rest_framework&#39;, ) If you&amp;rsquo;re intending to use the browsable API you&amp;rsquo;ll probably also want to add REST framework&amp;rsquo;s login and logout views.</description>
+    </item>
+    
+    <item>
+      <title>Token Authentication With Django Rest Framework</title>
+      <link>https://www.wikiod.com/django-rest-framework/token-authentication-with-django-rest-framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django-rest-framework/token-authentication-with-django-rest-framework/</guid>
+      <description>ADDING AUTH FUNCTIONALITY # Django REST Framework has some authentication methods already built in, one of them is Token based, so first thing to do is to tell our project we’re going to use rest framework’s authentication. Open settings.py file and add the highlighted line.
+INSTALLED_APPS = ( &#39;django.contrib.admin&#39;, &#39;django.contrib.auth&#39;, &#39;django.contrib.contenttypes&#39;, &#39;django.contrib.sessions&#39;, &#39;django.contrib.messages&#39;, &#39;django.contrib.staticfiles&#39;, &#39;rest_framework&#39;, &#39;rest_framework.authtoken&#39;, &#39;test_app&#39;, ) As we’ve added a new app to the project, we must synchronize</description>
+    </item>
+    
+    <item>
+      <title>Authentication</title>
+      <link>https://www.wikiod.com/django-rest-framework/authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django-rest-framework/authentication/</guid>
+      <description>Setting up authentication globally # Authentication in Django REST Framework can be configured globally as a subkey of the REST_FRAMEWORK variable in settings.py, just like the rest of the default framework configurations.
+REST_FRAMEWORK = { &#39;DEFAULT_AUTHENTICATION_CLASSES&#39;: ( &#39;rest_framework.authentication.BasicAuthentication&#39;, &#39;rest_framework.authentication.SessionAuthentication&#39;, ) } Setting up authentication for a specific APIView # Authentication can be set for an specific APIView endpoint, by using the authentication_classes variable:
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication from rest_framework.permissions import IsAuthenticated from rest_framework.</description>
+    </item>
+    
+    <item>
+      <title>Filters</title>
+      <link>https://www.wikiod.com/django-rest-framework/filters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django-rest-framework/filters/</guid>
+      <description>Filtering Examples, from Simple To More Complex ones # Plain Vanilla Filtering # To filter any view, override its get_queryset method to return a filtered query set
+class HREmployees(generics.ListAPIView): def get_queryset(self): return Employee.objects.filter(department=&amp;quot;Human Resources&amp;quot;) All the API functions will then use the filtered query set for operations. For example, the listing of the above view will only contain employees whose department is Human Resources.
+Accessing query parameters in get_queryset # Filtering based on request parameters is easy.</description>
+    </item>
+    
+    <item>
+      <title>Pagination</title>
+      <link>https://www.wikiod.com/django-rest-framework/pagination/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django-rest-framework/pagination/</guid>
+      <description>Pagination is the splitting of large datasets into separated and autonomous pages.
+On django rest framework, pagination allows the user to modify the amount of data in each page and the style by which the split is applied.
+[Introductory] Setup Pagination Style Globally # In order to set the pagination style for the entire project, you need to set the DEFAULT_PAGINATION_CLASS and PAGE_SIZE on the project settings.
+To do so, go to settings.</description>
+    </item>
+    
+    <item>
+      <title>Mixins</title>
+      <link>https://www.wikiod.com/django-rest-framework/mixins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django-rest-framework/mixins/</guid>
+      <description>The mixin classes provide the actions that are used to provide the basic view behavior. Note that the mixin classes provide action methods rather than defining the handler methods, such as .get() and .post(), directly. This allows for more flexible composition of behavior. -Official Django rest Framework Documentation-
+[Introductory] List of Mixins And Usage on Views/Viewsets # List of available mixins:
+ListModelMixin: provides a .list() method to the view/viewset RetrieveModelMixin: provides a .</description>
+    </item>
+    
+    <item>
+      <title>Serializers</title>
+      <link>https://www.wikiod.com/django-rest-framework/serializers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django-rest-framework/serializers/</guid>
+      <description>According to DRF official documentation, serializers helps to convert complex data like querysets and model instance to native python data types so that it could be rendered as JSON, XML and other content types.
+The serializers in DRF are more like django Form and ModelForm class. Serializer class provide us a custom way to handle the data like django Form. And ModelSerializer class provide us a easy way to handle model based data.</description>
+    </item>
+    
+    <item>
+      <title>Routers</title>
+      <link>https://www.wikiod.com/django-rest-framework/routers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django-rest-framework/routers/</guid>
+      <description>Routing is the process of mapping the logic (view methods etc.) to a set of URLs. REST framework adds support for automatic URL routing to Django.
+Syntax # router = routers.SimpleRouter() router.register(prefix, viewset) router.urls # the generated set of urls for the registered viewset. [Introductory] Basic usage, SimpleRouter # Automatic routing for the DRF, can be achieved for the ViewSet classes.
+Assume that the ViewSet class goes by the name of MyViewSet for this example.</description>
+    </item>
+    
+    <item>
+      <title>Using django-rest-framework with AngularJS as front-end framework.</title>
+      <link>https://www.wikiod.com/django-rest-framework/using-django-rest-framework-with-angularjs-as-front-end-framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/django-rest-framework/using-django-rest-framework-with-angularjs-as-front-end-framework/</guid>
+      <description>In this topic we will look at how to use Django REST Framework as a backend API for a AngularJS app. The main issues that arise between using DRF and AngularJS together generally revolve around the HTTP communication between the two technologies, as well as the representation of the data on both ends, and finally how to deploy and architect the application/system.
+Angular Request # $http.post(&amp;quot;\&amp;lt;domain\&amp;gt;/user-registration/&amp;quot;, {username: username, password: password}) .</description>
+    </item>
+    
+  </channel>
+</rss>

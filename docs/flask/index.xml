@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flask Tutorial on </title>
+    <link>https://www.wikiod.com/docs/flask/</link>
+    <description>Recent content in Flask Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/flask/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Flask</title>
+      <link>https://www.wikiod.com/flask/getting-started-with-flask/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/flask/getting-started-with-flask/</guid>
+      <description>Hello World # Create hello.py:
+from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &#39;Hello, World!&#39; Then run it with:
+export FLASK_APP=hello.py flask run * Running on http://localhost:5000/ Adding the code below will allow running it directly with python hello.py.
+if __name__ == &#39;__main__&#39;: app.run() Installation - Stable # Use pip to install Flask in a virtualenv.
+pip install flask Step by step instructions for creating a virtualenv for your project:</description>
+    </item>
+    
+    <item>
+      <title>Deploying Flask application using uWSGI web server with Nginx</title>
+      <link>https://www.wikiod.com/flask/deploying-flask-application-using-uwsgi-web-server-with-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/flask/deploying-flask-application-using-uwsgi-web-server-with-nginx/</guid>
+      <description>Enable streaming from flask # Flask has that feature which lets you stream data from a view by using generators.
+Let&amp;rsquo;s change the app.py file
+add from flask import Response
+add from datetime import datetime
+add from time import sleep
+create a new view:
+@app.route(&amp;quot;/time/&amp;quot;) def time(): def streamer(): while True: yield &amp;ldquo;{}
+&amp;quot;.format(datetime.now()) sleep(1)
+return Response(streamer()) Now open your browser at localhost/time/. The site will load forever because nginx waits until the response is complete.</description>
+    </item>
+    
+    <item>
+      <title>Signals</title>
+      <link>https://www.wikiod.com/flask/signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/flask/signals/</guid>
+      <description>Flask supports signals using Blinker. Signal support is optional; they will only be enabled if Blinker is installed.
+pip install blinker http://flask.pocoo.org/docs/dev/signals/
+Signals are not asynchronous. When a signal is sent, it immediately executes each of the connected functions sequentially.
+Connecting to signals # Use a signal&amp;rsquo;s connect method to connect a function to a signal. When a signal is sent, each connected function is called with the sender and any named arguments the signal provides.</description>
+    </item>
+    
+    <item>
+      <title>Static Files</title>
+      <link>https://www.wikiod.com/flask/static-files/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/flask/static-files/</guid>
+      <description>Using Static Files # Web applications often require static files like CSS or JavaScript files. To use static files in a Flask application, create a folder called static in your package or next to your module and it will be available at /static on the application.
+An example project structure for using templates is as follows:
+MyApplication/ /static/ /style.css /script.js /templates/ /index.html /app.py app.py is a basic example of Flask with template rendering.</description>
+    </item>
+    
+    <item>
+      <title>Pagination</title>
+      <link>https://www.wikiod.com/flask/pagination/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/flask/pagination/</guid>
+      <description>Pagination Route Example with flask-sqlalchemy Paginate # In this example we use a parameter in the route to specify the page number. We set a default of 1 in the function parameter page=1. We have a User object in the database and we query it, ordering in descending order, showing latest users first. We then use the paginate method of the query object in flask-sqlalchemy. We then pass this to render_template to be rendered.</description>
+    </item>
+    
+    <item>
+      <title>File Uploads</title>
+      <link>https://www.wikiod.com/flask/file-uploads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/flask/file-uploads/</guid>
+      <description>Syntax # request.files[&amp;rsquo;name&amp;rsquo;] # single required file request.files.get(&amp;rsquo;name&amp;rsquo;) # None if not posted request.files.getlist(&amp;rsquo;name&amp;rsquo;) # list of zero or more files posted CombinedMultiDict((request.files, request.form)) # combine form and file data Uploading Files # HTML Form # Use a file type input and the browser will provide a field that lets the user select a file to upload. Only forms with the post method can send file data. Make sure to set the form&amp;rsquo;s enctype=multipart/form-data attribute.</description>
+    </item>
+    
+    <item>
+      <title>Routing</title>
+      <link>https://www.wikiod.com/flask/routing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/flask/routing/</guid>
+      <description>Basic Routes # Routes in Flask can be defined using the route decorator of the Flask application instance:
+app = Flask(__name__) @app.route(&#39;/&#39;) def index(): return &#39;Hello Flask&#39; The route decorator takes a string which is the URL to match. When a request for a URL that matches this string is received by the application, the function decorated (also called a view function) will be invoked. So for an about route we would have:</description>
+    </item>
+    
+    <item>
+      <title>Blueprints</title>
+      <link>https://www.wikiod.com/flask/blueprints/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/flask/blueprints/</guid>
+      <description>Blueprints are a powerful concept in Flask application development that allow for flask applications to be more modular and be able to follow multiple patterns. They make administration of very large Flask applications easier and as such can be used to scale Flask applications. You can reuse Blueprint applications however you cannot run a blueprint on its own as it has to be registered on your main application.
+A basic flask blueprints example # A minimal Flask application looks something like this:</description>
+    </item>
+    
+    <item>
+      <title>Working with JSON</title>
+      <link>https://www.wikiod.com/flask/working-with-json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/flask/working-with-json/</guid>
+      <description>Receiving JSON from an HTTP Request # If the mimetype of the HTTP request is application/json, calling request.get_json() will return the parsed JSON data (otherwise it returns None)
+from flask import Flask, jsonify app = Flask(__name__) @app.route(&#39;/api/echo-json&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PUT&#39;]) def add(): data = request.get_json() # ... do your business logic, and return some response # e.g. below we&#39;re just echo-ing back the received JSON data return jsonify(data) Try it with curl # The parameter -H &#39;Content-Type: application/json&#39; specifies that this is a JSON request:</description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>https://www.wikiod.com/flask/testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/flask/testing/</guid>
+      <description>Testing a JSON API implemented in Flask # This example assumes you know how to [test a Flask app using pytest](https://www.wikiod.com/flask/testing#Testing our Hello World app)
+Below is an API that takes a JSON input with integer values a and b e.g. {&amp;quot;a&amp;quot;: 1, &amp;quot;b&amp;quot;: 2}, adds them up and returns sum a + b in a JSON response e.g. {&amp;quot;sum&amp;quot;: 3}.
+# hello_add.py from flask import Flask, request, jsonify app = Flask(__name__) @app.</description>
+    </item>
+    
+  </channel>
+</rss>

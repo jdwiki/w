@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openmp Tutorial on </title>
+    <link>https://www.wikiod.com/docs/openmp/</link>
+    <description>Recent content in openmp Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/openmp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with openmp</title>
+      <link>https://www.wikiod.com/openmp/getting-started-with-openmp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/openmp/getting-started-with-openmp/</guid>
+      <description>Compilation # There are many compilers that support different versions of the OpenMP specification. OpenMP maintains a list here with the compiler that support it and the supported version. In general, to compile (and link) an application with OpenMP support you need only to add a compile flag and if you use the OpenMP API you need to include the OpenMP header (omp.h). While the header file has a fixed name, the compile flag depends on the compiler.</description>
+    </item>
+    
+    <item>
+      <title>Irregular OpenMP parallelism</title>
+      <link>https://www.wikiod.com/openmp/irregular-openmp-parallelism/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/openmp/irregular-openmp-parallelism/</guid>
+      <description>A common pitfall is to believe that all threads of a parallel region should instantiate (create) tasks but this is not typically the case unless you want to create as many tasks as the number of threads times the number of elements to process. Therefore, in OpenMP task codes you&amp;rsquo;ll find something similar to
+#pragma omp parallel #pragma omp single ... #pragma omp task { code for a given task; } .</description>
+    </item>
+    
+    <item>
+      <title>Simple parallel example</title>
+      <link>https://www.wikiod.com/openmp/simple-parallel-example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/openmp/simple-parallel-example/</guid>
+      <description>Syntax # #pragma omp parallel indicates that the following block shall be executed by all the threads.
+int omp_get_num_threads (void) : returns the number of the threads working on the parallel region (aka team of threads).
+int omp_get_thread_num (void) : returns the identifier of the calling thread (ranges from 0 to N-1 where N is bounded to omp_get_num_threads()).
+You can use the OMP_NUM_THREADS environment variable or the num_threads directive within the #pragma parallel to indicate the number of executing threads for the whole application or for the specified region, respectively.</description>
+    </item>
+    
+    <item>
+      <title>Loop parallelism in OpenMP</title>
+      <link>https://www.wikiod.com/openmp/loop-parallelism-in-openmp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/openmp/loop-parallelism-in-openmp/</guid>
+      <description>Parameters # Clause Parameter private Comma-separated list of private variables firstprivate Like private, but initialized to the value of the variable before entering the loop lastprivate Like private, but the variable will get the value corresponding to the last iteration of the loop upon exit reduction reduction operator : comma-separated list of corresponding reduction variables schedule static, dynamic, guided, auto or runtime with an optional chunk size after a coma for the 3 former collapse Number of perfectly nested loops to collapse and parallelize together ordered Tells that some parts of the loop will need to be kept in-order (these parts will be specifically identified with some ordered clauses inside the loop body) nowait Remove the implicit barrier existing by default at the end of the loop construct The meaning of the schedule clause is as follows:</description>
+    </item>
+    
+    <item>
+      <title>OpenMP reductions</title>
+      <link>https://www.wikiod.com/openmp/openmp-reductions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/openmp/openmp-reductions/</guid>
+      <description>Approximation of PI using #pragma omp reduction clause # h = 1.0 / n; #pragma omp parallel for private(x) shared(n, h) reduction(+:area) for (i = 1; i &amp;lt;= n; i++) { x = h * (i - 0.5); area += (4.0 / (1.0 + x*x)); } pi = h * area; In this example, each threads execute a subset of the iteration count. Each thread has its local private copy of area and at the end of the parallel region they all apply the addition operation (+) so as to generate the final value for area.</description>
+    </item>
+    
+    <item>
+      <title>Conditional parallel execution</title>
+      <link>https://www.wikiod.com/openmp/conditional-parallel-execution/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/openmp/conditional-parallel-execution/</guid>
+      <description>Conditional clauses in OpenMP parallel regions # #include &amp;lt;omp.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; int main (void) { int t = (0 == 0); // true value int f = (1 == 0); // false value #pragma omp parallel if (f) { printf (&amp;quot;FALSE: I am thread %d\n&amp;quot;, omp_get_thread_num()); } #pragma omp parallel if (t) { printf (&amp;quot;TRUE : I am thread %d\n&amp;quot;, omp_get_thread_num()); } return 0; } Its output is:
+$ OMP_NUM_THREADS=4 .</description>
+    </item>
+    
+  </channel>
+</rss>

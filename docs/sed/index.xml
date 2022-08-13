@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sed Tutorial on </title>
+    <link>https://www.wikiod.com/docs/sed/</link>
+    <description>Recent content in sed Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/sed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with sed</title>
+      <link>https://www.wikiod.com/sed/getting-started-with-sed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sed/getting-started-with-sed/</guid>
+      <description>Hello World # One of the most common use of Sed is text substitution that can be achieved with the s command.
+In a terminal, type echo &amp;quot;Hello sed&amp;quot; | sed &#39;s/sed/World/&#39; and press Enter:
+$ echo &amp;quot;Hello sed&amp;quot; | sed &#39;s/sed/World/&#39; Hello World &amp;ldquo;Hello World&amp;rdquo; should be output to the terminal.
+The string &amp;ldquo;Hello, sed&amp;rdquo; is sent via pipe as input to the sed command that replace the word sed with World.</description>
+    </item>
+    
+    <item>
+      <title>Address and address range</title>
+      <link>https://www.wikiod.com/sed/address-and-address-range/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sed/address-and-address-range/</guid>
+      <description>Sed commands can be specified to act only on certain lines by using addresses or address ranges.
+Lines matching regular expression pattern # $ cat ip.txt address range substitution pattern sample Add Sub Mul Div Lines matching a pattern
+$ sed &#39;/add/d&#39; ip.txt range substitution pattern sample Add Sub Mul Div $ sed -n &#39;/t/p&#39; ip.txt substitution pattern $ sed -n &#39;/[A-Z]/ s| |/|gp&#39; ip.txt Add/Sub/Mul/Div Range of patterns
+$ sed -n &#39;/add/,/sub/p&#39; ip.</description>
+    </item>
+    
+    <item>
+      <title>Substitution</title>
+      <link>https://www.wikiod.com/sed/substitution/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sed/substitution/</guid>
+      <description>Using different delimiters # POSIX/IEEE Open Group Base Specification says:
+[2addr] s/BRE/replacement/flags
+Substitute the replacement string for instances of the BRE in the pattern space. Any character other than backslash or newline can be used instead of a slash to delimit the BRE and the replacement. Within the BRE and the replacement, the BRE delimiter itself can be used as a literal character if it is preceded by a backslash.</description>
+    </item>
+    
+    <item>
+      <title>In-Place Editing</title>
+      <link>https://www.wikiod.com/sed/in-place-editing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sed/in-place-editing/</guid>
+      <description>Syntax # sed -I extension - FreeBSD sed (continuous line-counter) sed -I[extension] - NetBSD and Illumos sed (continuous line-counter) sed -i extension - FreeBSD sed sed -i[extension] - NetBSD, OpenBSD, Illumos, BusyBox and GNU sed sed &amp;ndash;in-place[=extension] - Illumos, BusyBox, and GNU sed Parameters # Parameter Details extension Save a backup file with the specified extension, or no backup file when extension is a zero-length string. In-place editing is a common but non-standard extension present in the majority of recent systems.</description>
+    </item>
+    
+    <item>
+      <title>Advanced sed commands</title>
+      <link>https://www.wikiod.com/sed/advanced-sed-commands/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sed/advanced-sed-commands/</guid>
+      <description>Insert a new line before matching pattern - using eXchange # Given a file file.txt with the following content:
+line 1 line 2 line 3 You can add a new line using below command
+sed &#39;/line 2/{x;p;x;}&#39; file.txt The above command will output
+line 1 line 2 line 3 Explanation:
+x command is eXchange. sed has a buffer that you can use to store some lines. This command exchanges this buffer with current line (so current line goes to this buffer and buffer content becomes current line).</description>
+    </item>
+    
+    <item>
+      <title>BSDmacOS Sed vs. GNU Sed vs. the POSIX Sed specification</title>
+      <link>https://www.wikiod.com/sed/bsdmacos-sed-vs-gnu-sed-vs-the-posix-sed-specification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sed/bsdmacos-sed-vs-gnu-sed-vs-the-posix-sed-specification/</guid>
+      <description>To quote from @SnoringFrog&amp;rsquo;s topic-creation request:
+&amp;ldquo;One of the biggest gotchas using sed is scripts that fail (or succeed in an unexpected way) because they were written for one and not the other. Simple run-down of the more major differences would be good.&amp;rdquo;
+macOS uses the BSD version of sed[1], which differs in many respects from the GNU sed version that comes with Linux distros.
+Their common denominator is the functionality decreed by POSIX: see the POSIX sed spec.</description>
+    </item>
+    
+    <item>
+      <title>Delete command</title>
+      <link>https://www.wikiod.com/sed/delete-command/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sed/delete-command/</guid>
+      <description>Delete one line containing a pattern # Given a file file.txt with the following content:
+line 1 line 2 line 3 You can delete a line from file content with the d command.
+The pattern to match is surrounded with default / delimiter and the d command follows the pattern:
+sed &#39;/line 2/d&#39; file.txt The above command will output:
+line 1 line 3 To edit the file in place, use the -i option:</description>
+    </item>
+    
+    <item>
+      <title>Append command</title>
+      <link>https://www.wikiod.com/sed/append-command/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sed/append-command/</guid>
+      <description>Insert line after first match # Given a file file.txt with the following content:
+line 1 line 2 line 3 You can add a new line after first matching line with the a command.
+For portable use the a command must be followed immediately by an escaped newline, with the text-to-append on its own line or lines.
+sed &#39; /line 2/a\ new line 2.2 &#39; file.txt Some versions of sed allow the text-to-append to be inline with the a command:</description>
+    </item>
+    
+    <item>
+      <title>Regular expressions</title>
+      <link>https://www.wikiod.com/sed/regular-expressions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sed/regular-expressions/</guid>
+      <description>Using different delimiters # Given a file like this:
+$ cat file hello/how/are/you i am fine You can use /pattern/ to match specific lines:
+$ sed -n &#39;/hello/p&#39; file hello/how/are/you If the pattern contains slashes itself, you can use another delimiter using \cBREc:
+$ sed -n &#39;\#hello/how#p&#39; file hello/how/are/you $ sed -n &#39;\_hello/how_p&#39; file hello/how/are/you As defined by POSIX in:
+Regular Expressions in sed
+In a context address, the construction \cBREc, where c is any character other than backslash or , shall be identical to /BRE/.</description>
+    </item>
+    
+    <item>
+      <title>Additional Options</title>
+      <link>https://www.wikiod.com/sed/additional-options/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/sed/additional-options/</guid>
+      <description>Syntax # -a - (BSD sed) Create / Truncate all files written to before processing -E | -r - Use Extended Regular Expressions -i | -I - Refer to the topic on In-Place Editing -l - (BSD sed) Use line-buffered output -l length - (GNU sed) Specify the length for l command line-wrapping -s - (GNU sed) Treat files as separate streams -u - Do not buffer the output -z - (GNU sed) Use the NUL character to separate records &amp;ndash;quiet | &amp;ndash;silent - (GNU sed) Synonyms for -n &amp;ndash;expression=command - (GNU sed) Synonym for -e &amp;ndash;file=command_file - (GNU sed) Synonym for -f &amp;ndash;follow-symlinks - (GNU sed) Follow symlinks &amp;ndash;in-place[=extension] - (GNU sed) Synonym for -i &amp;ndash;line-length=length - (GNU sed) Synonym for -l &amp;ndash;separate - (GNU sed) Synonym for -s &amp;ndash;unbuffered - (GNU sed) Synonym for -u &amp;ndash;null-data - (GNU sed) Synonym for -z &amp;ndash;help - (GNU sed) Print usage &amp;ndash;version - (GNU sed) Print version The -E option is to be standardized in the next major version, see the relevant issue.</description>
+    </item>
+    
+  </channel>
+</rss>

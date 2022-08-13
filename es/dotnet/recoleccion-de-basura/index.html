@@ -1,0 +1,1780 @@
+<!doctype html>
+<html lang="es">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.43b0b023adae2e6795d9e4443770a29ec36c5d80b552b920a387882f38dd59fc45f95bfed41ea5491dbbc99f117f2037d021e7a3764c15fcb25d77146327b1af.css" integrity="sha512-Q7CwI62uLmeV2eREN3CinsNsXYC1Urkgo4eILzjdWfxF&#43;Vv&#43;1B6lSR27yZ8RfyA30CHno3ZMFfyyXXcUYyexrw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Recolección de basura - WikiOD</title>
+<meta name="description" content="En .Net, los objetos creados con new() se asignan en el montón administrado. Estos objetos nunca son finalizados explícitamente por el programa que los usa; en cambio, este proceso está controlado por .Net Garbage Collector.
+Algunos de los ejemplos a continuación son &amp;ldquo;casos de laboratorio&amp;rdquo; para mostrar el Recolector de Basura en el trabajo y algunos detalles importantes de su comportamiento, mientras que otros se enfocan en cómo preparar las clases para el manejo adecuado por parte del Recolector de Basura.">
+  <link rel="canonical" href="https://www.wikiod.com/es/dotnet/recoleccion-de-basura/">
+<meta property="og:locale" content="es">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Recolección de basura">
+<meta property="og:description" content="En .Net, los objetos creados con new() se asignan en el montón administrado. Estos objetos nunca son finalizados explícitamente por el programa que los usa; en cambio, este proceso está controlado por .Net Garbage Collector.
+Algunos de los ejemplos a continuación son &ldquo;casos de laboratorio&rdquo; para mostrar el Recolector de Basura en el trabajo y algunos detalles importantes de su comportamiento, mientras que otros se enfocan en cómo preparar las clases para el manejo adecuado por parte del Recolector de Basura.">
+<meta property="og:url" content="https://www.wikiod.com/es/dotnet/recoleccion-de-basura/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Recolección de basura">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Recolección de basura">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "Bienvenido a WikiOD - Wiki Documentación en línea WikiOD es un proyecto de escritura colaborativo para crear documentación en línea de la más alta calidad de todos los lenguajes de programación, temas y conceptos relacionados con la educación.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/es/dotnet/recoleccion-de-basura/",
+      "url": "https://www.wikiod.com/es/dotnet/recoleccion-de-basura/",
+      "name": "Recolección de basura",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/es/dotnet/recoleccion-de-basura/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/es/dotnet/recoleccion-de-basura/#/schema/image/2"
+      },
+      "inLanguage": "es",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/es/dotnet/recoleccion-de-basura/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/es/dotnet/recoleccion-de-basura/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/es/",
+          "url": "https://www.wikiod.com/es/",
+          "name": "Es"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/es/dotnet/",
+          "url": "https://www.wikiod.com/es/dotnet/",
+          "name": "Dotnet"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/es/dotnet/recoleccion-de-basura/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Recolección de basura",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/es/dotnet/recoleccion-de-basura/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/es/dotnet/recoleccion-de-basura/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/es/dotnet/recoleccion-de-basura/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/es/dotnet/recoleccion-de-basura/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Recolección de basura"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/es/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Navegar docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/es/docs/dotnet/"><h3 class="h6 text-uppercase mb-2">Tutorial de .NET Framework</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/primeros-pasos-con-net-framework/">Primeros pasos con .NET Framework</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/linq/">LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/serializacion-json/">Serialización JSON</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/biblioteca-paralela-de-tareas-tpl/">Biblioteca paralela de tareas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/excepciones/">Excepciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/analisis-de-fecha-y-hora/">Análisis de fecha y hora</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/diccionarios/">Diccionarios</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/inyeccion-de-dependencia/">Inyección de dependencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/adonet/">ADO.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clientes-http/">clientes HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/arboles-de-expresion/">Árboles de expresión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/reflexion/">Reflexión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/flujo-de-datos-tpl/">Flujo de datos TPL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/sistema-de-empaquetado-nuget/">Sistema de empaquetado NuGet</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/xmlserializer/">XmlSerializer</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/systemruntimecachingmemorycache-objectcache/">System.Runtime.Caching.MemoryCache (ObjectCache)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/gestion-de-la-memoria/">Gestión de la memoria</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clr/">CLR</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/codigo-de-contratos/">Código de Contratos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clase-speechrecognitionengine-para-reconocer-el-habla/">Clase SpeechRecognitionEngine para reconocer el habla</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/redes/">Redes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/globalizacion-en-aspnet-mvc-usando-internacionalizacion-inteligente-para-aspnet/">Globalización en ASP.NET MVC usando Internacionalización inteligente para ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/enhebrar/">enhebrar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/instrumentos-de-cuerda/">Instrumentos de cuerda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/cifrado--criptografia/">Cifrado  Criptografía</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/sistemaio/">Sistema.IO</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/ajustes/">Ajustes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/nucleo-de-net/">Núcleo de .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/colecciones/">Colecciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/marco-de-extensibilidad-administrado/">Marco de extensibilidad administrado</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/para-cada/">Para cada</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/systemreflectionemit-espacio-de-nombres/">System.Reflection.Emit espacio de nombres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/servidores-http/">servidores HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/invocacion-de-plataforma/">Invocación de plataforma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/tipos-personalizados/">Tipos personalizados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/json-en-net-con-newtonsoftjson/">JSON en .NET con Newtonsoft.Json</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/puertos-seriales/">Puertos seriales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/entradasalida-de-archivos/">Entradasalida de archivos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/uso-de-progresst-e-iprogresst/">Uso de Progress&lt;T&gt; e IProgress&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clase-systemiofile/">Clase System.IO.File</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/expresiones-regulares-systemtextregularexpressions/">Expresiones regulares (System.Text.RegularExpressions)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/es/dotnet/recoleccion-de-basura/">Recolección de basura</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/diagnostico-del-sistema/">Diagnostico del sistema</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/sistemanetmail/">Sistema.Net.Mail</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/examen-de-la-unidad/">Examen de la unidad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/descripcion-general-de-la-api-de-la-biblioteca-paralela-de-tareas-tpl/">Descripción general de la API de la biblioteca paralela de tareas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/compilador-jit/">compilador JIT</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/pila-y-monton/">Pila y montón</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/colecciones-de-solo-lectura/">Colecciones de solo lectura</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/procesamiento-paralelo-usando-net-framework/">Procesamiento paralelo usando .Net framework</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/formularios-vb/">Formularios VB</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/trabajar-con-sha1-en-c/">Trabajar con SHA1 en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/configuracion-de-afinidad-de-procesos-y-subprocesos/">Configuración de afinidad de procesos y subprocesos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/contextos-de-sincronizacion/">Contextos de sincronización</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/leer-y-escribir-archivos-zip/">Leer y escribir archivos Zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/subir-archivo-y-datos-post-al-servidor-web/">Subir archivo y datos POST al servidor web</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/escribir-y-leer-desde-el-flujo-stderr/">Escribir y leer desde el flujo StdErr</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/glosario-de-siglas/">Glosario de siglas</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/es/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/es/docs/">Tutoriales</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/es/blog/">Artículos</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Español
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/es/dotnet/recoleccion-de-basura/">Español</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/dotnet/garbage-collection/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/fr/dotnet/collecte-des-ordures/" hreflang="fr" lang="fr">Français</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/dotnet/coleta-de-lixo/" hreflang="pt" lang="pt">Português</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/tr/dotnet/cop-toplama/" hreflang="tr" lang="tr">Türk</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/es/docs/dotnet/"><h3 class="h6 text-uppercase mb-2">Tutorial de .NET Framework</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/primeros-pasos-con-net-framework/">Primeros pasos con .NET Framework</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/linq/">LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/serializacion-json/">Serialización JSON</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/biblioteca-paralela-de-tareas-tpl/">Biblioteca paralela de tareas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/excepciones/">Excepciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/analisis-de-fecha-y-hora/">Análisis de fecha y hora</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/diccionarios/">Diccionarios</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/inyeccion-de-dependencia/">Inyección de dependencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/adonet/">ADO.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clientes-http/">clientes HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/arboles-de-expresion/">Árboles de expresión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/reflexion/">Reflexión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/flujo-de-datos-tpl/">Flujo de datos TPL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/sistema-de-empaquetado-nuget/">Sistema de empaquetado NuGet</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/xmlserializer/">XmlSerializer</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/systemruntimecachingmemorycache-objectcache/">System.Runtime.Caching.MemoryCache (ObjectCache)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/gestion-de-la-memoria/">Gestión de la memoria</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clr/">CLR</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/codigo-de-contratos/">Código de Contratos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clase-speechrecognitionengine-para-reconocer-el-habla/">Clase SpeechRecognitionEngine para reconocer el habla</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/redes/">Redes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/globalizacion-en-aspnet-mvc-usando-internacionalizacion-inteligente-para-aspnet/">Globalización en ASP.NET MVC usando Internacionalización inteligente para ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/enhebrar/">enhebrar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/instrumentos-de-cuerda/">Instrumentos de cuerda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/cifrado--criptografia/">Cifrado  Criptografía</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/sistemaio/">Sistema.IO</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/ajustes/">Ajustes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/nucleo-de-net/">Núcleo de .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/colecciones/">Colecciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/marco-de-extensibilidad-administrado/">Marco de extensibilidad administrado</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/para-cada/">Para cada</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/systemreflectionemit-espacio-de-nombres/">System.Reflection.Emit espacio de nombres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/servidores-http/">servidores HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/invocacion-de-plataforma/">Invocación de plataforma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/tipos-personalizados/">Tipos personalizados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/json-en-net-con-newtonsoftjson/">JSON en .NET con Newtonsoft.Json</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/puertos-seriales/">Puertos seriales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/entradasalida-de-archivos/">Entradasalida de archivos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/uso-de-progresst-e-iprogresst/">Uso de Progress&lt;T&gt; e IProgress&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clase-systemiofile/">Clase System.IO.File</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/expresiones-regulares-systemtextregularexpressions/">Expresiones regulares (System.Text.RegularExpressions)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/es/dotnet/recoleccion-de-basura/">Recolección de basura</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/diagnostico-del-sistema/">Diagnostico del sistema</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/sistemanetmail/">Sistema.Net.Mail</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/examen-de-la-unidad/">Examen de la unidad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/descripcion-general-de-la-api-de-la-biblioteca-paralela-de-tareas-tpl/">Descripción general de la API de la biblioteca paralela de tareas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/compilador-jit/">compilador JIT</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/pila-y-monton/">Pila y montón</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/colecciones-de-solo-lectura/">Colecciones de solo lectura</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/procesamiento-paralelo-usando-net-framework/">Procesamiento paralelo usando .Net framework</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/formularios-vb/">Formularios VB</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/trabajar-con-sha1-en-c/">Trabajar con SHA1 en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/configuracion-de-afinidad-de-procesos-y-subprocesos/">Configuración de afinidad de procesos y subprocesos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/contextos-de-sincronizacion/">Contextos de sincronización</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/leer-y-escribir-archivos-zip/">Leer y escribir archivos Zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/subir-archivo-y-datos-post-al-servidor-web/">Subir archivo y datos POST al servidor web</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/escribir-y-leer-desde-el-flujo-stderr/">Escribir y leer desde el flujo StdErr</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/glosario-de-siglas/">Glosario de siglas</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/es/docs/dotnet/"><h3 class="h6 text-uppercase mb-2">Tutorial de .NET Framework</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/primeros-pasos-con-net-framework/">Primeros pasos con .NET Framework</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/linq/">LINQ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/serializacion-json/">Serialización JSON</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/biblioteca-paralela-de-tareas-tpl/">Biblioteca paralela de tareas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/excepciones/">Excepciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/analisis-de-fecha-y-hora/">Análisis de fecha y hora</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/diccionarios/">Diccionarios</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/inyeccion-de-dependencia/">Inyección de dependencia</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/adonet/">ADO.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clientes-http/">clientes HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/arboles-de-expresion/">Árboles de expresión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/reflexion/">Reflexión</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/flujo-de-datos-tpl/">Flujo de datos TPL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/sistema-de-empaquetado-nuget/">Sistema de empaquetado NuGet</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/xmlserializer/">XmlSerializer</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/systemruntimecachingmemorycache-objectcache/">System.Runtime.Caching.MemoryCache (ObjectCache)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/gestion-de-la-memoria/">Gestión de la memoria</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clr/">CLR</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/codigo-de-contratos/">Código de Contratos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clase-speechrecognitionengine-para-reconocer-el-habla/">Clase SpeechRecognitionEngine para reconocer el habla</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/redes/">Redes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/globalizacion-en-aspnet-mvc-usando-internacionalizacion-inteligente-para-aspnet/">Globalización en ASP.NET MVC usando Internacionalización inteligente para ASP.NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/enhebrar/">enhebrar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/instrumentos-de-cuerda/">Instrumentos de cuerda</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/cifrado--criptografia/">Cifrado  Criptografía</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/sistemaio/">Sistema.IO</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/ajustes/">Ajustes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/nucleo-de-net/">Núcleo de .NET</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/colecciones/">Colecciones</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/marco-de-extensibilidad-administrado/">Marco de extensibilidad administrado</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/para-cada/">Para cada</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/systemreflectionemit-espacio-de-nombres/">System.Reflection.Emit espacio de nombres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/servidores-http/">servidores HTTP</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/invocacion-de-plataforma/">Invocación de plataforma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/tipos-personalizados/">Tipos personalizados</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/json-en-net-con-newtonsoftjson/">JSON en .NET con Newtonsoft.Json</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/puertos-seriales/">Puertos seriales</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/entradasalida-de-archivos/">Entradasalida de archivos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/uso-de-progresst-e-iprogresst/">Uso de Progress&lt;T&gt; e IProgress&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/clase-systemiofile/">Clase System.IO.File</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/expresiones-regulares-systemtextregularexpressions/">Expresiones regulares (System.Text.RegularExpressions)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/es/dotnet/recoleccion-de-basura/">Recolección de basura</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/diagnostico-del-sistema/">Diagnostico del sistema</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/sistemanetmail/">Sistema.Net.Mail</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/examen-de-la-unidad/">Examen de la unidad</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/descripcion-general-de-la-api-de-la-biblioteca-paralela-de-tareas-tpl/">Descripción general de la API de la biblioteca paralela de tareas (TPL)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/compilador-jit/">compilador JIT</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/pila-y-monton/">Pila y montón</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/colecciones-de-solo-lectura/">Colecciones de solo lectura</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/procesamiento-paralelo-usando-net-framework/">Procesamiento paralelo usando .Net framework</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/formularios-vb/">Formularios VB</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/trabajar-con-sha1-en-c/">Trabajar con SHA1 en C#</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/configuracion-de-afinidad-de-procesos-y-subprocesos/">Configuración de afinidad de procesos y subprocesos</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/contextos-de-sincronizacion/">Contextos de sincronización</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/leer-y-escribir-archivos-zip/">Leer y escribir archivos Zip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/subir-archivo-y-datos-post-al-servidor-web/">Subir archivo y datos POST al servidor web</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/escribir-y-leer-desde-el-flujo-stderr/">Escribir y leer desde el flujo StdErr</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/es/dotnet/glosario-de-siglas/">Glosario de siglas</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>En esta página</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#un-ejemplo-básico-de-recolección-de-basura">Un ejemplo básico de recolección (de basura)</a></li>
+    <li><a href="#objetos-vivos-y-objetos-muertos-conceptos-básicos">Objetos vivos y objetos muertos: conceptos básicos</a></li>
+    <li><a href="#múltiples-objetos-muertos">Múltiples objetos muertos</a></li>
+    <li><a href="#referencias-débiles">Referencias débiles</a></li>
+    <li><a href="#dispose-frente-a-finalizadores">Dispose() frente a finalizadores</a></li>
+    <li><a href="#eliminación-y-finalización-adecuada-de-los-objetos">Eliminación y finalización adecuada de los objetos</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>En esta página</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#un-ejemplo-básico-de-recolección-de-basura">Un ejemplo básico de recolección (de basura)</a></li>
+    <li><a href="#objetos-vivos-y-objetos-muertos-conceptos-básicos">Objetos vivos y objetos muertos: conceptos básicos</a></li>
+    <li><a href="#múltiples-objetos-muertos">Múltiples objetos muertos</a></li>
+    <li><a href="#referencias-débiles">Referencias débiles</a></li>
+    <li><a href="#dispose-frente-a-finalizadores">Dispose() frente a finalizadores</a></li>
+    <li><a href="#eliminación-y-finalización-adecuada-de-los-objetos">Eliminación y finalización adecuada de los objetos</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/es/">Home</a></li>
+<li class="breadcrumb-item"><a href="/es/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/es/docs/dotnet/">Tutorial de .NET Framework</a></li>
+<li class="breadcrumb-item active" aria-current="page">Recolección de basura</li>
+					</ol>
+				</nav>
+			
+			<h1>Recolección de basura</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>En esta página</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#un-ejemplo-básico-de-recolección-de-basura">Un ejemplo básico de recolección (de basura)</a></li>
+    <li><a href="#objetos-vivos-y-objetos-muertos-conceptos-básicos">Objetos vivos y objetos muertos: conceptos básicos</a></li>
+    <li><a href="#múltiples-objetos-muertos">Múltiples objetos muertos</a></li>
+    <li><a href="#referencias-débiles">Referencias débiles</a></li>
+    <li><a href="#dispose-frente-a-finalizadores">Dispose() frente a finalizadores</a></li>
+    <li><a href="#eliminación-y-finalización-adecuada-de-los-objetos">Eliminación y finalización adecuada de los objetos</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>En esta página</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#un-ejemplo-básico-de-recolección-de-basura">Un ejemplo básico de recolección (de basura)</a></li>
+    <li><a href="#objetos-vivos-y-objetos-muertos-conceptos-básicos">Objetos vivos y objetos muertos: conceptos básicos</a></li>
+    <li><a href="#múltiples-objetos-muertos">Múltiples objetos muertos</a></li>
+    <li><a href="#referencias-débiles">Referencias débiles</a></li>
+    <li><a href="#dispose-frente-a-finalizadores">Dispose() frente a finalizadores</a></li>
+    <li><a href="#eliminación-y-finalización-adecuada-de-los-objetos">Eliminación y finalización adecuada de los objetos</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<p>En .Net, los objetos creados con new() se asignan en el montón administrado. Estos objetos nunca son finalizados explícitamente por el programa que los usa; en cambio, este proceso está controlado por .Net Garbage Collector.</p>
+<p>Algunos de los ejemplos a continuación son &ldquo;casos de laboratorio&rdquo; para mostrar el Recolector de Basura en el trabajo y algunos detalles importantes de su comportamiento, mientras que otros se enfocan en cómo preparar las clases para el manejo adecuado por parte del Recolector de Basura.</p>
+<p>El Garbage Collector tiene como objetivo reducir el costo del programa en términos de memoria asignada, pero hacerlo tiene un costo en términos de tiempo de procesamiento. Para lograr un buen compromiso general, hay una serie de optimizaciones que deben tenerse en cuenta al programar con el recolector de basura en mente:</p>
+<ul>
+<li>Si el método Collect () se va a invocar explícitamente (lo que no debería ser el caso a menudo), considere usar el modo &ldquo;optimizado&rdquo; que finaliza el objeto inactivo solo cuando realmente se necesita memoria</li>
+<li>En lugar de invocar el método Collect(), considere usar los métodos AddMemoryPressure() y RemoveMemoryPressure(), que activan una recopilación de memoria solo si es realmente necesario</li>
+<li>No se garantiza que una colección de memoria finalice todos los objetos inactivos; en cambio, el recolector de basura administra 3 &ldquo;generaciones&rdquo;, un objeto que a veces &ldquo;sobrevive&rdquo; de una generación a la siguiente</li>
+<li>Se pueden aplicar varios modelos de subprocesos, dependiendo de varios factores, incluido el ajuste fino de la configuración, lo que da como resultado diferentes grados de interferencia entre el subproceso del recolector de basura y los otros subprocesos de la aplicación.</li>
+</ul>
+<h2 id="un-ejemplo-básico-de-recolección-de-basura">Un ejemplo básico de recolección (de basura) <a href="#un-ejemplo-b%c3%a1sico-de-recolecci%c3%b3n-de-basura" class="anchor" aria-hidden="true">#</a></h2>
+<p>Dada la siguiente clase:</p>
+<pre><code>public class FinalizableObject 
+{
+    public FinalizableObject()
+    {
+        Console.WriteLine(&quot;Instance initialized&quot;);
+    }
+
+    ~FinalizableObject()
+    {
+        Console.WriteLine(&quot;Instance finalized&quot;);
+    }
+}
+</code></pre>
+<p>Un programa que crea una instancia, incluso sin usarla:</p>
+<pre><code>new FinalizableObject(); // Object instantiated, ready to be used
+</code></pre>
+<p>Produce la siguiente salida:</p>
+<pre><code>&lt;namespace&gt;.FinalizableObject initialized
+</code></pre>
+<p>Si no sucede nada más, el objeto no se finaliza hasta que finaliza el programa (lo que libera todos los objetos en el montón administrado, finalizándolos en el proceso).</p>
+<p>Es posible forzar el Garbage Collector para que se ejecute en un punto dado, de la siguiente manera:</p>
+<pre><code>new FinalizableObject(); // Object instantiated, ready to be used
+GC.Collect();
+</code></pre>
+<p>Lo que produce el siguiente resultado:</p>
+<pre><code>&lt;namespace&gt;.FinalizableObject initialized
+&lt;namespace&gt;.FinalizableObject finalized
+</code></pre>
+<p>Esta vez, tan pronto como se invocó el Recolector de basura, el objeto no utilizado (también conocido como &ldquo;muerto&rdquo;) se finalizó y se liberó del montón administrado.</p>
+<h2 id="objetos-vivos-y-objetos-muertos-conceptos-básicos">Objetos vivos y objetos muertos: conceptos básicos <a href="#objetos-vivos-y-objetos-muertos-conceptos-b%c3%a1sicos" class="anchor" aria-hidden="true">#</a></h2>
+<p>Regla general: cuando se produce la recolección de elementos no utilizados, los &ldquo;objetos vivos&rdquo; son los que todavía están en uso, mientras que los &ldquo;objetos muertos&rdquo; son los que ya no se usan (cualquier variable o campo que haga referencia a ellos, si los hay, ha quedado fuera del alcance antes de que ocurra la recolección) .</p>
+<p>En el siguiente ejemplo (por comodidad, FinalizableObject1 y FinalizableObject2 son subclases de FinalizableObject del ejemplo anterior y, por lo tanto, heredan el comportamiento del mensaje de inicialización/finalización):</p>
+<pre><code>var obj1 = new FinalizableObject1(); // Finalizable1 instance allocated here
+var obj2 = new FinalizableObject2(); // Finalizable2 instance allocated here
+obj1 = null; // No more references to the Finalizable1 instance 
+GC.Collect();
+</code></pre>
+<p>La salida será:</p>
+<pre><code>&lt;namespace&gt;.FinalizableObject1 initialized
+&lt;namespace&gt;.FinalizableObject2 initialized
+&lt;namespace&gt;.FinalizableObject1 finalized
+</code></pre>
+<p>En el momento en que se invoca el recolector de elementos no utilizados, FinalizableObject1 es un objeto inactivo y se finaliza, mientras que FinalizableObject2 es un objeto activo y se mantiene en el montón administrado.</p>
+<h2 id="múltiples-objetos-muertos">Múltiples objetos muertos <a href="#m%c3%baltiples-objetos-muertos" class="anchor" aria-hidden="true">#</a></h2>
+<p>¿Qué pasa si dos (o varios) objetos que de otro modo estarían muertos se referencian entre sí? Esto se muestra en el siguiente ejemplo, suponiendo que OtherObject es una propiedad pública de FinalizableObject:</p>
+<pre><code>var obj1 = new FinalizableObject1(); 
+var obj2 = new FinalizableObject2();
+obj1.OtherObject = obj2;
+obj2.OtherObject = obj1;
+obj1 = null; // Program no longer references Finalizable1 instance
+obj2 = null; // Program no longer references Finalizable2 instance
+// But the two objects still reference each other
+GC.Collect();
+</code></pre>
+<p>Esto produce la siguiente salida:</p>
+<pre><code>&lt;namespace&gt;.FinalizedObject1 initialized
+&lt;namespace&gt;.FinalizedObject2 initialized
+&lt;namespace&gt;.FinalizedObject1 finalized
+&lt;namespace&gt;.FinalizedObject2 finalized
+</code></pre>
+<p>Los dos objetos se finalizan y se liberan del montón administrado a pesar de que se hacen referencia entre sí (porque no existe ninguna otra referencia a ninguno de ellos desde un objeto realmente activo).</p>
+<h2 id="referencias-débiles">Referencias débiles <a href="#referencias-d%c3%a9biles" class="anchor" aria-hidden="true">#</a></h2>
+<p>Las referencias débiles son&hellip; referencias a otros objetos (también conocidos como &ldquo;objetivos&rdquo;), pero &ldquo;débiles&rdquo; ya que no evitan que esos objetos se recolecten como basura. En otras palabras, las referencias débiles no cuentan cuando el Recolector de basura evalúa los objetos como &ldquo;vivos&rdquo; o &ldquo;muertos&rdquo;.</p>
+<p>El siguiente código:</p>
+<pre><code>var weak = new WeakReference&lt;FinalizableObject&gt;(new FinalizableObject());
+GC.Collect();
+</code></pre>
+<p>Produce la salida:</p>
+<pre><code>&lt;namespace&gt;.FinalizableObject initialized
+&lt;namespace&gt;.FinalizableObject finalized
+</code></pre>
+<p>El objeto se libera del montón administrado a pesar de que la variable WeakReference hace referencia a él (todavía en el ámbito cuando se invocó el recolector de elementos no utilizados).</p>
+<p>Consecuencia n.° 1: en cualquier momento, no es seguro asumir si un destino de WeakReference aún está asignado en el montón administrado o no.</p>
+<p>Consecuencia #2: cada vez que un programa necesite acceder al objetivo de una Referencia débil, se debe proporcionar el código para ambos casos, si el objetivo aún está asignado o no. El método para acceder al objetivo es TryGetTarget:</p>
+<pre><code>var target = new object(); // Any object will do as target
+var weak = new WeakReference&lt;object&gt;(target); // Create weak reference
+target = null; // Drop strong reference to the target
+
+// ... Many things may happen in-between
+
+// Check whether the target is still available
+if(weak.TryGetTarget(out target))
+{
+    // Use re-initialized target variable
+    // To do whatever the target is needed for
+}
+else
+{
+    // Do something when there is no more target object
+    // The target variable value should not be used here
+}
+</code></pre>
+<p>La versión genérica de WeakReference está disponible desde .Net 4.5. Todas las versiones del marco proporcionan una versión no genérica y sin tipo que se construye de la misma manera y se verifica de la siguiente manera:</p>
+<pre><code>var target = new object(); // Any object will do as target
+var weak = new WeakReference(target); // Create weak reference
+target = null; // Drop strong reference to the target
+
+// ... Many things may happen in-between
+
+// Check whether the target is still available
+if (weak.IsAlive)
+{
+    target = weak.Target;
+
+    // Use re-initialized target variable
+    // To do whatever the target is needed for
+}
+else
+{
+    // Do something when there is no more target object
+    // The target variable value should not be used here
+}
+</code></pre>
+<h2 id="dispose-frente-a-finalizadores">Dispose() frente a finalizadores <a href="#dispose-frente-a-finalizadores" class="anchor" aria-hidden="true">#</a></h2>
+<p>Implemente el método Dispose () (y declare la clase contenedora como IDisposable) como un medio para garantizar que los recursos con gran cantidad de memoria se liberen tan pronto como el objeto ya no se use. El &ldquo;trampa&rdquo; es que no hay una fuerte garantía de que el método Dispose() se invoque alguna vez (a diferencia de los finalizadores que siempre se invocan al final de la vida del objeto).</p>
+<p>Un escenario es un programa que llama a Dispose() en objetos que crea explícitamente:</p>
+<pre><code>private void SomeFunction()
+{
+    // Initialize an object that uses heavy external resources
+    var disposableObject = new ClassThatImplementsIDisposable();
+
+    // ... Use that object
+
+    // Dispose as soon as no longer used
+    disposableObject.Dispose();
+
+    // ... Do other stuff 
+
+    // The disposableObject variable gets out of scope here
+    // The object will be finalized later on (no guarantee when)
+    // But it no longer holds to the heavy external resource after it was disposed
+}
+</code></pre>
+<p>Otro escenario es declarar una clase para ser instanciada por el marco. En este caso, la nueva clase normalmente hereda una clase base, por ejemplo, en MVC se crea una clase de controlador como una subclase de System.Web.Mvc.ControllerBase. Cuando la clase base implementa la interfaz IDisposable, esta es una buena pista de que Dispose() sería invocado correctamente por el marco, pero nuevamente, no hay una garantía sólida.</p>
+<p>Por lo tanto, Dispose() no sustituye a un finalizador; en cambio, los dos deben usarse para diferentes propósitos:</p>
+<ul>
+<li>Un finalizador eventualmente libera recursos para evitar fugas de memoria que ocurrirían de otra manera</li>
+<li>Dispose() libera recursos (posiblemente los mismos) tan pronto como ya no se necesitan, para aliviar la presión sobre la asignación de memoria general.</li>
+</ul>
+<h2 id="eliminación-y-finalización-adecuada-de-los-objetos">Eliminación y finalización adecuada de los objetos <a href="#eliminaci%c3%b3n-y-finalizaci%c3%b3n-adecuada-de-los-objetos" class="anchor" aria-hidden="true">#</a></h2>
+<p>Como Dispose() y los finalizadores están destinados a diferentes propósitos, una clase que administre recursos de memoria externa pesados ​​​​debería implementar ambos. La consecuencia es escribir la clase para que maneje bien dos escenarios posibles:</p>
+<ul>
+<li>Cuando solo se invoca el finalizador</li>
+<li>Cuando se invoca Dispose() primero y luego también se invoca el finalizador</li>
+</ul>
+<p>Una solución es escribir el código de limpieza de tal manera que ejecutarlo una o dos veces produzca el mismo resultado que ejecutarlo solo una vez. La viabilidad depende de la naturaleza de la limpieza, por ejemplo:</p>
+<ul>
+<li>Cerrar una conexión de base de datos ya cerrada probablemente no tendría ningún efecto, por lo que funciona</li>
+<li>Actualizar algún &ldquo;recuento de uso&rdquo; es peligroso y produciría un resultado incorrecto si se llama dos veces en lugar de una.</li>
+</ul>
+<p>Una solución más segura es garantizar por diseño que el código de limpieza se llame una vez y solo una vez, independientemente del contexto externo. Esto se puede lograr de la &ldquo;manera clásica&rdquo; usando una bandera dedicada:</p>
+<pre><code>public class DisposableFinalizable1: IDisposable
+{
+    private bool disposed = false;
+
+    ~DisposableFinalizable1() { Cleanup(); }
+
+    public void Dispose() { Cleanup(); }
+
+    private void Cleanup()
+    {
+        if(!disposed)
+        {
+            // Actual code to release resources gets here, then
+            disposed = true;
+        }
+    }
+}
+</code></pre>
+<p>Alternativamente, Garbage Collector proporciona un método específico SuppressFinalize() que permite omitir el finalizador después de que se haya invocado Dispose:</p>
+<pre><code>public class DisposableFinalizable2 : IDisposable
+{
+    ~DisposableFinalizable2() { Cleanup(); }
+
+    public void Dispose()
+    {
+        Cleanup();
+        GC.SuppressFinalize(this);
+    }
+
+    private void Cleanup()
+    {
+        // Actual code to release resources gets here
+    }
+}
+</code></pre>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/es/dotnet/expresiones-regulares-systemtextregularexpressions/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Expresiones regulares (System.Text.RegularExpressions)
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/es/dotnet/diagnostico-del-sistema/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Diagnostico del sistema &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/es/about/">Sobre</a></li>
+          <li class="list-inline-item"><a href="/es/disclaimers/">Descargos de responsabilidad</a></li>
+          <li class="list-inline-item"><a href="/es/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/es/terms-of-use/">Términos de Uso</a></li>
+          <li class="list-inline-item"><a href="/es/privacy-policy/">Política de privacidad</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>StackExchange.Redis Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/stackexchange-redis/</link>
+    <description>Recent content in StackExchange.Redis Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/stackexchange-redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StackExchange.Redis&#39;i kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/stackexchange-redis/stackexchangeredisi-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/stackexchange-redis/stackexchangeredisi-kullanmaya-baslama/</guid>
+      <description>Temel Kullanım # using StackExchange.Redis; // ... // connect to the server ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(&amp;quot;localhost&amp;quot;); // select a database (by default, DB = 0) IDatabase db = connection.GetDatabase(); // run a command, in this case a GET RedisValue myVal = db.StringGet(&amp;quot;mykey&amp;quot;); Çoklayıcıyı Uygulamada Yeniden Kullanın # class Program { private static Lazy&amp;lt;ConnectionMultiplexer&amp;gt; _multiplexer = new Lazy&amp;lt;ConnectionMultiplexer&amp;gt;( () =&amp;gt; ConnectionMultiplexer.Connect(&amp;quot;localhost&amp;quot;), LazyThreadSafetyMode.ExecutionAndPublication); static void Main(string[] args) { IDatabase db1 = _multiplexer.Value.GetDatabase(1); IDatabase db2 = _multiplexer.</description>
+    </item>
+    
+    <item>
+      <title>Yayınla Abone Ol</title>
+      <link>https://www.wikiod.com/tr/stackexchange-redis/yaynla-abone-ol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/stackexchange-redis/yaynla-abone-ol/</guid>
+      <description>Temel Bilgiler # Bağlandığında &amp;ldquo;ISubscriber.Publish&amp;rdquo; yöntemini çağırarak iletileri yayınlayabilirsiniz:
+// grab an instance of an ISubscriber var subscriber = connection.GetSubscriber(); // publish a message to the &#39;chat&#39; channel subscriber.Publish(&amp;quot;chat&amp;quot;, &amp;quot;This is a message&amp;quot;) Tüketiciler, `ISubscriber.Subscribe&amp;rsquo; yöntemini kullanarak kanala abone olabilirler. Yayıncı tarafından gönderilen iletiler, bu yönteme iletilen işleyici tarafından işlenecektir.
+// grab an instance of an ISubscriber var subscriber = connection.GetSubscriber(); // subscribe to a messages over the &#39;chat&#39; channel subscriber.</description>
+    </item>
+    
+    <item>
+      <title>Tarama</title>
+      <link>https://www.wikiod.com/tr/stackexchange-redis/tarama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/stackexchange-redis/tarama/</guid>
+      <description>Sözdizimi # public IEnumerable&amp;lt;RedisKey&amp;gt; Anahtarlar(int database = 0, RedisValue pattern = default(RedisValue), int pageSize = CursorUtils.DefaultPageSize, long imleç = CursorUtils.Origin, int pageOffset = 0, CommandFlags flags = CommandFlags.None) Parametreler # parametre Ayrıntılar veritabanı Bağlanılacak Redis veritabanı dizini desen Emin değilim sayfaBoyutu Sayfa başına döndürülecek öğe sayısı imleç Emin değilim sayfaOfset Sonuçları dengelemek için sayfa sayısı bayraklar Emin değilim Keys() çağrısı, Redis sunucusunun sürümüne bağlı olarak KEYS veya SCAN komutunu seçecektir. Mümkün olduğunda, bir &amp;ldquo;IEnumerable&amp;rdquo; döndüren ve engellemeyen &amp;ldquo;SCAN&amp;rdquo; kullanımını tercih edecektir.</description>
+    </item>
+    
+    <item>
+      <title>boru hattı</title>
+      <link>https://www.wikiod.com/tr/stackexchange-redis/boru-hatt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/stackexchange-redis/boru-hatt/</guid>
+      <description>Ardışık Düzen ve Çoğullama # var multiplexer = ConnectionMultiplexer.Connect(&amp;quot;localhost&amp;quot;); IDatabase db = multiplexer.GetDatabase(); // intialize key with empty string await db.StringSetAsync(&amp;quot;key&amp;quot;, &amp;quot;&amp;quot;); // create transaction that utilize multiplexing and pipelining ITransaction transacton = db.CreateTransaction(); Task&amp;lt;long&amp;gt; appendA = transacton.StringAppendAsync(&amp;quot;key&amp;quot;, &amp;quot;a&amp;quot;); Task&amp;lt;long&amp;gt; appendB = transacton.StringAppendAsync(&amp;quot;key&amp;quot;, &amp;quot;b&amp;quot;); if (await transacton.ExecuteAsync()) // sends &amp;quot;MULTI APPEND KEY a APPEND KEY b EXEC // in single request to redis server { // order here doesn&#39;t matter, result is always - &amp;quot;abc&amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title>Anahtarlar ve Değerler</title>
+      <link>https://www.wikiod.com/tr/stackexchange-redis/anahtarlar-ve-degerler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/stackexchange-redis/anahtarlar-ve-degerler/</guid>
+      <description>Değerleri Ayarlama # Redis&amp;rsquo;teki tüm değerler sonuçta bir &amp;ldquo;RedisValue&amp;rdquo; türü olarak depolanır:
+//&amp;quot;myvalue&amp;quot; here is implicitly converted to a RedisValue type //The RedisValue type is rarely seen in practice. db.StringSet(&amp;quot;key&amp;quot;, &amp;quot;aValue&amp;quot;); Bir int ayarlama ve alma # db.StringSet(&amp;quot;key&amp;quot;, 11021); int i = (int)db.StringGet(&amp;quot;key&amp;quot;); Veya StackExchange.Redis.Extensions kullanarak:
+db.Add(&amp;quot;key&amp;quot;, 11021); int i = db.Get&amp;lt;int&amp;gt;(&amp;quot;key&amp;quot;); </description>
+    </item>
+    
+    <item>
+      <title>profil oluşturma</title>
+      <link>https://www.wikiod.com/tr/stackexchange-redis/profil-olusturma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/stackexchange-redis/profil-olusturma/</guid>
+      <description>StackExchange.Redis&amp;rsquo;in profil oluşturma özellikleri, &amp;lsquo;IProfiler&amp;rsquo; arabirimi ve &amp;lsquo;ConnectionMultiplexer.RegisterProfiler(IProfiler)&amp;rsquo;, &amp;lsquo;ConnectionMultiplexer.BeginProfiling(object)&amp;rsquo;, &amp;lsquo;ConnectionMultiplexer.FinishProfiling(object)&amp;rsquo; yöntemlerinden oluşur.
+Başla ve Bitir profili oluşturma, ilgili komutların birlikte gruplanabilmesi için bir bağlam &amp;rsquo;nesnesi&amp;rsquo; alır.
+Bu gruplandırma, bir komutun başlangıcında, herhangi bir iş parçacığı kurnazlığı meydana gelmeden önce bir bağlam nesnesi için &amp;ldquo;IProfiller&amp;rdquo; arabiriminizi sorgulayarak ve bu komutu aynı bağlam nesnesine sahip diğer komutlarla ilişkilendirerek çalışır. Begin aynı bağlam nesnesiyle çağrılmalıdır, böylece StackExchange.Redis bu bağlam nesnesiyle profil oluşturma komutlarını başlatmayı bilir ve profil oluşturmayı durdurmak ve sonuçları döndürmek için Finish çağrılır.</description>
+    </item>
+    
+  </channel>
+</rss>

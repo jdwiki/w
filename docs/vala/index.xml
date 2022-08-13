@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vala Tutorial on </title>
+    <link>https://www.wikiod.com/docs/vala/</link>
+    <description>Recent content in vala Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/vala/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with vala</title>
+      <link>https://www.wikiod.com/vala/getting-started-with-vala/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/vala/getting-started-with-vala/</guid>
+      <description>Hello world! # In foo.vala:
+void main (string[] args) { stdout.printf (&amp;quot;Hello world!&amp;quot;); } To compile the source into the foo binary:
+valac foo.vala To compile and run the source:
+vala foo.vala Installation or Setup # The easiest way of installing Vala is to install your distribution-specific package.
+On Ubuntu:
+sudo apt install valac On Fedora:
+sudo dnf install vala On Arch:
+sudo pacman -S vala On OS X, with Homebrew:</description>
+    </item>
+    
+    <item>
+      <title>Meson</title>
+      <link>https://www.wikiod.com/vala/meson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/vala/meson/</guid>
+      <description>Meson is a next-generation build system designed with simplicity and explicitness in mind.
+Basic project # project(&#39;Vala Project&#39;) glib_dep = dependency(&#39;glib-2.0&#39;) gobject_dep = dependency(&#39;gobject-2.0&#39;) executable(&#39;foo&#39;, &#39;foo.vala&#39;, dependencies: [glib_dep, gobject_dep]) Note: both glib-2.0 and gobject-2.0 dependencies are required unless --nostdpkg is explicitly given.
+Posix-based project (no GLib or GObject) # project(&#39;Posix-based Project&#39;, &#39;vala&#39;) add_project_arguments([&#39;--nostdpkg&#39;], language: &#39;vala&#39;) posix_dep = meson.get_compiler(&#39;vala&#39;).find_library(&#39;posix&#39;) executable(&#39;foo&#39;, &#39;foo.vala&#39;, dependencies: [posix_dep]) Mixed sources # project(&#39;Mixed sources Project&#39;, &#39;vala&#39;) glib_dep = dependency(&#39;glib-2.</description>
+    </item>
+    
+    <item>
+      <title>Classes</title>
+      <link>https://www.wikiod.com/vala/classes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/vala/classes/</guid>
+      <description>Vala support various flavours of classes.
+Both glib-2.0 and gobject-2.0 dependencies are required unless --nostdpkg is explicitly given.
+Compact Class # [Compact] public class Foo { public string prop; } It is mainly used for writing bindings with specific memory management.
+GObject Class # public class Foo : Object { public string prop { construct; get; } } It is meant for interospectable API using GObject Introspection. This is the recommended way for declaring classes.</description>
+    </item>
+    
+    <item>
+      <title>Signals</title>
+      <link>https://www.wikiod.com/vala/signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/vala/signals/</guid>
+      <description>Basic signal # Signals are only available to GObject classes. They can only be public, which means that any part of the code can connect handlers and trigger them.
+public class Emitter : Object { // A signal is declared like a method, // but with the signal keyword. public signal void my_signal (); public void send_signal () { this.my_signal (); // Send a signal by calling it like a method.</description>
+    </item>
+    
+    <item>
+      <title>Async and Yield</title>
+      <link>https://www.wikiod.com/vala/async-and-yield/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/vala/async-and-yield/</guid>
+      <description>Vala provide two syntax constructs to deal with asynchonous operations: async function and yield statement.
+Declare an Asynchronous Function # public async int call_async () { return 1; } call_async.begin ((obj, res) =&amp;gt; { var ret = call_async.end (res); }); To call an asynchronous functions from a synchronous context, use the begin method and pass a callback to receive the result. The two arguments are:
+obj is a GLib.Object if this call was defined in a class res is a GLib.</description>
+    </item>
+    
+    <item>
+      <title>Using GLib.Value</title>
+      <link>https://www.wikiod.com/vala/using-glibvalue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/vala/using-glibvalue/</guid>
+      <description>How to initialize it ? # To initialize struct, you can do like this :
+public static void main (string[] args) { Value val = Value (typeof (int)); val.set_int (33); } But Vala brings another way to initialize values :
+public static void main (string[] args) { Value val = 33; } Your value is initialized with &amp;lsquo;int&amp;rsquo; type and holds &amp;lsquo;33&amp;rsquo; int value.
+How to use it ? # Use one of GLib.</description>
+    </item>
+    
+    <item>
+      <title>Ownership</title>
+      <link>https://www.wikiod.com/vala/ownership/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/vala/ownership/</guid>
+      <description>Note that the compiler will not prevent you from using variable for which its value ownership been transfeered.
+Transfer Ownership # var foo = new uint8[12]; var bar = (owned) foo; assert (foo == null); The bar variable will own the value previously owned by foo.
+Implicit Copy # var foo = new uint8[12]; var bar = foo; assert (foo != bar); In this example, the both foo and bar possess a strong reference, but since uint8[] only support single ownership, a copy is made.</description>
+    </item>
+    
+    <item>
+      <title>Using Vala on Windows</title>
+      <link>https://www.wikiod.com/vala/using-vala-on-windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/vala/using-vala-on-windows/</guid>
+      <description>This topic focuses on how to get valac running on Windows.
+Using msys2 (64 Bit) # Install msys2 (http://www.msys2.org/)
+Install the required prerequisites for Vala
+pacman -S mingw64/mingw-w64-x86_64-gcc pacman -S mingw64/mingw-w64-x86_64-pkg-config pacman -S mingw64/mingw-w64-x86_64-vala and all the additional packages your code requires, i.e.
+pacman -S mingw64/mingw-w64-x86_64-libgee ... Launch the correct msys2 shell
+C:\msys64\mingw64.exe Check the MSYSTEM and PKG_CONFIG_PATH environment variables
+$ echo $MSYSTEM MINGW64 $ echo $PKG_CONFIG_PATH /mingw64/lib/pkgconfig:/mingw64/share/pkgconfig Run valac as usual, but make sure to always work in the correct environment (see steps 3 and 4)</description>
+    </item>
+    
+    <item>
+      <title>Functions</title>
+      <link>https://www.wikiod.com/vala/functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/vala/functions/</guid>
+      <description>Functions are pieces of code that can be executed by other functions of your program.
+Your program always starts with the main function.
+See also asynchronous functions.
+Methods are exactly the same as function, but they act on an object instance.
+Basic functions # A function is defined by at least its return type and an unique name.
+void say_hello () { print (&amp;quot;Hello, world!\n&amp;quot;); } Then, to call it just use the name of the function followed by a parenthese.</description>
+    </item>
+    
+  </channel>
+</rss>

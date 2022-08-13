@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ggplot2 Tutorial on </title>
+    <link>https://www.wikiod.com/docs/ggplot2/</link>
+    <description>Recent content in ggplot2 Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with ggplot2</title>
+      <link>https://www.wikiod.com/ggplot2/getting-started-with-ggplot2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ggplot2/getting-started-with-ggplot2/</guid>
+      <description>How to install and run ggplot2 # To install and load the current stable version of ggplot2 for your R installation use:
+# install from CRAN install.packages(&amp;quot;ggplot2&amp;quot;) To install the development version from github use
+# install.packages(&amp;quot;devtools&amp;quot;) devtools::install_github(&amp;quot;hadley/ggplot2&amp;quot;) Load into your current R session, and make an example.
+Basic example of ggplot2 # We show a plot similar to the showed at https://www.wikiod.com/r/linear-models-regression#Linear regression on the mtcars dataset First with defaults and the with some customization of the parameters.</description>
+    </item>
+    
+    <item>
+      <title>Plot a subset of data</title>
+      <link>https://www.wikiod.com/ggplot2/plot-a-subset-of-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ggplot2/plot-a-subset-of-data/</guid>
+      <description>Syntax # xlim(left.limit,right.limit) data.frame[data.frame$variable == &amp;ldquo;desired.variable&amp;rdquo;,] Using xlim / ylim # &amp;gt; library(ggplot2) &amp;gt; ggplot(iris,aes(Sepal.Width)) + geom_density() + xlim(1,3.5) Using xlim or ylim the plot is not cutted, ggplot subsets the data before calling the stat function (stat_density in this case). You can see it in the warning message.
+Warning message: Removed 19 rows containing non-finite values (stat_density). Inline Subsetting for categorical variables # ggplot(iris[iris$Species == &amp;quot;setosa&amp;quot;,],aes(Sepal.Width)) + geom_density() Here, we are subsetting the dataframe before passing it to ggplot.</description>
+    </item>
+    
+    <item>
+      <title>Customizing axes, titles, and legends</title>
+      <link>https://www.wikiod.com/ggplot2/customizing-axes-titles-and-legends/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ggplot2/customizing-axes-titles-and-legends/</guid>
+      <description>In this topic, we&amp;rsquo;ll look to explain how to Customise axes, titles and legends whilst using the ggplot2 library.
+Change legend title and increase keysize # # load the library library(ggplot2) # create a blank canvas g &amp;lt;- ggplot(data = diamonds) g + geom_bar(aes(x = cut, fill = cut)) + scale_fill_discrete(guide = guide_legend(title = &amp;quot;CUT&amp;quot;, keywidth = 2, keyheight = 2)) Compare frequencies across groups and remove legend title # g + geom_bar(aes(x = cut, fill = color), position = &amp;quot;fill&amp;quot;) + guides(fill = guide_legend(title = NULL)) Place overlapping objects next to each other and change colours of axes texts # g + geom_bar(mapping = aes(x = cut, fill = clarity), position = &amp;quot;dodge&amp;quot;) + theme(axis.</description>
+    </item>
+    
+    <item>
+      <title>Plotting time series</title>
+      <link>https://www.wikiod.com/ggplot2/plotting-time-series/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/ggplot2/plotting-time-series/</guid>
+      <description>Ploting time series # This example illustrates how to plot a time series of temperature from a csv data file.
+library(ggplot2) # Original data not provided, see subset/plotted data below datos.orig&amp;lt;-read.csv(&amp;quot;data.csv&amp;quot;,header=TRUE) # read csv data # Change dates to POSIXct fecha&amp;lt;-as.data.frame(as.POSIXct(datos.orig$Fecha)) # Build a new and shorter data frame for temperature datos.graf&amp;lt;-cbind.data.frame(fecha,datos.orig$Temp_Max,datos.orig$Temp_Min) colnames(datos.graf)&amp;lt;-c(&amp;quot;fecha&amp;quot;,&amp;quot;TMax&amp;quot;,&amp;quot;Tmin&amp;quot;) # Plot ggplot() + geom_line(data=datos.graf,aes(x=fecha, y=TMax),colour=&amp;quot;red&amp;quot;) + geom_line(data=datos.graf,aes(x=fecha, y=Tmin),colour=&amp;quot;blue&amp;quot;) + ylab(&amp;quot;Temperature axis title&amp;quot;) + xlab(&amp;quot; &amp;quot;) + scale_x_datetime( expand=c(0,0), # avoid blank space around plot date_breaks = &amp;quot;1 month&amp;quot;, # main axis breaks date_labels=&amp;quot;%d/%m/%Y&amp;quot;) + # axis labels date format scale_y_continuous(expand=c(0,0), limits=c(-10,40)) + theme(axis.</description>
+    </item>
+    
+  </channel>
+</rss>

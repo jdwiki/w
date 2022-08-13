@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nlog Tutorial on </title>
+    <link>https://www.wikiod.com/docs/nlog/</link>
+    <description>Recent content in nlog Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/nlog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with nlog</title>
+      <link>https://www.wikiod.com/nlog/getting-started-with-nlog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nlog/getting-started-with-nlog/</guid>
+      <description>Writing first logs # Install the NLog.Config package. (NuGet 3 users should install NLog and add the config manually.) Write to logger:
+using NLog; public class MyClass { private static Logger logger = LogManager.GetCurrentClassLogger(); public void MyMethod1() { logger.Trace(&amp;quot;Sample trace message&amp;quot;); logger.Debug(&amp;quot;Sample debug message&amp;quot;); logger.Info(&amp;quot;Sample informational message&amp;quot;); logger.Warn(&amp;quot;Sample warning message&amp;quot;); logger.Error(&amp;quot;Sample error message&amp;quot;); logger.Fatal(&amp;quot;Sample fatal error message&amp;quot;); // alternatively you can call the Log() method // and pass log level as the parameter.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting NLog</title>
+      <link>https://www.wikiod.com/nlog/troubleshooting-nlog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nlog/troubleshooting-nlog/</guid>
+      <description>Enable the internal logger in nlog.config # In case of problems, enable the internal logger
+&amp;lt;nlog internalLogFile=&amp;quot;c:\log.txt&amp;quot; internalLogLevel=&amp;quot;Trace&amp;quot;&amp;gt; &amp;lt;targets&amp;gt; &amp;lt;!-- target configuration here --&amp;gt; &amp;lt;/targets&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;!-- log routing rules --&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/nlog&amp;gt; Enable the internal logger programmatically # In case of problems, enable the internal logger.
+C# example:
+// set internal log level InternalLogger.LogLevel = LogLevel.Trace; // enable one of the targets: file, console, logwriter: // enable internal logging to a file (absolute or relative path.</description>
+    </item>
+    
+    <item>
+      <title>Extending NLog</title>
+      <link>https://www.wikiod.com/nlog/extending-nlog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nlog/extending-nlog/</guid>
+      <description>Create custom Target # using NLog; using NLog.Config; using NLog.Targets; namespace MyNamespace { [Target(&amp;quot;MyFirst&amp;quot;)] public sealed class MyFirstTarget: TargetWithLayout //or inherit from Target { public MyFirstTarget() { //set defaults this.Host = &amp;quot;localhost&amp;quot;; } [RequiredParameter] public string Host { get; set; } protected override void Write(LogEventInfo logEvent) { string logMessage = this.Layout.Render(logEvent); //TODO write to target } } } Register it under the name MyFirst - as soon as possible - e.</description>
+    </item>
+    
+    <item>
+      <title>Write logs to files</title>
+      <link>https://www.wikiod.com/nlog/write-logs-to-files/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/nlog/write-logs-to-files/</guid>
+      <description>Write to single file # Write all events with level: debug, info, warn, error and fatal to one file:
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt; &amp;lt;nlog xmlns=&amp;quot;http://www.nlog-project.org/schemas/NLog.xsd&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt; &amp;lt;targets&amp;gt; &amp;lt;target name=&amp;quot;file&amp;quot; xsi:type=&amp;quot;File&amp;quot; layout=&amp;quot;${longdate} ${logger} ${message} ${exception}&amp;quot; fileName=&amp;quot;${basedir}/logs/logfile.txt&amp;quot; /&amp;gt; &amp;lt;/targets&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;logger name=&amp;quot;*&amp;quot; minlevel=&amp;quot;Debug&amp;quot; writeTo=&amp;quot;file&amp;quot; /&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/nlog&amp;gt; Write one log file per day # Create one log file for each day. The log files will have the following names (dependent of culture)
+2016-06-05.log 2016-06-06.</description>
+    </item>
+    
+  </channel>
+</rss>

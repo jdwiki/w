@@ -1,0 +1,3854 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.43b0b023adae2e6795d9e4443770a29ec36c5d80b552b920a387882f38dd59fc45f95bfed41ea5491dbbc99f117f2037d021e7a3764c15fcb25d77146327b1af.css" integrity="sha512-Q7CwI62uLmeV2eREN3CinsNsXYC1Urkgo4eILzjdWfxF&#43;Vv&#43;1B6lSR27yZ8RfyA30CHno3ZMFfyyXXcUYyexrw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Açıklamayı Kullanma - WikiOD</title>
+<meta name="description" content="IDisposable nesnelerinin doğru kullanımını sağlayan kullanışlı bir sözdizimi sağlar.
+Sözdizimi # kullanma (tek kullanımlık) { } kullanma (IDisposable tek kullanımlık = new MyDisposable()) { } &amp;ldquo;using&amp;rdquo; ifadesindeki nesne, &amp;ldquo;IDisposable&amp;rdquo; arabirimini uygulamalıdır.
+using(var obj = new MyObject()) { } class MyObject : IDisposable { public void Dispose() { // Cleanup } } &amp;lsquo;IDisposable&amp;rsquo; uygulaması için daha eksiksiz örnekler MSDN belgelerinde bulunabilir.
+Gotcha: elden çıkardığınız kaynağı iade etmek # Aşağıdaki kötü bir fikirdir çünkü &amp;lsquo;db&amp;rsquo; değişkenini döndürmeden önce elden çıkarır.">
+  <link rel="canonical" href="https://www.wikiod.com/tr/csharp/acklamay-kullanma/">
+<meta property="og:locale" content="tr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Açıklamayı Kullanma">
+<meta property="og:description" content="IDisposable nesnelerinin doğru kullanımını sağlayan kullanışlı bir sözdizimi sağlar.
+Sözdizimi # kullanma (tek kullanımlık) { } kullanma (IDisposable tek kullanımlık = new MyDisposable()) { } &ldquo;using&rdquo; ifadesindeki nesne, &ldquo;IDisposable&rdquo; arabirimini uygulamalıdır.
+using(var obj = new MyObject()) { } class MyObject : IDisposable { public void Dispose() { // Cleanup } } &lsquo;IDisposable&rsquo; uygulaması için daha eksiksiz örnekler MSDN belgelerinde bulunabilir.
+Gotcha: elden çıkardığınız kaynağı iade etmek # Aşağıdaki kötü bir fikirdir çünkü &lsquo;db&rsquo; değişkenini döndürmeden önce elden çıkarır.">
+<meta property="og:url" content="https://www.wikiod.com/tr/csharp/acklamay-kullanma/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Açıklamayı Kullanma">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Açıklamayı Kullanma">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "WikiOD\u0027ye Hoş Geldiniz - Wiki Çevrimiçi Belgeleme WikiOD, tüm programlama dilleri, eğitimle ilgili konular ve kavramların en yüksek kalitede çevrimiçi belgelerini oluşturmak için ortak bir yazma projesidir.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/tr/csharp/acklamay-kullanma/",
+      "url": "https://www.wikiod.com/tr/csharp/acklamay-kullanma/",
+      "name": "Açıklamayı Kullanma",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/tr/csharp/acklamay-kullanma/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/tr/csharp/acklamay-kullanma/#/schema/image/2"
+      },
+      "inLanguage": "tr",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/tr/csharp/acklamay-kullanma/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/tr/csharp/acklamay-kullanma/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/",
+          "url": "https://www.wikiod.com/tr/",
+          "name": "Tr"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/csharp/",
+          "url": "https://www.wikiod.com/tr/csharp/",
+          "name": "Csharp"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/tr/csharp/acklamay-kullanma/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Açıklamayı Kullanma",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/tr/csharp/acklamay-kullanma/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/tr/csharp/acklamay-kullanma/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/tr/csharp/acklamay-kullanma/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/tr/csharp/acklamay-kullanma/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Açıklamayı Kullanma"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/tr/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Araştır docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/csharp/"><h3 class="h6 text-uppercase mb-2">C# Dil Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-dili-ile-baslarken/">C# Dili ile Başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-60-ozellikleri/">C# 6.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-70-ozellikleri/">C# 7.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/uzatma-yontemleri/">Uzatma Yöntemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/linq-sorgular/">LINQ Sorguları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/anahtar-kelimeler/">anahtar kelimeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/getiri-anahtar-kelimesi/">Getiri Anahtar Kelimesi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/csharp/acklamay-kullanma/">Açıklamayı Kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/istisna-isleme/">İstisna işleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/refleks/">Refleks</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/zaman-uyumsuz-bekliyor/">zaman uyumsuz-bekliyor</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/jenerik/">jenerik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sralama/">Sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/verbatim-dizeleri/">Verbatim Dizeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/null-coalescing-operatoru/">Null-Coalescing Operatörü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/stringformat/">String.Format</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/operatorler/">operatörler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yapclar-ve-sonlandrclar/">Yapıcılar ve Sonlandırıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/null-kosullu-operatorler/">Null-Koşullu Operatörler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/diziler/">diziler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tekil-uygulama/">Tekil Uygulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/delegeler/">Delegeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/koleksiyon-baslatclar/">Koleksiyon Başlatıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/assemblyinfocs-ornekleri/">AssemblyInfo.cs Örnekleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-enterpolasyonu/">Dize Enterpolasyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/olaylar/">Olaylar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/miras/">Miras</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ifade-agaclar/">İfade Ağaçları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/arayuzler/">Arayüzler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dis-acma/">diş açma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/xml-belgelendirme-yorumlar/">XML Belgelendirme Yorumları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yaratc-tasarm-desenleri/">Yaratıcı Tasarım Desenleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/fonksiyonel-programlama/">Fonksiyonel Programlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tek-kullanmlk-arayuz/">Tek kullanımlık arayüz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/adlandrma-kurallar/">Adlandırma Kuralları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/arka-planisci/">Arka Planİşçi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-koleksiyonlarna-genel-baks/">c# koleksiyonlarına genel bakış</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nette-cop-toplayc/">.Net&#39;te Çöp Toplayıcı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kilit-bildirimi/">Kilit Bildirimi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/operatorun-ad/">Operatörün adı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tarihsaat-yontemleri/">TarihSaat Yöntemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dosya-ve-aks-gc/">Dosya ve Akış GÇ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/polimorfizm/">polimorfizm</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/demetler/">demetler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kriptografi-systemsecuritycryptography/">Kriptografi (System.Security.Cryptography)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/birlikte-calsabilirlik/">birlikte çalışabilirlik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/asyncawait-backgroundworker-task-ve-thread-ornekleri/">Asyncawait, Backgroundworker, Task ve Thread Örnekleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/http-isteklerini-gerceklestirme/">HTTP isteklerini gerçekleştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ortak-dizi-islemleri/">Ortak Dizi İşlemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/oznitellikler/">Öznitellikler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/birden-cok-donus-degeri-olan-islev/">Birden çok dönüş değeri olan işlev</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/calsma-zaman-derlemesi/">Çalışma Zamanı Derlemesi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-kacs-dizileri/">Dize Kaçış Dizileri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/deger-turu-ve-referans-turu/">Değer türü ve Referans türü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/net-derleyici-platformu-roslyn/">.NET Derleyici Platformu (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-ile-jsona-baslarken/">C# ile Json&#39;a Başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ozellikleri/">Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ag/">ağ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nette-guvenli-olmayan-kod/">.NET&#39;te Güvenli Olmayan Kod</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/gorev-paralel-kitaplg-tpl-veri-aks-yaplar/">Görev Paralel Kitaplığı (TPL) Veri Akışı Yapıları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/onislemci-yonergeleri/">Önişlemci yönergeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dinamik-tip/">dinamik tip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dongu/">döngü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yontemler/">yöntemler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ikili-serilestirme/">İkili Serileştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/statik-snflar/">Statik Sınıflar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-komut-dosyas/">C# Komut Dosyası</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sqlite-cta-kullanmak/">SQLite&#39;ı C#&#39;ta Kullanmak</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-40-ozellikleri/">C# 4.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/veritabanlarna-erisim/">Veritabanlarına Erişim</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-ile-rastgele-saylar-uretmek/">C# ile Rastgele Sayılar Üretmek</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nesnelere-linq/">Nesnelere Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ozyineleme/">özyineleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kod-sozlesmeleri/">Kod Sözleşmeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dizin-olusturucu/">dizin oluşturucu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/bagmllk-enjeksiyonu/">Bağımlılık Enjeksiyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/bir-birlik-turu-olusturmak-icin-c-yaplar-nasl-kullanlr-c-birliklerine-benzer/">Bir Birlik türü oluşturmak için C# Yapıları nasıl kullanılır (C Birliklerine benzer)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/onbellege-almak/">Önbelleğe almak</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/rehber/">rehber</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yineleyiciler/">yineleyiciler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/aktarm/">Aktarım</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-kimlik-dogrulama-isleyicisi/">C# Kimlik doğrulama işleyicisi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/erisim-degistiricileri/">Erişim Değiştiricileri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/stringbuilder/">StringBuilder</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/anonim-turler/">anonim türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sorgulanabilir-arayuz/">Sorgulanabilir arayüz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/veri-acklamas/">Veri Açıklaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/xmldocument-ve-systemxml-ad-alan/">XmlDocument ve System.Xml ad alanı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/direktifi-kullanma/">Direktifi Kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/isaretciler-ve-guvenli-olmayan-kod/">İşaretçiler ve Güvenli Olmayan Kod</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dokum/">Döküm</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/inotifypropertydegistirilmis-arayuz/">INotifyPropertyDeğiştirilmiş arayüz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/isaretli-ve-isaretsiz/">İşaretli ve İşaretsiz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/zamanlayclar/">zamanlayıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/hash-fonksiyonlar/">Hash Fonksiyonları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/null-yaplabilir-turler/">Null yapılabilir türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/zip-dosyalarn-okuma-ve-yazma/">.zip dosyalarını okuma ve yazma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-50-ozellikleri/">C# 5.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/paralel-linq-plinq/">Paralel LINQ (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/lambda-ifadeleri/">Lambda İfadeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ilgenerator/">ILGenerator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/linqden-xmlye-donusturucu/">LINQ&#39;den XML&#39;ye dönüştürücü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nesne-baslatclar/">Nesne başlatıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/asenkron-soket/">Asenkron Soket</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/eylem-filtreleri/">Eylem Filtreleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/teshis/">teşhis</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/degismezlik/">Değişmezlik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dosya-sistemi-izleyici/">Dosya Sistemi İzleyici</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ozellikleri-baslatma/">Özellikleri Başlatma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/async-awaitte-senkronizasyon-baglam/">Async-Await&#39;te Senkronizasyon Bağlamı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/equals-ve-gethashcode/">Equals ve GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/gorev-paralel-kitaplg/">Görev Paralel Kitaplığı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/islev-delegeleri/">İşlev delegeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ksmi-snf-ve-yontemler/">Kısmi sınıf ve yöntemler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kosullu-ifadeler/">Koşullu İfadeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nullreferenceexception/">NullReferenceException</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/t4-kod-olusturma/">T4 Kod Oluşturma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/normal-ifade-ayrstrma/">Normal İfade Ayrıştırma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/reaktif-uzantlar-rx/">Reaktif Uzantılar (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yorumlar-ve-bolgeler/">Yorumlar ve bölgeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-birlestirme/">Dize Birleştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kronometreler/">Kronometreler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/observablecollectiont/">ObservableCollection&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yaplar/">yapılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/aspnet-kimligi/">ASP.NET Kimliği</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/flyweight-tasarm-modelinin-uygulanmas/">Flyweight Tasarım Modelinin Uygulanması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/numaralandrlabilir/">Numaralandırılabilir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tasma/">taşma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/degismezler/">değişmezler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sistemyonetimotomasyon/">Sistem.Yönetim.Otomasyon</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/asr-yuk-cozunurlugu/">Aşırı Yük Çözünürlüğü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/buyuktamsay/">BüyükTamsayı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-ile-nesne-yonelimli-programlama/">C# ile Nesne Yönelimli Programlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/degisken-bir-ipligi-guvenli-hale-getirme/">Değişken bir ipliği güvenli hale getirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yapsal-tasarm-desenleri/">Yapısal Tasarım Desenleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-30-ozellikleri/">C# 3.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-manipulasyonu/">dize Manipülasyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/genel-lambda-sorgu-olusturucu/">Genel Lambda Sorgu Oluşturucu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/google-kisilerini-ice-aktar/">Google Kişilerini İçe Aktar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/xdocument-ve-systemxmllinq-ad-alan/">XDocument ve System.Xml.Linq ad alanı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/klonlanabilir/">Klonlanabilir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yerlesik-turlerin-takma-adlar/">Yerleşik türlerin takma adları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/adlandrlms-argumanlar/">Adlandırılmış Argümanlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dekorator-tasarm-modelini-uygulama/">Dekoratör Tasarım Modelini Uygulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/jsonneti-kullanma/">json.net&#39;i kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/esitlik-operatoru/">eşitlik operatörü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/isaretciler/">işaretçiler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/karslastrlabilir/">Karşılaştırılabilir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tur-donusturme/">Tür Dönüştürme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/on-bir-dizinin-dairesel-donusu-icin-algoritma/">O(n) Bir dizinin dairesel dönüşü için algoritma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yerlesik-tipler/">Yerleşik Tipler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ygn-izlerini-okuyun-ve-anlayn/">Yığın İzlerini Okuyun ve Anlayın</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/clscompliantozelligi/">CLSCompliantÖzelliği</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kod-sozlesmeleri-ve-iddialar/">Kod Sözleşmeleri ve İddialar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/adlandrlms-ve-istege-bagl-bagmsz-degiskenler/">Adlandırılmış ve İsteğe Bağlı Bağımsız Değişkenler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/duz-metin-duzenleyicisi-ve-c-derleyicisi-cscexe-kullanarak-konsol-uygulamas-olusturma/">Düz Metin Düzenleyicisi ve C# Derleyicisi (csc.exe) kullanarak Konsol Uygulaması Oluşturma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/windows-form-uygulamasnda-kendi-mesaj-kutusunu-olusturma/">Windows Form Uygulamasında Kendi Mesaj Kutusunu Oluşturma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/microsoftexchangewebhizmetler/">Microsoft.Exchange.WebHizmetler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/windows-iletisim-vakf/">Windows İletişim Vakfı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dizeyi-diger-turlere-donustururken-formatexception-isleme/">Dizeyi diğer türlere dönüştürürken FormatException&#39;ı işleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kullanc-ad-ve-sifre-ile-ag-paylasml-klasorune-erisin/">Kullanıcı adı ve şifre ile ağ paylaşımlı klasörüne erişin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yaz-tipi-kaynaklar-dahil/">Yazı Tipi Kaynakları Dahil</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/tr/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/docs/">öğreticiler</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/blog/">Nesne</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Türk
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/tr/csharp/acklamay-kullanma/">Türk</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/csharp/using-statement/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/csharp/declaracion-de-uso/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/fr/csharp/utilisation-de-linstruction/" hreflang="fr" lang="fr">Français</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/csharp/usando-declaracao/" hreflang="pt" lang="pt">Português</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/csharp/"><h3 class="h6 text-uppercase mb-2">C# Dil Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-dili-ile-baslarken/">C# Dili ile Başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-60-ozellikleri/">C# 6.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-70-ozellikleri/">C# 7.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/uzatma-yontemleri/">Uzatma Yöntemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/linq-sorgular/">LINQ Sorguları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/anahtar-kelimeler/">anahtar kelimeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/getiri-anahtar-kelimesi/">Getiri Anahtar Kelimesi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/csharp/acklamay-kullanma/">Açıklamayı Kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/istisna-isleme/">İstisna işleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/refleks/">Refleks</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/zaman-uyumsuz-bekliyor/">zaman uyumsuz-bekliyor</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/jenerik/">jenerik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sralama/">Sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/verbatim-dizeleri/">Verbatim Dizeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/null-coalescing-operatoru/">Null-Coalescing Operatörü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/stringformat/">String.Format</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/operatorler/">operatörler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yapclar-ve-sonlandrclar/">Yapıcılar ve Sonlandırıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/null-kosullu-operatorler/">Null-Koşullu Operatörler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/diziler/">diziler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tekil-uygulama/">Tekil Uygulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/delegeler/">Delegeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/koleksiyon-baslatclar/">Koleksiyon Başlatıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/assemblyinfocs-ornekleri/">AssemblyInfo.cs Örnekleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-enterpolasyonu/">Dize Enterpolasyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/olaylar/">Olaylar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/miras/">Miras</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ifade-agaclar/">İfade Ağaçları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/arayuzler/">Arayüzler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dis-acma/">diş açma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/xml-belgelendirme-yorumlar/">XML Belgelendirme Yorumları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yaratc-tasarm-desenleri/">Yaratıcı Tasarım Desenleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/fonksiyonel-programlama/">Fonksiyonel Programlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tek-kullanmlk-arayuz/">Tek kullanımlık arayüz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/adlandrma-kurallar/">Adlandırma Kuralları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/arka-planisci/">Arka Planİşçi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-koleksiyonlarna-genel-baks/">c# koleksiyonlarına genel bakış</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nette-cop-toplayc/">.Net&#39;te Çöp Toplayıcı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kilit-bildirimi/">Kilit Bildirimi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/operatorun-ad/">Operatörün adı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tarihsaat-yontemleri/">TarihSaat Yöntemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dosya-ve-aks-gc/">Dosya ve Akış GÇ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/polimorfizm/">polimorfizm</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/demetler/">demetler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kriptografi-systemsecuritycryptography/">Kriptografi (System.Security.Cryptography)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/birlikte-calsabilirlik/">birlikte çalışabilirlik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/asyncawait-backgroundworker-task-ve-thread-ornekleri/">Asyncawait, Backgroundworker, Task ve Thread Örnekleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/http-isteklerini-gerceklestirme/">HTTP isteklerini gerçekleştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ortak-dizi-islemleri/">Ortak Dizi İşlemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/oznitellikler/">Öznitellikler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/birden-cok-donus-degeri-olan-islev/">Birden çok dönüş değeri olan işlev</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/calsma-zaman-derlemesi/">Çalışma Zamanı Derlemesi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-kacs-dizileri/">Dize Kaçış Dizileri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/deger-turu-ve-referans-turu/">Değer türü ve Referans türü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/net-derleyici-platformu-roslyn/">.NET Derleyici Platformu (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-ile-jsona-baslarken/">C# ile Json&#39;a Başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ozellikleri/">Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ag/">ağ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nette-guvenli-olmayan-kod/">.NET&#39;te Güvenli Olmayan Kod</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/gorev-paralel-kitaplg-tpl-veri-aks-yaplar/">Görev Paralel Kitaplığı (TPL) Veri Akışı Yapıları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/onislemci-yonergeleri/">Önişlemci yönergeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dinamik-tip/">dinamik tip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dongu/">döngü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yontemler/">yöntemler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ikili-serilestirme/">İkili Serileştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/statik-snflar/">Statik Sınıflar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-komut-dosyas/">C# Komut Dosyası</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sqlite-cta-kullanmak/">SQLite&#39;ı C#&#39;ta Kullanmak</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-40-ozellikleri/">C# 4.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/veritabanlarna-erisim/">Veritabanlarına Erişim</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-ile-rastgele-saylar-uretmek/">C# ile Rastgele Sayılar Üretmek</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nesnelere-linq/">Nesnelere Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ozyineleme/">özyineleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kod-sozlesmeleri/">Kod Sözleşmeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dizin-olusturucu/">dizin oluşturucu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/bagmllk-enjeksiyonu/">Bağımlılık Enjeksiyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/bir-birlik-turu-olusturmak-icin-c-yaplar-nasl-kullanlr-c-birliklerine-benzer/">Bir Birlik türü oluşturmak için C# Yapıları nasıl kullanılır (C Birliklerine benzer)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/onbellege-almak/">Önbelleğe almak</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/rehber/">rehber</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yineleyiciler/">yineleyiciler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/aktarm/">Aktarım</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-kimlik-dogrulama-isleyicisi/">C# Kimlik doğrulama işleyicisi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/erisim-degistiricileri/">Erişim Değiştiricileri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/stringbuilder/">StringBuilder</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/anonim-turler/">anonim türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sorgulanabilir-arayuz/">Sorgulanabilir arayüz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/veri-acklamas/">Veri Açıklaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/xmldocument-ve-systemxml-ad-alan/">XmlDocument ve System.Xml ad alanı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/direktifi-kullanma/">Direktifi Kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/isaretciler-ve-guvenli-olmayan-kod/">İşaretçiler ve Güvenli Olmayan Kod</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dokum/">Döküm</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/inotifypropertydegistirilmis-arayuz/">INotifyPropertyDeğiştirilmiş arayüz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/isaretli-ve-isaretsiz/">İşaretli ve İşaretsiz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/zamanlayclar/">zamanlayıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/hash-fonksiyonlar/">Hash Fonksiyonları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/null-yaplabilir-turler/">Null yapılabilir türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/zip-dosyalarn-okuma-ve-yazma/">.zip dosyalarını okuma ve yazma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-50-ozellikleri/">C# 5.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/paralel-linq-plinq/">Paralel LINQ (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/lambda-ifadeleri/">Lambda İfadeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ilgenerator/">ILGenerator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/linqden-xmlye-donusturucu/">LINQ&#39;den XML&#39;ye dönüştürücü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nesne-baslatclar/">Nesne başlatıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/asenkron-soket/">Asenkron Soket</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/eylem-filtreleri/">Eylem Filtreleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/teshis/">teşhis</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/degismezlik/">Değişmezlik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dosya-sistemi-izleyici/">Dosya Sistemi İzleyici</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ozellikleri-baslatma/">Özellikleri Başlatma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/async-awaitte-senkronizasyon-baglam/">Async-Await&#39;te Senkronizasyon Bağlamı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/equals-ve-gethashcode/">Equals ve GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/gorev-paralel-kitaplg/">Görev Paralel Kitaplığı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/islev-delegeleri/">İşlev delegeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ksmi-snf-ve-yontemler/">Kısmi sınıf ve yöntemler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kosullu-ifadeler/">Koşullu İfadeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nullreferenceexception/">NullReferenceException</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/t4-kod-olusturma/">T4 Kod Oluşturma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/normal-ifade-ayrstrma/">Normal İfade Ayrıştırma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/reaktif-uzantlar-rx/">Reaktif Uzantılar (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yorumlar-ve-bolgeler/">Yorumlar ve bölgeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-birlestirme/">Dize Birleştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kronometreler/">Kronometreler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/observablecollectiont/">ObservableCollection&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yaplar/">yapılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/aspnet-kimligi/">ASP.NET Kimliği</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/flyweight-tasarm-modelinin-uygulanmas/">Flyweight Tasarım Modelinin Uygulanması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/numaralandrlabilir/">Numaralandırılabilir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tasma/">taşma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/degismezler/">değişmezler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sistemyonetimotomasyon/">Sistem.Yönetim.Otomasyon</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/asr-yuk-cozunurlugu/">Aşırı Yük Çözünürlüğü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/buyuktamsay/">BüyükTamsayı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-ile-nesne-yonelimli-programlama/">C# ile Nesne Yönelimli Programlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/degisken-bir-ipligi-guvenli-hale-getirme/">Değişken bir ipliği güvenli hale getirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yapsal-tasarm-desenleri/">Yapısal Tasarım Desenleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-30-ozellikleri/">C# 3.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-manipulasyonu/">dize Manipülasyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/genel-lambda-sorgu-olusturucu/">Genel Lambda Sorgu Oluşturucu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/google-kisilerini-ice-aktar/">Google Kişilerini İçe Aktar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/xdocument-ve-systemxmllinq-ad-alan/">XDocument ve System.Xml.Linq ad alanı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/klonlanabilir/">Klonlanabilir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yerlesik-turlerin-takma-adlar/">Yerleşik türlerin takma adları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/adlandrlms-argumanlar/">Adlandırılmış Argümanlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dekorator-tasarm-modelini-uygulama/">Dekoratör Tasarım Modelini Uygulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/jsonneti-kullanma/">json.net&#39;i kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/esitlik-operatoru/">eşitlik operatörü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/isaretciler/">işaretçiler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/karslastrlabilir/">Karşılaştırılabilir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tur-donusturme/">Tür Dönüştürme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/on-bir-dizinin-dairesel-donusu-icin-algoritma/">O(n) Bir dizinin dairesel dönüşü için algoritma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yerlesik-tipler/">Yerleşik Tipler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ygn-izlerini-okuyun-ve-anlayn/">Yığın İzlerini Okuyun ve Anlayın</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/clscompliantozelligi/">CLSCompliantÖzelliği</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kod-sozlesmeleri-ve-iddialar/">Kod Sözleşmeleri ve İddialar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/adlandrlms-ve-istege-bagl-bagmsz-degiskenler/">Adlandırılmış ve İsteğe Bağlı Bağımsız Değişkenler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/duz-metin-duzenleyicisi-ve-c-derleyicisi-cscexe-kullanarak-konsol-uygulamas-olusturma/">Düz Metin Düzenleyicisi ve C# Derleyicisi (csc.exe) kullanarak Konsol Uygulaması Oluşturma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/windows-form-uygulamasnda-kendi-mesaj-kutusunu-olusturma/">Windows Form Uygulamasında Kendi Mesaj Kutusunu Oluşturma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/microsoftexchangewebhizmetler/">Microsoft.Exchange.WebHizmetler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/windows-iletisim-vakf/">Windows İletişim Vakfı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dizeyi-diger-turlere-donustururken-formatexception-isleme/">Dizeyi diğer türlere dönüştürürken FormatException&#39;ı işleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kullanc-ad-ve-sifre-ile-ag-paylasml-klasorune-erisin/">Kullanıcı adı ve şifre ile ağ paylaşımlı klasörüne erişin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yaz-tipi-kaynaklar-dahil/">Yazı Tipi Kaynakları Dahil</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/csharp/"><h3 class="h6 text-uppercase mb-2">C# Dil Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-dili-ile-baslarken/">C# Dili ile Başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-60-ozellikleri/">C# 6.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-70-ozellikleri/">C# 7.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/uzatma-yontemleri/">Uzatma Yöntemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/linq-sorgular/">LINQ Sorguları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/anahtar-kelimeler/">anahtar kelimeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/getiri-anahtar-kelimesi/">Getiri Anahtar Kelimesi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/csharp/acklamay-kullanma/">Açıklamayı Kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/istisna-isleme/">İstisna işleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/refleks/">Refleks</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/zaman-uyumsuz-bekliyor/">zaman uyumsuz-bekliyor</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/jenerik/">jenerik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sralama/">Sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/verbatim-dizeleri/">Verbatim Dizeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/null-coalescing-operatoru/">Null-Coalescing Operatörü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/stringformat/">String.Format</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/operatorler/">operatörler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yapclar-ve-sonlandrclar/">Yapıcılar ve Sonlandırıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/null-kosullu-operatorler/">Null-Koşullu Operatörler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/diziler/">diziler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tekil-uygulama/">Tekil Uygulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/delegeler/">Delegeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/koleksiyon-baslatclar/">Koleksiyon Başlatıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/assemblyinfocs-ornekleri/">AssemblyInfo.cs Örnekleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-enterpolasyonu/">Dize Enterpolasyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/olaylar/">Olaylar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/miras/">Miras</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ifade-agaclar/">İfade Ağaçları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/arayuzler/">Arayüzler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dis-acma/">diş açma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/xml-belgelendirme-yorumlar/">XML Belgelendirme Yorumları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yaratc-tasarm-desenleri/">Yaratıcı Tasarım Desenleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/fonksiyonel-programlama/">Fonksiyonel Programlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tek-kullanmlk-arayuz/">Tek kullanımlık arayüz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/adlandrma-kurallar/">Adlandırma Kuralları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/arka-planisci/">Arka Planİşçi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-koleksiyonlarna-genel-baks/">c# koleksiyonlarına genel bakış</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nette-cop-toplayc/">.Net&#39;te Çöp Toplayıcı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kilit-bildirimi/">Kilit Bildirimi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/operatorun-ad/">Operatörün adı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tarihsaat-yontemleri/">TarihSaat Yöntemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dosya-ve-aks-gc/">Dosya ve Akış GÇ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/polimorfizm/">polimorfizm</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/demetler/">demetler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kriptografi-systemsecuritycryptography/">Kriptografi (System.Security.Cryptography)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/birlikte-calsabilirlik/">birlikte çalışabilirlik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/asyncawait-backgroundworker-task-ve-thread-ornekleri/">Asyncawait, Backgroundworker, Task ve Thread Örnekleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/http-isteklerini-gerceklestirme/">HTTP isteklerini gerçekleştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ortak-dizi-islemleri/">Ortak Dizi İşlemleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/oznitellikler/">Öznitellikler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/birden-cok-donus-degeri-olan-islev/">Birden çok dönüş değeri olan işlev</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/calsma-zaman-derlemesi/">Çalışma Zamanı Derlemesi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-kacs-dizileri/">Dize Kaçış Dizileri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/systemdirectoryservicesprotocolsldapconnection/">System.DirectoryServices.Protocols.LdapConnection</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/deger-turu-ve-referans-turu/">Değer türü ve Referans türü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/net-derleyici-platformu-roslyn/">.NET Derleyici Platformu (Roslyn)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-ile-jsona-baslarken/">C# ile Json&#39;a Başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ozellikleri/">Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ag/">ağ</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nette-guvenli-olmayan-kod/">.NET&#39;te Güvenli Olmayan Kod</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/gorev-paralel-kitaplg-tpl-veri-aks-yaplar/">Görev Paralel Kitaplığı (TPL) Veri Akışı Yapıları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/onislemci-yonergeleri/">Önişlemci yönergeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dinamik-tip/">dinamik tip</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dongu/">döngü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yontemler/">yöntemler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ikili-serilestirme/">İkili Serileştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/statik-snflar/">Statik Sınıflar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-komut-dosyas/">C# Komut Dosyası</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sqlite-cta-kullanmak/">SQLite&#39;ı C#&#39;ta Kullanmak</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-40-ozellikleri/">C# 4.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/veritabanlarna-erisim/">Veritabanlarına Erişim</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-ile-rastgele-saylar-uretmek/">C# ile Rastgele Sayılar Üretmek</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nesnelere-linq/">Nesnelere Linq</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ozyineleme/">özyineleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kod-sozlesmeleri/">Kod Sözleşmeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dizin-olusturucu/">dizin oluşturucu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/bagmllk-enjeksiyonu/">Bağımlılık Enjeksiyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/bir-birlik-turu-olusturmak-icin-c-yaplar-nasl-kullanlr-c-birliklerine-benzer/">Bir Birlik türü oluşturmak için C# Yapıları nasıl kullanılır (C Birliklerine benzer)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/onbellege-almak/">Önbelleğe almak</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/rehber/">rehber</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yineleyiciler/">yineleyiciler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/aktarm/">Aktarım</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/bindinglistt/">BindingList&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-kimlik-dogrulama-isleyicisi/">C# Kimlik doğrulama işleyicisi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/erisim-degistiricileri/">Erişim Değiştiricileri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/stringbuilder/">StringBuilder</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/anonim-turler/">anonim türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sorgulanabilir-arayuz/">Sorgulanabilir arayüz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/veri-acklamas/">Veri Açıklaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/xmldocument-ve-systemxml-ad-alan/">XmlDocument ve System.Xml ad alanı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/direktifi-kullanma/">Direktifi Kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/isaretciler-ve-guvenli-olmayan-kod/">İşaretçiler ve Güvenli Olmayan Kod</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dokum/">Döküm</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/inotifypropertydegistirilmis-arayuz/">INotifyPropertyDeğiştirilmiş arayüz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/isaretli-ve-isaretsiz/">İşaretli ve İşaretsiz</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/zamanlayclar/">zamanlayıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/hash-fonksiyonlar/">Hash Fonksiyonları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/null-yaplabilir-turler/">Null yapılabilir türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/zip-dosyalarn-okuma-ve-yazma/">.zip dosyalarını okuma ve yazma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-50-ozellikleri/">C# 5.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/paralel-linq-plinq/">Paralel LINQ (PLINQ)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/lambda-ifadeleri/">Lambda İfadeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ilgenerator/">ILGenerator</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/linqden-xmlye-donusturucu/">LINQ&#39;den XML&#39;ye dönüştürücü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nesne-baslatclar/">Nesne başlatıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/asenkron-soket/">Asenkron Soket</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/eylem-filtreleri/">Eylem Filtreleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/teshis/">teşhis</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/degismezlik/">Değişmezlik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dosya-sistemi-izleyici/">Dosya Sistemi İzleyici</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ozellikleri-baslatma/">Özellikleri Başlatma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/async-awaitte-senkronizasyon-baglam/">Async-Await&#39;te Senkronizasyon Bağlamı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/equals-ve-gethashcode/">Equals ve GetHashCode</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/gorev-paralel-kitaplg/">Görev Paralel Kitaplığı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/islev-delegeleri/">İşlev delegeleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ksmi-snf-ve-yontemler/">Kısmi sınıf ve yöntemler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kosullu-ifadeler/">Koşullu İfadeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/nullreferenceexception/">NullReferenceException</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/t4-kod-olusturma/">T4 Kod Oluşturma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/normal-ifade-ayrstrma/">Normal İfade Ayrıştırma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/reaktif-uzantlar-rx/">Reaktif Uzantılar (Rx)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yorumlar-ve-bolgeler/">Yorumlar ve bölgeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-birlestirme/">Dize Birleştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kronometreler/">Kronometreler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/observablecollectiont/">ObservableCollection&lt;T&gt;</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yaplar/">yapılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/aspnet-kimligi/">ASP.NET Kimliği</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/flyweight-tasarm-modelinin-uygulanmas/">Flyweight Tasarım Modelinin Uygulanması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/numaralandrlabilir/">Numaralandırılabilir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tasma/">taşma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/degismezler/">değişmezler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/sistemyonetimotomasyon/">Sistem.Yönetim.Otomasyon</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/asr-yuk-cozunurlugu/">Aşırı Yük Çözünürlüğü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/buyuktamsay/">BüyükTamsayı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-ile-nesne-yonelimli-programlama/">C# ile Nesne Yönelimli Programlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/degisken-bir-ipligi-guvenli-hale-getirme/">Değişken bir ipliği güvenli hale getirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yapsal-tasarm-desenleri/">Yapısal Tasarım Desenleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/c-30-ozellikleri/">C# 3.0 Özellikleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dize-manipulasyonu/">dize Manipülasyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/genel-lambda-sorgu-olusturucu/">Genel Lambda Sorgu Oluşturucu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/google-kisilerini-ice-aktar/">Google Kişilerini İçe Aktar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/xdocument-ve-systemxmllinq-ad-alan/">XDocument ve System.Xml.Linq ad alanı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/klonlanabilir/">Klonlanabilir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yerlesik-turlerin-takma-adlar/">Yerleşik türlerin takma adları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/adlandrlms-argumanlar/">Adlandırılmış Argümanlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dekorator-tasarm-modelini-uygulama/">Dekoratör Tasarım Modelini Uygulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/jsonneti-kullanma/">json.net&#39;i kullanma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/esitlik-operatoru/">eşitlik operatörü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/isaretciler/">işaretçiler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/karslastrlabilir/">Karşılaştırılabilir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/tur-donusturme/">Tür Dönüştürme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/on-bir-dizinin-dairesel-donusu-icin-algoritma/">O(n) Bir dizinin dairesel dönüşü için algoritma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yerlesik-tipler/">Yerleşik Tipler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/ygn-izlerini-okuyun-ve-anlayn/">Yığın İzlerini Okuyun ve Anlayın</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/clscompliantozelligi/">CLSCompliantÖzelliği</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kod-sozlesmeleri-ve-iddialar/">Kod Sözleşmeleri ve İddialar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/adlandrlms-ve-istege-bagl-bagmsz-degiskenler/">Adlandırılmış ve İsteğe Bağlı Bağımsız Değişkenler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/duz-metin-duzenleyicisi-ve-c-derleyicisi-cscexe-kullanarak-konsol-uygulamas-olusturma/">Düz Metin Düzenleyicisi ve C# Derleyicisi (csc.exe) kullanarak Konsol Uygulaması Oluşturma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/windows-form-uygulamasnda-kendi-mesaj-kutusunu-olusturma/">Windows Form Uygulamasında Kendi Mesaj Kutusunu Oluşturma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/microsoftexchangewebhizmetler/">Microsoft.Exchange.WebHizmetler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/windows-iletisim-vakf/">Windows İletişim Vakfı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/dizeyi-diger-turlere-donustururken-formatexception-isleme/">Dizeyi diğer türlere dönüştürürken FormatException&#39;ı işleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/kullanc-ad-ve-sifre-ile-ag-paylasml-klasorune-erisin/">Kullanıcı adı ve şifre ile ağ paylaşımlı klasörüne erişin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/csharp/yaz-tipi-kaynaklar-dahil/">Yazı Tipi Kaynakları Dahil</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sözdizimi">Sözdizimi</a></li>
+    <li><a href="#gotcha-elden-çıkardığınız-kaynağı-iade-etmek">Gotcha: elden çıkardığınız kaynağı iade etmek</a></li>
+    <li><a href="#temel-ifadeleri-kullanma">Temel İfadeleri Kullanma</a></li>
+    <li><a href="#blok-kullanımından-dönüş">Blok kullanımından dönüş</a></li>
+    <li><a href="#bir-blokla-çoklu-kullanım-ifadeleri">Bir blokla çoklu kullanım ifadeleri</a></li>
+    <li><a href="#gotcha-blokları-kullanmadaki-diğer-hataları-maskeleyen-dispose-yönteminde-istisna">Gotcha: Blokları kullanmadaki diğer hataları maskeleyen Dispose yönteminde istisna</a></li>
+    <li><a href="#ifadeleri-kullanmak-boş-güvenlidir">İfadeleri kullanmak boş güvenlidir</a></li>
+    <li><a href="#özel-kapsamı-tanımlamak-için-dispose-syntaxı-kullanma">Özel kapsamı tanımlamak için Dispose Syntax&rsquo;ı kullanma</a></li>
+    <li><a href="#ifadeleri-ve-veritabanı-bağlantılarını-kullanma">İfadeleri ve Veritabanı Bağlantılarını Kullanma</a></li>
+    <li><a href="#ortak-isposable-veri-sınıfları"><strong>Ortak &ldquo;Isposable&rdquo; Veri Sınıfları</strong></a></li>
+    <li><a href="#adonet-bağlantıları-için-ortak-erişim-modeli"><strong>ADO.NET Bağlantıları için Ortak Erişim Modeli</strong></a></li>
+    <li><a href="#bildirimleri-datacontexts-ile-kullanma"><strong>Bildirimleri DataContexts ile Kullanma</strong></a></li>
+    <li><a href="#kısıtlama-bağlamında-kod-yürütme">Kısıtlama bağlamında kod yürütme</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sözdizimi">Sözdizimi</a></li>
+    <li><a href="#gotcha-elden-çıkardığınız-kaynağı-iade-etmek">Gotcha: elden çıkardığınız kaynağı iade etmek</a></li>
+    <li><a href="#temel-ifadeleri-kullanma">Temel İfadeleri Kullanma</a></li>
+    <li><a href="#blok-kullanımından-dönüş">Blok kullanımından dönüş</a></li>
+    <li><a href="#bir-blokla-çoklu-kullanım-ifadeleri">Bir blokla çoklu kullanım ifadeleri</a></li>
+    <li><a href="#gotcha-blokları-kullanmadaki-diğer-hataları-maskeleyen-dispose-yönteminde-istisna">Gotcha: Blokları kullanmadaki diğer hataları maskeleyen Dispose yönteminde istisna</a></li>
+    <li><a href="#ifadeleri-kullanmak-boş-güvenlidir">İfadeleri kullanmak boş güvenlidir</a></li>
+    <li><a href="#özel-kapsamı-tanımlamak-için-dispose-syntaxı-kullanma">Özel kapsamı tanımlamak için Dispose Syntax&rsquo;ı kullanma</a></li>
+    <li><a href="#ifadeleri-ve-veritabanı-bağlantılarını-kullanma">İfadeleri ve Veritabanı Bağlantılarını Kullanma</a></li>
+    <li><a href="#ortak-isposable-veri-sınıfları"><strong>Ortak &ldquo;Isposable&rdquo; Veri Sınıfları</strong></a></li>
+    <li><a href="#adonet-bağlantıları-için-ortak-erişim-modeli"><strong>ADO.NET Bağlantıları için Ortak Erişim Modeli</strong></a></li>
+    <li><a href="#bildirimleri-datacontexts-ile-kullanma"><strong>Bildirimleri DataContexts ile Kullanma</strong></a></li>
+    <li><a href="#kısıtlama-bağlamında-kod-yürütme">Kısıtlama bağlamında kod yürütme</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/tr/">Home</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/csharp/">C# Dil Eğitimi</a></li>
+<li class="breadcrumb-item active" aria-current="page">Açıklamayı Kullanma</li>
+					</ol>
+				</nav>
+			
+			<h1>Açıklamayı Kullanma</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sözdizimi">Sözdizimi</a></li>
+    <li><a href="#gotcha-elden-çıkardığınız-kaynağı-iade-etmek">Gotcha: elden çıkardığınız kaynağı iade etmek</a></li>
+    <li><a href="#temel-ifadeleri-kullanma">Temel İfadeleri Kullanma</a></li>
+    <li><a href="#blok-kullanımından-dönüş">Blok kullanımından dönüş</a></li>
+    <li><a href="#bir-blokla-çoklu-kullanım-ifadeleri">Bir blokla çoklu kullanım ifadeleri</a></li>
+    <li><a href="#gotcha-blokları-kullanmadaki-diğer-hataları-maskeleyen-dispose-yönteminde-istisna">Gotcha: Blokları kullanmadaki diğer hataları maskeleyen Dispose yönteminde istisna</a></li>
+    <li><a href="#ifadeleri-kullanmak-boş-güvenlidir">İfadeleri kullanmak boş güvenlidir</a></li>
+    <li><a href="#özel-kapsamı-tanımlamak-için-dispose-syntaxı-kullanma">Özel kapsamı tanımlamak için Dispose Syntax&rsquo;ı kullanma</a></li>
+    <li><a href="#ifadeleri-ve-veritabanı-bağlantılarını-kullanma">İfadeleri ve Veritabanı Bağlantılarını Kullanma</a></li>
+    <li><a href="#ortak-isposable-veri-sınıfları"><strong>Ortak &ldquo;Isposable&rdquo; Veri Sınıfları</strong></a></li>
+    <li><a href="#adonet-bağlantıları-için-ortak-erişim-modeli"><strong>ADO.NET Bağlantıları için Ortak Erişim Modeli</strong></a></li>
+    <li><a href="#bildirimleri-datacontexts-ile-kullanma"><strong>Bildirimleri DataContexts ile Kullanma</strong></a></li>
+    <li><a href="#kısıtlama-bağlamında-kod-yürütme">Kısıtlama bağlamında kod yürütme</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sözdizimi">Sözdizimi</a></li>
+    <li><a href="#gotcha-elden-çıkardığınız-kaynağı-iade-etmek">Gotcha: elden çıkardığınız kaynağı iade etmek</a></li>
+    <li><a href="#temel-ifadeleri-kullanma">Temel İfadeleri Kullanma</a></li>
+    <li><a href="#blok-kullanımından-dönüş">Blok kullanımından dönüş</a></li>
+    <li><a href="#bir-blokla-çoklu-kullanım-ifadeleri">Bir blokla çoklu kullanım ifadeleri</a></li>
+    <li><a href="#gotcha-blokları-kullanmadaki-diğer-hataları-maskeleyen-dispose-yönteminde-istisna">Gotcha: Blokları kullanmadaki diğer hataları maskeleyen Dispose yönteminde istisna</a></li>
+    <li><a href="#ifadeleri-kullanmak-boş-güvenlidir">İfadeleri kullanmak boş güvenlidir</a></li>
+    <li><a href="#özel-kapsamı-tanımlamak-için-dispose-syntaxı-kullanma">Özel kapsamı tanımlamak için Dispose Syntax&rsquo;ı kullanma</a></li>
+    <li><a href="#ifadeleri-ve-veritabanı-bağlantılarını-kullanma">İfadeleri ve Veritabanı Bağlantılarını Kullanma</a></li>
+    <li><a href="#ortak-isposable-veri-sınıfları"><strong>Ortak &ldquo;Isposable&rdquo; Veri Sınıfları</strong></a></li>
+    <li><a href="#adonet-bağlantıları-için-ortak-erişim-modeli"><strong>ADO.NET Bağlantıları için Ortak Erişim Modeli</strong></a></li>
+    <li><a href="#bildirimleri-datacontexts-ile-kullanma"><strong>Bildirimleri DataContexts ile Kullanma</strong></a></li>
+    <li><a href="#kısıtlama-bağlamında-kod-yürütme">Kısıtlama bağlamında kod yürütme</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable?view=netframework-4.7">IDisposable</a> nesnelerinin doğru kullanımını sağlayan kullanışlı bir sözdizimi sağlar.</p>
+<h2 id="sözdizimi">Sözdizimi <a href="#s%c3%b6zdizimi" class="anchor" aria-hidden="true">#</a></h2>
+<ul>
+<li>kullanma (tek kullanımlık) { }</li>
+<li>kullanma (IDisposable tek kullanımlık = new MyDisposable()) { }</li>
+</ul>
+<p>&ldquo;using&rdquo; ifadesindeki nesne, &ldquo;IDisposable&rdquo; arabirimini uygulamalıdır.</p>
+<pre><code>using(var obj = new MyObject())
+{
+}
+
+class MyObject : IDisposable
+{
+    public void Dispose()
+    {
+        // Cleanup
+    }
+}
+</code></pre>
+<p>&lsquo;IDisposable&rsquo; uygulaması için daha eksiksiz örnekler <a href="https://msdn.microsoft.com/en-us/library/fs2xkftw(v=vs.110).aspx">MSDN belgelerinde</a> bulunabilir.</p>
+<h2 id="gotcha-elden-çıkardığınız-kaynağı-iade-etmek">Gotcha: elden çıkardığınız kaynağı iade etmek <a href="#gotcha-elden-%c3%a7%c4%b1kard%c4%b1%c4%9f%c4%b1n%c4%b1z-kayna%c4%9f%c4%b1-iade-etmek" class="anchor" aria-hidden="true">#</a></h2>
+<p>Aşağıdaki kötü bir fikirdir çünkü &lsquo;db&rsquo; değişkenini döndürmeden önce elden çıkarır.</p>
+<pre><code>public IDBContext GetDBContext()
+{
+    using (var db = new DBContext())
+    {
+        return db;
+    }
+}
+</code></pre>
+<p>Bu, daha ince hatalar da yaratabilir:</p>
+<pre><code>public IEnumerable&lt;Person&gt; GetPeople(int age)
+{
+    using (var db = new DBContext())
+    {
+        return db.Persons.Where(p =&gt; p.Age == age);
+    }
+}
+</code></pre>
+<p>Bu iyi görünüyor, ancak yakalama, LINQ ifade değerlendirmesinin tembel olması ve muhtemelen yalnızca daha sonra temeldeki &lsquo;DBContext&rsquo; zaten atıldığında yürütüleceğidir.</p>
+<p>Yani kısaca ifade, &lsquo;kullanım&rsquo;dan ayrılmadan önce değerlendirilmez. Hâlâ &lsquo;kullanma&rsquo;yı kullanan bu soruna olası bir çözüm, sonucu numaralandıracak bir yöntemi çağırarak ifadenin hemen değerlendirilmesini sağlamaktır. Örneğin, &lsquo;ToList()&rsquo;, &lsquo;ToArray()&rsquo;, vb. Entity Framework&rsquo;ün en yeni sürümünü kullanıyorsanız, &lsquo;ToListAsync()&rsquo; veya &lsquo;ToArrayAsync()&rsquo; gibi &lsquo;async&rsquo; karşılıklarını kullanabilirsiniz.</p>
+<p>Aşağıda eylemdeki örneği bulabilirsiniz:</p>
+<pre><code>public IEnumerable&lt;Person&gt; GetPeople(int age)
+{
+    using (var db = new DBContext())
+    {
+        return db.Persons.Where(p =&gt; p.Age == age).ToList();
+    }
+}
+</code></pre>
+<p>Yine de, &lsquo;ToList()&rsquo; veya &lsquo;ToArray()&rsquo; çağrıldığında ifadenin hevesle değerlendirileceğini, yani yineleme yapmasanız bile belirtilen yaştaki tüm kişilerin belleğe yükleneceğini not etmek önemlidir. onlar üzerinde.</p>
+<h2 id="temel-ifadeleri-kullanma">Temel İfadeleri Kullanma <a href="#temel-ifadeleri-kullanma" class="anchor" aria-hidden="true">#</a></h2>
+<p>&lsquo;use&rsquo;, açık bir &rsquo;try-finally&rsquo; bloğuna ihtiyaç duymadan bir kaynağın temizlenmesini garanti etmenizi sağlayan sözdizimsel şekerdir. Bu, kodunuzun çok daha temiz olacağı ve yönetilmeyen kaynakları sızdırmayacağınız anlamına gelir.</p>
+<p>&ldquo;IDisposable&rdquo; arabirimini uygulayan nesneler için standart &ldquo;Dispose&rdquo; temizleme modeli (&ldquo;FileStream&quot;in temel sınıfı &ldquo;Stream&quot;in .NET&rsquo;te yaptığı):</p>
+<pre><code>int Foo()
+{
+    var fileName = &quot;file.txt&quot;;
+
+    {
+        FileStream disposable = null;
+
+        try
+        {
+            disposable = File.Open(fileName, FileMode.Open);
+
+            return disposable.ReadByte();
+        }
+        finally
+        {
+            // finally blocks are always run
+            if (disposable != null) disposable.Dispose();
+        }
+    }
+}
+</code></pre>
+<p>&ldquo;kullanma&rdquo;, açık &ldquo;try-finally&rdquo; ifadesini gizleyerek sözdiziminizi basitleştirir:</p>
+<pre><code>int Foo()
+{
+    var fileName = &quot;file.txt&quot;;
+
+    using (var disposable = File.Open(fileName, FileMode.Open))
+    {
+        return disposable.ReadByte();
+    }
+    // disposable.Dispose is called even if we return earlier
+}
+</code></pre>
+<p>Tıpkı &ldquo;nihai&rdquo; bloklarının hatalardan veya geri dönüşlerden bağımsız olarak her zaman yürütülmesi gibi, &ldquo;kullanma&rdquo; da bir hata durumunda bile her zaman &ldquo;Dispose()&rdquo; işlevini çağırır:</p>
+<pre><code>int Foo()
+{
+    var fileName = &quot;file.txt&quot;;
+
+    using (var disposable = File.Open(fileName, FileMode.Open))
+    {
+        throw new InvalidOperationException();
+    }
+    // disposable.Dispose is called even if we throw an exception earlier
+}
+</code></pre>
+<p><strong>Not:</strong>
+Kod akışından bağımsız olarak &ldquo;Dispose&quot;un çağrılması garanti edildiğinden, &ldquo;Dispose&rdquo; öğesinin &ldquo;IDisposable&quot;ı uyguladığınızda hiçbir zaman bir istisna oluşturmadığından emin olmak iyi bir fikirdir. Aksi takdirde, gerçek bir istisna, yeni istisna tarafından geçersiz kılınarak hata ayıklama kabusu ile sonuçlanır.</p>
+<h2 id="blok-kullanımından-dönüş">Blok kullanımından dönüş <a href="#blok-kullan%c4%b1m%c4%b1ndan-d%c3%b6n%c3%bc%c5%9f" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code>using ( var disposable = new DisposableItem() )
+{
+    return disposable.SomeProperty;
+}
+</code></pre>
+<p>&lsquo;Using&rsquo; bloğunun çevirdiği &rsquo;try..finally&rsquo; semantiği nedeniyle, &lsquo;return&rsquo; ifadesi beklendiği gibi çalışır - &lsquo;finally&rsquo; bloğu yürütülmeden ve değer atılmadan önce dönüş değeri değerlendirilir. Değerlendirme sırası aşağıdaki gibidir:</p>
+<ol>
+<li>&lsquo;dene&rsquo; metnini değerlendirin</li>
+<li>Döndürülen değeri değerlendirin ve önbelleğe alın</li>
+<li>Sonunda bloğu yürütün</li>
+<li>Önbelleğe alınmış dönüş değerini döndür</li>
+</ol>
+<p>Ancak geçersiz, atılmış referans içereceğinden &ldquo;disposable&rdquo; değişkeninin kendisini döndüremezsiniz - bkz. <a href="https://msdn.microsoft.com/en-us/library/fs2xkftw(v=vs.110).aspx">ilgili örnek</a>.</p>
+<h2 id="bir-blokla-çoklu-kullanım-ifadeleri">Bir blokla çoklu kullanım ifadeleri <a href="#bir-blokla-%c3%a7oklu-kullan%c4%b1m-ifadeleri" class="anchor" aria-hidden="true">#</a></h2>
+<p>Birden çok iç içe ayraç düzeyi eklemeden birden çok iç içe &ldquo;kullanma&rdquo; ifadesini kullanmak mümkündür. Örneğin:</p>
+<pre><code>using (var input = File.OpenRead(&quot;input.txt&quot;))
+{
+    using (var output = File.OpenWrite(&quot;output.txt&quot;))
+    {
+        input.CopyTo(output);
+    } // output is disposed here
+} // input is disposed here
+</code></pre>
+<p>Bir alternatif yazmaktır:</p>
+<pre><code>using (var input = File.OpenRead(&quot;input.txt&quot;))
+using (var output = File.OpenWrite(&quot;output.txt&quot;))
+{
+    input.CopyTo(output);
+} // output and then input are disposed here
+</code></pre>
+<p>Hangisi ilk örneğe tam olarak eşdeğerdir.</p>
+<p><em>Not:</em> İç içe &ldquo;kullanma&rdquo; ifadeleri, Microsoft Kod Analizi kuralını <a href="https://msdn.microsoft.com/en-us/library/fs2xkftw(v=vs.110).aspx">CS2002</a> tetikleyebilir (açıklama için <a href="http://stackoverflow.com/a/22323027/501011">bu yanıt</a>&rsquo;e bakın) ve bir uyarı oluşturabilir. Bağlantılı yanıtta açıklandığı gibi, &lsquo;use&rsquo; ifadelerini iç içe yerleştirmek genellikle güvenlidir.</p>
+<p>&lsquo;using&rsquo; deyimi içindeki türler aynı türden olduğunda, onları virgülle ayırabilir ve türü yalnızca bir kez belirtebilirsiniz (ancak bu yaygın değildir):</p>
+<pre><code>using (FileStream file = File.Open(&quot;MyFile.txt&quot;), file2 = File.Open(&quot;MyFile2.txt&quot;))
+{
+}
+</code></pre>
+<p>Bu, türler paylaşılan bir hiyerarşiye sahip olduğunda da kullanılabilir:</p>
+<pre><code>using (Stream file = File.Open(&quot;MyFile.txt&quot;), data = new MemoryStream())
+{
+}
+</code></pre>
+<p>Yukarıdaki örnekte <code>var</code> anahtar kelimesi <em>cannot</em> kullanılamaz. Derleme hatası oluşur. Bildirilen değişkenler farklı hiyerarşilerden türlere sahip olduğunda, virgülle ayrılmış bildirim bile çalışmaz.</p>
+<h2 id="gotcha-blokları-kullanmadaki-diğer-hataları-maskeleyen-dispose-yönteminde-istisna">Gotcha: Blokları kullanmadaki diğer hataları maskeleyen Dispose yönteminde istisna <a href="#gotcha-bloklar%c4%b1-kullanmadaki-di%c4%9fer-hatalar%c4%b1-maskeleyen-dispose-y%c3%b6nteminde-istisna" class="anchor" aria-hidden="true">#</a></h2>
+<p>Aşağıdaki kod bloğunu göz önünde bulundurun.</p>
+<pre><code>try
+{
+    using (var disposable = new MyDisposable())
+    {
+        throw new Exception(&quot;Couldn't perform operation.&quot;);
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+
+class MyDisposable : IDisposable
+{
+    public void Dispose()
+    {
+        throw new Exception(&quot;Couldn't dispose successfully.&quot;);
+    }
+}
+</code></pre>
+<p>Konsola yazdırılan &ldquo;İşlem gerçekleştirilemedi&rdquo; ifadesini görmeyi bekleyebilirsiniz, ancak aslında &ldquo;Başarılı bir şekilde elden çıkarılamadı&rdquo; ifadesini görürsünüz. İlk istisna atıldıktan sonra bile Dispose yöntemi hala çağrıldığından.</p>
+<p>Nesnenin atılmasını engelleyen ve hata ayıklamayı zorlaştıran gerçek hatayı maskeliyor olabileceğinden, bu inceliğin farkında olmaya değer.</p>
+<h2 id="ifadeleri-kullanmak-boş-güvenlidir">İfadeleri kullanmak boş güvenlidir <a href="#ifadeleri-kullanmak-bo%c5%9f-g%c3%bcvenlidir" class="anchor" aria-hidden="true">#</a></h2>
+<p>&rsquo;null&rsquo; için &lsquo;IDisposable&rsquo; nesnesini kontrol etmeniz gerekmez. &lsquo;using&rsquo; bir istisna oluşturmaz ve &lsquo;Dispose()&rsquo; çağrılmaz:</p>
+<pre><code>DisposableObject TryOpenFile()
+{
+    return null;
+}
+
+// disposable is null here, but this does not throw an exception 
+using (var disposable = TryOpenFile())
+{
+    // this will throw a NullReferenceException because disposable is null
+    disposable.DoSomething(); 
+
+    if(disposable != null)
+    {
+        // here we are safe because disposable has been checked for null
+        disposable.DoSomething();
+    }
+}
+</code></pre>
+<h2 id="özel-kapsamı-tanımlamak-için-dispose-syntaxı-kullanma">Özel kapsamı tanımlamak için Dispose Syntax&rsquo;ı kullanma <a href="#%c3%b6zel-kapsam%c4%b1-tan%c4%b1mlamak-i%c3%a7in-dispose-syntax%c4%b1-kullanma" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bazı kullanım durumlarında, özel bir kapsam tanımlamaya yardımcı olması için &ldquo;kullanma&rdquo; sözdizimini kullanabilirsiniz. Örneğin, belirli bir kültürde kod yürütmek için aşağıdaki sınıfı tanımlayabilirsiniz.</p>
+<pre><code>public class CultureContext : IDisposable
+{
+    private readonly CultureInfo originalCulture;
+
+    public CultureContext(string culture)
+    {
+        originalCulture = CultureInfo.CurrentCulture;
+        Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+    }
+
+    public void Dispose()
+    {
+        Thread.CurrentThread.CurrentCulture = originalCulture;
+    }
+}
+</code></pre>
+<p>Daha sonra, belirli bir kültürde yürütülen kod bloklarını tanımlamak için bu sınıfı kullanabilirsiniz.</p>
+<pre><code>Thread.CurrentThread.CurrentCulture = new CultureInfo(&quot;en-US&quot;);
+
+using (new CultureContext(&quot;nl-NL&quot;))
+{
+    // Code in this block uses the &quot;nl-NL&quot; culture
+    Console.WriteLine(new DateTime(2016, 12, 25)); // Output: 25-12-2016 00:00:00
+}
+
+using (new CultureContext(&quot;es-ES&quot;))
+{        
+    // Code in this block uses the &quot;es-ES&quot; culture
+    Console.WriteLine(new DateTime(2016, 12, 25)); // Output: 25/12/2016 0:00:00
+}
+
+// Reverted back to the original culture
+Console.WriteLine(new DateTime(2016, 12, 25)); // Output: 12/25/2016 12:00:00 AM
+</code></pre>
+<p>Not: Oluşturduğumuz <code>CultureContext</code> örneğini kullanmadığımız için ona bir değişken atmıyoruz.</p>
+<p>Bu teknik, ASP.NET MVC&rsquo;de <code>BeginForm</code> <a href="https://msdn.microsoft.com/en-us/library/fs2xkftw(v=vs.110).aspx">helper</a> tarafından kullanılır.</p>
+<h2 id="ifadeleri-ve-veritabanı-bağlantılarını-kullanma">İfadeleri ve Veritabanı Bağlantılarını Kullanma <a href="#ifadeleri-ve-veritaban%c4%b1-ba%c4%9flant%c4%b1lar%c4%b1n%c4%b1-kullanma" class="anchor" aria-hidden="true">#</a></h2>
+<p>&lsquo;using&rsquo; anahtar sözcüğü, deyim içinde tanımlanan kaynağın yalnızca deyimin kendi kapsamında var olmasını sağlar. İfade içinde tanımlanan tüm kaynaklar, &ldquo;IDisposable&rdquo; arabirimini uygulamalıdır.</p>
+<p>Bunlar, &lsquo;IDisposable&rsquo; arabirimini uygulayan herhangi bir bağlantıyla uğraşırken inanılmaz derecede önemlidir, çünkü bağlantıların yalnızca düzgün bir şekilde kapatılmasını sağlamakla kalmaz, aynı zamanda &lsquo;use&rsquo; ifadesi kapsam dışı kaldıktan sonra kaynaklarının serbest kalmasını sağlayabilir.</p>
+<h2 id="ortak-isposable-veri-sınıfları"><strong>Ortak &ldquo;Isposable&rdquo; Veri Sınıfları</strong> <a href="#ortak-isposable-veri-s%c4%b1n%c4%b1flar%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<p>Aşağıdakilerin çoğu, &ldquo;IDisposable&rdquo; arabirimini uygulayan ve bir &ldquo;using&rdquo; ifadesi için mükemmel adaylar olan veriyle ilgili sınıflardır:</p>
+<ul>
+<li><code>SqlConnection</code>,<code>SqlCommand</code>,<code>SqlDataReader</code> vb.</li>
+<li>&ldquo;OleDbConnection&rdquo;, &ldquo;OleDbCommand&rdquo;, &ldquo;OleDbDataReader&rdquo; vb.</li>
+<li>&ldquo;MySqlConnection&rdquo;, &ldquo;MySqlCommand&rdquo;, &ldquo;MySqlDbDataReader&rdquo; vb.</li>
+<li><code>DbContext</code></li>
+</ul>
+<p>Bunların tümü, C# aracılığıyla verilere erişmek için yaygın olarak kullanılır ve veri merkezli uygulamalar oluştururken yaygın olarak karşılaşılır. Aynı &lsquo;FooConnection&rsquo;, &lsquo;FooCommand&rsquo;, &lsquo;FooDataReader&rsquo; sınıflarını uygulayan belirtilmeyen diğer birçok sınıfın da aynı şekilde davranması beklenebilir.</p>
+<h2 id="adonet-bağlantıları-için-ortak-erişim-modeli"><strong>ADO.NET Bağlantıları için Ortak Erişim Modeli</strong> <a href="#adonet-ba%c4%9flant%c4%b1lar%c4%b1-i%c3%a7in-ortak-eri%c5%9fim-modeli" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bir ADO.NET bağlantısı üzerinden verilerinize erişirken kullanılabilecek yaygın bir kalıp aşağıdaki gibi görünebilir:</p>
+<pre><code>// This scopes the connection (your specific class may vary)
+using(var connection = new SqlConnection(&quot;{your-connection-string}&quot;)
+{
+    // Build your query
+    var query = &quot;SELECT * FROM YourTable WHERE Property = @property&quot;);
+    // Scope your command to execute
+    using(var command = new SqlCommand(query, connection))
+    {
+         // Open your connection
+         connection.Open();
+
+         // Add your parameters here if necessary
+
+         // Execute your query as a reader (again scoped with a using statement)
+         using(var reader = command.ExecuteReader())
+         {
+               // Iterate through your results here
+         }
+    }
+}
+</code></pre>
+<p>Veya sadece basit bir güncelleme yapıyorsanız ve bir okuyucuya ihtiyaç duymuyorsanız, aynı temel konsept geçerli olacaktır:</p>
+<pre><code>using(var connection = new SqlConnection(&quot;{your-connection-string}&quot;))
+{
+     var query = &quot;UPDATE YourTable SET Property = Value WHERE Foo = @foo&quot;;
+     using(var command = new SqlCommand(query,connection))
+     {
+          connection.Open();
+          
+          // Add parameters here
+          
+          // Perform your update
+          command.ExecuteNonQuery();
+     }
+}
+</code></pre>
+<h2 id="bildirimleri-datacontexts-ile-kullanma"><strong>Bildirimleri DataContexts ile Kullanma</strong> <a href="#bildirimleri-datacontexts-ile-kullanma" class="anchor" aria-hidden="true">#</a></h2>
+<p>Entity Framework gibi birçok ORM, &ldquo;DbContext&rdquo; gibi sınıflar biçiminde temel veritabanlarıyla etkileşim kurmak için kullanılan soyutlama sınıflarını ortaya çıkarır. Bu bağlamlar genellikle &ldquo;IDisposable&rdquo; arabirimini de uygular ve mümkün olduğunda &ldquo;using&rdquo; ifadeleri aracılığıyla bundan yararlanmalıdır:</p>
+<pre><code>using(var context = new YourDbContext())
+{
+      // Access your context and perform your query
+      var data = context.Widgets.ToList();
+}
+</code></pre>
+<h2 id="kısıtlama-bağlamında-kod-yürütme">Kısıtlama bağlamında kod yürütme <a href="#k%c4%b1s%c4%b1tlama-ba%c4%9flam%c4%b1nda-kod-y%c3%bcr%c3%bctme" class="anchor" aria-hidden="true">#</a></h2>
+<p>Belirli bir (kısıtlama) bağlamı altında yürütmek istediğiniz kodunuz (* bir rutin*) varsa, bağımlılık enjeksiyonunu kullanabilirsiniz.</p>
+<p>Aşağıdaki örnek, açık bir SSL bağlantısı altında yürütme kısıtlamasını gösterir. Bu ilk kısım, müşteri koduna maruz bırakmayacağınız kitaplığınızda veya çerçevenizde olacaktır.</p>
+<pre><code>public static class SSLContext
+{
+    // define the delegate to inject
+    public delegate void TunnelRoutine(BinaryReader sslReader, BinaryWriter sslWriter);
+
+    // this allows the routine to be executed under SSL
+    public static void ClientTunnel(TcpClient tcpClient, TunnelRoutine routine)
+    {
+        using (SslStream sslStream = new SslStream(tcpClient.GetStream(), true, _validate))
+        {
+            sslStream.AuthenticateAsClient(HOSTNAME, null, SslProtocols.Tls, false);
+
+            if (!sslStream.IsAuthenticated)
+            {
+                throw new SecurityException(&quot;SSL tunnel not authenticated&quot;);
+            }
+
+            if (!sslStream.IsEncrypted)
+            {
+                throw new SecurityException(&quot;SSL tunnel not encrypted&quot;);
+            }
+
+            using (BinaryReader sslReader = new BinaryReader(sslStream))
+            using (BinaryWriter sslWriter = new BinaryWriter(sslStream))
+            {
+                routine(sslReader, sslWriter);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Şimdi, SSL altında bir şeyler yapmak isteyen ancak tüm SSL ayrıntılarını işlemek istemeyen istemci kodu. Artık SSL tüneli içinde istediğiniz her şeyi yapabilirsiniz, örneğin simetrik bir anahtar alışverişi:</p>
+<pre><code>public void ExchangeSymmetricKey(BinaryReader sslReader, BinaryWriter sslWriter)
+{
+    byte[] bytes = new byte[8];
+    (new RNGCryptoServiceProvider()).GetNonZeroBytes(bytes);
+    sslWriter.Write(BitConverter.ToUInt64(bytes, 0));
+}
+</code></pre>
+<p>Bu rutini aşağıdaki gibi yürütürsünüz:</p>
+<pre><code>SSLContext.ClientTunnel(tcpClient, this.ExchangeSymmetricKey);
+</code></pre>
+<p>Bunu yapmak için, &lsquo;using()&rsquo; yan tümcesine ihtiyacınız vardır, çünkü (&rsquo;try..finally&rsquo; bloğu dışında) müşteri kodunun (&lsquo;ExchangeSmetricKey&rsquo;) tek kullanımlık kodu uygun şekilde atmadan asla çıkmayacağını garanti etmenin tek yolu budur. kaynaklar. &lsquo;using()&rsquo; yan tümcesi olmadan, bir rutinin bağlamın bu kaynakları elden çıkarma konusundaki kısıtlamasını kırıp kıramayacağını asla bilemezsiniz.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/tr/csharp/getiri-anahtar-kelimesi/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Getiri Anahtar Kelimesi
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/tr/csharp/istisna-isleme/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								İstisna işleme &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/tr/about/">Hakkında</a></li>
+          <li class="list-inline-item"><a href="/tr/disclaimers/">Sorumluluk Reddi</a></li>
+          <li class="list-inline-item"><a href="/tr/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/tr/terms-of-use/">Kullanım Şartları</a></li>
+          <li class="list-inline-item"><a href="/tr/privacy-policy/">Gizlilik Politikası</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

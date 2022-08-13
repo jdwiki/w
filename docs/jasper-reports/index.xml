@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jasper-reports Tutorial on </title>
+    <link>https://www.wikiod.com/docs/jasper-reports/</link>
+    <description>Recent content in jasper-reports Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/jasper-reports/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with jasper-reports</title>
+      <link>https://www.wikiod.com/jasper-reports/getting-started-with-jasper-reports/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/jasper-reports/getting-started-with-jasper-reports/</guid>
+      <description>Jasper report file formats # .jrxml is the report design file, it&amp;rsquo;s format is in human readable XML, it can be complied into a JasperReport object and saved as a .jasper
+.jasper is the compiled version of the .jrxml and can be loaded directly into a JasperReport object ready to be filled with data
+.jrprint is the serialized JasperPrint object, a report that have already been filled with data and can be loaded to be printed, viewed and/or exported to desired format.</description>
+    </item>
+    
+    <item>
+      <title>Font-extensions</title>
+      <link>https://www.wikiod.com/jasper-reports/font-extensions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/jasper-reports/font-extensions/</guid>
+      <description>Creating and using font extensions # Create a font extension using the IDE. See the iReport or Jaspersoft Studio documentation for details. The font extension can also be created manually.
+What are font extensions? # Using a textElement you can specify a font (if not specified default font SansSerif is used)
+&amp;lt;textElement&amp;gt; &amp;lt;font fontName=&amp;quot;DejaVu Sans&amp;quot;/&amp;gt; &amp;lt;/textElement&amp;gt; To calculate font-metric (for line breaks, alignment etc) and render the font correctly, the font needs to be mapped in the JVM (Java virtual macchine).</description>
+    </item>
+    
+    <item>
+      <title>Compile JasperReports .jrxml to .jasper</title>
+      <link>https://www.wikiod.com/jasper-reports/compile-jasperreports-jrxml-to-jasper/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/jasper-reports/compile-jasperreports-jrxml-to-jasper/</guid>
+      <description>With IDE (Integrated development environment) # In IDE Jaspersoft Studio (JSS) or the older version iReport Designer it is sufficient to press Preview.
+The JasperReports design file [.jrxml](https://www.wikiod.com/jasper-reports/getting-started-with-jasper-reports#Jasper report file formats) will automatically be compiled to [.jasper](https://www.wikiod.com/jasper-reports/getting-started-with-jasper-reports#Jasper report file formats) in same folder as [.jrxml](https://www.wikiod.com/jasper-reports/getting-started-with-jasper-reports#Jasper report file formats) if no errors are present.
+Another way is to press &amp;ldquo;Compile Report&amp;rdquo; button in JSS
+or use the context menu &amp;ldquo;Compile Report&amp;rdquo; called from Report Inspector in iReport</description>
+    </item>
+    
+    <item>
+      <title>Fill report</title>
+      <link>https://www.wikiod.com/jasper-reports/fill-report/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/jasper-reports/fill-report/</guid>
+      <description>Parameters # Parameters Column jasperPrint The output of the fill process that can be exported to desired format reportTemplate The compiled design file .jasper parameters The parameter Map, that if defined can be references inside report by $P{key} datasource A net.sf.jasperreports.engine.JRDataSource connection A database connection java.sql.Connection Fill JasperReport Template using Java # Common Requirements # All reports, regardless of how the data is presented, take a path to the report template and a parameter map.</description>
+    </item>
+    
+    <item>
+      <title>Export to xlsxlsx</title>
+      <link>https://www.wikiod.com/jasper-reports/export-to-xlsxlsx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/jasper-reports/export-to-xlsxlsx/</guid>
+      <description>With Java # Export to xlsx format
+try (InputStream inputStream = JRLoader.getResourceInputStream(path)) { // read report as input stream JasperReport jasperReport = JasperCompileManager.compileReport(JRXmlLoader.load(inputStream)); // compile report Map&amp;lt;String, Object&amp;gt; params = new HashMap&amp;lt;&amp;gt;(); // init map with report&#39;s parameters params.put(JRParameter.REPORT_LOCALE, Locale.US); params.put(JRParameter.IS_IGNORE_PAGINATION, true); JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, connection); // prepare report - passs parameters and jdbc connection JRXlsxExporter exporter = new JRXlsxExporter(); // initialize exporter exporter.setExporterInput(new SimpleExporterInput(jasperPrint)); // set compiled report as input exporter.</description>
+    </item>
+    
+    <item>
+      <title>Using subreports</title>
+      <link>https://www.wikiod.com/jasper-reports/using-subreports/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/jasper-reports/using-subreports/</guid>
+      <description>Parameters # Parameter Details parametersMapExpression The Map with parameters. Not required subreportParameter The pair of name and value (set with subreportParameterExpression). Not required. Several parameters can be passed to subreport connectionExpression Connection for getting data. Not required dataSourceExpression Expression for passing Datasource. Not required subreportExpression The subreport&amp;rsquo;s path/URI or even JasperReport object. Not required returnValue The pair of name and value. Not required. Several values can be returned from subreport to master report back Subreports can be used for constructing complex reports.</description>
+    </item>
+    
+    <item>
+      <title>Export to pdf</title>
+      <link>https://www.wikiod.com/jasper-reports/export-to-pdf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/jasper-reports/export-to-pdf/</guid>
+      <description>To render fonts correctly in pdf font-extensions should always be used (in classpath)
+1: https://www.wikiod.com/jasper-reports/font-extensions#Creating and using font extensions
+With Java # To export a you need to fill the report to get the JasperPrint object.
+Export single JasperPrint (single jrxml) to file # // 1. Create exporter instance JRPdfExporter exporter = new JRPdfExporter(); // 2. Set exporter input document exporter.setExporterInput(new SimpleExporterInput(jasperPrint)); // 3. Set file path for exporter output exporter.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>angular-material2 Tutorial on </title>
+    <link>https://www.wikiod.com/docs/angular-material2/</link>
+    <description>Recent content in angular-material2 Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/angular-material2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with angular-material2</title>
+      <link>https://www.wikiod.com/angular-material2/getting-started-with-angular-material2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/angular-material2/getting-started-with-angular-material2/</guid>
+      <description>Wrapping all modules together # You can also easily wrap all angular modules, which you are going to use, into one module:
+import { NgModule } from &#39;@angular/core&#39;; import { MdButtonModule, MdSnackBarModule, MdSidenavModule } from &#39;@angular/material&#39;; @NgModule({ imports: [ BrowserAnimationsModule, MdButtonModule, MdSnackBarModule, MdSidenavModule ], exports: [ MdButtonModule, MdSnackBarModule, MdSidenavModule ] }) export class MaterialWrapperModule {} After that simply import your module into the application main module:
+import { NgModule } from &#39;@angular/core&#39;; import { CommonModule } from &#39;@angular/common&#39;; import { RouterModule } from &#39;@angular/router&#39;; import { MaterialWrapperModule } from &#39;.</description>
+    </item>
+    
+    <item>
+      <title>md-datepicker</title>
+      <link>https://www.wikiod.com/angular-material2/md-datepicker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/angular-material2/md-datepicker/</guid>
+      <description>This topic focuses on examples related to md-datepicker.
+For more details, please check the md-datepicker documentation here.
+Data binding with md-datapicker # datepicker-overview-example.html:
+&amp;lt;md-input-container&amp;gt; &amp;lt;input mdInput [mdDatepicker]=&amp;quot;picker&amp;quot; [(ngModel)]=&amp;quot;date&amp;quot; placeholder=&amp;quot;Choose a date&amp;quot;&amp;gt; &amp;lt;button mdSuffix [mdDatepickerToggle]=&amp;quot;picker&amp;quot;&amp;gt;&amp;lt;/button&amp;gt; &amp;lt;/md-input-container&amp;gt; &amp;lt;md-datepicker #picker&amp;gt;&amp;lt;/md-datepicker&amp;gt; &amp;lt;div&amp;gt; Date Chosen using &#39;ngModel&#39;: &amp;lt;div&amp;gt;{{ date }}&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; datepicker-overview-example.ts:
+import {Component, OnInit} from &#39;@angular/core&#39;; @Component({ selector: &#39;datepicker-overview-example&#39;, templateUrl: &#39;datepicker-overview-example.html&#39; }) export class DatepickerOverviewExample implements OnInit { date; ngOnInit(){ this.date = new Date(); } } Live demo</description>
+    </item>
+    
+    <item>
+      <title>md-table</title>
+      <link>https://www.wikiod.com/angular-material2/md-table/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/angular-material2/md-table/</guid>
+      <description>This topic includes examples related to md-table
+For more details on md-table please check the documentation
+Connect DataSource from external API # Please me mindful of importing all necessary libraries required.
+This example uses InMemoryDbService from angular-in-memory-web-api to provide the JSON data from mock API.
+Live demo
+service.ts:
+import { Injectable } from &#39;@angular/core&#39;; import { Headers, Http } from &#39;@angular/http&#39;; import &#39;rxjs/add/operator/toPromise&#39;; @Injectable() export class AppState { private headers = new Headers({&#39;Content-Type&#39;: &#39;application/json&#39;}); private apiUrl = &#39;api/data&#39;; constructor(private http: Http) { } fetchFilterFields() { console.</description>
+    </item>
+    
+    <item>
+      <title>md-autocomplete</title>
+      <link>https://www.wikiod.com/angular-material2/md-autocomplete/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/angular-material2/md-autocomplete/</guid>
+      <description>This topic includes coding examples related to Angular Material 2 Autocomplete (md-autocomplete)
+These examples don&amp;rsquo;t cover all features of md-autocomplete. Please read the documentation learn more about md-autocomplete.
+Separate control and display # This example shows how to to display specific property in dropdown but bind with the whole object.
+autocomplete-overview-example.html:
+&amp;lt;md-input-container&amp;gt; &amp;lt;input mdInput placeholder=&amp;quot;State&amp;quot; [(ngModel)]=&amp;quot;selection&amp;quot; [mdAutocomplete]=&amp;quot;auto&amp;quot; [formControl]=&amp;quot;stateCtrl&amp;quot;&amp;gt; &amp;lt;/md-input-container&amp;gt; &amp;lt;md-autocomplete #auto=&amp;quot;mdAutocomplete&amp;quot; [displayWith]=&amp;quot;displayFn&amp;quot;&amp;gt; &amp;lt;md-option *ngFor=&amp;quot;let state of filteredStates | async&amp;quot; [value]=&amp;quot;state&amp;quot; &amp;gt; {{ state.</description>
+    </item>
+    
+    <item>
+      <title>md-dialog</title>
+      <link>https://www.wikiod.com/angular-material2/md-dialog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/angular-material2/md-dialog/</guid>
+      <description>This topic includes examples of md-dialog.
+To find more details on md-dialog, please check the documentation here.
+Initialize md-dialog with data passed from parent component # This example requires MdDialogRef and MD_DIALOG_DATA. Please import them in the component module.
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from &#39;@angular/material&#39;; input-overview-example.html:
+&amp;lt;md-input-container&amp;gt; &amp;lt;input mdInput [(ngModel)]=&amp;quot;id&amp;quot; placeholder=&amp;quot;Value passed to md-dialog&amp;quot;&amp;gt; &amp;lt;/md-input-container&amp;gt; &amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;button md-raised-button (click)=&amp;quot;openDialog(id)&amp;quot;&amp;gt; Open Dialog &amp;lt;/button&amp;gt; input-overview-example.ts:
+import {Component, Inject, Input, OnInit } from &#39;@angular/core&#39;; import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from &#39;@angular/material&#39;; @Component({ selector: &#39;input-overview-example&#39;, templateUrl: &#39;input-overview-example.</description>
+    </item>
+    
+    <item>
+      <title>md-button</title>
+      <link>https://www.wikiod.com/angular-material2/md-button/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/angular-material2/md-button/</guid>
+      <description>This topic includes examples on how to create a button and what its&amp;rsquo; directives and other stuff do.
+Parameters # Attribute Description md-button Creates a rectangular button w/ no elevation. md-raised-button Creates a rectangular button w/ elevation md-icon-button Creates a circular button with a transparent background, meant to contain an icon md-fab Creates a circular button w/ elevation, defaults to theme&amp;rsquo;s accent color md-mini-fab Same as md-fab but smaller disableRipple Whether the ripple effect for the button is disabled.</description>
+    </item>
+    
+    <item>
+      <title>md-icon</title>
+      <link>https://www.wikiod.com/angular-material2/md-icon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/angular-material2/md-icon/</guid>
+      <description>Creating an icon # The following is a guide on how to create an icon from material design icons:
+Load the icon font from Google CDN in your index.html: &amp;lt;link href=&amp;quot;https://fonts.googleapis.com/icon?family=Material+Icons&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt; Alternatively, you may import it in your styles.css: @import url(&#39;https://fonts.googleapis.com/icon?family=Material+Icons&#39;); Use it as follows: &amp;lt;md-icon&amp;gt;menu&amp;lt;/md-icon&amp;gt; You&amp;rsquo;re done!
+Using SVG Icons # This example shows how to use SVG icons in your app.
+Download the SVG iconset / icon (in this case, we&amp;rsquo;re getting the icons from https://materialdesignicons.</description>
+    </item>
+    
+  </channel>
+</rss>

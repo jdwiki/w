@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bosun Tutorial on </title>
+    <link>https://www.wikiod.com/docs/bosun/</link>
+    <description>Recent content in Bosun Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/bosun/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Bosun</title>
+      <link>https://www.wikiod.com/bosun/getting-started-with-bosun/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/bosun/getting-started-with-bosun/</guid>
+      <description>Sample Configuration File # Here is an example of a Bosun config file used in a development environment:
+tsdbHost = localhost:4242 httpListen = :8070 smtpHost = localhost:25 emailFrom = bosun@example.org timeAndDate = 202,75,179,136 ledisDir = ../ledis_data checkFrequency = 5m notification example.notification { email = alerts@example.org print = true } In this case the config file indicates Bosun should connect to a local OpenTSDB instance on port 4242, listen for requests on port 8070 (on all IP addresses bound to the host), use the localhost SMTP system for email, display additional time zones, use built in Ledis instead of external Redis for system state, and default alerts to a 5 minute interval.</description>
+    </item>
+    
+    <item>
+      <title>Scollector External Collectors</title>
+      <link>https://www.wikiod.com/bosun/scollector-external-collectors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/bosun/scollector-external-collectors/</guid>
+      <description>Scollector supports tcollector style external collectors that can be used to send metrics to Bosun via custom scripts or executables. External collectors are a great way to get started collecting data, but when possible it is recommended for applications to send data directly to Bosun or to update scollector so that it natively supports additional systems.
+The ColDir configuration key specifies the external collector directory, which is usually set to something like /opt/scollector/collectors/ in Linux or C:\Program Files\scollector\collectors\ in Windows.</description>
+    </item>
+    
+    <item>
+      <title>Scollector Process and Service Monitoring</title>
+      <link>https://www.wikiod.com/bosun/scollector-process-and-service-monitoring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/bosun/scollector-process-and-service-monitoring/</guid>
+      <description>Scollector can be used to monitor processes and services in Windows and Linux. Some processes like IIS application pools are monitored automatically, but usually you need to specify which processes and services you want to monitor.
+Linux process and systemd service monitoring # Scollector will monitor Linux processes specified in the configuration file.
+[[Process]] Command = &amp;quot;/opt/bosun/bosun&amp;quot; Name = &amp;quot;bosun&amp;quot; [[Process]] Command = &amp;quot;ruby&amp;quot; Name = &amp;quot;puppet-agent&amp;quot; Args = &amp;quot;puppet&amp;quot; [[Process]] Command = &amp;quot;/haproxy$&amp;quot; Name = &amp;quot;haproxy-t1&amp;quot; Args = &amp;quot;/etc/haproxy-t1/haproxy-t1.</description>
+    </item>
+    
+    <item>
+      <title>Complete Examples</title>
+      <link>https://www.wikiod.com/bosun/complete-examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/bosun/complete-examples/</guid>
+      <description>Linux Bonding Health # Template Definition # template linux.bonding { subject = {{.Last.Status}}: {{.Eval .Alert.Vars.by_host}} bad bond(s) on {{.Group.host}} body = `{{template &amp;quot;header&amp;quot; .}} &amp;lt;h2&amp;gt;Bond Status&amp;lt;/h2&amp;gt; &amp;lt;table&amp;gt; &amp;lt;tr&amp;gt;&amp;lt;th&amp;gt;Bond&amp;lt;/th&amp;gt;&amp;lt;th&amp;gt;Slave&amp;lt;/th&amp;gt;&amp;lt;th&amp;gt;Status&amp;lt;/th&amp;gt;&amp;lt;/tr&amp;gt; {{range $r := .EvalAll .Alert.Vars.slave_status}} {{if eq $.Group.host .Group.host}} &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;{{$r.Group.bond}}&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;{{$r.Group.slave}}&amp;lt;/td&amp;gt; &amp;lt;td {{if lt $r.Value 1.0}} style=&amp;quot;color: red;&amp;quot; {{end}}&amp;gt;{{$r.Value}}&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; {{end}} {{end}} &amp;lt;/table&amp;gt; ` } Alert Definition # alert linux.bonding { template = linux.bonding macro = host_based $notes = This alert triggers when a bond only has a single interface, or the status of a slave in the bond is not up $slave_status = max(q(&amp;quot;sum:linux.</description>
+    </item>
+    
+    <item>
+      <title>Scollector Overview</title>
+      <link>https://www.wikiod.com/bosun/scollector-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/bosun/scollector-overview/</guid>
+      <description>Scollector is a monitoring agent that can be used to send metrics to Bosun or any system that accepts OpenTSDB style metrics. It is modelled after OpenTSDB&amp;rsquo;s tcollector data collection framework but is written in Go and compiled into a single binary. One of the design goals is to auto-detect services so that metrics will be sent with minimal or no configuration needed. You also can create external collectors that generate metrics using a script or executable and use Scollector to queue and send the metrics to the server.</description>
+    </item>
+    
+    <item>
+      <title>Notifications Overview</title>
+      <link>https://www.wikiod.com/bosun/notifications-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/bosun/notifications-overview/</guid>
+      <description>Syntax # notification name { email = dev-alerts@example.com, prod-alerts@example.com, &amp;hellip; post = http://example.com get = http://example.com next = another-notification-definition timeout = 30m runOnActions = false body = {&amp;ldquo;text&amp;rdquo;: {{.|json}}} contentType = application/json print = true } In Bosun notifications are used for both new alert incidents and when an alert is acked/closed/etc. If you don&amp;rsquo;t want the other events to trigger a notification add runOnActions = false to the notification definition.</description>
+    </item>
+    
+    <item>
+      <title>Templates Overview</title>
+      <link>https://www.wikiod.com/bosun/templates-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/bosun/templates-overview/</guid>
+      <description>Syntax # #See https://golang.org/pkg/text/template/ for Go Template Action and Function syntax expression = alert status {{.Last.Status}} and a variable {{.Eval .Alert.Vars.q | printf &amp;ldquo;%.2f&amp;rdquo;}} expression = `Use backticks to span multiple lines with line breaks in the Bosun config file` template name { subject = expression body = expression } Bosun templates are based on the Go html/template package and can be shared across multiple alerts, but a single template is used to render all Bosun Notifications for that alert.</description>
+    </item>
+    
+    <item>
+      <title>Packages and Initialization Scripts</title>
+      <link>https://www.wikiod.com/bosun/packages-and-initialization-scripts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/bosun/packages-and-initialization-scripts/</guid>
+      <description>There currently aren&amp;rsquo;t any installation packages provided for Bosun or Scollector, only binaries on the Bosun release page. It is up to the end user to find the best way to deploy the files and run them as a service.
+Bosun systemd unit file # #Create Bosun unit file at /etc/systemd/system/bosun.service [Unit] Description=Bosun Service After=network.target After=rsyslog.service [Service] Type=simple User=root ExecStart=/opt/bosun/bosun -c /opt/bosun/config/prod.conf Restart=on-abort [Install] WantedBy=multi-user.target #enable and start service #systemctl enable bosun #systemctl start bosun #If you edit this file, be sure to run `systemctl daemon reload` so Systemd recognizes the changes made TSDBRelay systemd unit file # TSDBRelay can be used to forward metrics to an OpenTSDB instance, send to Bosun for indexing, and relay to another opentsdb compatible instance for backup/DR/HA.</description>
+    </item>
+    
+    <item>
+      <title>Templates Graph and GraphAll</title>
+      <link>https://www.wikiod.com/bosun/templates-graph-and-graphall/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/bosun/templates-graph-and-graphall/</guid>
+      <description>Bosun Templates can include graphs to provide more information when sending a notification. The graphs can use variables from the alert and filter base on the tagset for the alert instance or use the GraphAll function to graph all series. When viewed on the Dashboard or in an email you can click on the graph to load it in the Expression page.
+You can also create a Generic Template with optional Graphs that can be shared across multiple alerts.</description>
+    </item>
+    
+    <item>
+      <title>Alerts Advanced Scoping</title>
+      <link>https://www.wikiod.com/bosun/alerts-advanced-scoping/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/bosun/alerts-advanced-scoping/</guid>
+      <description>Understanding the transpose function: t() # Overview # The transpose function is one of Bosun&amp;rsquo;s more powerful functions, but it also takes effort to understand. It is powerful because it lets us alert at different levels than the tag structure of the underlying data.
+Transpose changes the scope of your alert. This lets you scope things into larger collections. So for example if you have queries that return a scope of host,cluster and want to alert based on cluster health and not individual hosts, transpose can be used to do this.</description>
+    </item>
+    
+  </channel>
+</rss>

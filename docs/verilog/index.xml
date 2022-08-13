@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>verilog Tutorial on </title>
+    <link>https://www.wikiod.com/docs/verilog/</link>
+    <description>Recent content in verilog Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/verilog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with verilog</title>
+      <link>https://www.wikiod.com/verilog/getting-started-with-verilog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/verilog/getting-started-with-verilog/</guid>
+      <description>Introduction # Verilog is a hardware description language (HDL) used to model electronic systems. It most commonly describes an electronic system at the register-transfer level (RTL) of abstraction. It is also used in the verification of analog circuits and mixed-signal circuits. Its structure and main principles ( as described below ) are designed to describe and successfully implement an electronic system.
+Rigidity
+An electronic circuit is a physical entity having a fixed structure and Verilog is adapted for that.</description>
+    </item>
+    
+    <item>
+      <title>Memories</title>
+      <link>https://www.wikiod.com/verilog/memories/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/verilog/memories/</guid>
+      <description>For FIFOs, you typically instantiate a vendor-specific block (also called a &amp;ldquo;core&amp;rdquo; or &amp;ldquo;IP&amp;rdquo;).
+Simple Dual Port RAM # Simple Dual Port RAM with separate addresses and clocks for read/write operations.
+module simple_ram_dual_clock #( parameter DATA_WIDTH=8, //width of data bus parameter ADDR_WIDTH=8 //width of addresses buses )( input [DATA_WIDTH-1:0] data, //data to be written input [ADDR_WIDTH-1:0] read_addr, //address for read operation input [ADDR_WIDTH-1:0] write_addr, //address for write operation input we, //write enable signal input read_clk, //clock signal for read operation input write_clk, //clock signal for write operation output reg [DATA_WIDTH-1:0] q //read data ); reg [DATA_WIDTH-1:0] ram [2**ADDR_WIDTH-1:0]; // ** is exponentiation always @(posedge write_clk) begin //WRITE if (we) begin ram[write_addr] &amp;lt;= data; end end always @(posedge read_clk) begin //READ q &amp;lt;= ram[read_addr]; end endmodule Shift register # N-bit deep shift register with asynchronous reset.</description>
+    </item>
+    
+    <item>
+      <title>Procedural Blocks</title>
+      <link>https://www.wikiod.com/verilog/procedural-blocks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/verilog/procedural-blocks/</guid>
+      <description>Syntax # always @ (posedge clk) begin /* statements */ end always @ (negedge clk) begin /* statements */ end always @ (posedge clk or posedge reset) // may synthesize less efficiently than synchronous reset Simple counter # A counter using an FPGA style flip-flop initialisation:
+module counter( input clk, output reg[7:0] count ) initial count = 0; always @ (posedge clk) begin count &amp;lt;= count + 1&#39;b1; end A counter implemented using asynchronous resets suitable for ASIC synthesis:</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://www.wikiod.com/verilog/hello-world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/verilog/hello-world/</guid>
+      <description>Compiling and Running the Example # Assuming a source file of hello_world.v and a top level module of hello_world. The code can be run using various simulators. Most simulators are compiled simulators. They require multiple steps to compile and execute. Generally the
+First step is to compile the Verilog design. Second step is to elaborate and optimize the design. Third step is to run the simulation. The details of the steps could vary based on the simulator but the overall idea remains the same.</description>
+    </item>
+    
+    <item>
+      <title>Synthesis vs Simulation mismatch</title>
+      <link>https://www.wikiod.com/verilog/synthesis-vs-simulation-mismatch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/verilog/synthesis-vs-simulation-mismatch/</guid>
+      <description>A good explanation of this topic is in http://www.sunburst-design.com/papers/CummingsSNUG1999SJ_SynthMismatch.pdf
+Comparison # wire d = 1&amp;rsquo;bx; // say from previous block. Will be 1 or 0 in hardware
+if (d == 1&amp;rsquo;b) // false in simulation. May be true of false in hardware
+Sensitivity list # wire a; wire b; reg q; always @(a) // b missing from sensativity list q = a &amp;amp; b; // In simulation q will change only when a changes In hardware, q will change whenever a or b changes.</description>
+    </item>
+    
+  </channel>
+</rss>

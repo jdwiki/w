@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>twig Tutorial on </title>
+    <link>https://www.wikiod.com/docs/twig/</link>
+    <description>Recent content in twig Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/twig/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with twig</title>
+      <link>https://www.wikiod.com/twig/getting-started-with-twig/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/twig/getting-started-with-twig/</guid>
+      <description>Basic API Usage # It can also be installed by downloading the source code and placing it in a directory of your project. However there are many benefits to using composer.
+require &#39;/path/to/lib/Twig/Autoloader.php&#39;; Twig_Autoloader::register(); $loader = new Twig_Loader_Filesystem(&#39;/path/to/templates&#39;); $options = array( &#39;strict_variables&#39; =&amp;gt; false, &#39;debug&#39; =&amp;gt; false, &#39;cache&#39;=&amp;gt; false ); $twig = new Twig_Environment($loader, $options); When creating a new Twig_Environment instance, you can pass an array of options as the constructor&amp;rsquo;s second argument.</description>
+    </item>
+    
+    <item>
+      <title>Extending twig</title>
+      <link>https://www.wikiod.com/twig/extending-twig/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/twig/extending-twig/</guid>
+      <description>Twig already has some built-in filters and functions, but what if the built-in features are lacking or you have to access some default PHP functions in a template
+Creating a Twig_Extension # You can group all your custom functions/filters/tests/&amp;hellip; inside a custom Twig_Extension class:
+ProjectTwigExtension
+class ProjectTwigExtension extends Twig_Extension { public function getFunctions() { return array( new Twig_SimpleFunction(&#39;twig_function_name&#39;, array($this, &#39;getTwigFunctionName&#39;)), new Twig_SimpleFunction(&#39;twig_function_foo&#39;, array($this, &#39;getTwigFunctionFoo&#39;)), ); } public function getFilters() { return array( new Twig_SimpleFilter(&#39;twig_filter_name&#39; , array($this, &#39;getTwigFilterName&#39;)), new Twig_SimpleFilter(&#39;twig_filter_foo&#39; , array($this, &#39;getTwigFilterFoo&#39;)), ); } public function getName() { return &#39;ProjectTwigExtension&#39;; } } Register extension in twig</description>
+    </item>
+    
+    <item>
+      <title>Basic template syntax</title>
+      <link>https://www.wikiod.com/twig/basic-template-syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/twig/basic-template-syntax/</guid>
+      <description>Explanation of basic template syntax constructs
+Accessing variables # In Twig templates variables can be accessed using double curly braces notation {{ variableName }}.
+Basic example of greeting user
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;span&amp;gt;Hello {{ name }}&amp;lt;/span&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Accessing array elements # Twig as a parameter can receive array. To access a specific element of array you can use regular php array access bracket notation {{ array[key] }}.
+Previous example modified to use array as a parameter</description>
+    </item>
+    
+    <item>
+      <title>Template inheritance</title>
+      <link>https://www.wikiod.com/twig/template-inheritance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/twig/template-inheritance/</guid>
+      <description>Using a base template # base.twig.html # &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;{{ title | default(&#39;Hello World&#39;) }}&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;theme.css&amp;quot;&amp;gt; {% block css %} {% endblock %} &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; {% block body %} &amp;lt;nav&amp;gt; {% block navigation %} &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;Link&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;Link&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;Link&amp;lt;/a&amp;gt; {% endblock navigation %} &amp;lt;/nav&amp;gt; &amp;lt;section id=&amp;quot;container&amp;quot;&amp;gt; &amp;lt;section id=&amp;quot;content&amp;quot;&amp;gt; {% block content %} &amp;lt;p&amp;gt; Lorem ipsum dolor sit amet. &amp;lt;/p&amp;gt; &amp;lt;/section&amp;gt; {% endblock content %} &amp;lt;/section&amp;gt; {% endblock body %} &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; page.</description>
+    </item>
+    
+    <item>
+      <title>Advanced usage</title>
+      <link>https://www.wikiod.com/twig/advanced-usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/twig/advanced-usage/</guid>
+      <description>Please note that the Twig extension is not compatible with PHP7 and although there is a pull request to resolve this situation it was not yet made part of version 1.x. With the most recent Twig 2.x release the C extension was removed but might be part of 2.1. Some benchmarks reveal minimal improvements with the C extension under PHP7.
+Building the C Extension # The C extension is an optional feature of Twig that offers some performance improvements of template rendering.</description>
+    </item>
+    
+  </channel>
+</rss>

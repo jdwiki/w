@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MongoDB Tutorial on </title>
+    <link>https://www.wikiod.com/docs/mongodb/</link>
+    <description>Recent content in MongoDB Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with MongoDB</title>
+      <link>https://www.wikiod.com/mongodb/getting-started-with-mongodb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mongodb/getting-started-with-mongodb/</guid>
+      <description>Execution of a JavaScript file in MongoDB # ./mongo localhost:27017/mydb myjsfile.js Explanation: This operation executes the myjsfile.js script in a mongo shell that connects to the mydb database on the mongod instance accessible via the localhost interface on port 27017. localhost:27017 is not mandatory as this is the default port mongodb uses.
+Also, you can run a .js file from within mongo console.
+&amp;gt;load(&amp;quot;myjsfile.js&amp;quot;) Making the output of find readable in shell # We add three records to our collection test as:</description>
+    </item>
+    
+    <item>
+      <title>CRUD Operation</title>
+      <link>https://www.wikiod.com/mongodb/crud-operation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mongodb/crud-operation/</guid>
+      <description>Syntax # insert(document or array of documents) insertOne( &amp;lsquo;document&amp;rsquo;, { writeConcern: &amp;lsquo;document&amp;rsquo; } ) insertMany( { [ document 1 , document 2, &amp;hellip; ] }, { writeConcern: document, ordered: boolean } ) find(query, projection) findOne(query, projection) update(query, update) updateOne( query, update, { upsert: boolean, writeConcern: document } ) updateMany( query, update, { upsert: boolean, writeConcern: document } ) replaceOne( query, replacement, { upsert: boolean, writeConcern: document } ) remove(query, justOne) findAndModify(query, sort, update, options[optional]) Updating and Deleting a document should be done carefully.</description>
+    </item>
+    
+    <item>
+      <title>MongoDB Aggregation</title>
+      <link>https://www.wikiod.com/mongodb/mongodb-aggregation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mongodb/mongodb-aggregation/</guid>
+      <description>Aggregate query examples useful for work and learning # Aggregation is used to perform complex data search operations in the mongo query which can&amp;rsquo;t be done in normal &amp;ldquo;find&amp;rdquo; query.
+Create some dummy data:
+db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Adma&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Admin&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;german&amp;quot;,&amp;quot;french&amp;quot;,&amp;quot;english&amp;quot;,&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:30, &amp;quot;totalExp&amp;quot;:10}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Anna&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Admin&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;,&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:35, &amp;quot;totalExp&amp;quot;:11}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Bob&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Facilities&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;,&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:36, &amp;quot;totalExp&amp;quot;:14}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Cathy&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Facilities&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:31, &amp;quot;totalExp&amp;quot;:4}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Mike&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;HR&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;, &amp;quot;hindi&amp;quot;, &amp;quot;spanish&amp;quot;],&amp;quot;age&amp;quot;:26, &amp;quot;totalExp&amp;quot;:3}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Jenny&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;HR&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;, &amp;quot;hindi&amp;quot;, &amp;quot;spanish&amp;quot;],&amp;quot;age&amp;quot;:25, &amp;quot;totalExp&amp;quot;:3}); Examples by topic:
+1. Match: Used to match documents (like SQL where clause)
+db.employees.aggregate([{$match:{dept:&amp;quot;Admin&amp;quot;}}]); Output: { &amp;quot;_id&amp;quot; : ObjectId(&amp;quot;54982fac2e9b4b54ec384a0d&amp;quot;), &amp;quot;name&amp;quot; : &amp;quot;Adma&amp;quot;, &amp;quot;dept&amp;quot; : &amp;quot;Admin&amp;quot;, &amp;quot;languages&amp;quot; : [ &amp;quot;german&amp;quot;, &amp;quot;french&amp;quot;, &amp;quot;english&amp;quot;, &amp;quot;hindi&amp;quot; ], &amp;quot;age&amp;quot; : 30, &amp;quot;totalExp&amp;quot; : 10 } { &amp;quot;_id&amp;quot; : ObjectId(&amp;quot;54982fc92e9b4b54ec384a0e&amp;quot;), &amp;quot;name&amp;quot; : &amp;quot;Anna&amp;quot;, &amp;quot;dept&amp;quot; : &amp;quot;Admin&amp;quot;, &amp;quot;languages&amp;quot; : [ &amp;quot;english&amp;quot;, &amp;quot;hindi&amp;quot; ], &amp;quot;age&amp;quot; : 35, &amp;quot;totalExp&amp;quot; : 11 } 2.</description>
+    </item>
+    
+    <item>
+      <title>Indexes</title>
+      <link>https://www.wikiod.com/mongodb/indexes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mongodb/indexes/</guid>
+      <description>Syntax # db.collection.createIndex({ &amp;lt;string field&amp;gt; : &amp;lt;1|-1 order&amp;gt; [, &amp;lt;string field&amp;gt; : &amp;lt;1|-1 order&amp;gt;] }); Performance Impact: Note that indexes improve read performances, but can have bad impact on write performance, as inserting a document requires updating all indexes.
+Dropping/Deleting an Index # If index name is known,
+db.collection.dropIndex(&#39;name_of_index&#39;); If index name is not known,
+db.collection.dropIndex( { &#39;name_of_field&#39; : -1 } ); Get Indices of a Collection # db.collection.getIndexes(); Output</description>
+    </item>
+    
+    <item>
+      <title>Pluggable Storage Engines</title>
+      <link>https://www.wikiod.com/mongodb/pluggable-storage-engines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mongodb/pluggable-storage-engines/</guid>
+      <description>In MongoDB 3.0, MMAP (default) and WiredTiger are the stable storage engines. Usually, if your app is read-heavy, use MMAP. If its write-heavy, use WiredTiger.
+Your solution may also have a mixed replica set members where you can have one node configured with MMAP and another with WiredTiger. You can use one to insert massive data and the other to read with analytical tools.
+After MongoDB 3.2, WiredTiger becomes the default engine.</description>
+    </item>
+    
+    <item>
+      <title>Aggregation</title>
+      <link>https://www.wikiod.com/mongodb/aggregation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mongodb/aggregation/</guid>
+      <description>Aggregations operations process data records and return computed results. Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result. MongoDB provides three ways to perform aggregation: the aggregation pipeline, the map-reduce function, and single purpose aggregation methods.
+From Mongo manual https://docs.mongodb.com/manual/aggregation/
+Syntax # db.collection.aggregate(pipeline, options) Parameters # Parameter Details pipeline array(A sequence of data aggregation operations or stages) options document(optional, available only if pipeline present as an array) Aggregation framework in MongoDB is used to achieve common GROUP BY functionality of SQL.</description>
+    </item>
+    
+    <item>
+      <title>Configuration</title>
+      <link>https://www.wikiod.com/mongodb/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mongodb/configuration/</guid>
+      <description>Parameters # Parameter Default systemLog.verbosity 0 systemLog.quiet false systemLog.traceAllExceptions false systemLog.syslogFacility user systemLog.path - systemLog.logAppend false systemLog.logRotate rename systemLog.destination stdout systemLog.timeStampFormat iso8601-local systemLog.component.accessControl.verbosity 0 systemLog.component.command.verbosity 0 systemLog.component.control.verbosity 0 systemLog.component.ftdc.verbosity 0 systemLog.component.geo.verbosity 0 systemLog.component.index.verbosity 0 systemLog.component.network.verbo 0 systemLog.component.query.verbosity 0 systemLog.component.replication.verbosity 0 systemLog.component.sharding.verbosity 0 systemLog.component.storage.verbosity 0 systemLog.component.storage.journal.verbosity 0 systemLog.component.write.verbosity 0 processManagement.fork false processManagement.pidFilePath none net.port 27017 net.bindIp 0.0.0.0 net.maxIncomingConnections 65536 net.wireObjectCheck true net.ipv6 false net.unixDomainSocket.enabled true net.unixDomainSocket.pathPrefix /tmp net.unixDomainSocket.filePermissions 0700 net.http.enabled false net.</description>
+    </item>
+    
+    <item>
+      <title>Querying for Data ( Getting Started )</title>
+      <link>https://www.wikiod.com/mongodb/querying-for-data--getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mongodb/querying-for-data--getting-started/</guid>
+      <description>Basic querying examples
+Find() # retrieve all documents in a collection
+db.collection.find({}); retrieve documents in a collection using a condition ( similar to WHERE in MYSQL )
+db.collection.find({key: value}); example db.users.find({email:&amp;quot;sample@email.com&amp;quot;}); retrieve documents in a collection using Boolean conditions (Query Operators)
+//AND db.collection.find( { $and: [ { key: value }, { key: value } ] }) //OR db.collection.find( { $or: [ { key: value }, { key: value } ] }) //NOT db.</description>
+    </item>
+    
+    <item>
+      <title>MongoDB - Configure a ReplicaSet to support TLSSSL</title>
+      <link>https://www.wikiod.com/mongodb/mongodb---configure-a-replicaset-to-support-tlsssl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mongodb/mongodb---configure-a-replicaset-to-support-tlsssl/</guid>
+      <description>How to configure a ReplicaSet to support TLS/SSL?
+We will deploy a 3 Nodes ReplicaSet in your local environment and we will use a self-signed certificate. Do not use a self-signed certificate in PRODUCTION.
+How to connect your Client to this ReplicaSet?
+We will connect a Mongo Shell.
+A description of TLS/SSL, PKI (Public Key Infrastructure) certificates, and Certificate Authority is beyond the scope of this documentation.
+How to configure a ReplicaSet to support TLS/SSL?</description>
+    </item>
+    
+    <item>
+      <title>Authentication Mechanisms in MongoDB</title>
+      <link>https://www.wikiod.com/mongodb/authentication-mechanisms-in-mongodb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mongodb/authentication-mechanisms-in-mongodb/</guid>
+      <description>Authentication is the process of verifying the identity of a client. When access control, i.e. authorization, is enabled, MongoDB requires all clients to authenticate themselves in order to determine their access.
+MongoDB supports a number of authentication mechanisms that clients can use to verify their identity. These mechanisms allow MongoDB to integrate into your existing authentication system.
+Authentication Mechanisms # MongoDB supports multiple authentication mechanisms.
+Client and User Authentication Mechanisms</description>
+    </item>
+    
+  </channel>
+</rss>

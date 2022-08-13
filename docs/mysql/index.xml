@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL Tutorial on </title>
+    <link>https://www.wikiod.com/docs/mysql/</link>
+    <description>Recent content in MySQL Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/docs/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with MySQL</title>
+      <link>https://www.wikiod.com/mysql/getting-started-with-mysql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mysql/getting-started-with-mysql/</guid>
+      <description>Getting Started # Creating a database in MySQL
+CREATE DATABASE mydb; Return value:
+Query OK, 1 row affected (0.05 sec)
+Using the created database mydb
+USE mydb; Return value:
+Database Changed
+Creating a table in MySQL
+CREATE TABLE mytable ( id int unsigned NOT NULL auto_increment, username varchar(100) NOT NULL, email varchar(100) NOT NULL, PRIMARY KEY (id) ); CREATE TABLE mytable will create a new table called mytable.
+id int unsigned NOT NULL auto_increment creates the id column, this type of field will assign a unique numeric ID to each record in the table (meaning that no two rows can have the same id in this case), MySQL will automatically assign a new, unique value to the record&amp;rsquo;s id field (starting with 1).</description>
+    </item>
+    
+    <item>
+      <title>Table Creation</title>
+      <link>https://www.wikiod.com/mysql/table-creation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mysql/table-creation/</guid>
+      <description>Syntax # CREATE TABLE table_name ( column_name1 data_type(size), column_name2 data_type(size), column_name3 data_type(size), &amp;hellip;. ); // Basic table creation
+CREATE TABLE table_name [IF NOT EXISTS] ( column_name1 data_type(size), column_name2 data_type(size), column_name3 data_type(size), &amp;hellip;. ); // Table creation checking existing
+CREATE [TEMPORARY] TABLE table_name [IF NOT EXISTS] ( column_name1 data_type(size), column_name2 data_type(size), column_name3 data_type(size), &amp;hellip;. ); // Temporary table creation
+CREATE TABLE new_tbl [AS] SELECT * FROM orig_tbl; // Table creation from SELECT</description>
+    </item>
+    
+    <item>
+      <title>SELECT</title>
+      <link>https://www.wikiod.com/mysql/select/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mysql/select/</guid>
+      <description>SELECT is used to retrieve rows selected from one or more tables.
+Syntax # SELECT DISTINCT [expressions] FROM TableName [WHERE conditions]; ///Simple Select
+SELECT DISTINCT(a), b &amp;hellip; is the same as SELECT DISTINCT a, b &amp;hellip;
+SELECT [ ALL | DISTINCT | DISTINCTROW ] [ HIGH_PRIORITY ] [ STRAIGHT_JOIN ] [ SQL_SMALL_RESULT | SQL_BIG_RESULT ] [ SQL_BUFFER_RESULT ] [ SQL_CACHE | SQL_NO_CACHE ] [ SQL_CALC_FOUND_ROWS ] expressions FROM tables [WHERE conditions] [GROUP BY expressions] [HAVING condition] [ORDER BY expression [ ASC | DESC ]] [LIMIT [offset_value] number_rows | LIMIT number_rows OFFSET offset_value] [PROCEDURE procedure_name] [INTO [ OUTFILE &amp;lsquo;file_name&amp;rsquo; options | DUMPFILE &amp;lsquo;file_name&amp;rsquo; | @variable1, @variable2, &amp;hellip; @variable_n] [FOR UPDATE | LOCK IN SHARE MODE]; ///Full Select Syntax</description>
+    </item>
+    
+    <item>
+      <title>Backup using mysqldump</title>
+      <link>https://www.wikiod.com/mysql/backup-using-mysqldump/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mysql/backup-using-mysqldump/</guid>
+      <description>Syntax # mysqldump -u [username] -p[password] [other options] db_name &amp;gt; dumpFileName.sql /// To Backup single database mysqldump -u [username] -p[password] [other options] db_name [tbl_name1 tbl_name2 tbl_name2 &amp;hellip;] &amp;gt; dumpFileName.sql /// To Backup one or more tables mysqldump -u [username] -p[password] [other options] &amp;ndash;databases db_name1 db_name2 db_name3 &amp;hellip; &amp;gt; dumpFileName.sql /// To Backup one or more complete databases mysqldump -u [username] -p[password] [other options] &amp;ndash;all-databases &amp;gt; dumpFileName.sql /// To Backup entire MySQL server Parameters # Option Effect &amp;ndash; # Server login options -h (--host) Host (IP address or hostname) to connect to.</description>
+    </item>
+    
+    <item>
+      <title>JSON</title>
+      <link>https://www.wikiod.com/mysql/json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mysql/json/</guid>
+      <description>As of MySQL 5.7.8, MySQL supports a native JSON data type that enables efficient access to data in JSON (JavaScript Object Notation) documents.
+https://dev.mysql.com/doc/refman/5.7/en/json.html
+Starting from MySQL 5.7.8, MySQL ships with a JSON type. Lots of devs have been saving JSON data in text columns for a log time but the JSON type is different, the data is saved in binary format after validation. That avoids the overhead of parsing the text on each read.</description>
+    </item>
+    
+    <item>
+      <title>INSERT</title>
+      <link>https://www.wikiod.com/mysql/insert/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mysql/insert/</guid>
+      <description>Syntax # INSERT [LOW_PRIORITY | DELAYED | HIGH_PRIORITY] [IGNORE] [INTO] tbl_name [PARTITION (partition_name,&amp;hellip;)] [(col_name,&amp;hellip;)] {VALUES | VALUE} ({expr | DEFAULT},&amp;hellip;),(&amp;hellip;),&amp;hellip; [ ON DUPLICATE KEY UPDATE col_name=expr [, col_name=expr] &amp;hellip; ]
+INSERT [LOW_PRIORITY | DELAYED | HIGH_PRIORITY] [IGNORE] [INTO] tbl_name [PARTITION (partition_name,&amp;hellip;)] SET col_name={expr | DEFAULT}, &amp;hellip; [ ON DUPLICATE KEY UPDATE col_name=expr [, col_name=expr] &amp;hellip; ]
+INSERT [LOW_PRIORITY | HIGH_PRIORITY] [IGNORE] [INTO] tbl_name [PARTITION (partition_name,&amp;hellip;)] [(col_name,&amp;hellip;)] SELECT &amp;hellip; [ ON DUPLICATE KEY UPDATE col_name=expr [, col_name=expr] &amp;hellip; ]</description>
+    </item>
+    
+    <item>
+      <title>Joins</title>
+      <link>https://www.wikiod.com/mysql/joins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mysql/joins/</guid>
+      <description>Syntax # INNER and OUTER are ignored.
+FULL is not implemented in MySQL.
+&amp;ldquo;commajoin&amp;rdquo; (FROM a,b WHERE a.x=b.y) is frowned on; use FROM a JOIN b ON a.x=b.y instead.
+FROM a JOIN b ON a.x=b.y includes rows that match in both tables.
+FROM a LEFT JOIN b ON a.x=b.y includes all rows from a, plus matching data from b, or NULLs if there is no matching row.
+Joins visualized # If you are a visually oriented person, this Venn diagram may help you understand the different types of JOINs that exist within MySQL.</description>
+    </item>
+    
+    <item>
+      <title>Stored routines (procedures and functions)</title>
+      <link>https://www.wikiod.com/mysql/stored-routines-procedures-and-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mysql/stored-routines-procedures-and-functions/</guid>
+      <description>Parameters # Parameter Details RETURNS Specifies the data type that can be returned from a function. RETURN Actual variable or value following the RETURN syntax is what is returned to where the function was called from. A stored routine is either a procedure or a function.
+A procedure is invoked using a CALL statement and can only pass back values using output variables.
+A function can be called from inside a statement just like any other function and can return a scalar value.</description>
+    </item>
+    
+    <item>
+      <title>Error codes</title>
+      <link>https://www.wikiod.com/mysql/error-codes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mysql/error-codes/</guid>
+      <description>Error code 1064: Syntax error # select LastName, FirstName, from Person Returns message:
+Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;lsquo;from Person&amp;rsquo; at line 2.
+Getting a &amp;ldquo;1064 error&amp;rdquo; message from MySQL means the query cannot be parsed without syntax errors. In other words it can&amp;rsquo;t make sense of the query.</description>
+    </item>
+    
+    <item>
+      <title>Limit and Offset</title>
+      <link>https://www.wikiod.com/mysql/limit-and-offset/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/mysql/limit-and-offset/</guid>
+      <description>Syntax # SELECT column_1 [, column_2 ]
+FROM table_1
+ORDER BY order_column
+LIMIT row_count [OFFSET row_offset] SELECT column_1 [, column_2 ]
+FROM table_1
+ORDER BY order_column
+LIMIT [row_offset,] row_count &amp;ldquo;Limit&amp;rdquo; could mean &amp;ldquo;Max number of rows in a table&amp;rdquo;.
+&amp;ldquo;Offset&amp;rdquo; mean pick from row number (not to be confused by primary key value or any field data value)
+Limit and Offset relationship # Considering the following users table:
+id username 1 User1 2 User2 3 User3 4 User4 5 User5 In order to constrain the number of rows in the result set of a SELECT query, the LIMIT clause can be used together with one or two positive integers as arguments (zero included).</description>
+    </item>
+    
+  </channel>
+</rss>
