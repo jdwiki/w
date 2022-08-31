@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cassandra Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/cassandra/</link>
+    <description>Recent content in cassandra Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/cassandra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cassandra&#39;ya başlarken</title>
+      <link>https://www.wikiod.com/tr/cassandra/cassandraya-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/cassandra/cassandraya-baslarken/</guid>
+      <description>Kurulum veya Kurulum # Tek düğümlü Kurulum # NodeJS, Python ve Java&amp;rsquo;yı önceden yükleyin Platformunuza göre kurulum belgenizi seçin http://docs.datastax.com/en/cassandra/3.x/cassandra/install/installTOC.html Cassandra ikili dosyalarını http://cassandra.apache.org/download/ adresinden indirin. İndirilen dosyayı &amp;lt;kurulum konumu&amp;gt; konumuna kaldırın &amp;lt;kurulum yeri&amp;gt;/bin/cassandra kullanarak cassandra&amp;rsquo;yı başlatın VEYA Cassandra&amp;rsquo;yı bir hizmet olarak başlatın - [sudo] service cassandra start `/bin/nodetool durumu&amp;rsquo;nu kullanarak cassandra&amp;rsquo;nın çalışır durumda olup olmadığını kontrol edin. Eski:
+Windows ortamında Cassandra sunucusunu başlatmak için cassandra.bat dosyasını ve CQL komutlarını yürütmek için CQL istemci terminalini açmak için cqlsh.</description>
+    </item>
+    
+    <item>
+      <title>Cassandra&#39;daki onarımlar</title>
+      <link>https://www.wikiod.com/tr/cassandra/cassandradaki-onarmlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/cassandra/cassandradaki-onarmlar/</guid>
+      <description>Parametreler # Seçenek/Bayrak Açıklama seçenek seçenek açıklaması -h ana bilgisayar adı. Varsayılan olarak &amp;ldquo;localhost&amp;quot;tur. Bir ana bilgisayar onarımı belirtmezseniz, komutun yürütüldüğü ana bilgisayarda çalıştırılır. -p JMX bağlantı noktası. Varsayılan 7199&amp;rsquo;dur. Üste -u Kullanıcı adı. Yalnızca JMX güvenliği etkinleştirilmişse gereklidir. -pw şifre. Yalnızca JMX güvenliği etkinleştirilmişse gereklidir. bayrak bayrak açıklaması -yerel Yalnızca &amp;ldquo;yerel&amp;rdquo; veri merkezindeki düğümlerdeki verileri karşılaştırın ve aktarın. -pr &amp;ldquo;Partitioner Range&amp;rdquo; onarımı. Bir çoğaltma için yalnızca birincil belirteç aralığını onarın.</description>
+    </item>
+    
+    <item>
+      <title>Güvenlik</title>
+      <link>https://www.wikiod.com/tr/cassandra/guvenlik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/cassandra/guvenlik/</guid>
+      <description>Cassandra güvenlik kaynakları # CQL: Veritabanı rolleri sözdizimi tanımı CQL: Nesne izinlerinin listesi DataStax Belgeleri: Dahili kimlik doğrulama DataStax Belgeleri: Dahili yetkilendirme Dahili kimlik doğrulamayı yapılandırma # Cassandra, kullanıcıların varsayılan yapılandırmayı kullanarak oturum açmasını gerektirmez. Bunun yerine, &amp;rsquo;native_transport_port&amp;rsquo;a bağlanabilen herkesin şifresiz, anonim oturum açmalarına izin verilir. Bu davranış, &amp;ldquo;cassandra.yaml&amp;rdquo; yapılandırmasını farklı bir kimlik doğrulayıcı kullanacak şekilde düzenleyerek değiştirilebilir:
+# Allow anonymous logins without authentication # authenticator: AllowAllAuthenticator # Use username/password based logins authenticator: PasswordAuthenticator &amp;ldquo;PasswordAuthenticator&amp;rdquo; tarafından doğrulanan oturum açma kimlik bilgileri, dahili &amp;ldquo;system_auth&amp;rdquo; anahtar alanında depolanacaktır.</description>
+    </item>
+    
+    <item>
+      <title>Cassandra&#39;ya bağlanma</title>
+      <link>https://www.wikiod.com/tr/cassandra/cassandraya-baglanma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/cassandra/cassandraya-baglanma/</guid>
+      <description>Datastax&amp;rsquo;tan Cassandra Sürücüsü, Java JDBC MySQL sürücüsünü çok iyi yansıtır.
+Her iki sürücüde de &amp;ldquo;Session&amp;rdquo;, &amp;ldquo;Statement&amp;rdquo;, &amp;ldquo;PreparedStatement&amp;rdquo; bulunur.
+Singleton Bağlantısı bu soru ve cevaptan alınmıştır: http://stackoverflow.com/a/24691456/671896
+Özellik açısından, Cassandra 2 ve 3 aynıdır. Cassandra 3, veri depolama sisteminin tamamen yeniden yazılmasını sağladı.
+Java: Cassandra DSE Sürücüsünü Dahil Edin # Maven projenizde aşağıdakileri pom.xml dosyanıza ekleyin. Aşağıdaki sürümler Cassandra 3.x içindir.
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.datastax.cassandra&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;cassandra-driver-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.1.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.datastax.cassandra&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;cassandra-driver-mapping&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.1.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.</description>
+    </item>
+    
+    <item>
+      <title>Cassandra - PHP</title>
+      <link>https://www.wikiod.com/tr/cassandra/cassandra---php/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/cassandra/cassandra---php/</guid>
+      <description>Basit konsol uygulaması # Apache Cassandra için Datastax PHP sürücüsünü Git proje sitesinden indirin ve kurulum talimatlarını izleyin.
+KillrVideo uygulamasından ve Datastax PHP sürücüsünden &amp;ldquo;users&amp;rdquo; tablosunu kullanacağız. Cassandra&amp;rsquo;yı çalıştırıp çalıştırdıktan sonra, aşağıdaki anahtar alanı ve tabloyu oluşturun:
+//Create the keyspace CREATE KEYSPACE killrvideo WITH REPLICATION = { &#39;class&#39; : &#39;SimpleStrategy&#39;, &#39;replication_factor&#39; : 1 }; //Use the keyspace USE killrvideo; // Users keyed by id CREATE TABLE users ( userid uuid, firstname text, lastname text, email text, created_date timestamp, PRIMARY KEY (userid) ); Favori düzenleyicinizle bir PHP dosyası oluşturun.</description>
+    </item>
+    
+    <item>
+      <title>Onarımı Cassandra&#39;da Çalıştırma</title>
+      <link>https://www.wikiod.com/tr/cassandra/onarm-cassandrada-calstrma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/cassandra/onarm-cassandrada-calstrma/</guid>
+      <description>Sözdizimi # Özet
+nodetool [düğüm seçenekleri] onarımı [diğer seçenekler]
+Düğüm seçenekleri
+[(-h &amp;lt;host&amp;gt; | --host &amp;lt;host&amp;gt;)]
+[(-p &amp;lt;port&amp;gt; | --port &amp;lt;port&amp;gt;)]
+`[(-pw | &amp;ndash;parola )]&#39;
+[(-pwf &amp;lt;passwordFilePath&amp;gt; | --password-file &amp;lt;passwordFilePath&amp;gt;)]
+[(-u &amp;lt;kullanıcıadı&amp;gt; | --kullanıcıadı &amp;lt;kullanıcıadı&amp;gt;)]
+Diğer seçenekler
+[(-dc &amp;lt;özel_dc&amp;gt; | --in-dc &amp;lt;özel_dc&amp;gt;)...]
+[(-dcpar | --dc-paralel)]
+[(-et &amp;lt;end_token&amp;gt; | --end-token &amp;lt;end_token&amp;gt;)]
+[(-dolu | --dolu)]
+[(-hosts &amp;lt;spec_host&amp;gt; | --in-hosts &amp;lt;spec_host&amp;gt;)...]
+[(-j &amp;lt;job_threads&amp;gt; | --job-threads &amp;lt;job_threads&amp;gt;)]
+[(-local | --in-local-dc)]
+[(-pl | --çekme)]
+[(-pr | --partitions-range)]</description>
+    </item>
+    
+    <item>
+      <title>Cassandra anahtarları</title>
+      <link>https://www.wikiod.com/tr/cassandra/cassandra-anahtarlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/cassandra/cassandra-anahtarlar/</guid>
+      <description>Bölüm anahtarı, kümeleme anahtarı, birincil anahtar # Cassandra iki tür anahtar kullanır:
+Partition Keys, düğümler arasında veri dağıtımından sorumludur Kümeleme Anahtarı, bir bölüm içindeki verileri sıralamaktan sorumludur Bir birincil anahtar, türlerin bir birleşimidir. Kelime, kombinasyona bağlıdır:
+basit birincil anahtar: yalnızca bir sütundan oluşan bölüm anahtarı composite bölüm anahtarı: yalnızca birden çok sütundan oluşan bölüm anahtarı bileşik birincil anahtar: bir veya daha fazla kümeleme anahtarına sahip bir bölüm anahtarı. bileşik ve bileşik birincil anahtar: birden çok sütundan ve birden çok kümeleme anahtarından oluşan bir bölüm anahtarı.</description>
+    </item>
+    
+    <item>
+      <title>Hizmet Olarak Cassandra</title>
+      <link>https://www.wikiod.com/tr/cassandra/hizmet-olarak-cassandra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/cassandra/hizmet-olarak-cassandra/</guid>
+      <description>Bu konu, Windows ve linux platformlarında Apache Cassandra&amp;rsquo;nın bir hizmet olarak nasıl başlatılacağını açıklar. Ayrıca toplu iş veya kabuk komut dosyasını çalıştırarak Cassandra&amp;rsquo;yı bin dizininden başlattığınızı unutmayın.
+Linux # /etc/init.d/cassandra başlangıç ​​komut dosyasını oluşturun.
+Dosyanın içeriğini düzenleyin:
+#!/bin/sh # # chkconfig: - 80 45 # description: Starts and stops Cassandra # update daemon path to point to the cassandra executable DAEMON=&amp;lt;Cassandra installed directory&amp;gt;/bin/cassandra start() { echo -n &amp;quot;Starting Cassandra... &amp;quot; $DAEMON -p /var/run/cassandra.</description>
+    </item>
+    
+  </channel>
+</rss>

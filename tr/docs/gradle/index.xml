@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gradle Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/gradle/</link>
+    <description>Recent content in gradle Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/gradle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gradle&#39;ı kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/gradle/gradle-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gradle/gradle-kullanmaya-baslama/</guid>
+      <description>Kepçe Kurulumu # Gereksinimler: Yüklü Java JDK veya JRE (Gradle 3.x sürümü için sürüm 7 veya üzeri)
+Kurulum adımları:
+Gradle dağıtımını resmi web sitesinden indirin ZIP&amp;rsquo;i paketinden çıkarın GRADLE_HOME ortam değişkenini ekleyin. Bu değişken, önceki adımdaki paketlenmemiş dosyalara işaret etmelidir. &amp;lsquo;PATH&amp;rsquo; ortam değişkeninize &amp;lsquo;GRADLE_HOME/bin&amp;rsquo; ekleyin, böylece Gradle&amp;rsquo;ı komut satırı arayüzünden (CLI) çalıştırabilirsiniz. CLI&amp;rsquo;ye &amp;lsquo;gradle -v&amp;rsquo; yazarak Gradle kurulumunuzu test edin. Çıktı, kurulu Gradle sürümünü ve mevcut Gradle yapılandırma ayrıntılarını içermelidir. Daha fazla bilgiyi resmi kullanıcı kılavuzunda bulabilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>Görev bağımlılıkları</title>
+      <link>https://www.wikiod.com/tr/gradle/gorev-bagmllklar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gradle/gorev-bagmllklar/</guid>
+      <description>**Son **
+Dereceli bir 3.x&amp;rsquo;te daha deyimsel bir şekilde görev tanımının: &amp;ldquo;leftShift&amp;rdquo;(&amp;laquo;) operatörü yerine açık doLast{closure} notasyonu kullanılması tercih edilir.(leftShift kullanımdan kaldırıldı bir derece 3.2&amp;rsquo;de, derece 5.0&amp;rsquo;da kaldırılması planlanmıştır.)
+task oldStyle &amp;lt;&amp;lt; { println &#39;Deprecated style task&#39; } şuna eşittir:
+task newStyle { doLast { println &#39;Deprecated style task&#39; } } Görev adlarını kullanarak bağımlılık ekleme # dependsOn metodu ile görevlerin yürütme sırasını değiştirebiliriz.
+task A &amp;lt;&amp;lt; { println &#39;Hello from A&#39; } task B(dependsOn: A) &amp;lt;&amp;lt; { println &amp;quot;Hello from B&amp;quot; } `dependsOn: öğesinin eklenmesi şunlara neden olur:</description>
+    </item>
+    
+    <item>
+      <title>bağımlılıklar</title>
+      <link>https://www.wikiod.com/tr/gradle/bagmllklar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gradle/bagmllklar/</guid>
+      <description>Yerel JAR Dosya Bağımlılığı Ekle # Tek Kavanoz # Bazen, Gradle yapınıza bağımlılık olarak eklemeniz gereken yerel bir JAR dosyanız vardır. Bunu şu şekilde yapabilirsiniz:
+dependencies { compile files(&#39;path/local_dependency.jar&#39;) } &amp;ldquo;path&amp;rdquo; dosya sisteminizdeki bir dizin yoludur ve &amp;ldquo;local_dependency.jar&amp;rdquo; yerel JAR dosyanızın adıdır. &amp;ldquo;Yol&amp;rdquo;, derleme dosyasına göre olabilir.
+JAR dizini # Derlemek için bir kavanoz dizini eklemek de mümkündür. Bu şu şekilde yapılabilir:
+dependencies { compile fileTree(dir: &#39;libs&#39;, include: &#39;*.jar&#39;) } Burada &amp;ldquo;libs&amp;rdquo;, kavanozları içeren dizin ve &amp;ldquo;*.</description>
+    </item>
+    
+    <item>
+      <title>Gradle Eklentileri</title>
+      <link>https://www.wikiod.com/tr/gradle/gradle-eklentileri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gradle/gradle-eklentileri/</guid>
+      <description>Bağımsız bir eklenti nasıl yazılır # Java kullanarak özel bir bağımsız Gradle eklentisi oluşturmak için (Groovy&amp;rsquo;yi de kullanabilirsiniz) şöyle bir yapı oluşturmanız gerekir:
+plugin |-- build.gradle |-- settings.gradle |-- src |-- main | |-- java | |-- resources | |-- META-INF | |-- gradle-plugins |-- test Derece yapılandırmasını kurun # build.gradle dosyasında projenizi tanımlarsınız.
+apply plugin: &#39;java&#39; apply plugin: &#39;maven&#39; dependencies { compile gradleApi() } Java kodunu yazmak için java eklentisi kullanılacaktır.</description>
+    </item>
+    
+    <item>
+      <title>Gradle Sarıcı</title>
+      <link>https://www.wikiod.com/tr/gradle/gradle-sarc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gradle/gradle-sarc/</guid>
+      <description>Gradle Wrapper tanıtımı # Gradle, projelere sarmalayıcı ekleme yeteneğine sahiptir. Bu sarmalayıcı, tüm kullanıcıların veya sürekli entegrasyon sistemlerinin Gradle&amp;rsquo;ın kurulu olması ihtiyacını azaltır. Ayrıca, projenin kullandığı sürüm ile kullanıcıların yüklediği sürüm arasında bazı uyumsuzlukların olduğu sürüm sorunlarını da önler. Bunu, projeye yerel olarak bir gradle sürümü yükleyerek yapar.
+Projenin kullanıcıları basitçe şunu çalıştırır:
+&amp;gt; ./gradlew &amp;lt;task&amp;gt; # on *Nix or MacOSX &amp;gt; gradlew &amp;lt;task&amp;gt; # on Windows Bir sarmalayıcı kullanmak üzere bir proje kurmak için geliştiriciler:</description>
+    </item>
+    
+    <item>
+      <title>Kepçe Performansı</title>
+      <link>https://www.wikiod.com/tr/gradle/kepce-performans/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gradle/kepce-performans/</guid>
+      <description>Bir Yapının Profilini Oluşturma # Gradle yapınızı performans için ayarlamaya başlamadan önce, bir temel oluşturmalı ve yapının hangi bölümlerinin en çok zaman aldığını bulmalısınız. Bunu yapmak için Gradle komutunuza &amp;ldquo;&amp;ndash;profile&amp;rdquo; bağımsız değişkenini ekleyerek yapınızın profilini oluşturabilirsiniz:
+gradle --profile ./gradlew --profile Derleme tamamlandıktan sonra, ./build/reports/profile/ altında derleme için şöyle bir HTML profil raporu göreceksiniz:
+Özet&amp;lsquo;in yanındaki sekmelere tıklayarak, zamanın nerede harcandığına ilişkin daha ayrıntılı bir döküm görebilirsiniz.
+Gradle Daemon&amp;rsquo;u kullanın # Yapılarınızın performansını iyileştirmek için Gradle Daemon&amp;rsquo;u etkinleştirebilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>Gradle Init Komut Dosyaları</title>
+      <link>https://www.wikiod.com/tr/gradle/gradle-init-komut-dosyalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gradle/gradle-init-komut-dosyalar/</guid>
+      <description>Tüm projeler için varsayılan depo ekle # Kullanıcı gradle klasörünüze bir init.gradle ekleyin. init.gradle her projede tanınır.
+Unix: ~/.gradle/init.gradle Bunlar ayrıca init betiğinin yerleştirilebileceği alternatif konumlardır ve otomatik olarak yüklenir:-
+USER_HOME/.gradle/init.d içindeki herhangi bir *.gradle dosyası Gradle kurulumunun init.d dizinindeki herhangi bir *.gradle dosyası Tüm projelerde depo olarak mavenLocal ile init.gradle.
+allprojects { repositories { mavenLocal() } } Bununla, tüm depolarda yerel maven önbelleğiniz bulunur. Bir kullanım durumu, mavenLocal deposunu build.</description>
+    </item>
+    
+    <item>
+      <title>IntelliJ IDEA Görev Özelleştirme</title>
+      <link>https://www.wikiod.com/tr/gradle/intellij-idea-gorev-ozellestirme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gradle/intellij-idea-gorev-ozellestirme/</guid>
+      <description>Sözdizimi # groovy.util.Node = node.find { childNode -&amp;gt; true döndür || yanlış } node.append(nodeYouWantAsAChild) groovy.util.Node parsedNode = (yeni XmlParser()).parseText(someRawXMLString) &amp;rsquo;&amp;rsquo;&amp;rsquo; çok satırlı dize (enterpolasyon yapılmamış) &amp;rsquo;&#39;&#39; Bir IntelliJ projesinin üç temel dosyasına - ipr, iws ve iml dosyaları - fikir görevinde gradle&amp;rsquo;da olduğu gibi erişilebilir.
+project.ipr module.iml workspace.iws .withXml&amp;rsquo;i kullanmak, xml&amp;rsquo;ye erişmenizi sağlar. Üzerinde .asNode() kullanılması onu mükemmel bir xml düğümüne dönüştürür.
+Eski:
+project.ipr.withXml { provider -&amp;gt; def node = provider.</description>
+    </item>
+    
+    <item>
+      <title>Gradle başlatılıyor</title>
+      <link>https://www.wikiod.com/tr/gradle/gradle-baslatlyor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gradle/gradle-baslatlyor/</guid>
+      <description>Terminoloji # Görev - bir yapının gerçekleştirdiği atomik bir iş parçası. Görevlerin &amp;ldquo;girdileri&amp;rdquo;, &amp;ldquo;çıkışları&amp;rdquo; ve görev bağımlılıkları vardır. bağımlılıklar {} - Görevleri yürütmek için gerekli olan &amp;ldquo;Dosya&amp;rdquo; veya ikili bağımlılıkları bildirir. Örneğin, &amp;ldquo;org.slf4j:slf4j-api:1.7.21&amp;rdquo; Maven bağımlılığının koordinatları kısaltmasıdır. repositories {} - Gradle, harici bağımlılıklar için dosyaları nasıl bulur. Gerçekten, yalnızca grup, ad ve sürüme göre düzenlenmiş bir dosya koleksiyonu. Örneğin: jcenter(), bir Bintray Maven deposu olan maven { url &#39;http://jcenter.bintray.com/&#39; } } için bir kolaylık yöntemidir.</description>
+    </item>
+    
+    <item>
+      <title>Görevleri sipariş etme</title>
+      <link>https://www.wikiod.com/tr/gradle/gorevleri-siparis-etme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gradle/gorevleri-siparis-etme/</guid>
+      <description>Lütfen &amp;ldquo;mustRunAfter&amp;rdquo; ve &amp;ldquo;shouldRunAfter&amp;rdquo; öğelerinin &amp;ldquo;inkübasyon&amp;rdquo; (Gradle 3.0&amp;rsquo;dan itibaren) olarak işaretlendiğini unutmayın; bu, bunların deneysel özellikler olduğu ve davranışlarının gelecekteki sürümlerde değiştirilebileceği anlamına gelir.
+Mevcut iki sıralama kuralı vardır:
+MustRunAfter &amp;ldquo;Sonra Çalıştırmalı&amp;rdquo; &amp;lsquo;MustRunAfter&amp;rsquo; sıralama kuralını kullandığınızda, hem TaskA hem de TaskB çalıştırılacaksa, görevB&amp;rsquo;nin her zaman görevA&amp;rsquo;dan sonra çalışması gerektiğini belirtirsiniz.
+&amp;ldquo;ShouldRunAfter&amp;rdquo; sıralama kuralı benzerdir ancak iki durumda göz ardı edileceğinden daha az katıdır:
+bu kuralın kullanılması bir sipariş döngüsü getiriyorsa.</description>
+    </item>
+    
+  </channel>
+</rss>

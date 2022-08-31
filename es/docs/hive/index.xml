@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de la colmena on </title>
+    <link>https://www.wikiod.com/es/docs/hive/</link>
+    <description>Recent content in Tutorial de la colmena on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/hive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comenzando con la colmena</title>
+      <link>https://www.wikiod.com/es/hive/comenzando-con-la-colmena/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/hive/comenzando-con-la-colmena/</guid>
+      <description>Instalación de Hive (Linux) # Comience descargando la última versión estable de https://hive.apache.org/downloads.html
+-&amp;gt; Ahora descomprima el archivo con
+$ tar -xvf colmena-2.x.y-bin.tar.gz
+-&amp;gt; Crear un directorio en /usr/local/ con
+$ sudo mkdir /usr/local/colmena
+-&amp;gt; Mover el archivo a la raíz con
+$ mv ~/Descargas/colmena-2.x.y /usr/local/colmena
+-&amp;gt; Editar variables de entorno para hadoop y hive en .bashrc
+$ gedit ~/.bashrc
+como esto
+exportar HIVE_HOME=/usr/local/hive/apache-hive-2.0.1-bin/
+exportación PATH=$PATH:$HIVE_HOME/bin
+export CLASSPATH=$CLASSPATH:/usr/local/Hadoop/lib/*:.
+export CLASSPATH=$CLASSPATH:/usr/local/hive/apache-hive-2.0.1-bin/lib/*:.</description>
+    </item>
+    
+    <item>
+      <title>Formatos de archivo en HIVE</title>
+      <link>https://www.wikiod.com/es/hive/formatos-de-archivo-en-hive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/hive/formatos-de-archivo-en-hive/</guid>
+      <description>PARQUET # Formato de almacenamiento de columnas de parquet en Hive 0.13.0 y versiones posteriores. Parquet se construye desde cero con estructuras de datos anidadas complejas en mente, y utiliza el algoritmo de trituración y ensamblaje de registros descrito en el documento de Dremel. Creemos que este enfoque es superior al simple aplanamiento de espacios de nombres anidados.
+Parquet está diseñado para admitir esquemas de compresión y codificación muy eficientes. Múltiples proyectos han demostrado el impacto en el rendimiento de aplicar el esquema correcto de compresión y codificación a los datos.</description>
+    </item>
+    
+    <item>
+      <title>Crear declaración de base de datos y tabla</title>
+      <link>https://www.wikiod.com/es/hive/crear-declaracion-de-base-de-datos-y-tabla/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/hive/crear-declaracion-de-base-de-datos-y-tabla/</guid>
+      <description>Sintaxis # CREAR TABLA [TEMPORAL] [EXTERNA] [SI NO EXISTE] [nombre_bd.]nombre_tabla
+[(col_name data_type [COMMENT col_comment], ...)] [COMENTARIO tabla_comentario] [PARTICIONADO POR (col_name data_type [COMENTARIO col_comment], &amp;hellip;)] [ACLUSTRADO POR (col_name, col_name, &amp;hellip;) [ORDENADO POR (col_name [ASC|DESC], &amp;hellip;)] EN num_buckets BUCKETS] [SESGADO POR (col_name, col_name, &amp;hellip;) &amp;ndash; (Nota: disponible en Hive 0.10.0 y versiones posteriores)] ON ((col_value, col_value, &amp;hellip;), (col_value, col_value, &amp;hellip;), &amp;hellip;) [STORED AS DIRECTORIES] [ [FORMATO DE FILA formato_fila] [ALMACENADO COMO file_format] | STORED BY &amp;lsquo;storage.</description>
+    </item>
+    
+    <item>
+      <title>Funciones definidas por el usuario de Hive (UDF)</title>
+      <link>https://www.wikiod.com/es/hive/funciones-definidas-por-el-usuario-de-hive-udf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/hive/funciones-definidas-por-el-usuario-de-hive-udf/</guid>
+      <description>Creación de UDF de colmena # Para crear una UDF, necesitamos extender la clase UDF (org.apache.hadoop.hive.ql.exec.UDF) e implementar el método de evaluación.
+Una vez que se cumple con UDF y se compila JAR, debemos agregar jar al contexto de Hive para crear una función temporal/permanente.
+import org.apache.hadoop.hive.ql.exec.UDF; class UDFExample extends UDF { public String evaluate(String input) { return new String(&amp;quot;Hello &amp;quot; + input); } } hive&amp;gt; ADD JAR &amp;lt;JAR NAME&amp;gt;.jar; hive&amp;gt; CREATE TEMPORARY FUNCTION helloworld as &#39;package.</description>
+    </item>
+    
+    <item>
+      <title>Funciones agregadas definidas por el usuario (UDAF)</title>
+      <link>https://www.wikiod.com/es/hive/funciones-agregadas-definidas-por-el-usuario-udaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/hive/funciones-agregadas-definidas-por-el-usuario-udaf/</guid>
+      <description>Ejemplo de media UDAF # Cree una clase Java que amplíe org.apache.hadoop.hive.ql.exec.hive.UDAF Cree una clase interna que implemente UDAFEvaluator
+Implementar cinco métodos
+init() – This method initializes the evaluator and resets its internal state. We are using new Column() in the code below to indicate that no values have been aggregated yet.
+iterate() – This method is called every time there is a new value to be aggregated. The evaluator should update its internal state with the result of performing the aggregation (we are doing sum – see below).</description>
+    </item>
+    
+    <item>
+      <title>Funciones de tabla definidas por el usuario (UDTF)</title>
+      <link>https://www.wikiod.com/es/hive/funciones-de-tabla-definidas-por-el-usuario-udtf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/hive/funciones-de-tabla-definidas-por-el-usuario-udtf/</guid>
+      <description>Ejemplo y uso de UDTF # Funciones de tabla definidas por el usuario representadas por la interfaz org.apache.hadoop.hive.ql.udf.generic.GenericUDTF. Esta función permite generar múltiples filas y múltiples columnas para una sola entrada.
+Tenemos que sobrescribir los siguientes métodos:
+1.we specify input and output parameters abstract StructObjectInspector initialize(ObjectInspector[] args) throws UDFArgumentException; 2.we process an input record and write out any resulting records abstract void process(Object[] record) throws HiveException; 3.function is Called to notify the UDTF that there are no more rows to process.</description>
+    </item>
+    
+    <item>
+      <title>Insertar declaración</title>
+      <link>https://www.wikiod.com/es/hive/insertar-declaracion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/hive/insertar-declaracion/</guid>
+      <description>Sintaxis # Sintaxis estándar:
+INSERTAR SOBREESCRIBIR TABLA tablename1 [PARTICIÓN (partcol1=val1, partcol2=val2 &amp;hellip;) [SI NO EXISTE]] select_statement1 FROM from_statement;
+INSERTAR EN LA TABLA tablename1 [PARTICIÓN (partcol1=val1, partcol2=val2 &amp;hellip;)] select_statement1 FROM from_statement;
+INSERTAR EN LA TABLA tablename1 [PARTICIÓN (partcol1=val1, partcol2=val2 &amp;hellip;)] (z,y) select_statement1 FROM from_statement;
+Extensión de colmena (múltiples inserciones):
+DESDE from_statement INSERTAR SOBREESCRIBIR TABLA tablename1 [PARTICIÓN (partcol1=val1, partcol2=val2 &amp;hellip;) [SI NO EXISTE]] select_statement1 [INSERTAR SOBREESCRIBIR TABLA tablename2 [PARTICIÓN &amp;hellip; [SI NO EXISTE]] select_statement2] [INSERT INTO TABLE tablename2 [PARTICIÓN &amp;hellip;] select_statement2] &amp;hellip;;</description>
+    </item>
+    
+    <item>
+      <title>Declaración SELECCIONAR</title>
+      <link>https://www.wikiod.com/es/hive/declaracion-seleccionar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/hive/declaracion-seleccionar/</guid>
+      <description>Sintaxis # SELECCIONAR [TODO | DISTINCT] select_expr, select_expr, select_expr, …. DESDE table_reference [DONDE donde_condición] [GRUPO POR col_list] [TENER condición de tener] [ORDENAR POR col_list] [LÍMITE n] Seleccionar filas específicas # Esta consulta devolverá todas las columnas de la tabla &amp;ldquo;ventas&amp;rdquo; donde los valores en la columna &amp;ldquo;cantidad&amp;rdquo; son mayores que 10 y los datos en la columna &amp;ldquo;región&amp;rdquo; en &amp;ldquo;EE. UU.&amp;rdquo;.
+SELECT * FROM sales WHERE amount &amp;gt; 10 AND region = &amp;quot;US&amp;quot; Puede usar expresiones regulares para seleccionar las columnas que desea obtener.</description>
+    </item>
+    
+    <item>
+      <title>Indexación</title>
+      <link>https://www.wikiod.com/es/hive/indexacion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/hive/indexacion/</guid>
+      <description>Estructura # CREATE INDEX index_name ON TABLE base_table_name (col_name, ...) AS &#39;index.handler.class.name&#39; [WITH DEFERRED REBUILD] [IDXPROPERTIES (property_name=property_value, ...)] [IN TABLE index_table_name] [PARTITIONED BY (col_name, ...)] [ [ ROW FORMAT ...] STORED AS ... | STORED BY ... ] [LOCATION hdfs_path] [TBLPROPERTIES (...)] Ejemplo:
+CREATE INDEX inedx_salary ON TABLE employee(salary) AS &#39;org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler&#39; WITH DEFERRED REBUILD; Alterar índice
+ALTER INDEX nombre_índice ON nombre_tabla [PARTICIÓN (&amp;hellip;)] RECONSTRUIR
+Índice de caída
+DROP INDEX &amp;lt;index_name&amp;gt; ON &amp;lt;table_name&amp;gt; Si se especifica CON RECONSTRUCCIÓN DIFERIDA en CREAR ÍNDICE, el índice recién creado inicialmente está vacío (independientemente de si la tabla contiene datos).</description>
+    </item>
+    
+    <item>
+      <title>Exportar datos en Hive</title>
+      <link>https://www.wikiod.com/es/hive/exportar-datos-en-hive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/hive/exportar-datos-en-hive/</guid>
+      <description>Función de exportación en colmena # Exportando datos de la tabla de empleados a /tmp/ca_employees
+INSERTAR SOBRESCRIBIR DIRECTORIO LOCAL &amp;lsquo;/tmp/ca_employees&amp;rsquo; SELECCIONAR nombre, salario, dirección FROM empleados WHERE se.state = &amp;lsquo;CA&amp;rsquo;;
+Exportación de datos de la tabla de empleados a varios directorios locales en función de una condición específica
+La siguiente consulta muestra cómo se puede usar una sola construcción para exportar datos a varios directorios en función de criterios específicos.</description>
+    </item>
+    
+  </channel>
+</rss>

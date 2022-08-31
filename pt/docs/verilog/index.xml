@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Verilog Tutorial on </title>
+    <link>https://www.wikiod.com/pt/docs/verilog/</link>
+    <description>Recent content in Verilog Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/verilog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução ao Verilog</title>
+      <link>https://www.wikiod.com/pt/verilog/introducao-ao-verilog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/verilog/introducao-ao-verilog/</guid>
+      <description>Introdução # Verilog é uma linguagem de descrição de hardware (HDL) usada para modelar sistemas eletrônicos. Ele descreve mais comumente um sistema eletrônico no nível de transferência de registro (RTL) de abstração. Também é usado na verificação de circuitos analógicos e circuitos de sinais mistos. Sua estrutura e principais princípios (conforme descritos abaixo) são projetados para descrever e implementar com sucesso um sistema eletrônico.
+Rigidez Um circuito eletrônico é uma entidade física que possui uma estrutura fixa e o Verilog é adaptado para isso.</description>
+    </item>
+    
+    <item>
+      <title>Recordações</title>
+      <link>https://www.wikiod.com/pt/verilog/recordacoes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/verilog/recordacoes/</guid>
+      <description>Para FIFOs, você normalmente instancia um bloco específico do fornecedor (também chamado de &amp;ldquo;núcleo&amp;rdquo; ou &amp;ldquo;IP&amp;rdquo;).
+RAM de porta dupla simples # RAM de porta dupla simples com endereços e relógios separados para operações de leitura/gravação.
+module simple_ram_dual_clock #( parameter DATA_WIDTH=8, //width of data bus parameter ADDR_WIDTH=8 //width of addresses buses )( input [DATA_WIDTH-1:0] data, //data to be written input [ADDR_WIDTH-1:0] read_addr, //address for read operation input [ADDR_WIDTH-1:0] write_addr, //address for write operation input we, //write enable signal input read_clk, //clock signal for read operation input write_clk, //clock signal for write operation output reg [DATA_WIDTH-1:0] q //read data ); reg [DATA_WIDTH-1:0] ram [2**ADDR_WIDTH-1:0]; // ** is exponentiation always @(posedge write_clk) begin //WRITE if (we) begin ram[write_addr] &amp;lt;= data; end end always @(posedge read_clk) begin //READ q &amp;lt;= ram[read_addr]; end endmodule Registro de deslocamento # Registro de deslocamento profundo de N bits com reset assíncrono.</description>
+    </item>
+    
+    <item>
+      <title>Blocos de procedimento</title>
+      <link>https://www.wikiod.com/pt/verilog/blocos-de-procedimento/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/verilog/blocos-de-procedimento/</guid>
+      <description>Sintaxe # sempre @ (posse clk) begin /* declarações */ end sempre @ (negedge clk) begin /* instruções */ end sempre @ (posedge clk ou posedge reset) // pode sintetizar com menos eficiência que o reset síncrono Contador simples # Um contador usando uma inicialização flip-flop estilo FPGA:
+module counter( input clk, output reg[7:0] count ) initial count = 0; always @ (posedge clk) begin count &amp;lt;= count + 1&#39;b1; end Um contador implementado usando resets assíncronos adequados para síntese ASIC:</description>
+    </item>
+    
+    <item>
+      <title>Olá Mundo</title>
+      <link>https://www.wikiod.com/pt/verilog/ola-mundo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/verilog/ola-mundo/</guid>
+      <description>Compilando e executando o exemplo # Assumindo um arquivo fonte de hello_world.v e um módulo de nível superior de hello_world. O código pode ser executado usando vários simuladores. A maioria dos simuladores são simuladores compilados. Eles exigem várias etapas para compilar e executar. Geralmente o
+O primeiro passo é compilar o design Verilog. O segundo passo é elaborar e otimizar o projeto. O terceiro passo é executar a simulação. Os detalhes das etapas podem variar de acordo com o simulador, mas a ideia geral permanece a mesma.</description>
+    </item>
+    
+    <item>
+      <title>Incompatibilidade de síntese vs simulação</title>
+      <link>https://www.wikiod.com/pt/verilog/incompatibilidade-de-sintese-vs-simulacao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/verilog/incompatibilidade-de-sintese-vs-simulacao/</guid>
+      <description>Uma boa explicação deste tópico está em http://www.sunburst-design.com/papers/CummingsSNUG1999SJ_SynthMismatch.pdf
+Comparação # fio d = 1&amp;rsquo;bx; // diz do bloco anterior. Será 1 ou 0 em hardware
+if (d == 1&amp;rsquo;b) // falso na simulação. Pode ser verdadeiro ou falso no hardware
+Lista de sensibilidade # wire a; wire b; reg q; always @(a) // b missing from sensativity list q = a &amp;amp; b; // In simulation q will change only when a changes Em hardware, q mudará sempre que a ou b mudar.</description>
+    </item>
+    
+  </channel>
+</rss>

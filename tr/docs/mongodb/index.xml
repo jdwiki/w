@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MongoDB Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/mongodb/</link>
+    <description>Recent content in MongoDB Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MongoDB&#39;yi kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/mongodb/mongodbyi-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mongodb/mongodbyi-kullanmaya-baslama/</guid>
+      <description>MongoDB&amp;rsquo;de bir JavaScript dosyasının yürütülmesi # ./mongo localhost:27017/mydb myjsfile.js Açıklama: Bu işlem, &amp;ldquo;27017&amp;rdquo; bağlantı noktasındaki &amp;ldquo;localhost&amp;rdquo; arabirimi aracılığıyla erişilebilen &amp;ldquo;mongod&amp;rdquo; örneğindeki &amp;ldquo;mydb&amp;rdquo; veritabanına bağlanan bir &amp;ldquo;mongo&amp;rdquo; kabuğunda &amp;ldquo;myjsfile.js&amp;rdquo; komut dosyasını çalıştırır. &amp;rsquo;localhost:27017&amp;rsquo;, &amp;lsquo;mongodb&amp;rsquo;nun kullandığı varsayılan bağlantı noktası olduğundan zorunlu değildir.
+Ayrıca, bir &amp;ldquo;.js&amp;rdquo; dosyasını &amp;ldquo;mongo&amp;rdquo; konsolundan çalıştırabilirsiniz.
+&amp;gt;load(&amp;quot;myjsfile.js&amp;quot;) find çıktısının kabukta okunabilir hale getirilmesi # Toplama testimize şu şekilde üç kayıt ekliyoruz:
+&amp;gt; db.test.insert({&amp;quot;key&amp;quot;:&amp;quot;value1&amp;quot;,&amp;quot;key2&amp;quot;:&amp;quot;Val2&amp;quot;,&amp;quot;key3&amp;quot;:&amp;quot;val3&amp;quot;}) WriteResult({ &amp;quot;nInserted&amp;quot; : 1 }) &amp;gt; db.</description>
+    </item>
+    
+    <item>
+      <title>CRUD Operasyonu</title>
+      <link>https://www.wikiod.com/tr/mongodb/crud-operasyonu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mongodb/crud-operasyonu/</guid>
+      <description>Sözdizimi # insert(belge veya belge dizisi) insertBir( &amp;lsquo;belge&amp;rsquo;, { writeConcern: &amp;lsquo;document&amp;rsquo; } ) insertMany( { [ belge 1 , belge 2, &amp;hellip; ] }, { writeConcern: document, ordered: boolean } ) bul(sorgu, projeksiyon) findOne(sorgu, projeksiyon) güncelleme(sorgu, güncelleme) güncellemeBir( sorgu, Güncelleme, { upsert: boolean, writeConcern: document } ) güncellemeMany( sorgu, Güncelleme, { upsert: boolean, writeConcern: document } ) birini değiştir( sorgu, yenisiyle değiştirme, { upsert: boolean, writeConcern: document } ) kaldır(sorgu, justOne) findAndModify(sorgu, sort, güncelleme, seçenekler[isteğe bağlı]) Bir belgenin güncellenmesi ve silinmesi dikkatli bir şekilde yapılmalıdır.</description>
+    </item>
+    
+    <item>
+      <title>MongoDB Toplama</title>
+      <link>https://www.wikiod.com/tr/mongodb/mongodb-toplama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mongodb/mongodb-toplama/</guid>
+      <description>İş ve öğrenim için faydalı toplu sorgu örnekleri # Toplama, mongo sorgusunda normal &amp;ldquo;bul&amp;rdquo; sorgusunda yapılamayan karmaşık veri arama işlemlerini gerçekleştirmek için kullanılır.
+Bazı boş veriler oluşturun:
+db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Adma&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Admin&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;german&amp;quot;,&amp;quot;french&amp;quot;,&amp;quot;english&amp;quot;,&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:30, &amp;quot;totalExp&amp;quot;:10}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Anna&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Admin&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;,&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:35, &amp;quot;totalExp&amp;quot;:11}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Bob&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Facilities&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;,&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:36, &amp;quot;totalExp&amp;quot;:14}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Cathy&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Facilities&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:31, &amp;quot;totalExp&amp;quot;:4}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Mike&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;HR&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;, &amp;quot;hindi&amp;quot;, &amp;quot;spanish&amp;quot;],&amp;quot;age&amp;quot;:26, &amp;quot;totalExp&amp;quot;:3}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Jenny&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;HR&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;, &amp;quot;hindi&amp;quot;, &amp;quot;spanish&amp;quot;],&amp;quot;age&amp;quot;:25, &amp;quot;totalExp&amp;quot;:3}); Konuya göre örnekler:
+1. Match: Belgeleri eşleştirmek için kullanılır (örneğin, SQL where cümlesi)
+db.employees.aggregate([{$match:{dept:&amp;quot;Admin&amp;quot;}}]); Output: { &amp;quot;_id&amp;quot; : ObjectId(&amp;quot;54982fac2e9b4b54ec384a0d&amp;quot;), &amp;quot;name&amp;quot; : &amp;quot;Adma&amp;quot;, &amp;quot;dept&amp;quot; : &amp;quot;Admin&amp;quot;, &amp;quot;languages&amp;quot; : [ &amp;quot;german&amp;quot;, &amp;quot;french&amp;quot;, &amp;quot;english&amp;quot;, &amp;quot;hindi&amp;quot; ], &amp;quot;age&amp;quot; : 30, &amp;quot;totalExp&amp;quot; : 10 } { &amp;quot;_id&amp;quot; : ObjectId(&amp;quot;54982fc92e9b4b54ec384a0e&amp;quot;), &amp;quot;name&amp;quot; : &amp;quot;Anna&amp;quot;, &amp;quot;dept&amp;quot; : &amp;quot;Admin&amp;quot;, &amp;quot;languages&amp;quot; : [ &amp;quot;english&amp;quot;, &amp;quot;hindi&amp;quot; ], &amp;quot;age&amp;quot; : 35, &amp;quot;totalExp&amp;quot; : 11 } 2.</description>
+    </item>
+    
+    <item>
+      <title>dizinler</title>
+      <link>https://www.wikiod.com/tr/mongodb/dizinler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mongodb/dizinler/</guid>
+      <description>Sözdizimi # db.collection.createIndex({ &amp;lt;string field&amp;gt; : &amp;lt;1|-1 order&amp;gt; [, &amp;lt;string field&amp;gt; : &amp;lt;1|-1 order&amp;gt;] }); Performans Etkisi: Dizinlerin okuma performanslarını iyileştirdiğini, ancak bir belge eklemek için tüm dizinlerin güncellenmesini gerektirdiğinden yazma performansı üzerinde kötü bir etkisi olabileceğini unutmayın.
+Dizin Bırakma/Silme # Dizin adı biliniyorsa,
+db.collection.dropIndex(&#39;name_of_index&#39;); Dizin adı bilinmiyorsa,
+db.collection.dropIndex( { &#39;name_of_field&#39; : -1 } ); Koleksiyon Dizinlerini Alın # db.collection.getIndexes(); Çıktı
+[ { &amp;quot;v&amp;quot; : 1, &amp;quot;key&amp;quot; : { &amp;quot;_id&amp;quot; : 1 }, &amp;quot;name&amp;quot; : &amp;quot;_id_&amp;quot;, &amp;quot;ns&amp;quot; : &amp;quot;documentation_db.</description>
+    </item>
+    
+    <item>
+      <title>Takılabilir Depolama Motorları</title>
+      <link>https://www.wikiod.com/tr/mongodb/taklabilir-depolama-motorlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mongodb/taklabilir-depolama-motorlar/</guid>
+      <description>MongoDB 3.0&amp;rsquo;da MMAP (varsayılan) ve WiredTiger kararlı depolama motorlarıdır. Genellikle, uygulamanız okuma ağırlıklıysa MMAP kullanın. Yazma ağırlıklıysa WiredTiger kullanın.
+Çözümünüz ayrıca, bir düğümün MMAP ile ve diğerinin WiredTiger ile yapılandırıldığı karma bir çoğaltma kümesi üyelerine sahip olabilir. Birini büyük miktarda veri eklemek için, diğerini ise analitik araçlarla okumak için kullanabilirsiniz.
+MongoDB 3.2&amp;rsquo;den sonra WiredTiger varsayılan motor olur.
+KabloluKaplan # WiredTiger, dizinleri depolamak için LSM ağaçlarını destekler. LSM ağaçları, büyük iş yükleri rasgele eklemeler yazmanız gerektiğinde yazma işlemleri için daha hızlıdır.</description>
+    </item>
+    
+    <item>
+      <title>Toplama</title>
+      <link>https://www.wikiod.com/tr/mongodb/toplama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mongodb/toplama/</guid>
+      <description>&amp;ldquo;Toplamalar&amp;rdquo; işlemleri veri kayıtlarını işler ve hesaplanan sonuçları döndürür. Toplama işlemleri, birden çok belgedeki değerleri birlikte gruplandırır ve tek bir sonuç döndürmek için gruplanmış veriler üzerinde çeşitli işlemler gerçekleştirebilir. MongoDB, toplama gerçekleştirmek için üç yol sağlar: toplama ardışık düzeni, harita azaltma işlevi ve tek amaçlı toplama yöntemleri.
+Mongo kılavuzundan https://docs.mongodb.com/manual/aggregation/
+Sözdizimi # db.collection.aggregate(boru hattı, seçenekler) Parametreler # parametre Ayrıntılar boru hattı dizi(bir dizi veri toplama işlemi veya aşaması) seçenekler belge(isteğe bağlı, yalnızca ardışık düzen dizi olarak mevcutsa kullanılabilir) MongoDB&amp;rsquo;deki toplama çerçevesi, SQL&amp;rsquo;in ortak &amp;lsquo;GROUP BY&amp;rsquo; işlevselliğini elde etmek için kullanılır.</description>
+    </item>
+    
+    <item>
+      <title>Veri Sorgulama ( Başlarken )</title>
+      <link>https://www.wikiod.com/tr/mongodb/veri-sorgulama--baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mongodb/veri-sorgulama--baslarken/</guid>
+      <description>Temel sorgulama örnekleri
+Bulmak() # bir koleksiyondaki tüm belgeleri al
+db.collection.find({}); bir koşul kullanarak bir koleksiyondaki belgeleri alın (MYSQL&amp;rsquo;deki WHERE&amp;rsquo;ye benzer)
+db.collection.find({key: value}); example db.users.find({email:&amp;quot;sample@email.com&amp;quot;}); Boolean koşullarını kullanarak bir koleksiyondaki belgeleri alın (Sorgu Operatörleri)
+//AND db.collection.find( { $and: [ { key: value }, { key: value } ] }) //OR db.collection.find( { $or: [ { key: value }, { key: value } ] }) //NOT db.inventory.find( { key: { $not: value } } ) daha fazla boole işlemi ve örneği bulunabilir burada</description>
+    </item>
+    
+    <item>
+      <title>Yapılandırma</title>
+      <link>https://www.wikiod.com/tr/mongodb/yaplandrma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mongodb/yaplandrma/</guid>
+      <description>Parametreler # parametre Varsayılan systemLog.verbosity 0 systemLog.quiet yanlış systemLog.traceAllExceptions yanlış systemLog.syslogTesis kullanıcı systemLog.path - systemLog.logAppend yanlış systemLog.logDöndür yeniden adlandır systemLog.hedef standart systemLog.timeStampFormat iso8601-yerel systemLog.component.accessControl.verbosity 0 systemLog.component.command.verbosity 0 systemLog.component.control.verbosity 0 systemLog.component.ftdc.verbosity 0 systemLog.component.geo.verbosity 0 systemLog.component.index.verbosity 0 systemLog.component.network.verbo 0 systemLog.component.query.verbosity 0 systemLog.component.replication.verbosity 0 systemLog.component.sharding.verbosity 0 systemLog.component.storage.verbosity 0 systemLog.component.storage.journal.verbosity 0 systemLog.component.write.verbosity 0 processManagement.fork yanlış processManagement.pidFilePath hiçbiri net.port 27017 net.bindIp 0.0.0.0 net.maxIncomingConnections 65536 net.wireObjectCheck doğru net.ipv6 yanlış net.unixDomainSocket.enabled doğru net.unixDomainSocket.pathÖnek /tmp net.unixDomainSocket.filePermissions 0700 net.http.etkin yanlış net.</description>
+    </item>
+    
+    <item>
+      <title>MongoDB - TLSSSL&#39;yi desteklemek için bir ReplicaSet yapılandırın</title>
+      <link>https://www.wikiod.com/tr/mongodb/mongodb---tlssslyi-desteklemek-icin-bir-replicaset-yaplandrn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mongodb/mongodb---tlssslyi-desteklemek-icin-bir-replicaset-yaplandrn/</guid>
+      <description>TLS/SSL&amp;rsquo;yi desteklemek için bir ReplicaSet nasıl yapılandırılır?
+Yerel ortamınıza 3 Düğümlü bir ReplicaSet dağıtacağız ve kendinden imzalı bir sertifika kullanacağız. PRODUCTION&amp;rsquo;da kendinden imzalı bir sertifika kullanmayın.
+İstemcinizi bu ReplicaSet&amp;rsquo;e nasıl bağlayabilirsiniz?
+Bir Mongo Shell bağlayacağız.
+TLS/SSL, PKI (Public Key Infrastructure) sertifikalarının ve Sertifika Yetkilisinin açıklaması bu belgenin kapsamı dışındadır.
+TLS/SSL&amp;rsquo;yi desteklemek için bir ReplicaSet nasıl yapılandırılır? # Kök Sertifikayı Oluşturun # Kök Sertifika (aka CA Dosyası), sertifikanızı imzalamak ve tanımlamak için kullanılacaktır.</description>
+    </item>
+    
+    <item>
+      <title>MongoDB&#39;de Kimlik Doğrulama Mekanizmaları</title>
+      <link>https://www.wikiod.com/tr/mongodb/mongodbde-kimlik-dogrulama-mekanizmalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mongodb/mongodbde-kimlik-dogrulama-mekanizmalar/</guid>
+      <description>Kimlik doğrulama, bir istemcinin kimliğini doğrulama işlemidir. Erişim kontrolü, yani yetkilendirme etkinleştirildiğinde, MongoDB, erişimlerini belirlemek için tüm istemcilerin kendilerini doğrulamasını gerektirir.
+MongoDB, istemcilerin kimliklerini doğrulamak için kullanabilecekleri bir dizi kimlik doğrulama mekanizmasını destekler. Bu mekanizmalar, MongoDB&amp;rsquo;nin mevcut kimlik doğrulama sisteminize entegre olmasını sağlar.
+Kimlik Doğrulama Mekanizmaları # MongoDB, çoklu kimlik doğrulama mekanizmalarını destekler.
+İstemci ve Kullanıcı Kimlik Doğrulama Mekanizmaları
+SCRAM-SHA-1
+X.509 Sertifika Kimlik Doğrulaması
+MongoDB Mücadelesi ve Yanıtı (MONGODB-CR)
+LDAP proxy kimlik doğrulaması ve</description>
+    </item>
+    
+  </channel>
+</rss>

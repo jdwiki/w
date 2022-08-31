@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial Contramestre on </title>
+    <link>https://www.wikiod.com/pt/docs/bosun/</link>
+    <description>Recent content in Tutorial Contramestre on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/bosun/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução ao Bosun</title>
+      <link>https://www.wikiod.com/pt/bosun/introducao-ao-bosun/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/bosun/introducao-ao-bosun/</guid>
+      <description>Arquivo de configuração de amostra # Aqui está um exemplo de um arquivo de configuração Bosun usado em um ambiente de desenvolvimento:
+tsdbHost = localhost:4242 httpListen = :8070 smtpHost = localhost:25 emailFrom = bosun@example.org timeAndDate = 202,75,179,136 ledisDir = ../ledis_data checkFrequency = 5m notification example.notification { email = alerts@example.org print = true } Nesse caso, o arquivo de configuração indica que o Bosun deve se conectar a uma instância OpenTSDB local na porta 4242, ouvir solicitações na porta 8070 (em todos os endereços IP vinculados ao host), usar o sistema SMTP localhost para e-mail, exibir [fusos horários adicionais] 1, use Ledis integrado em vez de Redis externo para o estado do sistema e alertas padrão para um intervalo de 5 minutos.</description>
+    </item>
+    
+    <item>
+      <title>Coletores Externos Scollector</title>
+      <link>https://www.wikiod.com/pt/bosun/coletores-externos-scollector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/bosun/coletores-externos-scollector/</guid>
+      <description>O Scollector suporta o estilo tcollector [coletores externos](http:// bosun.org/scollector/external-collectors) que pode ser usado para enviar métricas ao Bosun por meio de scripts personalizados ou executáveis. Coletores externos são uma ótima maneira de começar a coletar dados, mas, quando possível, é recomendável que os aplicativos enviem dados diretamente ao Bosun ou atualizem o scollector para que ele suporte nativamente sistemas adicionais.
+A chave de configuração ColDir especifica o diretório do coletor externo, que geralmente é definido como /opt/scollector/collectors/ no Linux ou C:\Program Files\scollector\collectors \ no Windows.</description>
+    </item>
+    
+    <item>
+      <title>Monitoramento de Processo e Serviço do Collector</title>
+      <link>https://www.wikiod.com/pt/bosun/monitoramento-de-processo-e-servico-do-collector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/bosun/monitoramento-de-processo-e-servico-do-collector/</guid>
+      <description>O Scollector pode ser usado para monitorar processos e serviços no Windows e no Linux. Alguns processos, como os pools de aplicativos do IIS, são monitorados automaticamente, mas geralmente você precisa especificar quais processos e serviços deseja monitorar.
+Processo Linux e monitoramento de serviço systemd # O Scollector monitorará os processos do Linux especificado no arquivo de configuração.
+[[Process]] Command = &amp;quot;/opt/bosun/bosun&amp;quot; Name = &amp;quot;bosun&amp;quot; [[Process]] Command = &amp;quot;ruby&amp;quot; Name = &amp;quot;puppet-agent&amp;quot; Args = &amp;quot;puppet&amp;quot; [[Process]] Command = &amp;quot;/haproxy$&amp;quot; Name = &amp;quot;haproxy-t1&amp;quot; Args = &amp;quot;/etc/haproxy-t1/haproxy-t1.</description>
+    </item>
+    
+    <item>
+      <title>Exemplos Completos</title>
+      <link>https://www.wikiod.com/pt/bosun/exemplos-completos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/bosun/exemplos-completos/</guid>
+      <description>Linux Bonding Health # Definição de modelo # template linux.bonding { subject = {{.Last.Status}}: {{.Eval .Alert.Vars.by_host}} bad bond(s) on {{.Group.host}} body = `{{template &amp;quot;header&amp;quot; .}} &amp;lt;h2&amp;gt;Bond Status&amp;lt;/h2&amp;gt; &amp;lt;table&amp;gt; &amp;lt;tr&amp;gt;&amp;lt;th&amp;gt;Bond&amp;lt;/th&amp;gt;&amp;lt;th&amp;gt;Slave&amp;lt;/th&amp;gt;&amp;lt;th&amp;gt;Status&amp;lt;/th&amp;gt;&amp;lt;/tr&amp;gt; {{range $r := .EvalAll .Alert.Vars.slave_status}} {{if eq $.Group.host .Group.host}} &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;{{$r.Group.bond}}&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;{{$r.Group.slave}}&amp;lt;/td&amp;gt; &amp;lt;td {{if lt $r.Value 1.0}} style=&amp;quot;color: red;&amp;quot; {{end}}&amp;gt;{{$r.Value}}&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; {{end}} {{end}} &amp;lt;/table&amp;gt; ` } Definição de alerta # alert linux.bonding { template = linux.bonding macro = host_based $notes = This alert triggers when a bond only has a single interface, or the status of a slave in the bond is not up $slave_status = max(q(&amp;quot;sum:linux.</description>
+    </item>
+    
+    <item>
+      <title>Visão geral do coletor</title>
+      <link>https://www.wikiod.com/pt/bosun/visao-geral-do-coletor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/bosun/visao-geral-do-coletor/</guid>
+      <description>Scollector é um agente de monitoramento que pode ser usado para enviar métricas para Bosun ou qualquer sistema que aceite métricas de estilo OpenTSDB. Ele é modelado após a estrutura de coleta de dados OpenTSDB&amp;rsquo;s tcollector, mas é escrito em Go e compilado em um único binário. Um dos objetivos do projeto é detectar automaticamente os serviços para que as métricas sejam enviadas com o mínimo ou nenhuma configuração necessária. Você também pode criar coletores externos que geram métricas usando um script ou executável e usar o Scollector para enfileirar e enviar as métricas para o servidor.</description>
+    </item>
+    
+    <item>
+      <title>Visão geral das notificações</title>
+      <link>https://www.wikiod.com/pt/bosun/visao-geral-das-notificacoes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/bosun/visao-geral-das-notificacoes/</guid>
+      <description>Sintaxe # notificação nome { email = dev-alerts@example.com, prod-alerts@example.com, &amp;hellip; postagem = http://example.com obter = http://example.com próximo = definição de outra notificação tempo limite = 30m runOnActions = false corpo = {&amp;ldquo;texto&amp;rdquo;: {{.|json}}} contentType = aplicativo/json imprimir = verdadeiro } No Bosun, as notificações são usadas para novos incidentes de alerta e quando um alerta é confirmado/fechado/etc. Se você não quiser que os outros eventos acionem uma notificação, adicione runOnActions = false à definição de notificação.</description>
+    </item>
+    
+    <item>
+      <title>Visão geral dos modelos</title>
+      <link>https://www.wikiod.com/pt/bosun/visao-geral-dos-modelos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/bosun/visao-geral-dos-modelos/</guid>
+      <description>Sintaxe # #Consulte https://golang.org/pkg/text/template/ para obter a sintaxe de Ação e Função do modelo Go expressão = status de alerta {{.Last.Status}} e uma variável {{.Eval .Alert.Vars.q | printf &amp;ldquo;%.2f&amp;rdquo;}} expression = `Use backticks para span várias linhas com quebras de linha no arquivo de configuração do Bosun` modelo nome { assunto = expressão corpo = expressão } Os modelos de Bosun são baseados no pacote Go html/template e podem ser compartilhados em vários alertas, mas um único modelo é usado para renderizar todas as Notificações de Bosun para esse alerta.</description>
+    </item>
+    
+    <item>
+      <title>Pacotes e scripts de inicialização</title>
+      <link>https://www.wikiod.com/pt/bosun/pacotes-e-scripts-de-inicializacao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/bosun/pacotes-e-scripts-de-inicializacao/</guid>
+      <description>Atualmente não há nenhum pacote de instalação fornecido para Bosun ou Scollector, apenas binários na página Bosun release. Cabe ao usuário final encontrar a melhor maneira de implantar os arquivos e executá-los como um serviço.
+Arquivo de unidade do sistema Bosun # #Create Bosun unit file at /etc/systemd/system/bosun.service [Unit] Description=Bosun Service After=network.target After=rsyslog.service [Service] Type=simple User=root ExecStart=/opt/bosun/bosun -c /opt/bosun/config/prod.conf Restart=on-abort [Install] WantedBy=multi-user.target #enable and start service #systemctl enable bosun #systemctl start bosun #If you edit this file, be sure to run `systemctl daemon reload` so Systemd recognizes the changes made Arquivo de unidade systemd TSDBRelay # TSDBRelay pode ser usado para encaminhar métricas para uma instância OpenTSDB, enviar para Bosun para indexação e retransmitir para outra instância compatível com opentsdb para backup/DR/HA.</description>
+    </item>
+    
+    <item>
+      <title>Modelos Graph e GraphAll</title>
+      <link>https://www.wikiod.com/pt/bosun/modelos-graph-e-graphall/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/bosun/modelos-graph-e-graphall/</guid>
+      <description>Modelos de Bosun podem incluir gráficos para fornecer mais informações ao enviar uma notificação. Os gráficos podem usar variáveis ​​da base de alerta e filtro no conjunto de tags para a instância de alerta ou usar a função GraphAll para representar graficamente todas as séries. Quando visualizado no Painel ou em um e-mail, você pode clicar no gráfico para carregá-lo na página Expressão.
+Você também pode criar um Modelo genérico com gráficos opcionais que pode ser compartilhado em vários alertas.</description>
+    </item>
+    
+    <item>
+      <title>Escopo avançado de alertas</title>
+      <link>https://www.wikiod.com/pt/bosun/escopo-avancado-de-alertas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/bosun/escopo-avancado-de-alertas/</guid>
+      <description>Entendendo a função de transposição: t() # Visão geral # A função de transposição é uma das funções mais poderosas do Bosun, mas também requer esforço para entender. É poderoso porque nos permite alertar em níveis diferentes da estrutura de tags dos dados subjacentes.
+Transpose altera o escopo do seu alerta. Isso permite que você escolha coisas em coleções maiores. Por exemplo, se você tiver consultas que retornam um escopo de host,cluster e deseja alertar com base na integridade do cluster e não em hosts individuais, a transposição pode ser usada para fazer isso.</description>
+    </item>
+    
+  </channel>
+</rss>

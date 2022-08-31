@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux-çekirdek Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/linux-kernel/</link>
+    <description>Recent content in linux-çekirdek Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/linux-kernel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux çekirdeğini kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/linux-kernel/linux-cekirdegini-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/linux-kernel/linux-cekirdegini-kullanmaya-baslama/</guid>
+      <description>Kurulum veya Kurulum # Linux çekirdeği kaynak kodu https://www.kernel.org/ adresinde bulunabilir.
+Özü indirin ve çekirdek dizinine girin # Bu komutları adım adım terminalinize yazın.(linux-4.7.tar.gz yerine ihtiyacınız olan uygun sürümü seçin)
+wget http://www.kernel.org/pub/linux/kernel/v4.7/linux-4.7.tar.gz tar zxvf linux-4.7.tar.gz cd linux-4.7 &amp;ldquo;make menuconfig&amp;rdquo;, çekirdek için gereken özellikleri seçecektir. Eski çekirdek konfigürasyonları, eski .config dosyası kullanılarak ve make oldconfig çalıştırılarak kopyalanabilir. Ayrıca yapılandırma aracının grafik versiyonu olarak make xconfig kullanabiliriz.
+Bağımlılıkları oluşturun, çekirdeği ve modülleri derleyin.</description>
+    </item>
+    
+    <item>
+      <title>Olay İzleme</title>
+      <link>https://www.wikiod.com/tr/linux-kernel/olay-izleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/linux-kernel/olay-izleme/</guid>
+      <description>I2C Olaylarını İzleme # Not: &amp;ldquo;debugfs&amp;quot;nin &amp;ldquo;/sys/kernel/debug&amp;rdquo; altına monte edildiğini varsayıyorum.
+Değilse, şunu deneyin:
+mount -t debugfs none /sys/kernel/debug İzleme dizinine geçin:
+cd /sys/kernel/debug/tracing/ İşlev izleyicinin devre dışı bırakıldığından emin olun:
+echo nop &amp;gt; current_tracer Tüm I2C olaylarını etkinleştirin:
+echo 1 &amp;gt; events/i2c/enable İzlemenin etkinleştirildiğinden emin olun:
+echo 1 &amp;gt; tracing_on İzleme mesajları /sys/kernel/debug/tracing/trace içinde görüntülenebilir, örnek:
+... i2c_write: i2c-5 #0 a=044 f=0000 l=2 [02-14] ... i2c_read: i2c-5 #1 a=044 f=0001 l=4 .</description>
+    </item>
+    
+    <item>
+      <title>Linux Merhaba Dünya Aygıt sürücüsü</title>
+      <link>https://www.wikiod.com/tr/linux-kernel/linux-merhaba-dunya-aygt-surucusu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/linux-kernel/linux-merhaba-dunya-aygt-surucusu/</guid>
+      <description>Boş bir çekirdek modülü # #include &amp;lt;linux/init.h&amp;gt; #include &amp;lt;linux/module.h&amp;gt; /** * This function is called when the module is first loaded. */ static int __init hello_kernel_init(void) { printk(&amp;quot;Hello, World!\n&amp;quot;); return 0; } /** * This function is called when is called if and when the module is unloaded. */ static void __exit hello_kernel_exit(void) { printk(&amp;quot;Goodbye, cruel world...\n&amp;quot;); } /* The names of the init/exit functions are arbitrary, and they are bound using the following macro definitions */ module_init(hello_kernel_init); module_exit(hello_kernel_exit); Bir Linux aygıt sürücüsü (Karakter-aygıt, Blok-aygıt, vb&amp;hellip;) yazmak için giriş ve çıkış noktaları olan bir çekirdek modülü oluşturmak gerekir.</description>
+    </item>
+    
+    <item>
+      <title>Çatal Sistem çağrısı</title>
+      <link>https://www.wikiod.com/tr/linux-kernel/catal-sistem-cagrs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/linux-kernel/catal-sistem-cagrs/</guid>
+      <description>çatal() sistem çağrısı # fork() bir sistem çağrısıdır. fork, ana sürecin bir kopyası olan çalışan süreçten bir alt süreç oluşturmak için kullanılır (&amp;lsquo;fork()&amp;lsquo;u yürüten süreç). Alt süreç, ana süreçten türetilir. Hem ebeveyn hem de çocuk farklı adres alanına sahiptir, her biri değişkenlerde yapılan değişikliklerden bağımsızdır.
+Alt sürecin kendi PID&amp;rsquo;si (süreç kimliği) vardır. Alt sürecin PPID&amp;rsquo;si (Üst İşlem Kimliği), üst işlemin PID&amp;rsquo;si ile aynıdır.
+Biçim:
+Başlık dosyası : #include &amp;lt;unistd.h&amp;gt; İşlev Bildirimi: pid_t fork(void);</description>
+    </item>
+    
+    <item>
+      <title>Linux Adlandırılmış Borular (FIFO)</title>
+      <link>https://www.wikiod.com/tr/linux-kernel/linux-adlandrlms-borular-fifo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/linux-kernel/linux-adlandrlms-borular-fifo/</guid>
+      <description>Adlandırılmış Boru Nedir (FIFO) # A named pipe is really just a special kind of file (a FIFO file) on the local hard drive. Unlike a regular file, a FIFO file does not contain any user information. Instead, it allows two or more processes to communicate with each other by reading/writing to/from this file. A named pipe works much like a regular pipe, but does have some noticeable differences. Named pipes exist as a device special file in the file system.</description>
+    </item>
+    
+    <item>
+      <title>Çekirdek Konularının Oluşturulması ve Kullanımı</title>
+      <link>https://www.wikiod.com/tr/linux-kernel/cekirdek-konularnn-olusturulmas-ve-kullanm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/linux-kernel/cekirdek-konularnn-olusturulmas-ve-kullanm/</guid>
+      <description>Bu konu, çekirdek iş parçacıklarının nasıl oluşturulacağını ve kullanılacağını tartışır.
+Çekirdek iş parçacıklarının oluşturulması # kern_thread.c
+#include &amp;lt;linux/module.h&amp;gt; #include &amp;lt;linux/kernel.h&amp;gt; #include &amp;lt;linux/init.h&amp;gt; #include &amp;lt;linux/kthread.h&amp;gt; #include &amp;lt;linux/sched.h&amp;gt; #define AUTHOR &amp;quot;Nachiket Kulkarni&amp;quot; #define DESCRIPTION &amp;quot;Simple module that demonstrates creation of 2 kernel threads&amp;quot; static int kthread_func(void *arg) { /* Every kthread has a struct task_struct associated with it which is it&#39;s identifier. * Whenever a thread is schedule for execution, the kernel sets &amp;quot;current&amp;quot; pointer to * it&#39;s struct task_struct.</description>
+    </item>
+    
+    <item>
+      <title>Yardım için doğru kişiyi nasıl bulabilirim.</title>
+      <link>https://www.wikiod.com/tr/linux-kernel/yardm-icin-dogru-kisiyi-nasl-bulabilirim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/linux-kernel/yardm-icin-dogru-kisiyi-nasl-bulabilirim/</guid>
+      <description>Bu, bazı resmi Linux çekirdeği belgelerini yansıtmalı ve GitHub.com&amp;rsquo;da tovalds/linux içinde söz konusu belgelerin en son sürümlerine bağlantılar göndermelidir. Buradaki fikir, bireyleri &amp;lsquo;MAINTAINERS&amp;rsquo; dosyalarını, &amp;rsquo;linux-kernel&amp;rsquo; posta listesini, &amp;lsquo;git log&amp;rsquo;u ve &amp;lsquo;scripts/get-maintainer&amp;rsquo; kullanmaya teşvik etmektir. linux/blob/master/scripts/get_maintainer.pl), böylece önemli bir temas noktasını belirlemenin yaygın olarak kullanılan yollarına aşina olurlar.
+FTDI USB seri dönüştürücü için &amp;ldquo;olası&amp;rdquo; koruyucuları bulun # İlk olarak, bu belirli sürücü için kaynak dosyayı belirleyin. &amp;ldquo;drivers/usb/serial/ftdi_sio.c&amp;rdquo; konumunda buldum.
+./scripts/get_maintainer.pl drivers/usb/serial/ftdi_sio.c Ve sonuçlar:</description>
+    </item>
+    
+  </channel>
+</rss>

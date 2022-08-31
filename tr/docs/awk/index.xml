@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>awk Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/awk/</link>
+    <description>Recent content in awk Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/awk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>awk&#39;yi kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/awk/awkyi-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/awk/awkyi-kullanmaya-baslama/</guid>
+      <description>Örneklerle AWK # AWK, büyük ölçüde UNIX sistemlerinde kullanılan dize işleme dilidir. AWK&amp;rsquo;nın arkasındaki fikir, dosyalar üzerinde çalışırken anlaşılması çok karmaşık olmayan çok yönlü bir dil oluşturmaktı.
+AWK&amp;rsquo;nın başka çeşitleri de vardır, ancak ana konsept sadece ek özelliklerle aynıdır. Bu diğer varyantlar NAWK ve GAWK&amp;rsquo;dır. GAWK, her ikisinin de tüm özelliklerini içerirken, isterseniz NAWK, AWK&amp;rsquo;nın bir adım üzerindedir.
+AWK&amp;rsquo;yı düşünmenin en basit yolu, 2 ana bölümden oluştuğunu düşünmektir. Model ve eylem.</description>
+    </item>
+    
+    <item>
+      <title>Dize işleme işlevleri</title>
+      <link>https://www.wikiod.com/tr/awk/dize-isleme-islevleri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/awk/dize-isleme-islevleri/</guid>
+      <description>Sözdizimi # indeks (büyük, küçük) uzunluk veya uzunluk() uzunluk (dize) eşleşme (dize, normal ifade) split(string, dizi, ayırıcı) split(dize, dizi) sprintf(biçim, &amp;hellip;) sub(regex, subst, string) alt(normal ifade, alt yazı) gsub(regex, subst) gsub(regex, subst, string) substr(dize, başlangıç, bitiş) substr(dize, başlangıç) daha düşük (dize) üst (dize) Parametreler # | parametre | Ayrıntılar | | &amp;mdash;&amp;mdash;&amp;mdash; | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; &amp;ndash; | | büyük | &amp;ldquo;Küçük&amp;rdquo; için taranan dize. | | son | Alt dizenin sonlandırılacağı dizin.</description>
+    </item>
+    
+    <item>
+      <title>Yerleşik Değişkenler</title>
+      <link>https://www.wikiod.com/tr/awk/yerlesik-degiskenler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/awk/yerlesik-degiskenler/</guid>
+      <description>FS - Alan Ayırıcı # &amp;lsquo;FS&amp;rsquo; değişkeni, input alanı ayırıcısını ayarlamak için kullanılır. &amp;ldquo;awk&amp;quot;da, boşluk ve sekme varsayılan alan ayırıcıları olarak işlev görür. İlgili alan değerine &amp;lsquo;$1&amp;rsquo;, &amp;lsquo;$2&amp;rsquo;, &amp;lsquo;$3&amp;rsquo;&amp;hellip; vb. aracılığıyla erişilebilir.
+awk -F&#39;=&#39; &#39;{print $1}&#39; file -F - giriş alanı ayırıcısını ayarlamak için komut satırı seçeneği.
+awk &amp;lsquo;BEGIN { FS=&amp;quot;=&amp;rdquo; } { print $1 }&amp;rsquo; file
+OFS - Çıkış Alanı Ayırıcı # Bu değişken, varsayılan olarak bir boşluk olan output alan ayırıcısını ayarlamak için kullanılır.</description>
+    </item>
+    
+    <item>
+      <title>Değişkenler</title>
+      <link>https://www.wikiod.com/tr/awk/degiskenler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/awk/degiskenler/</guid>
+      <description>Komut satırı değişken ataması # Komut satırından değişken atamak için -v kullanılabilir:
+$ awk -v myvar=&amp;quot;hello&amp;quot; &#39;BEGIN {print myvar}&#39; hello Eşittir işaretinin etrafında boşluk olmadığına dikkat edin.
+Bu, kabuk değişkenlerinin kullanılmasına izin verir:
+$ shell_var=&amp;quot;hello&amp;quot; $ awk -v myvar=&amp;quot;$shell_var&amp;quot; &#39;BEGIN {print myvar}&#39; hello Ayrıca, bu, &amp;ldquo;awk&amp;quot;yi kontrol eden yerleşik değişkenlerin ayarlanmasına izin verir:
+&amp;ldquo;FS&amp;rdquo; (alan ayırıcı) içeren bir örneğe bakın:
+$ cat file 1,2;3,4 $ awk -v FS=&amp;quot;,&amp;quot; &#39;{print $2}&#39; file 2;3 $ awk -v FS=&amp;quot;;&amp;quot; &#39;{print $2}&#39; file 3,4 Veya &amp;ldquo;OFS&amp;rdquo; (çıkış alanı ayırıcısı) ile:</description>
+    </item>
+    
+    <item>
+      <title>Yararlı tek satırlar - bir CSV&#39;den ortalama hesaplama vb.</title>
+      <link>https://www.wikiod.com/tr/awk/yararl-tek-satrlar---bir-csvden-ortalama-hesaplama-vb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/awk/yararl-tek-satrlar---bir-csvden-ortalama-hesaplama-vb/</guid>
+      <description>Tablo verilerinden bir sütundaki değerlerin ortalamasını hesaplayın # Sütun sınırlayıcı olarak ; kullanan bir dosya verildi. İkinci sütundaki değerlerin ortalamasını aşağıdaki programla hesaplıyoruz, sağlanan girdi bir öğrenci grubunun not listesidir:
+awk -F&#39;;&#39; &#39;{ sum += $2 } END { print(sum / NR) }&#39; &amp;lt;&amp;lt;EOF Alice;2 Victor;1 Barbara;1 Casper;4 Deborah;0 Ernest;1 Fabiola;4 Giuseppe;4 EOF Bu programın çıktısı &amp;lsquo;2.125&amp;rsquo;tir.
+&amp;ldquo;NR&amp;quot;nin işlenmekte olan satırın numarasını tuttuğunu, &amp;ldquo;END&amp;rdquo; bloğunda bu nedenle dosyadaki toplam satır sayısını tuttuğunu unutmayın.</description>
+    </item>
+    
+    <item>
+      <title>İki dosya işleme</title>
+      <link>https://www.wikiod.com/tr/awk/iki-dosya-isleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/awk/iki-dosya-isleme/</guid>
+      <description>İki dosyadaki eşleşen alanları kontrol edin # Bu iki CSV dosyası göz önüne alındığında:
+$ cat file1 1,line1 2,line2 3,line3 4,line4 $ cat file2 1,line3 2,line4 3,line5 4,line6 İkinci sütunu ilk dosyada da bulunan file2 içindeki bu satırları yazdırmak için şunu söyleyebiliriz:
+$ awk -F, &#39;FNR==NR {lines[$2]; next} $2 in lines&#39; file1 file2 1,line3 2,line4 Burada, &amp;ldquo;lines[]&amp;rdquo;, her satırın ikinci alanının içeriğiyle &amp;ldquo;file1&amp;rdquo; okunurken doldurulan bir diziyi tutar.
+Ardından, dizide 2.</description>
+    </item>
+    
+    <item>
+      <title>desenler</title>
+      <link>https://www.wikiod.com/tr/awk/desenler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/awk/desenler/</guid>
+      <description>Normal İfade Kalıpları # Kalıplar, normal ifadeler olarak belirtilebilir:
+/regular expression/ {action} Örneğin:
+echo &amp;quot;user@hostname.com not an email&amp;quot; | awk &#39;/[^@]+@.+/ {print}&#39; üretir:
+user@hostname.com Yalnızca &amp;ldquo;yazdır&amp;rdquo; ifadesinden oluşan bir eylemin tamamen atlanabileceğini unutmayın. Yukarıdaki örnek şuna eşdeğerdir:
+echo &amp;quot;user@hostname.com not an email&amp;quot; | awk &#39;/[^@]+@.+/&#39; </description>
+    </item>
+    
+    <item>
+      <title>Desenler ve Eylemler</title>
+      <link>https://www.wikiod.com/tr/awk/desenler-ve-eylemler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/awk/desenler-ve-eylemler/</guid>
+      <description>Giriiş # Bir &amp;ldquo;awk&amp;rdquo;, bir desen eşleşirse alınacak küme parantezleri içine alınmış desenler ve eylemlerden oluşur. En temel kalıp, herhangi bir kayıtla eşleşen boş kalıptır. En temel eylem, { print } ile eşdeğer olan boş işlemdir ve bu da { print $0 } ile eşdeğerdir. Hem kalıp hem de eylem boşsa, &amp;ldquo;awk&amp;rdquo; hiçbir şey yapmaz.
+Aşağıdaki program sadece girdisini yankılayacaktır, örneğin:
+awk &#39;{ print }&#39; /etc/passwd { print } varsayılan eylem olduğundan ve gerçek bir değer herhangi bir kayıtla eşleştiğinden, bu program şu şekilde yeniden yazılabilir:</description>
+    </item>
+    
+    <item>
+      <title>Satır Manipülasyonu</title>
+      <link>https://www.wikiod.com/tr/awk/satr-manipulasyonu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/awk/satr-manipulasyonu/</guid>
+      <description>Bir metin dosyasından belirli satırları çıkarın # Diyelim ki bir dosyamız var
+cat -n lorem_ipsum.txt 1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 2 Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 3 It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</description>
+    </item>
+    
+    <item>
+      <title>Yerleşik işlevler</title>
+      <link>https://www.wikiod.com/tr/awk/yerlesik-islevler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/awk/yerlesik-islevler/</guid>
+      <description>uzunluk([Dize]) # Verilen Dize&amp;rsquo;nin karakter sayısını döndürür
+Düşünceler # Dize yerine bir sayı verilirse, sonuç, verilen sayıyı temsil eden Dize&amp;rsquo;nin uzunluğu olacaktır. yani Eğer &amp;ldquo;uzunluk(12345)&amp;rdquo; çalıştırırsak sonuç &amp;ldquo;uzunluk(&amp;ldquo;12345&amp;rdquo;)` ile aynı olacaktır, yani 5
+Herhangi bir değer verilmezse, sonuç, işlenmekte olan gerçek satırın uzunluğu, yani &amp;ldquo;uzunluk($0)&amp;rdquo; olacaktır.
+Bir kalıp içinde veya kod blokları içinde kullanılabilir.
+Örnekler # İşte &amp;ldquo;uzunluk()&amp;ldquo;un nasıl çalıştığını gösteren birkaç örnek
+$ cat file AAAAA BBBB CCCC DDDD EEEE Bir desenin içinde</description>
+    </item>
+    
+  </channel>
+</rss>

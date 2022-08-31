@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel angularjs-directive on </title>
+    <link>https://www.wikiod.com/fr/docs/angularjs-directive/</link>
+    <description>Recent content in Tutoriel angularjs-directive on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/angularjs-directive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec la directive angularjs</title>
+      <link>https://www.wikiod.com/fr/angularjs-directive/premiers-pas-avec-la-directive-angularjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/angularjs-directive/premiers-pas-avec-la-directive-angularjs/</guid>
+      <description>Construire un composant réutilisable # Les directives peuvent être utilisées pour créer des composants réutilisables. Voici un exemple de composant &amp;ldquo;boîte utilisateur&amp;rdquo;:
+userBox.js
+angular.module(&#39;simpleDirective&#39;, []).directive(&#39;userBox&#39;, function() { return { scope: { username: &#39;=username&#39;, reputation: &#39;=reputation&#39; }, templateUrl: &#39;/path/to/app/directives/user-box.html&#39; }; }); Contrôleur.js
+var myApp = angular.module(&#39;myApp&#39;, [&#39;simpleDirective&#39;]); myApp.controller(&#39;Controller&#39;, function($scope) { $scope.user = &amp;quot;John Doe&amp;quot;; $scope.rep = 1250; }); maPage.js
+&amp;lt;html lang=&amp;quot;en&amp;quot; ng-app=&amp;quot;myApp&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;quot;/path/to/app/angular.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;/path/to/app/controllers/Controller.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;/path/to/app/directives/userBox.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div ng-controller=&amp;quot;Controller&amp;quot;&amp;gt; &amp;lt;user-box username=&amp;quot;user&amp;quot; reputation=&amp;quot;rep&amp;quot;&amp;gt;&amp;lt;/user-box&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; user-box.</description>
+    </item>
+    
+    <item>
+      <title>Directives couramment utilisées</title>
+      <link>https://www.wikiod.com/fr/angularjs-directive/directives-couramment-utilisees/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/angularjs-directive/directives-couramment-utilisees/</guid>
+      <description>ngConfirmClick : confirmez avant d&amp;rsquo;évaluer l&amp;rsquo;expression. # La description:
+Évaluer l&amp;rsquo;expression après confirmation de l&amp;rsquo;utilisateur.
+Arguments:
+ng-confirm-click:(expression) Expression à évaluer une fois confirmée. ng-confirm-message :(modèle) Message à afficher dans la boîte de dialogue de confirmation. Code:
+Directives.directive(&amp;quot;ngConfirmClick&amp;quot;, [&amp;quot;$parse&amp;quot;,&amp;quot;$interpolate&amp;quot;,function ($parse,$interpolate) { return { restrict:&amp;quot;A&amp;quot;, priority:-1, compile:function(ele,attr){ var fn = $parse(attr.ngConfirmClick, null, true); return function ngEventHandler(scope, ele) { ele.on(&#39;click&#39;, function (event) { var callback = function () { fn(scope, {$event: &amp;quot;confirm&amp;quot;}); }; var message = $interpolate(attr.</description>
+    </item>
+    
+  </channel>
+</rss>

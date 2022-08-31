@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vaadin Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/vaadin/</link>
+    <description>Recent content in vaadin Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/vaadin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vaadin&#39;e başlarken</title>
+      <link>https://www.wikiod.com/tr/vaadin/vaadine-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vaadin/vaadine-baslarken/</guid>
+      <description>Maven ile Vaadin projesi oluşturun # Maven ile vaadin-archetype-application arketipiyle Vaadin projesi oluşturabilirsiniz. IDE ile maven projesi oluşturmak için bu arketipi IDE&amp;rsquo;ye de ekleyebilirsiniz.
+mvn archetype:generate -DarchetypeGroupId=com.vaadin -DarchetypeArtifactId=vaadin-archetype-application -DarchetypeVersion=7.6.8 -DgroupId=myvaadin.project -DartifactId=DemoVaadinProject -Dversion=0.1 -Dpackaging=war Yukarıdaki komutu yürüttüğünüzde, aşağıdaki proje yapısına sahip olacaksınız.
+DemoVaadinProject |-src |-main |-java | |-myvaadin | |-project | |-MyUI.java |-resource | |-myvaadin | |-project | |-MyAppWidgetset.gwt.xml |-webapps |- VAADIN |-theme |- mytheme.scss |- addons.scss |- styles.scss |- favicon.ico Oluşturulan varsayılan maven projesi doğrudan IDE&amp;rsquo;ye aktarılabilir.</description>
+    </item>
+    
+    <item>
+      <title>Vaadin ile eklentileri kullanma</title>
+      <link>https://www.wikiod.com/tr/vaadin/vaadin-ile-eklentileri-kullanma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vaadin/vaadin-ile-eklentileri-kullanma/</guid>
+      <description>Maven projesinde eklentileri kullanma # Rehberde Vaadin eklentilerine göz atmak için vaadin.com&amp;rsquo;a kayıtlı olmanız gerekir. Artefakt ayrıntılarının ilk keşfinden sonra, örn. indirme ve kullanım için kayıt gerekli değildir. Ayrıca, Maven projesinde eklentilerin kullanımı IDE&amp;rsquo;ye özgü değildir ve aynı talimatlar geçerlidir.
+Normal bir Maven projesinden, pom.xml dosyanızı düzenleyerek başlayın:
+Vaadin eklenti deposunu ekleyin
+&amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;id&amp;gt;vaadin-addons&amp;lt;/id&amp;gt; &amp;lt;url&amp;gt;http://maven.vaadin.com/vaadin-addons&amp;lt;/url&amp;gt; &amp;lt;/repository&amp;gt; ... &amp;lt;repositories&amp;gt; Maven yapısına Vaadin Maven eklentisini ekleyin
+&amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;com.vaadin&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;vaadin-maven-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;7.6.8&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;extraJvmArgs&amp;gt;-Xmx512M -Xss1024k&amp;lt;/extraJvmArgs&amp;gt; &amp;lt;webappDirectory&amp;gt;${basedir}/target/classes/VAADIN/widgetsets&amp;lt;/webappDirectory&amp;gt; &amp;lt;draftCompile&amp;gt;false&amp;lt;/draftCompile&amp;gt; &amp;lt;compileReport&amp;gt;false&amp;lt;/compileReport&amp;gt; &amp;lt;style&amp;gt;OBF&amp;lt;/style&amp;gt; &amp;lt;strict&amp;gt;true&amp;lt;/strict&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;executions&amp;gt; &amp;lt;execution&amp;gt; &amp;lt;goals&amp;gt; &amp;lt;goal&amp;gt;update-theme&amp;lt;/goal&amp;gt; &amp;lt;goal&amp;gt;update-widgetset&amp;lt;/goal&amp;gt; &amp;lt;goal&amp;gt;compile&amp;lt;/goal&amp;gt; &amp;lt;/goals&amp;gt; &amp;lt;/execution&amp;gt; &amp;lt;/executions&amp;gt; &amp;lt;/plugin&amp;gt; Eklentiyi normal bir bağımlılık olarak ekleyin</description>
+    </item>
+    
+    <item>
+      <title>Vaadin ve Maven</title>
+      <link>https://www.wikiod.com/tr/vaadin/vaadin-ve-maven/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vaadin/vaadin-ve-maven/</guid>
+      <description>Bu, Vaadin ve Maven topluluğu için çok yararlı olacaktır çünkü hiçbir belge yoktur.
+Maven Kurulumuna ihtiyacım var # Ortak Maven
+mvn -B archetype:generate -DarchetypeGroupId=com.vaadin -DarchetypeArtifactId=vaadin- archetype-application -DarchetypeVersion=7.7.3 -DgroupId=org.test -DartifactId=vaadin-app -Dversion=1.0-SNAPSHOT Gelişmiş Maven
+mvn archetype:generate \ -DgroupId=com.mycompany.mycompanyapp \ -DartifactId=mycompanyapp \ -Dversion=1.0 \ -DpackageName=com.mycompany.mycompanyapp \ -DarchetypeGroupId=com.vaadin \ -DarchetypeArtifactId=vaadin-archetype-application \ -DthemeName=mytheme \ -DuiName=MyCompanyAppUI \ -DwidgetsetName=MyCompanyAppAppWidgetSet \ -DarchetypeVersion=LATEST \ -DinteractiveMode=false Bu yapıldıktan sonra şunu çalıştırın: cd ~/mycompanyapp &amp;amp;&amp;amp; mvn install -Dmaven.skip.tests=true
+Ponpon # Depolar</description>
+    </item>
+    
+    <item>
+      <title>Temalar</title>
+      <link>https://www.wikiod.com/tr/vaadin/temalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vaadin/temalar/</guid>
+      <description>Işık # @theme(&amp;quot;valo&amp;quot;) Ren geyiği # @theme(&amp;quot;reindeer&amp;quot;) </description>
+    </item>
+    
+    <item>
+      <title>Giriş sayfası</title>
+      <link>https://www.wikiod.com/tr/vaadin/giris-sayfas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vaadin/giris-sayfas/</guid>
+      <description>BasitGiriş Görünümü # public class SimpleLoginView extends CustomComponent implements View, Button.ClickListener { public static final String NAME = &amp;quot;login&amp;quot;; private final TextField user; private final PasswordField password; private final Button loginButton; public SimpleLoginView() { setSizeFull(); // Create the user input field user = new TextField(&amp;quot;User:&amp;quot;); user.setWidth(&amp;quot;300px&amp;quot;); user.setRequired(true); user.setInputPrompt(&amp;quot;Your username (eg. joe@email.com)&amp;quot;); user.addValidator(new EmailValidator( &amp;quot;Username must be an email address&amp;quot;)); user.setInvalidAllowed(false); // Create the password input field password = new PasswordField(&amp;quot;Password:&amp;quot;); password.</description>
+    </item>
+    
+    <item>
+      <title>Vaadin Dokunmatik Kit</title>
+      <link>https://www.wikiod.com/tr/vaadin/vaadin-dokunmatik-kit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vaadin/vaadin-dokunmatik-kit/</guid>
+      <description>Kurmak # @Theme(&amp;quot;mobiletheme&amp;quot;) @Widgetset(&amp;quot;com.example.myapp.MyAppWidgetSet&amp;quot;) @Title(&amp;quot;My Mobile App&amp;quot;) public class SimplePhoneUI extends UI { @Override protected void init(VaadinRequest request) { // Define a view class MyView extends NavigationView { public MyView() { super(&amp;quot;Planet Details&amp;quot;); CssLayout content = new CssLayout(); setContent(content); VerticalComponentGroup group = new VerticalComponentGroup(); content.addComponent(group); group.addComponent(new TextField(&amp;quot;Planet&amp;quot;)); group.addComponent(new NumberField(&amp;quot;Found&amp;quot;)); group.addComponent(new Switch(&amp;quot;Probed&amp;quot;)); setRightComponent(new Button(&amp;quot;OK&amp;quot;)); } } // Use it as the content root setContent(new MyView()); } </description>
+    </item>
+    
+  </channel>
+</rss>

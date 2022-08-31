@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel de guidage on </title>
+    <link>https://www.wikiod.com/fr/docs/guice/</link>
+    <description>Recent content in Tutoriel de guidage on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/guice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Démarrer avec Guice</title>
+      <link>https://www.wikiod.com/fr/guice/demarrer-avec-guice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/guice/demarrer-avec-guice/</guid>
+      <description>Configuration d&amp;rsquo;un &amp;ldquo;Hello, world!&amp;rdquo; Exemple # Guice est une bibliothèque Java. Pour l&amp;rsquo;utiliser, vous devez ajouter un [fichier JAR][1] dans le chemin de classe de votre projet Java.
+Exemples de cours # Vous trouverez ci-dessous plusieurs classes pour un &amp;ldquo;Hello, world!&amp;rdquo; Exemple.
+Une interface d&amp;rsquo;un bonjour &amp;ldquo;service&amp;rdquo;:
+public interface HelloWorldService { public void sayHello(); } La mise en place du service :
+public class HelloWorldServiceImpl implements HelloWorldService { @Override public void sayHello() { System.</description>
+    </item>
+    
+    <item>
+      <title>Utilisation de Guice avec Java WebSockets (JSR-356)</title>
+      <link>https://www.wikiod.com/fr/guice/utilisation-de-guice-avec-java-websockets-jsr-356/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/guice/utilisation-de-guice-avec-java-websockets-jsr-356/</guid>
+      <description>Configuration pour obtenir l&amp;rsquo;injection Guice sur les points de terminaison Websocket # Tout d&amp;rsquo;abord, nous avons besoin d&amp;rsquo;un générateur de point de terminaison personnalisé.
+public class WSConfigurator extends ServerEndpointConfig.Configurator { @Inject private static Injector injector; @Override public &amp;lt;T&amp;gt; T getEndpointInstance(Class&amp;lt;T&amp;gt; endpointClass) throws InstantiationException { return injector.getInstance(endpointClass); } } Nous devons démarrer l&amp;rsquo;injecteur dans le configurateur ci-dessus à partir de l&amp;rsquo;un de nos modules Guice.
+public class WebSocketModule extends AbstractModule { @Override protected void configure() { requestStaticInjection(WSConfigurator.</description>
+    </item>
+    
+    <item>
+      <title>Intercepteur de méthode Guice</title>
+      <link>https://www.wikiod.com/fr/guice/intercepteur-de-methode-guice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/guice/intercepteur-de-methode-guice/</guid>
+      <description>Exemple simple # Méthode interceptée :
+public class ExampleService implements Example { @MyAnnotation public doHomework() { System.out.println(&amp;quot;working&amp;quot;); } } Annotation:
+@Retention(RetentionPolicy.RUNTIME) @Target(ElementType.METHOD) public @interface MyAnnotation {} Intercepteur:
+public class MyInterceptor implements MethodInterceptor { @Override public Object invoke(MethodInvocation arg0) throws Throwable { System.out.println(&amp;quot;***** intercepted *****&amp;quot;); return arg0.proceed(); } } Module:
+public class MyModule extends AbstractModule { @Override protected void configure() { bind(CallerService.class).to(Caller.class); bind(ExampleService.class).to(Example.class); bindInterceptor(Matchers.any(), Matchers.annotatedWith(MyAnnotation.class), new MyInterceptor()); } } Votre interlocuteur:</description>
+    </item>
+    
+    <item>
+      <title>Utilisation de Guice avec Jersey 2 (JAX-RS RI)</title>
+      <link>https://www.wikiod.com/fr/guice/utilisation-de-guice-avec-jersey-2-jax-rs-ri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/guice/utilisation-de-guice-avec-jersey-2-jax-rs-ri/</guid>
+      <description>Obtenir des injections Guice sur les ressources JAX-RS # Vous aurez besoin du guice-bridge dans votre projet.
+@ApplicationPath(&amp;quot;api&amp;quot;) public class ApiRest extends ResourceConfig { @Inject public ApiRest(ServiceLocator serviceLocator, ServletContext servletContext) { packages(&amp;quot;net.sargue.app.api&amp;quot;); GuiceBridge.getGuiceBridge().initializeGuiceBridge(serviceLocator); GuiceIntoHK2Bridge guiceBridge = serviceLocator.getService(GuiceIntoHK2Bridge.class); Injector injector = (Injector) servletContext.getAttribute(Injector.class.getName()); if (injector == null) throw new RuntimeException(&amp;quot;Guice Injector not found&amp;quot;); guiceBridge.bridgeGuiceInjector(injector); register(RolesAllowedDynamicFeature.class); } } </description>
+    </item>
+    
+  </channel>
+</rss>

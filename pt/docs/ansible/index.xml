@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tutorial ansible on </title>
+    <link>https://www.wikiod.com/pt/docs/ansible/</link>
+    <description>Recent content in tutorial ansible on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/ansible/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução ao ansible</title>
+      <link>https://www.wikiod.com/pt/ansible/introducao-ao-ansible/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/ansible/introducao-ao-ansible/</guid>
+      <description>Olá Mundo # Crie um diretório chamado ansible-helloworld-playbook
+mkdir ansible-helloworld-playbook Crie um arquivo hosts e adicione sistemas remotos como deseja gerenciar. Como o ansible depende do ssh para conectar as máquinas, você deve certificar-se de que elas já estejam acessíveis a você no ssh do seu computador.
+192.168.1.1 192.168.1.2 Teste a conexão com seus sistemas remotos usando o módulo Ansible ping.
+ansible all -m ping -k Em caso de sucesso deve retornar algo assim</description>
+    </item>
+    
+    <item>
+      <title>Usando Ansible com OpenStack</title>
+      <link>https://www.wikiod.com/pt/ansible/usando-ansible-com-openstack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/ansible/usando-ansible-com-openstack/</guid>
+      <description>OpenStack é uma plataforma de software de código aberto para computação em nuvem. As instâncias do Linux podem ser iniciadas/interrompidas manualmente usando a interface gráfica da Web ou automatizadas graças ao módulo de nuvem openstack do ansible.
+Configurar o ansible pode ser complicado, mas uma vez bem configurado é realmente fácil e poderoso para testes e ambiente de Integração Contínua.
+Parâmetros # parâmetros Comentários hosts: localhost Os comandos do OpenStack são lançados do nosso localhost reunir_fatos: Falso Não precisamos coletar informações em nosso localhost auth_url: https://openstack-identity.</description>
+    </item>
+    
+    <item>
+      <title>Inventário</title>
+      <link>https://www.wikiod.com/pt/ansible/inventario/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/ansible/inventario/</guid>
+      <description>Parâmetros # Parâmetro Explicação ansible_connection Tipo de conexão com o host. Este pode ser o nome de qualquer um dos plugins de conexão do ansible. Os tipos de protocolo SSH são smart, ssh ou paramiko. O padrão é inteligente. Os tipos não baseados em SSH são descritos na próxima seção. ansible_host O nome do host ao qual se conectar, se for diferente do alias que você deseja dar a ele. ansible_port O número da porta ssh, se não 22 ansible_user O nome de usuário ssh padrão a ser usado.</description>
+    </item>
+    
+    <item>
+      <title>Instalação</title>
+      <link>https://www.wikiod.com/pt/ansible/instalacao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/ansible/instalacao/</guid>
+      <description>Instalando o Ansible em qualquer sistema operacional, incluindo Windows usando Virtual Box e Vagrant. Uma solução alternativa também está disponível se você quiser apenas praticar comandos ad-hoc ansible e playbooks e não desejar configurar o ambiente local.
+Instalando o Ansible no Ubuntu # O Ansible mantém um repositório PPA que pode ser usado para instalar os binários do Ansible:
+sudo apt-add-repository ppa:ansible/ansible -y sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install ansible -y Para instalar uma versão específica, use pip.</description>
+    </item>
+    
+    <item>
+      <title>Ansible Loops e condicionais</title>
+      <link>https://www.wikiod.com/pt/ansible/ansible-loops-e-condicionais/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/ansible/ansible-loops-e-condicionais/</guid>
+      <description>Documentos oficiais explicam as condicionais do playbook.
+http://docs.ansible.com/ansible/playbooks_conditionals.html Ansible (github)
+https://github.com/marxwang/ansible-learn-resources Que tipos de condicionais usar? # Use condicionais via (a sintaxe está em [colchetes]):
+quando quando:**]
+Task: - name: run if operating system is debian command: echo &amp;quot;I am a Debian Computer&amp;quot; when: ansible_os_family == &amp;quot;Debian&amp;quot; loops [with_items:]
+loops [with_dicts:]
+Fatos personalizados [ quando: my_custom_facts == &amp;lsquo;1234&amp;rsquo;]
+Importações condicionais
+Selecione arquivos e modelos com base em variáveis
+[Quando] Condição: listas ansible_os_family # Uso comum # quando: ansible_os_family == &amp;ldquo;CentOS&amp;rdquo; quando: ansible_os_family == &amp;ldquo;Redhat&amp;rdquo; quando: ansible_os_family == &amp;ldquo;Darwin&amp;rdquo; quando: ansible_os_family == &amp;ldquo;Debian&amp;rdquo; quando: ansible_os_family == &amp;ldquo;Windows&amp;rdquo; Todas as listas # baseado em discutir aqui http://comments.</description>
+    </item>
+    
+    <item>
+      <title>Introdução aos manuais</title>
+      <link>https://www.wikiod.com/pt/ansible/introducao-aos-manuais/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/ansible/introducao-aos-manuais/</guid>
+      <description>Visão geral # No Ansible, um playbook é um arquivo YAML que contém a definição de como um servidor deve ser. Em um playbook, você define quais ações o Ansible deve realizar para colocar o servidor no estado desejado. Apenas o que você define é feito.
+Este é um manual básico do Ansible que instala o git em cada host pertencente ao grupo web:
+--- - name: Git installation hosts: web remote_user: root tasks: - name: Install Git apt: name=git state=present Estrutura do manual # O formato de um playbook é bastante simples, mas rigoroso em termos de espaçamento e layout.</description>
+    </item>
+    
+    <item>
+      <title>Usando Ansible com Amazon Web Services</title>
+      <link>https://www.wikiod.com/pt/ansible/usando-ansible-com-amazon-web-services/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/ansible/usando-ansible-com-amazon-web-services/</guid>
+      <description>exemplo-2: Isso serve como um exemplo, então apenas não copie / cole. Em vez disso, para atender às suas necessidades, você deve personalizar suas variáveis; ansible_key, regras do grupo de segurança etc.
+example-1: Para desabilitar a verificação restrita da chave do host ssh, um comportamento que não queremos ao automatizar tarefas, configuramos como no no arquivo ansible.cfg. ou seja: StrictHostKeyChecking=no
+O arquivo ec2.py é um script python que executa e retorna seus recursos da AWS com base no ec2.</description>
+    </item>
+    
+    <item>
+      <title>Funções</title>
+      <link>https://www.wikiod.com/pt/ansible/funcoes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/ansible/funcoes/</guid>
+      <description>Dependências de papéis # As funções também permitem que você defina outras funções como uma dependência criando um arquivo meta/main.yml com um bloco dependencies:
+dependencies: - role: common Também é possível passar um valor para um parâmetro/variável na função dependente:
+dependencies: - { role: common, some_parameter: 3 } Ou até mesmo execute a função dependente condicionalmente:
+dependencies: - { role: common, some_parameter: 3 } - { role: sshd, enable_sshd: false, when: environment == &#39;production&#39; } As funções dependentes são sempre executadas antes das funções que dependem delas.</description>
+    </item>
+    
+    <item>
+      <title>Inventário dinâmico</title>
+      <link>https://www.wikiod.com/pt/ansible/inventario-dinamico/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/ansible/inventario-dinamico/</guid>
+      <description>As variáveis ​​de ambiente no inventário dinâmico não funcionarão, por exemplo
+&amp;quot;ansible_ssh_private_key_file&amp;quot;: $HOME/.ssh/key.pem&amp;quot; Se o lado do servidor de inventário dinâmico passar $HOME por exemplo, substitua a variável no código do cliente (Python):
+json_input.replace(&amp;quot;$HOME&amp;quot;, os.environ.get(&amp;quot;HOME&amp;quot;)) Inventário dinâmico com credenciais de login # Passe o inventário dinâmico para o ansible-playbook:
+ansible-playbook -i inventory/dyn.py -l targethost my_playbook.yml python Inventory/dyn.py deve imprimir algo assim:
+{ &amp;quot;_meta&amp;quot;: { &amp;quot;hostvars&amp;quot;: { &amp;quot;10.1.0.10&amp;quot;: { &amp;quot;ansible_user&amp;quot;: &amp;quot;vagrant&amp;quot;, &amp;quot;ansible_ssh_private_key_file&amp;quot;: &amp;quot;/home/mrtuovinen/.</description>
+    </item>
+    
+    <item>
+      <title>Criptografia secreta</title>
+      <link>https://www.wikiod.com/pt/ansible/criptografia-secreta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/ansible/criptografia-secreta/</guid>
+      <description>O Ansible oferece o Vault (não deve ser confundido com o HashiCorp Vault!) para lidar com dados confidenciais criptografia. O Vault visa principalmente criptografar quaisquer dados estruturados, como variáveis, tarefas, manipuladores.
+Criptografando dados estruturados confidenciais # Primeiro, crie um arquivo de chave, por exemplo, vault_pass_file, que idealmente contém uma longa sequência de caracteres aleatórios. Em sistemas linux você pode usar pwgen para criar um arquivo de senha aleatório:
+pwgen 256 1 &amp;gt; vault_pass_file Em seguida, use este arquivo para criptografar dados confidenciais, por exemplo, groups_vars/group.</description>
+    </item>
+    
+  </channel>
+</rss>

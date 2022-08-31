@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel linux-kernel on </title>
+    <link>https://www.wikiod.com/fr/docs/linux-kernel/</link>
+    <description>Recent content in Tutoriel linux-kernel on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/linux-kernel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec Linux-kernel</title>
+      <link>https://www.wikiod.com/fr/linux-kernel/premiers-pas-avec-linux-kernel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/linux-kernel/premiers-pas-avec-linux-kernel/</guid>
+      <description>Installation ou configuration # Le code source du noyau Linux peut être trouvé sur https://www.kernel.org/
+Téléchargez l&amp;rsquo;extrait et entrez dans le répertoire du noyau # Tapez ces commandes étape par étape dans votre terminal. (Choisissez la version appropriée dont vous avez besoin au lieu de linux-4.7.tar.gz )
+wget http://www.kernel.org/pub/linux/kernel/v4.7/linux-4.7.tar.gz tar zxvf linux-4.7.tar.gz cd linux-4.7 make menuconfig sélectionnera les fonctionnalités requises pour le noyau. Les anciennes configurations du noyau peuvent être copiées en utilisant l&amp;rsquo;ancien fichier .</description>
+    </item>
+    
+    <item>
+      <title>Traçage des événements</title>
+      <link>https://www.wikiod.com/fr/linux-kernel/tracage-des-evenements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/linux-kernel/tracage-des-evenements/</guid>
+      <description>Suivi des événements I2C # Remarque : Je suppose que debugfs est monté sous /sys/kernel/debug
+Sinon, essayez :
+mount -t debugfs none /sys/kernel/debug Accédez au répertoire de traçage :
+cd /sys/kernel/debug/tracing/ Assurez-vous que le traceur de fonction est désactivé :
+echo nop &amp;gt; current_tracer Activez tous les événements I2C :
+echo 1 &amp;gt; events/i2c/enable Assurez-vous que le traçage est activé :
+echo 1 &amp;gt; tracing_on Les messages de trace peuvent être visualisés dans /sys/kernel/debug/tracing/trace, exemple :</description>
+    </item>
+    
+    <item>
+      <title>Pilote de périphérique Linux Hello World</title>
+      <link>https://www.wikiod.com/fr/linux-kernel/pilote-de-peripherique-linux-hello-world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/linux-kernel/pilote-de-peripherique-linux-hello-world/</guid>
+      <description>Un module de noyau vide # #include &amp;lt;linux/init.h&amp;gt; #include &amp;lt;linux/module.h&amp;gt; /** * This function is called when the module is first loaded. */ static int __init hello_kernel_init(void) { printk(&amp;quot;Hello, World!\n&amp;quot;); return 0; } /** * This function is called when is called if and when the module is unloaded. */ static void __exit hello_kernel_exit(void) { printk(&amp;quot;Goodbye, cruel world...\n&amp;quot;); } /* The names of the init/exit functions are arbitrary, and they are bound using the following macro definitions */ module_init(hello_kernel_init); module_exit(hello_kernel_exit); Afin d&amp;rsquo;écrire un pilote de périphérique Linux (Character-device, Block-device, etc&amp;hellip;), il est nécessaire de créer un module noyau qui possède des points d&amp;rsquo;entrée et de sortie.</description>
+    </item>
+    
+    <item>
+      <title>Fourchette d&#39;appel système</title>
+      <link>https://www.wikiod.com/fr/linux-kernel/fourchette-dappel-systeme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/linux-kernel/fourchette-dappel-systeme/</guid>
+      <description>appel système fork() # fork() est un appel système. fork est utilisé pour créer un processus enfant à partir du processus en cours d&amp;rsquo;exécution, qui est une réplique du processus parent (processus qui a exécuté fork() ). Le processus enfant est dérivé du processus parent. Le parent et l&amp;rsquo;enfant ont tous deux un espace d&amp;rsquo;adressage différent, chacun étant indépendant des modifications apportées aux variables.
+Le processus enfant a son propre PID (identification de processus).</description>
+    </item>
+    
+    <item>
+      <title>Tubes nommés Linux (FIFO)</title>
+      <link>https://www.wikiod.com/fr/linux-kernel/tubes-nommes-linux-fifo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/linux-kernel/tubes-nommes-linux-fifo/</guid>
+      <description>Qu&amp;rsquo;est-ce qu&amp;rsquo;un tube nommé (FIFO) # A named pipe is really just a special kind of file (a FIFO file) on the local hard drive. Unlike a regular file, a FIFO file does not contain any user information. Instead, it allows two or more processes to communicate with each other by reading/writing to/from this file. A named pipe works much like a regular pipe, but does have some noticeable differences. Named pipes exist as a device special file in the file system.</description>
+    </item>
+    
+    <item>
+      <title>Comment trouver la bonne personne pour vous aider.</title>
+      <link>https://www.wikiod.com/fr/linux-kernel/comment-trouver-la-bonne-personne-pour-vous-aider/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/linux-kernel/comment-trouver-la-bonne-personne-pour-vous-aider/</guid>
+      <description>Cela devrait refléter certains des documents officiels du noyau Linux et publier des liens vers les dernières versions de ces documents dans tovalds/linux sur GitHub.com. L&amp;rsquo;idée est d&amp;rsquo;encourager les individus à utiliser les fichiers MAINTAINERS, la liste de diffusion linux-kernel, git log et [scripts/get-maintainer](https://github.com/torvalds/ linux/blob/master/scripts/get_maintainer.pl), afin qu&amp;rsquo;ils soient familiarisés avec les méthodes couramment utilisées pour identifier un point de contact clé.
+Trouvez les responsables &amp;ldquo;probables&amp;rdquo; du convertisseur série USB FTDI # Tout d&amp;rsquo;abord, déterminez le fichier source de ce pilote particulier.</description>
+    </item>
+    
+    <item>
+      <title>Création et utilisation de Kernel Threads</title>
+      <link>https://www.wikiod.com/fr/linux-kernel/creation-et-utilisation-de-kernel-threads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/linux-kernel/creation-et-utilisation-de-kernel-threads/</guid>
+      <description>Cette rubrique explique comment créer et utiliser des threads du noyau.
+Création de threads noyau # kern_thread.c
+#include &amp;lt;linux/module.h&amp;gt; #include &amp;lt;linux/kernel.h&amp;gt; #include &amp;lt;linux/init.h&amp;gt; #include &amp;lt;linux/kthread.h&amp;gt; #include &amp;lt;linux/sched.h&amp;gt; #define AUTHOR &amp;quot;Nachiket Kulkarni&amp;quot; #define DESCRIPTION &amp;quot;Simple module that demonstrates creation of 2 kernel threads&amp;quot; static int kthread_func(void *arg) { /* Every kthread has a struct task_struct associated with it which is it&#39;s identifier. * Whenever a thread is schedule for execution, the kernel sets &amp;quot;current&amp;quot; pointer to * it&#39;s struct task_struct.</description>
+    </item>
+    
+  </channel>
+</rss>

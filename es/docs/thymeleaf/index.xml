@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hoja de tomillo Tutorial on </title>
+    <link>https://www.wikiod.com/es/docs/thymeleaf/</link>
+    <description>Recent content in Hoja de tomillo Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/thymeleaf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con la hoja de tomillo</title>
+      <link>https://www.wikiod.com/es/thymeleaf/primeros-pasos-con-la-hoja-de-tomillo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/thymeleaf/primeros-pasos-con-la-hoja-de-tomillo/</guid>
+      <description>Configuración # Para comenzar con Thymeleaf, visite [página de descarga oficial] (http://www.thymeleaf.org/download.html).
+Dependencia de Maven
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.0.1.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Dependencia de Gradle
+compile group: &#39;org.thymeleaf&#39;, name: &#39;thymeleaf&#39;, version: &#39;3.0.1.RELEASE&#39; Configuración de ejemplo
+A partir de la versión 3.0, Thymeleaf solo admite la configuración de Java.
+public ViewResolver viewResolver() { ThymeleafViewResolver resolver = new ThymeleafViewResolver(); resolver.setTemplateEngine(templateEngine()); resolver.setCharacterEncoding(&amp;quot;UTF-8&amp;quot;); resolver.setContentType(&amp;quot;text/html; charset=UTF-8&amp;quot;); return resolver; } En el método viewResolver() puede configurar, p. codificación y tipo de contenido para las vistas.</description>
+    </item>
+    
+    <item>
+      <title>Spring Security y Thymeleaf</title>
+      <link>https://www.wikiod.com/es/thymeleaf/spring-security-y-thymeleaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/thymeleaf/spring-security-y-thymeleaf/</guid>
+      <description>Asegure su aplicación web con inicio de sesión y cierre de sesión # Este ejemplo es una aplicación Spring Boot muy simple.
+Dependencias Maven # Primero agregue las siguientes dependencias a su proyecto. Se recomienda Spring Initializr al crear un nuevo proyecto.
+&amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.5.1.RELEASE&amp;lt;/version&amp;gt; &amp;lt;relativePath/&amp;gt; &amp;lt;/parent&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-security&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-thymeleaf&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf.extras&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf-extras-springsecurity4&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; Crea tu WebApp # Cree una aplicación web con sitios web y controlador.</description>
+    </item>
+    
+    <item>
+      <title>Externalización de texto en Thymeleaf</title>
+      <link>https://www.wikiod.com/es/thymeleaf/externalizacion-de-texto-en-thymeleaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/thymeleaf/externalizacion-de-texto-en-thymeleaf/</guid>
+      <description>Localización # Crea archivos para tus mensajes
+messages.properties
+messages_en.properties messages_fr.properties
+&amp;hellip;
+Escriba mensajes en estos archivos como este
+header.label.title=Título
+Configure la ruta a estos archivos (en este caso en la carpeta D:/proyecto/mensajes) en las propiedades de la aplicación como:
+messages.basename.path=D:/project/messages/messages
+Configurar el origen del mensaje
+@Value(&amp;quot;${messages.basename.path}&amp;quot;) private String messagesBasename;
+@Bean public MessageSource messageSource() { ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource(); messageSource.setFallbackToSystemLocale(false); messageSource.setBasenames(&amp;ldquo;file:&amp;rdquo; + messagesBasename); return messageSource; }
+Usa mensajes en las páginas</description>
+    </item>
+    
+    <item>
+      <title>Uso de listas con Thymeleaf</title>
+      <link>https://www.wikiod.com/es/thymeleaf/uso-de-listas-con-thymeleaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/thymeleaf/uso-de-listas-con-thymeleaf/</guid>
+      <description>Usando la lista en select # Puede usar la variable de lista para formar elementos &amp;lt;select&amp;gt;
+&amp;lt;select th:field=&amp;quot;*{countries}&amp;quot;&amp;gt; &amp;lt;option th:each=&amp;quot;country: ${countries}&amp;quot; th:value=&amp;quot;${country.id}&amp;quot; th:text=&amp;quot;#{${&#39;selected.label.&#39; + country.name}}&amp;quot;/&amp;gt; &amp;lt;/select&amp;gt; Tabla de formularios # &amp;lt;table id=&amp;quot;countryList&amp;quot;&amp;gt; &amp;lt;thead&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;th th:text=&amp;quot;#{country.label.name}&amp;quot;&amp;gt; Country &amp;lt;/th&amp;gt; &amp;lt;th th:text=&amp;quot;#{country.label.capital}&amp;quot;&amp;gt; Capital &amp;lt;/th&amp;gt; &amp;lt;th th:text=&amp;quot;#{country.label.square}&amp;quot;&amp;gt; Square &amp;lt;/th&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/thead&amp;gt; &amp;lt;tbody&amp;gt; &amp;lt;tr th:each=&amp;quot;country : ${countryList}&amp;quot;&amp;gt; &amp;lt;td th:text=&amp;quot;${country.name}&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td th:text=&amp;quot;${country.capital}&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td th:text=&amp;quot;${country.square}&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Objetos de utilidad de expresión</title>
+      <link>https://www.wikiod.com/es/thymeleaf/objetos-de-utilidad-de-expresion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/thymeleaf/objetos-de-utilidad-de-expresion/</guid>
+      <description>Formatear fecha # &amp;lt;p&amp;gt; Today: &amp;lt;span th:text=&amp;quot;${#calendars.format(today,&#39;dd MMMM yyyy&#39;)}&amp;quot;&amp;gt;30 May 2017&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; Longitud de la cuerda # &amp;lt;div th:if=&amp;quot;*{userMessage!=null and #strings.length(userMessage)&amp;gt;0}&amp;quot;&amp;gt; &amp;lt;label th:text = &amp;quot;*{userMessage}&amp;quot;/&amp;gt; &amp;lt;/div&amp;gt; La cadena contiene # &amp;lt;div th:if=&amp;quot;${#strings.contains(#httpServletRequest.requestURI, &#39;email&#39;)}&amp;quot;&amp;gt; &amp;lt;div th:replace=&amp;quot;fragments/email::welcome&amp;quot;&amp;gt; &amp;lt;/div&amp;gt; Fecha de análisis # Obtener el año a partir de la fecha
+&amp;lt;p&amp;gt; Year: &amp;lt;span th:text=&amp;quot;${#dates.year(today)}&amp;quot;&amp;gt;2017&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; obtener mes
+&amp;lt;p&amp;gt; Month number: &amp;lt;span th:text=&amp;quot;${#dates.month(today)}&amp;quot;&amp;gt;8&amp;lt;/span&amp;gt; Month: &amp;lt;span th:text=&amp;quot;${#dates.monthName(today)}&amp;quot;&amp;gt;August&amp;lt;/span&amp;gt; Month short name: &amp;lt;span th:text=&amp;quot;${#dates.monthNameShort(today)}&amp;quot;&amp;gt;Aug&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; Obtener día</description>
+    </item>
+    
+  </channel>
+</rss>

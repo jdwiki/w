@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jenkins Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/jenkins/</link>
+    <description>Recent content in jenkins Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/jenkins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jenkins&#39;e başlarken</title>
+      <link>https://www.wikiod.com/tr/jenkins/jenkinse-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jenkins/jenkinse-baslarken/</guid>
+      <description>Nginx Proxy&amp;rsquo;yi Ayarlama # Doğal olarak, Jenkins 8080 numaralı bağlantı noktasında çalışır. 80 -&amp;gt; 8080 numaralı bağlantı noktasından bir proxy kurabiliriz, böylece Jenkins&amp;rsquo;e şu şekilde erişilebilir:
+http://&amp;lt;url&amp;gt;.com varsayılan yerine
+http://&amp;lt;url&amp;gt;.com:8080 Nginx&amp;rsquo;i yükleyerek başlayın.
+`sudo aptitude -y nginx&amp;rsquo;i kurun&#39;
+Nginx için varsayılan ayarları kaldırın
+&amp;ldquo;cd /etc/nginx/siteler kullanılabilir&amp;rdquo;
+`sudo rm default ../sites-enabled/default&#39;
+Yeni yapılandırma dosyasını oluşturun
+&amp;lsquo;sudo touch jenkins&amp;rsquo;
+Yeni oluşturulan jenkins dosyasına aşağıdaki kodu kopyalayın.
+upstream app_server { server 127.0.0.1:8080 fail_timeout=0; } server { listen 80; listen [::]:80 default ipv6only=on; server_name ; location / { proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host; proxy_redirect off; if (!</description>
+    </item>
+    
+    <item>
+      <title>Jenkins Harika Komut Dosyası</title>
+      <link>https://www.wikiod.com/tr/jenkins/jenkins-harika-komut-dosyas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jenkins/jenkins-harika-komut-dosyas/</guid>
+      <description>Varsayılan kullanıcı oluştur # $JENKINS_HOME/init.groovy.d/basic-security.groovy yoluna göre mükemmel dosya oluşturun Ubuntu 16&amp;rsquo;da Jenkins ana dizini /var/lib/jenkins içine yerleştirir
+Sonraki kodu dosyaya yerleştirin
+#!groovy
+import jenkins.model.* import hudson.security.*
+def instance = Jenkins.getInstance()
+def hudsonRealm = new HudsonPrivateSecurityRealm(false)
+hudsonRealm.createAccount(&amp;ldquo;admin_name&amp;rdquo;,&amp;ldquo;admin_password&amp;rdquo;) instance.setSecurityRealm(hudsonRealm) instance.save()
+Jenkins hizmetini yeniden başlatın
+Jenkins başladıktan sonra $JENKINS_HOME/init.groovy.d/basic-security.groovy dosyasını kaldırmanız gerekir.
+Kurulum Sihirbazını Devre Dışı Bırak # Jenkins varsayılan yapılandırma dosyasını açın ve JAVA_ARGS sonraki anahtarı -Djenkins.install.runSetupWizard=false ekleyin Ubuntu&amp;rsquo;da 16 varsayılan dosya /etc/default/jenkins dizinine yerleştirilir</description>
+    </item>
+    
+    <item>
+      <title>Jenkins&#39;te Başarılı Derlemede Auto Git Push&#39;u Yapılandırın</title>
+      <link>https://www.wikiod.com/tr/jenkins/jenkinste-basarl-derlemede-auto-git-pushu-yaplandrn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jenkins/jenkinste-basarl-derlemede-auto-git-pushu-yaplandrn/</guid>
+      <description>Bu belge, kullanıcının başarılı derlemede otomatik göndermeyi ayarlamasına izin veren bir Jenkins işini yapılandırma adımlarında size yol gösterecektir. İtme işlemi kullanıcı tarafından kontrol edilebilir. Kullanıcı, başarılı derlemede otomatik itme işlemini gerçekleştirmek isteyip istemediğini seçebilir.
+Otomatik İletme İşini Yapılandırma # Bir yapı işi oluşturun (ihtiyacınıza göre). Bu örnekte, ANT oluşturma işlemini gerçekleştirmek için serbest stil bir iş (AutoPush) oluşturdum.
+PUSH (Choice Parameter) ve TAG_NUMBER (String Parameter) olmak üzere iki değişken oluşturacağız.</description>
+    </item>
+    
+    <item>
+      <title>Özel GitHub depoları için SSH desteğiyle Jenkins&#39;i Windows&#39;a yükleyin</title>
+      <link>https://www.wikiod.com/tr/jenkins/ozel-github-depolar-icin-ssh-destegiyle-jenkinsi-windowsa-yukleyin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jenkins/ozel-github-depolar-icin-ssh-destegiyle-jenkinsi-windowsa-yukleyin/</guid>
+      <description>GitHub çekme istekleri başarısız # GitHub&amp;rsquo;dan özel bir depo çekmeye çalışırken, Jenkins&amp;rsquo;in Git ve SSH eklentileriyle hazır kurulumları çalışmayacaktır. Microsoft&amp;rsquo;tan PSExec.exe PS Aracı # Bulduğum bu sorunu düzeltmenin ilk adımı, PSTools dosyasını indirmek ve araçları derleme sunucusunda uygun bir konuma çıkarmaktı (örn.
+PSExec veya PSExec64 kullanarak yalnızca Jenkins için yeni bir SSH anahtarı oluşturun # Önce Komut istemini ve &amp;ldquo;Yönetici Olarak Çalıştır&amp;quot;ı açın.
+Komut istemi açıldığında, PSTools dizinine gidin.
+Komut isteminden, Jenkins&amp;rsquo;in varsayılan olarak derleme sunucusunda çalıştırdığı Yerel Hizmet olarak PSExec veya PSExec64 kullanarak git-bash çalıştırmamız gerekiyor.</description>
+    </item>
+    
+    <item>
+      <title>iOS derleme otomasyonu için Jenkins kurulumu.</title>
+      <link>https://www.wikiod.com/tr/jenkins/ios-derleme-otomasyonu-icin-jenkins-kurulumu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jenkins/ios-derleme-otomasyonu-icin-jenkins-kurulumu/</guid>
+      <description>Artık iOS 10&amp;rsquo;daki projeleriniz için Jenkins 2.0 ile Sürekli Entegrasyon ve Sürekli Teslimat (CI/CD) sürecini kod olarak tanımlayabilirsiniz. tek dosyada anlatılmıştır.
+Makalenin tamamını okumak için Pipeline in Jenkins 2.0 as Code for iOS 10 ve XCode 8 sayfasına gidin.
+Parametreler # parametre Ayrıntılar düğüm(&amp;lsquo;iOS Düğümü&amp;rsquo;) Mac OS ile Jenkins Düğümü. Jenkins, Mac OS&amp;rsquo;de kuruluysa node {....} kullanın Makale her iki dilde de yazılmıştır: İngilizce ve İspanyolca.
+Zaman Çizelgesi Örneği # Kaynak kodu test etmek için [klonlanabilir veya GitHub&amp;rsquo;dan1 indirilebilir.</description>
+    </item>
+    
+    <item>
+      <title>Rol Stratejisi Eklentisi</title>
+      <link>https://www.wikiod.com/tr/jenkins/rol-stratejisi-eklentisi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jenkins/rol-stratejisi-eklentisi/</guid>
+      <description>Yapılandırma # Rolleri Yönet # Küresel Roller- Seçilen Jenkins özellikleriyle roller oluşturun Örneğin. Genellikle bir geliştirme projesi için 2 rol oluşturulabilir.
+Geliştirici- Global rol yalnızca Genel olarak ayarlanabilir: Oku Proje Sahibi- Global rol Genel olarak ayarlanabilir: Oku Bu, geliştiricinin ve proje sahibinin tüm Jenkins özelliklerine okuma erişimini kısıtlar.
+Proje Rolleri- Normal ifadeler kullanarak ilgili jenkins işine ve kimlik bilgileri özelliklerine kullanıcı erişimini kısıtlayarak roller oluşturun.
+Örneğin. &amp;lsquo;MyProjectA&amp;rsquo; geliştirme projesi için; proje sahiplerinin İşler için tam izinlere sahip olması ve geliştiricilerin Jenkins işlerine Derleme erişimi olması gerekir.</description>
+    </item>
+    
+    <item>
+      <title>Shenzhen kullanarak iOS için Yapı Otomasyonu kurma</title>
+      <link>https://www.wikiod.com/tr/jenkins/shenzhen-kullanarak-ios-icin-yap-otomasyonu-kurma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jenkins/shenzhen-kullanarak-ios-icin-yap-otomasyonu-kurma/</guid>
+      <description>Shenzhen kullanarak iOS Yapı Otomasyonu Kurulumu # Bölüm I : Mac makinesini shenzhen kullanacak şekilde ayarlayın
+Terminale git
+Shenzhen&amp;rsquo;i yükleyin
+sudo gem shenzhen yükleyin
+sudo gem yükleme nomad-cli
+XCode komut satırı yardımcı programını indirin
+xcode-select &amp;ndash;install
+Pop-up aşağıdaki metinle birlikte görünür
+xcode-select komutu, komut satırı geliştirici araçlarını gerektirir. Araçları şimdi kurmak ister misiniz?”
+Tıklayın - Yükleyin
+Proje dizini oluştur
+projenizi gitclone
+git klonu https://akshat@bitbucket.org/company/projectrepo.git
+Aşağıdaki komutu kullanarak proje oluşturun
+ipa build &amp;ndash;verbose</description>
+    </item>
+    
+  </channel>
+</rss>

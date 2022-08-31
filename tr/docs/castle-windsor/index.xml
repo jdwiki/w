@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>castle-windsor Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/castle-windsor/</link>
+    <description>Recent content in castle-windsor Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/castle-windsor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Castle-windsor&#39;u kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/castle-windsor/castle-windsoru-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/castle-windsor/castle-windsoru-kullanmaya-baslama/</guid>
+      <description>Merhaba Dünya - Windsor Kalesi # class Program { static void Main(string[] args) { //Initialize a new container WindsorContainer container = new WindsorContainer(); //Register IService with a specific implementation and supply its dependencies container.Register(Component.For&amp;lt;IService&amp;gt;() .ImplementedBy&amp;lt;SomeService&amp;gt;() .DependsOn(Dependency.OnValue(&amp;quot;dependency&amp;quot;, &amp;quot;I am Castle Windsor&amp;quot;))); //Request the IService from the container var service = container.Resolve&amp;lt;IService&amp;gt;(); //Will print to console: &amp;quot;Hello World! I am Castle Windsor service.Foo(); } Hizmetler:
+public interface IService { void Foo(); } public class SomeService : IService { public SomeService(string dependency) { _dependency = dependency; } public void Foo() { Console.</description>
+    </item>
+    
+    <item>
+      <title>yükleyiciler</title>
+      <link>https://www.wikiod.com/tr/castle-windsor/yukleyiciler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/castle-windsor/yukleyiciler/</guid>
+      <description>Temel Bilgiler - Bir Yükleyici Oluşturma ve Kullanma # Yükleyiciler, &amp;ldquo;IWindsorInstaller&amp;rdquo; arabirimini uygulayan özel türlerdir ve akıcı kayıt API&amp;rsquo;sini kullanarak &amp;ldquo;Bileşen&amp;quot;leri kapsayıcıya kaydetmek için kullanılır.
+public class MyInstaller : IWindsorInstaller { public void Install(IWindsorContainer container, IConfigurationStore store) { container.Register(Component.For&amp;lt;IMyType&amp;gt;() .ImplementedBy&amp;lt;ConcreteMyType1&amp;gt;()); //Registering several components in one call to .Register container.Register( Component.For&amp;lt;IFoo&amp;gt;().ImplementedBy&amp;lt;Foo&amp;gt;(), Component.For&amp;lt;IBar&amp;gt;().ImplementedBy&amp;lt;Bar()); } } //To use the installer: WindsorContainer container = new WindsorContainer(); container.Install(new MyInstaller()); container.Resolve&amp;lt;IFoo&amp;gt;(); Aklında tut
+Kurulumcular, genel varsayılan kurucuya sahip olmalıdır: Kurulumcular Windsor tarafından başlatıldığında, genel varsayılan kurucuya sahip olmaları gerekir.</description>
+    </item>
+    
+    <item>
+      <title>soyut fabrika</title>
+      <link>https://www.wikiod.com/tr/castle-windsor/soyut-fabrika/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/castle-windsor/soyut-fabrika/</guid>
+      <description>Adres doğrulayıcı fabrikası - bir uygulama seçmek için bir parametre gerektirir # Senaryo: Bir satış siparişi gönderildiğinde ve doğrulayıcı siparişin gönderildiği ülkeye göre belirlendiğinde bir adres doğrulama uygulaması seçmeniz gerekir. Fabrikanın, doğru uygulamayı seçmek için argüman olarak iletilen bazı değerleri incelemesi gerekir.
+İlk önce fabrika için bir arayüz yazın:
+public interface IAddressValidatorFactory { IAddressValidator GetAddressValidator(Address address); void Release(IAddressValidator created); } Arayüz, &amp;lsquo;IAddressValidator&amp;rsquo; uygulamasının &amp;lsquo;GetAddressValidator&amp;rsquo;a bir argüman olarak iletilen &amp;lsquo;Adres&amp;rsquo; tarafından belirleneceğini belirtir.</description>
+    </item>
+    
+    <item>
+      <title>önleyiciler</title>
+      <link>https://www.wikiod.com/tr/castle-windsor/onleyiciler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/castle-windsor/onleyiciler/</guid>
+      <description>Özel önleyiciler oluşturma # Durdurucular, &amp;lsquo;IInterceptor&amp;rsquo; arabirimini gerektirir. Yakalanan sınıf içindeki herhangi bir genel yöntem engellenir (alıcılar ve ayarlayıcılar dahil)
+public class MyInterceptor : IInterceptor { public void Intercept(IInvocation invocation) { //Calls the next method in the chain - The last one will be the //original method that was intercepted invocation.Proceed(); } } Bileşenlere bir durdurucuyu kaydetme hakkında bilgi için bunu okuyun
+Durdurucuların her seferinde Proceed&amp;rsquo;i çağırması gerekmez # Engelleyiciler, günlüğe kaydetme veya kimlik doğrulama gibi birbiriyle kesişen endişeleri uygulamak için iyi bir araçtır.</description>
+    </item>
+    
+    <item>
+      <title>Akıcı API Kaydı</title>
+      <link>https://www.wikiod.com/tr/castle-windsor/akc-api-kayd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/castle-windsor/akc-api-kayd/</guid>
+      <description>Aynı Arayüzün Birkaç Türünü Kaydetme # &amp;lsquo;Castle&amp;rsquo; kapsayıcıya türleri kaydederken, çözmek için sınıfın türünü kullanır. Belirli bir tür için birden fazla kayıt olması durumunda, &amp;lsquo;Ad&amp;rsquo; özelliği ayarlanmalıdır:
+public void Install(IWindsorContainer container, IConfigurationStore store) { container.Register( Component.For&amp;lt;IFoo&amp;gt;().ImplementedBy&amp;lt;Foo&amp;gt;().Named(&amp;quot;Registration1&amp;quot;), Component.For&amp;lt;IBar&amp;gt;().ImplementedBy&amp;lt;Bar().Named(&amp;quot;Registration2&amp;quot;)); } Yaşam Tarzını Belirleme # Bir &amp;ldquo;Yaşam Tarzı&amp;rdquo;, Castle&amp;rsquo;ın bir bileşenin kullanıldığı kapsamı ve ne zaman temizleneceğini &amp;ldquo;nasıl&amp;rdquo; kontrol ettiğidir. Yerleşik yaşam tarzları &amp;lsquo;Singelton&amp;rsquo;, &amp;lsquo;Transient&amp;rsquo;, &amp;lsquo;PerWebRequest&amp;rsquo;, &amp;lsquo;Scoped&amp;rsquo;, &amp;lsquo;Bound&amp;rsquo;, &amp;lsquo;PerThread&amp;rsquo; ve &amp;lsquo;Pooled&amp;rsquo;
+container.Register( Component.For&amp;lt;IFoo&amp;gt;() .</description>
+    </item>
+    
+    <item>
+      <title>yaşam tarzları</title>
+      <link>https://www.wikiod.com/tr/castle-windsor/yasam-tarzlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/castle-windsor/yasam-tarzlar/</guid>
+      <description>Standart Yaşam Tarzları # Bir &amp;lsquo;Bileşen&amp;rsquo; Windsor konteynerinden çözümlendiğinde, içinde bulunduğu kapsamın bir tanımına sahip olmalıdır. Kapsama göre, yeniden kullanılıp kullanılmayacağını ve nasıl kullanılacağını ve Çöp Toplayıcı&amp;rsquo;nın yok etmesi için nesnenin ne zaman serbest bırakılacağını ifade eder. Bu, &amp;lsquo;Bileşen&amp;rsquo;in &amp;lsquo;LifeStlye&amp;rsquo;sidir.
+Bir LifeStyle belirlemenin yolu, bir bileşeni kaydetmektir. En yaygın iki &amp;ldquo;Yaşam Tarzları&amp;rdquo; şunlardır:
+Geçici - Bileşen her çözümlendiğinde kapsayıcı tarafından yeni bir örneği üretilir.
+Container.Register(Component.For&amp;lt;Bar&amp;gt;().LifestyleTransient()); Singleton - Bileşen her çözümlendiğinde, konteyner tarafından aynı örnek döndürülür</description>
+    </item>
+    
+  </channel>
+</rss>

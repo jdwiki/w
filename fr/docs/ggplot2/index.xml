@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ggplot2 Tutoriel on </title>
+    <link>https://www.wikiod.com/fr/docs/ggplot2/</link>
+    <description>Recent content in ggplot2 Tutoriel on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec ggplot2</title>
+      <link>https://www.wikiod.com/fr/ggplot2/premiers-pas-avec-ggplot2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/ggplot2/premiers-pas-avec-ggplot2/</guid>
+      <description>Comment installer et exécuter ggplot2 # Pour installer et charger la version stable actuelle de ggplot2 pour votre installation R, utilisez :
+# install from CRAN install.packages(&amp;quot;ggplot2&amp;quot;) Pour installer la version de développement à partir de github, utilisez
+# install.packages(&amp;quot;devtools&amp;quot;) devtools::install_github(&amp;quot;hadley/ggplot2&amp;quot;) Chargez dans votre session R actuelle et créez un exemple.
+Exemple de base de ggplot2 # Nous montrons un graphique similaire à celui présenté sur https://www.wikiod.com/fr/r/modeles-lineaires-regression#Régression linéaire sur le jeu de données mtcars D&amp;rsquo;abord avec les valeurs par défaut et ensuite avec une certaine personnalisation des paramètres.</description>
+    </item>
+    
+    <item>
+      <title>Tracer un sous-ensemble de données</title>
+      <link>https://www.wikiod.com/fr/ggplot2/tracer-un-sous-ensemble-de-donnees/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/ggplot2/tracer-un-sous-ensemble-de-donnees/</guid>
+      <description>Syntaxe # xlim(limite.gauche,limite.droite) data.frame[data.frame$variable == &amp;ldquo;desired.variable&amp;rdquo;,] Utiliser xlim / ylim # &amp;gt; library(ggplot2) &amp;gt; ggplot(iris,aes(Sepal.Width)) + geom_density() + xlim(1,3.5) En utilisant xlim ou ylim, le tracé n&amp;rsquo;est pas coupé, ggplot sous-ensemble les données avant appelant la fonction stat (stat_density dans ce cas). Vous pouvez le voir dans le message d&amp;rsquo;avertissement.
+Warning message: Removed 19 rows containing non-finite values (stat_density). Sous-ensemble en ligne pour les variables catégorielles # ggplot(iris[iris$Species == &amp;quot;setosa&amp;quot;,],aes(Sepal.Width)) + geom_density() Ici, nous sous-définissons la trame de données avant de la transmettre à ggplot.</description>
+    </item>
+    
+    <item>
+      <title>Personnalisation des axes, des titres et des légendes</title>
+      <link>https://www.wikiod.com/fr/ggplot2/personnalisation-des-axes-des-titres-et-des-legendes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/ggplot2/personnalisation-des-axes-des-titres-et-des-legendes/</guid>
+      <description>Dans cette rubrique, nous allons chercher à expliquer comment personnaliser les axes, les titres et les légendes tout en utilisant la bibliothèque ggplot2.
+Modifier le titre de la légende et augmenter la taille de la clé # # load the library library(ggplot2) # create a blank canvas g &amp;lt;- ggplot(data = diamonds) g + geom_bar(aes(x = cut, fill = cut)) + scale_fill_discrete(guide = guide_legend(title = &amp;quot;CUT&amp;quot;, keywidth = 2, keyheight = 2)) [!</description>
+    </item>
+    
+    <item>
+      <title>Tracer des séries chronologiques</title>
+      <link>https://www.wikiod.com/fr/ggplot2/tracer-des-series-chronologiques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/ggplot2/tracer-des-series-chronologiques/</guid>
+      <description>Tracer des séries chronologiques # Cet exemple illustre comment tracer une série chronologique de températures à partir d&amp;rsquo;un fichier de données csv.
+library(ggplot2) # Original data not provided, see subset/plotted data below datos.orig&amp;lt;-read.csv(&amp;quot;data.csv&amp;quot;,header=TRUE) # read csv data # Change dates to POSIXct fecha&amp;lt;-as.data.frame(as.POSIXct(datos.orig$Fecha)) # Build a new and shorter data frame for temperature datos.graf&amp;lt;-cbind.data.frame(fecha,datos.orig$Temp_Max,datos.orig$Temp_Min) colnames(datos.graf)&amp;lt;-c(&amp;quot;fecha&amp;quot;,&amp;quot;TMax&amp;quot;,&amp;quot;Tmin&amp;quot;) # Plot ggplot() + geom_line(data=datos.graf,aes(x=fecha, y=TMax),colour=&amp;quot;red&amp;quot;) + geom_line(data=datos.graf,aes(x=fecha, y=Tmin),colour=&amp;quot;blue&amp;quot;) + ylab(&amp;quot;Temperature axis title&amp;quot;) + xlab(&amp;quot; &amp;quot;) + scale_x_datetime( expand=c(0,0), # avoid blank space around plot date_breaks = &amp;quot;1 month&amp;quot;, # main axis breaks date_labels=&amp;quot;%d/%m/%Y&amp;quot;) + # axis labels date format scale_y_continuous(expand=c(0,0), limits=c(-10,40)) + theme(axis.</description>
+    </item>
+    
+  </channel>
+</rss>

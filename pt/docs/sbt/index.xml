@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tutorial sbt on </title>
+    <link>https://www.wikiod.com/pt/docs/sbt/</link>
+    <description>Recent content in tutorial sbt on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/sbt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando no sbt</title>
+      <link>https://www.wikiod.com/pt/sbt/comecando-no-sbt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/sbt/comecando-no-sbt/</guid>
+      <description>Instale o SBT no Linux # Instruções completas podem ser [encontradas aqui][1].
+[Instale o JDK][2].
+Defina a variável de ambiente Java.
+export JAVA_HOME=/usr/local/java/jdk1.8.0_102 echo $JAVA_HOME /usr/local/java/jdk1.8.0_102 export PATH=$PATH:$JAVA_HOME/bin/ echo $PATH ...:/usr/local/java/jdk1.8.0_102/bin/ Instale o Scala.
+sudo wget http://www.scala-lang.org/files/archive/scala-2.11.8.deb sudo dpkg -i scala-2.11.8.deb sudo apt-get update sudo apt-get install scala Instale o SBT.
+wget https://bintray.com/artifact/download/sbt/debian/sbt-0.13.9.deb sudo dpkg -i sbt-0.13.9.deb sudo apt-get update sudo apt-get install sbt Distribuições Linux baseadas em RPM # Baixe as definições do repositório SBT e adicione-as ao YUM: curl https://bintray.</description>
+    </item>
+    
+    <item>
+      <title>Dependências</title>
+      <link>https://www.wikiod.com/pt/sbt/dependencias/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/sbt/dependencias/</guid>
+      <description>Adicionar uma dependência de biblioteca gerenciada # libraryDependency é a SettingKey que lida com dependências de biblioteca &amp;lsquo;gerenciadas&amp;rsquo;, que são dependências que são baixadas automaticamente, correspondendo às versões fornecidas. Para adicionar uma única dependência:
+libraryDependencies += &amp;quot;com.typesafe.slick&amp;quot; %% &amp;quot;slick&amp;quot; % &amp;quot;3.2.0-M1&amp;quot; A primeira parte, &amp;quot;com.typesafe.slick&amp;quot;, indica o pacote da biblioteca. A segunda parte, &amp;quot;slick&amp;quot;, é a biblioteca em questão. A parte final, &amp;quot;3.2.0-M1&amp;quot;, é a versão. Como a biblioteca é unida por %%, a versão do Scala fornecida pela chave de configuração scalaVersion será utilizada.</description>
+    </item>
+    
+    <item>
+      <title>Visão geral da compilação</title>
+      <link>https://www.wikiod.com/pt/sbt/visao-geral-da-compilacao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/sbt/visao-geral-da-compilacao/</guid>
+      <description>A documentação oficial está em www.scala-sbt.org.
+Estrutura de diretórios # A estrutura padrão para um projeto construído pelo SBT é:
+projectName/ build.sbt project/ &amp;lt;SBT sub-build information&amp;gt; src/ main/ scala/ &amp;lt;Scala source files&amp;gt; java/ &amp;lt;Java source files&amp;gt; resources/ &amp;lt;Resource files&amp;gt; test/ scala/ &amp;lt;Scala test files&amp;gt; java/ &amp;lt;Java test files&amp;gt; resources/ &amp;lt;Resource files&amp;gt; Outros diretórios podem existir, mas a compilação lida principalmente com eles. No diretório base é colocado build.sbt, cujo conteúdo no mínimo é:</description>
+    </item>
+    
+    <item>
+      <title>Projetos</title>
+      <link>https://www.wikiod.com/pt/sbt/projetos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/sbt/projetos/</guid>
+      <description>Vários projetos na mesma compilação (subprojetos) # Às vezes, uma compilação combina vários diretórios de origem, cada um dos quais é seu próprio &amp;lsquo;projeto&amp;rsquo;. Por exemplo, você pode ter uma estrutura de construção como esta:
+Nome do Projeto/ build.sbt project/ src/ main/ &amp;hellip; test/ &amp;hellip; core/ src/ main/ &amp;hellip; test/ &amp;hellip; webapp/ src/ main/ &amp;hellip; test/ &amp;hellip;
+No projeto acima, o código em projectName/src é considerado o projeto root. Existem dois outros módulos, ou &amp;lsquo;subprojetos&amp;rsquo;, core e webapp.</description>
+    </item>
+    
+    <item>
+      <title>Tarefas</title>
+      <link>https://www.wikiod.com/pt/sbt/tarefas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/sbt/tarefas/</guid>
+      <description>Crie uma tarefa simples # Tudo o que é necessário para definir uma tarefa é uma declaração de seu tipo e uma descrição:
+lazy val exampleTask = taskKey[Unit](&amp;quot;An example task that will return no value.&amp;quot;) Como Unit é o tipo, esta tarefa é composta inteiramente de efeitos colaterais. Uma vez definido, para implementar as ações:
+exampleTask := { val s: TaskStreams = streams.value s.log.info(&amp;quot;The example task was executed.&amp;quot;) } Se estiverem definidos em build.</description>
+    </item>
+    
+    <item>
+      <title>Começando com o desenvolvimento diário</title>
+      <link>https://www.wikiod.com/pt/sbt/comecando-com-o-desenvolvimento-diario/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/sbt/comecando-com-o-desenvolvimento-diario/</guid>
+      <description>Exemplo de desenvolvimento contínuo diário com Scala # # install sbt with homebrew (if you didn&#39;t) brew install sbt # - create a new scala project # - name your project name when asked like: hello-world sbt new sbt/scala-seed.g8 # go to the new project directory that you named cd hello-world # run sbt to open the sbt shell sbt # run your project in continuous running mode ~ run # to continuously see the test outputs # open up a new terminal tab, run sbt, type: ~ test # to continuously compile # open up a new terminal tab, run sbt, type: ~ compile ~ usado para operações contínuas em sbt como visto acima.</description>
+    </item>
+    
+  </channel>
+</rss>

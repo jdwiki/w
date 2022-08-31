@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de rayas plateadas on </title>
+    <link>https://www.wikiod.com/es/docs/silverstripe/</link>
+    <description>Recent content in Tutorial de rayas plateadas on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/silverstripe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con Silverstripe</title>
+      <link>https://www.wikiod.com/es/silverstripe/primeros-pasos-con-silverstripe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/silverstripe/primeros-pasos-con-silverstripe/</guid>
+      <description>Instalación # SilverStripe se puede instalar a través de Composer o mediante la extracción del archivo zip descargado.
+Para instalar a través de composer ejecutamos el siguiente comando
+composer create-project silverstripe/installer /path/to/project 3.4.0 Puede encontrar un archivo zip de descarga en la página de descargas del sitio web de SilverStripe. Una vez descargado, este archivo debe extraerse en el directorio raíz del proyecto deseado.
+Al visitar el sitio web por primera vez, se presentará un asistente de instalación para configurar y configurar la instalación de SilverStripe.</description>
+    </item>
+    
+    <item>
+      <title>formularios</title>
+      <link>https://www.wikiod.com/es/silverstripe/formularios/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/silverstripe/formularios/</guid>
+      <description>Sintaxis # Form::create($this, __FUNCTION__, $fields, $actions, $validator) // creación de formulario estándar Form::create(&amp;hellip;)-&amp;gt;addExtraClass(&amp;lsquo;my-css-class another-class&amp;rsquo;) // agrega clases CSS a tu Formulario Formulario::create(&amp;hellip;)-&amp;gt;loadDataFrom(Member::get()-&amp;gt;byID(1)); // llenar un formulario con los detalles de un objeto Crear un formulario # Aquí hay un formulario de ejemplo básico con un campo de texto obligatorio y un botón de envío, que se envía a una función personalizada:
+class Page_Controller extends ContentController { private static $allowed_actions = array( &#39;ExampleForm&#39; ); public function ExampleForm() { $fields = FieldList::create( TextField::create(&#39;Name&#39;, &#39;Your Name&#39;) ); $actions = FieldList::create( FormAction::create(&#39;doExampleFormAction&#39;, &#39;Go&#39;) ); $requiredFields = RequiredFields::create(&#39;Name&#39;); $form = Form::create( $this, &#39;ExampleForm&#39;, $fields, $actions, $requiredFields ); return $form; } public function doExampleFormAction($data, Form $form) { $form-&amp;gt;sessionMessage(&#39;Hello &#39;.</description>
+    </item>
+    
+    <item>
+      <title>el cargador automático</title>
+      <link>https://www.wikiod.com/es/silverstripe/el-cargador-automatico/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/silverstripe/el-cargador-automatico/</guid>
+      <description>Cuando realiza cambios en las clases, debe ejecutar dev/build?flush=1 para reconstruir el manifiesto.
+MiClase.php # &amp;lt;?php class MyClass { ... } class OtherClass { ... } ?&amp;gt; Silverstripe cargará automáticamente cualquier clase que tenga el mismo nombre que su nombre de archivo.
+OtherClass también se cargará porque está en un archivo que se está leyendo.
+MiPágina.php
+&amp;lt;?php class MyPage_Controller extends BookingPage_Controller { ... } ?&amp;gt; Para las funciones del controlador, puede omitir la parte &amp;ldquo;_Controller&amp;rdquo; en el nombre del archivo.</description>
+    </item>
+    
+    <item>
+      <title>Administrador del modelo</title>
+      <link>https://www.wikiod.com/es/silverstripe/administrador-del-modelo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/silverstripe/administrador-del-modelo/</guid>
+      <description>Controle el nombre del objeto de datos que se muestra en la interfaz de usuario # class MyDataObject extends DataObject { private static $singular_name = &#39;My Object&#39;; private static $plural_name = &#39;My Objects&#39;; ... } Los objetos de datos se pueden ordenar de forma predeterminada # class SortDataObject extends DataObject { private static $db = array( &#39;Name&#39; =&amp;gt; &#39;Varchar&#39;, &#39;SortOrder&#39; =&amp;gt; &#39;Int&#39; ); private static $default_sort = &#39;SortOrder DESC&#39;; } Columnas de control mostradas para el DataObject # class MyDataObject extends DataObject { private static $db = array( &#39;Name&#39; =&amp;gt; &#39;Varchar&#39; ); private static $has_one = array( &#39;OtherDataObject&#39; =&amp;gt; &#39;OtherDataObject&#39; ); private static $summary_fields = array( &#39;Name&#39;, &#39;OtherDataObject.</description>
+    </item>
+    
+    <item>
+      <title>El sistema de configuración</title>
+      <link>https://www.wikiod.com/es/silverstripe/el-sistema-de-configuracion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/silverstripe/el-sistema-de-configuracion/</guid>
+      <description>¿Qué es el sistema de configuración? # SilverStripe utiliza un sistema de configuración global para almacenar la configuración de las clases y la aplicación. Estas variables de configuración se pueden usar para definir la estructura de los modelos, la configuración de seguridad en los controladores o las claves API para servicios de terceros.
+Cómo funciona # Los valores Config se rellenan con SS_ConfigStaticManifest durante un dev/build y un vaciado de caché (agregando ?</description>
+    </item>
+    
+    <item>
+      <title>Usando el ORM</title>
+      <link>https://www.wikiod.com/es/silverstripe/usando-el-orm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/silverstripe/usando-el-orm/</guid>
+      <description>Lectura y escritura de objetos de datos # Los DataObjects en SilverStripe representan una fila de la tabla de la base de datos. Los campos en el modelo tienen métodos mágicos que manejan la obtención y configuración de datos a través de sus nombres de propiedad.
+Dado que tenemos un DataObject simple como ejemplo:
+class Fruit extends DataObject { private static $db = [&#39;Name&#39; =&amp;gt; &#39;Varchar&#39;]; } Puede crear, establecer datos y escribir una &amp;lsquo;Fruta&amp;rsquo; de la siguiente manera:</description>
+    </item>
+    
+    <item>
+      <title>Extensiones de datos</title>
+      <link>https://www.wikiod.com/es/silverstripe/extensiones-de-datos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/silverstripe/extensiones-de-datos/</guid>
+      <description>Agregar campos a un DataObject # Puede usar el mecanismo DataExtension para agregar campos de base de datos adicionales a un DataObject existente:
+class MyMemberExtension extends DataExtension { private static $db = [ &#39;HairColour&#39; =&amp;gt; &#39;Varchar&#39; ]; } Y aplicar la extensión:
+# File: mysite/_config/app.yml Member: extensions: - MyMemberExtension Esto agregará HairColour como un campo a los objetos Miembro.
+Agregar métodos a un DataObject # Puede agregar métodos públicos a un DataObject usando el mecanismo de extensión, por ejemplo:</description>
+    </item>
+    
+    <item>
+      <title>izquierda y principal</title>
+      <link>https://www.wikiod.com/es/silverstripe/izquierda-y-principal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/silverstripe/izquierda-y-principal/</guid>
+      <description>LeftAndMain es más una API de bajo nivel y no se requiere a menudo debido a la existencia de ModelAdmin. Sin embargo, si desea crear una interfaz de usuario personalizada que no requiera necesariamente la funcionalidad de ModelAdmin en el panel de administración de su módulo, entonces le gustaría comenzar con LeftAndMain.
+1. Primeros pasos # Esta guía está destinada a ayudarlo a comenzar a crear su propia interfaz de usuario mediante la subclase de la clase LeftAndMain.</description>
+    </item>
+    
+    <item>
+      <title>Complementos y módulos</title>
+      <link>https://www.wikiod.com/es/silverstripe/complementos-y-modulos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/silverstripe/complementos-y-modulos/</guid>
+      <description>Se recomienda que los complementos y módulos se registren con Packagist, lo que significa que se encuentran y registran con el repositorio de complementos de SilverStripe
+Se recomienda la instalación de módulos mediante uso de Composer
+Módulo de extensiones de campo de cuadrícula SilverStripe # El Módulo SilverStripe Grid Field Extensions tiene algunas funciones muy interesantes para mejorar el GridField básico&amp;hellip;
+GridFieldAddExistingSearchButton - un formulario de búsqueda más avanzado para agregar elementos GridFieldAddNewInlineButton: se basa en GridFieldEditableColumns para permitir la creación de registros en línea.</description>
+    </item>
+    
+  </channel>
+</rss>

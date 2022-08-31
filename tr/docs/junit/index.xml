@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Haziran Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/junit/</link>
+    <description>Recent content in Haziran Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/junit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Junit&#39;e başlarken</title>
+      <link>https://www.wikiod.com/tr/junit/junite-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/junit/junite-baslarken/</guid>
+      <description>Beklenen istisnayı yakala # Herhangi bir &amp;ldquo;try catch&amp;rdquo; bloğu olmadan istisnayı kolayca yakalamak mümkündür.
+public class ListTest { private final List&amp;lt;Object&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); @Test(expected = IndexOutOfBoundsException.class) public void testIndexOutOfBoundsException() { list.get(0); } } Yukarıdaki örnek, atılan istisna tarafından taşınan mesajı kontrol etmek istemediğiniz/kontrol etmenize gerek olmadığında, daha basit durumlar için yeterli olacaktır.
+İstisna hakkındaki bilgileri kontrol etmek istiyorsanız, try/catch bloğunu kullanmak isteyebilirsiniz:
+@Test public void testIndexOutOfBoundsException() { try { list.</description>
+    </item>
+    
+    <item>
+      <title>DataProviders ile test etme</title>
+      <link>https://www.wikiod.com/tr/junit/dataproviders-ile-test-etme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/junit/dataproviders-ile-test-etme/</guid>
+      <description>Kurulum ve kullanım # Kurulum:
+DataProviders&amp;rsquo;ı kullanmak için junit-dataprovider .jar&amp;rsquo;a ihtiyacınız var:
+Github
+Doğrudan indirme
+Hamcrest-core-1.3.jar :
+Github
+Doğrudan indirme
+Ve bu .jar&amp;rsquo;ın ikisini de projenize ekleyin.
+Kullanım:
+Bu &amp;ldquo;içe aktarma&amp;quot;yı kodunuza ekleyin:
+import com.tngtech.java.junit.dataprovider.DataProvider; import com.tngtech.java.junit.dataprovider.DataProviderRunner; import com.tngtech.java.junit.dataprovider.UseDataProvider; Sınıfınızın ilanından önce:
+@RunWith(DataProviderRunner.class) Yani şöyle görünüyor:
+@RunWith(DataProviderRunner.class) public class example { //code } DataProviders nasıl oluşturulur:
+DataProvider olmasını istediğiniz işlevden önce, bu dekoratörü ekleyin:
+@DataProvider Yani şöyle görünecek:
+@DataProvider public static Object[][] testExampleProvider() { return new Object[][]{ {&amp;quot;param1&amp;quot;, &amp;quot;param2&amp;quot;, number1} {&amp;quot;param1&amp;quot;, &amp;quot;param2&amp;quot;, number1} //You can put as many parameters as you want }; } DataProviders nasıl kullanılır:</description>
+    </item>
+    
+    <item>
+      <title>testler</title>
+      <link>https://www.wikiod.com/tr/junit/testler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/junit/testler/</guid>
+      <description>parametre Bağlam Detaylar @ÖnceSınıf Statik Sınıf ilk oluşturulduğunda yürütülür @Önce Örnek Sınıfta her test öncesinde yürütülür @Test Örnek Test edilecek her yöntem bildirilmelidir @Sonra Örnek Sınıfta her test sonrasında yürütülür @AfterClass Statik Sınıfın yok edilmesinden önce yürütülür Örnek Test Sınıfı Formatı
+public class TestFeatureA { @BeforeClass public static void setupClass() {} @Before public void setupTest() {} @Test public void testA() {} @Test public void testB() {} @After public void tearDownTest() {} @AfterClass public static void tearDownClass() {} } } Performans ölçümü # Test yönteminizin yürütülmesinin çok uzun sürdüğünü kontrol etmeniz gerekiyorsa, bunu, @Test ek açıklamasının timeout özelliğini kullanarak beklenen yürütme sürenizden bahsederek yapabilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>Mevcut kod için Junit test senaryoları iskeleti oluşturun</title>
+      <link>https://www.wikiod.com/tr/junit/mevcut-kod-icin-junit-test-senaryolar-iskeleti-olusturun/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/junit/mevcut-kod-icin-junit-test-senaryolar-iskeleti-olusturun/</guid>
+      <description>Bazen projenizde sahip olduğunuz sınıflara dayalı olarak test senaryoları için iskelet oluşturmanız gerekir.
+Eclipse&amp;rsquo;deki mevcut kod için Junit test senaryoları iskeleti oluşturun # Mevcut kod için test iskeleti oluşturma adımları şunlardır:
+Eclipse&amp;lsquo;i açın ve test senaryoları oluşturmak istediğiniz projeyi seçin. Paket Gezgini&amp;rsquo;nde, Junit testini oluşturmak istediğiniz Java sınıfını seçin. Dosya -&amp;gt; Yeni -&amp;gt; Junit Test Senaryoları&amp;rsquo;na gidin Kaynak klasörünü Gözat&amp;rsquo;ı kullanarak testi işaret edecek şekilde değiştirin (Not: Kaynak kodunu test kodundan ayırmak daha iyidir) Paketi, istediğiniz hedef pakete göre değiştirin Test edilen sınıf&amp;rsquo;ta, test senaryolarını oluşturmak istediğiniz sınıfı girdiğinizden emin olun.</description>
+    </item>
+    
+    <item>
+      <title>Özel Test Kuralları</title>
+      <link>https://www.wikiod.com/tr/junit/ozel-test-kurallar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/junit/ozel-test-kurallar/</guid>
+      <description>Her ikisinin de faydaları vardır. &amp;lsquo;ExternalResource&amp;rsquo;u genişletmek uygundur, özellikle bir şeyi ayarlamak için yalnızca &amp;lsquo;before()&amp;rsquo; gerekiyorsa.
+Ancak, &amp;lsquo;before()&amp;rsquo; yöntemi &amp;rsquo;try&amp;hellip;finally&amp;rsquo; dışında yürütüldüğünden, &amp;lsquo;after()&amp;rsquo; içinde temizleme yapmak için gereken herhangi bir kodun yürütülmeyeceğinin farkında olmalıyız. before() yürütülürken bir hata oluştu.
+&amp;lsquo;ExternalResource&amp;rsquo; içinde şöyle görünür:
+before(); try { base.evaluate(); } finally { after(); } Açıkçası, testin kendisinde veya başka bir iç içe kural tarafından herhangi bir istisna atılırsa, after işlemi yine de yürütülecektir.</description>
+    </item>
+    
+    <item>
+      <title>Test Yürütme Sırası</title>
+      <link>https://www.wikiod.com/tr/junit/test-yurutme-sras/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/junit/test-yurutme-sras/</guid>
+      <description>Sözdizimi # @FixMethodOrder // Testi varsayılan yöntem sıralayıcıyı kullanarak çalıştırır @FixMethodOrder(MethodSorters) // MethodSorters enum ile ilişkili MethodSorter kullanarak testi çalıştırır. Varsayılan Sıra # @FixMethodOrder(MethodSorters.DEFAULT) ek açıklamasını kullanın. Bu, sınıf içindeki tüm testleri deterministik ve biraz tahmin edilebilir bir sırayla çalıştırır. Uygulama, yöntem adlarını özetler ve bunları karşılaştırır. Bir bağ senaryosunda, sözlük sırasına göre sıralar. JUnit Github&amp;rsquo;dan Alınan Aşağıdaki Kod Segmenti &amp;ndash; MethodSorter.java
+public int compare(Method m1, Method m2) { int i1 = m1.</description>
+    </item>
+    
+    <item>
+      <title>Parametrelendirme Testleri</title>
+      <link>https://www.wikiod.com/tr/junit/parametrelendirme-testleri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/junit/parametrelendirme-testleri/</guid>
+      <description>Bazen, her seferinde farklı verilerle birden çok kez çalıştırmanız gereken bir testiniz olur. Testi parametrelendirmek, bunu kolay ve sürdürülebilir bir şekilde yapmanızı sağlar.
+Sözdizimi # @RunWith(Parameterized.class) //test sınıfı için açıklama @Parameters//veri için açıklama
+Parametreleri kullanmanın bir yararı, bir veri kümesi başarısız olursa, yürütmenin tüm testi durdurmak yerine bir sonraki veri kümesine geçmesidir.
+Bir Yapıcı Kullanma # import static org.junit.Assert.assertThat; import static org.hamcrest.CoreMatchers.is; import java.util.*; import org.junit.*; import org.junit.runner.RunWith; import org.junit.runners.Parameterized; import org.</description>
+    </item>
+    
+    <item>
+      <title>Junit&#39;teki test senaryolarını yoksay</title>
+      <link>https://www.wikiod.com/tr/junit/junitteki-test-senaryolarn-yoksay/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/junit/junitteki-test-senaryolarn-yoksay/</guid>
+      <description>Bazen Junit&amp;rsquo;te sahip olduğunuz bazı test durumlarını görmezden gelmek istersiniz. Örneğin, kısmen bitti ve onlara daha sonra geri dönmek istiyorsunuz.
+Junit&amp;rsquo;te test durumunu yoksay # Yoksaymak istediğiniz test yöntemine gidin &amp;ldquo;@Test&amp;rdquo; ek açıklamasından önce &amp;ldquo;@Ignore&amp;rdquo; yazın isteğe bağlı: Bu test yöntemini neden görmezden geldiğiniz gibi bir açıklama ekleyebilirsiniz: @Ignore (&amp;quot;şimdilik bu test durumunu yoksayma&amp;quot;) örnek bir yöntem şöyle olacaktır:
+@Ignore (&amp;quot;not going to test this method now&amp;quot;) @Test public void test() { assertfalse(true); } </description>
+    </item>
+    
+  </channel>
+</rss>

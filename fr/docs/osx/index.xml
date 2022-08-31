@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel osx on </title>
+    <link>https://www.wikiod.com/fr/docs/osx/</link>
+    <description>Recent content in Tutoriel osx on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/osx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Démarrer avec osx</title>
+      <link>https://www.wikiod.com/fr/osx/demarrer-avec-osx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/osx/demarrer-avec-osx/</guid>
+      <description>Présentation des frameworks # Les applications écrites pour macOS sont généralement écrites avec les frameworks d&amp;rsquo;Apple. Les frameworks que presque toutes les applications utiliseront sont :
+AppKit - pour créer et gérer des éléments d&amp;rsquo;interface utilisateur Foundation - pour les objets et opérations non liés à l&amp;rsquo;interface utilisateur courants Il existe d&amp;rsquo;autres frameworks communs qui sont utilisés dans de nombreuses applications, mais pas toutes :
+CoreData - pour le stockage de données Dispatch - pour la gestion de plusieurs threads CoreGraphics - pour dessiner des tâches liées aux graphiques CoreAnimation - pour l&amp;rsquo;animation des éléments de l&amp;rsquo;interface utilisateur </description>
+    </item>
+    
+    <item>
+      <title>NSStoryBoard</title>
+      <link>https://www.wikiod.com/fr/osx/nsstoryboard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/osx/nsstoryboard/</guid>
+      <description>Ouvrir un nouveau contrôleur de fenêtre # Pour ouvrir une nouvelle fenêtre, ajoutez le code suivant quelque part où vous pouvez conserver une référence à la nouvelle fenêtre (c&amp;rsquo;est-à-dire, le délégué de l&amp;rsquo;application).
+Rapide
+let storyboard:NSStoryboard = NSStoryboard(name: &amp;quot;Main&amp;quot;, bundle: nil) guard let controller:NSWindowController = storyboard.instantiateControllerWithIdentifier(&amp;quot;myWindowController&amp;quot;) as? NSWindowController else { return /*or handle error*/ } controller.showWindow(self) Objectif c
+NSStoryboard *storyBoard = [NSStoryboard storyboardWithName:@&amp;quot;Main&amp;quot; bundle:nil]; // get a reference to the storyboard myController = [storyBoard instantiateControllerWithIdentifier:@&amp;quot;secondWindowController&amp;quot;]; // instantiate your window controller [myController showWindow:self]; Une fois que vous avez créé votre controller, assurez-vous de garder une référence à quelque part en dehors de l&amp;rsquo;appel de fonction.</description>
+    </item>
+    
+    <item>
+      <title>NSMenuItem</title>
+      <link>https://www.wikiod.com/fr/osx/nsmenuitem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/osx/nsmenuitem/</guid>
+      <description>Voir la documentation d&amp;rsquo;Apple ici : https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSMenuItem_Class/
+Activation des éléments de menu # Activation manuelle des éléments de menu # Pour contrôler manuellement l&amp;rsquo;état activé d&amp;rsquo;un élément de menu, le menu qui le contient doit désactiver l&amp;rsquo;activation automatique de ses éléments
+Les menus peuvent désactiver l&amp;rsquo;activation automatique de deux manières :
+Dans le constructeur d&amp;rsquo;interface [![Capture d&amp;rsquo;écran de l&amp;rsquo;assistant de l&amp;rsquo;éditeur d&amp;rsquo;Interface Builder montrant les éléments d&amp;rsquo;activation automatique désactivés][1]][1]
+En code menu.</description>
+    </item>
+    
+    <item>
+      <title>NSTextView</title>
+      <link>https://www.wikiod.com/fr/osx/nstextview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/osx/nstextview/</guid>
+      <description>NSTextView est le gestionnaire principal d&amp;rsquo;Apple du système de texte d&amp;rsquo;AppKit. Il contient tout ce dont vous avez besoin pour créer un espace de visualisation/édition de texte dans les applications OS X (rebaptisé macOS).
+Création d&amp;rsquo;un NSTextView # Graphiquement # Dans XCode, un simple NSTextView peut être créé en faisant glisser et en déposant un depuis la bibliothèque d&amp;rsquo;objets.
+[![Faire glisser un objet NSTextView de la bibliothèque d&amp;rsquo;objets vers une fenêtre dans Interface Builder.</description>
+    </item>
+    
+    <item>
+      <title>NSRunLoop</title>
+      <link>https://www.wikiod.com/fr/osx/nsrunloop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/osx/nsrunloop/</guid>
+      <description>application démon simple # Un [processus démon][1] exécute un programme en arrière-plan, généralement sans interaction de l&amp;rsquo;utilisateur. L&amp;rsquo;exemple ci-dessous montre comment créer un démon et enregistrer un écouteur, qui surveille toutes les applications ouvertes. La partie principale est l&amp;rsquo;appel de fonction NSRunLoop.mainRunLoop().run(), qui démarre le démon.
+class MyObserver: NSObject { override init() { super.init() // app listeners NSWorkspace.sharedWorkspace().notificationCenter.addObserver(self, selector: &amp;quot;SwitchedApp:&amp;quot;, name: NSWorkspaceDidActivateApplicationNotification, object: nil) } func SwitchedApp(notification: NSNotification!) { print(notification) } } let observer = MyObserver() // simply to keep the command line tool alive - as a daemon process NSRunLoop.</description>
+    </item>
+    
+    <item>
+      <title>Définir les variables d&#39;environnement</title>
+      <link>https://www.wikiod.com/fr/osx/definir-les-variables-denvironnement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/osx/definir-les-variables-denvironnement/</guid>
+      <description>Sous Mac OS X, vous pouvez définir les variables d&amp;rsquo;environnement dans l&amp;rsquo;un des fichiers suivants :
+~/.bashrc
+~/.bash_profile
+~/.profile
+Par défaut, Mac OS X n&amp;rsquo;a ​​pas les fichiers ci-dessus, vous devez le créer manuellement.
+Ajouter un chemin # 1.vim ~/.bash_profile
+Le fichier n&amp;rsquo;existe peut-être pas (sinon, vous pouvez simplement le créer).
+2.tapez ceci et enregistrez le fichier :
+export PATH=$PATH:YOUR_PATH_HERE </description>
+    </item>
+    
+    <item>
+      <title>Demander à l&#39;utilisateur un fichier</title>
+      <link>https://www.wikiod.com/fr/osx/demander-a-lutilisateur-un-fichier/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/osx/demander-a-lutilisateur-un-fichier/</guid>
+      <description>NSOpenPanel fournit une API pour inviter l&amp;rsquo;utilisateur à ouvrir un fichier. Ce menu est l&amp;rsquo;interface utilisateur standard présentée par l&amp;rsquo;élément de menu Ouvrir (⌘O).
+Ouverture de fichiers # Ouvrir n&amp;rsquo;importe quel fichier # NSOpenPanel *openPanel = [NSOpenPanel openPanel]; [openPanel beginWithCompletionHandler:^(NSInteger result) { NSURL *url = openPanel.URL; if (result == NSFileHandlingPanelCancelButton || !url) { return; } // do something with a URL }]; Autoriser l&amp;rsquo;ouverture de plusieurs fichiers # NSOpenPanel *openPanel = [NSOpenPanel openPanel]; openPanel.</description>
+    </item>
+    
+    <item>
+      <title>Police NSF</title>
+      <link>https://www.wikiod.com/fr/osx/police-nsf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/osx/police-nsf/</guid>
+      <description>NSFont est l&amp;rsquo;objet qui fournit aux applications Mac des informations sur les glyphes et les caractéristiques de la police à utiliser principalement pour l&amp;rsquo;affichage. Vous apprendrez à créer et à utiliser des objets NSFont de diverses manières, à la fois courantes et inhabituelles.
+Création d&amp;rsquo;un objet NSFont # La manière préférée et la plus courante de créer un objet NSFont est la suivante :
+Objectif c # // Name is PostScript name of font; size is in points.</description>
+    </item>
+    
+    <item>
+      <title>Association de fichier</title>
+      <link>https://www.wikiod.com/fr/osx/association-de-fichier/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/osx/association-de-fichier/</guid>
+      <description>Définir mon application comme application par défaut pour un type de fichier # - (NSString *) UTIforFileExtension:(NSString *) extension { NSString * UTIString = (NSString *)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)extension, NULL); return [UTIString autorelease]; } - (BOOL) setMyselfAsDefaultApplicationForFileExtension:(NSString *) fileExtension { OSStatus returnStatus = LSSetDefaultRoleHandlerForContentType ( (CFStringRef) [self UTIforFileExtension:fileExtension], kLSRolesAll, (CFStringRef) [[NSBundle mainBundle] bundleIdentifier] ); if (returnStatus != 0) { NSLog(@&amp;quot;Got an error when setting default application - %d&amp;quot;, returnStatus); // Please see the documentation or LSInfo.</description>
+    </item>
+    
+  </channel>
+</rss>

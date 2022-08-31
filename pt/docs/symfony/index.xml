@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial do symfony on </title>
+    <link>https://www.wikiod.com/pt/docs/symfony/</link>
+    <description>Recent content in Tutorial do symfony on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/symfony/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com o symfony</title>
+      <link>https://www.wikiod.com/pt/symfony/comecando-com-o-symfony/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/symfony/comecando-com-o-symfony/</guid>
+      <description>Criando um novo projeto Symfony usando o Symfony Installer # O Symfony Installer é uma ferramenta de linha de comando que ajuda você a criar novos aplicativos Symfony. Requer PHP 5.4 ou superior.
+Baixando e instalando o Symfony Installer no Linux / MacOS # Abra um terminal e execute os seguintes comandos:
+sudo mkdir -p /usr/local/bin sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony sudo chmod a+x /usr/local/bin/symfony Isso cria um executável global symfony que pode ser chamado de qualquer lugar.</description>
+    </item>
+    
+    <item>
+      <title>Roteamento</title>
+      <link>https://www.wikiod.com/pt/symfony/roteamento/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/symfony/roteamento/</guid>
+      <description>Roteamento é o processo de mapeamento de uma URL para um controlador. O Symfony possui um poderoso componente de roteamento que permite definir rotas.
+O componente de roteamento suporta vários formatos de configuração: anotações, YAML, XML e PHP bruto.
+Parâmetros # Parâmetro Detalhes nome O nome da rota. Exemplo: book_show caminho O caminho (pode conter curingas). Exemplo: /book/{isbn} padrões Valores padrão dos parâmetros Rotas simples # Usando YAML:
+# app/config/routing.yml blog_list: path: /blog defaults: { _controller: AppBundle:Blog:list } Usando anotações:</description>
+    </item>
+    
+    <item>
+      <title>Controladores</title>
+      <link>https://www.wikiod.com/pt/symfony/controladores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/symfony/controladores/</guid>
+      <description>Um controlador no Symfony é um PHP que pode ser chamado (uma função, um método em um objeto ou um encerramento) que recebe uma solicitação HTTP e retorna uma resposta HTTP. Uma resposta HTTP pode conter qualquer coisa: uma página HTML, uma string JSON, um download de arquivo etc.
+Para dizer ao Symfony qual controlador deve lidar com uma determinada requisição, você precisa configurar uma rota.
+Sintaxe # $this-&amp;gt;generateUrl(&amp;lsquo;route_name&amp;rsquo;, [&amp;lsquo;placeholder&amp;rsquo; =&amp;gt; &amp;lsquo;value&amp;rsquo;]); // gera uma URL para a rota route_name com um espaço reservado $this-&amp;gt;render(&amp;rsquo;template.</description>
+    </item>
+    
+    <item>
+      <title>Contêiner de Serviço</title>
+      <link>https://www.wikiod.com/pt/symfony/conteiner-de-servico/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/symfony/conteiner-de-servico/</guid>
+      <description>Uma aplicação Symfony é tipicamente composta por vários objetos que executam diferentes tarefas, como repositórios, controladores, mailers, etc. No Symfony, esses objetos são chamados de services, e são definidos em app/config/services. yml ou em um dos pacotes instalados.
+O Service Container sabe como instanciar esses serviços e mantém uma referência deles para que não precisem ser instanciados duas vezes. Se um serviço tiver dependências, ele as instanciará também.
+Recuperar um serviço do contêiner # $logger = $container-&amp;gt;get(&#39;logger&#39;); Isto irá buscar o serviço com o ID de serviço &amp;ldquo;logger&amp;rdquo; do container, um objeto que implementa Psr\Log\LoggerInterface.</description>
+    </item>
+    
+    <item>
+      <title>O pedido</title>
+      <link>https://www.wikiod.com/pt/symfony/o-pedido/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/symfony/o-pedido/</guid>
+      <description>A classe Request do Symfony é uma representação orientada a objetos da requisição HTTP. Ele contém informações como URL, string de consulta, arquivos carregados, cookies e outros cabeçalhos provenientes do navegador.
+Sintaxe # $request-&amp;gt;getPathInfo(); // retorna o caminho (parte local da URL) que está sendo solicitado (mas sem a string de consulta). Ou seja ao visitar https://example.com/foo/bar?key=value, ele conterá /foo/bar $request-&amp;gt;query-&amp;gt;get(&amp;lsquo;id&amp;rsquo;); // retorna um parâmetro de string de consulta ($_GET) $request-&amp;gt;query-&amp;gt;get(&amp;lsquo;id&amp;rsquo;, 1); // retorna um parâmetro de string de consulta com um valor padrão $request-&amp;gt;request-&amp;gt;get(&amp;rsquo;name&amp;rsquo;); // retorna uma variável do corpo da solicitação ($_POST) $request-&amp;gt;arquivos-&amp;gt;get(&amp;lsquo;anexo&amp;rsquo;); // retorna uma instância de UploadedFile identificada por &amp;ldquo;attachment&amp;rdquo; $request-&amp;gt;cookies-&amp;gt;get(&amp;lsquo;PHPSESSID&amp;rsquo;); // retorna o valor de um cookie ($_COOKIE) $request-&amp;gt;headers-&amp;gt;get(&amp;lsquo;content_type&amp;rsquo;); // retorna um cabeçalho de solicitação HTTP $request-&amp;gt;getMethod(); // retorna o método de solicitação HTTP (GET, POST, PUT, DELETE, etc.</description>
+    </item>
+    
+  </channel>
+</rss>

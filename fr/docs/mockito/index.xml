@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel mockito on </title>
+    <link>https://www.wikiod.com/fr/docs/mockito/</link>
+    <description>Recent content in Tutoriel mockito on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/mockito/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Débuter avec mockito</title>
+      <link>https://www.wikiod.com/fr/mockito/debuter-avec-mockito/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mockito/debuter-avec-mockito/</guid>
+      <description>Ajouter un comportement à l&amp;rsquo;objet moqué # Mockito.when(mock.returnSomething()).thenReturn(&amp;quot;my val&amp;quot;); mock.returnSomething(); // returns &amp;quot;my val&amp;quot; mock.returnSomething(); // returns &amp;quot;my val&amp;quot; again mock.returnSomething(); // returns &amp;quot;my val&amp;quot; again and again and again... Si vous voulez une valeur différente lors du deuxième appel, vous pouvez ajouter l&amp;rsquo;argument de retour souhaité à la méthode thenReturn :
+Mockito.when(mock.returnSomething()).thenReturn(&amp;quot;my val&amp;quot;, &amp;quot;other val&amp;quot;); mock.returnSomething(); // returns &amp;quot;my val&amp;quot; mock.returnSomething(); // returns &amp;quot;other val&amp;quot; mock.returnSomething(); // returns &amp;quot;other val&amp;quot; again Si vous appelez la méthode sans ajouter de comportement pour se moquer, elle renverra null :</description>
+    </item>
+    
+    <item>
+      <title>Meilleures pratiques de Mockito</title>
+      <link>https://www.wikiod.com/fr/mockito/meilleures-pratiques-de-mockito/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mockito/meilleures-pratiques-de-mockito/</guid>
+      <description>Style BDDMockito # Le style de test du développement piloté par le comportement (BDD) s&amp;rsquo;articule autour des étapes &amp;ldquo;données&amp;rdquo;, &amp;ldquo;quand&amp;rdquo; et &amp;ldquo;alors&amp;rdquo; des tests. Cependant, Mockito classique utilise le mot &amp;ldquo;quand&amp;rdquo; pour la phase &amp;ldquo;donnée&amp;rdquo; et n&amp;rsquo;inclut pas d&amp;rsquo;autres constructions en langage naturel qui peuvent englober BDD. Ainsi, les alias [BDDMockito][1] ont été introduits dans la version 1.8.0 afin de faciliter les tests basés sur le comportement.
+La situation la plus courante consiste à remplacer les retours d&amp;rsquo;une méthode.</description>
+    </item>
+    
+    <item>
+      <title>Vérifier les appels de méthode</title>
+      <link>https://www.wikiod.com/fr/mockito/verifier-les-appels-de-methode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mockito/verifier-les-appels-de-methode/</guid>
+      <description>Vérifier les arguments d&amp;rsquo;appel à l&amp;rsquo;aide d&amp;rsquo;ArgumentCaptor # ArgumentCaptor recevra les arguments d&amp;rsquo;invocation réels qui ont été passés à la méthode.
+ArgumentCaptor&amp;lt;Foo&amp;gt; captor = ArgumentCaptor.forClass(Foo.class); verify(mockObj).doSomethind(captor.capture()); Foo invocationArg = captor.getValue(); //do any assertions on invocationArg Pour les cas d&amp;rsquo;invocations multiples de la méthode simulée pour recevoir tous les arguments d&amp;rsquo;invocation
+List&amp;lt;Foo&amp;gt; invocationArgs = captor.getAllValues(); La même approche est utilisée pour capturer les varargs.
+Il est également possible de créer ArgumentCaptor en utilisant l&amp;rsquo;annotation @Captor :</description>
+    </item>
+    
+    <item>
+      <title>Faux</title>
+      <link>https://www.wikiod.com/fr/mockito/faux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mockito/faux/</guid>
+      <description>Se moquer d&amp;rsquo;une classe en utilisant des annotations # &amp;ldquo;Espion&amp;rdquo; pour moquerie partielle # Définir des champs privés dans des objets simulés # Dans votre classe en cours de test, vous pouvez avoir des champs privés qui ne sont pas accessibles même via le constructeur. Dans de tels cas, vous pouvez utiliser la réflexion pour définir ces propriétés. Ceci est un extrait d&amp;rsquo;un tel test JUnit.
+@InjectMocks private GreetingsService greetingsService = new GreetingsService(); // mocking this class @Before public void setUp() { MockitoAnnotations.</description>
+    </item>
+    
+    <item>
+      <title>Se moquer des appels consécutifs à une méthode de retour void</title>
+      <link>https://www.wikiod.com/fr/mockito/se-moquer-des-appels-consecutifs-a-une-methode-de-retour-void/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mockito/se-moquer-des-appels-consecutifs-a-une-methode-de-retour-void/</guid>
+      <description>Les documents Mockito ont un excellent exemple de la façon de fournir une séquence de réponses pour plusieurs appels à une simulation. Cependant, ils ne expliquent pas comment procéder pour une méthode qui renvoie void, à part noter que les méthodes void stubbing nécessitent l&amp;rsquo;utilisation de la [famille de méthodes do](https://static.javadoc.io/org.mockito/mockito -core/2.7.2/org/mockito/Mockito.html#do_family_methods_stubs).
+Rappelez-vous, pour les méthodes non vides, la version when(mock.method()).thenThrow().thenReturn() (voir [docs](https://static.javadoc.io/org.mockito/mockito- core/2.7.2/org/mockito/Mockito.html#stubbing_consecutive_calls)) est préféré car il est sûr pour le type d&amp;rsquo;argument et plus lisible.</description>
+    </item>
+    
+    <item>
+      <title>Classes et méthodes finales fictives</title>
+      <link>https://www.wikiod.com/fr/mockito/classes-et-methodes-finales-fictives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mockito/classes-et-methodes-finales-fictives/</guid>
+      <description>Depuis Mockito 2.x, nous avons la possibilité de simuler les classes et méthodes finales.
+Comment le faire # Pas:
+Ajoutez une dépendance à Mockito version 2.x dans votre gradle (au moment de la rédaction de ce texte, la dernière version est 2.7.22):
+testCompile &amp;quot;org.mockito:mockito-core:$versions.mockito&amp;quot; Créez un fichier dans les ressources de test avec le nom org.mockito.plugins.MockMaker : [![arborescence][1]][1]
+Ajoutez la ligne suivante dans ce fichier :
+mock-maker-inline [1] : https://i.stack.imgur.com/MzTXL.png</description>
+    </item>
+    
+  </channel>
+</rss>

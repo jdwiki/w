@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openmp Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/openmp/</link>
+    <description>Recent content in openmp Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/openmp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>openmp&#39;ye başlarken</title>
+      <link>https://www.wikiod.com/tr/openmp/openmpye-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/openmp/openmpye-baslarken/</guid>
+      <description>Derleme # OpenMP belirtiminin farklı sürümlerini destekleyen birçok derleyici vardır. OpenMP, onu destekleyen derleyici ve desteklenen sürümle birlikte burada bir liste tutar. Genel olarak, OpenMP destekli bir uygulamayı derlemek (ve bağlamak) için yalnızca bir derleme bayrağı eklemeniz gerekir ve OpenMP API kullanıyorsanız OpenMP başlığını (omp.h) eklemeniz gerekir. Başlık dosyasının sabit bir adı olsa da derleme bayrağı derleyiciye bağlıdır. Aşağıda, kapsamlı olmayan bir derleyici listesi ve OpenMP&amp;rsquo;yi etkinleştiren bayrak yer almaktadır.</description>
+    </item>
+    
+    <item>
+      <title>Düzensiz OpenMP paralelliği</title>
+      <link>https://www.wikiod.com/tr/openmp/duzensiz-openmp-paralelligi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/openmp/duzensiz-openmp-paralelligi/</guid>
+      <description>Yaygın bir tuzak, paralel bir bölgenin tüm iş parçacıklarının görevleri başlatması (oluşturması) gerektiğine inanmaktır, ancak iş parçacığı sayısı çarpı işlenecek öğe sayısı kadar görev oluşturmak istemiyorsanız, bu genellikle böyle değildir. Bu nedenle, OpenMP görev kodlarında şuna benzer bir şey bulacaksınız:
+#pragma omp parallel #pragma omp single ... #pragma omp task { code for a given task; } ... OpenMP görevlerini kullanarak bir c++ liste kabının paralel işlenmesi # #include &amp;lt;omp.h&amp;gt; #include &amp;lt;unistd.</description>
+    </item>
+    
+    <item>
+      <title>Basit paralel örnek</title>
+      <link>https://www.wikiod.com/tr/openmp/basit-paralel-ornek/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/openmp/basit-paralel-ornek/</guid>
+      <description>Sözdizimi # #pragma omp parallel aşağıdaki bloğun tüm threadler tarafından yürütüleceğini belirtir.
+int omp_get_num_threads (void) : paralel bölgede çalışan iş parçacıklarının sayısını döndürür (diğer bir deyişle iş parçacıkları takımı).
+int omp_get_thread_num (void) : çağıran iş parçacığının tanımlayıcısını döndürür (0 ile N-1 arasında değişir, burada N omp_get_num_threads() ile sınırlıdır).
+Sırasıyla, tüm uygulama veya belirtilen bölge için yürütülen iş parçacıklarının sayısını belirtmek için &amp;lsquo;#pragma parallel&amp;rsquo; içindeki &amp;lsquo;OMP_NUM_THREADS&amp;rsquo; ortam değişkenini veya &amp;rsquo;num_threads&amp;rsquo; yönergesini kullanabilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>OpenMP azaltmaları</title>
+      <link>https://www.wikiod.com/tr/openmp/openmp-azaltmalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/openmp/openmp-azaltmalar/</guid>
+      <description>PI&amp;rsquo;nin #pragma omp azaltma yan tümcesi kullanılarak yaklaştırılması # h = 1.0 / n; #pragma omp parallel for private(x) shared(n, h) reduction(+:area) for (i = 1; i &amp;lt;= n; i++) { x = h * (i - 0.5); area += (4.0 / (1.0 + x*x)); } pi = h * area; Bu örnekte, her iş parçacığı yineleme sayısının bir alt kümesini yürütür. Her iş parçacığının kendi yerel özel &amp;lsquo;alan&amp;rsquo; kopyası vardır ve paralel bölgenin sonunda hepsi, &amp;lsquo;alan&amp;rsquo; için son değeri oluşturmak üzere toplama işlemini (&amp;rsquo;+&amp;rsquo;) uygular.</description>
+    </item>
+    
+    <item>
+      <title>OpenMP&#39;de döngü paralelliği</title>
+      <link>https://www.wikiod.com/tr/openmp/openmpde-dongu-paralelligi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/openmp/openmpde-dongu-paralelligi/</guid>
+      <description>Parametreler # Madde parametre &amp;lsquo;özel&amp;rsquo; Özel değişkenlerin virgülle ayrılmış listesi &amp;lsquo;ilközel&amp;rsquo; &amp;lsquo;özel&amp;rsquo; gibi, ancak döngüye girmeden önce değişkenin değerine başlatıldı &amp;lsquo;sonözel&amp;rsquo; &amp;lsquo;private&amp;rsquo; gibi, ancak değişken, çıkışta döngünün son yinelemesine karşılık gelen değeri alacaktır &amp;ldquo;azaltma&amp;rdquo; indirgeme operatörü : karşılık gelen indirgeme değişkenlerinin virgülle ayrılmış listesi &amp;ldquo;program&amp;rdquo; &amp;lsquo;statik&amp;rsquo;, &amp;lsquo;dinamik&amp;rsquo;, &amp;lsquo;kılavuzlu&amp;rsquo;, &amp;lsquo;otomatik&amp;rsquo; veya &amp;lsquo;çalışma zamanı&amp;rsquo;, 3 önceki için bir komadan sonra isteğe bağlı bir yığın boyutuyla &amp;lsquo;çöküş&amp;rsquo; Daraltmak ve paralelleştirmek için mükemmel şekilde iç içe geçmiş döngü sayısı &amp;lsquo;sipariş&amp;rsquo; Döngünün bazı bölümlerinin sıralı tutulması gerektiğini söyler (bu parçalar döngü gövdesi içinde bazı &amp;lsquo;sıralı&amp;rsquo; cümlelerle özel olarak tanımlanacaktır) &amp;lsquo;hayır&amp;rsquo; Döngü yapısının sonunda varsayılan olarak var olan örtük engeli kaldırın &amp;lsquo;schedule&amp;rsquo; deyiminin anlamı şu şekildedir:</description>
+    </item>
+    
+    <item>
+      <title>Koşullu paralel yürütme</title>
+      <link>https://www.wikiod.com/tr/openmp/kosullu-paralel-yurutme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/openmp/kosullu-paralel-yurutme/</guid>
+      <description>OpenMP paralel bölgelerinde koşullu tümceler # #include &amp;lt;omp.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; int main (void) { int t = (0 == 0); // true value int f = (1 == 0); // false value #pragma omp parallel if (f) { printf (&amp;quot;FALSE: I am thread %d\n&amp;quot;, omp_get_thread_num()); } #pragma omp parallel if (t) { printf (&amp;quot;TRUE : I am thread %d\n&amp;quot;, omp_get_thread_num()); } return 0; } Çıktısı:
+$ OMP_NUM_THREADS=4 ./test FALSE: I am thread 0 TRUE : I am thread 0 TRUE : I am thread 1 TRUE : I am thread 3 TRUE : I am thread 2 </description>
+    </item>
+    
+  </channel>
+</rss>

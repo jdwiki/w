@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>awkTutorial on </title>
+    <link>https://www.wikiod.com/es/docs/awk/</link>
+    <description>Recent content in awkTutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/awk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comenzando con awk</title>
+      <link>https://www.wikiod.com/es/awk/comenzando-con-awk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/awk/comenzando-con-awk/</guid>
+      <description>AWK por ejemplos # AWK es un lenguaje de manipulación de cadenas, utilizado principalmente en sistemas UNIX. La idea detrás de AWK era crear un lenguaje versátil para usar al trabajar con archivos, que no fuera demasiado complejo de entender.
+AWK tiene algunas otras variantes, pero el concepto principal es el mismo, solo que con características adicionales. Estas otras variantes son NAWK y GAWK. GAWK contiene todas las funciones de ambos, mientras que NAWK está un paso por encima de AWK, por así decirlo.</description>
+    </item>
+    
+    <item>
+      <title>Funciones de manipulación de cadenas</title>
+      <link>https://www.wikiod.com/es/awk/funciones-de-manipulacion-de-cadenas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/awk/funciones-de-manipulacion-de-cadenas/</guid>
+      <description>Sintaxis # índice (grande, pequeño) longitud o longitud() longitud (cadena) coincidencia (cadena, expresión regular) dividir (cadena, matriz, separador) dividir (cadena, matriz) sprintf(formato, &amp;hellip;) sub(regex, subst, cadena) sub(regex, subst) gsub(regex, subst) gsub(regex, subst, cadena) substr(cadena, inicio, final) substr(cadena, inicio) tolower(cadena) topper(cadena) Parámetros # | Parámetro | Detalles | | &amp;mdash;&amp;mdash;&amp;mdash; | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; &amp;ndash; | | grande | La cadena que se escanea en busca de &amp;ldquo;pequeño&amp;rdquo;. | | fin | El índice en el que terminará la subcadena.</description>
+    </item>
+    
+    <item>
+      <title>Variables integradas</title>
+      <link>https://www.wikiod.com/es/awk/variables-integradas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/awk/variables-integradas/</guid>
+      <description>FS - Separador de campos # La variable FS se utiliza para establecer el separador de campo de entrada. En awk, el espacio y la pestaña actúan como separadores de campo predeterminados. Se puede acceder al valor del campo correspondiente a través de $1, $2, $3&amp;hellip; y así sucesivamente.
+awk -F&#39;=&#39; &#39;{print $1}&#39; file -F - opción de línea de comando para configurar el separador de campo de entrada.
+awk &amp;lsquo;BEGIN { FS=&amp;quot;=&amp;quot; } { print $1 }&amp;rsquo; file</description>
+    </item>
+    
+    <item>
+      <title>Variables</title>
+      <link>https://www.wikiod.com/es/awk/variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/awk/variables/</guid>
+      <description>Asignación de variables en la línea de comandos # Para asignar variables desde la línea de comandos, se puede usar -v:
+$ awk -v myvar=&amp;quot;hello&amp;quot; &#39;BEGIN {print myvar}&#39; hello Tenga en cuenta que no hay espacios alrededor del signo igual.
+Esto permite usar variables de shell:
+$ shell_var=&amp;quot;hello&amp;quot; $ awk -v myvar=&amp;quot;$shell_var&amp;quot; &#39;BEGIN {print myvar}&#39; hello Además, esto permite establecer variables integradas que controlan awk:
+Vea un ejemplo con FS (separador de campo):</description>
+    </item>
+    
+    <item>
+      <title>Palabras útiles calcular el promedio a partir de un CSV, etc.</title>
+      <link>https://www.wikiod.com/es/awk/palabras-utiles-calcular-el-promedio-a-partir-de-un-csv-etc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/awk/palabras-utiles-calcular-el-promedio-a-partir-de-un-csv-etc/</guid>
+      <description>Calcule el promedio de valores en una columna a partir de datos tabulares # Dado un archivo usando ; como delimitador de columna. Calculamos la media de los valores en la segunda columna con el siguiente programa, la entrada provista es la lista de calificaciones de un grupo de estudiantes:
+awk -F&#39;;&#39; &#39;{ sum += $2 } END { print(sum / NR) }&#39; &amp;lt;&amp;lt;EOF Alice;2 Victor;1 Barbara;1 Casper;4 Deborah;0 Ernest;1 Fabiola;4 Giuseppe;4 EOF La salida de este programa es 2.</description>
+    </item>
+    
+    <item>
+      <title>Procesamiento de dos archivos</title>
+      <link>https://www.wikiod.com/es/awk/procesamiento-de-dos-archivos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/awk/procesamiento-de-dos-archivos/</guid>
+      <description>Comprobar campos coincidentes en dos archivos # Dados estos dos archivos CSV:
+$ cat file1 1,line1 2,line2 3,line3 4,line4 $ cat file2 1,line3 2,line4 3,line5 4,line6 Para imprimir esas líneas en file2 cuya segunda columna aparece también en el primer archivo podemos decir:
+$ awk -F, &#39;FNR==NR {lines[$2]; next} $2 in lines&#39; file1 file2 1,line3 2,line4 Aquí, lines[] contiene una matriz que se completa al leer file1 con el contenido del segundo campo de cada línea.</description>
+    </item>
+    
+    <item>
+      <title>Manipulación de filas</title>
+      <link>https://www.wikiod.com/es/awk/manipulacion-de-filas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/awk/manipulacion-de-filas/</guid>
+      <description>Extraer líneas específicas de un archivo de texto # Supongamos que tenemos un archivo
+cat -n lorem_ipsum.txt 1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 2 Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 3 It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</description>
+    </item>
+    
+    <item>
+      <title>Patrones</title>
+      <link>https://www.wikiod.com/es/awk/patrones/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/awk/patrones/</guid>
+      <description>Patrones de expresiones regulares # Los patrones se pueden especificar como expresiones regulares:
+/regular expression/ {action} Por ejemplo:
+echo &amp;quot;user@hostname.com not an email&amp;quot; | awk &#39;/[^@]+@.+/ {print}&#39; Produce:
+user@hostname.com Tenga en cuenta que una acción que consta solo de la instrucción imprimir se puede omitir por completo. El ejemplo anterior es equivalente a:
+echo &amp;quot;user@hostname.com not an email&amp;quot; | awk &#39;/[^@]+@.+/&#39; </description>
+    </item>
+    
+    <item>
+      <title>Patrones y Acciones</title>
+      <link>https://www.wikiod.com/es/awk/patrones-y-acciones/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/awk/patrones-y-acciones/</guid>
+      <description>Introducción # Un awk consta de patrones y acciones, encerrados entre corchetes, que se tomarán si un patrón coincide. El patrón más básico es el patrón vacío, que coincide con cualquier registro. La acción más básica es la acción de vacío, que es equivalente a { print }, que a su vez es equivalente a { print $0 }. Si tanto el patrón como la acción están vacíos, awk simplemente no hará nada.</description>
+    </item>
+    
+    <item>
+      <title>Funciones integradas</title>
+      <link>https://www.wikiod.com/es/awk/funciones-integradas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/awk/funciones-integradas/</guid>
+      <description>longitud([Cadena]) # Devuelve el número de caracteres de la Cadena dada
+Consideraciones # Si se da un número en lugar de una Cadena, el resultado será la longitud de la Cadena que representa el número dado. Es decir. Si ejecutamos longitud(12345) el resultado será el mismo que longitud(&amp;quot;12345&amp;quot;), es decir 5
+Si no se proporciona ningún valor, el resultado será la longitud de la fila real que se está procesando, es decir, longitud ($0)</description>
+    </item>
+    
+  </channel>
+</rss>

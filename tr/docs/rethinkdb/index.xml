@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rethinkdb Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/rethinkdb/</link>
+    <description>Recent content in rethinkdb Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/rethinkdb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rethinkdb&#39;yi kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/rethinkdb/rethinkdbyi-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rethinkdb/rethinkdbyi-kullanmaya-baslama/</guid>
+      <description>Windows&amp;rsquo;ta Kurulum # İndiriliyor # Önkoşullar: Windows 7 ve üzeri için yerel 64 bit ikili dosyalar sağlıyoruz. Windows&amp;rsquo;un 64 bit sürümü gereklidir.
+ZIP arşivini indirin ve istediğiniz bir dizinde paketinden çıkarın.
+RethinkDB&amp;rsquo;nin Windows bağlantı noktası yeni bir eklemedir ve henüz Linux ve OS X sürümleri kadar ayarlama almamıştır. Lütfen herhangi bir performans sorununu GitHub ile bildirin.
+RethinkDB&amp;rsquo;yi Çalıştırma # Linux/OS X sürümleri gibi RethinkDB&amp;rsquo;nin Windows sürümü de komut satırından yürütülür. Windows komut kabuğunu başlatmanız gerekecek.</description>
+    </item>
+    
+    <item>
+      <title>Docker ile RethinkDB&#39;yi Kullanma</title>
+      <link>https://www.wikiod.com/tr/rethinkdb/docker-ile-rethinkdbyi-kullanma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rethinkdb/docker-ile-rethinkdbyi-kullanma/</guid>
+      <description>Temel kullanım # Varsayılan olarak, RethinkDB tüm hizmetleri 127.0.0.1e bağlar. Bu nedenle, aşağıdaki örnek, kapsayıcının ana makinesindeki &amp;lsquo;host_data_path&amp;rsquo; verisini sürdürecek ve standart bağlantı noktalarında &amp;lsquo;127.0.0.1&amp;rsquo; için kullanılabilir.
+Hizmet bayrak Varsayılan Bağlantı Noktası Sürücü `&amp;ndash;sürücü-port&amp;rsquo; 28015 Küme `&amp;ndash;küme-bağlantı noktası&amp;rsquo; 29015 HTTP Web Kullanıcı Arabirimi `&amp;ndash;http-port&#39; 8080 docker run -d -v host_data_path:/data rethinkdb Sürücü ve küme bağlantı noktasını harici trafiğe açmak için yerel arabirimlerin adresini belirtmeli veya &amp;rsquo;tümünü&amp;rsquo; sağlamalısınız.
+docker run -d -v host_data_path:/data rethinkdb --bind all WebUI&amp;rsquo;yi localhost&amp;rsquo;a bağlama veya devre dışı bırakma # RethinkDB&amp;rsquo;yi üretimde dağıtırken, WebUI&amp;rsquo;yi kapatmak veya kilitlemek istersiniz.</description>
+    </item>
+    
+    <item>
+      <title>thinky.io&#39;yu RethinkDB ile kullanma</title>
+      <link>https://www.wikiod.com/tr/rethinkdb/thinkyioyu-rethinkdb-ile-kullanma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rethinkdb/thinkyioyu-rethinkdb-ile-kullanma/</guid>
+      <description>node.js&amp;rsquo;de düşünmeyi başlatmak # thinky, RethinkDB için hafif bir node.js ORM&amp;rsquo;sidir.
+Öncelikle sunucunuzda RethinkDB&amp;rsquo;nin çalışıyor olması gerekir.
+Ardından thinky.io npm paketini projenize kurun.
+npm install --save thinky Şimdi thinky&amp;rsquo;yi model dosyanıza aktarın.
+const thinky = require(&#39;thinky)(); const type = thinky.type Ardından bir model oluşturun.
+const User = thinky.createModel(&#39;User&#39; { email:type.string(), password: type.string() }); Artık bir kullanıcı oluşturabilir ve kaydedebilirsiniz.
+const user = new User({ email: &#39;test@email.com&#39;, password: &#39;password&#39; }); user.save(); Kullanıcıya benzersiz bir kimlik verilecektir.</description>
+    </item>
+    
+    <item>
+      <title>Node&#39;u kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/rethinkdb/nodeu-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rethinkdb/nodeu-kullanmaya-baslama/</guid>
+      <description>NPM&amp;rsquo;den RethinkDB paketini yükleme # npm install -g rethinkdb RethinkDB ile bağlantı kurma # const r = gerekli (&amp;ldquo;rethinkdb&amp;rdquo;);
+r.connect({host: &#39;localhost&#39;, port: 28015}, (conn) =&amp;gt; console.log(conn)) // Or as a promise let rdb_conn; r.connect({host: &#39;localhost&#39;, port: 28015}).then((conn) =&amp;gt; { rdb_conn = conn; }).then(() =&amp;gt; { // Continue to use rdb_conn }); Tüm veritabanlarını listeleme # r.connect({host: &#39;localhost&#39;, port: 28015}) .then((conn) =&amp;gt; { return r.dbList().run(conn); }).then((result) =&amp;gt; { // Prints out list of databases on the RethinkDB instance console.</description>
+    </item>
+    
+  </channel>
+</rss>

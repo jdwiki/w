@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>epplus Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/epplus/</link>
+    <description>Recent content in epplus Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/epplus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>epplus&#39;a başlarken</title>
+      <link>https://www.wikiod.com/tr/epplus/epplusa-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/epplus/epplusa-baslarken/</guid>
+      <description>Kurulum # Dosyaları CodePlex&amp;lsquo;den indirin ve projeye ekleyin.
+Veya dosyaları Paket Yöneticisi ile kurun.
+PM&amp;gt; Install-Package EPPlus Başlarken # //Create a new ExcelPackage using (ExcelPackage excelPackage = new ExcelPackage()) { //Set some properties of the Excel document excelPackage.Workbook.Properties.Author = &amp;quot;VDWWD&amp;quot;; excelPackage.Workbook.Properties.Title = &amp;quot;Title of Document&amp;quot;; excelPackage.Workbook.Properties.Subject = &amp;quot;EPPlus demo export data&amp;quot;; excelPackage.Workbook.Properties.Created = DateTime.Now; //Create the WorkSheet ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add(&amp;quot;Sheet 1&amp;quot;); //Add some text to cell A1 worksheet.Cells[&amp;quot;A1&amp;quot;].Value = &amp;quot;My first EPPlus spreadsheet!</description>
+    </item>
+    
+    <item>
+      <title>Formüller oluşturma ve aralıkları hesaplama</title>
+      <link>https://www.wikiod.com/tr/epplus/formuller-olusturma-ve-aralklar-hesaplama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/epplus/formuller-olusturma-ve-aralklar-hesaplama/</guid>
+      <description>Excel sayfasındaki hesaplamalar için bir formül içeren hücrelerin nasıl oluşturulacağına ilişkin temel örnekler.
+Hücreye formül ekleme # //set the total value of cells in range A1 - A25 into A27 worksheet.Cells[&amp;quot;A27&amp;quot;].Formula = &amp;quot;=SUM(A1:A25)&amp;quot;; //set the number of cells with content in range C1 - C25 into C27 worksheet.Cells[&amp;quot;C27&amp;quot;].Formula = &amp;quot;=COUNT(C1:C25)&amp;quot;; //fill column K with the sum of each row, range A - J for (int i = 1; i &amp;lt;= 25; i++) { var cell = worksheet.</description>
+    </item>
+    
+    <item>
+      <title>Excel belgesini kaydetme</title>
+      <link>https://www.wikiod.com/tr/epplus/excel-belgesini-kaydetme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/epplus/excel-belgesini-kaydetme/</guid>
+      <description>Oluşturulan Excel sayfasının Diske nasıl kaydedileceğine veya Tarayıcıya nasıl gönderileceğine ilişkin örnekler.
+Diske kaydet # //Using File.WriteAllBytes using (ExcelPackage excelPackage = new ExcelPackage()) { //create a new Worksheet ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add(&amp;quot;Sheet 1&amp;quot;); //add some text to cell A1 worksheet.Cells[&amp;quot;A1&amp;quot;].Value = &amp;quot;My second EPPlus spreadsheet!&amp;quot;; //convert the excel package to a byte array byte[] bin = excelPackage.GetAsByteArray(); //the path of the file string filePath = &amp;quot;C:\\ExcelDemo.xlsx&amp;quot;; //or if you use asp.</description>
+    </item>
+    
+    <item>
+      <title>Mevcut dosyadan veri içe aktarma</title>
+      <link>https://www.wikiod.com/tr/epplus/mevcut-dosyadan-veri-ice-aktarma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/epplus/mevcut-dosyadan-veri-ice-aktarma/</guid>
+      <description>Mevcut bir Excel veya CSV dosyasından veri nasıl içe aktarılır.
+Excel dosyasından verileri içe aktarın # //create a list to hold all the values List&amp;lt;string&amp;gt; excelData = new List&amp;lt;string&amp;gt;(); //read the Excel file as byte array byte[] bin = File.ReadAllBytes(&amp;quot;C:\\ExcelDemo.xlsx&amp;quot;); //or if you use asp.net, get the relative path byte[] bin = File.ReadAllBytes(Server.MapPath(&amp;quot;ExcelDemo.xlsx&amp;quot;)); //create a new Excel package in a memorystream using (MemoryStream stream = new MemoryStream(bin)) using (ExcelPackage excelPackage = new ExcelPackage(stream)) { //loop all worksheets foreach (ExcelWorksheet worksheet in excelPackage.</description>
+    </item>
+    
+    <item>
+      <title>Kullanıcı Girişi Doğrulaması</title>
+      <link>https://www.wikiod.com/tr/epplus/kullanc-girisi-dogrulamas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/epplus/kullanc-girisi-dogrulamas/</guid>
+      <description>Kullanıcı girişleri nasıl doğrulanır. Doğrulama, bir kullanıcının bir hücreye girebileceği değerleri kısıtlar ve/veya kullanıcının hücrenin değerini seçmesi için bir birleşik giriş kutusu ayarlar. İsteğe bağlı olarak, kullanıcı bir hücreye tıkladığında bir mesaj ve doğrulama başarısız olduğunda bir mesaj hatası görüntülenebilir.
+Liste Doğrulama # //Add a List validation to B column. Values should be in a list var val = worksheet.DataValidations.AddListValidation(&amp;quot;B:B&amp;quot;); //Shows error message when the input doesn&#39;t match the accepted values val.</description>
+    </item>
+    
+    <item>
+      <title>Tablolar</title>
+      <link>https://www.wikiod.com/tr/epplus/tablolar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/epplus/tablolar/</guid>
+      <description>Bu konu, tabloların nasıl ekleneceğini ve stillendirileceğini açıklar
+Tablo ekleme ve biçimlendirme # //Using statement for ExcelTable and TableStyles using OfficeOpenXml.Table; //Defining the tables parameters int firstRow =1; int lastRow = worksheet.Dimension.End.Row; int firstColumn = 1; int lastColumn = worksheet.Dimension.End.Column; ExcelRange rg = worksheet.Cells[firstRow, firstColumn, lastRow, LastColumn]; string tableName = &amp;quot;Table1&amp;quot;; //Ading a table to a Range ExcelTable tab = worksheet.Tables.Add(rg, tableName); //Formating the table style tab.TableStyle = TableStyles.Light8; </description>
+    </item>
+    
+    <item>
+      <title>Pivot tablo</title>
+      <link>https://www.wikiod.com/tr/epplus/pivot-tablo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/epplus/pivot-tablo/</guid>
+      <description>Özet tablo, toplama veya sayım verileri gibi verileri hesaplamak için kullanılabilen bir tür etkileşimli tablodur. Ayrıca kullanıcılar, verileri farklı yollarla analiz etmek için pivot tablo düzenini değiştirebilir veya satır/sütun etiketini yeniden atayabilir. Kullanıcılar düzeni her değiştirdiğinde, veriler pivot tabloda yeniden hesaplanacaktır.
+Özet Tablo Oluşturma # //create a new ExcelPackage using (ExcelPackage excelPackage = new ExcelPackage()) { //create 2 WorkSheets. One for the source data and one for the Pivot table ExcelWorksheet worksheetPivot = excelPackage.</description>
+    </item>
+    
+    <item>
+      <title>Mevcut belgeye veri ekle</title>
+      <link>https://www.wikiod.com/tr/epplus/mevcut-belgeye-veri-ekle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/epplus/mevcut-belgeye-veri-ekle/</guid>
+      <description>Halihazırda var olan bir Excel belgesine veri ekleme.
+Veri ekleme # //the path of the file string filePath = &amp;quot;C:\\ExcelDemo.xlsx&amp;quot;; //or if you use asp.net, get the relative path filePath = Server.MapPath(&amp;quot;ExcelDemo.xlsx&amp;quot;); //create a fileinfo object of an excel file on the disk FileInfo file = new FileInfo(filePath); //create a new Excel package from the file using (ExcelPackage excelPackage = new ExcelPackage(file)) { //create an instance of the the first sheet in the loaded file ExcelWorksheet worksheet = excelPackage.</description>
+    </item>
+    
+    <item>
+      <title>Değerleri biçimlendirme</title>
+      <link>https://www.wikiod.com/tr/epplus/degerleri-bicimlendirme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/epplus/degerleri-bicimlendirme/</guid>
+      <description>DateTime ve Numeric değerlerinin istenen biçimlendirmesi nasıl elde edilir.
+Sayı biçimlendirme # //integer (not really needed unless you need to round numbers, Excel with use default cell properties) worksheet.Cells[&amp;quot;A1:A25&amp;quot;].Style.Numberformat.Format = &amp;quot;0&amp;quot;; //integer without displaying the number 0 in the cell worksheet.Cells[&amp;quot;A1:A25&amp;quot;].Style.Numberformat.Format = &amp;quot;#&amp;quot;; //number with 1 decimal place worksheet.Cells[&amp;quot;A1:A25&amp;quot;].Style.Numberformat.Format = &amp;quot;0.0&amp;quot;; //number with 2 decimal places worksheet.Cells[&amp;quot;A1:A25&amp;quot;].Style.Numberformat.Format = &amp;quot;0.00&amp;quot;; //number with 2 decimal places and thousand separator worksheet.Cells[&amp;quot;A1:A25&amp;quot;].Style.Numberformat.Format = &amp;quot;#,##0.00&amp;quot;; //number with 2 decimal places and thousand separator and money symbol worksheet.</description>
+    </item>
+    
+    <item>
+      <title>Sütunlar ve Satırlar</title>
+      <link>https://www.wikiod.com/tr/epplus/sutunlar-ve-satrlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/epplus/sutunlar-ve-satrlar/</guid>
+      <description>Bu konu, yeniden boyutlandırma, gizleme, otomatik sığdırma gibi sütunlar ve satırlarla çalışma hakkında bilgiler içerir
+Sütunları otomatik sığdır # //Make all text fit the cells worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(); //Autofit with minimum size for the column. double minimumSize = 10; worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(minimumSize); //Autofit with minimum and maximum size for the column. double maximumSize = 50; worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(minimumSize, maximumSize); //optional use this to make all columms just a bit wider, text would sometimes still overflow after AutoFitColumns().</description>
+    </item>
+    
+  </channel>
+</rss>

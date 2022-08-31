@@ -1,0 +1,12790 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.7636753edc6f50e96b0045eba39982b1b0b2b6947250d1080bec1f4cbe52399ea6bcecac0e0b6026886b51bdbde879ec9a9820765b03caead79d8ddf3b79336f.css" integrity="sha512-djZ1PtxvUOlrAEXro5mCsbCytpRyUNEIC&#43;wfTL5SOZ6mvOysDgtgJohrUb296HnsmpggdlsDyurXnY3fO3kzbw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Premiers pas avec vhdl - WikiOD</title>
+<meta name="description" content="Signaux vs variables, un bref aperçu de la sémantique de simulation du VHDL # Cet exemple traite d&amp;rsquo;un des aspects les plus fondamentaux du langage VHDL : la sémantique de simulation. Il est destiné aux débutants en VHDL et présente une vue simplifiée où de nombreux détails ont été omis (processus reportés, interface procédurale VHDL, variables partagées&amp;hellip;) Les lecteurs intéressés par la vraie sémantique complète devront se référer au Language Reference Manual (LRM).">
+  <link rel="canonical" href="https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/">
+<meta property="og:locale" content="fr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Premiers pas avec vhdl">
+<meta property="og:description" content="Signaux vs variables, un bref aperçu de la sémantique de simulation du VHDL # Cet exemple traite d&rsquo;un des aspects les plus fondamentaux du langage VHDL : la sémantique de simulation. Il est destiné aux débutants en VHDL et présente une vue simplifiée où de nombreux détails ont été omis (processus reportés, interface procédurale VHDL, variables partagées&hellip;) Les lecteurs intéressés par la vraie sémantique complète devront se référer au Language Reference Manual (LRM).">
+<meta property="og:url" content="https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Premiers pas avec vhdl">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Premiers pas avec vhdl">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "Bienvenue sur WikiOD - Wiki Documentation en ligne WikiOD est un projet d\u0027écriture collaborative visant à créer une documentation en ligne de la plus haute qualité sur tous les langages de programmation, sujets et concepts liés à l\u0027éducation.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/",
+      "url": "https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/",
+      "name": "Premiers pas avec vhdl",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/#/schema/image/2"
+      },
+      "inLanguage": "fr",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/fr/",
+          "url": "https://www.wikiod.com/fr/",
+          "name": "Fr"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/fr/vhdl/",
+          "url": "https://www.wikiod.com/fr/vhdl/",
+          "name": "Vhdl"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Premiers pas avec vhdl",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Premiers pas avec vhdl"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9345677191971886" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZZF8Q2L4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y7ZZF8Q2L4');
+</script>
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/fr/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Parcourir docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/vhdl/"><h3 class="h6 text-uppercase mb-2">vhdl Tutoriel</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/">Premiers pas avec vhdl</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/conception-de-materiel-numerique-utilisant-vhdl-en-bref/">Conception de matériel numérique utilisant VHDL en bref</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/types-proteges/">Types protégés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/attendre/">Attendre</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/fonctions-de-resolution-types-non-resolus-et-resolus/">Fonctions de résolution, types non résolus et résolus</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/d-flip-flops-dff-et-loquets/">D-Flip-Flops (DFF) et loquets</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/analyse-de-synchronisation-statique---quest-ce-que-cela-signifie-lorsquune-conception-echoue-dans-la-synchronisation/">Analyse de synchronisation statique - qu&#39;est-ce que cela signifie lorsqu&#39;une conception échoue dans la synchronisation ?</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/commentaires/">commentaires</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/souvenirs/">Souvenirs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/litteraux/">Littéraux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/identifiants/">Identifiants</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/recursivite/">Récursivité</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/fr/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/fr/docs/">Tutoriels</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/fr/blog/">Des articles</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Français
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/fr/vhdl/premiers-pas-avec-vhdl/">Français</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/vhdl/getting-started-with-vhdl/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/vhdl/comenzando-con-vhdl/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/vhdl/introducao-ao-vhdl/" hreflang="pt" lang="pt">Português</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/tr/vhdl/vhdlye-baslarken/" hreflang="tr" lang="tr">Türk</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/vhdl/"><h3 class="h6 text-uppercase mb-2">vhdl Tutoriel</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/">Premiers pas avec vhdl</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/conception-de-materiel-numerique-utilisant-vhdl-en-bref/">Conception de matériel numérique utilisant VHDL en bref</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/types-proteges/">Types protégés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/attendre/">Attendre</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/fonctions-de-resolution-types-non-resolus-et-resolus/">Fonctions de résolution, types non résolus et résolus</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/d-flip-flops-dff-et-loquets/">D-Flip-Flops (DFF) et loquets</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/analyse-de-synchronisation-statique---quest-ce-que-cela-signifie-lorsquune-conception-echoue-dans-la-synchronisation/">Analyse de synchronisation statique - qu&#39;est-ce que cela signifie lorsqu&#39;une conception échoue dans la synchronisation ?</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/commentaires/">commentaires</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/souvenirs/">Souvenirs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/litteraux/">Littéraux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/identifiants/">Identifiants</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/recursivite/">Récursivité</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/vhdl/"><h3 class="h6 text-uppercase mb-2">vhdl Tutoriel</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl/">Premiers pas avec vhdl</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/conception-de-materiel-numerique-utilisant-vhdl-en-bref/">Conception de matériel numérique utilisant VHDL en bref</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/types-proteges/">Types protégés</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/attendre/">Attendre</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/fonctions-de-resolution-types-non-resolus-et-resolus/">Fonctions de résolution, types non résolus et résolus</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/d-flip-flops-dff-et-loquets/">D-Flip-Flops (DFF) et loquets</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/analyse-de-synchronisation-statique---quest-ce-que-cela-signifie-lorsquune-conception-echoue-dans-la-synchronisation/">Analyse de synchronisation statique - qu&#39;est-ce que cela signifie lorsqu&#39;une conception échoue dans la synchronisation ?</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/commentaires/">commentaires</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/souvenirs/">Souvenirs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/litteraux/">Littéraux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/identifiants/">Identifiants</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/vhdl/recursivite/">Récursivité</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Sur cette page</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#signaux-vs-variables-un-bref-aperçu-de-la-sémantique-de-simulation-du-vhdl">Signaux vs variables, un bref aperçu de la sémantique de simulation du VHDL</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#phase-dinitialisation">Phase d&rsquo;initialisation :</a></li>
+    <li><a href="#cycle-de-simulation-1">Cycle de simulation #1</a></li>
+    <li><a href="#cycle-de-simulation-2">Cycle de simulation #2</a></li>
+    <li><a href="#cycle-de-simulation-3">Cycle de simulation #3</a></li>
+    <li><a href="#cycle-de-simulation-4">Cycle de simulation #4</a></li>
+    <li><a href="#cycle-de-simulation-5">Cycle de simulation #5</a></li>
+    <li><a href="#cycle-de-simulation-6">Cycle de simulation #6</a></li>
+    <li><a href="#cycle-de-simulation-7">Cycle de simulation #7</a></li>
+    <li><a href="#cycle-de-simulation-8">Cycle de simulation #8</a></li>
+    <li><a href="#cycle-de-simulation-9">Cycle de simulation #9</a></li>
+    <li><a href="#cycle-de-simulation-10">Cycle de simulation #10</a></li>
+    <li><a href="#cycle-de-simulation-11">Cycle de simulation #11</a></li>
+    <li><a href="#compteur-synchrone">Compteur synchrone</a></li>
+    <li><a href="#installation-ou-configuration">Installation ou configuration</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#bonjour-le-monde">Bonjour le monde</a></li>
+    <li><a href="#bonjour-le-monde-1">Bonjour le monde</a></li>
+    <li><a href="#un-environnement-de-simulation-pour-le-compteur-synchrone">Un environnement de simulation pour le compteur synchrone</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Sur cette page</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#signaux-vs-variables-un-bref-aperçu-de-la-sémantique-de-simulation-du-vhdl">Signaux vs variables, un bref aperçu de la sémantique de simulation du VHDL</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#phase-dinitialisation">Phase d&rsquo;initialisation :</a></li>
+    <li><a href="#cycle-de-simulation-1">Cycle de simulation #1</a></li>
+    <li><a href="#cycle-de-simulation-2">Cycle de simulation #2</a></li>
+    <li><a href="#cycle-de-simulation-3">Cycle de simulation #3</a></li>
+    <li><a href="#cycle-de-simulation-4">Cycle de simulation #4</a></li>
+    <li><a href="#cycle-de-simulation-5">Cycle de simulation #5</a></li>
+    <li><a href="#cycle-de-simulation-6">Cycle de simulation #6</a></li>
+    <li><a href="#cycle-de-simulation-7">Cycle de simulation #7</a></li>
+    <li><a href="#cycle-de-simulation-8">Cycle de simulation #8</a></li>
+    <li><a href="#cycle-de-simulation-9">Cycle de simulation #9</a></li>
+    <li><a href="#cycle-de-simulation-10">Cycle de simulation #10</a></li>
+    <li><a href="#cycle-de-simulation-11">Cycle de simulation #11</a></li>
+    <li><a href="#compteur-synchrone">Compteur synchrone</a></li>
+    <li><a href="#installation-ou-configuration">Installation ou configuration</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#bonjour-le-monde">Bonjour le monde</a></li>
+    <li><a href="#bonjour-le-monde-1">Bonjour le monde</a></li>
+    <li><a href="#un-environnement-de-simulation-pour-le-compteur-synchrone">Un environnement de simulation pour le compteur synchrone</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/fr/">Home</a></li>
+<li class="breadcrumb-item"><a href="/fr/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/fr/docs/vhdl/">vhdl Tutoriel</a></li>
+<li class="breadcrumb-item active" aria-current="page">Premiers pas avec vhdl</li>
+					</ol>
+				</nav>
+			
+			<h1>Premiers pas avec vhdl</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Sur cette page</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#signaux-vs-variables-un-bref-aperçu-de-la-sémantique-de-simulation-du-vhdl">Signaux vs variables, un bref aperçu de la sémantique de simulation du VHDL</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#phase-dinitialisation">Phase d&rsquo;initialisation :</a></li>
+    <li><a href="#cycle-de-simulation-1">Cycle de simulation #1</a></li>
+    <li><a href="#cycle-de-simulation-2">Cycle de simulation #2</a></li>
+    <li><a href="#cycle-de-simulation-3">Cycle de simulation #3</a></li>
+    <li><a href="#cycle-de-simulation-4">Cycle de simulation #4</a></li>
+    <li><a href="#cycle-de-simulation-5">Cycle de simulation #5</a></li>
+    <li><a href="#cycle-de-simulation-6">Cycle de simulation #6</a></li>
+    <li><a href="#cycle-de-simulation-7">Cycle de simulation #7</a></li>
+    <li><a href="#cycle-de-simulation-8">Cycle de simulation #8</a></li>
+    <li><a href="#cycle-de-simulation-9">Cycle de simulation #9</a></li>
+    <li><a href="#cycle-de-simulation-10">Cycle de simulation #10</a></li>
+    <li><a href="#cycle-de-simulation-11">Cycle de simulation #11</a></li>
+    <li><a href="#compteur-synchrone">Compteur synchrone</a></li>
+    <li><a href="#installation-ou-configuration">Installation ou configuration</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#bonjour-le-monde">Bonjour le monde</a></li>
+    <li><a href="#bonjour-le-monde-1">Bonjour le monde</a></li>
+    <li><a href="#un-environnement-de-simulation-pour-le-compteur-synchrone">Un environnement de simulation pour le compteur synchrone</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Sur cette page</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#signaux-vs-variables-un-bref-aperçu-de-la-sémantique-de-simulation-du-vhdl">Signaux vs variables, un bref aperçu de la sémantique de simulation du VHDL</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#phase-dinitialisation">Phase d&rsquo;initialisation :</a></li>
+    <li><a href="#cycle-de-simulation-1">Cycle de simulation #1</a></li>
+    <li><a href="#cycle-de-simulation-2">Cycle de simulation #2</a></li>
+    <li><a href="#cycle-de-simulation-3">Cycle de simulation #3</a></li>
+    <li><a href="#cycle-de-simulation-4">Cycle de simulation #4</a></li>
+    <li><a href="#cycle-de-simulation-5">Cycle de simulation #5</a></li>
+    <li><a href="#cycle-de-simulation-6">Cycle de simulation #6</a></li>
+    <li><a href="#cycle-de-simulation-7">Cycle de simulation #7</a></li>
+    <li><a href="#cycle-de-simulation-8">Cycle de simulation #8</a></li>
+    <li><a href="#cycle-de-simulation-9">Cycle de simulation #9</a></li>
+    <li><a href="#cycle-de-simulation-10">Cycle de simulation #10</a></li>
+    <li><a href="#cycle-de-simulation-11">Cycle de simulation #11</a></li>
+    <li><a href="#compteur-synchrone">Compteur synchrone</a></li>
+    <li><a href="#installation-ou-configuration">Installation ou configuration</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#bonjour-le-monde">Bonjour le monde</a></li>
+    <li><a href="#bonjour-le-monde-1">Bonjour le monde</a></li>
+    <li><a href="#un-environnement-de-simulation-pour-le-compteur-synchrone">Un environnement de simulation pour le compteur synchrone</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h2 id="signaux-vs-variables-un-bref-aperçu-de-la-sémantique-de-simulation-du-vhdl">Signaux vs variables, un bref aperçu de la sémantique de simulation du VHDL <a href="#signaux-vs-variables-un-bref-aper%c3%a7u-de-la-s%c3%a9mantique-de-simulation-du-vhdl" class="anchor" aria-hidden="true">#</a></h2>
+<!-- vim : set textwidth=0 : -->
+<!-- Titre : Signaux vs variables, un bref aperçu de la sémantique de simulation du VHDL -->
+<p>Cet exemple traite d&rsquo;un des aspects les plus fondamentaux du langage VHDL : la sémantique de simulation. Il est destiné aux débutants en VHDL et présente une vue simplifiée où de nombreux détails ont été omis (processus reportés, interface procédurale VHDL, variables partagées&hellip;) Les lecteurs intéressés par la vraie sémantique complète devront se référer au Language Reference Manual (LRM).</p>
+<h1 id="signaux-et-variables">Signaux et variables <a href="#signaux-et-variables" class="anchor" aria-hidden="true">#</a></h1>
+<p>La plupart des langages de programmation impératifs classiques utilisent des variables. Ce sont des conteneurs de valeur. Un opérateur d&rsquo;affectation est utilisé pour stocker une valeur dans une variable :</p>
+<pre><code>a = 15;
+</code></pre>
+<p>et la valeur actuellement stockée dans une variable peut être lue et utilisée dans d&rsquo;autres instructions :</p>
+<pre><code>if(a == 15) { print &quot;Fifteen&quot; }
+</code></pre>
+<p>VHDL utilise également des variables et elles ont exactement le même rôle que dans la plupart des langages impératifs. Mais VHDL propose également un autre type de conteneur de valeur : le signal. Les signaux stockent également des valeurs, peuvent également être attribués et lus. Le type de valeurs pouvant être stockées dans les signaux est (presque) le même que dans les variables.</p>
+<p>Alors, pourquoi avoir deux types de conteneurs de valeur ? La réponse à cette question est essentielle et au cœur du langage. Comprendre la différence entre les variables et les signaux est la toute première chose à faire avant d&rsquo;essayer de programmer quoi que ce soit en VHDL.</p>
+<p>Illustrons cette différence sur un exemple concret : le swapping.</p>
+<blockquote>
+<p>Remarque : tous les extraits de code suivants font partie de processus. Nous verrons plus tard quels sont les processus.</p>
+</blockquote>
+<pre><code>    tmp := a;
+    a   := b;
+    b   := tmp;
+</code></pre>
+<p>échange les variables &lsquo;a&rsquo; et &lsquo;b&rsquo;. Après exécution de ces 3 instructions, le nouveau contenu de &lsquo;a&rsquo; est l&rsquo;ancien contenu de &lsquo;b&rsquo; et inversement. Comme dans la plupart des langages de programmation, une troisième variable temporaire (<code>tmp</code>) est nécessaire. Si, au lieu de variables, on voulait échanger des signaux, on écrirait :</p>
+<pre><code>    r &lt;= s;
+    s &lt;= r;
+</code></pre>
+<p>ou:</p>
+<pre><code>    s &lt;= r;
+    r &lt;= s;
+</code></pre>
+<p>avec le même résultat et sans avoir besoin d&rsquo;un troisième signal temporaire !</p>
+<blockquote>
+<p>Remarque : l&rsquo;opérateur d&rsquo;affectation de signal VHDL <code>&lt;=</code> est différent de l&rsquo;opérateur d&rsquo;affectation de variable <code>:=</code>.</p>
+</blockquote>
+<p>Regardons un deuxième exemple dans lequel nous supposons que le sous-programme <code>print</code> imprime la représentation décimale de son paramètre. Si <code>a</code> est une variable entière et que sa valeur actuelle est 15, exécuter :</p>
+<pre><code>    a := 2 * a;
+    a := a - 5;
+    a := a / 5;
+    print(a);
+</code></pre>
+<p>imprimera :</p>
+<pre><code>5
+</code></pre>
+<p>Si nous exécutons cette étape par étape dans un débogueur, nous pouvons voir la valeur de <code>a</code> passer du 15 initial à 30, 25 et enfin 5.</p>
+<p>Mais si <code>s</code> est un signal entier et que sa valeur actuelle est 15, exécuter :</p>
+<pre><code>    s &lt;= 2 * s;
+    s &lt;= s - 5;
+    s &lt;= s / 5;
+    print(s);
+    wait on s;
+    print(s);
+</code></pre>
+<p>imprimera :</p>
+<pre><code>15
+3
+</code></pre>
+<p>Si nous exécutons ce pas à pas dans un débogueur, nous ne verrons aucun changement de valeur de <code>s</code> avant l&rsquo;instruction <code>wait</code>. De plus, la valeur finale de <code>s</code> ne sera pas 15, 30, 25 ou 5 mais 3 !</p>
+<p>Ce comportement apparemment étrange est dû à la nature fondamentalement parallèle du matériel numérique, comme nous le verrons dans les sections suivantes.</p>
+<h1 id="parallélisme">Parallélisme <a href="#parall%c3%a9lisme" class="anchor" aria-hidden="true">#</a></h1>
+<p>VHDL étant un langage de description matérielle (HDL), il est parallèle par nature. Un programme VHDL est un ensemble de programmes séquentiels exécutés en parallèle. Ces programmes séquentiels sont appelés processus :</p>
+<pre><code>P1: process
+begin
+  instruction1;
+  instruction2;
+  ...
+  instructionN;
+end process P1;
+
+P2: process
+begin
+  ...
+end process P2;
+</code></pre>
+<p>Les processus, tout comme le matériel qu&rsquo;ils modélisent, ne finissent jamais : ce sont des boucles infinies. Après avoir exécuté la dernière instruction, l&rsquo;exécution continue avec la première.</p>
+<p>Comme pour tout langage de programmation prenant en charge une forme ou une autre de parallélisme, un ordonnanceur est chargé de décider quel processus exécuter (et quand) lors d&rsquo;une simulation VHDL. De plus, le langage offre des constructions spécifiques pour la communication et la synchronisation inter-processus.</p>
+<h1 id="planification">Planification <a href="#planification" class="anchor" aria-hidden="true">#</a></h1>
+<p>Le planificateur maintient une liste de tous les processus et, pour chacun d&rsquo;eux, enregistre son état actuel qui peut être <code>running</code>, <code>run-able</code> ou <code>suspended</code>. Il y a au plus un processus dans l&rsquo;état &ldquo;en cours d&rsquo;exécution&rdquo;: celui qui est actuellement exécuté. Tant que le processus en cours d&rsquo;exécution n&rsquo;exécute pas d&rsquo;instruction &ldquo;wait&rdquo;, il continue de s&rsquo;exécuter et empêche l&rsquo;exécution de tout autre processus. Le planificateur VHDL n&rsquo;est pas préemptif : il incombe à chaque processus de se suspendre et de laisser les autres processus s&rsquo;exécuter. C&rsquo;est l&rsquo;un des problèmes que les débutants en VHDL rencontrent fréquemment : le processus d&rsquo;exécution libre.</p>
+<pre><code>  P3: process
+    variable a: integer;
+  begin
+    a := s;
+    a := 2 * a;
+    r &lt;= a;
+  end process P3;
+</code></pre>
+<blockquote>
+<p>Remarque : la variable <code>a</code> est déclarée localement tandis que les signaux <code>s</code> et <code>r</code> sont déclarés ailleurs, à un niveau supérieur. Les variables VHDL sont locales au processus qui les déclare et ne peuvent pas être vues par d&rsquo;autres processus. Un autre processus pourrait également déclarer une variable nommée <code>a</code>, ce ne serait pas la même variable que celle du processus <code>P3</code>.</p>
+</blockquote>
+<p>Dès que l&rsquo;ordonnanceur reprendra le processus <code>P3</code>, la simulation se bloquera, l&rsquo;heure actuelle de la simulation ne progressera plus et la seule façon d&rsquo;arrêter cela sera de tuer ou d&rsquo;interrompre la simulation. La raison en est que <code>P3</code> n&rsquo;a pas d&rsquo;instruction <code>wait</code> et restera donc à l&rsquo;état <code>running</code> pour toujours, en boucle sur ses 3 instructions. Aucun autre processus n&rsquo;aura jamais la chance de s&rsquo;exécuter, même s&rsquo;il est &ldquo;exécutable&rdquo;.</p>
+<p>Même les processus contenant une instruction <code>wait</code> peuvent causer le même problème :</p>
+<pre><code>  P4: process
+    variable a: integer;
+  begin
+    a := s;
+    a := 2 * a;
+    if a = 16 then
+      wait on s;
+    end if;
+    r &lt;= a;
+  end process P4;
+</code></pre>
+<blockquote>
+<p>Remarque : l&rsquo;opérateur d&rsquo;égalité VHDL est <code>=</code>.</p>
+</blockquote>
+<p>Si le processus &lsquo;P4&rsquo; est repris alors que la valeur du signal &rsquo;s&rsquo; est 3, il s&rsquo;exécutera indéfiniment car la condition &lsquo;a = 16&rsquo; ne sera jamais vraie.</p>
+<p>Supposons que notre programme VHDL ne contienne pas de tels processus pathologiques. Lorsque le processus en cours exécute une instruction <code>wait</code>, il est immédiatement suspendu et le planificateur le met dans l&rsquo;état <code>suspended</code>. L&rsquo;instruction &ldquo;wait&rdquo; contient également la condition pour que le processus redevienne &ldquo;exécutable&rdquo;. Exemple:</p>
+<pre><code>    wait on s;
+</code></pre>
+<p>signifie <em>suspend me jusqu&rsquo;à ce que la valeur du signal <code>s</code> change</em>. Cette condition est enregistrée par le planificateur. L&rsquo;ordonnanceur sélectionne alors un autre processus parmi les <code>run-able</code>, le met dans l&rsquo;état <code>running</code> et l&rsquo;exécute. Et la même chose se répète jusqu&rsquo;à ce que tous les processus &ldquo;exécutables&rdquo; aient été exécutés et suspendus.</p>
+<blockquote>
+<p><strong>Remarque importante :</strong> lorsque plusieurs processus sont &ldquo;exécutables&rdquo;, la norme VHDL ne précise pas comment l&rsquo;ordonnanceur doit sélectionner lequel exécuter. Une conséquence est que, selon le simulateur, la version du simulateur, le système d&rsquo;exploitation ou toute autre chose, deux simulations du même modèle VHDL pourraient, à un moment donné, faire des choix différents et sélectionner un processus différent à exécuter. Si ce choix avait un impact sur les résultats de la simulation, on pourrait dire que le VHDL est non déterministe. Comme le non-déterminisme est généralement indésirable, il serait de la responsabilité des programmeurs d&rsquo;éviter les situations non déterministes. Heureusement, VHDL s&rsquo;en charge et c&rsquo;est là que les signaux entrent en scène.</p>
+</blockquote>
+<h1 id="signaux-et-communication-inter-processus">Signaux et communication inter-processus <a href="#signaux-et-communication-inter-processus" class="anchor" aria-hidden="true">#</a></h1>
+<p>VHDL évite le non déterminisme en utilisant deux caractéristiques spécifiques :</p>
+<ol>
+<li><strong>Les processus ne peuvent échanger des informations que par le biais de signaux</strong></li>
+</ol>
+<pre><code>  signal r, s: integer;  -- Common to all processes
+...
+  P5: process
+    variable a: integer; -- Different from variable a of process P6
+  begin
+    a := s + 1;
+    r &lt;= a;
+    a := r + 1;
+    wait on s;
+  end process P5;
+
+  P6: process
+    variable a: integer; -- Different from variable a of process P5
+  begin
+    a := r + 1;
+    s &lt;= a;
+    wait on r;
+  end process P6;
+</code></pre>
+<blockquote>
+<p>Remarque : les commentaires VHDL s&rsquo;étendent de <code>--</code> à la fin de la ligne.</p>
+</blockquote>
+<ol start="2">
+<li><strong>La valeur d&rsquo;un signal VHDL ne change pas pendant l&rsquo;exécution des processus</strong></li>
+</ol>
+<p>Chaque fois qu&rsquo;un signal est assigné, la valeur assignée est enregistrée par le planificateur mais la valeur actuelle du signal reste inchangée. C&rsquo;est une autre différence majeure avec les variables qui prennent leur nouvelle valeur immédiatement après leur affectation.</p>
+<p>Regardons une exécution du processus <code>P5</code> ci-dessus et supposons que <code>a=5</code>, <code>s=1</code> et <code>r=0</code> lorsqu&rsquo;il est repris par le planificateur. Après avoir exécuté l&rsquo;instruction <code>a := s + 1;</code>, la valeur de la variable <code>a</code> change et devient 2 (1+1). Lors de l&rsquo;exécution de l&rsquo;instruction suivante <code>r &lt;= a;</code> c&rsquo;est la nouvelle valeur de <code>a</code> (2) qui est affectée à <code>r</code>. Mais <code>r</code> étant un signal, la valeur courante de <code>r</code> est toujours 0. Ainsi, lors de l&rsquo;exécution de <code>a := r + 1;</code>, la variable <code>a</code> prend (immédiatement) la valeur 1 (0+1), et non 3 (2+1) comme dirait l&rsquo;intuition.</p>
+<p>Quand le signal <code>r</code> prendra-t-il vraiment sa nouvelle valeur ? Lorsque le planificateur aura exécuté tous les processus exécutables et qu&rsquo;ils seront tous suspendus. Ceci est également appelé : <em>après un <strong>cycle delta</strong></em>. Ce n&rsquo;est qu&rsquo;alors que le planificateur examinera toutes les valeurs qui ont été attribuées aux signaux et mettra réellement à jour les valeurs des signaux. Une simulation VHDL est une alternance de phases d&rsquo;exécution et de phases de mise à jour du signal. Lors des phases d&rsquo;exécution, la valeur des signaux est figée. Symboliquement, on dit qu&rsquo;entre une phase d&rsquo;exécution et la phase suivante de mise à jour du signal un <em>delta</em> de temps s&rsquo;est écoulé. Ce n&rsquo;est pas le temps réel. Un cycle <em>delta</em> n&rsquo;a pas de durée physique.</p>
+<p>Grâce à ce mécanisme de mise à jour retardée du signal, le VHDL est déterministe. Les processus ne peuvent communiquer qu&rsquo;avec des signaux et les signaux ne changent pas pendant l&rsquo;exécution des processus. Ainsi, l&rsquo;ordre d&rsquo;exécution des processus n&rsquo;a pas d&rsquo;importance : leur environnement externe (les signaux) ne change pas au cours de l&rsquo;exécution. Montrons ceci sur l&rsquo;exemple précédent avec les processus <code>P5</code> et <code>P6</code>, où l&rsquo;état initial est <code>P5.a=5</code>, <code>P6.a=10</code>, <code>s=17</code>, <code>r=0</code> et où le planificateur décide d&rsquo;exécuter <code>P5</code> en premier et <code>P6</code> ensuite. Le tableau suivant montre la valeur des deux variables, les valeurs actuelles et suivantes des signaux après l&rsquo;exécution de chaque instruction de chaque processus :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">processus / instructions</th>
+<th style="text-align:left"><code>P5.a</code></th>
+<th style="text-align:left"><code>P6.a</code></th>
+<th style="text-align:left"><code>s.current</code></th>
+<th style="text-align:left"><code>s.suivant</code></th>
+<th style="text-align:left"><code>r.current</code></th>
+<th style="text-align:left"><code>r.suivant</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">État initial</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / a : = s + 1</code></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / r &lt;= a</code></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / a : = r + 1</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / attendre s</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / a := r + 1</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / s &lt;= a</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / attendre r</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left">Après la mise à jour du signal</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>Avec les mêmes conditions initiales, si le planificateur décide d&rsquo;exécuter <code>P6</code> en premier et <code>P5</code> ensuite :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">processus / instructions</th>
+<th style="text-align:left"><code>P5.a</code></th>
+<th style="text-align:left"><code>P6.a</code></th>
+<th style="text-align:left"><code>s.current</code></th>
+<th style="text-align:left"><code>s.suivant</code></th>
+<th style="text-align:left"><code>r.current</code></th>
+<th style="text-align:left"><code>r.suivant</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">État initial</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / a := r + 1</code></td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / s &lt;= a</code></td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / attendre r</code></td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / a : = s + 1</code></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / r &lt;= a</code></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / a : = r + 1</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / attendre s</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left">Après la mise à jour du signal</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>Comme on peut le voir, après l&rsquo;exécution de nos deux processus, le résultat est le même quel que soit l&rsquo;ordre d&rsquo;exécution.</p>
+<p>Cette sémantique d&rsquo;affectation de signal contre-intuitive est la raison d&rsquo;un deuxième type de problèmes que les débutants en VHDL rencontrent fréquemment : l&rsquo;affectation qui ne fonctionne apparemment pas car elle est retardée d&rsquo;un cycle delta. Lors de l&rsquo;exécution du processus <code>P5</code> étape par étape dans un débogueur, après que <code>r</code> ait été affecté à 18 et <code>a</code> ait été affecté à <code>r + 1</code>, on pourrait s&rsquo;attendre à ce que la valeur de <code>a</code> soit 19 mais le le débogueur dit obstinément que <code>r=0</code> et <code>a=1</code>&hellip;</p>
+<blockquote>
+<p>Remarque : un même signal peut être affecté plusieurs fois au cours d&rsquo;une même phase d&rsquo;exécution. Dans ce cas, c&rsquo;est la dernière affectation qui décide de la prochaine valeur du signal. Les autres missions n&rsquo;ont aucun effet, comme si elles n&rsquo;avaient jamais été exécutées.</p>
+</blockquote>
+<p>Il est temps de vérifier notre compréhension : veuillez revenir à notre tout premier exemple d&rsquo;échange et essayez de comprendre pourquoi :</p>
+<pre><code>  process
+  begin
+    ---
+    s &lt;= r;
+    r &lt;= s;
+    ---
+  end process;
+</code></pre>
+<p>échange en fait les signaux <code>r</code> et <code>s</code> sans avoir besoin d&rsquo;un troisième signal temporaire et pourquoi :</p>
+<pre><code>  process
+  begin
+    ---
+    r &lt;= s;
+    s &lt;= r;
+    ---
+  end process;
+</code></pre>
+<p>serait strictement équivalent. Essayez de comprendre aussi pourquoi, si <code>s</code> est un signal entier et que sa valeur actuelle est 15, et que nous exécutons :</p>
+<pre><code>  process
+  begin
+    ---
+    s &lt;= 2 * s;
+    s &lt;= s - 5;
+    s &lt;= s / 5;
+    print(s);
+    wait on s;
+    print(s);
+    ---
+  end process;
+</code></pre>
+<p>les deux premières affectations du signal <code>s</code> n&rsquo;ont aucun effet, pourquoi <code>s</code> est finalement affecté 3 et pourquoi les deux valeurs imprimées sont 15 et 3.</p>
+<h1 id="temps-physique">Temps physique <a href="#temps-physique" class="anchor" aria-hidden="true">#</a></h1>
+<p>Afin de modéliser le matériel, il est très utile de pouvoir modéliser le temps physique pris par une opération. Voici un exemple de la façon dont cela peut être fait en VHDL. L&rsquo;exemple modélise un compteur synchrone et il s&rsquo;agit d&rsquo;un code VHDL complet et autonome qui peut être compilé et simulé :</p>
+<pre><code>-- File counter.vhd
+entity counter is
+end entity counter;
+
+architecture arc of counter is
+  signal clk: bit; -- Type bit has two values: '0' and '1'
+  signal c, nc: natural; -- Natural (non-negative) integers
+begin
+  P1: process
+  begin
+    clk &lt;= '0';
+    wait for 10 ns; -- Ten nano-seconds delay
+    clk &lt;= '1';
+    wait for 10 ns; -- Ten nano-seconds delay
+  end process P1;
+
+  P2: process
+  begin
+    if clk = '1' and clk'event then
+      c &lt;= nc;
+    end if;
+    wait on clk;
+  end process P2;
+
+  P3: process
+  begin
+    nc &lt;= c + 1 after 5 ns; -- Five nano-seconds delay
+    wait on c;
+  end process P3;
+end architecture arc;
+</code></pre>
+<p>Dans le processus &lsquo;P1&rsquo; l&rsquo;instruction &lsquo;wait&rsquo; n&rsquo;est pas utilisée pour attendre que la valeur d&rsquo;un signal change, comme nous l&rsquo;avons vu jusqu&rsquo;à présent, mais pour attendre une durée donnée. Ce processus modélise un générateur d&rsquo;horloge. Le signal <code>clk</code> est l&rsquo;horloge de notre système, il est périodique avec une période de 20 ns (50 MHz) et a un rapport cyclique.</p>
+<p>Le processus &lsquo;P2&rsquo; modélise un registre qui, si un front montant de &lsquo;clk&rsquo; vient de se produire, affecte la valeur de son entrée &rsquo;nc&rsquo; à sa sortie &lsquo;c&rsquo; puis attend le prochain changement de valeur de &lsquo;clk&rsquo;.</p>
+<p>Le processus &lsquo;P3&rsquo; modélise un incrémenteur qui affecte la valeur de son entrée &lsquo;c&rsquo;, incrémentée de un, à sa sortie &rsquo;nc&rsquo;&hellip; avec un retard physique de 5 ns. Il attend ensuite que la valeur de son entrée &lsquo;c&rsquo; change. C&rsquo;est également nouveau. Jusqu&rsquo;à présent, nous avons toujours attribué des signaux avec :</p>
+<pre><code>  s &lt;= value;
+</code></pre>
+<p>ce que, pour les raisons expliquées dans les sections précédentes, on peut implicitement traduire par :</p>
+<pre><code>  s &lt;= value; -- after delta
+</code></pre>
+<p>Ce petit système matériel numérique pourrait être représenté par la figure suivante :</p>
+<p>[![Un compteur synchrone][1]][1]</p>
+<p>Avec l&rsquo;introduction du temps physique, et sachant que nous avons aussi un temps symbolique mesuré en <em>delta</em>, nous avons maintenant un temps à deux dimensions que nous noterons <code>T+D</code> où <code>T</code> est un temps physique mesuré en nano-secondes et &lsquo;D&rsquo; un certain nombre de deltas (sans durée physique).</p>
+<h1 id="limage-complète">L&rsquo;image complète <a href="#limage-compl%c3%a8te" class="anchor" aria-hidden="true">#</a></h1>
+<p>Il y a un aspect important de la simulation VHDL dont nous n&rsquo;avons pas encore parlé : après une phase d&rsquo;exécution, tous les processus sont dans un état &ldquo;suspendu&rdquo;. Nous avons déclaré de manière informelle que le planificateur met ensuite à jour les valeurs des signaux qui ont été attribués. Mais, dans notre exemple de compteur synchrone, doit-il mettre à jour les signaux &lsquo;clk&rsquo;, &lsquo;c&rsquo; et &rsquo;nc&rsquo; en même temps ? Qu&rsquo;en est-il des retards physiques ? Et que se passe-t-il ensuite avec tous les processus dans l&rsquo;état &ldquo;suspendu&rdquo; et aucun dans l&rsquo;état &ldquo;exécutable&rdquo; ?</p>
+<p>L&rsquo;algorithme de simulation complet (mais simplifié) est le suivant :</p>
+<ol>
+<li>Initialisation
+<ul>
+<li>Set current time <code>Tc</code> to 0+0 (0 ns, 0 delta-cycle)</li>
+<li>Initialize all signals.</li>
+<li>Execute each process until it suspends on a <code>wait</code> statement.
+<ul>
+<li>Record the values and delays of signal assignments.</li>
+<li>Record the conditions for the process to resume (delay or signal change).</li>
+</ul>
+</li>
+<li>Compute the next time <code>Tn</code> as the earliest of:
+<ul>
+<li>The resume time of processes suspended by a <code>wait for &lt;delay&gt;</code>.</li>
+<li>The next time at which a signal value shall change.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li>Cycle de simulation
+<ul>
+<li><code>Tc=Tn</code>.</li>
+<li>Update signals that need to be.</li>
+<li>Put in <code>run-able</code> state all processes that were waiting for a value change of one of the signals that has been updated.</li>
+<li>Put in <code>run-able</code> state all processes that were suspended by a <code>wait for &lt;delay&gt;</code> statement and for which the resume time is <code>Tc</code>.</li>
+<li>Execute all run-able processes until they suspend.
+<ul>
+<li>Record the values and delays of signal assignments.</li>
+<li>Record the conditions for the process to resume (delay or signal change).</li>
+</ul>
+</li>
+<li>Compute the next time <code>Tn</code> as the earliest of:
+<ul>
+<li>The resume time of processes suspended by a <code>wait for &lt;delay&gt;</code>.</li>
+<li>The next time at which a signal value shall change.</li>
+</ul>
+</li>
+<li>If <code>Tn</code> is infinity, stop simulation. Else, start a new simulation cycle.</li>
+</ul>
+</li>
+</ol>
+<h1 id="simulation-manuelle">Simulation manuelle <a href="#simulation-manuelle" class="anchor" aria-hidden="true">#</a></h1>
+<p>Pour conclure, exerçons maintenant manuellement l&rsquo;algorithme de simulation simplifié sur le compteur synchrone présenté ci-dessus. Nous décidons arbitrairement que, lorsque plusieurs processus sont exécutables, l&rsquo;ordre sera <code>P3</code>&gt;<code>P2</code>&gt;<code>P1</code>. Les tableaux suivants représentent l&rsquo;évolution de l&rsquo;état du système lors de l&rsquo;initialisation et des premiers cycles de simulation. Chaque signal a sa propre colonne dans laquelle la valeur actuelle est indiquée. Lorsqu&rsquo;une affectation de signal est exécutée, la valeur programmée est ajoutée à la valeur actuelle, par ex. <code>a/b@T+D</code> si la valeur actuelle est <code>a</code> et la prochaine valeur sera <code>b</code> au temps <code>T+D</code> (temps physique plus cycles delta). Les 3 dernières colonnes indiquent la condition pour reprendre les processus suspendus (nom des signaux qui doivent changer ou heure à laquelle le processus doit reprendre).</p>
+<h2 id="phase-dinitialisation">Phase d&rsquo;initialisation : <a href="#phase-dinitialisation" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Initialiser tous les signaux</td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P3/nc&lt;=c+1 après 5 ns</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P3/attendre c</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/si clk='1'...</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/fin si</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/attendre clk</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/clk&lt;='0'</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;0&rsquo;@0+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/attendre 10 ns</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;0&rsquo;@0+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left">0+1</td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;0&rsquo;@0+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cycle-de-simulation-1">Cycle de simulation #1 <a href="#cycle-de-simulation-1" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">0+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;0&rsquo;@0+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">0+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">0+1</td>
+<td style="text-align:left">5+0</td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Remarque : lors du premier cycle de simulation, il n&rsquo;y a pas de phase d&rsquo;exécution car aucun de nos 3 processus n&rsquo;a sa condition de reprise satisfaite. <code>P2</code> attend un changement de valeur de <code>clk</code> et il y a eu une <em>transaction</em> sur <code>clk</code>, mais comme l&rsquo;ancienne et la nouvelle valeurs sont les mêmes, ce n&rsquo;est pas une valeur <em>change</em>.</p>
+</blockquote>
+<h2 id="cycle-de-simulation-2">Cycle de simulation #2 <a href="#cycle-de-simulation-2" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Remarque : encore une fois, il n&rsquo;y a pas de phase d&rsquo;exécution. <code>nc</code> a changé mais aucun processus n&rsquo;attend <code>nc</code>.</p>
+</blockquote>
+<h2 id="cycle-de-simulation-3">Cycle de simulation #3 <a href="#cycle-de-simulation-3" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/clk&lt;='1'</code></td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@10+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/attendre 10 ns</code></td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@10+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@10+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cycle-de-simulation-4">Cycle de simulation #4 <a href="#cycle-de-simulation-4" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@10+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/si clk='1'...</code></td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/c&lt;=nc</code></td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0/1@10+2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/fin si</code></td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0/1@10+2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/attendre clk</code></td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0/1@10+2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0/1@10+2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cycle-de-simulation-5">Cycle de simulation #5 <a href="#cycle-de-simulation-5" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0/1@10+2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P3/nc&lt;=c+1 après 5 ns</code></td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1/2@15+0</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P3/attendre c</code></td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1/2@15+0</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left">15+0</td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1/2@15+0</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note : on pourrait penser que la mise à jour <code>nc</code> serait planifiée à <code>15+2</code>, alors que nous l&rsquo;avons planifiée à <code>15+0</code>. Lorsqu&rsquo;on ajoute un retard physique non nul (ici &lsquo;5 ns&rsquo;) à un temps courant (&lsquo;10+2&rsquo;), les cycles delta s&rsquo;annulent. En effet, les cycles delta ne sont utiles que pour distinguer différents temps de simulation &lsquo;T+0&rsquo;, &lsquo;T+1&rsquo;&hellip; avec un même temps physique &lsquo;T&rsquo;. Dès que le temps physique change, les cycles delta peuvent être réinitialisés.</p>
+</blockquote>
+<h2 id="cycle-de-simulation-6">Cycle de simulation #6 <a href="#cycle-de-simulation-6" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">15+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1/2@15+0</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">15+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">15+0</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Remarque : encore une fois, il n&rsquo;y a pas de phase d&rsquo;exécution. <code>nc</code> a changé mais aucun processus n&rsquo;attend <code>nc</code>.</p>
+</blockquote>
+<h2 id="cycle-de-simulation-7">Cycle de simulation #7 <a href="#cycle-de-simulation-7" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/clk&lt;='0'</code></td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;/&lsquo;0&rsquo;@20+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/attendre 10 ns</code></td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;/&lsquo;0&rsquo;@20+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left">&lsquo;1&rsquo;/&lsquo;0&rsquo;@20+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cycle-de-simulation-8">Cycle de simulation #8 <a href="#cycle-de-simulation-8" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;/&lsquo;0&rsquo;@20+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/si clk='1'...</code></td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/fin si</code></td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/attendre clk</code></td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cycle-de-simulation-9">Cycle de simulation #9 <a href="#cycle-de-simulation-9" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/clk&lt;='1'</code></td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@30+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/attendre 10 ns</code></td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@30+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@30+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cycle-de-simulation-10">Cycle de simulation #10 <a href="#cycle-de-simulation-10" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@30+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/si clk='1'...</code></td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/c&lt;=nc</code></td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1/2@30+2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/fin si</code></td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1/2@30+2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/attendre clk</code></td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1/2@30+2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1/2@30+2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cycle-de-simulation-11">Cycle de simulation #11 <a href="#cycle-de-simulation-11" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Opérations</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left"><code>clk</code></th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left"><code>nc</code></th>
+<th style="text-align:left"><code>P1</code></th>
+<th style="text-align:left"><code>P2</code></th>
+<th style="text-align:left"><code>P3</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Régler l&rsquo;heure actuelle</td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1/2@30+2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Mettre à jour les signaux</td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P3/nc&lt;=c+1 après 5 ns</code></td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">2/3@35+0</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P3/attendre c</code></td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">2/3@35+0</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Calculez la prochaine fois</td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left">35+0</td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">2/3@35+0</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"><code>clk</code></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<p>[1] : http://i.stack.imgur.com/0Lcry.png</p>
+<h2 id="compteur-synchrone">Compteur synchrone <a href="#compteur-synchrone" class="anchor" aria-hidden="true">#</a></h2>
+<!-- vim : set textwidth=0 : -->
+<!-- Titre : Compteur synchrone -->
+<pre><code>-- File counter.vhd
+-- The entity is the interface part. It has a name and a set of input / output
+-- ports. Ports have a name, a direction and a type. The bit type has only two
+-- values: '0' and '1'. It is one of the standard types.
+entity counter is
+  port(
+    clock: in  bit;    -- We are using the rising edge of CLOCK
+    reset: in  bit;    -- Synchronous and active HIGH
+    data:  out natural -- The current value of the counter
+  );
+end entity counter;
+
+-- The architecture describes the internals. It is always associated
+-- to an entity.
+architecture sync of counter is
+  -- The internal signals we use to count. Natural is another standard
+  -- type. VHDL is not case sensitive.
+  signal current_value: natural;
+  signal NEXT_VALUE:    natural;
+begin
+  -- A process is a concurrent statement. It is an infinite loop.
+  process
+  begin
+    -- The wait statement is a synchronization instruction. We wait
+    -- until clock changes and its new value is '1' (a rising edge).
+    wait until clock = '1';
+    -- Our reset is synchronous: we consider it only at rising edges
+    -- of our clock.
+    if reset = '1' then
+      -- &lt;= is the signal assignment operator.
+      current_value &lt;= 0;
+    else
+      current_value &lt;= next_value;
+    end if;
+  end process;
+
+  -- Another process. The sensitivity list is another way to express
+  -- synchronization constraints. It (approximately) means: wait until
+  -- one of the signals in the list changes and then execute the process
+  -- body. Sensitivity list and wait statements cannot be used together 
+  -- in the same process.
+  process(current_value)
+  begin
+    next_value &lt;= current_value + 1;
+  end process;
+
+  -- A concurrent signal assignment, which is just a shorthand for the
+  -- (trivial) equivalent process.
+  data &lt;= current_value;
+end architecture sync;
+</code></pre>
+<h2 id="installation-ou-configuration">Installation ou configuration <a href="#installation-ou-configuration" class="anchor" aria-hidden="true">#</a></h2>
+<!-- vim : set textwidth=0 : -->
+<!-- Titre : Installation ou configuration -->
+<p>Un programme VHDL peut être simulé ou synthétisé. La simulation est ce qui ressemble le plus à l&rsquo;exécution dans d&rsquo;autres langages de programmation. La synthèse traduit un programme VHDL en un réseau de portes logiques. De nombreux outils de simulation et de synthèse VHDL font partie de suites commerciales d&rsquo;automatisation de la conception électronique (EDA). Ils gèrent également fréquemment d&rsquo;autres langages de description de matériel (HDL), comme Verilog, SystemVerilog ou SystemC. Certaines applications gratuites et open source existent.</p>
+<h1 id="simulation-vhdl">Simulation VHDL <a href="#simulation-vhdl" class="anchor" aria-hidden="true">#</a></h1>
+<p><a href="https://github.com/tgingold/ghdl.git">GHDL</a> est probablement le simulateur VHDL gratuit et open source le plus abouti. Il se décline en trois versions différentes selon le backend utilisé : <code>gcc</code>, <code>llvm</code> ou <code>mcode</code>. Les exemples suivants montrent comment utiliser GHDL (version <code>mcode</code>) et Modelsim, le simulateur HDL commercial de Mentor Graphics, sous un système d&rsquo;exploitation GNU/Linux. Les choses seraient très similaires avec d&rsquo;autres outils et d&rsquo;autres systèmes d&rsquo;exploitation.</p>
+<h2 id="bonjour-le-monde">Bonjour le monde <a href="#bonjour-le-monde" class="anchor" aria-hidden="true">#</a></h2>
+<p>Créez un fichier <code>hello_world.vhd</code> contenant :</p>
+<pre><code>-- File hello_world.vhd
+entity hello_world is
+end entity hello_world;
+
+architecture arc of hello_world is
+begin
+  assert false report &quot;Hello world!&quot; severity note;
+end architecture arc;
+</code></pre>
+<p>Une unité de compilation VHDL est un programme VHDL complet qui peut être compilé seul. Les <em>entités</em> sont des unités de compilation VHDL utilisées pour décrire l&rsquo;interface externe d&rsquo;un circuit numérique, c&rsquo;est-à-dire ses ports d&rsquo;entrée et de sortie. Dans notre exemple, &ldquo;l&rsquo;entité&rdquo; est nommée &ldquo;hello_world&rdquo; et est vide. Le circuit que nous modélisons est une boîte noire, il n&rsquo;a ni entrées ni sorties. Les <em>architectures</em> sont un autre type d&rsquo;unité de compilation. Ils sont toujours associés à une &rsquo;entité&rsquo; et ils servent à décrire le comportement du circuit numérique. Une <em>entité</em> peut avoir une ou plusieurs <em>architectures</em> pour décrire le comportement de l&rsquo;entité. Dans notre exemple, l&rsquo;<em>entité</em> est associée à une seule <em>architecture</em> nommée <code>arc</code> qui contient une seule instruction VHDL :</p>
+<pre><code>  assert false report &quot;Hello world!&quot; severity note;
+</code></pre>
+<p>L&rsquo;instruction sera exécutée au début de la simulation et affichera le message &ldquo;Hello world!&rdquo; sur la sortie standard. La simulation se terminera alors car il n&rsquo;y a plus rien à faire. Le fichier source VHDL que nous avons écrit contient deux unités de compilation. Nous aurions pu les séparer dans deux fichiers différents mais nous n&rsquo;aurions pas pu les séparer dans des fichiers différents : une unité de compilation doit être entièrement contenue dans un seul fichier source. A noter que cette architecture ne peut pas être synthétisée car elle ne décrit pas de fonction directement traduisible en portes logiques.</p>
+<p>Analysez et exécutez le programme avec GHDL :</p>
+<pre><code>$ mkdir gh_work
+$ ghdl -a --workdir=gh_work hello_world.vhd
+$ ghdl -r --workdir=gh_work hello_world
+hello_world.vhd:6:8:@0ms:(assertion note): Hello world!
+</code></pre>
+<p>Le répertoire <code>gh_work</code> est l&rsquo;endroit où GHDL stocke les fichiers qu&rsquo;il génère. C&rsquo;est ce que dit l&rsquo;option <code>--workdir=gh_work</code>. La phase d&rsquo;analyse vérifie l&rsquo;exactitude de la syntaxe et produit un fichier texte décrivant les unités de compilation trouvées dans le fichier source. La phase d&rsquo;exécution compile, relie et exécute le programme. Notez que, dans la version <code>mcode</code> de GHDL, aucun fichier binaire n&rsquo;est généré. Le programme est recompilé à chaque fois que nous le simulons. Les versions <code>gcc</code> ou <code>llvm</code> se comportent différemment. Notez également que <code>ghdl -r</code> ne prend pas le nom d&rsquo;un fichier source VHDL, comme <code>ghdl -a</code>, mais le nom d&rsquo;une unité de compilation. Dans notre cas, nous lui passons le nom de &ldquo;l&rsquo;entité&rdquo;. Comme il n&rsquo;a qu&rsquo;une seule &ldquo;architecture&rdquo; associée, il n&rsquo;est pas nécessaire de spécifier laquelle simuler.</p>
+<p>Avec Modelsim :</p>
+<pre><code>$ vlib ms_work
+$ vmap work ms_work
+$ vcom hello_world.vhd
+$ vsim -c hello_world -do 'run -all; quit'
+...
+# ** Note: Hello world!
+#    Time: 0 ns  Iteration: 0  Instance: /hello_world
+...
+</code></pre>
+<p><code>vlib</code>, <code>vmap</code>, <code>vcom</code> et <code>vsim</code> sont quatre commandes fournies par Modelsim. <code>vlib</code> crée un répertoire (<code>ms_work</code>) où seront stockés les fichiers générés. <code>vmap</code> associe un répertoire créé par <code>vlib</code> à un nom logique (<code>work</code>). <code>vcom</code> compile un fichier source VHDL et, par défaut, stocke le résultat dans le répertoire associé au nom logique <code>work</code>. Enfin, <code>vsim</code> simule le programme et produit le même type de sortie que GHDL. Notez à nouveau que ce que <code>vsim</code> demande n&rsquo;est pas un fichier source mais le nom d&rsquo;une unité de compilation déjà compilée. L&rsquo;option <code>-c</code> indique au simulateur de s&rsquo;exécuter en mode ligne de commande au lieu du mode d&rsquo;interface utilisateur graphique (GUI) par défaut. L&rsquo;option <code>-do</code> est utilisée pour passer un script TCL à exécuter après le chargement de la conception. TCL est un langage de script très fréquemment utilisé dans les outils EDA. La valeur de l&rsquo;option <code>-do</code> peut être le nom d&rsquo;un fichier ou, comme dans notre exemple, une chaîne de commandes TCL. <code>exécuter -tout ; quit</code> indique au simulateur d&rsquo;exécuter la simulation jusqu&rsquo;à ce qu&rsquo;elle se termine naturellement - ou pour toujours si elle dure éternellement - puis de quitter.</p>
+<h2 id="bonjour-le-monde-1">Bonjour le monde <a href="#bonjour-le-monde-1" class="anchor" aria-hidden="true">#</a></h2>
+<!-- vim : set textwidth=0 : -->
+<!-- Titre : Bonjour tout le monde -->
+<p>Il existe de nombreuses façons d&rsquo;imprimer le classique &ldquo;Hello world!&rdquo; messages en VHDL. Le plus simple de tous est probablement quelque chose comme :</p>
+<pre><code>-- File hello_world.vhd
+entity hello_world is
+end entity hello_world;
+
+architecture arc of hello_world is
+begin
+  assert false report &quot;Hello world!&quot; severity note;
+end architecture arc;
+</code></pre>
+<h2 id="un-environnement-de-simulation-pour-le-compteur-synchrone">Un environnement de simulation pour le compteur synchrone <a href="#un-environnement-de-simulation-pour-le-compteur-synchrone" class="anchor" aria-hidden="true">#</a></h2>
+<!-- vim : set textwidth=0 : -->
+<!-- Titre : Un environnement de simulation pour le compteur synchrone -->
+<h1 id="environnements-de-simulation">Environnements de simulation <a href="#environnements-de-simulation" class="anchor" aria-hidden="true">#</a></h1>
+<p>Un environnement de simulation pour une conception VHDL (la conception sous test ou DUT) est une autre conception VHDL qui, au minimum :</p>
+<ul>
+<li>Déclare les signaux correspondant aux ports d&rsquo;entrée et de sortie du DUT.</li>
+<li>Instancie le DUT et connecte ses ports aux signaux déclarés.</li>
+<li>Instancie les processus qui pilotent les signaux connectés aux ports d&rsquo;entrée du DUT.</li>
+</ul>
+<p>En option, un environnement de simulation peut instancier d&rsquo;autres conceptions que le DUT, comme, par exemple, des générateurs de trafic sur les interfaces, des moniteurs pour vérifier les protocoles de communication, des vérificateurs automatiques des sorties du DUT&hellip;</p>
+<p>L&rsquo;environnement de simulation est analysé, élaboré et exécuté. La plupart des simulateurs offrent la possibilité de sélectionner un ensemble de signaux à observer, de tracer leurs formes d&rsquo;onde graphiques, de mettre des points d&rsquo;arrêt dans le code source, d&rsquo;avancer dans le code source&hellip;</p>
+<p>Idéalement, un environnement de simulation devrait être utilisable comme un test de non-régression robuste, c&rsquo;est-à-dire qu&rsquo;il devrait détecter automatiquement les violations des spécifications du DUT, signaler des messages d&rsquo;erreur utiles et garantir une couverture raisonnable des fonctionnalités du DUT. Lorsque de tels environnements de simulation sont disponibles, ils peuvent être réexécutés à chaque changement du DUT pour vérifier qu&rsquo;il est toujours fonctionnellement correct, sans avoir besoin d&rsquo;inspections visuelles fastidieuses et sujettes aux erreurs des traces de simulation.</p>
+<p>En pratique, la conception d&rsquo;environnements de simulation idéaux ou simplement bons est un défi. C&rsquo;est souvent aussi, voire plus, difficile que de concevoir le DUT lui-même.</p>
+<p>Dans cet exemple, nous présentons un environnement de simulation pour l&rsquo;exemple [Compteur synchrone](https://www.wikiod.com/fr/vhdl/premiers-pas-avec-vhdl#Compteur synchrone). Nous montrons comment l&rsquo;exécuter à l&rsquo;aide de GHDL et Modelsim et comment observer les formes d&rsquo;onde graphiques à l&rsquo;aide de <a href="http://gtkwave.sourceforge.net/">GTKWave</a> avec GHDL et la visionneuse de formes d&rsquo;onde intégrée avec Modelsim. Nous abordons ensuite un aspect intéressant des simulations : comment les arrêter ?</p>
+<h1 id="un-premier-environnement-de-simulation-pour-le-compteur-synchrone">Un premier environnement de simulation pour le compteur synchrone <a href="#un-premier-environnement-de-simulation-pour-le-compteur-synchrone" class="anchor" aria-hidden="true">#</a></h1>
+<p>Le compteur synchrone a deux ports d&rsquo;entrée et un port de sortie. Un environnement de simulation très simple pourrait être :</p>
+<pre><code>-- File counter_sim.vhd
+-- Entities of simulation environments are frequently black boxes without
+-- ports.
+entity counter_sim is
+end entity counter_sim;
+
+architecture sim of counter_sim is
+
+  -- One signal per port of the DUT. Signals can have the same name as
+  -- the corresponding port but they do not need to.
+  signal clk:  bit;
+  signal rst:  bit;
+  signal data: natural;
+
+begin
+
+  -- Instantiation of the DUT
+  u0: entity work.counter(sync)
+  port map(
+    clock =&gt; clk,
+    reset =&gt; rst,
+    data  =&gt; data
+  );
+
+  -- A clock generating process with a 2ns clock period. The process
+  -- being an infinite loop, the clock will never stop toggling.
+  process
+  begin
+    clk &lt;= '0';
+    wait for 1 ns;
+    clk &lt;= '1';
+    wait for 1 ns;
+  end process;
+
+  -- The process that handles the reset: active from beginning of
+  -- simulation until the 5th rising edge of the clock.
+  process
+  begin
+    rst  &lt;= '1';
+    for i in 1 to 5 loop
+      wait until rising_edge(clk);
+    end loop;
+    rst  &lt;= '0';
+    wait; -- Eternal wait. Stops the process forever.
+  end process;
+
+end architecture sim;
+</code></pre>
+<h1 id="simuler-avec-ghdl">Simuler avec GHDL <a href="#simuler-avec-ghdl" class="anchor" aria-hidden="true">#</a></h1>
+<p>Compilons et simulons ceci avec GHDL :</p>
+<pre><code>$ mkdir gh_work
+$ ghdl -a --workdir=gh_work counter_sim.vhd
+counter_sim.vhd:27:24: unit &quot;counter&quot; not found in 'library &quot;work&quot;'
+counter_sim.vhd:50:35: no declaration for &quot;rising_edge&quot;
+</code></pre>
+<p>Ensuite, les messages d&rsquo;erreur nous disent deux choses importantes :</p>
+<ul>
+<li>L&rsquo;analyseur GHDL a découvert que notre conception instancie une entité nommée <code>counter</code> mais cette entité n&rsquo;a pas été trouvée dans la bibliothèque <code>work</code>. C&rsquo;est parce que nous n&rsquo;avons pas compilé <code>counter</code> avant <code>counter_sim</code>. Lors de la compilation de conceptions VHDL qui instancient des entités, les niveaux inférieurs doivent toujours être compilés avant les niveaux supérieurs (les conceptions hiérarchiques peuvent également être compilées de haut en bas, mais uniquement si elles instancient un &ldquo;composant&rdquo;, et non des entités).</li>
+<li>La fonction <code>rising_edge</code> utilisée par notre conception n&rsquo;est pas définie. Cela est dû au fait que cette fonction a été introduite dans VHDL 2008 et que nous n&rsquo;avons pas dit à GHDL d&rsquo;utiliser cette version du langage (par défaut, il utilise VHDL 1993 avec la tolérance de la syntaxe VHDL 1987).</li>
+</ul>
+<p>Corrigeons les deux erreurs et lançons la simulation :</p>
+<pre><code>$ ghdl -a --workdir=gh_work --std=08 counter.vhd counter_sim.vhd
+$ ghdl -r --workdir=gh_work --std=08 counter_sim sim
+^C
+</code></pre>
+<p>Notez que l&rsquo;option <code>--std=08</code> est nécessaire pour l&rsquo;analyse <strong>et</strong> la simulation. Notez également que nous avons lancé la simulation sur l&rsquo;entité <code>counter_sim</code>, l&rsquo;architecture <code>sim</code>, et non sur un fichier source.</p>
+<p>Comme notre environnement de simulation a un processus sans fin (le processus qui génère l&rsquo;horloge), la simulation ne s&rsquo;arrête pas et nous devons l&rsquo;interrompre manuellement. Au lieu de cela, nous pouvons spécifier une heure d&rsquo;arrêt avec l&rsquo;option <code>--stop-time</code> :</p>
+<pre><code>$ ghdl -r --workdir=gh_work --std=08 counter_sim sim --stop-time=60ns
+ghdl:info: simulation stopped by --stop-time
+</code></pre>
+<p>En l&rsquo;état, la simulation ne nous dit pas grand-chose sur le comportement de notre DUT. Vidons les changements de valeur des signaux dans un fichier :</p>
+<pre><code>$ ghdl -r --workdir=gh_work --std=08 counter_sim sim --stop-time=60ns --vcd=counter_sim.vcd
+Vcd.Avhpi_Error!
+ghdl:info: simulation stopped by --stop-time
+</code></pre>
+<p>(ignorez le message d&rsquo;erreur, c&rsquo;est quelque chose qui doit être corrigé dans GHDL et qui n&rsquo;a aucune conséquence). Un fichier <code>counter_sim.vcd</code> a été créé. Il contient au format VCD (ASCII) tous les changements de signal pendant la simulation. GTKWave peut nous montrer les formes d&rsquo;onde graphiques correspondantes :</p>
+<pre><code>$ gtkwave counter_sim.vcd
+</code></pre>
+<p>où nous pouvons voir que le compteur fonctionne comme prévu.</p>
+<p>[![Une forme d&rsquo;onde GTKWave][1]][1]</p>
+<h1 id="simuler-avec-modelsim">Simuler avec Modelsim <a href="#simuler-avec-modelsim" class="anchor" aria-hidden="true">#</a></h1>
+<p>Le principe est exactement le même avec Modelsim :</p>
+<pre><code>$ vlib ms_work
+...
+$ vmap work ms_work
+...
+$ vcom -nologo -quiet -2008 counter.vhd counter_sim.vhd
+$ vsim -voptargs=&quot;+acc&quot; 'counter_sim(sim)' -do 'add wave /*; run 60ns'
+</code></pre>
+<p>[![entrez la description de l&rsquo;image ici][2]][2]</p>
+<p>Notez l&rsquo;option <code>-voptargs=&quot;+acc&quot;</code> passée à <code>vsim</code> : elle empêche le simulateur d&rsquo;optimiser le signal <code>data</code> et nous permet de le voir sur les formes d&rsquo;onde.</p>
+<h1 id="fin-des-simulations-avec-grâce">Fin des simulations avec grâce <a href="#fin-des-simulations-avec-gr%c3%a2ce" class="anchor" aria-hidden="true">#</a></h1>
+<p>Avec les deux simulateurs, nous avons dû interrompre la simulation sans fin ou spécifier un temps d&rsquo;arrêt avec une option dédiée. Ce n&rsquo;est pas très pratique. Dans de nombreux cas, l&rsquo;heure de fin d&rsquo;une simulation est difficile à anticiper. Il serait bien préférable d&rsquo;arrêter la simulation depuis l&rsquo;intérieur du code VHDL de l&rsquo;environnement de simulation, lorsqu&rsquo;une condition particulière est atteinte, comme, par exemple, lorsque la valeur actuelle du compteur atteint 20. Cela peut être réalisé avec une assertion dans le processus qui gère la réinitialisation :</p>
+<pre><code>  process
+  begin
+    rst &lt;= '1';
+    for i in 1 to 5 loop
+      wait until rising_edge(clk);
+    end loop;
+    rst &lt;= '0';
+    loop
+      wait until rising_edge(clk);
+      assert data /= 20 report &quot;End of simulation&quot; severity failure;
+    end loop;
+  end process;
+</code></pre>
+<p>Tant que &lsquo;data&rsquo; est différent de 20, la simulation continue. Lorsque <code>data</code> atteint 20, la simulation se bloque avec un message d&rsquo;erreur :</p>
+<pre><code>$ ghdl -a --workdir=gh_work --std=08 counter_sim.vhd
+$ ghdl -r --workdir=gh_work --std=08 counter_sim sim
+counter_sim.vhd:90:24:@51ns:(assertion failure): End of simulation
+ghdl:error: assertion failed
+  from: process work.counter_sim(sim2).P1 at counter_sim.vhd:90
+ghdl:error: simulation failed
+</code></pre>
+<p>Notez que nous n&rsquo;avons recompilé que l&rsquo;environnement de simulation : c&rsquo;est le seul design qui a changé et c&rsquo;est le niveau supérieur. Si nous avions modifié uniquement <code>counter.vhd</code>, nous aurions dû recompiler les deux : <code>counter.vhd</code> car il a changé et <code>counter_sim.vhd</code> car il dépend de <code>counter.vhd</code>.</p>
+<p>Faire planter la simulation avec un message d&rsquo;erreur n&rsquo;est pas très élégant. Cela peut même être un problème lors de l&rsquo;analyse automatique des messages de simulation pour décider si un test de non-régression automatique a réussi ou non. Une solution meilleure et beaucoup plus élégante consiste à arrêter tous les processus lorsqu&rsquo;une condition est atteinte. Cela peut être fait, par exemple, en ajoutant un signal <code>booléen</code> de fin de simulation (<code>eof</code>). Par défaut, il est initialisé à &ldquo;false&rdquo; au début de la simulation. L&rsquo;un de nos processus le définira sur &ldquo;true&rdquo; lorsque le moment sera venu de mettre fin à la simulation. Tous les autres processus surveilleront ce signal et s&rsquo;arrêteront avec une éternelle &ldquo;attente&rdquo; lorsqu&rsquo;il deviendra &ldquo;vrai&rdquo;:</p>
+<pre><code>  signal eos:  boolean;
+...
+  process
+  begin
+    clk &lt;= '0';
+    wait for 1 ns;
+    clk &lt;= '1';
+    wait for 1 ns;
+    if eos then
+      report &quot;End of simulation&quot;;
+      wait;
+    end if;
+  end process;
+
+  process
+  begin
+    rst &lt;= '1';
+    for i in 1 to 5 loop
+      wait until rising_edge(clk);
+    end loop;
+    rst &lt;= '0';
+    for i in 1 to 20 loop
+      wait until rising_edge(clk);
+    end loop;
+    eos &lt;= true;
+    wait;
+  end process;
+</code></pre>
+<pre><code>$ ghdl -a --workdir=gh_work --std=08 counter_sim.vhd
+$ ghdl -r --workdir=gh_work --std=08 counter_sim sim
+counter_sim.vhd:120:24:@50ns:(report note): End of simulation
+</code></pre>
+<p>Enfin, il existe une solution encore meilleure introduite dans VHDL 2008 avec le package standard <code>env</code> et les procédures <code>stop</code> et <code>finish</code> qu&rsquo;il déclare :</p>
+<pre><code>use std.env.all;
+...
+  process
+  begin
+    rst    &lt;= '1';
+    for i in 1 to 5 loop
+      wait until rising_edge(clk);
+    end loop;
+    rst    &lt;= '0';
+    for i in 1 to 20 loop
+      wait until rising_edge(clk);
+    end loop;
+    finish;
+  end process;
+</code></pre>
+<pre><code>$ ghdl -a --workdir=gh_work --std=08 counter_sim.vhd
+$ ghdl -r --workdir=gh_work --std=08 counter_sim sim
+simulation finished @49ns
+</code></pre>
+<p>[1] : http://i.stack.imgur.com/Ql56c.png
+[2] : http://i.stack.imgur.com/xhAgo.png</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a class="ms-auto" href="/fr/vhdl/conception-de-materiel-numerique-utilisant-vhdl-en-bref/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Conception de matériel numérique utilisant VHDL en bref &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/fr/about/">À propos de</a></li>
+          <li class="list-inline-item"><a href="/fr/disclaimers/">Avis de non-responsabilité</a></li>
+          <li class="list-inline-item"><a href="/fr/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/fr/terms-of-use/">Conditions d&#39;utilisation</a></li>
+          <li class="list-inline-item"><a href="/fr/privacy-policy/">Politique de confidentialité</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

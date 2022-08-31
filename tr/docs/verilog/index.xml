@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>verilog Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/verilog/</link>
+    <description>Recent content in verilog Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/verilog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>verilog&#39;u kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/verilog/verilogu-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/verilog/verilogu-kullanmaya-baslama/</guid>
+      <description>Giriiş # Verilog, elektronik sistemleri modellemek için kullanılan bir donanım tanımlama dilidir (HDL). En yaygın olarak, soyutlamanın kayıt-aktarma düzeyinde (RTL) bir elektronik sistemi tanımlar. Analog devrelerin ve karışık sinyal devrelerinin doğrulanmasında da kullanılır. Yapısı ve ana ilkeleri (aşağıda açıklandığı gibi), bir elektronik sistemi tanımlamak ve başarılı bir şekilde uygulamak için tasarlanmıştır.
+Sertlik Elektronik devre, sabit bir yapıya sahip fiziksel bir varlıktır ve Verilog buna uyarlanmıştır. Modüller (modül), Bağlantı Noktaları (giriş/çıkış/giriş), bağlantılar (kablolar), bloklar (@her zaman), kayıtlar (reg) derleme zamanında sabitlenir.</description>
+    </item>
+    
+    <item>
+      <title>Hatıralar</title>
+      <link>https://www.wikiod.com/tr/verilog/hatralar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/verilog/hatralar/</guid>
+      <description>FIFO&amp;rsquo;lar için, genellikle satıcıya özel bir bloğu (&amp;ldquo;çekirdek&amp;rdquo; veya &amp;ldquo;IP&amp;rdquo; olarak da adlandırılır) başlatırsınız.
+Basit Çift Bağlantı Noktalı RAM # Okuma/yazma işlemleri için ayrı adreslere ve saatlere sahip Basit Çift Bağlantı Noktalı RAM.
+module simple_ram_dual_clock #( parameter DATA_WIDTH=8, //width of data bus parameter ADDR_WIDTH=8 //width of addresses buses )( input [DATA_WIDTH-1:0] data, //data to be written input [ADDR_WIDTH-1:0] read_addr, //address for read operation input [ADDR_WIDTH-1:0] write_addr, //address for write operation input we, //write enable signal input read_clk, //clock signal for read operation input write_clk, //clock signal for write operation output reg [DATA_WIDTH-1:0] q //read data ); reg [DATA_WIDTH-1:0] ram [2**ADDR_WIDTH-1:0]; // ** is exponentiation always @(posedge write_clk) begin //WRITE if (we) begin ram[write_addr] &amp;lt;= data; end end always @(posedge read_clk) begin //READ q &amp;lt;= ram[read_addr]; end endmodule Vardiya kaydı # Asenkron sıfırlamalı N-bit derin kaydırma yazmacı.</description>
+    </item>
+    
+    <item>
+      <title>Prosedürel Bloklar</title>
+      <link>https://www.wikiod.com/tr/verilog/prosedurel-bloklar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/verilog/prosedurel-bloklar/</guid>
+      <description>Sözdizimi # her zaman @ (posedge clk) start /* deyimleri */ end her zaman @ (negedge clk) start /* deyimleri */ end her zaman @ (pozge clk veya pozge sıfırlama) // senkron sıfırlamadan daha az verimli sentezleyebilir Basit sayaç # FPGA stili iki duraklı başlatma kullanan bir sayaç:
+module counter( input clk, output reg[7:0] count ) initial count = 0; always @ (posedge clk) begin count &amp;lt;= count + 1&#39;b1; end ASIC sentezine uygun asenkron sıfırlamalar kullanılarak uygulanan bir sayaç:</description>
+    </item>
+    
+    <item>
+      <title>Selam Dünya</title>
+      <link>https://www.wikiod.com/tr/verilog/selam-dunya/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/verilog/selam-dunya/</guid>
+      <description>Örneği Derleme ve Çalıştırma # &amp;ldquo;hello_world.v&amp;rdquo; kaynak dosyasının ve &amp;ldquo;hello_world&amp;quot;ün üst düzey modülünün olduğunu varsayarsak. Kod, çeşitli simülatörler kullanılarak çalıştırılabilir. Çoğu simülatör, derlenmiş simülatörlerdir. Derlemek ve yürütmek için birden fazla adım gerektirirler. Genel olarak
+İlk adım Verilog tasarımını derlemektir. İkinci adım, tasarımı detaylandırmak ve optimize etmektir. Üçüncü adım simülasyonu çalıştırmaktır. Adımların ayrıntıları simülatöre göre değişebilir ancak genel fikir aynı kalır.
+Cadence Simulator kullanarak üç adımlı süreç
+ncvlog hello_world.v ncelab hello_world ncsim hello_world İlk adım ncvlog, hello_world.</description>
+    </item>
+    
+    <item>
+      <title>Sentez ve Simülasyon uyuşmazlığı</title>
+      <link>https://www.wikiod.com/tr/verilog/sentez-ve-simulasyon-uyusmazlg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/verilog/sentez-ve-simulasyon-uyusmazlg/</guid>
+      <description>Bu konunun iyi bir açıklaması http://www.sunburst-design.com/papers/CummingsSNUG1999SJ_SynthMismatch.pdf adresinde bulunmaktadır.
+Karşılaştırmak # tel d = 1&amp;rsquo;bx; // önceki bloktan söyle. Donanımda 1 veya 0 olacak
+if (d == 1&amp;rsquo;b) // simülasyonda false. Donanımda false doğru olabilir
+Hassasiyet listesi # wire a; wire b; reg q; always @(a) // b missing from sensativity list q = a &amp;amp; b; // In simulation q will change only when a changes Donanımda, a veya b değiştiğinde q değişecektir.</description>
+    </item>
+    
+  </channel>
+</rss>

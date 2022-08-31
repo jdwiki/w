@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tutorial redux on </title>
+    <link>https://www.wikiod.com/es/docs/redux/</link>
+    <description>Recent content in tutorial redux on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/redux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comenzando con redux</title>
+      <link>https://www.wikiod.com/es/redux/comenzando-con-redux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/redux/comenzando-con-redux/</guid>
+      <description>Instalación o configuración # Instalación básica:
+Puede descargar el archivo javascript redux, usando este enlace.
+También puedes instalar redux, usando bower :
+bower install https://npmcdn.com/redux@latest/dist/redux.min.js A continuación, debe incluir redux en su página:
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/path/to/redux.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; // Redux is available as `window.Redux` variable. &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Instalación Npm:
+Si está utilizando npm, para instalar redux, debe ejecutar:
+npm install redux --save A continuación, para usar redux, debe solicitarlo (suponiendo que esté usando un paquete de módulos, como webpack):</description>
+    </item>
+    
+    <item>
+      <title>Flujo de datos asíncrono</title>
+      <link>https://www.wikiod.com/es/redux/flujo-de-datos-asincrono/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/redux/flujo-de-datos-asincrono/</guid>
+      <description>Redux-thunk: conceptos básicos # Si bien redux en sí es completamente síncrono, puede usar un middleware como redux-thunk para manejar acciones asíncronas.
+Un &amp;ldquo;thunk&amp;rdquo; es otro nombre para una devolución de llamada. Es una función que suele ser pasado como un argumento para ser llamado en un momento posterior.
+Para usar, aplique el middleware a su tienda redux:
+import ReduxThunk from &#39;redux-thunk&#39;; const store = createStore( reducer, applyMiddleware(ReduxThunk) ); Esto le permite pasar un thunk a dispatch en lugar de un objeto simple.</description>
+    </item>
+    
+    <item>
+      <title>Pure Redux - Redux sin ningún marco</title>
+      <link>https://www.wikiod.com/es/redux/pure-redux---redux-sin-ningun-marco/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/redux/pure-redux---redux-sin-ningun-marco/</guid>
+      <description>Parámetros # Parámetro Descripción acción Debe ser un objeto con al menos la propiedad tipo. Se puede pasar cualquier otra propiedad y será accesible dentro de la función reducer. Si no está utilizando paquetes como Webpack y Browserify, cambie la primera línea a:
+const { createStore } = Redux; O simplemente llámelo directamente desde Redux global al crear la tienda:
+const store = Redux.createStore(counter); Ejemplo completo # index.html # &amp;lt;button id=&amp;quot;increment&amp;quot;&amp;gt;Increment&amp;lt;/button&amp;gt; &amp;lt;button id=&amp;quot;decrement&amp;quot;&amp;gt;Decrement&amp;lt;/button&amp;gt; &amp;lt;p id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/p&amp;gt; index.</description>
+    </item>
+    
+    <item>
+      <title>Prueba de aplicaciones Redux</title>
+      <link>https://www.wikiod.com/es/redux/prueba-de-aplicaciones-redux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/redux/prueba-de-aplicaciones-redux/</guid>
+      <description>Redux + Moca # Redux es muy funcional, por lo que las pruebas unitarias son muy sencillas.
+Creador de acciones:
+export function showSidebar () { return { type: &#39;SHOW_SIDEBAR&#39; } } Prueba unitaria de creadores de acciones:
+import expect from &#39;expect&#39; import actions from &#39;./actions&#39; import * as type from &#39;./constants&#39; describe(&#39;actions&#39;, () =&amp;gt; { it(&#39;should show sidebar&#39;, () =&amp;gt; { const expectedAction = { type: type.SHOW_SIDEBAR } expect(actions.showSidebar()).toEqual(expectedAction) }) }) Probando una tienda Redux con Mocha y Chai # import { expect } from &#39;chai&#39;; import { createStore } from &#39;redux&#39;; describe(&#39;redux store test demonstration&#39;, () =&amp;gt; { describe(&#39;testReducer&#39;, () =&amp;gt; { it(&#39;should increment value on TEST_ACTION&#39;, () =&amp;gt; { // define a test reducer with initial state: test: 0 const testReducer = (state = { test: 0 }, action) =&amp;gt; { switch (action.</description>
+    </item>
+    
+    <item>
+      <title>Cómo vincular redux y reaccionar</title>
+      <link>https://www.wikiod.com/es/redux/como-vincular-redux-y-reaccionar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/redux/como-vincular-redux-y-reaccionar/</guid>
+      <description>Sintaxis # &amp;lt;Tienda de proveedores&amp;gt; connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [opciones]) Parámetros # Argumento Descripción tienda Tienda Redux mapStateToProps Asignación proporcionada por el usuario: (state, ownProps) =&amp;gt; resultProps Proveedor # Para vincular fácilmente su tienda Redux a sus componentes React, puede usar una biblioteca adicional: [react-redux] (https://github.com/reactjs/react-redux).
+Primero, debe envolver su aplicación en un &amp;lsquo;Proveedor&amp;rsquo;, que es un componente que pasa su tienda para que lo usen los componentes secundarios:
+import { Provider } from &#39;react-redux&#39;; /// .</description>
+    </item>
+    
+    <item>
+      <title>reductor</title>
+      <link>https://www.wikiod.com/es/redux/reductor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/redux/reductor/</guid>
+      <description>Reductores cambia el estado de la aplicación en función de las acciones activadas.
+El estado es inmutable, lo que significa que los reductores deben ser puros: para la misma entrada, siempre debe obtener la misma salida. Debido a esto, la mutabilidad está prohibida en los reductores.
+Reductor básico # Un reductor básico se vería así:
+// Import the action types to recognise them import { ACTION_ERROR, ACTION_ENTITIES_LOADED, ACTION_ENTITY_CREATED } from &#39;.</description>
+    </item>
+    
+  </channel>
+</rss>

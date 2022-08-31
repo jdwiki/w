@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rspec Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/rspec/</link>
+    <description>Recent content in rspec Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/rspec/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rspec&#39;i kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/rspec/rspeci-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rspec/rspeci-kullanmaya-baslama/</guid>
+      <description>Basit bir RSpec örneği # greeter.rb&amp;rsquo;de (projenizde nereye giderse gitsin):
+class Greeter def greet &amp;quot;Hello, world!&amp;quot; end end spec/greeter_spec.rb&amp;rsquo;de:
+require_relative &#39;../greeter.rb&#39; RSpec.describe Greeter do describe &#39;#greet&#39; do it &amp;quot;says hello&amp;quot; do expect(Greeter.new.greet).to eq(&amp;quot;Hello, world!&amp;quot;) end end end Yani dosya yapımız şuna benziyor:
+$ tree . . ├── greeter.rb └── spec └── greeter_spec.rb 1 directory, 2 files Çıktı
+$rspec greeter_spec.rb Finished in 0.00063 seconds (files took 0.06514 seconds to load) 1 example, 0 failures RSpec terminolojisinde, dosya &amp;ldquo;Greeter&amp;quot;in &amp;ldquo;özelliği&amp;quot;dir ve &amp;ldquo;it&amp;rdquo; bloğu bir &amp;ldquo;örnek&amp;quot;tir.</description>
+    </item>
+    
+    <item>
+      <title>RSpec Beklentileri</title>
+      <link>https://www.wikiod.com/tr/rspec/rspec-beklentileri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rspec/rspec-beklentileri/</guid>
+      <description>RSpec::Expectations, örnek tabanlı bir DSL sözdizimi kullanarak bir nesnede beklenen sonuçları ifade etmenize olanak tanır.
+Bu konu, &amp;ldquo;expect .to&amp;rdquo; ve birçok yerleşik eşleştirici kullanılarak RSpec&amp;rsquo;te test sonuçlarının nasıl bekleneceğine ilişkin örnekler verir.
+Bu işlevsellik, rspec-expectations gem tarafından sağlanır.
+Temel Kullanım # Aşağıdaki gibi bir &amp;ldquo;sınıf&amp;rdquo; verilir:
+class Cube attr_reader :height, :width, :depth def initialize(args) @height = args[:height] || args[:y] || 1 @width = args[:width] || args[:x] || 1 @depth = args[:depth] || args[:z] || 1 end def volume height * width * depth end end Aşağıdaki örnek, &amp;ldquo;cube.</description>
+    </item>
+    
+    <item>
+      <title>RSpec Mock&#39;leri</title>
+      <link>https://www.wikiod.com/tr/rspec/rspec-mockleri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rspec/rspec-mockleri/</guid>
+      <description>Bu konu, RSpec&amp;rsquo;in test çiftleri (saplamalar, taklitler, vb.) için desteğini belgelemektedir. Bu destek rspec-mocks gem tarafından sağlanmaktadır.
+izin ile saplama # Aşağıdaki örnek, örneğin bir ağ aramasını beklemek veya işlemcinin bildiği bir kredi kartı numarasını kullanmak zorunda kalmaması için bir &amp;ldquo;Sepet&amp;quot;in çağrısını bir &amp;ldquo;Kredi Kartı Hizmeti&amp;quot;ne saplamak için &amp;ldquo;izin ver&amp;rdquo; ve &amp;ldquo;al&amp;rdquo; kullanır. .
+class Cart def check_out begin transaction_id = CreditCardService.instance.validate credit_card_number, total_price order = Order.new order.items = cart.items order rescue CreditCardService::ValidationFailedError # handle the error end end end describe Cart do describe &#39;#check_out&#39; do it &amp;quot;places an order&amp;quot; do allow(CreditCardService.</description>
+    </item>
+    
+    <item>
+      <title>RSpec Çekirdeği</title>
+      <link>https://www.wikiod.com/tr/rspec/rspec-cekirdegi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rspec/rspec-cekirdegi/</guid>
+      <description>Belirli bir etiketle örnek çalıştırma # &amp;ldquo;Tanımlamak&amp;rdquo; veya &amp;ldquo;it&amp;rdquo; bloklarına etiket eklemek, yalnızca belirli bir etiketle bu örnekleri çalıştırmanıza izin verir. Belirli bir etiketle eşleşen örnekleri çalıştırmak için --tag (veya -t) seçeneğini kullanın. Etiket, basit bir ad veya ad:değer çifti olabilir.
+Basit bir ad verilirse, yalnızca :name =&amp;gt; true içeren örnekler çalışacaktır. Örneğin, &amp;ldquo;rspec &amp;lt;spec_file&amp;gt; &amp;ndash;tag Smoke&amp;rdquo; &amp;ldquo;Smoke&amp;rdquo; ile etiketlenmiş örneği çalıştırır.
+describe &#39;#Tests&#39; do it &#39;runs the smoke test&#39;, :smoke =&amp;gt; true do end it &#39;runs the regression tests&#39;, :regression =&amp;gt; true do end it &#39;runs the acceptance tests&#39;, :acceptance =&amp;gt; true do end end Bir &amp;lsquo;ad:değer&amp;rsquo; çifti verilirse, &amp;lsquo;ad =&amp;gt; değer&amp;rsquo; içeren örnekler çalışacaktır, burada değer her zaman bir dizedir.</description>
+    </item>
+    
+    <item>
+      <title>RSpec Eşleştiricisi</title>
+      <link>https://www.wikiod.com/tr/rspec/rspec-eslestiricisi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rspec/rspec-eslestiricisi/</guid>
+      <description>rspec-beklentileri bir dizi yerleşik eşleştiriciyle birlikte gelir. Her eşleştirici kullanılabilir Beklenti(..).to veya bekle(..).not_to ile olumlu ve olumsuz beklentileri tanımlamak için sırasıyla bir nesne üzerinde.
+Eşitlik eşleştiriciler # eq (==) kullanarak karşılaştırın
+RSpec.describe &amp;quot;a string&amp;quot; do it &amp;quot;is equal to another string of the same value&amp;quot; do expect(&amp;quot;this string&amp;quot;).to eq(&amp;quot;this string&amp;quot;) end it &amp;quot;is not equal to another string of a different value&amp;quot; do expect(&amp;quot;this string&amp;quot;).not_to eq(&amp;quot;a different string&amp;quot;) end end RSpec.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ggplot2 Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/ggplot2/</link>
+    <description>Recent content in ggplot2 Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ggplot2&#39;ye başlarken</title>
+      <link>https://www.wikiod.com/tr/ggplot2/ggplot2ye-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ggplot2/ggplot2ye-baslarken/</guid>
+      <description>ggplot2 nasıl kurulur ve çalıştırılır # R kurulumunuz için &amp;lsquo;ggplot2&amp;rsquo;nin mevcut kararlı sürümünü kurmak ve yüklemek için:
+# install from CRAN install.packages(&amp;quot;ggplot2&amp;quot;) Geliştirme sürümünü github&amp;rsquo;dan yüklemek için kullanın
+# install.packages(&amp;quot;devtools&amp;quot;) devtools::install_github(&amp;quot;hadley/ggplot2&amp;quot;) Mevcut R oturumunuza yükleyin ve bir örnek yapın.
+ggplot2&amp;rsquo;nin temel örneği # https://www.wikiod.com/tr/r/dogrusal-modeller-regresyon#mtcars veri kümesinde doğrusal regresyon adresinde gösterilene benzer bir grafik gösteriyoruz. İlk olarak varsayılanlarla ve bazı parametrelerin özelleştirilmesiyle.
+#help(&amp;quot;mtcars&amp;quot;) fit &amp;lt;- lm(mpg ~ wt, data = mtcars) bs &amp;lt;- round(coef(fit), 3) lmlab &amp;lt;- paste0(&amp;quot;mpg = &amp;quot;, bs[1], ifelse(sign(bs[2])==1, &amp;quot; + &amp;quot;, &amp;quot; - &amp;quot;), abs(bs[2]), &amp;quot; wt &amp;quot;) #range(mtcars$wt) library(&amp;quot;ggplot2&amp;quot;) #with defaults ggplot(aes(x=wt, y=mpg), data = mtcars) + geom_point() + geom_smooth(method = &amp;quot;lm&amp;quot;, se=FALSE, formula = y ~ x) #some customizations ggplot(aes(x=wt, y=mpg,colour=&amp;quot;mpg&amp;quot;), data = mtcars) + geom_point(shape=21,size=4,fill = &amp;quot;blue&amp;quot;,alpha=0.</description>
+    </item>
+    
+    <item>
+      <title>Bir veri alt kümesini çizin</title>
+      <link>https://www.wikiod.com/tr/ggplot2/bir-veri-alt-kumesini-cizin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ggplot2/bir-veri-alt-kumesini-cizin/</guid>
+      <description>Sözdizimi # xlim(sol.limit,sağ.limit) data.frame[data.frame$değişken == &amp;ldquo;istenen.değişken&amp;rdquo;,] xlim / ylim kullanma # &amp;gt; library(ggplot2) &amp;gt; ggplot(iris,aes(Sepal.Width)) + geom_density() + xlim(1,3.5) xlim veya ylim kullanarak çizim kesilmez, ggplot önceki verileri alt kümeler stat işlevinin çağrılması (bu durumda stat_density). Uyarı mesajında ​​görebilirsiniz.
+Warning message: Removed 19 rows containing non-finite values (stat_density). Kategorik değişkenler için Satır İçi Alt Küme # ggplot(iris[iris$Species == &amp;quot;setosa&amp;quot;,],aes(Sepal.Width)) + geom_density() Burada, veri çerçevesini ggplot&amp;rsquo;a geçirmeden önce alt kümeleri oluşturuyoruz. Veri çerçevesi veri yapısından türetilen çok kullanışlı bir araçtır.</description>
+    </item>
+    
+    <item>
+      <title>Eksenleri, başlıkları ve göstergeleri özelleştirme</title>
+      <link>https://www.wikiod.com/tr/ggplot2/eksenleri-baslklar-ve-gostergeleri-ozellestirme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ggplot2/eksenleri-baslklar-ve-gostergeleri-ozellestirme/</guid>
+      <description>Bu konuda, ggplot2 kütüphanesini kullanırken eksenlerin, başlıkların ve göstergelerin nasıl özelleştirileceğini açıklamaya çalışacağız.
+Gösterge başlığını değiştirin ve tuş boyutunu artırın # # load the library library(ggplot2) # create a blank canvas g &amp;lt;- ggplot(data = diamonds) g + geom_bar(aes(x = cut, fill = cut)) + scale_fill_discrete(guide = guide_legend(title = &amp;quot;CUT&amp;quot;, keywidth = 2, keyheight = 2)) Gruplar arasında frekansları karşılaştırın ve gösterge başlığını kaldırın # g + geom_bar(aes(x = cut, fill = color), position = &amp;quot;fill&amp;quot;) + guides(fill = guide_legend(title = NULL)) Çakışan nesneleri yan yana yerleştirin ve eksen metinlerinin renklerini değiştirin # g + geom_bar(mapping = aes(x = cut, fill = clarity), position = &amp;quot;dodge&amp;quot;) + theme(axis.</description>
+    </item>
+    
+    <item>
+      <title>Zaman serisini çizme</title>
+      <link>https://www.wikiod.com/tr/ggplot2/zaman-serisini-cizme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ggplot2/zaman-serisini-cizme/</guid>
+      <description>Zaman serisini çizme # Bu örnek, bir csv veri dosyasından bir zaman serisinin nasıl çizileceğini gösterir.
+library(ggplot2) # Original data not provided, see subset/plotted data below datos.orig&amp;lt;-read.csv(&amp;quot;data.csv&amp;quot;,header=TRUE) # read csv data # Change dates to POSIXct fecha&amp;lt;-as.data.frame(as.POSIXct(datos.orig$Fecha)) # Build a new and shorter data frame for temperature datos.graf&amp;lt;-cbind.data.frame(fecha,datos.orig$Temp_Max,datos.orig$Temp_Min) colnames(datos.graf)&amp;lt;-c(&amp;quot;fecha&amp;quot;,&amp;quot;TMax&amp;quot;,&amp;quot;Tmin&amp;quot;) # Plot ggplot() + geom_line(data=datos.graf,aes(x=fecha, y=TMax),colour=&amp;quot;red&amp;quot;) + geom_line(data=datos.graf,aes(x=fecha, y=Tmin),colour=&amp;quot;blue&amp;quot;) + ylab(&amp;quot;Temperature axis title&amp;quot;) + xlab(&amp;quot; &amp;quot;) + scale_x_datetime( expand=c(0,0), # avoid blank space around plot date_breaks = &amp;quot;1 month&amp;quot;, # main axis breaks date_labels=&amp;quot;%d/%m/%Y&amp;quot;) + # axis labels date format scale_y_continuous(expand=c(0,0), limits=c(-10,40)) + theme(axis.</description>
+    </item>
+    
+  </channel>
+</rss>

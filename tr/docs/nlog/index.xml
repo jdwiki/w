@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nlog Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/nlog/</link>
+    <description>Recent content in nlog Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/nlog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nlog&#39;u kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/nlog/nlogu-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nlog/nlogu-kullanmaya-baslama/</guid>
+      <description>İlk günlükleri yazma # NLog.Config paketini yükleyin. (NuGet 3 kullanıcıları NLog yüklemeli ve yapılandırmayı manuel olarak eklemelidir.) Kaydediciye yazın:
+using NLog; public class MyClass { private static Logger logger = LogManager.GetCurrentClassLogger(); public void MyMethod1() { logger.Trace(&amp;quot;Sample trace message&amp;quot;); logger.Debug(&amp;quot;Sample debug message&amp;quot;); logger.Info(&amp;quot;Sample informational message&amp;quot;); logger.Warn(&amp;quot;Sample warning message&amp;quot;); logger.Error(&amp;quot;Sample error message&amp;quot;); logger.Fatal(&amp;quot;Sample fatal error message&amp;quot;); // alternatively you can call the Log() method // and pass log level as the parameter. logger.</description>
+    </item>
+    
+    <item>
+      <title>NLog&#39;da Sorun Giderme</title>
+      <link>https://www.wikiod.com/tr/nlog/nlogda-sorun-giderme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nlog/nlogda-sorun-giderme/</guid>
+      <description>nlog.config&amp;rsquo;de dahili kaydediciyi etkinleştirin # Sorun olması durumunda dahili kaydediciyi etkinleştirin
+&amp;lt;nlog internalLogFile=&amp;quot;c:\log.txt&amp;quot; internalLogLevel=&amp;quot;Trace&amp;quot;&amp;gt; &amp;lt;targets&amp;gt; &amp;lt;!-- target configuration here --&amp;gt; &amp;lt;/targets&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;!-- log routing rules --&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/nlog&amp;gt; Dahili kaydediciyi programlı olarak etkinleştirin # Sorun olması durumunda dahili kaydediciyi etkinleştirin.
+C# örneği:
+// set internal log level InternalLogger.LogLevel = LogLevel.Trace; // enable one of the targets: file, console, logwriter: // enable internal logging to a file (absolute or relative path.</description>
+    </item>
+    
+    <item>
+      <title>NLog&#39;u genişletme</title>
+      <link>https://www.wikiod.com/tr/nlog/nlogu-genisletme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nlog/nlogu-genisletme/</guid>
+      <description>Özel Hedef oluştur # using NLog; using NLog.Config; using NLog.Targets; namespace MyNamespace { [Target(&amp;quot;MyFirst&amp;quot;)] public sealed class MyFirstTarget: TargetWithLayout //or inherit from Target { public MyFirstTarget() { //set defaults this.Host = &amp;quot;localhost&amp;quot;; } [RequiredParameter] public string Host { get; set; } protected override void Write(LogEventInfo logEvent) { string logMessage = this.Layout.Render(logEvent); //TODO write to target } } } MyFirst adıyla kaydedin - mümkün olan en kısa sürede - ör. main(), application_start() içinde.</description>
+    </item>
+    
+    <item>
+      <title>Dosyalara günlük yaz</title>
+      <link>https://www.wikiod.com/tr/nlog/dosyalara-gunluk-yaz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nlog/dosyalara-gunluk-yaz/</guid>
+      <description>Tek dosyaya yaz # Tüm olayları level: debug, info, warn, error ve fatal ile tek bir dosyaya yazın:
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt; &amp;lt;nlog xmlns=&amp;quot;http://www.nlog-project.org/schemas/NLog.xsd&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt; &amp;lt;targets&amp;gt; &amp;lt;target name=&amp;quot;file&amp;quot; xsi:type=&amp;quot;File&amp;quot; layout=&amp;quot;${longdate} ${logger} ${message} ${exception}&amp;quot; fileName=&amp;quot;${basedir}/logs/logfile.txt&amp;quot; /&amp;gt; &amp;lt;/targets&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;logger name=&amp;quot;*&amp;quot; minlevel=&amp;quot;Debug&amp;quot; writeTo=&amp;quot;file&amp;quot; /&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/nlog&amp;gt; Her gün bir günlük dosyası yazın # Her gün için bir günlük dosyası oluşturun. Günlük dosyaları aşağıdaki adlara sahip olacaktır (kültüre bağlı olarak)
+2016-06-05.log 2016-06-06.log 2016-06-07.log ... &amp;lt;?</description>
+    </item>
+    
+  </channel>
+</rss>

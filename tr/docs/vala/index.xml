@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vala Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/vala/</link>
+    <description>Recent content in vala Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/vala/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vala&#39;ya başlarken</title>
+      <link>https://www.wikiod.com/tr/vala/valaya-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vala/valaya-baslarken/</guid>
+      <description>Selam Dünya! # &amp;ldquo;foo.vala&amp;rdquo; içinde:
+void main (string[] args) { stdout.printf (&amp;quot;Hello world!&amp;quot;); } Kaynağı &amp;ldquo;foo&amp;rdquo; ikili dosyasında derlemek için:
+valac foo.vala Kaynağı derlemek ve çalıştırmak için:
+vala foo.vala Kurulum veya Kurulum # Vala&amp;rsquo;yı kurmanın en kolay yolu, dağıtıma özel paketinizi kurmaktır.
+Ubuntu&amp;rsquo;da:
+sudo apt install valac Fedora&amp;rsquo;da:
+sudo dnf install vala Arch&amp;rsquo;ta:
+sudo pacman -S vala OS X&amp;rsquo;te Homebrew ile:
+brew install vala Windows&amp;rsquo;ta en son sürüm için bir yükleyici edinebilirsiniz buradan.</description>
+    </item>
+    
+    <item>
+      <title>Meson</title>
+      <link>https://www.wikiod.com/tr/vala/meson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vala/meson/</guid>
+      <description>Meson, basitlik ve açıklık göz önünde bulundurularak tasarlanmış yeni nesil bir yapı sistemidir.
+Temel proje # project(&#39;Vala Project&#39;) glib_dep = dependency(&#39;glib-2.0&#39;) gobject_dep = dependency(&#39;gobject-2.0&#39;) executable(&#39;foo&#39;, &#39;foo.vala&#39;, dependencies: [glib_dep, gobject_dep]) Not: &amp;ldquo;&amp;ndash;nostdpkg&amp;rdquo; açıkça belirtilmedikçe hem &amp;ldquo;glib-2.0&amp;rdquo; hem de &amp;ldquo;gobject-2.0&amp;rdquo; bağımlılıkları gereklidir.
+Posix tabanlı proje (GLib veya GObject yok) # project(&#39;Posix-based Project&#39;, &#39;vala&#39;) add_project_arguments([&#39;--nostdpkg&#39;], language: &#39;vala&#39;) posix_dep = meson.get_compiler(&#39;vala&#39;).find_library(&#39;posix&#39;) executable(&#39;foo&#39;, &#39;foo.vala&#39;, dependencies: [posix_dep]) Karışık kaynaklar # project(&#39;Mixed sources Project&#39;, &#39;vala&#39;) glib_dep = dependency(&#39;glib-2.</description>
+    </item>
+    
+    <item>
+      <title>sınıflar</title>
+      <link>https://www.wikiod.com/tr/vala/snflar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vala/snflar/</guid>
+      <description>Vala, çeşitli sınıf lezzetlerini destekler.
+&amp;ldquo;&amp;ndash;nostdpkg&amp;rdquo; açıkça belirtilmedikçe hem &amp;ldquo;glib-2.0&amp;rdquo; hem de &amp;ldquo;gobject-2.0&amp;rdquo; bağımlılıkları gereklidir.
+Kompakt Sınıf # [Compact] public class Foo { public string prop; } Esas olarak belirli bellek yönetimine sahip bağlamalar yazmak için kullanılır.
+GObject Sınıfı # public class Foo : Object { public string prop { construct; get; } } GObject Introspection kullanan birlikte denetlenebilir API içindir. Sınıfları bildirmek için önerilen yol budur.
+Düz Sınıf # public class Foo { public string prop { construct; get; } } Pure-Vala ve hafif sınıf.</description>
+    </item>
+    
+    <item>
+      <title>sinyaller</title>
+      <link>https://www.wikiod.com/tr/vala/sinyaller/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vala/sinyaller/</guid>
+      <description>Temel sinyal # Sinyaller yalnızca GObject sınıflarında kullanılabilir. Yalnızca genel olabilirler, yani kodun herhangi bir parçası işleyicileri bağlayabilir ve onları tetikleyebilir.
+public class Emitter : Object { // A signal is declared like a method, // but with the signal keyword. public signal void my_signal (); public void send_signal () { this.my_signal (); // Send a signal by calling it like a method. } } void main () { var emitter = new Emitter (); // Use the connect method of the signal to add an handler.</description>
+    </item>
+    
+    <item>
+      <title>GLib.Value kullanma</title>
+      <link>https://www.wikiod.com/tr/vala/glibvalue-kullanma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vala/glibvalue-kullanma/</guid>
+      <description>Nasıl başlatılır? # Yapıyı başlatmak için şunu yapabilirsiniz:
+public static void main (string[] args) { Value val = Value (typeof (int)); val.set_int (33); } Ancak Vala, değerleri başlatmanın başka bir yolunu sunar:
+public static void main (string[] args) { Value val = 33; } Değeriniz &amp;lsquo;int&amp;rsquo; türüyle başlatılır ve &amp;lsquo;33&amp;rsquo; int değerini tutar.
+Bu nasıl kullanılır ? # GLib.Value get yöntemlerinden birini kullanın (valadoc belgelerine bakın) veya değerinizi değerinizin türüyle yayınlayın:</description>
+    </item>
+    
+    <item>
+      <title>Zaman uyumsuz ve Verim</title>
+      <link>https://www.wikiod.com/tr/vala/zaman-uyumsuz-ve-verim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vala/zaman-uyumsuz-ve-verim/</guid>
+      <description>Vala, eşzamansız işlemlerle başa çıkmak için iki sözdizimi yapısı sağlar: &amp;ldquo;async&amp;rdquo; işlevi ve &amp;ldquo;verim&amp;rdquo; ifadesi.
+Eşzamansız Bir İşlev Bildirin # public async int call_async () { return 1; } call_async.begin ((obj, res) =&amp;gt; { var ret = call_async.end (res); }); Eşzamanlı bir bağlamdan eşzamansız işlevleri çağırmak için, &amp;ldquo;begin&amp;rdquo; yöntemini kullanın ve sonucu almak için bir geri arama iletin. İki argüman şunlardır:
+&amp;ldquo;obj&amp;rdquo;, bu çağrı bir sınıfta tanımlanmışsa bir &amp;ldquo;GLib.Object&amp;quot;tir &amp;ldquo;res&amp;rdquo;, asenkron işlemin sonucunu tutan bir &amp;ldquo;GLib.</description>
+    </item>
+    
+    <item>
+      <title>Mülkiyet</title>
+      <link>https://www.wikiod.com/tr/vala/mulkiyet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vala/mulkiyet/</guid>
+      <description>Derleyicinin, değer sahipliğinin aktarıldığı değişkeni kullanmanıza engel olmayacağını unutmayın.
+Sahipliği Aktarma # var foo = new uint8[12]; var bar = (owned) foo; assert (foo == null); &amp;ldquo;bar&amp;rdquo; değişkeni, daha önce &amp;ldquo;foo&amp;quot;nun sahip olduğu değere sahip olacaktır.
+Örtülü Kopya # var foo = new uint8[12]; var bar = foo; assert (foo != bar); Bu örnekte, hem &amp;ldquo;foo&amp;rdquo; hem de &amp;ldquo;bar&amp;rdquo; güçlü bir referansa sahiptir, ancak &amp;ldquo;uint8[]&amp;rdquo; yalnızca tek sahipliği desteklediğinden, bir kopya oluşturulur.</description>
+    </item>
+    
+    <item>
+      <title>Windows&#39;ta Vala&#39;yı Kullanma</title>
+      <link>https://www.wikiod.com/tr/vala/windowsta-valay-kullanma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vala/windowsta-valay-kullanma/</guid>
+      <description>Bu konu, Windows&amp;rsquo;ta valac&amp;rsquo;ın nasıl çalıştırılacağına odaklanmaktadır.
+msys2&amp;rsquo;yi (64 Bit) kullanma # msys2&amp;rsquo;yi yükleyin (http://www.msys2.org/)
+Vala için gerekli önkoşulları yükleyin
+pacman -S mingw64/mingw-w64-x86_64-gcc pacman -S mingw64/mingw-w64-x86_64-pkg-config pacman -S mingw64/mingw-w64-x86_64-vala ve kodunuzun gerektirdiği tüm ek paketler, yani.
+pacman -S mingw64/mingw-w64-x86_64-libgee ... Doğru msys2 kabuğunu başlatın
+C:\msys64\mingw64.exe MSYSTEM ve PKG_CONFIG_PATH ortam değişkenlerini kontrol edin
+$ echo $MSYSTEM MINGW64 $ echo $PKG_CONFIG_PATH /mingw64/lib/pkgconfig:/mingw64/share/pkgconfig &amp;lsquo;valac&amp;rsquo;ı her zamanki gibi çalıştırın, ancak her zaman doğru ortamda çalıştığınızdan emin olun (3.</description>
+    </item>
+    
+    <item>
+      <title>Fonksiyonlar</title>
+      <link>https://www.wikiod.com/tr/vala/fonksiyonlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/vala/fonksiyonlar/</guid>
+      <description>Fonksiyonlar, programınızın diğer fonksiyonları tarafından çalıştırılabilen kod parçalarıdır.
+Programınız her zaman &amp;lsquo;ana&amp;rsquo; işleviyle başlar.
+Ayrıca bkz. eşzamansız işlevler.
+Yöntemler, işlevle tamamen aynıdır, ancak bir nesne örneği üzerinde hareket ederler.
+Temel fonksiyonlar # Bir işlev, en azından dönüş türü ve benzersiz bir adla tanımlanır.
+void say_hello () { print (&amp;quot;Hello, world!\n&amp;quot;); } Ardından, onu çağırmak için sadece fonksiyonun adını ve ardından bir parantez kullanın.
+say_hello (); İşlevler ayrıca parantezler arasında türlerine ve adlarına göre tanımlanmış ve virgülle ayrılmış parametrelere sahip olabilir.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>google-chrome-extension Tutoriel on </title>
+    <link>https://www.wikiod.com/fr/docs/google-chrome-extension/</link>
+    <description>Recent content in google-chrome-extension Tutoriel on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/google-chrome-extension/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec google-chrome-extension</title>
+      <link>https://www.wikiod.com/fr/google-chrome-extension/premiers-pas-avec-google-chrome-extension/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/google-chrome-extension/premiers-pas-avec-google-chrome-extension/</guid>
+      <description>Exemple minimum absolu # Toute extension Chrome commence par une extension décompressée : un dossier contenant les fichiers de l&amp;rsquo;extension.
+Un fichier qu&amp;rsquo;il doit contenir est [manifest.json][1], qui décrit les propriétés de base de l&amp;rsquo;extension. De nombreuses propriétés de ce fichier sont facultatives, mais voici un fichier &amp;ldquo;manifest.json&amp;rdquo; minimum absolu :
+{ &amp;quot;manifest_version&amp;quot;: 2, &amp;quot;name&amp;quot;: &amp;quot;My Extension&amp;quot;, &amp;quot;version&amp;quot;: &amp;quot;1.0&amp;quot; } Créez un dossier (par exemple, myExtension) quelque part, ajoutez-y manifest.json comme indiqué ci-dessus.</description>
+    </item>
+    
+    <item>
+      <title>Scénarios de contenu</title>
+      <link>https://www.wikiod.com/fr/google-chrome-extension/scenarios-de-contenu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/google-chrome-extension/scenarios-de-contenu/</guid>
+      <description>Documents officiels # [Scripts de contenu][1] * [Politique de sécurité du contenu &amp;gt; Scripts de contenu][2] [1] : https://developer.chrome.com/extensions/content_scripts [2] : https://developer.chrome.com/extensions/contentSecurityPolicy#interactions
+Déclaration des scripts de contenu dans le manifeste # Les scripts de contenu peuvent être déclarés dans [manifest.json][1] pour être toujours injectés dans les pages qui correspondent à un ensemble de [modèles d&amp;rsquo;URL][2].
+Exemple minimal # &amp;quot;content_scripts&amp;quot; : [ { &amp;quot;js&amp;quot;: [&amp;quot;content.js&amp;quot;], &amp;quot;css&amp;quot;: [&amp;quot;content.css&amp;quot;] &amp;quot;matches&amp;quot;: [&amp;quot;http://example.com/*&amp;quot;] } ] Cette entrée de manifeste demande à Chrome d&amp;rsquo;injecter un script de contenu &amp;ldquo;content.</description>
+    </item>
+    
+    <item>
+      <title>manifeste.json</title>
+      <link>https://www.wikiod.com/fr/google-chrome-extension/manifestejson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/google-chrome-extension/manifestejson/</guid>
+      <description>Documents officiels # [Format de fichier manifeste][1]
+Format # Le fichier manifeste est écrit au format [JSON][2] (JavaScript Object Notation).
+Ce format diffère des règles plus souples d&amp;rsquo;écriture des littéraux d&amp;rsquo;objet dans le code JavaScript. Parmi les différences importantes :
+Chaque nom de clé et littéral de chaîne doit être entre guillemets doubles. * Correct : &amp;quot;clé&amp;quot;: &amp;quot;valeur&amp;quot;
+Faux : clé : &amp;quot;valeur&amp;quot;, &#39;clé&#39; : &#39;valeur&#39;
+Aucun commentaire n&amp;rsquo;est autorisé par le format.</description>
+    </item>
+    
+    <item>
+      <title>Transmission de messages</title>
+      <link>https://www.wikiod.com/fr/google-chrome-extension/transmission-de-messages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/google-chrome-extension/transmission-de-messages/</guid>
+      <description>Documents officiels # [Passage de message][1] * [Messagerie native][2] [API chrome.runtime][3] (la plupart des fonctions de messagerie et tous les événements de messagerie) [1] : https://developer.chrome.com/extensions/messaging [2] : https://developer.chrome.com/extensions/nativeMessaging [3] : https://developer.chrome.com/extensions/runtime
+Envoyer une réponse de manière asynchrone # Pour tenter d&amp;rsquo;envoyer une réponse de manière asynchrone à partir du rappel chrome.runtime.onMessage, nous pourrions essayer ce code erroné : &amp;lt;! &amp;ndash; ÉDITEURS : veuillez conserver &amp;ldquo;mauvais code&amp;rdquo; sur une nouvelle ligne &amp;ndash;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Portage versdepuis Firefox</title>
+      <link>https://www.wikiod.com/fr/google-chrome-extension/portage-versdepuis-firefox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/google-chrome-extension/portage-versdepuis-firefox/</guid>
+      <description>Si vous utilisez une version Firefox antérieure à 48, vous aurez également besoin d&amp;rsquo;un clé supplémentaire dans manifest.json appelée applications :
+&amp;quot;applications&amp;quot;: { &amp;quot;gecko&amp;quot;: { &amp;quot;id&amp;quot;: &amp;quot;borderify@example.com&amp;quot;, &amp;quot;strict_min_version&amp;quot;: &amp;quot;42.0&amp;quot;, &amp;quot;strict_max_version&amp;quot;: &amp;quot;50.*&amp;quot;, &amp;quot;update_url&amp;quot;: &amp;quot;https://example.com/updates.json&amp;quot; } } [candidatures][1]
+Noter:
+[Signature d&amp;rsquo;extension][2] :
+Avec la sortie de Firefox 48, la signature d&amp;rsquo;extension ne peut plus être désactivé dans les builds de version et de canal bêta en utilisant une préférence. Comme indiqué lors de l&amp;rsquo;annonce de la signature de l&amp;rsquo;extension, nous publions des versions spécialisées qui prennent en charge cette préférence afin que les développeurs puissent continuer à tester par rapport au code que les versions bêta et de version sont généré à partir de.</description>
+    </item>
+    
+    <item>
+      <title>Pages d&#39;arrière-plan</title>
+      <link>https://www.wikiod.com/fr/google-chrome-extension/pages-darriere-plan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/google-chrome-extension/pages-darriere-plan/</guid>
+      <description>Déclaration de la page d&amp;rsquo;arrière-plan dans le manifeste # Il existe deux façons d&amp;rsquo;enregistrer une page d&amp;rsquo;arrière-plan dans le manifeste d&amp;rsquo;extension.
+La propriété scripts Dans le cas courant, une page d&amp;rsquo;arrière-plan ne nécessite aucun balisage HTML. Nous pouvons enregistrer ces types de pages d&amp;rsquo;arrière-plan en utilisant la propriété scripts.
+Dans ce cas, une page d&amp;rsquo;arrière-plan sera générée par le système d&amp;rsquo;extension qui inclut chacun des fichiers répertoriés dans la propriété scripts.</description>
+    </item>
+    
+    <item>
+      <title>Débogage des extensions Chrome</title>
+      <link>https://www.wikiod.com/fr/google-chrome-extension/debogage-des-extensions-chrome/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/google-chrome-extension/debogage-des-extensions-chrome/</guid>
+      <description>Utilisation des outils de développement pour déboguer votre extension # Une rallonge chromée est séparée en 4 parties maximum :
+la page de fond la page contextuelle un ou plusieurs scripts de contenu la page des options Chaque partie, puisqu&amp;rsquo;elles sont intrinsèquement séparées, nécessite un débogage individuel.
+**Gardez à l&amp;rsquo;esprit que ces pages sont séparées, ce qui signifie que les variables ne sont pas directement partagées entre elles et qu&amp;rsquo;un ** console.</description>
+    </item>
+    
+    <item>
+      <title>Intégration de l&#39;outil de développement</title>
+      <link>https://www.wikiod.com/fr/google-chrome-extension/integration-de-loutil-de-developpement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/google-chrome-extension/integration-de-loutil-de-developpement/</guid>
+      <description>Débogage de la page/du script d&amp;rsquo;arrière-plan # Le script d&amp;rsquo;arrière-plan est comme n&amp;rsquo;importe quel autre code JavaScript. Vous pouvez le déboguer en utilisant les mêmes outils que vous déboguez d&amp;rsquo;autres codes JavaScript dans Chrome.
+Pour ouvrir les outils de développement Chrome, accédez à chrome://extensions et activez le mode développeur : [![Basculement du mode développeur][1]][1]
+Vous pouvez maintenant déboguer n&amp;rsquo;importe quelle extension qui a une page d&amp;rsquo;arrière-plan ou un script. Faites simplement défiler jusqu&amp;rsquo;à l&amp;rsquo;extension que vous souhaitez déboguer et cliquez sur le lien page d&amp;rsquo;arrière-plan pour l&amp;rsquo;inspecter.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nlog Tutorial on </title>
+    <link>https://www.wikiod.com/pt/docs/nlog/</link>
+    <description>Recent content in nlog Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/nlog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com nlog</title>
+      <link>https://www.wikiod.com/pt/nlog/comecando-com-nlog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/nlog/comecando-com-nlog/</guid>
+      <description>Escrevendo os primeiros logs # Instale o pacote NLog.Config. (Os usuários do NuGet 3 devem instalar o NLog e adicionar a configuração manualmente.) Gravar no logger:
+using NLog; public class MyClass { private static Logger logger = LogManager.GetCurrentClassLogger(); public void MyMethod1() { logger.Trace(&amp;quot;Sample trace message&amp;quot;); logger.Debug(&amp;quot;Sample debug message&amp;quot;); logger.Info(&amp;quot;Sample informational message&amp;quot;); logger.Warn(&amp;quot;Sample warning message&amp;quot;); logger.Error(&amp;quot;Sample error message&amp;quot;); logger.Fatal(&amp;quot;Sample fatal error message&amp;quot;); // alternatively you can call the Log() method // and pass log level as the parameter.</description>
+    </item>
+    
+    <item>
+      <title>Solução de problemas NLog</title>
+      <link>https://www.wikiod.com/pt/nlog/solucao-de-problemas-nlog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/nlog/solucao-de-problemas-nlog/</guid>
+      <description>Habilite o logger interno em nlog.config # Em caso de problemas, habilite o registrador interno
+&amp;lt;nlog internalLogFile=&amp;quot;c:\log.txt&amp;quot; internalLogLevel=&amp;quot;Trace&amp;quot;&amp;gt; &amp;lt;targets&amp;gt; &amp;lt;!-- target configuration here --&amp;gt; &amp;lt;/targets&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;!-- log routing rules --&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/nlog&amp;gt; Habilite o registrador interno programaticamente # Em caso de problemas, habilite o registrador interno.
+Exemplo C#:
+// set internal log level InternalLogger.LogLevel = LogLevel.Trace; // enable one of the targets: file, console, logwriter: // enable internal logging to a file (absolute or relative path.</description>
+    </item>
+    
+    <item>
+      <title>Estendendo NLog</title>
+      <link>https://www.wikiod.com/pt/nlog/estendendo-nlog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/nlog/estendendo-nlog/</guid>
+      <description>Criar destino personalizado # using NLog; using NLog.Config; using NLog.Targets; namespace MyNamespace { [Target(&amp;quot;MyFirst&amp;quot;)] public sealed class MyFirstTarget: TargetWithLayout //or inherit from Target { public MyFirstTarget() { //set defaults this.Host = &amp;quot;localhost&amp;quot;; } [RequiredParameter] public string Host { get; set; } protected override void Write(LogEventInfo logEvent) { string logMessage = this.Layout.Render(logEvent); //TODO write to target } } } Registre-o com o nome MyFirst - o mais rápido possível - ex. em main(), application_start().</description>
+    </item>
+    
+    <item>
+      <title>Gravar logs em arquivos</title>
+      <link>https://www.wikiod.com/pt/nlog/gravar-logs-em-arquivos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/nlog/gravar-logs-em-arquivos/</guid>
+      <description>Grava em um único arquivo # Grave todos os eventos com nível: debug, info, warning, error e fatal em um arquivo:
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt; &amp;lt;nlog xmlns=&amp;quot;http://www.nlog-project.org/schemas/NLog.xsd&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt; &amp;lt;targets&amp;gt; &amp;lt;target name=&amp;quot;file&amp;quot; xsi:type=&amp;quot;File&amp;quot; layout=&amp;quot;${longdate} ${logger} ${message} ${exception}&amp;quot; fileName=&amp;quot;${basedir}/logs/logfile.txt&amp;quot; /&amp;gt; &amp;lt;/targets&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;logger name=&amp;quot;*&amp;quot; minlevel=&amp;quot;Debug&amp;quot; writeTo=&amp;quot;file&amp;quot; /&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/nlog&amp;gt; Grava um arquivo de log por dia # Crie um arquivo de log para cada dia. Os arquivos de log terão os seguintes nomes (dependentes da cultura)</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de inyección de dependencia on </title>
+    <link>https://www.wikiod.com/es/docs/dependency-injection/</link>
+    <description>Recent content in Tutorial de inyección de dependencia on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/dependency-injection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con la inyección de dependencia</title>
+      <link>https://www.wikiod.com/es/dependency-injection/primeros-pasos-con-la-inyeccion-de-dependencia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dependency-injection/primeros-pasos-con-la-inyeccion-de-dependencia/</guid>
+      <description>¿Cuál es un ejemplo básico de inyección de dependencia? # Aquí hay una clase (Perro) que crea su propia dependencia (Comida):
+class Dog { public Dog() { var food = new Food(); this.eat(food); } } Aquí está la misma clase que se inyecta con su dependencia mediante la inyección del constructor:
+class Dog { public Dog(Food food) { this.eat(food); } } </description>
+    </item>
+    
+    <item>
+      <title>.NET - Ejemplos DI puros</title>
+      <link>https://www.wikiod.com/es/dependency-injection/net---ejemplos-di-puros/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dependency-injection/net---ejemplos-di-puros/</guid>
+      <description>Un ejemplo de cómo usar la inyección de dependencia en .net sin usar un contenedor. Basado en ejemplos de Mark Seemann http://blog.ploeh.dk/
+API web # public interface ISingleton : IDisposable { } public class TransientDependency { } public class Singleton : ISingleton { public void Dispose() { } } public class CompositionRoot : IDisposable, IHttpControllerActivator { private readonly ISingleton _singleton; // pass in any true singletons i.e. cross application instance singletons public CompositionRoot() { // intitialise any application instance singletons _singleton = new Singleton(); } public void Dispose() { _singleton.</description>
+    </item>
+    
+    <item>
+      <title>Inyección de constructor</title>
+      <link>https://www.wikiod.com/es/dependency-injection/inyeccion-de-constructor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dependency-injection/inyeccion-de-constructor/</guid>
+      <description>Inyección de constructor # Las clases tienen variables de instancia (dependencias), en las que llaman métodos.
+Ejemplo tomado de http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html como referencia
+public class Example { private DatabaseThingie myDatabase; public Example() { myDatabase = new DatabaseThingie(); } public void DoStuff() { ... myDatabase.GetData(); ... } } Esta clase tiene una dependencia llamada DatabaseThingie. Aquí, en este ejemplo, la clase Ejemplo es responsable de crear sus propias dependencias, violando así el Principio de responsabilidad única.</description>
+    </item>
+    
+    <item>
+      <title>Inyección de método</title>
+      <link>https://www.wikiod.com/es/dependency-injection/inyeccion-de-metodo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dependency-injection/inyeccion-de-metodo/</guid>
+      <description>Un ejemplo simple de inyección de métodos en C# # using System; namespace ConsoleApplication1 { class Program { static void Main(string[] args) { var foo = new Dependency(); var bar = new ClassWithDependency(); bar.DoSomething(foo); //Inject dependency as method parameter Console.ReadLine(); } } public interface IDependency { void DoSomething(); } public class Dependency: IDependency { public void DoSomething() { Console.WriteLine(&amp;quot;Hello&amp;quot;); } } public class ClassWithDependency { public void DoSomething(IDependency dependency) { dependency.</description>
+    </item>
+    
+    <item>
+      <title>Inyección de propiedad</title>
+      <link>https://www.wikiod.com/es/dependency-injection/inyeccion-de-propiedad/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dependency-injection/inyeccion-de-propiedad/</guid>
+      <description>Un ejemplo muy simple de inyección de propiedad con C# con un valor predeterminado local de carga diferida # using System; namespace ConsoleApplication1 { class Program { static void Main(string[] args) { var foo = new ClassWithDependency(); foo.DoSomething(); var bar = new InjectedDependency(); foo.Dependency = bar; //Injecting the dependency via a property foo.DoSomething(); Console.ReadLine(); } } public interface IDependency { void DoSomething(); } public class DefaultDependency: IDependency { public void DoSomething() { Console.</description>
+    </item>
+    
+  </channel>
+</rss>

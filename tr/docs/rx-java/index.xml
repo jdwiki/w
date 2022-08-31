@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rx-java Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/rx-java/</link>
+    <description>Recent content in rx-java Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/rx-java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rx-java&#39;ya başlarken</title>
+      <link>https://www.wikiod.com/tr/rx-java/rx-javaya-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rx-java/rx-javaya-baslarken/</guid>
+      <description>RxJava&amp;rsquo;ya giriş # RxJava&amp;rsquo;nın temel kavramları, onun &amp;ldquo;Gözlenebilirleri&amp;rdquo; ve &amp;ldquo;Aboneleri&amp;quot;dir. Bir &amp;ldquo;Gözlenebilir&amp;rdquo; nesneleri yayar, bir &amp;ldquo;Abone&amp;rdquo; ise onları tüketir.
+Gözlenebilir
+&amp;ldquo;Gözlenebilir&amp;rdquo;, reaktif tasarım modelini uygulayan bir sınıftır. Bu Gözlenebilirler, tüketicilerin olay değişikliklerine abone olmasına izin veren yöntemler sağlar. Olay değişiklikleri gözlemlenebilir tarafından tetiklenir. Bir &amp;ldquo;Gözlenebilir&amp;quot;in sahip olabileceği abone sayısında veya bir &amp;ldquo;Gözlenebilir&amp;quot;in yayınlayabileceği nesne sayısında herhangi bir kısıtlama yoktur. Örneğin:
+Observable&amp;lt;Integer&amp;gt; integerObservable = Observable.just(1, 2, 3); // Integer observable Observable&amp;lt;String&amp;gt; stringObservable = Observable.</description>
+    </item>
+    
+    <item>
+      <title>Geri basınç</title>
+      <link>https://www.wikiod.com/tr/rx-java/geri-basnc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rx-java/geri-basnc/</guid>
+      <description>Giriiş # Geri basınç, bir &amp;ldquo;Gözlenebilir&amp;rdquo; işleme hattındayken, bazı asenkron aşamalar değerleri yeterince hızlı işleyemez ve yukarı yönlü üreticiye yavaşlamasını söylemek için bir yola ihtiyaç duyar.
+Geri basınç ihtiyacının klasik durumu, üreticinin sıcak bir kaynak olduğu zamandır:
+PublishSubject&amp;lt;Integer&amp;gt; source = PublishSubject.create(); source .observeOn(Schedulers.computation()) .subscribe(v -&amp;gt; compute(v), Throwable::printStackTrace); for (int i = 0; i &amp;lt; 1_000_000; i++) { source.onNext(i); } Thread.sleep(10_000); Bu örnekte, ana iş parçacığı, onu bir arka plan iş parçacığında işleyen son tüketiciye 1 milyon öğe üretecektir.</description>
+    </item>
+    
+    <item>
+      <title>Birim Testi</title>
+      <link>https://www.wikiod.com/tr/rx-java/birim-testi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rx-java/birim-testi/</guid>
+      <description>Tüm Zamanlayıcı yöntemleri statik olduğundan, RxJava kancalarını kullanan birim testleri aynı JVM örneğinde paralel olarak çalıştırılamaz. Eğer buradalarsa, bir birim testinin ortasında bir TestScheduler kaldırılacaktır. Bu temelde Schedulers sınıfını kullanmanın dezavantajıdır.
+Test Zamanlayıcı # TestSchedulers, yoğun beklemeler yapmak, iş parçacıklarına katılmak veya sistem zamanını değiştirmek için herhangi bir şey yapmak yerine, Gözlemlenebilirlerin süresini ve yürütülmesini kontrol etmenize olanak tanır. Öngörülebilir, tutarlı ve hızlı birim testleri yazmak istiyorsanız bu ÇOK önemlidir. Zamanı manipüle ettiğiniz için, artık bir iş parçacığının aç kalması, testinizin daha yavaş bir makinede başarısız olması veya yürütme zamanını bir sonucu beklemekle harcamak gibi bir şansınız yok.</description>
+    </item>
+    
+    <item>
+      <title>RxJava&#39;lı Android</title>
+      <link>https://www.wikiod.com/tr/rx-java/rxjaval-android/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rx-java/rxjaval-android/</guid>
+      <description>RxAndroid, çok sayıda özelliğe sahip bir kitaplıktı. 0.25.0 sürümünden 1.x sürümüne taşınan birçok farklı kitaplığa bölünmüştür.
+1.0&amp;rsquo;dan önce kullanılabilen özellikleri uygulayan kitaplıkların listesi burada tutulur.
+RxAndroid - AndroidZamanlayıcılar # Android&amp;rsquo;de RxJava&amp;rsquo;yı kullanmaya başlamak için ihtiyacınız olan tek şey bu.
+Gradle bağımlılıklarınıza RxJava ve RxAndroid ekleyin:
+// use the last version compile &#39;io.reactivex.rxjava2:rxjava:2.1.1&#39; compile &#39;io.reactivex.rxjava2:rxandroid:2.0.1&#39; RxJava&amp;rsquo;ya eklenen RxAndroid ana eklentisi, Android Ana İş Parçacığı veya UI İş Parçacığı için bir Zamanlayıcıdır.</description>
+    </item>
+    
+    <item>
+      <title>RxJava2 Akışkan ve Abone</title>
+      <link>https://www.wikiod.com/tr/rx-java/rxjava2-akskan-ve-abone/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rx-java/rxjava2-akskan-ve-abone/</guid>
+      <description>Bu konu, rxjava version2&amp;rsquo;de tanıtılan Flowable ve Abone&amp;rsquo;nin reaktif kavramlarıyla ilgili örnekleri ve belgeleri gösterir.
+örnek, bağımlılık olarak rxjava2&amp;rsquo;ye ihtiyaç duyar, kullanılan sürüm için maven koordinatları:
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;io.reactivex.rxjava2&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxjava&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.8&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; üreticide geri basınç destekli üretici tüketici örneği # Bu örnekteki &amp;ldquo;TestProducer&amp;rdquo;, belirli bir aralıkta &amp;ldquo;Tamsayı&amp;rdquo; nesneleri üretir ve bunları &amp;ldquo;Abonesine&amp;rdquo; iletir. &amp;lsquo;Flowable&amp;rsquo; sınıfını genişletir. Yeni bir abone için, Tamsayı değerlerini oluşturmak ve yayınlamak için &amp;lsquo;request(long)&amp;rsquo; yöntemi kullanılan bir &amp;lsquo;Abonelik&amp;rsquo; nesnesi oluşturur.</description>
+    </item>
+    
+    <item>
+      <title>gözlemlenebilir</title>
+      <link>https://www.wikiod.com/tr/rx-java/gozlemlenebilir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rx-java/gozlemlenebilir/</guid>
+      <description>Bir Gözlenebilir Oluştur # RxJava&amp;rsquo;da bir Gözlenebilir oluşturmanın birkaç yolu vardır. En güçlü yol, &amp;lsquo;Observable.create&amp;rsquo; yöntemini kullanmaktır. Ama aynı zamanda en karmaşık yoldur. Bu nedenle, mümkün olduğu kadar kullanmaktan kaçınmalısınız.
+Çıkan bir değer yayan # Zaten bir değeriniz varsa, değerinizi yaymak için &amp;lsquo;Observable.just&amp;rsquo; kullanabilirsiniz.
+Observable.just(&amp;quot;Hello World&amp;quot;).subscribe(System.out::println); Hesaplanması gereken bir değer yayan # Henüz hesaplanmamış veya hesaplanması uzun sürebilecek bir değer yaymak istiyorsanız, bir sonraki değerinizi göndermek için &amp;lsquo;Observable.fromCallable&amp;rsquo;ı kullanabilirsiniz.
+Observable.fromCallable(() -&amp;gt; longComputation()).</description>
+    </item>
+    
+    <item>
+      <title>konular</title>
+      <link>https://www.wikiod.com/tr/rx-java/konular/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rx-java/konular/</guid>
+      <description>Sözdizimi # Konu&amp;lt;T, R&amp;gt; konu = AsyncSubject.create(); // Varsayılan AsyncSubject Konu&amp;lt;T, R&amp;gt; konu = BehaviorSubject.create(); // Varsayılan BehaviorSubject Konu&amp;lt;T, R&amp;gt; konu = PublishSubject.create(); // Varsayılan Yayın Konusu Konu&amp;lt;T, R&amp;gt; konu = ReplaySubject.create(); // Varsayılan ReplaySubject mySafeSubject = yeni SerializedSubject(unSafeSubject); // unsafeSubject öğesini safeSubject&amp;rsquo;e dönüştürün - genellikle çok iş parçacıklı Konular için Parametreler # parametreler Ayrıntılar T Giriş türü R Çıkış türü Bu belge, &amp;lsquo;Konu&amp;rsquo; hakkında ayrıntılar ve açıklamalar sağlar. Daha fazla bilgi ve daha fazla okuma için lütfen resmi belgeleri ziyaret edin.</description>
+    </item>
+    
+    <item>
+      <title>operatörler</title>
+      <link>https://www.wikiod.com/tr/rx-java/operatorler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rx-java/operatorler/</guid>
+      <description>Bu belge, bir operatörün temel davranışını açıklar.
+Operatörler, giriş # Nesnelerin &amp;lsquo;Gözlenebilir&amp;rsquo;den &amp;lsquo;Abone&amp;rsquo;ye akışını değiştirmek için bir operatör kullanılabilir.
+Observable&amp;lt;Integer&amp;gt; integerObservable = Observable.just(1, 2, 3); // creating a simple Integer observable Subscriber&amp;lt;String&amp;gt; mSubscriber = new Subscriber&amp;lt;String&amp;gt;() { @Override public void onCompleted() { System.out.println(&amp;quot;onCompleted called!&amp;quot;); } @Override public void onError(Throwable throwable) { System.out.println(&amp;quot;onError called&amp;quot;); } @Override public void onNext(String string) { System.out.println(&amp;quot;onNext called with: &amp;quot; + string); } }; // a simple String subscriber integerObservable .</description>
+    </item>
+    
+    <item>
+      <title>zamanlayıcılar</title>
+      <link>https://www.wikiod.com/tr/rx-java/zamanlayclar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rx-java/zamanlayclar/</guid>
+      <description>Temel Örnekler # Zamanlayıcılar, işlem birimi hakkında bir RxJava soyutlamasıdır. Bir zamanlayıcı, bir Yürütücü hizmeti tarafından desteklenebilir, ancak kendi zamanlayıcı uygulamanızı uygulayabilirsiniz.
+Bir &amp;ldquo;Zamanlayıcı&amp;rdquo; şu gereksinimi karşılamalıdır:
+Gecikmesiz görevi sırayla işlemelidir (FIFO sırası) Görev ertelenebilir Bir &amp;ldquo;Zamanlayıcı&amp;rdquo;, bazı operatörlerde parametre olarak kullanılabilir (örnek: &amp;ldquo;gecikme&amp;rdquo;) veya &amp;ldquo;subscribeOn&amp;rdquo; / &amp;ldquo;observeOn&amp;rdquo; yöntemiyle kullanılabilir.
+Bazı operatörlerde, belirli operatörün görevini işlemek için &amp;lsquo;Zamanlayıcı&amp;rsquo; kullanılacaktır. Örneğin, &amp;ldquo;gecikme&amp;rdquo;, bir sonraki değeri yayan gecikmiş bir görevi zamanlayacaktır. Bu, daha sonra tutacak ve yürütecek bir &amp;lsquo;Zamanlayıcı&amp;rsquo;dır.</description>
+    </item>
+    
+    <item>
+      <title>Güçlendirme ve RxJava</title>
+      <link>https://www.wikiod.com/tr/rx-java/guclendirme-ve-rxjava/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rx-java/guclendirme-ve-rxjava/</guid>
+      <description>Güçlendirme ve RxJava&amp;rsquo;yı kurun # Retrofit2, birden fazla takılabilir yürütme mekanizması desteği ile birlikte gelir, bunlardan biri RxJava&amp;rsquo;dır.
+RxJava ile güçlendirmeyi kullanmak için önce projenize Retrofit RxJava adaptörünü eklemeniz gerekir:
+compile &#39;com.squareup.retrofit2:adapter-rxjava:2.1.0&#39; daha sonra güçlendirme örneğinizi oluştururken adaptörü eklemeniz gerekir:
+Retrofit retrofit = new Retrofit.Builder() .baseUrl(&amp;quot;https://api.example.com&amp;quot;) .addCallAdapterFactory(RxJavaCallAdapterFactory.create()) .build(); Arayüzünüzde API&amp;rsquo;yi tanımladığınızda, dönüş türü &amp;ldquo;Gözlenebilir&amp;rdquo; olmalıdır, örneğin:
+public interface GitHubService { @GET(&amp;quot;users/{user}/repos&amp;quot;) Observable&amp;lt;List&amp;lt;Repo&amp;gt;&amp;gt; listRepos(@Path(&amp;quot;user&amp;quot;) String user); } &amp;ldquo;Gözlenebilir&amp;rdquo; yerine &amp;ldquo;Tek&amp;rdquo; de kullanabilirsiniz.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,13038 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.7636753edc6f50e96b0045eba39982b1b0b2b6947250d1080bec1f4cbe52399ea6bcecac0e0b6026886b51bdbde879ec9a9820765b03caead79d8ddf3b79336f.css" integrity="sha512-djZ1PtxvUOlrAEXro5mCsbCytpRyUNEIC&#43;wfTL5SOZ6mvOysDgtgJohrUb296HnsmpggdlsDyurXnY3fO3kzbw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Greedy tekniğinin uygulamaları - WikiOD</title>
+<meta name="description" content="Kaynaklar # Yukarıdaki örnekler, 2008 yılında Almanya, Bonn&amp;rsquo;da verilen bir dersten alınan ders notlarından alınmıştır. Dönem içinde Jon Kleinberg ve Eva Tardos&amp;rsquo;un Algoritma Tasarımı kitabına dayanmaktadır: Bilet otomatı # İlk basit Örnek:
+1, 2, 5, 10 ve 20 değerinde madeni paralarda değişim veren bir bilet otomatınız var. Değişimin dağıtımı, doğru değer dağıtılana kadar bir dizi madeni para düşüşü olarak görülebilir. Değerine göre jeton sayısı minimum olduğunda dağıtım optimum deriz.
+&amp;lsquo;[1,50]&amp;lsquo;deki &amp;lsquo;M&amp;rsquo;, &amp;lsquo;T&amp;rsquo; biletinin fiyatı ve &amp;lsquo;[1,50]&amp;lsquo;deki &amp;lsquo;P&amp;rsquo;, birinin &amp;lsquo;T&amp;rsquo; için ödediği para, &amp;lsquo;P &amp;gt;= M&amp;rsquo; olsun.">
+  <link rel="canonical" href="https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/">
+<meta property="og:locale" content="tr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Greedy tekniğinin uygulamaları">
+<meta property="og:description" content="Kaynaklar # Yukarıdaki örnekler, 2008 yılında Almanya, Bonn&rsquo;da verilen bir dersten alınan ders notlarından alınmıştır. Dönem içinde Jon Kleinberg ve Eva Tardos&rsquo;un Algoritma Tasarımı kitabına dayanmaktadır: Bilet otomatı # İlk basit Örnek:
+1, 2, 5, 10 ve 20 değerinde madeni paralarda değişim veren bir bilet otomatınız var. Değişimin dağıtımı, doğru değer dağıtılana kadar bir dizi madeni para düşüşü olarak görülebilir. Değerine göre jeton sayısı minimum olduğunda dağıtım optimum deriz.
+&lsquo;[1,50]&lsquo;deki &lsquo;M&rsquo;, &lsquo;T&rsquo; biletinin fiyatı ve &lsquo;[1,50]&lsquo;deki &lsquo;P&rsquo;, birinin &lsquo;T&rsquo; için ödediği para, &lsquo;P &gt;= M&rsquo; olsun.">
+<meta property="og:url" content="https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Greedy tekniğinin uygulamaları">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Greedy tekniğinin uygulamaları">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "WikiOD\u0027ye Hoş Geldiniz - Wiki Çevrimiçi Belgeleme WikiOD, tüm programlama dilleri, eğitimle ilgili konular ve kavramların en yüksek kalitede çevrimiçi belgelerini oluşturmak için ortak bir yazma projesidir.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/",
+      "url": "https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/",
+      "name": "Greedy tekniğinin uygulamaları",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/#/schema/image/2"
+      },
+      "inLanguage": "tr",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/",
+          "url": "https://www.wikiod.com/tr/",
+          "name": "Tr"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/algorithm/",
+          "url": "https://www.wikiod.com/tr/algorithm/",
+          "name": "Algorithm"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Greedy tekniğinin uygulamaları",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Greedy tekniğinin uygulamaları"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9345677191971886" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZZF8Q2L4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y7ZZF8Q2L4');
+</script>
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/tr/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Araştır docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/algorithm/"><h3 class="h6 text-uppercase mb-2">algoritma Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/algoritmaya-baslarken/">Algoritmaya başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/algoritma-karmasklg/">Algoritma Karmaşıklığı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/buyuk-o-gosterimi/">Büyük-O Gösterimi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/grafik/">grafik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ikili-arama-agaclar/">İkili Arama Ağaçları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dijkstra-algoritmas/">Dijkstra Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sralamay-birlestir/">Sıralamayı Birleştir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dinamik-zaman-bukulmesi/">Dinamik Zaman Bükülmesi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/bellman-ford-algoritmas/">Bellman-Ford Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/alt-dizi-arama/">Alt Dizi Arama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kabarck-sralamas/">Kabarcık Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/acgozlu-algoritmalar/">Açgözlü Algoritmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/hash-fonksiyonlar/">Hash Fonksiyonları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/genislik-ilk-arama/">Genişlik-İlk Arama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/a-yol-bulma/">A* Yol Bulma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sralama/">sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/denklem-cozme/">Denklem Çözme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kayar-pencere-algoritmas/">Kayar Pencere Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dinamik-program/">Dinamik program</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/hzl-fourier-donusumu/">Hızlı Fourier Dönüşümü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/aranyor/">Aranıyor</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/en-uzun-ortak-sra/">En uzun Ortak Sıra</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/floyd-warshall-algoritmas/">Floyd-Warshall Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/bir-agacn-bst-olup-olmadgn-kontrol-edin/">Bir ağacın BST olup olmadığını kontrol edin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/hzl-sralama/">Hızlı sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/guvercin-deligi-sralamas/">Güvercin Deliği Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/cok-is-parcackl-algoritmalar/">Çok iş parçacıklı Algoritmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/cevrimici-algoritmalar/">Çevrimiçi algoritmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kruskal-algoritmas/">Kruskal Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/tek-cift-sralama/">Tek-Çift Sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sayma-sralamas/">Sayma Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/derinlik-oncelikli-arama/">Derinlik öncelikli arama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/srt-cantas-sorunu/">Sırt Çantası Sorunu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/en-ksa-ortak-ust-sra-problemi/">En Kısa Ortak Üst Sıra Problemi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/seyyar-satc/">Seyyar satıcı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/">Greedy tekniğinin uygulamaları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/primin-algoritmas/">Prim&#39;in Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ygn-sralama/">Yığın Sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ekleme-sralamas/">Ekleme Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kabuk-sralamas/">Kabuk Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/maksimum-alt-dizi-algoritmas/">Maksimum Alt Dizi Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/a-yol-bulma-algoritmas/">A* Yol Bulma Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ikili-agac-gecisleri/">İkili Ağaç geçişleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/agaclar/">Ağaçlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/cizgi-algoritmas/">Çizgi Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/gozleme-sralamas/">Gözleme Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kova-sralamas/">Kova Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/matris-us-alma/">Matris Üs Alma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dongu-sralamas/">Döngü Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/pascal-ucgeni/">Pascal Üçgeni</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/secim-sralamas/">Seçim Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/katalan-say-algoritmas/">Katalan Sayı Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ikili-agacn-en-dusuk-ortak-atas/">İkili Ağacın en düşük ortak atası</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dinamik-programlama-uygulamalar/">Dinamik Programlama Uygulamaları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/en-uzun-artan-sra/">En Uzun Artan Sıra</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/maksimum-yol-toplam-algoritmas/">Maksimum Yol Toplamı Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/radix-sralamas/">Radix Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sozde-kod/">sözde kod</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/iki-dizenin-anagram-olup-olmadgn-kontrol-edin/">İki dizenin anagram olup olmadığını kontrol edin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/grafik-gecisleri/">Grafik Geçişleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/tamsay-bolme-algoritmas/">Tamsayı Bölme Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/algo--bir-mn-matrisini-kare-seklinde-yazdrn/">Algo- Bir m*n matrisini kare şeklinde yazdırın</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/knuth-morris-pratt-kmp-algoritmas/">Knuth Morris Pratt (KMP) Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/mesafe-dinamik-algoritmasn-duzenle/">Mesafe Dinamik Algoritmasını Düzenle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/minimum-kose-ortusu-icin-polinom-zamanl-snrl-algoritma/">Minimum Köşe Örtüsü için polinom zamanlı sınırlı algoritma</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/tr/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/docs/">öğreticiler</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/blog/">Nesne</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Türk
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/tr/algorithm/greedy-tekniginin-uygulamalar/">Türk</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/algorithm/applications-of-greedy-technique/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/algorithm/aplicaciones-de-la-tecnica-greedy/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/fr/algorithm/applications-de-la-technique-gourmande/" hreflang="fr" lang="fr">Français</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/algorithm/aplicacoes-da-tecnica-greedy/" hreflang="pt" lang="pt">Português</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/algorithm/"><h3 class="h6 text-uppercase mb-2">algoritma Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/algoritmaya-baslarken/">Algoritmaya başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/algoritma-karmasklg/">Algoritma Karmaşıklığı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/buyuk-o-gosterimi/">Büyük-O Gösterimi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/grafik/">grafik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ikili-arama-agaclar/">İkili Arama Ağaçları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dijkstra-algoritmas/">Dijkstra Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sralamay-birlestir/">Sıralamayı Birleştir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dinamik-zaman-bukulmesi/">Dinamik Zaman Bükülmesi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/bellman-ford-algoritmas/">Bellman-Ford Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/alt-dizi-arama/">Alt Dizi Arama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kabarck-sralamas/">Kabarcık Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/acgozlu-algoritmalar/">Açgözlü Algoritmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/hash-fonksiyonlar/">Hash Fonksiyonları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/genislik-ilk-arama/">Genişlik-İlk Arama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/a-yol-bulma/">A* Yol Bulma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sralama/">sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/denklem-cozme/">Denklem Çözme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kayar-pencere-algoritmas/">Kayar Pencere Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dinamik-program/">Dinamik program</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/hzl-fourier-donusumu/">Hızlı Fourier Dönüşümü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/aranyor/">Aranıyor</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/en-uzun-ortak-sra/">En uzun Ortak Sıra</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/floyd-warshall-algoritmas/">Floyd-Warshall Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/bir-agacn-bst-olup-olmadgn-kontrol-edin/">Bir ağacın BST olup olmadığını kontrol edin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/hzl-sralama/">Hızlı sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/guvercin-deligi-sralamas/">Güvercin Deliği Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/cok-is-parcackl-algoritmalar/">Çok iş parçacıklı Algoritmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/cevrimici-algoritmalar/">Çevrimiçi algoritmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kruskal-algoritmas/">Kruskal Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/tek-cift-sralama/">Tek-Çift Sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sayma-sralamas/">Sayma Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/derinlik-oncelikli-arama/">Derinlik öncelikli arama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/srt-cantas-sorunu/">Sırt Çantası Sorunu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/en-ksa-ortak-ust-sra-problemi/">En Kısa Ortak Üst Sıra Problemi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/seyyar-satc/">Seyyar satıcı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/">Greedy tekniğinin uygulamaları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/primin-algoritmas/">Prim&#39;in Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ygn-sralama/">Yığın Sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ekleme-sralamas/">Ekleme Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kabuk-sralamas/">Kabuk Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/maksimum-alt-dizi-algoritmas/">Maksimum Alt Dizi Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/a-yol-bulma-algoritmas/">A* Yol Bulma Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ikili-agac-gecisleri/">İkili Ağaç geçişleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/agaclar/">Ağaçlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/cizgi-algoritmas/">Çizgi Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/gozleme-sralamas/">Gözleme Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kova-sralamas/">Kova Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/matris-us-alma/">Matris Üs Alma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dongu-sralamas/">Döngü Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/pascal-ucgeni/">Pascal Üçgeni</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/secim-sralamas/">Seçim Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/katalan-say-algoritmas/">Katalan Sayı Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ikili-agacn-en-dusuk-ortak-atas/">İkili Ağacın en düşük ortak atası</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dinamik-programlama-uygulamalar/">Dinamik Programlama Uygulamaları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/en-uzun-artan-sra/">En Uzun Artan Sıra</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/maksimum-yol-toplam-algoritmas/">Maksimum Yol Toplamı Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/radix-sralamas/">Radix Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sozde-kod/">sözde kod</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/iki-dizenin-anagram-olup-olmadgn-kontrol-edin/">İki dizenin anagram olup olmadığını kontrol edin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/grafik-gecisleri/">Grafik Geçişleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/tamsay-bolme-algoritmas/">Tamsayı Bölme Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/algo--bir-mn-matrisini-kare-seklinde-yazdrn/">Algo- Bir m*n matrisini kare şeklinde yazdırın</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/knuth-morris-pratt-kmp-algoritmas/">Knuth Morris Pratt (KMP) Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/mesafe-dinamik-algoritmasn-duzenle/">Mesafe Dinamik Algoritmasını Düzenle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/minimum-kose-ortusu-icin-polinom-zamanl-snrl-algoritma/">Minimum Köşe Örtüsü için polinom zamanlı sınırlı algoritma</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/algorithm/"><h3 class="h6 text-uppercase mb-2">algoritma Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/algoritmaya-baslarken/">Algoritmaya başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/algoritma-karmasklg/">Algoritma Karmaşıklığı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/buyuk-o-gosterimi/">Büyük-O Gösterimi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/grafik/">grafik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ikili-arama-agaclar/">İkili Arama Ağaçları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dijkstra-algoritmas/">Dijkstra Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sralamay-birlestir/">Sıralamayı Birleştir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dinamik-zaman-bukulmesi/">Dinamik Zaman Bükülmesi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/bellman-ford-algoritmas/">Bellman-Ford Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/alt-dizi-arama/">Alt Dizi Arama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kabarck-sralamas/">Kabarcık Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/acgozlu-algoritmalar/">Açgözlü Algoritmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/hash-fonksiyonlar/">Hash Fonksiyonları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/genislik-ilk-arama/">Genişlik-İlk Arama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/a-yol-bulma/">A* Yol Bulma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sralama/">sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/denklem-cozme/">Denklem Çözme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kayar-pencere-algoritmas/">Kayar Pencere Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dinamik-program/">Dinamik program</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/hzl-fourier-donusumu/">Hızlı Fourier Dönüşümü</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/aranyor/">Aranıyor</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/en-uzun-ortak-sra/">En uzun Ortak Sıra</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/floyd-warshall-algoritmas/">Floyd-Warshall Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/bir-agacn-bst-olup-olmadgn-kontrol-edin/">Bir ağacın BST olup olmadığını kontrol edin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/hzl-sralama/">Hızlı sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/guvercin-deligi-sralamas/">Güvercin Deliği Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/cok-is-parcackl-algoritmalar/">Çok iş parçacıklı Algoritmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/cevrimici-algoritmalar/">Çevrimiçi algoritmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kruskal-algoritmas/">Kruskal Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/tek-cift-sralama/">Tek-Çift Sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sayma-sralamas/">Sayma Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/derinlik-oncelikli-arama/">Derinlik öncelikli arama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/srt-cantas-sorunu/">Sırt Çantası Sorunu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/en-ksa-ortak-ust-sra-problemi/">En Kısa Ortak Üst Sıra Problemi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/seyyar-satc/">Seyyar satıcı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/algorithm/greedy-tekniginin-uygulamalar/">Greedy tekniğinin uygulamaları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/primin-algoritmas/">Prim&#39;in Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ygn-sralama/">Yığın Sıralama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ekleme-sralamas/">Ekleme Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kabuk-sralamas/">Kabuk Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/maksimum-alt-dizi-algoritmas/">Maksimum Alt Dizi Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/a-yol-bulma-algoritmas/">A* Yol Bulma Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ikili-agac-gecisleri/">İkili Ağaç geçişleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/agaclar/">Ağaçlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/cizgi-algoritmas/">Çizgi Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/gozleme-sralamas/">Gözleme Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/kova-sralamas/">Kova Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/matris-us-alma/">Matris Üs Alma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dongu-sralamas/">Döngü Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/pascal-ucgeni/">Pascal Üçgeni</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/secim-sralamas/">Seçim Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/katalan-say-algoritmas/">Katalan Sayı Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/ikili-agacn-en-dusuk-ortak-atas/">İkili Ağacın en düşük ortak atası</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/dinamik-programlama-uygulamalar/">Dinamik Programlama Uygulamaları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/en-uzun-artan-sra/">En Uzun Artan Sıra</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/maksimum-yol-toplam-algoritmas/">Maksimum Yol Toplamı Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/radix-sralamas/">Radix Sıralaması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/sozde-kod/">sözde kod</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/iki-dizenin-anagram-olup-olmadgn-kontrol-edin/">İki dizenin anagram olup olmadığını kontrol edin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/grafik-gecisleri/">Grafik Geçişleri</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/tamsay-bolme-algoritmas/">Tamsayı Bölme Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/algo--bir-mn-matrisini-kare-seklinde-yazdrn/">Algo- Bir m*n matrisini kare şeklinde yazdırın</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/knuth-morris-pratt-kmp-algoritmas/">Knuth Morris Pratt (KMP) Algoritması</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/mesafe-dinamik-algoritmasn-duzenle/">Mesafe Dinamik Algoritmasını Düzenle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/algorithm/minimum-kose-ortusu-icin-polinom-zamanl-snrl-algoritma/">Minimum Köşe Örtüsü için polinom zamanlı sınırlı algoritma</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#kaynaklar">Kaynaklar</a></li>
+      </ul>
+    </li>
+    <li><a href="#bilet-otomatı">Bilet otomatı</a></li>
+    <li><a href="#aralık-planlaması">Aralık Planlaması</a></li>
+    <li><a href="#gecikmeyi-en-aza-indirme">Gecikmeyi En Aza İndirme</a></li>
+    <li><a href="#çevrimdışı-önbelleğe-alma">Çevrimdışı Önbelleğe Alma</a>
+      <ul>
+        <li><a href="#örnek-fifo">Örnek (FIFO)</a></li>
+        <li><a href="#örnek-lfd">Örnek (LFD)</a></li>
+        <li><a href="#fifo">FIFO</a></li>
+        <li><a href="#yaşam">YAŞAM</a></li>
+        <li><a href="#lru">LRU</a></li>
+        <li><a href="#lfu">LFU</a></li>
+        <li><a href="#lfd">LFD</a></li>
+        <li><a href="#algoritma-ve-gerçeklik">Algoritma ve Gerçeklik</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#kaynaklar">Kaynaklar</a></li>
+      </ul>
+    </li>
+    <li><a href="#bilet-otomatı">Bilet otomatı</a></li>
+    <li><a href="#aralık-planlaması">Aralık Planlaması</a></li>
+    <li><a href="#gecikmeyi-en-aza-indirme">Gecikmeyi En Aza İndirme</a></li>
+    <li><a href="#çevrimdışı-önbelleğe-alma">Çevrimdışı Önbelleğe Alma</a>
+      <ul>
+        <li><a href="#örnek-fifo">Örnek (FIFO)</a></li>
+        <li><a href="#örnek-lfd">Örnek (LFD)</a></li>
+        <li><a href="#fifo">FIFO</a></li>
+        <li><a href="#yaşam">YAŞAM</a></li>
+        <li><a href="#lru">LRU</a></li>
+        <li><a href="#lfu">LFU</a></li>
+        <li><a href="#lfd">LFD</a></li>
+        <li><a href="#algoritma-ve-gerçeklik">Algoritma ve Gerçeklik</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/tr/">Home</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/algorithm/">algoritma Eğitimi</a></li>
+<li class="breadcrumb-item active" aria-current="page">Greedy tekniğinin uygulamaları</li>
+					</ol>
+				</nav>
+			
+			<h1>Greedy tekniğinin uygulamaları</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#kaynaklar">Kaynaklar</a></li>
+      </ul>
+    </li>
+    <li><a href="#bilet-otomatı">Bilet otomatı</a></li>
+    <li><a href="#aralık-planlaması">Aralık Planlaması</a></li>
+    <li><a href="#gecikmeyi-en-aza-indirme">Gecikmeyi En Aza İndirme</a></li>
+    <li><a href="#çevrimdışı-önbelleğe-alma">Çevrimdışı Önbelleğe Alma</a>
+      <ul>
+        <li><a href="#örnek-fifo">Örnek (FIFO)</a></li>
+        <li><a href="#örnek-lfd">Örnek (LFD)</a></li>
+        <li><a href="#fifo">FIFO</a></li>
+        <li><a href="#yaşam">YAŞAM</a></li>
+        <li><a href="#lru">LRU</a></li>
+        <li><a href="#lfu">LFU</a></li>
+        <li><a href="#lfd">LFD</a></li>
+        <li><a href="#algoritma-ve-gerçeklik">Algoritma ve Gerçeklik</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#kaynaklar">Kaynaklar</a></li>
+      </ul>
+    </li>
+    <li><a href="#bilet-otomatı">Bilet otomatı</a></li>
+    <li><a href="#aralık-planlaması">Aralık Planlaması</a></li>
+    <li><a href="#gecikmeyi-en-aza-indirme">Gecikmeyi En Aza İndirme</a></li>
+    <li><a href="#çevrimdışı-önbelleğe-alma">Çevrimdışı Önbelleğe Alma</a>
+      <ul>
+        <li><a href="#örnek-fifo">Örnek (FIFO)</a></li>
+        <li><a href="#örnek-lfd">Örnek (LFD)</a></li>
+        <li><a href="#fifo">FIFO</a></li>
+        <li><a href="#yaşam">YAŞAM</a></li>
+        <li><a href="#lru">LRU</a></li>
+        <li><a href="#lfu">LFU</a></li>
+        <li><a href="#lfd">LFD</a></li>
+        <li><a href="#algoritma-ve-gerçeklik">Algoritma ve Gerçeklik</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h3 id="kaynaklar">Kaynaklar <a href="#kaynaklar" class="anchor" aria-hidden="true">#</a></h3>
+<ol>
+<li>Yukarıdaki örnekler, 2008 yılında Almanya, Bonn&rsquo;da verilen bir dersten alınan ders notlarından alınmıştır. Dönem içinde Jon Kleinberg ve Eva Tardos&rsquo;un <a href="https://www.pearsonhighered.com/program/Kleinberg-Algorithm-Design/PGM319216.html">Algoritma Tasarımı</a> kitabına dayanmaktadır:</li>
+</ol>
+<p><img src="https://s14.postimg.org/qiq7yjyv5/tardos.png"></img></p>
+<h2 id="bilet-otomatı">Bilet otomatı <a href="#bilet-otomat%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<p>İlk basit Örnek:</p>
+<p>1, 2, 5, 10 ve 20 değerinde madeni paralarda değişim veren bir bilet otomatınız var. Değişimin dağıtımı, doğru değer dağıtılana kadar bir dizi madeni para düşüşü olarak görülebilir. Değerine göre <strong>jeton sayısı minimum</strong> olduğunda dağıtım <strong>optimum</strong> deriz.</p>
+<p>&lsquo;[1,50]&lsquo;deki &lsquo;M&rsquo;, &lsquo;T&rsquo; biletinin fiyatı ve &lsquo;[1,50]&lsquo;deki &lsquo;P&rsquo;, birinin &lsquo;T&rsquo; için ödediği para, &lsquo;P &gt;= M&rsquo; olsun. <code>D=P-M</code> olsun. Bir adımın <strong>faydasını</strong>, bu adımda otomatın dağıttığı &lsquo;c&rsquo; ile &lsquo;D&rsquo; ve &lsquo;D-c&rsquo; arasındaki fark olarak tanımlarız.</p>
+<p>Değişim için <strong>Açgözlü Tekniği</strong> aşağıdaki sözde algoritmik yaklaşımdır:</p>
+<p><strong>Adım 1:</strong> &ldquo;D &gt; 20&rdquo; 20 jeton dağıtırken ve &ldquo;D = D - 20&rdquo; olarak ayarlayın <br/>
+<strong>Adım 2:</strong> &ldquo;D &gt; 10&rdquo; 10 jeton dağıtırken ve &ldquo;D = D - 10&rdquo; olarak ayarlayın <br/>
+<strong>Adım 3:</strong> &ldquo;D &gt; 5&rdquo; 5 jeton dağıtırken ve &ldquo;D = D - 5&rdquo; olarak ayarlayın <br/>
+<strong>Adım 4:</strong> &ldquo;D &gt; 2&rdquo; 2 jeton dağıtırken ve &ldquo;D = D - 2&rdquo; olarak ayarlayın <br/>
+<strong>Adım 5:</strong> &ldquo;D &gt; 1&rdquo; 1 jeton dağıtırken ve &ldquo;D = D - 1&rdquo; olarak ayarlayın <br/></p>
+<p>Daha sonra tüm madeni paraların toplamı açıkça &lsquo;D&rsquo;ye eşittir. Bu <strong>açgözlü bir algoritma</strong> çünkü her adımdan sonra ve adımın her tekrarından sonra fayda en üst düzeye çıkarılır. Daha yüksek faydaya sahip başka bir madeni para dağıtamayız.</p>
+<p>Şimdi program olarak bilet otomatı (C++&lsquo;da):</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+// read some coin values, sort them descending,
+// purge copies and guaratee the 1 coin is in it
+std::vector&lt;unsigned int&gt; readInCoinValues();
+
+int main()
+{
+    std::vector&lt;unsigned int&gt; coinValues;   // Array of coin values ascending    
+    int ticketPrice;                        // M in example
+    int paidMoney;                          // P in example
+
+    // generate coin values
+    coinValues = readInCoinValues();
+    
+    cout &lt;&lt; &quot;ticket price: &quot;;
+    cin &gt;&gt; ticketPrice;
+    
+    cout &lt;&lt; &quot;money paid: &quot;;
+    cin &gt;&gt; paidMoney;
+    
+    if(paidMoney &lt;= ticketPrice)
+    {
+        cout &lt;&lt; &quot;No exchange money&quot; &lt;&lt; endl;
+        return 1;
+    }
+    
+    int diffValue = paidMoney - ticketPrice;
+    
+    // Here starts greedy
+
+    // we save how many coins we have to give out
+    std::vector&lt;unsigned int&gt; coinCount;
+    
+    for(auto coinValue  = coinValues.begin();
+             coinValue != coinValues.end(); ++coinValue)
+    {
+        int countCoins = 0;
+        
+        while (diffValue &gt;= *coinValue)
+        {
+            diffValue -= *coinValue;
+            countCoins++;
+        }
+        
+        coinCount.push_back(countCoins);
+    }
+    
+    // print out result
+    cout &lt;&lt; &quot;the difference &quot; &lt;&lt; paidMoney - ticketPrice 
+         &lt;&lt; &quot; is paid with: &quot; &lt;&lt; endl;
+    
+    for(unsigned int i=0; i &lt; coinValues.size(); ++i)
+    {
+        if(coinCount[i] &gt; 0)
+            cout &lt;&lt; coinCount[i] &lt;&lt; &quot; coins with value &quot; 
+                 &lt;&lt; coinValues[i] &lt;&lt; endl;
+    }
+    
+    return 0;
+}
+
+std::vector&lt;unsigned int&gt; readInCoinValues()
+{
+    // coin values
+    std::vector&lt;unsigned int&gt; coinValues;
+    
+    // make sure 1 is in vectore
+    coinValues.push_back(1);
+
+    // read in coin values (attention: error handling is omitted)
+    while(true)
+    {
+        int coinValue;
+        
+        cout &lt;&lt; &quot;Coin value (&lt;1 to stop): &quot;;
+        cin &gt;&gt; coinValue;
+        
+        if(coinValue &gt; 0)
+            coinValues.push_back(coinValue);
+        
+        else
+            break;
+    }
+    
+    // sort values
+    sort(coinValues.begin(), coinValues.end(), std::greater&lt;int&gt;());
+    
+    // erase copies of same value
+    auto last = std::unique(coinValues.begin(), coinValues.end());
+    coinValues.erase(last, coinValues.end());
+    
+    // print array
+    cout &lt;&lt; &quot;Coin values: &quot;;
+    
+    for(auto i : coinValues)
+        cout &lt;&lt; i &lt;&lt; &quot; &quot;;
+    
+    cout &lt;&lt; endl;
+    
+    return coinValues;
+}
+</code></pre>
+<p>Örneği basit tutmak için şimdi girdi denetimi olduğunu unutmayın. Bir örnek çıktı:</p>
+<pre><code>Coin value (&lt;1 to stop): 2
+Coin value (&lt;1 to stop): 4
+Coin value (&lt;1 to stop): 7
+Coin value (&lt;1 to stop): 9
+Coin value (&lt;1 to stop): 14
+Coin value (&lt;1 to stop): 4
+Coin value (&lt;1 to stop): 0
+Coin values: 14 9 7 4 2 1 
+ticket price: 34
+money paid: 67
+the difference 33 is paid with: 
+2 coins with value 14
+1 coins with value 4
+1 coins with value 1
+</code></pre>
+<p>Şimdiki madeni para değerlerinde &ldquo;1&rdquo; olduğu sürece, algoritma sona erecektir, çünkü:</p>
+<ul>
+<li><code>D</code> her adımda kesinlikle azalır</li>
+<li>&ldquo;D&rdquo; asla &ldquo;&gt;0&rdquo; değildir ve aynı anda en küçük jeton &ldquo;1&quot;den daha küçüktür</li>
+</ul>
+<p>Ancak algoritmanın iki tuzağı var:</p>
+<ol>
+<li>En büyük madeni para değeri <code>C</code> olsun. &ldquo;D/C&rdquo; polinom olduğu sürece çalışma zamanı yalnızca polinomdur, çünkü &ldquo;D&quot;nin gösterimi yalnızca &ldquo;log D&rdquo; bitlerini kullanır ve çalışma zamanı &ldquo;D/C&quot;de en azından doğrusaldır.</li>
+<li>Algoritmamız her adımda yerel optimumu seçer. Ancak bu, algoritmanın küresel optimal çözümü bulduğunu söylemek için yeterli değildir (daha fazla bilgiyi <a href="https://en.wikipedia.org/wiki/Matroid">buradan</a> veya [Korte ve Vygen&rsquo;in] Kitabında(http: //www.or.uni-bonn.de/~vygen/co.html)).</li>
+</ol>
+<p>Basit bir karşı örnek: madeni paralar &ldquo;1,3,4&rdquo; ve &ldquo;D=6&quot;dır. Optimal çözüm açıkça &ldquo;3&rdquo; değerinde iki madeni paradır, ancak açgözlü ilk adımda &ldquo;4&quot;ü seçer, bu nedenle ikinci ve üçüncü adımda &ldquo;1&quot;i seçmek zorundadır. Bu yüzden optimal bir çözüm sağlamaz. Bu örnek için olası bir optimal Algoritma <strong>dinamik programlamaya</strong> dayanmaktadır.</p>
+<h2 id="aralık-planlaması">Aralık Planlaması <a href="#aral%c4%b1k-planlamas%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bir dizi işimiz var <code>J={a,b,c,d,e,f,g}</code>. J in J , sj ile başlayıp fj ile biten bir iş olsun. Çakışmıyorlarsa iki iş uyumludur. Örnek olarak bir resim:
+<a href="https://postimg.org/image/6etvj3k81/"><img class="img-fluid lazyload blur-up" src="https://s16.postimg.org/6rl9pa2hx/intervall_scheduling.png" alt="intervall_scheduling.png"></a>
+Amaç, <strong>karşılıklı olarak uyumlu işlerin maksimum alt kümesini</strong> bulmaktır. Bu sorun için birkaç açgözlü yaklaşım vardır:</p>
+<ol>
+<li><strong>En erken başlama zamanı</strong>: İşleri artan <code>sj</code> sırasına göre düşünün</li>
+<li><strong>En erken bitiş zamanı</strong>: İşleri artan &ldquo;fj&rdquo; sırasına göre düşünün</li>
+<li><strong>En kısa aralık</strong>: İşleri artan &ldquo;fj-sj&rdquo; sırasına göre düşünün</li>
+<li><strong>En az çakışma</strong>: Her bir &ldquo;j&rdquo; işi için, &ldquo;cj&rdquo; çakışan işlerin sayısını sayın</li>
+</ol>
+<p>Şimdi soru, hangi yaklaşımın gerçekten başarılı olduğu. <strong>Erken başlama zamanı</strong> kesinlikle hayır, işte bir karşı örnek
+<a href="https://postimg.org/image/x8zfx2zq9/"><img class="img-fluid lazyload blur-up" src="https://s16.postimg.org/odylmkaxx/ce_early.png" alt="ce_early.png"></a>
+<strong>En kısa aralık</strong> da optimal değildir
+<a href="https://postimg.org/image/m4npmnkur/"><img class="img-fluid lazyload blur-up" src="https://s21.postimg.org/ixt6310ev/ce_shortest_intervall.png" alt="ce_shortest_intervall.png"></a>
+ve <strong>en az çakışma</strong> kulağa gerçekten de optimal gelebilir, ancak bu yaklaşım için bir sorun örneği aşağıda verilmiştir:
+<a href="https://postimg.org/image/48f87mmol/"><img class="img-fluid lazyload blur-up" src="https://s18.postimg.org/ugqcx06s9/ce_fewest_conflicts.png" alt="ce_fewest_conflicts.png"></a>
+Bu da bizi <strong>en erken bitirme zamanı</strong> ile baş başa bırakıyor. Sözde kod oldukça basittir:</p>
+<ol>
+<li>İşleri bitiş zamanına göre sıralayın, böylece <code>f1&lt;=f2&lt;=...&lt;=fn</code></li>
+<li>&lsquo;A&rsquo; boş bir küme olsun</li>
+<li>&lsquo;j=1&rsquo; ila &rsquo;n&rsquo; için, eğer &lsquo;j&rsquo;, &lsquo;A&rsquo; kümesi &lsquo;A=A+{j}&rsquo; içindeki <strong>tüm</strong> işlerle uyumluysa</li>
+<li>&ldquo;A&rdquo;, <strong>karşılıklı olarak uyumlu işlerin maksimum alt kümesidir</strong></li>
+</ol>
+<p>Veya C++ programı olarak:</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;utility&gt;
+#include &lt;tuple&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+const int jobCnt = 10;
+
+// Job start times
+const int startTimes[] = { 2, 3, 1, 4, 3, 2, 6, 7, 8, 9};
+
+// Job end times
+const int endTimes[]   = { 4, 4, 3, 5, 5, 5, 8, 9, 9, 10};
+
+using namespace std;
+
+int main()
+{
+    vector&lt;pair&lt;int,int&gt;&gt; jobs;
+    
+    for(int i=0; i&lt;jobCnt; ++i)
+        jobs.push_back(make_pair(startTimes[i], endTimes[i]));
+    
+    // step 1: sort
+    sort(jobs.begin(), jobs.end(),[](pair&lt;int,int&gt; p1, pair&lt;int,int&gt; p2) 
+                                     { return p1.second &lt; p2.second; });
+    
+    // step 2: empty set A
+    vector&lt;int&gt; A;
+    
+    // step 3:
+    for(int i=0; i&lt;jobCnt; ++i)
+    {
+        auto job = jobs[i];
+        bool isCompatible = true;
+        
+        for(auto jobIndex : A)
+        {
+            // test whether the actual job and the job from A are incompatible
+            if(job.second &gt;= jobs[jobIndex].first &amp;&amp;
+               job.first  &lt;= jobs[jobIndex].second)
+            {
+                isCompatible = false;
+                break;
+            }
+        }
+    
+        if(isCompatible)
+            A.push_back(i);
+    }
+    
+    //step 4: print A
+    cout &lt;&lt; &quot;Compatible: &quot;;
+    
+    for(auto i : A)
+        cout &lt;&lt; &quot;(&quot; &lt;&lt; jobs[i].first &lt;&lt; &quot;,&quot; &lt;&lt; jobs[i].second &lt;&lt; &quot;) &quot;;
+    cout &lt;&lt; endl;
+    
+    return 0;
+}
+</code></pre>
+<p>Bu örneğin çıktısı: <code>Uyumlu: (1,3) (4,5) (6,8) (9,10)</code></p>
+<p>Algoritmanın uygulanması açıkça Θ(n^2) içindedir. Bir Θ(n log n) uygulaması vardır ve ilgilenen okuyucu aşağıda okumaya devam edebilir (Java Örneği).</p>
+<p>Şimdi aralık çizelgeleme problemi için açgözlü bir algoritmamız var, ama bu optimal mi?</p>
+<p><strong>Önerme:</strong> Açgözlü algoritma <strong>en erken bitiş zamanı</strong> optimaldir.</p>
+<p><strong>Kanıt:</strong><em>(çelişkiyle)</em></p>
+<p>Açgözlülüğün optimal olmadığını ve &lsquo;i1,i2,&hellip;,ik&rsquo;nin açgözlü tarafından seçilen iş kümesini gösterdiğini varsayın. &lsquo;j1,j2,&hellip;,jm&rsquo;, *<em>mümkün olan en büyük</em> için &lsquo;i1=j1,i2=j2,&hellip;,ir=jr&rsquo; ile bir <strong>optimal</strong> çözümdeki iş kümesini göstersin. * <code>r</code> değeri.</p>
+<p>&ldquo;i(r+1)&rdquo; işi var ve &ldquo;j(r+1)&ldquo;den (en erken bitirme) önce bitiyor. Ancak <code>j1,j2,...,jr,i(r+1),j(r+2),...,jm</code>den daha <strong>optimum</strong> bir çözümdür ve <code>içindeki tüm </code>k<code> için [1,(r+1)]</code>, <code>jk=ik</code>. bu, &ldquo;r&quot;nin maksimumluğuyla <strong>çelişkidir</strong>. Bu, kanıtı tamamlar.</p>
+<p>Bu ikinci örnek, genellikle birçok olası açgözlü strateji olduğunu, ancak her durumda en uygun çözümü yalnızca bazılarının veya hatta hiçbirinin bulamayacağını göstermektedir.</p>
+<p>Aşağıda Θ(n log n) içinde çalışan bir Java programı verilmiştir.</p>
+<pre><code>import java.util.Arrays;
+import java.util.Comparator;
+
+class Job
+{
+    int start, finish, profit;
+
+    Job(int start, int finish, int profit)
+    {
+        this.start = start;
+        this.finish = finish;
+        this.profit = profit;
+    }
+}
+
+
+class JobComparator implements Comparator&lt;Job&gt;
+{
+    public int compare(Job a, Job b)
+    {
+        return a.finish &lt; b.finish ? -1 : a.finish == b.finish ? 0 : 1;
+    }
+}
+
+public class WeightedIntervalScheduling
+{
+    static public int binarySearch(Job jobs[], int index)
+    {
+        int lo = 0, hi = index - 1;
+
+        while (lo &lt;= hi)
+        {
+            int mid = (lo + hi) / 2;
+            if (jobs[mid].finish &lt;= jobs[index].start)
+            {
+                if (jobs[mid + 1].finish &lt;= jobs[index].start)
+                    lo = mid + 1;
+                else
+                    return mid;
+            }
+            else
+                hi = mid - 1;
+        }
+
+        return -1;
+    }
+
+    static public int schedule(Job jobs[])
+    {
+        Arrays.sort(jobs, new JobComparator());
+
+        int n = jobs.length;
+        int table[] = new int[n];
+        table[0] = jobs[0].profit;
+
+        for (int i=1; i&lt;n; i++)
+        {
+            int inclProf = jobs[i].profit;
+            int l = binarySearch(jobs, i);
+            if (l != -1)
+                inclProf += table[l];
+
+            table[i] = Math.max(inclProf, table[i-1]);
+        }
+
+        return table[n-1];
+    }
+
+    public static void main(String[] args)
+    {
+        Job jobs[] = {new Job(1, 2, 50), new Job(3, 5, 20),
+                    new Job(6, 19, 100), new Job(2, 100, 200)};
+
+        System.out.println(&quot;Optimal profit is &quot; + schedule(jobs));
+    }
+}
+</code></pre>
+<p>Ve beklenen çıktı:</p>
+<pre><code>Optimal profit is 250
+</code></pre>
+<h2 id="gecikmeyi-en-aza-indirme">Gecikmeyi En Aza İndirme <a href="#gecikmeyi-en-aza-indirme" class="anchor" aria-hidden="true">#</a></h2>
+<p>Gecikmeyi en aza indiren sayısız sorun var, burada bir seferde yalnızca bir işi işleyebilen tek bir kaynağımız var. &ldquo;j&rdquo; işi, &ldquo;tj&rdquo; işlem süresi birimleri gerektirir ve &ldquo;dj&rdquo; zamanında teslim edilir. &ldquo;j&rdquo;, &ldquo;sj&rdquo; zamanında başlarsa, &ldquo;fj=sj+tj&rdquo; zamanında biter. Tüm &ldquo;j&rdquo; için gecikme &ldquo;L=max{0,fj-dh}&rdquo; tanımlarız. Amaç, <strong>maksimum gecikme</strong> L&rsquo;yi en aza indirmektir.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>tj</code></td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>dj</code></td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">11</td>
+</tr>
+</tbody>
+</table>
+<p>|İş | 3 | 2 | 2 | 5 | 5 | 5 | 4 | 4 | 4 | 4 | 1 | 1 | 1 | 6 | 6 |
+|:-: |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|: -:|:&mdash;:|:-:|:-:|
+| zaman | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |10 |11 |12 |13 |14 |15 |
+| <code>Lj</code> |-8 | |-5 | | |-4 | | | | 1 | | |<strong>7</strong>| | 4 |</p>
+<p>&lsquo;L=7&rsquo; çözümü açıkça optimal değildir. Bazı açgözlü stratejilere bakalım:</p>
+<ol>
+<li><strong>Önce en kısa işlem süresi</strong>: işleri artan düzende planlayın og işlem süresi j`</li>
+<li><strong>Önce en erken teslim tarihi</strong>: İşleri artan son teslim tarihi <code>dj</code> sırasına göre planlayın</li>
+<li><strong>En küçük bolluk</strong>: işleri artan bolluk <code>dj-tj</code> sırasına göre planlayın</li>
+</ol>
+<p><strong>Önce en kısa işlem süresinin</strong> optimal olmadığını görmek kolaydır, iyi bir karşı örnek şudur:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>tj</code></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>dj</code></td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>en küçük yığın</strong> çözümünde benzer sorunlar var</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>tj</code></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>dj</code></td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">5</td>
+</tr>
+</tbody>
+</table>
+<p>son strateji geçerli görünüyor, bu yüzden bazı sözde kodlarla başlıyoruz:</p>
+<ol>
+<li><code>n</code> işleri, vadesine göre sıralayın, böylece <code>d1&lt;=d2&lt;=...&lt;=dn</code></li>
+<li><code>t=0</code> olarak ayarlayın</li>
+<li>&ldquo;j=1&rdquo; ila &ldquo;n&rdquo; için
+<ul>
+<li>Assign job <code>j</code> to interval <code>[t,t+tj]</code></li>
+<li>set <code>sj=t</code> and <code>fj=t+tj</code></li>
+<li>set <code>t=t+tj</code></li>
+</ul>
+</li>
+<li>dönüş aralıkları <code>[s1,f1],[s2,f2],...,[sn,fn]</code></li>
+</ol>
+<p>Ve C++&lsquo;da uygulama olarak:</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;utility&gt;
+#include &lt;tuple&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+const int jobCnt = 10;
+
+// Job start times
+const int processTimes[] = { 2, 3, 1, 4, 3, 2, 3, 5, 2, 1};
+
+// Job end times
+const int dueTimes[]     = { 4, 7, 9, 13, 8, 17, 9, 11, 22, 25};
+
+using namespace std;
+
+int main()
+{
+    vector&lt;pair&lt;int,int&gt;&gt; jobs;
+    
+    for(int i=0; i&lt;jobCnt; ++i)
+        jobs.push_back(make_pair(processTimes[i], dueTimes[i]));
+    
+    // step 1: sort
+    sort(jobs.begin(), jobs.end(),[](pair&lt;int,int&gt; p1, pair&lt;int,int&gt; p2)
+                                    { return p1.second &lt; p2.second; });
+    
+    // step 2: set t=0
+    int t = 0;
+    
+    // step 3:
+    vector&lt;pair&lt;int,int&gt;&gt; jobIntervals;
+    
+    for(int i=0; i&lt;jobCnt; ++i)
+    {
+        jobIntervals.push_back(make_pair(t,t+jobs[i].first));
+        t += jobs[i].first;
+    }
+            
+    //step 4: print intervals
+    cout &lt;&lt; &quot;Intervals:\n&quot; &lt;&lt; endl;
+    
+    int lateness = 0;
+    
+    for(int i=0; i&lt;jobCnt; ++i)
+    {
+        auto pair = jobIntervals[i];
+        
+        lateness = max(lateness, pair.second-jobs[i].second);
+
+        cout &lt;&lt; &quot;(&quot; &lt;&lt; pair.first &lt;&lt; &quot;,&quot; &lt;&lt; pair.second &lt;&lt; &quot;) &quot;
+             &lt;&lt; &quot;Lateness: &quot; &lt;&lt; pair.second-jobs[i].second &lt;&lt; std::endl;
+    }
+    
+    cout &lt;&lt; &quot;\nmaximal lateness is &quot; &lt;&lt; lateness &lt;&lt; endl;
+    
+    return 0;
+}
+</code></pre>
+<p>Ve bu programın çıktısı:</p>
+<pre><code>Intervals:
+
+(0,2)   Lateness:-2
+(2,5)   Lateness:-2
+(5,8)   Lateness: 0
+(8,9)   Lateness: 0
+(9,12)  Lateness: 3
+(12,17) Lateness: 6
+(17,21) Lateness: 8
+(21,23) Lateness: 6
+(23,25) Lateness: 3
+(25,26) Lateness: 1
+
+maximal lateness is 8
+</code></pre>
+<hr>
+<p>Algoritmanın çalışma zamanı açıkça Θ(n log n)&lsquo;dir, çünkü sıralama bu algoritmanın baskın işlemidir. Şimdi bunun optimal olduğunu göstermemiz gerekiyor. Açıkça optimal bir programın <strong>boş zamanı</strong> yoktur. <strong>önce en erken teslim tarihi</strong> programında da boş zaman yoktur.</p>
+<p>İşlerin <code>d1&lt;=d2&lt;=...&lt;=dn</code> olacak şekilde numaralandırıldığını varsayalım. Bir çizelgenin <strong>ters çevrilmesinin</strong> bir çift &lsquo;i&rsquo; ve &lsquo;j&rsquo; işi olduğunu söylüyoruz, böylece &lsquo;i&lt;j&rsquo;, ancak j &lsquo;i&rsquo;den önce programlanmıştır. Tanımı nedeniyle <strong>önce en erken son tarih</strong> çizelgesinin tersine çevrilmesi yoktur. Tabii ki, bir çizelgenin tersine çevrilmesi varsa, ardışık olarak çizelgelenen bir çift tersine çevrilmiş iş içeren bir çizelgeye sahiptir.</p>
+<p><strong>Önerme:</strong> İki bitişik, ters çevrilmiş işi değiştirmek, tersine çevirme sayısını <strong>bir</strong> azaltır ve maksimum gecikmeyi <strong>artırmaz</strong>.</p>
+<p><strong>Kanıt:</strong> Takas öncesi gecikme &lsquo;L&rsquo; ve sonrasındaki gecikme &lsquo;M&rsquo; olsun. İki bitişik işin değiş tokuş edilmesi, diğer işleri konumlarından hareket ettirmediğinden, tüm <code>k != i,j</code> için <code>Lk=Mk</code> olur.</p>
+<p>Açıkça, &lsquo;i&rsquo; işi daha önce planlandığı için &lsquo;Mi&lt;=Li&rsquo;dir. &lsquo;j&rsquo; işi gecikirse, tanımdan şu anlama gelir:</p>
+<pre><code>                         Mj = fi-dj    (definition)
+                           &lt;= fi-di    (since i and j are exchanged)
+                           &lt;= Li
+</code></pre>
+<p>Bu, takastan sonraki gecikmenin öncekinden daha az veya eşit olduğu anlamına gelir. Bu, kanıtı tamamlar.</p>
+<hr>
+<p><strong>Önerme:</strong> <strong>önce en erken teslim tarihi</strong> <code>S</code> planı optimaldir.</p>
+<p><strong>Kanıt:</strong><em>(çelişkiyle)</em></p>
+<p><code>S*</code> <strong>mümkün olan en az</strong> ters çevirme sayısıyla en uygun program olduğunu varsayalım. &ldquo;S*&ldquo;nin boşta kalma süresi olmadığını varsayabiliriz. Eğer <code>S*</code> inversiyonu yoksa, <code>S=S*</code> ve işimiz bitti. Eğer <code>S*</code> bir inversiyona sahipse, bunun yanında bir inversiyona sahiptir. Son Önerme, gecikmeyi artırmadan, tersine çevirme sayısını azaltarak bitişik ters çevirmeyi değiştirebileceğimizi belirtir. Bu, &ldquo;S*&rdquo; tanımıyla çelişir.</p>
+<hr>
+<p>Minimum zamanlama sorusunun sorulduğu minimum gecikme sorunu ve onunla yakın ilişkili <strong>minimum üretim süresi</strong> sorunu gerçek dünyada çok sayıda uygulamaya sahiptir. Ancak genellikle yalnızca bir makineniz olmaz, birçok makineniz olur ve aynı görevi farklı oranlarda gerçekleştirirler. Bu problemler NP-tamamını gerçekten hızlı bir şekilde alır.</p>
+<p>Tüm görev ve verilerin elimizde olduğu <strong>çevrimdışı</strong> sorununa değil, görevlerin yürütme sırasında göründüğü <strong>çevrimiçi</strong> değişkenine bakarsak başka bir ilginç soru ortaya çıkar.</p>
+<h2 id="çevrimdışı-önbelleğe-alma">Çevrimdışı Önbelleğe Alma <a href="#%c3%a7evrimd%c4%b1%c5%9f%c4%b1-%c3%b6nbelle%c4%9fe-alma" class="anchor" aria-hidden="true">#</a></h2>
+<p>Önbelleğe alma sorunu, sonlu alanın sınırlandırılmasından kaynaklanmaktadır. Önbelleğimizde <code>C</code> <code>k</code> sayfaları olduğunu varsayalım. Şimdi, işlenmeden önce önbelleğe yerleştirilmiş olması gereken bir dizi &rsquo;m&rsquo; öğe isteğini işlemek istiyoruz. Tabii &rsquo;m&lt;=k&rsquo; ise, o zaman tüm öğeleri önbelleğe koyarız ve çalışır, ancak genellikle <code>m&gt;&gt;k</code> dir.</p>
+<p>Öğe zaten önbellekteyken, isteğin bir <strong>önbellek isabeti</strong> olduğunu söyleriz, aksi takdirde buna <strong>önbellek hatası</strong> denir. Bu durumda, talep edilen öğeyi önbelleğe almalı ve önbelleğin dolu olduğunu varsayarak başka bir öğeyi çıkarmalıyız. Hedef, <strong>tahliye sayısını en aza indiren</strong> bir tahliye planıdır.</p>
+<p>Bu sorun için çok sayıda açgözlü strateji var, bazılarına bakalım:</p>
+<ol>
+<li><strong>İlk giren ilk çıkar (FIFO)</strong>: En eski sayfa çıkarılır</li>
+<li><strong>Son giren ilk çıkar (LIFO)</strong>: En yeni sayfa çıkarılır</li>
+<li><strong>Son çıkış (LRU)</strong>: En son erişimi en erken olan tahliye sayfası</li>
+<li><strong>En az talep edilen(LFU)</strong>: En az talep edilen tahliye sayfası</li>
+<li><strong>En uzun ileri mesafe (LFD)</strong>: Önbellekteki, en uzak zamana kadar talep edilmeyen sayfayı tahliye edin.</li>
+</ol>
+<p><strong>Dikkat:</strong> Aşağıdaki örnekler için, birden fazla sayfanın çıkarılması mümkünse, en küçük dizine sahip sayfayı çıkarırız.</p>
+<h3 id="örnek-fifo">Örnek (FIFO) <a href="#%c3%b6rnek-fifo" class="anchor" aria-hidden="true">#</a></h3>
+<p>Önbellek boyutu &lsquo;k=3&rsquo;, ilk önbellek &lsquo;a,b,c&rsquo; ve istek &lsquo;a,a,d,e,b,b,a,c,f,d,e,a,f olsun, b,e,c`:</p>
+<p>|Talep | bir | bir | g | e | b | b | bir | c | f | g | e | bir | f | b | e | c |
+|:&mdash;&mdash;&ndash;:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:- :|:-:|:-:|:-:|:-:|:-:|:-:|
+|<code>önbellek 1</code> | bir | bir | g | g | g | g | bir | bir | bir | g | g | g | f | f | f | c |
+|<code>önbellek 2</code> | b | b | b | e | e | e | e | c | c | c | e | e | e | b | b | b |
+|<code>önbellek 3</code> | c | c | c | c | b | b | b | b | f | f | f | bir | bir | bir | e | e |
+|önbellek kaçırma| | | x | x | x | | x | x | x | x | x | x | x | x | x | x |</p>
+<p>On altı istekle on üç önbellek ıskalaması kulağa pek uygun gelmiyor, hadi aynı örneği başka bir stratejiyle deneyelim:</p>
+<h3 id="örnek-lfd">Örnek (LFD) <a href="#%c3%b6rnek-lfd" class="anchor" aria-hidden="true">#</a></h3>
+<p>Önbellek boyutu &lsquo;k=3&rsquo;, ilk önbellek &lsquo;a,b,c&rsquo; ve istek &lsquo;a,a,d,e,b,b,a,c,f,d,e,a,f olsun, b,e,c`:</p>
+<p>|Talep | bir | bir | g | e | b | b | bir | c | f | g | e | bir | f | b | e | c |
+|:&mdash;&mdash;&ndash;:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:- :|:-:|:-:|:-:|:-:|:-:|:-:|
+|<code>önbellek 1</code> | için | için | g | ve | ve | ve | ve | ve | ve | ve | ve | ve | ve | ve | ve | c |
+|<code>önbellek 2</code> | b | b | b | b | b | b | bir | bir | bir | bir | bir | bir | f | f | f | f |
+|<code>önbellek 3</code> | c | c | c | c | c | c | c | c | f | g | g | g | g | b | b | b |
+|önbellek kaçırma| | | x | x | | | x | | x | x | | | x | x | | x |</p>
+<p>Sekiz önbellek kaçırması çok daha iyi.</p>
+<p><strong>Selftest</strong>: LIFO, LFU, RFU örneğini yapın ve ne olduğuna bakın.</p>
+<p>Aşağıdaki örnek program (C++ ile yazılmıştır) iki bölümden oluşmaktadır:</p>
+<p>İskelet, seçilen açgözlü stratejiye bağlı olarak sorunu çözen bir uygulamadır:</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+using namespace std;
+
+const int cacheSize     = 3;
+const int requestLength = 16;
+
+const char request[]    = {'a','a','d','e','b','b','a','c','f','d','e','a','f','b','e','c'};
+char cache[]            = {'a','b','c'};
+
+// for reset
+char originalCache[]    = {'a','b','c'};
+
+
+class Strategy {
+
+public:
+    Strategy(std::string name) : strategyName(name) {}
+    virtual ~Strategy() = default;
+
+    // calculate which cache place should be used
+    virtual int apply(int requestIndex)                                      = 0;
+
+    // updates information the strategy needs
+    virtual void update(int cachePlace, int requestIndex, bool cacheMiss)    = 0;
+
+    const std::string strategyName;
+};
+
+bool updateCache(int requestIndex, Strategy* strategy)
+{
+    // calculate where to put request
+    int cachePlace = strategy-&gt;apply(requestIndex);
+
+    // proof whether its a cache hit or a cache miss
+    bool isMiss = request[requestIndex] != cache[cachePlace];
+
+    // update strategy (for example recount distances)
+    strategy-&gt;update(cachePlace, requestIndex, isMiss);
+
+    // write to cache
+    cache[cachePlace] = request[requestIndex];
+
+    return isMiss;
+}
+
+int main()
+{
+    Strategy* selectedStrategy[] = { new FIFO, new LIFO, new LRU, new LFU, new LFD };
+
+    for (int strat=0; strat &lt; 5; ++strat)
+    {
+        // reset cache
+        for (int i=0; i &lt; cacheSize; ++i) cache[i] = originalCache[i];
+
+        cout &lt;&lt;&quot;\nStrategy: &quot; &lt;&lt; selectedStrategy[strat]-&gt;strategyName &lt;&lt; endl;
+
+        cout &lt;&lt; &quot;\nCache initial: (&quot;;
+        for (int i=0; i &lt; cacheSize-1; ++i) cout &lt;&lt; cache[i] &lt;&lt; &quot;,&quot;;
+        cout &lt;&lt; cache[cacheSize-1] &lt;&lt; &quot;)\n\n&quot;;
+
+        cout &lt;&lt; &quot;Request\t&quot;;
+        for (int i=0; i &lt; cacheSize; ++i) cout &lt;&lt; &quot;cache &quot; &lt;&lt; i &lt;&lt; &quot;\t&quot;;
+        cout &lt;&lt; &quot;cache miss&quot; &lt;&lt; endl;
+
+        int cntMisses = 0;
+
+        for(int i=0; i&lt;requestLength; ++i)
+        {
+            bool isMiss = updateCache(i, selectedStrategy[strat]);
+            if (isMiss) ++cntMisses;
+
+            cout &lt;&lt; &quot;  &quot; &lt;&lt; request[i] &lt;&lt; &quot;\t&quot;;
+            for (int l=0; l &lt; cacheSize; ++l) cout &lt;&lt; &quot;  &quot; &lt;&lt; cache[l] &lt;&lt; &quot;\t&quot;;
+            cout &lt;&lt; (isMiss ? &quot;x&quot; : &quot;&quot;) &lt;&lt; endl;
+        }
+
+        cout&lt;&lt; &quot;\nTotal cache misses: &quot; &lt;&lt; cntMisses &lt;&lt; endl;
+    }
+
+    for(int i=0; i&lt;5; ++i) delete selectedStrategy[i];
+}
+</code></pre>
+<p>Temel fikir basit: Her istek için iki çağrım var iki stratejim:</p>
+<ol>
+<li><strong>uygula</strong>: Strateji, arayan kişiye hangi sayfayı kullanacağını söylemelidir.</li>
+<li><strong>güncelleme</strong>: Arayan yeri kullandıktan sonra, stratejiye kaçırıp kaçırmadığını söyler. Ardından strateji dahili verilerini güncelleyebilir. Örneğin <strong>LFU</strong> stratejisi, önbellek sayfaları için isabet sıklığını güncellemeli, <strong>LFD</strong> stratejisi ise önbellek sayfaları için mesafeleri yeniden hesaplamalıdır.</li>
+</ol>
+<p>Şimdi beş stratejimiz için örnek uygulamalara bakalım:</p>
+<h3 id="fifo">FIFO <a href="#fifo" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code>class FIFO : public Strategy {
+public:
+    FIFO() : Strategy(&quot;FIFO&quot;)
+    {
+        for (int i=0; i&lt;cacheSize; ++i) age[i] = 0;
+    }
+
+    int apply(int requestIndex) override
+    {
+        int oldest = 0;
+
+        for(int i=0; i&lt;cacheSize; ++i)
+        {
+            if(cache[i] == request[requestIndex])
+                return i;
+
+            else if(age[i] &gt; age[oldest])
+                oldest = i;
+        }
+
+        return oldest;
+    }
+
+    void update(int cachePos, int requestIndex, bool cacheMiss) override
+    {
+        // nothing changed we dont need to update the ages
+        if(!cacheMiss)
+            return;
+
+        // all old pages get older, the new one get 0
+        for(int i=0; i&lt;cacheSize; ++i)
+        {
+            if(i != cachePos)
+                age[i]++;
+
+            else
+                age[i] = 0;
+        }
+    }
+
+private:
+    int age[cacheSize];
+};
+</code></pre>
+<p><strong>FIFO</strong> sadece bir sayfanın önbellekte ne kadar süre kaldığı bilgisine ihtiyaç duyar (ve tabii ki sadece diğer sayfalara göre). Bu yüzden yapılacak tek şey, bir bayanı beklemek ve daha sonra tahliye edilmeyen sayfaları eski haline getirmektir. Yukarıdaki örneğimiz için program çözümü:</p>
+<pre><code>Strategy: FIFO
+
+Cache initial: (a,b,c)
+
+Request    cache 0    cache 1    cache 2    cache miss
+  a          a          b          c    
+  a          a          b          c    
+  d          d          b          c          x
+  e          d          e          c          x
+  b          d          e          b          x
+  b          d          e          b    
+  a          a          e          b          x
+  c          a          c          b          x
+  f          a          c          f          x
+  d          d          c          f          x
+  e          d          e          f          x
+  a          d          e          a          x
+  f          f          e          a          x
+  b          f          b          a          x
+  e          f          b          e          x
+  c          c          b          e          x
+
+Total cache misses: 13
+</code></pre>
+<p>Bu kesin çözüm yukarıdan.</p>
+<h3 id="yaşam">YAŞAM <a href="#ya%c5%9fam" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code>class LIFO : public Strategy {
+public:
+    LIFO() : Strategy(&quot;LIFO&quot;)
+    {
+        for (int i=0; i&lt;cacheSize; ++i) age[i] = 0;
+    }
+
+    int apply(int requestIndex) override
+    {
+        int newest = 0;
+
+        for(int i=0; i&lt;cacheSize; ++i)
+        {
+            if(cache[i] == request[requestIndex])
+                return i;
+
+            else if(age[i] &lt; age[newest])
+                newest = i;
+        }
+
+        return newest;
+    }
+
+    void update(int cachePos, int requestIndex, bool cacheMiss) override
+    {
+        // nothing changed we dont need to update the ages
+        if(!cacheMiss)
+            return;
+
+        // all old pages get older, the new one get 0
+        for(int i=0; i&lt;cacheSize; ++i)
+        {
+            if(i != cachePos)
+                age[i]++;
+
+            else
+                age[i] = 0;
+        }
+    }
+
+private:
+    int age[cacheSize];
+};
+</code></pre>
+<p><strong>LIFO</strong> uygulaması aşağı yukarı <strong>FIFO</strong> ile aynıdır, ancak en eski sayfayı değil en küçüğü çıkarırız. Program sonuçları şunlardır:</p>
+<pre><code>Strategy: LIFO
+
+Cache initial: (a,b,c)
+
+Request    cache 0    cache 1    cache 2    cache miss
+  a          a          b          c    
+  a          a          b          c    
+  d          d          b          c          x
+  e          e          b          c          x
+  b          e          b          c    
+  b          e          b          c    
+  a          a          b          c          x
+  c          a          b          c    
+  f          f          b          c          x
+  d          d          b          c          x
+  e          e          b          c          x
+  a          a          b          c          x
+  f          f          b          c          x
+  b          f          b          c    
+  e          e          b          c          x
+  c          e          b          c    
+
+Total cache misses: 9
+</code></pre>
+<h3 id="lru">LRU <a href="#lru" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code>class LRU : public Strategy {
+public:
+    LRU() : Strategy(&quot;LRU&quot;)
+    {
+        for (int i=0; i&lt;cacheSize; ++i) age[i] = 0;
+    }
+
+    // here oldest mean not used the longest
+    int apply(int requestIndex) override
+    {
+        int oldest = 0;
+
+        for(int i=0; i&lt;cacheSize; ++i)
+        {
+            if(cache[i] == request[requestIndex])
+                return i;
+
+            else if(age[i] &gt; age[oldest])
+                oldest = i;
+        }
+
+        return oldest;
+    }
+
+    void update(int cachePos, int requestIndex, bool cacheMiss) override
+    {
+        // all old pages get older, the used one get 0
+        for(int i=0; i&lt;cacheSize; ++i)
+        {
+            if(i != cachePos)
+                age[i]++;
+
+            else
+                age[i] = 0;
+        }
+    }
+
+private:
+    int age[cacheSize];
+};
+</code></pre>
+<p><strong>LRU</strong> durumunda strateji önbellek sayfasındakilerden bağımsızdır, tek ilgi alanı son kullanımdır. Program sonuçları şunlardır:</p>
+<pre><code>Strategy: LRU
+
+Cache initial: (a,b,c)
+
+Request    cache 0    cache 1    cache 2    cache miss
+  a          a          b          c    
+  a          a          b          c    
+  d          a          d          c          x
+  e          a          d          e          x
+  b          b          d          e          x
+  b          b          d          e    
+  a          b          a          e          x
+  c          b          a          c          x
+  f          f          a          c          x
+  d          f          d          c          x
+  e          f          d          e          x
+  a          a          d          e          x
+  f          a          f          e          x
+  b          a          f          b          x
+  e          e          f          b          x
+  c          e          c          b          x
+
+Total cache misses: 13
+</code></pre>
+<h3 id="lfu">LFU <a href="#lfu" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code>class LFU : public Strategy {
+public:
+    LFU() : Strategy(&quot;LFU&quot;)
+    {
+        for (int i=0; i&lt;cacheSize; ++i) requestFrequency[i] = 0;
+    }
+
+    int apply(int requestIndex) override
+    {
+        int least = 0;
+
+        for(int i=0; i&lt;cacheSize; ++i)
+        {
+            if(cache[i] == request[requestIndex])
+                return i;
+
+            else if(requestFrequency[i] &lt; requestFrequency[least])
+                least = i;
+        }
+
+        return least;
+    }
+
+    void update(int cachePos, int requestIndex, bool cacheMiss) override
+    {
+        if(cacheMiss)
+            requestFrequency[cachePos] = 1;
+
+        else
+            ++requestFrequency[cachePos];
+    }
+
+private:
+
+    // how frequently was the page used
+    int requestFrequency[cacheSize];
+};
+</code></pre>
+<p><strong>LFU</strong>, sayfanın en az kullandığı sayfayı çıkarır. Bu yüzden güncelleme stratejisi sadece her erişimi saymaktır. Elbette bir ıskalamadan sonra sayı sıfırlanır. Program sonuçları şunlardır:</p>
+<pre><code>Strategy: LFU
+
+Cache initial: (a,b,c)
+
+Request    cache 0    cache 1    cache 2    cache miss
+  a          a          b          c    
+  a          a          b          c    
+  d          a          d          c          x
+  e          a          d          e          x
+  b          a          b          e          x
+  b          a          b          e    
+  a          a          b          e    
+  c          a          b          c          x
+  f          a          b          f          x
+  d          a          b          d          x
+  e          a          b          e          x
+  a          a          b          e    
+  f          a          b          f          x
+  b          a          b          f    
+  e          a          b          e          x
+  c          a          b          c          x
+
+Total cache misses: 10
+</code></pre>
+<h3 id="lfd">LFD <a href="#lfd" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code>class LFD : public Strategy {
+public:
+    LFD() : Strategy(&quot;LFD&quot;)
+    {
+        // precalc next usage before starting to fullfill requests
+        for (int i=0; i&lt;cacheSize; ++i) nextUse[i] = calcNextUse(-1, cache[i]);
+    }
+
+    int apply(int requestIndex) override
+    {
+        int latest = 0;
+
+        for(int i=0; i&lt;cacheSize; ++i)
+        {
+            if(cache[i] == request[requestIndex])
+                return i;
+
+            else if(nextUse[i] &gt; nextUse[latest])
+                latest = i;
+        }
+
+        return latest;
+    }
+
+    void update(int cachePos, int requestIndex, bool cacheMiss) override
+    {
+            nextUse[cachePos] = calcNextUse(requestIndex, cache[cachePos]);
+    }
+
+private:
+
+    int calcNextUse(int requestPosition, char pageItem)
+    {
+        for(int i = requestPosition+1; i &lt; requestLength; ++i)
+        {
+            if (request[i] == pageItem)
+                return i;
+        }
+
+        return requestLength + 1;
+    }
+
+    // next usage of page
+    int nextUse[cacheSize];
+};
+</code></pre>
+<p><strong>LFD</strong> stratejisi daha önceki herkesten farklıdır. Kimin tahliye edileceğine karar vermek için gelecekteki talepleri kullanan tek stratejidir. Uygulama, bir sonraki kullanımın gelecekte en uzakta olacağı sayfayı almak için &ldquo;calcNextUse&rdquo; işlevini kullanır. Program çözümü, yukarıdan elle çözüme eşittir:</p>
+<pre><code>Strategy: LFD
+
+Cache initial: (a,b,c)
+
+Request    cache 0    cache 1    cache 2    cache miss
+  a          a          b          c    
+  a          a          b          c    
+  d          a          b          d          x
+  e          a          b          e          x
+  b          a          b          e    
+  b          a          b          e    
+  a          a          b          e    
+  c          a          c          e          x
+  f          a          f          e          x
+  d          a          d          e          x
+  e          a          d          e    
+  a          a          d          e    
+  f          f          d          e          x
+  b          b          d          e          x
+  e          b          d          e    
+  c          c          d          e          x
+
+Total cache misses: 8 
+</code></pre>
+<p>Açgözlü strateji <strong>LFD</strong>, gerçekten de sunulan beş stratejinin tek optimal stratejisidir. Kanıt oldukça uzun ve <a href="https://blog.henrypoon.com/blog/2014/02/02/proof-of-the-farthest-in-future-optimal-caching-algorithm/">burada</a> bulunabilir veya Jon Kleinberg ve Eva Tardos&rsquo;un kitabında (aşağıdaki açıklamalardaki kaynaklara bakın).</p>
+<h3 id="algoritma-ve-gerçeklik">Algoritma ve Gerçeklik <a href="#algoritma-ve-ger%c3%a7eklik" class="anchor" aria-hidden="true">#</a></h3>
+<p><strong>LFD</strong> stratejisi optimaldir, ancak büyük bir sorun vardır. Optimum bir <strong>çevrimdışı</strong> çözüm. Uygulamada önbelleğe alma genellikle <strong>çevrimiçi</strong> bir sorundur, bu, stratejinin işe yaramaz olduğu anlamına gelir çünkü bir dahaki sefere belirli bir öğeye ihtiyacımız olduğunda bunu yapamayız. Diğer dört strateji de <strong>çevrimiçi</strong> stratejilerdir. Çevrimiçi sorunlar için genel olarak farklı bir yaklaşıma ihtiyacımız var.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/tr/algorithm/seyyar-satc/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Seyyar satıcı
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/tr/algorithm/primin-algoritmas/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Prim&#39;in Algoritması &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/tr/about/">Hakkında</a></li>
+          <li class="list-inline-item"><a href="/tr/disclaimers/">Sorumluluk Reddi</a></li>
+          <li class="list-inline-item"><a href="/tr/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/tr/terms-of-use/">Kullanım Şartları</a></li>
+          <li class="list-inline-item"><a href="/tr/privacy-policy/">Gizlilik Politikası</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

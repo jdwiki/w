@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel café on </title>
+    <link>https://www.wikiod.com/fr/docs/caffe/</link>
+    <description>Recent content in Tutoriel café on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/caffe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Commencer avec le café</title>
+      <link>https://www.wikiod.com/fr/caffe/commencer-avec-le-cafe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/caffe/commencer-avec-le-cafe/</guid>
+      <description>Installation et configuration # Ubuntu # Vous trouverez ci-dessous des instructions détaillées pour installer Caffe, pycaffe ainsi que ses dépendances, sur Ubuntu 14.04 x64 ou 14.10 x64.
+Exécutez le script suivant, par ex. &amp;ldquo;bash compile_caffe_ubuntu_14.sh&amp;rdquo; (~30 à 60 minutes sur un nouvel Ubuntu).
+# This script installs Caffe and pycaffe. # CPU only, multi-threaded Caffe. # Usage: # 0. Set up here how many cores you want to use during the installation: # By default Caffe will use all these cores.</description>
+    </item>
+    
+    <item>
+      <title>Normalisation par lots</title>
+      <link>https://www.wikiod.com/fr/caffe/normalisation-par-lots/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/caffe/normalisation-par-lots/</guid>
+      <description>À partir de [la documentation] (http://caffe.berkeleyvision.org/doxygen/classcaffe_1_1BatchNormLayer.html) :
+&amp;ldquo;Normalise l&amp;rsquo;entrée pour avoir une moyenne de 0 et/ou une variance unitaire (1) sur l&amp;rsquo;ensemble du lot.
+Cette couche calcule la normalisation par lots comme décrit dans [1].
+[&amp;hellip;]
+[1] S. Ioffe et C. Szegedy, &amp;ldquo;Normalisation par lots : Accélérer la formation en profondeur du réseau en réduisant le changement de covariable interne.&amp;rdquo; arXiv preprint arXiv:1502.03167 (2015).&amp;rdquo;
+Paramètres # Paramètre Détails use_global_stats Extrait du post de rohrbach du 2 mars 2016 - peut-être qu&amp;rsquo;il sait : (use_global_stats) &amp;ldquo;Par défaut, pendant le temps de formation, le réseau calcule les statistiques globales de moyenne/variance via une moyenne mobile, qui est ensuite utilisée au moment du test pour permettre des sorties déterministes pour chaque entrée.</description>
+    </item>
+    
+    <item>
+      <title>Préparer les données pour la formation</title>
+      <link>https://www.wikiod.com/fr/caffe/preparer-les-donnees-pour-la-formation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/caffe/preparer-les-donnees-pour-la-formation/</guid>
+      <description>Préparer l&amp;rsquo;ensemble de données d&amp;rsquo;image pour la tâche de classification d&amp;rsquo;image # Caffe dispose d&amp;rsquo;une couche d&amp;rsquo;entrée intégrée adaptée aux tâches de classification d&amp;rsquo;images (c&amp;rsquo;est-à-dire une seule étiquette entière par image d&amp;rsquo;entrée). Cette couche &amp;ldquo;Données&amp;rdquo; d&amp;rsquo;entrée est construite sur une structure de données [tag:lmdb] ou [tag:leveldb]. Pour utiliser la couche &amp;quot;Data&amp;quot;, il faut construire la structure de données avec toutes les données d&amp;rsquo;apprentissage.
+Un guide rapide du `convert_imageset` de Caffe Construire La première chose que vous devez faire est de construire caffe et les outils de caffe (`convert_imageset` est l&#39;un de ces outils).</description>
+    </item>
+    
+    <item>
+      <title>Entraîner un modèle Caffe avec pycaffe</title>
+      <link>https://www.wikiod.com/fr/caffe/entrainer-un-modele-caffe-avec-pycaffe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/caffe/entrainer-un-modele-caffe-avec-pycaffe/</guid>
+      <description>Formation d&amp;rsquo;un réseau sur le jeu de données Iris # Vous trouverez ci-dessous un exemple simple pour former un modèle Caffe sur l&amp;rsquo;ensemble de données Iris en Python, à l&amp;rsquo;aide de PyCaffe. Il donne également les sorties prévues en fonction de certaines entrées définies par l&amp;rsquo;utilisateur.
+iris_tuto.py
+import subprocess import platform import copy from sklearn.datasets import load_iris import sklearn.metrics import numpy as np from sklearn.cross_validation import StratifiedShuffleSplit import matplotlib.pyplot as plt import h5py import caffe import caffe.</description>
+    </item>
+    
+    <item>
+      <title>Objets Caffe de base - Solveur, Net, Layer et Blob</title>
+      <link>https://www.wikiod.com/fr/caffe/objets-caffe-de-base---solveur-net-layer-et-blob/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/caffe/objets-caffe-de-base---solveur-net-layer-et-blob/</guid>
+      <description>Un utilisateur caffe envoie des instructions pour effectuer des opérations spécifiques sur des objets caffe. Ces objets interagissent les uns avec les autres en fonction de leurs spécifications de conception et exécutent la ou les opérations. C&amp;rsquo;est un principe de base du paradigme POO.
+Bien qu&amp;rsquo;il existe de nombreux types d&amp;rsquo;objets caffe (ou classes C++), pour une compréhension de base initiale, nous nous concentrons sur 4 objets caffe importants. Notre objectif à ce stade est simplement d&amp;rsquo;observer l&amp;rsquo;interaction entre ces objets à un niveau hautement abstrait où les détails spécifiques de mise en œuvre et de conception sont voilés, et à la place une vue d&amp;rsquo;ensemble du fonctionnement est concentrée sur.</description>
+    </item>
+    
+    <item>
+      <title>Couches Python personnalisées</title>
+      <link>https://www.wikiod.com/fr/caffe/couches-python-personnalisees/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/caffe/couches-python-personnalisees/</guid>
+      <description>Ce didacticiel vous guidera à travers les étapes de création d&amp;rsquo;une couche personnalisée simple pour Caffe à l&amp;rsquo;aide de python. À la fin, il existe quelques exemples de calques personnalisés. Habituellement, vous créez une couche personnalisée pour implémenter une fonctionnalité qui n&amp;rsquo;est pas disponible dans Caffe, en l&amp;rsquo;adaptant à vos besoins.
+La création d&amp;rsquo;une couche personnalisée python ajoute une surcharge à votre réseau et n&amp;rsquo;est probablement pas aussi efficace qu&amp;rsquo;une couche personnalisée C++.</description>
+    </item>
+    
+  </channel>
+</rss>

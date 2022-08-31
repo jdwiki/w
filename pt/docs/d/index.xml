@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>D Tutorial de idioma on </title>
+    <link>https://www.wikiod.com/pt/docs/d/</link>
+    <description>Recent content in D Tutorial de idioma on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução à linguagem D</title>
+      <link>https://www.wikiod.com/pt/d/introducao-a-linguagem-d/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/d/introducao-a-linguagem-d/</guid>
+      <description>Instalação ou Configuração # O compilador padrão DMD da linguagem de programação D pode ser executado em todas as principais plataformas. Para instalar o DMD, veja aqui. Para instalar por linha de comando, você pode executar o comando (encontrado no site D):
+curl -fsS https://dlang.org/install.sh | bash -s dmd Gerenciadores de Pacotes # Arch Linux # pacman -S dlang Chocolate # choco install dmd Gento # layman -f -a dlang OSX Homebrew # brew install dmd Debian/Ubuntu # A instalação em distribuições Debian/Ubuntu precisa que o repositório APT seja adicionado à lista de fontes.</description>
+    </item>
+    
+    <item>
+      <title>Matrizes e fatias dinâmicas</title>
+      <link>https://www.wikiod.com/pt/d/matrizes-e-fatias-dinamicas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/d/matrizes-e-fatias-dinamicas/</guid>
+      <description>Sintaxe # &amp;lt;tipo&amp;gt;[] &amp;lt;nome&amp;gt;; As fatias geram uma nova visualização na memória existente. Eles não criam uma nova cópia. Se nenhuma fatia tiver mais uma referência a essa memória - ou uma parte fatiada dela - ela será liberada pelo coletor de lixo.
+Usando fatias, é possível escrever um código muito eficiente para, por exemplo, analisadores que operam apenas em um bloco de memória e apenas cortam as partes nas quais realmente precisam trabalhar - sem necessidade de alocar novos blocos de memória.</description>
+    </item>
+    
+    <item>
+      <title>Gamas</title>
+      <link>https://www.wikiod.com/pt/d/gamas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/d/gamas/</guid>
+      <description>Se um foreach for encontrado pelo compilador
+foreach (element; range) { ele é reescrito internamente semelhante ao seguinte:
+for (auto it = range; !it.empty; it.popFront()) { auto element = it.front; ... } Qualquer objeto que preencha a interface acima é chamado de intervalo de entrada e, portanto, é um tipo que pode ser iterado:
+struct InputRange { @property bool empty(); @property T front(); void popFront(); } Strings e arrays são intervalos # import std.</description>
+    </item>
+    
+    <item>
+      <title>Matrizes Associativas</title>
+      <link>https://www.wikiod.com/pt/d/matrizes-associativas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/d/matrizes-associativas/</guid>
+      <description>Uso padrão # int[string] wordCount(string[] wordList) { int[string] words; foreach (word; wordList) { words[word]++; } return words; } void main() { int[string] count = wordCount([&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;, &amp;quot;I&amp;quot;, &amp;quot;say&amp;quot;, &amp;quot;hello&amp;quot;]); foreach (key; count.keys) { writefln(&amp;quot;%s: %s&amp;quot;, key, count[key]); } // hello: 2 // world: 1 // I: 1 // say: 1 // note: the order in the foreach is unspecified } Literais # int[string] aa0 = [&amp;quot;x&amp;quot;: 5, &amp;quot;y&amp;quot;: 6]; //int values, string keys auto aa1 = [&amp;quot;x&amp;quot;: 5.</description>
+    </item>
+    
+    <item>
+      <title>Avaliação da função de tempo de compilação (CTFE)</title>
+      <link>https://www.wikiod.com/pt/d/avaliacao-da-funcao-de-tempo-de-compilacao-ctfe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/d/avaliacao-da-funcao-de-tempo-de-compilacao-ctfe/</guid>
+      <description>CTFE é um mecanismo que permite ao compilador executar funções em tempo de compilação. Não há nenhum conjunto especial da linguagem D necessário para usar esse recurso - sempre que uma função depende apenas de valores conhecidos do tempo de compilação, o compilador D pode decidir interpretá-la durante a compilação.
+Você também pode jogar interativamente com CTFE.
+Avalie uma função em tempo de compilação # long fib(long n) { return n &amp;lt; 2 ?</description>
+    </item>
+    
+    <item>
+      <title>UFCS - Sintaxe de Chamada de Função Uniforme</title>
+      <link>https://www.wikiod.com/pt/d/ufcs---sintaxe-de-chamada-de-funcao-uniforme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/d/ufcs---sintaxe-de-chamada-de-funcao-uniforme/</guid>
+      <description>Sintaxe # aThirdFun(anotherFun(myFun(), 42); // notação comum (também válida) myFun().anotherFun(42).aThirdFun(); // UFCS myFun.anotherFun(42).aThirdFun; // chaves vazias podem ser removidas Em uma chamada a.b(args...), se o tipo a não tiver um método chamado b, então o compilador tentará reescrever a chamada como b(a, args...) .
+Verificando se um número é primo # import std.stdio; bool isPrime(int number) { foreach(i; 2..number) { if (number % i == 0) { return false; } } return true; } void main() { writeln(2.</description>
+    </item>
+    
+    <item>
+      <title>Protetores de escopo</title>
+      <link>https://www.wikiod.com/pt/d/protetores-de-escopo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/d/protetores-de-escopo/</guid>
+      <description>Sintaxe # scope(exit) - as instruções são chamadas independentemente de como o bloco atual foi encerrado scope(success) - as instruções são chamadas quando o bloco atual foi encerrado normalmente scope(failure) - as instruções são chamadas quando o bloco atual foi encerrado por meio de lançamento de exceção O uso de protetores de escopo torna o código muito mais limpo e permite colocar a alocação de recursos e limpar o código um ao lado do outro.</description>
+    </item>
+    
+    <item>
+      <title>Contratos</title>
+      <link>https://www.wikiod.com/pt/d/contratos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/d/contratos/</guid>
+      <description>As asserções serão otimizadas em uma compilação de lançamento.
+Contratos de função # Os contratos de função permitem que o programador verifique inconsistências. As inconsistências incluem parâmetros inválidos, verificações do valor de retorno correto ou um estado inválido do objeto.
+As verificações podem acontecer antes e depois que o corpo da função ou método é executado.
+void printNotGreaterThan42(uint number) in { assert(number &amp;lt; 42); } body { import std.stdio : writeln; writeln(number); } As asserções serão otimizadas em uma compilação de lançamento.</description>
+    </item>
+    
+    <item>
+      <title>Estruturas</title>
+      <link>https://www.wikiod.com/pt/d/estruturas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/d/estruturas/</guid>
+      <description>Definindo um novo Struct # Para definir a estrutura chamada Person com uma variável do tipo inteiro age, a variável do tipo inteiro height e a variável do tipo float ageXHeight:
+struct Person { int age; int height; float ageXHeight; } Geralmente:
+struct structName { /+ values go here +/ } Construtores de estrutura # Em D podemos usar construtores para inicializar estruturas como uma classe. Para definir uma construção para a estrutura declarada no exemplo anterior, podemos digitar:</description>
+    </item>
+    
+    <item>
+      <title>Características</title>
+      <link>https://www.wikiod.com/pt/d/caracteristicas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/d/caracteristicas/</guid>
+      <description>Sintaxe # __traits (TraitsKeyword, TraitsArguments&amp;hellip;) Iterando sobre os membros de uma estrutura # import std.stdio; struct A { int b; void c(); string d; }; void main() { // The following foreach is unrolled in compile time foreach(name; __traits(allMembers, A)) { pragma(msg, name); } } As características allMembers retornam uma tupla de string contendo os nomes dos membros de um determinado tipo. Essas strings são conhecidas em tempo de compilação.</description>
+    </item>
+    
+  </channel>
+</rss>

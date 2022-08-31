@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel mangouste on </title>
+    <link>https://www.wikiod.com/fr/docs/mongoose/</link>
+    <description>Recent content in Tutoriel mangouste on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/mongoose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Débuter avec la mangouste</title>
+      <link>https://www.wikiod.com/fr/mongoose/debuter-avec-la-mangouste/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mongoose/debuter-avec-la-mangouste/</guid>
+      <description>Installation # L&amp;rsquo;installation de mongoose est aussi simple que d&amp;rsquo;exécuter la commande npm
+npm installer mangouste --save
+Mais assurez-vous d&amp;rsquo;avoir également installé MongoDB pour votre système d&amp;rsquo;exploitation ou d&amp;rsquo;avoir accès à une base de données MongoDB.
+Connexion à la base de données MongoDB : # 1. Importez la mangouste dans l&amp;rsquo;application :
+import mongoose from &#39;mongoose&#39;; 2. Spécifiez une bibliothèque Promise :
+mongoose.Promise = global.Promise; 3. Connectez-vous à MongoDB :</description>
+    </item>
+    
+    <item>
+      <title>mongoose pré et post middleware (hooks)</title>
+      <link>https://www.wikiod.com/fr/mongoose/mongoose-pre-et-post-middleware-hooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mongoose/mongoose-pre-et-post-middleware-hooks/</guid>
+      <description>Intergiciel # Les intergiciels (également appelés pré et post-hooks) sont des fonctions qui sont passées sous contrôle lors de l&amp;rsquo;exécution de fonctions asynchrones. Le middleware est spécifié au niveau du schéma et est utile pour écrire des plugins. Mongoose 4.0 dispose de 2 types de middleware : le middleware de document et le middleware de requête. Le middleware de document est pris en charge pour les fonctions de document suivantes.</description>
+    </item>
+    
+    <item>
+      <title>Population de mangoustes</title>
+      <link>https://www.wikiod.com/fr/mongoose/population-de-mangoustes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mongoose/population-de-mangoustes/</guid>
+      <description>Syntaxe # Query.populate(path, [select], [model], [match], [options]) Paramètres # Paramètre Explication chemin &amp;lt;Object, String&amp;gt; soit le chemin à remplir soit un objet spécifiant tous les paramètres [sélectionner] &amp;lt;Object, String&amp;gt; Sélection du champ pour la requête de population (peut utiliser &#39;-id&#39; pour tout inclure sauf le champ id) [modèle] &amp;lt;Modèle&amp;gt; Le modèle que vous souhaitez utiliser pour le remplissage. S&amp;rsquo;il n&amp;rsquo;est pas spécifié, le remplissage recherchera le modèle par le nom dans le champ de référence du schéma.</description>
+    </item>
+    
+    <item>
+      <title>Intergiciel Mongoose</title>
+      <link>https://www.wikiod.com/fr/mongoose/intergiciel-mongoose/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mongoose/intergiciel-mongoose/</guid>
+      <description>Dans mongoose, les middlewares sont également appelés crochets &amp;ldquo;pré&amp;rdquo; et &amp;ldquo;post&amp;rdquo;.
+Il existe deux types de middleware # Ces deux intergiciels prennent en charge les hooks pre et post.
+Intergiciel de documentation
+Its supported for document functions init, validate, save and remove
+Middleware de requête
+Its supported for query functions count, find, findOne, findOneAndRemove, findOneAndUpdate, insertMany and update.
+Crochets pré et post # Il existe deux types de crochets Pré</description>
+    </item>
+    
+    <item>
+      <title>Requêtes de mangouste</title>
+      <link>https://www.wikiod.com/fr/mongoose/requetes-de-mangouste/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mongoose/requetes-de-mangouste/</guid>
+      <description>Mongoose est un pilote Node.JS pour MongoDB. Il offre certains avantages par rapport au pilote MongoDB par défaut, comme l&amp;rsquo;ajout de types aux schémas. Une différence est que certaines requêtes Mongoose peuvent différer de leurs équivalents MongoDB.
+Trouver une requête # Importer un modèle de mangouste (voir rubrique &amp;ldquo;Schémas de mangouste&amp;rdquo;)
+var Utilisateur = require(&amp;quot;../models/user-schema.js&amp;quot;)
+La méthode findOne renverra la première entrée de la base de données qui correspond au premier paramètre.</description>
+    </item>
+    
+    <item>
+      <title>Schémas de mangouste</title>
+      <link>https://www.wikiod.com/fr/mongoose/schemas-de-mangouste/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mongoose/schemas-de-mangouste/</guid>
+      <description>Création d&amp;rsquo;un schéma # var mongoose = require(&#39;mongoose&#39;); //assume Player and Board schemas are already made var Player = mongoose.model(&#39;Player&#39;); var Board = mongoose.model(&#39;Board&#39;); //Each key in the schema is associated with schema type (ie. String, Number, Date, etc) var gameSchema = new mongoose.Schema({ name: String, players: [{ type: mongoose.Schema.Types.ObjectId, ref: &#39;Player&#39; }], host: { type: mongoose.Schema.Types.ObjectId, ref: &#39;Player&#39; }, board: { type: mongoose.Schema.Types.ObjectId, ref: &#39;Board&#39; }, active: { type: Boolean, default: true }, state: { type: String, enum: [&#39;decision&#39;, &#39;run&#39;, &#39;waiting&#39;], default: &#39;waiting&#39; }, numFlags: { type: Number, enum: [1,2,3,4] }, isWon: { type: Boolean, default: false } }); mongoose.</description>
+    </item>
+    
+  </channel>
+</rss>

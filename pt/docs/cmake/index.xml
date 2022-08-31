@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial do cmake on </title>
+    <link>https://www.wikiod.com/pt/docs/cmake/</link>
+    <description>Recent content in Tutorial do cmake on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/cmake/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com o cmake</title>
+      <link>https://www.wikiod.com/pt/cmake/comecando-com-o-cmake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/cmake/comecando-com-o-cmake/</guid>
+      <description>Instalação do CMake # Vá para a página de download CMake e obtenha um binário para o seu sistema operacional, por exemplo Windows, Linux ou Mac OS X. No Windows, clique duas vezes no binário para instalar. No Linux, execute o binário a partir de um terminal.
+No Linux, você também pode instalar os pacotes do gerenciador de pacotes da distribuição. No Ubuntu 16.04, você pode instalar a linha de comando e o aplicativo gráfico com:</description>
+    </item>
+    
+    <item>
+      <title>Configurar arquivo</title>
+      <link>https://www.wikiod.com/pt/cmake/configurar-arquivo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/cmake/configurar-arquivo/</guid>
+      <description>configure_file é uma função do CMake para copiar um arquivo para outro local e modificar seu conteúdo.
+Esta função é muito útil para gerar arquivos de configuração com caminhos, variáveis ​​personalizadas, usando um template genérico.
+Copie um arquivo para outro local e modifique seu conteúdo.
+configure_file(&amp;lt;input&amp;gt; &amp;lt;output&amp;gt; [COPYONLY] [ESCAPE_QUOTES] [@ONLY] [NEWLINE_STYLE [UNIX|DOS|WIN32|LF|CRLF] ]) Copia um arquivo para o arquivo e substitui os valores de variáveis ​​referenciados no conteúdo do arquivo. Se for um caminho relativo, ele será avaliado em relação ao diretório de origem atual.</description>
+    </item>
+    
+    <item>
+      <title>Variáveis ​​e Propriedades</title>
+      <link>https://www.wikiod.com/pt/cmake/variaveis-e-propriedades/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/cmake/variaveis-e-propriedades/</guid>
+      <description>A simplicidade das variáveis ​​básicas do CMake contradiz a complexidade da sintaxe completa da variável. Esta página documenta os vários casos de variáveis, com exemplos, e aponta as armadilhas a serem evitadas.
+Sintaxe # set(variable_name valor [cache type description [FORCE]]) Os nomes de variáveis ​​diferenciam maiúsculas de minúsculas. Seus valores são do tipo string. O valor de uma variável é referenciado via:
+${variable_name} e é avaliado dentro de um argumento entre aspas</description>
+    </item>
+    
+    <item>
+      <title>Testar e depurar</title>
+      <link>https://www.wikiod.com/pt/cmake/testar-e-depurar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/cmake/testar-e-depurar/</guid>
+      <description>Abordagem geral para depurar ao construir com Make # Suponha que o make falhe:
+$ make Inicie-o com make VERBOSE=1 para ver os comandos executados. Em seguida, execute diretamente o comando do vinculador ou do compilador que você verá. Tente fazê-lo funcionar adicionando sinalizadores ou bibliotecas necessárias.
+Em seguida, descubra o que mudar, para que o próprio CMake possa passar os argumentos corretos para o comando do compilador/vinculador:
+o que mudar no sistema (quais bibliotecas instalar, quais versões, versões do próprio CMake) se o anterior falhar, quais variáveis ​​de ambiente definir ou parâmetros para passar para o CMake caso contrário, o que mudar no CMakeLists.</description>
+    </item>
+    
+    <item>
+      <title>Projeto hierárquico</title>
+      <link>https://www.wikiod.com/pt/cmake/projeto-hierarquico/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/cmake/projeto-hierarquico/</guid>
+      <description>Abordagem simples sem pacotes # Exemplo que constrói um executável (editor) e vincula uma biblioteca (destaque) a ele. A estrutura do projeto é simples, precisa de um mestre CMakeLists e um diretório para cada subprojeto:
+CMakeLists.txt editor/ CMakeLists.txt src/ editor.cpp highlight/ CMakeLists.txt include/ highlight.h src/ highlight.cpp O mestre CMakeLists.txt contém definições globais e chamada add_subdirectory para cada subprojeto:
+cmake_minimum_required(VERSION 3.0) project(Example) add_subdirectory(highlight) add_subdirectory(editor) CMakeLists.txt para a biblioteca atribui fontes e inclui diretórios a ela.</description>
+    </item>
+    
+    <item>
+      <title>Compilar recursos e seleção de padrão CC&#43;&#43;</title>
+      <link>https://www.wikiod.com/pt/cmake/compilar-recursos-e-selecao-de-padrao-cc-/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/cmake/compilar-recursos-e-selecao-de-padrao-cc-/</guid>
+      <description>Sintaxe # target_compile_features(target PRIVATE|PUBLIC|INTERFACE recurso1 [recurso2 &amp;hellip;]) Compilar requisitos de recursos # Os recursos necessários do compilador podem ser especificados em um destino usando o comando target_compile_features:
+add_library(foo foo.cpp ) target_compile_features(foo PRIVATE # scope of the feature cxx_constexpr # list of features ) Os recursos devem fazer parte de CMAKE_C_COMPILE_FEATURES ou CMAKE_CXX_COMPILE_FEATURES; cmake relata um erro caso contrário. O Cmake adicionará quaisquer sinalizadores necessários, como -std=gnu++11 às opções de compilação do destino.</description>
+    </item>
+    
+    <item>
+      <title>Crie suítes de teste com CTest</title>
+      <link>https://www.wikiod.com/pt/cmake/crie-suites-de-teste-com-ctest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/cmake/crie-suites-de-teste-com-ctest/</guid>
+      <description>Conjunto de testes básicos # # the usual boilerplate setup cmake_minimum_required(2.8) project(my_test_project LANGUAGES CXX) # tell CMake to use CTest extension enable_testing() # create an executable, which instantiates a runner from # GoogleTest, Boost.Test, QtTest or whatever framework you use add_executable(my_test test_main.cpp) # depending on the framework, you need to link to it target_link_libraries(my_test gtest_main) # now register the executable with CTest add_test(NAME my_test COMMAND my_test) A macro enable_testing() faz muita mágica.</description>
+    </item>
+    
+    <item>
+      <title>Projetos de embalagem e distribuição</title>
+      <link>https://www.wikiod.com/pt/cmake/projetos-de-embalagem-e-distribuicao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/cmake/projetos-de-embalagem-e-distribuicao/</guid>
+      <description>Sintaxe # # Empacote um diretório de compilação pacote [PATH] # Use um gerador específico cpack -G [GERADOR] [CAMINHO] # Forneça substituições opcionais cpack -G [GERADOR] -C [CONFIGURAÇÃO] -P [NOME DO PACOTE] -R [VERSÃO DO PACOTE] -B [DIRETÓRIO DO PACOTE] &amp;ndash;vendor [FORNECEDOR DO PACOTE] CPack é uma ferramenta externa que permite o empacotamento rápido de projetos CMake compilados reunindo todos os dados necessários diretamente dos arquivos CMakeLists.txt e dos comandos de instalação utilizados como install_targets().</description>
+    </item>
+    
+    <item>
+      <title>Construir alvos</title>
+      <link>https://www.wikiod.com/pt/cmake/construir-alvos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/cmake/construir-alvos/</guid>
+      <description>Sintaxe # add_executable(target_name [EXCLUDE_FROM_ALL] source1 [source2&amp;hellip;]) add_library(lib_name [STATIC|SHARED|MODULE] [EXCLUDE_FROM_ALL] source1 [source2 &amp;hellip;]) Executáveis # Para criar um destino de compilação produzindo um executável, deve-se usar o comando add_executable:
+add_executable(my_exe main.cpp utilities.cpp) Isso cria um destino de compilação, por exemplo, make my_exe para GNU make, com as chamadas apropriadas do compilador configurado para produzir um executável my_exe a partir dos dois arquivos fonte main.cpp e utilities.cpp.
+Por padrão, todos os alvos executáveis ​​são adicionados ao alvo interno all (all para GNU make, BUILD_ALL para MSVC).</description>
+    </item>
+    
+    <item>
+      <title>Integração do CMake nas ferramentas de CI do GitHub</title>
+      <link>https://www.wikiod.com/pt/cmake/integracao-do-cmake-nas-ferramentas-de-ci-do-github/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/cmake/integracao-do-cmake-nas-ferramentas-de-ci-do-github/</guid>
+      <description>Configure o Travis CI com o CMake de estoque # O Travis CI tem o CMake 2.8.7 pré-instalado.
+Um script .travis.yml mínimo para uma compilação fora do código-fonte
+language: cpp compiler: - gcc before_script: # create a build folder for the out-of-source build - mkdir build # switch to build directory - cd build # run cmake; here we assume that the project&#39;s # top-level CMakeLists.txt is located at &#39;..&#39; - cmake .</description>
+    </item>
+    
+  </channel>
+</rss>

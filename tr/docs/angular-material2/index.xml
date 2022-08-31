@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>açısal-materyal2 Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/angular-material2/</link>
+    <description>Recent content in açısal-materyal2 Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/angular-material2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>açısal-materyal2 ile başlarken</title>
+      <link>https://www.wikiod.com/tr/angular-material2/acsal-materyal2-ile-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/angular-material2/acsal-materyal2-ile-baslarken/</guid>
+      <description>Tüm modülleri birlikte sarma # Ayrıca kullanacağınız tüm açısal modülleri tek bir modüle kolayca sarabilirsiniz:
+import { NgModule } from &#39;@angular/core&#39;; import { MdButtonModule, MdSnackBarModule, MdSidenavModule } from &#39;@angular/material&#39;; @NgModule({ imports: [ BrowserAnimationsModule, MdButtonModule, MdSnackBarModule, MdSidenavModule ], exports: [ MdButtonModule, MdSnackBarModule, MdSidenavModule ] }) export class MaterialWrapperModule {} Bundan sonra modülünüzü uygulama ana modülüne aktarın:
+import { NgModule } from &#39;@angular/core&#39;; import { CommonModule } from &#39;@angular/common&#39;; import { RouterModule } from &#39;@angular/router&#39;; import { MaterialWrapperModule } from &#39;.</description>
+    </item>
+    
+    <item>
+      <title>md-tarih seçici</title>
+      <link>https://www.wikiod.com/tr/angular-material2/md-tarih-secici/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/angular-material2/md-tarih-secici/</guid>
+      <description>Bu konu, md-datepicker ile ilgili örneklere odaklanmaktadır.
+Daha fazla ayrıntı için lütfen md-datepicker belgelerine buradan bakın.
+md-datapicker ile veri bağlama # datepicker-overview-example.html:
+&amp;lt;md-input-container&amp;gt; &amp;lt;input mdInput [mdDatepicker]=&amp;quot;picker&amp;quot; [(ngModel)]=&amp;quot;date&amp;quot; placeholder=&amp;quot;Choose a date&amp;quot;&amp;gt; &amp;lt;button mdSuffix [mdDatepickerToggle]=&amp;quot;picker&amp;quot;&amp;gt;&amp;lt;/button&amp;gt; &amp;lt;/md-input-container&amp;gt; &amp;lt;md-datepicker #picker&amp;gt;&amp;lt;/md-datepicker&amp;gt; &amp;lt;div&amp;gt; Date Chosen using &#39;ngModel&#39;: &amp;lt;div&amp;gt;{{ date }}&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; tarih seçici-genel bakış-example.ts:
+import {Component, OnInit} from &#39;@angular/core&#39;; @Component({ selector: &#39;datepicker-overview-example&#39;, templateUrl: &#39;datepicker-overview-example.html&#39; }) export class DatepickerOverviewExample implements OnInit { date; ngOnInit(){ this.date = new Date(); } } Canlı demo</description>
+    </item>
+    
+    <item>
+      <title>md-tablo</title>
+      <link>https://www.wikiod.com/tr/angular-material2/md-tablo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/angular-material2/md-tablo/</guid>
+      <description>Bu konu, md-table ile ilgili örnekleri içerir
+&amp;lsquo;md-table&amp;rsquo; hakkında daha fazla ayrıntı için lütfen belgelere bakın
+DataSource&amp;rsquo;u harici API&amp;rsquo;den bağlayın # Lütfen gerekli tüm kütüphaneleri içe aktarmaya dikkat edin.
+Bu örnek, sahte API&amp;rsquo;den JSON verilerini sağlamak için &amp;ldquo;angular-in-memory-web-api&amp;quot;den &amp;ldquo;InMemoryDbService&amp;quot;i kullanır.
+Canlı demo
+hizmet.ts:
+import { Injectable } from &#39;@angular/core&#39;; import { Headers, Http } from &#39;@angular/http&#39;; import &#39;rxjs/add/operator/toPromise&#39;; @Injectable() export class AppState { private headers = new Headers({&#39;Content-Type&#39;: &#39;application/json&#39;}); private apiUrl = &#39;api/data&#39;; constructor(private http: Http) { } fetchFilterFields() { console.</description>
+    </item>
+    
+    <item>
+      <title>md-otomatik tamamlama</title>
+      <link>https://www.wikiod.com/tr/angular-material2/md-otomatik-tamamlama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/angular-material2/md-otomatik-tamamlama/</guid>
+      <description>Bu konu, Angular Material 2 Autocomplete (md-autocomplete) ile ilgili kodlama örneklerini içerir.
+Bu örnekler, md-autocomplete&amp;rsquo;nin tüm özelliklerini kapsamaz. Lütfen belgeleri okuyun ve md-autocomplete hakkında daha fazla bilgi edinin.
+Ayrı kontrol ve ekran # Bu örnek, açılır menüde belirli bir özelliğin nasıl görüntüleneceğini, ancak tüm nesneyle nasıl bağlanacağını gösterir.
+otomatik tamamlama-genel bakış-example.html:
+&amp;lt;md-input-container&amp;gt; &amp;lt;input mdInput placeholder=&amp;quot;State&amp;quot; [(ngModel)]=&amp;quot;selection&amp;quot; [mdAutocomplete]=&amp;quot;auto&amp;quot; [formControl]=&amp;quot;stateCtrl&amp;quot;&amp;gt; &amp;lt;/md-input-container&amp;gt; &amp;lt;md-autocomplete #auto=&amp;quot;mdAutocomplete&amp;quot; [displayWith]=&amp;quot;displayFn&amp;quot;&amp;gt; &amp;lt;md-option *ngFor=&amp;quot;let state of filteredStates | async&amp;quot; [value]=&amp;quot;state&amp;quot; &amp;gt; {{ state.</description>
+    </item>
+    
+    <item>
+      <title>md-diyalog</title>
+      <link>https://www.wikiod.com/tr/angular-material2/md-diyalog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/angular-material2/md-diyalog/</guid>
+      <description>Bu konu, &amp;ldquo;md-dialog&amp;rdquo; örneklerini içerir.
+md-dialog hakkında daha fazla ayrıntı bulmak için lütfen buradaki belgelere bakın.
+Üst bileşenden geçirilen verilerle md-diyalogunu başlat # Bu örnek, &amp;ldquo;MdDialogRef&amp;rdquo; ve &amp;ldquo;MD_DIALOG_DATA&amp;rdquo; gerektirir. Lütfen bunları bileşen modülüne aktarın.
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from &#39;@angular/material&#39;; input-overview-example.html:
+&amp;lt;md-input-container&amp;gt; &amp;lt;input mdInput [(ngModel)]=&amp;quot;id&amp;quot; placeholder=&amp;quot;Value passed to md-dialog&amp;quot;&amp;gt; &amp;lt;/md-input-container&amp;gt; &amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;button md-raised-button (click)=&amp;quot;openDialog(id)&amp;quot;&amp;gt; Open Dialog &amp;lt;/button&amp;gt; girdi-genel bakış-örnek.ts:
+import {Component, Inject, Input, OnInit } from &#39;@angular/core&#39;; import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from &#39;@angular/material&#39;; @Component({ selector: &#39;input-overview-example&#39;, templateUrl: &#39;input-overview-example.</description>
+    </item>
+    
+    <item>
+      <title>md düğmesi</title>
+      <link>https://www.wikiod.com/tr/angular-material2/md-dugmesi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/angular-material2/md-dugmesi/</guid>
+      <description>Bu konu, bir düğmenin nasıl oluşturulacağına ve onun yönergelerinin ve diğer öğelerinin ne işe yaradığına ilişkin örnekler içerir.
+Parametreler # Özellik Açıklama md-düğmesi Yüksekliği olmayan dikdörtgen bir düğme oluşturur. md-yükseltilmiş-düğmesi Yükseklikli dikdörtgen bir düğme oluşturur md-icon-düğmesi Bir simge içermesi gereken şeffaf bir arka plana sahip dairesel bir düğme oluşturur md-fab Yükseltmeli dairesel bir düğme oluşturur, varsayılan olarak temanın vurgu rengine ayarlanır md-mini-fab &amp;ldquo;md-fab&amp;rdquo; ile aynı, ancak daha küçük &amp;lsquo;disableRipple&amp;rsquo; Düğme için dalgalanma efektinin devre dışı bırakılıp bırakılmadığı.</description>
+    </item>
+    
+    <item>
+      <title>md simgesi</title>
+      <link>https://www.wikiod.com/tr/angular-material2/md-simgesi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/angular-material2/md-simgesi/</guid>
+      <description>Simge oluşturma # Aşağıda, malzeme tasarımı simgelerinden nasıl simge oluşturulacağına ilişkin bir kılavuz yer almaktadır:
+Google CDN&amp;rsquo;deki simge yazı tipini index.html dosyanıza yükleyin: &amp;lt;link href=&amp;quot;https://fonts.googleapis.com/icon?family=Material+Icons&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt; Alternatif olarak, bunu &amp;lsquo;styles.css&amp;rsquo; dosyanıza aktarabilirsiniz:
+@import url(&#39;https://fonts.googleapis.com/icon?family=Material+Icons&#39;); Aşağıdaki gibi kullanın: &amp;lt;md-icon&amp;gt;menu&amp;lt;/md-icon&amp;gt; Sen bittin!
+SVG Simgelerini Kullanma # Bu örnek, uygulamanızda SVG simgelerinin nasıl kullanılacağını gösterir.
+SVG simge setini / simgesini indirin (bu durumda simgeleri https://materialdesignicons.com/getting-started adresinden alıyoruz. &amp;lsquo;varlıklar&amp;rsquo; klasörünüzün altına veya erişebileceğiniz başka bir yere kaydedin.</description>
+    </item>
+    
+  </channel>
+</rss>

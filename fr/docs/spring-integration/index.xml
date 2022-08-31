@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel d&#39;intégration de ressorts on </title>
+    <link>https://www.wikiod.com/fr/docs/spring-integration/</link>
+    <description>Recent content in Tutoriel d&#39;intégration de ressorts on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/spring-integration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec l&#39;intégration de printemps</title>
+      <link>https://www.wikiod.com/fr/spring-integration/premiers-pas-avec-lintegration-de-printemps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/spring-integration/premiers-pas-avec-lintegration-de-printemps/</guid>
+      <description>Installation ou configuration # La meilleure façon de commencer à utiliser Spring-Integration dans votre projet est d&amp;rsquo;utiliser un système de gestion des dépendances, comme gradle.
+dependencies { compile &#39;org.springframework.integration:spring-integration-core:4.3.5.RELEASE&#39; } Vous trouverez ci-dessous un exemple très simple utilisant la passerelle, service-activator points de terminaison de message.
+//these annotations will enable Spring integration and scan for components @Configuration @EnableIntegration @IntegrationComponentScan public class Application { //a channel has two ends, this Messaging Gateway is acting as input from one side of inChannel @MessagingGateway interface Greeting { @Gateway(requestChannel = &amp;quot;inChannel&amp;quot;) String greet(String name); } @Component static class HelloMessageProvider { //a service activator act as a handler when message is received from inChannel, in this example, it is acting as the handler on the output side of inChannel @ServiceActivator(inputChannel = &amp;quot;inChannel&amp;quot;) public String sayHello(String name) { return &amp;quot;Hi, &amp;quot; + name; } } @Bean MessageChannel inChannel() { return new DirectChannel(); } public static void main(String[] args) { ApplicationContext context = new AnnotationConfigApplicationContext(Application.</description>
+    </item>
+    
+    <item>
+      <title>Intégration Jdbc</title>
+      <link>https://www.wikiod.com/fr/spring-integration/integration-jdbc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/spring-integration/integration-jdbc/</guid>
+      <description>Adaptateur entrant Jdbc - configuration xml # Dans le document de référence officiel, il est écrit :
+La fonction principale d&amp;rsquo;un adaptateur de canal entrant est d&amp;rsquo;exécuter une requête SQL SELECT et de transformer le jeu de résultats en message. La charge utile du message est l&amp;rsquo;ensemble de résultats complet, exprimé sous la forme d&amp;rsquo;une liste, et les types d&amp;rsquo;éléments de la liste dépendent de la stratégie de mappage de lignes utilisée.</description>
+    </item>
+    
+  </channel>
+</rss>

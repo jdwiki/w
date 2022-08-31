@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel msbuild on </title>
+    <link>https://www.wikiod.com/fr/docs/msbuild/</link>
+    <description>Recent content in Tutoriel msbuild on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/msbuild/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec msbuild</title>
+      <link>https://www.wikiod.com/fr/msbuild/premiers-pas-avec-msbuild/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/msbuild/premiers-pas-avec-msbuild/</guid>
+      <description>Bonjour le monde # HelloWorld.proj
+&amp;lt;Project xmlns=&amp;quot;http://schemas.microsoft.com/developer/msbuild/2003&amp;quot; DefaultTargets=&amp;quot;SayHello&amp;quot;&amp;gt; &amp;lt;!-- Properties can be passed as command line parameters. i.e. /p:Name=MyName or /p:Name=&amp;quot;My Name&amp;quot; (Use quotes if the value includes spaces) --&amp;gt; &amp;lt;PropertyGroup&amp;gt; &amp;lt;Name Condition=&amp;quot;&#39;$(Name)&#39;==&#39;&#39;&amp;quot;&amp;gt;Rolo&amp;lt;/Name&amp;gt; &amp;lt;/PropertyGroup&amp;gt; &amp;lt;!-- Items can&#39;t be passed as command line parameters. --&amp;gt; &amp;lt;!-- Items can include metadata. i.e. URL --&amp;gt; &amp;lt;ItemGroup&amp;gt; &amp;lt;People Include=&amp;quot;World&amp;quot;/&amp;gt; &amp;lt;People Include=&amp;quot;StackOverflow&amp;quot;&amp;gt; &amp;lt;URL&amp;gt;http://stackoverflow.com&amp;lt;/URL&amp;gt; &amp;lt;/People&amp;gt; &amp;lt;People Include=&amp;quot;Google&amp;quot;&amp;gt; &amp;lt;URL&amp;gt;http://google.com&amp;lt;/URL&amp;gt; &amp;lt;/People&amp;gt; &amp;lt;/ItemGroup&amp;gt; &amp;lt;!-- Targets can be called using it&#39;s name.</description>
+    </item>
+    
+    <item>
+      <title>Ordre d&#39;exécution de la cible</title>
+      <link>https://www.wikiod.com/fr/msbuild/ordre-dexecution-de-la-cible/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/msbuild/ordre-dexecution-de-la-cible/</guid>
+      <description>À partir de MSDN : [Ordre de compilation cible][1]
+Détermination de l&amp;rsquo;ordre de construction cible # MSBuild détermine l&amp;rsquo;ordre de compilation cible comme suit :
+Les cibles InitialTargets sont exécutées. Les cibles spécifiées sur la ligne de commande par le commutateur /target sont exécutées. Si vous ne spécifiez aucune cible sur la ligne de commande, le Les cibles DefaultTargets sont exécutées. Si ni l&amp;rsquo;un ni l&amp;rsquo;autre n&amp;rsquo;est présent, alors le la première cible rencontrée est exécutée.</description>
+    </item>
+    
+    <item>
+      <title>Types d&#39;éléments courants ProjectReference</title>
+      <link>https://www.wikiod.com/fr/msbuild/types-delements-courants-projectreference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/msbuild/types-delements-courants-projectreference/</guid>
+      <description>Un ProjectReference définit une référence à un autre projet.
+Paramètres # Paramètre Détails Inclure (attribut) Chemin d&amp;rsquo;accès au fichier de projet Projet (métadonnées) GUID du projet, sous la forme {00000000-0000-0000-0000-000000000000} ReferenceOutputAssembly (métadonnées) Booléen spécifiant si les sorties du projet référencé doivent être passées au compilateur. La valeur par défaut est true. SpecificVersion (métadonnées) Indique si la version exacte de l&amp;rsquo;assembly doit être utilisée. Cibles (métadonnées) Liste des cibles séparées par des points-virgules dans les projets référencés qui doivent être générés.</description>
+    </item>
+    
+    <item>
+      <title>Ordre des biens et évaluation des articles</title>
+      <link>https://www.wikiod.com/fr/msbuild/ordre-des-biens-et-evaluation-des-articles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/msbuild/ordre-des-biens-et-evaluation-des-articles/</guid>
+      <description>Pour plus de détails, voir [Property and Item Evaluation Order][1] sur la page de documentation MSDN Comparing Properties and Items.
+[1] : https://msdn.microsoft.com/en-us/library/dd997067.aspx#Anchor_2
+Exemple illustrant l&amp;rsquo;ordre d&amp;rsquo;évaluation # MSBuild évalue les éléments PropertyGroup, Choose et ItemGroup qui se trouvent directement sous l&amp;rsquo;élément Project avant ceux qui se trouvent dans les éléments Target.
+Directement sous l&amp;rsquo;élément Project, les éléments PropertyGroup et Choose sont évalués dans l&amp;rsquo;ordre dans lequel ils apparaissent, puis les éléments ItemGroup sont évalués dans l&amp;rsquo;ordre dans lequel ils apparaissent.</description>
+    </item>
+    
+    <item>
+      <title>Tâches fréquemment utilisées</title>
+      <link>https://www.wikiod.com/fr/msbuild/taches-frequemment-utilisees/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/msbuild/taches-frequemment-utilisees/</guid>
+      <description>Copie de fichiers # &amp;lt;ItemGroup&amp;gt; &amp;lt;DataToCopy Include=&amp;quot;*.cs;*.aspx&amp;quot; /&amp;gt; &amp;lt;/ItemGroup&amp;gt; &amp;lt;Copy SourceFiles=&amp;quot;@(DataToCopy)&amp;quot; DestinationFolder=&amp;quot;SourceCopiedFolder&amp;quot; /&amp;gt; Suppression de fichiers # &amp;lt;ItemGroup&amp;gt; &amp;lt;FilesToDelete Include=&amp;quot;*.tmp&amp;quot; /&amp;gt; &amp;lt;/ItemGroup&amp;gt; &amp;lt;Delete Files=&amp;quot;@(FilesToDelete)&amp;quot; /&amp;gt; Création d&amp;rsquo;un nouveau répertoire # &amp;lt;PropertyGroup&amp;gt; &amp;lt;DirectoryToCreate&amp;gt;NewDirectory&amp;lt;/DirectoryToCreate&amp;gt; &amp;lt;/PropertyGroup&amp;gt; &amp;lt;MakeDir Directories=&amp;quot;$(DirectoryToCreate)&amp;quot; /&amp;gt; Suppression d&amp;rsquo;un répertoire existant # &amp;lt;PropertyGroup&amp;gt; &amp;lt;DirectoryToRemove&amp;gt;TempData&amp;lt;/DirectoryToRemove&amp;gt; &amp;lt;/PropertyGroup&amp;gt; &amp;lt;RemoveDir Directories=&amp;quot;$(DirectoryToRemove)&amp;quot; /&amp;gt; Exécution d&amp;rsquo;une commande personnalisée # &amp;lt;Exec Command=&amp;quot;echo Hello World&amp;quot; /&amp;gt; Affichage d&amp;rsquo;un message personnalisé # &amp;lt;PropertyGroup&amp;gt; &amp;lt;CustomMessage&amp;gt;Hello World&amp;lt;/CustomMessage&amp;gt; &amp;lt;MessageImportance&amp;gt;Low&amp;lt;/MessageImportance&amp;gt; &amp;lt;!-- Low / Normal / High --&amp;gt; &amp;lt;/PropertyGroup&amp;gt; &amp;lt;Message Text=&amp;quot;$(CustomMessage)&amp;quot; Importance=&amp;quot;$(MessageImportance)&amp;quot; /&amp;gt; Exécuter MSBuild sur un autre projet/solution # &amp;lt;PropertyGroup&amp;gt; &amp;lt;LinkedSolution&amp;gt;LinkedSolution.</description>
+    </item>
+    
+  </channel>
+</rss>

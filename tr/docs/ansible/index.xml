@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cevaplayıcı Öğretici on </title>
+    <link>https://www.wikiod.com/tr/docs/ansible/</link>
+    <description>Recent content in cevaplayıcı Öğretici on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/ansible/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ansible&#39;ı kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/ansible/ansible-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ansible/ansible-kullanmaya-baslama/</guid>
+      <description>Selam Dünya # &amp;lsquo;ansible-helloworld-playbook&amp;rsquo; adlı bir dizin oluşturun
+mkdir ansible-helloworld-playbook Bir hosts dosyası oluşturun ve nasıl yönetmek istediğinizi uzak sistemler ekleyin. Ansible, makineleri bağlamak için ssh&amp;rsquo;ye güvendiğinden, bilgisayarınızdan ssh&amp;rsquo;de zaten erişilebilir olduklarından emin olmalısınız.
+192.168.1.1 192.168.1.2 Ansible ping modülünü kullanarak uzak sistemlerinize bağlantıyı test edin.
+ansible all -m ping -k Başarı durumunda böyle bir şey döndürmeli
+192.168.1.1| SUCCESS =&amp;gt; { &amp;quot;changed&amp;quot;: false, &amp;quot;ping&amp;quot;: &amp;quot;pong&amp;quot; } 192.168.1.2| SUCCESS =&amp;gt; { &amp;quot;changed&amp;quot;: false, &amp;quot;ping&amp;quot;: &amp;quot;pong&amp;quot; } Hata durumunda geri dönmelidir</description>
+    </item>
+    
+    <item>
+      <title>Ansible&#39;ı OpenStack ile Kullanmak</title>
+      <link>https://www.wikiod.com/tr/ansible/ansible-openstack-ile-kullanmak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ansible/ansible-openstack-ile-kullanmak/</guid>
+      <description>OpenStack, bulut bilişim için açık kaynaklı bir yazılım platformudur. Linux örnekleri, grafik web arayüzü kullanılarak manuel olarak başlatılabilir/durdurulabilir veya ansible&amp;rsquo;ın openstack bulut modülü sayesinde otomatikleştirilebilir.
+Ansible&amp;rsquo;ı yapılandırmak zor olabilir, ancak iyi bir şekilde yapılandırıldığında, test ve Sürekli Entegrasyon ortamı için gerçekten kolay ve güçlüdür.
+Parametreler # parametreler Yorumlar ana bilgisayarlar: localhost OpenStack komutları localhost&amp;rsquo;umuzdan başlatılır Collect_facts: Yanlış localhost&amp;rsquo;umuz hakkında bilgi toplamamıza gerek yok auth_url: https://openstack-identity.mycompany.com/v2.0 V2.0 URL&amp;rsquo;sini kullan durum: mevcut &amp;lsquo;mevcut&amp;rsquo; / &amp;lsquo;yok&amp;rsquo; örneği oluşturmak/silmek için validate_certs: Yanlış https kendinden imzalı sertifikalar kullanıyorsa kullanışlıdır ağ: &amp;ldquo;{{ AğAdı }}&amp;rdquo; (isteğe bağlı) auto_ip: evet (isteğe bağlı) Kimlik doğrulama URL&amp;rsquo;sini bir değişkene değil, doğrudan oyun kitabına koyduk.</description>
+    </item>
+    
+    <item>
+      <title>Envanter</title>
+      <link>https://www.wikiod.com/tr/ansible/envanter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ansible/envanter/</guid>
+      <description>Parametreler # parametre Açıklama ansible_connection Ana bilgisayara bağlantı türü. Bu, ansible&amp;rsquo;ın herhangi bir bağlantı eklentisinin adı olabilir. SSH protokol türleri &amp;lsquo;smart&amp;rsquo;, &amp;lsquo;ssh&amp;rsquo; veya &amp;lsquo;paramiko&amp;rsquo;dur. Varsayılan akıllıdır. SSH tabanlı olmayan türler bir sonraki bölümde açıklanmıştır. ansible_host Bağlanılacak ana bilgisayarın adı, ona vermek istediğiniz takma addan farklıysa. ansible_port 22 değilse ssh bağlantı noktası numarası ansible_user Kullanılacak varsayılan ssh kullanıcı adı. ansible_ssh_pass Kullanılacak ssh parolası (bu güvenli değildir, `&amp;ndash;ask-pass&amp;rsquo; veya SSH anahtarlarının kullanılmasını şiddetle tavsiye ederiz) ansible_ssh_private_key_file ssh tarafından kullanılan özel anahtar dosyası.</description>
+    </item>
+    
+    <item>
+      <title>Kurulum</title>
+      <link>https://www.wikiod.com/tr/ansible/kurulum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ansible/kurulum/</guid>
+      <description>Ansible&amp;rsquo;ı Virtual Box ve Vagrant kullanan Windows dahil olmak üzere herhangi bir işletim sistemine kurmak. Yalnızca yanıtlanabilir geçici komutlar ve oyun kitapları uygulamak istiyorsanız ve yerel ortamı kurmak istemiyorsanız, alternatif bir çözüm de mevcuttur.
+Ansible&amp;rsquo;ı Ubuntu&amp;rsquo;ya Kurma # Ansible, Ansible ikili dosyalarını kurmak için kullanılabilecek bir PPA deposu bulundurur:
+sudo apt-add-repository ppa:ansible/ansible -y sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install ansible -y Belirli bir sürümü yüklemek için &amp;ldquo;pip&amp;rdquo; kullanın. PPA güncelliğini yitirmiş olabilir.</description>
+    </item>
+    
+    <item>
+      <title>Ansible Döngüler ve Koşullar</title>
+      <link>https://www.wikiod.com/tr/ansible/ansible-donguler-ve-kosullar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ansible/ansible-donguler-ve-kosullar/</guid>
+      <description>Resmi dokümanlar, çalışma kitabı şartlarını açıklar.
+http://docs.ansible.com/ansible/playbooks_conditionals.html Ansible (github)
+https://github.com/marxwang/ansible-learn-resources Ne tür koşul cümleleri kullanılır? # Koşullu İfadeleri şu şekilde kullanın (sözdizimi &amp;ldquo;[parantezler]&amp;rdquo; içindedir):
+ne zaman [ne zaman:]
+Task: - name: run if operating system is debian command: echo &amp;quot;I am a Debian Computer&amp;quot; when: ansible_os_family == &amp;quot;Debian&amp;quot; döngüler [with_items:]
+döngüler [with_dicts:]
+Özel Bilgiler [ ne zaman: my_custom_facts == &amp;lsquo;1234&amp;rsquo;]
+Koşullu ithalat
+Değişkenlere göre dosyaları ve Şablonları seçin
+[Ne zaman] Koşul: &amp;ldquo;ansible_os_family&amp;rdquo; Listeleri # Genel kullanım # ne zaman: ansible_os_family == &amp;ldquo;CentOS&amp;rdquo; ne zaman: ansible_os_family == &amp;ldquo;Redhat&amp;rdquo; ne zaman: ansible_os_family == &amp;ldquo;Darwin&amp;rdquo; ne zaman: ansible_os_family == &amp;ldquo;Debian&amp;rdquo; ne zaman: ansible_os_family == &amp;ldquo;Windows&amp;rdquo; Tüm Listeler # burada tartışmaya dayanarak http://comments.</description>
+    </item>
+    
+    <item>
+      <title>Oyun kitaplarına giriş</title>
+      <link>https://www.wikiod.com/tr/ansible/oyun-kitaplarna-giris/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ansible/oyun-kitaplarna-giris/</guid>
+      <description>Genel Bakış # Ansible&amp;rsquo;da playbook is, bir sunucunun nasıl görünmesi gerektiğinin tanımını içeren bir YAML dosyasıdır. Bir oyun kitabında, sunucuyu istediğiniz duruma getirmek için Ansible&amp;rsquo;ın hangi eylemleri yapması gerektiğini tanımlarsınız. Yalnızca tanımladığınız şey yapılır.
+Bu, git&amp;rsquo;i &amp;ldquo;web&amp;rdquo; grubuna ait her ana bilgisayara yükleyen temel bir Ansible oyun kitabıdır:
+--- - name: Git installation hosts: web remote_user: root tasks: - name: Install Git apt: name=git state=present Playbook&amp;rsquo;un yapısı # Bir oyun kitabının formatı oldukça basittir, ancak boşluk ve düzen açısından katıdır.</description>
+    </item>
+    
+    <item>
+      <title>Ansible&#39;ı Amazon Web Servisleri ile Kullanma</title>
+      <link>https://www.wikiod.com/tr/ansible/ansible-amazon-web-servisleri-ile-kullanma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ansible/ansible-amazon-web-servisleri-ile-kullanma/</guid>
+      <description>örnek-2: Bu bir örnektir, bu yüzden kopyalamayın/geçmeyin. Bunun yerine, ihtiyaçlarınıza göre değişkenlerini özelleştirmelisiniz; ansible_key, güvenlik grubu kuralları vb.
+örnek-1: Görevleri otomatikleştirirken istemediğimiz bir davranış olan ssh katı ana bilgisayar anahtarı denetimini devre dışı bırakmak için, bunu &amp;lsquo;ansible.cfg&amp;rsquo; dosyasında &amp;lsquo;hayır&amp;rsquo; olarak ayarladık. yani: StrictHostKeyChecking=no
+&amp;ldquo;ec2.py&amp;rdquo; dosyası, projenizin kapsamını belirli bölgelerle sınırlamak istiyorsanız özelleştirmeniz gereken yapılandırma dosyası olan &amp;ldquo;ec2.ini&amp;quot;ye dayalı olarak AWS kaynaklarınızı yürüten ve döndüren bir python betiğidir. , belirli etiketler vb&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Roller</title>
+      <link>https://www.wikiod.com/tr/ansible/roller/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ansible/roller/</guid>
+      <description>Rol bağımlılıkları # Roller ayrıca, bir &amp;ldquo;bağımlılıklar&amp;rdquo; bloğu ile bir &amp;ldquo;meta/main.yml&amp;rdquo; dosyası oluşturarak diğer rolleri bağımlılık olarak tanımlamanıza olanak tanır:
+dependencies: - role: common Bağımlı roldeki bir parametreye/değişkene bir değer iletmek de mümkündür:
+dependencies: - { role: common, some_parameter: 3 } Veya bağımlı rolü koşullu olarak yürütün:
+dependencies: - { role: common, some_parameter: 3 } - { role: sshd, enable_sshd: false, when: environment == &#39;production&#39; } Bağımlı roller her zaman onlara bağlı rollerden önce yürütülür.</description>
+    </item>
+    
+    <item>
+      <title>Dinamik envanter</title>
+      <link>https://www.wikiod.com/tr/ansible/dinamik-envanter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ansible/dinamik-envanter/</guid>
+      <description>Dinamik envanterdeki ortam değişkenleri çalışmaz, f.e.
+&amp;quot;ansible_ssh_private_key_file&amp;quot;: $HOME/.ssh/key.pem&amp;quot; Örneğin, dinamik envanter sunucusu tarafı &amp;ldquo;$HOME&amp;rdquo; değerini geçerse, istemci kodundaki (Python) değişkeni değiştirin:
+json_input.replace(&amp;quot;$HOME&amp;quot;, os.environ.get(&amp;quot;HOME&amp;quot;)) Giriş kimlik bilgileriyle dinamik envanter # Dinamik envanteri &amp;ldquo;ansible-playbook&amp;quot;a aktarın:
+ansible-playbook -i inventory/dyn.py -l targethost my_playbook.yml &amp;ldquo;python envanter/dyn.py&amp;rdquo; şunun gibi bir şey yazdırmalıdır:
+{ &amp;quot;_meta&amp;quot;: { &amp;quot;hostvars&amp;quot;: { &amp;quot;10.1.0.10&amp;quot;: { &amp;quot;ansible_user&amp;quot;: &amp;quot;vagrant&amp;quot;, &amp;quot;ansible_ssh_private_key_file&amp;quot;: &amp;quot;/home/mrtuovinen/.ssh/id_rsa&amp;quot;, &amp;quot;ansible_port&amp;quot;: 22 }, &amp;quot;10.1.0.11&amp;quot;: { &amp;quot;ansible_user&amp;quot;: &amp;quot;ubuntu&amp;quot;, &amp;quot;ansible_ssh_private_key_file&amp;quot;: &amp;quot;/home/mrtuovinen/.ssh/id_rsa&amp;quot;, &amp;quot;ansible_port&amp;quot;: 22 }, &amp;quot;10.1.0.12&amp;quot;: { &amp;quot;ansible_user&amp;quot;: &amp;quot;steve&amp;quot;, &amp;quot;ansible_ssh_private_key_file&amp;quot;: &amp;quot;/home/mrtuovinen/.</description>
+    </item>
+    
+    <item>
+      <title>Gizli şifreleme</title>
+      <link>https://www.wikiod.com/tr/ansible/gizli-sifreleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/ansible/gizli-sifreleme/</guid>
+      <description>Ansible, hassas verileri işlemek için Vault (HashiCorp Vault ile karıştırılmamalıdır!) şifreleme. Vault öncelikle değişkenler, görevler, işleyiciler gibi yapılandırılmış verileri şifrelemeyi hedefler.
+Hassas yapılandırılmış verileri şifreleme # İlk olarak, ideal olarak uzun bir rastgele karakter dizisi içeren bir anahtar dosyası oluşturun, örneğin &amp;ldquo;vault_pass_file&amp;rdquo;. Linux sistemlerinde &amp;lsquo;pwgen&amp;rsquo;i rastgele bir şifre dosyası oluşturmak için kullanabilirsiniz:
+pwgen 256 1 &amp;gt; vault_pass_file Ardından, hassas verileri şifrelemek için bu dosyayı kullanın, örneğin &amp;ldquo;groups_vars/group.yml&amp;rdquo;:
+ANSIBLE_VAULT_PASSWORD_FILE=vault_pass_file ansible-vault encrypt group_vars/group.</description>
+    </item>
+    
+  </channel>
+</rss>

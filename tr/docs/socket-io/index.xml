@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>socket.io Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/socket-io/</link>
+    <description>Recent content in socket.io Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/socket-io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>socket.io&#39;yu kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/socket-io/socketioyu-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/socket-io/socketioyu-kullanmaya-baslama/</guid>
+      <description>&amp;ldquo;Selam Dünya!&amp;rdquo; soket mesajları ile. # Düğüm modüllerini yükleyin
+npm install express npm install socket.io Node.js sunucusu
+const express = require(&#39;express&#39;); const app = express(); const server = app.listen(3000,console.log(&amp;quot;Socket.io Hello Wolrd server started!&amp;quot;)); const io = require(&#39;socket.io&#39;)(server); io.on(&#39;connection&#39;, (socket) =&amp;gt; { //console.log(&amp;quot;Client connected!&amp;quot;); socket.on(&#39;message-from-client-to-server&#39;, (msg) =&amp;gt; { console.log(msg); }) socket.emit(&#39;message-from-server-to-client&#39;, &#39;Hello World!&#39;); }); tarayıcı istemcisi
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Hello World with Socket.io&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.socket.io/socket.io-1.4.5.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; var socket = io(&amp;quot;http://localhost:3000&amp;quot;); socket.</description>
+    </item>
+    
+    <item>
+      <title>Etkinlikleri Dinle</title>
+      <link>https://www.wikiod.com/tr/socket-io/etkinlikleri-dinle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/socket-io/etkinlikleri-dinle/</guid>
+      <description>Dahili ve özel olayları dinleme: # Sunucu Sözdizimi
+var io = require(&#39;socket.io&#39;)(80); io.on(&#39;connection&#39;, function (mysocket) { //custom event called `private message` mysocket.on(&#39;private message&#39;, function (from, msg) { console.log(&#39;I received a private message by &#39;, from, &#39; saying &#39;, msg); }); //internal `disconnect` event fired, when a socket disconnects mysocket.on(&#39;disconnect&#39;, function () { console.log(&#39;user disconnected&#39;); }); }); Müşteri sözdizimi:
+var mysocket = io(&#39;http://example.com&#39;); mysocket.on(&#39;private message&#39;, function (data) { console.log(data); }); </description>
+    </item>
+    
+    <item>
+      <title>Socket.io ile kullanıcıları yönetme</title>
+      <link>https://www.wikiod.com/tr/socket-io/socketio-ile-kullanclar-yonetme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/socket-io/socketio-ile-kullanclar-yonetme/</guid>
+      <description>Socket.io&amp;rsquo;da kullanıcıları yönetmek, karar verdiğiniz kadar basit veya karmaşıktır, bunu yapmak için bazı &amp;lsquo;açık&amp;rsquo; yaklaşımlar olsa da, bu dokümantasyon &amp;lsquo;map()&amp;rsquo; kullanarak bir yaklaşımı özetleyecektir.
+Kullanıcıları işlemek için Örnek Sunucu Tarafı kodu # İlk olarak, yeni bir soket oluşturulduğunda, &amp;ldquo;socket.id&amp;rdquo; çağrılarak alınan benzersiz bir kimlik atandığını not etmek önemlidir. Bu &amp;ldquo;id&amp;rdquo; daha sonra bir &amp;ldquo;kullanıcı&amp;rdquo; nesnesi içinde saklanabilir ve bu örnekte &amp;ldquo;kullanıcı&amp;rdquo; nesnelerini almak için kullanılan kullanıcı adı gibi bir tanımlayıcı atayabiliriz.</description>
+    </item>
+    
+    <item>
+      <title>Yayın</title>
+      <link>https://www.wikiod.com/tr/socket-io/yayn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/socket-io/yayn/</guid>
+      <description>Tüm kullanıcılara yayın # Mevcut tüm bağlantılara bir mesaj veya veri göndermek mümkündür. Bu, önce sunucuyu başlatarak ve ardından tüm soketleri bulmak için socket.io nesnesini kullanarak ve ardından normalde tek bir sokete yaydığınız gibi yayınlayarak başarılabilir.
+var io = require(&#39;socket.io&#39;)(80) // 80 is the HTTP port io.on(&#39;connection&#39;, function (socket) { //Callback when a socket connects ); io.sockets.emit(&#39;callbackFunction&#39;,data); Diğer tüm soketlere yayın # İsteği yapan dışındaki tüm kullanıcılara bir mesaj veya veri göndermek mümkündür:</description>
+    </item>
+    
+    <item>
+      <title>Yangın Olayları</title>
+      <link>https://www.wikiod.com/tr/socket-io/yangn-olaylar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/socket-io/yangn-olaylar/</guid>
+      <description>Özel Etkinlikleri Ateşle # Sunucu sözdizimi:
+var io = require(&#39;socket.io&#39;)(80); io.on(&#39;connection&#39;, function (mysocket) { //emit to all but the one who started it mysocket.broadcast.emit(&#39;user connected&#39;); //emit to all sockets io.emit(&#39;my event&#39;, { messg: &#39;for all&#39;}); }); // a javascript client would listen like this: // var mysocket = io(&#39;http://example.com&#39;); // mysocket.on(&#39;my event&#39;, function (data) { // console.log(data); // }); Müşteri sözdizimi:
+var mysocket = io(&#39;http://example.com&#39;); mysocket.emit(&#39;another event&#39;, { messg: &#39;hello&#39; }); // a node.</description>
+    </item>
+    
+  </channel>
+</rss>

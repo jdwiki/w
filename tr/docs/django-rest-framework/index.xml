@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>django-rest-framework Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/django-rest-framework/</link>
+    <description>Recent content in django-rest-framework Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/django-rest-framework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Django-rest-framework&#39;ü kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/django-rest-framework/django-rest-frameworku-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/django-rest-framework/django-rest-frameworku-kullanmaya-baslama/</guid>
+      <description>Yükleme veya Kurulum # Gereksinimler
+Python (2.7, 3.2, 3.3, 3.4, 3.5, 3.6) Django (1.7+, 1.8, 1.9, 1.10, 1.11) Düzenlemek
+Projeyi github&amp;rsquo;dan yüklemek veya klonlamak için &amp;lsquo;pip&amp;rsquo; kullanabilirsiniz.
+pip kullanma:
+pip install djangorestframework git klonu kullanma:
+git clone git@github.com:tomchristie/django-rest-framework.git Yüklemeden sonra, **INSTALLED_APPS&amp;rsquo; ayarlarınıza &amp;lsquo;rest_framework&amp;rsquo;ü eklemeniz gerekir.
+INSTALLED_APPS = ( ... &#39;rest_framework&#39;, ) Göz atılabilir API&amp;rsquo;yi kullanmayı planlıyorsanız, muhtemelen REST çerçevesinin giriş ve çıkış görünümlerini eklemek istiyorum. Ekle kök urls.py dosyanızı takip edin.</description>
+    </item>
+    
+    <item>
+      <title>Django Rest Framework ile Token Kimlik Doğrulaması</title>
+      <link>https://www.wikiod.com/tr/django-rest-framework/django-rest-framework-ile-token-kimlik-dogrulamas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/django-rest-framework/django-rest-framework-ile-token-kimlik-dogrulamas/</guid>
+      <description>YETKİ İŞLEVİ EKLEME # Django REST Framework, halihazırda yerleşik bazı kimlik doğrulama yöntemlerine sahiptir, bunlardan biri Token tabanlıdır, bu nedenle yapılacak ilk şey projemize dinlenme çerçevesinin kimlik doğrulamasını kullanacağımızı söylemektir. settings.py dosyasını açın ve vurgulanan satırı ekleyin.
+INSTALLED_APPS = ( &#39;django.contrib.admin&#39;, &#39;django.contrib.auth&#39;, &#39;django.contrib.contenttypes&#39;, &#39;django.contrib.sessions&#39;, &#39;django.contrib.messages&#39;, &#39;django.contrib.staticfiles&#39;, &#39;rest_framework&#39;, &#39;rest_framework.authtoken&#39;, &#39;test_app&#39;, ) Projeye yeni bir uygulama eklediğimiz için senkronize etmemiz gerekiyor.
+python manage.py migrate DJANGO&amp;rsquo;DA BİR SÜPER KULLANICI YARATMAK
+Kimlik doğrulamayı kullanmak için Django kullanıcı modeline güvenebiliriz, bu nedenle yapılacak ilk şey bir süper kullanıcı oluşturmaktır.</description>
+    </item>
+    
+    <item>
+      <title>kimlik doğrulama</title>
+      <link>https://www.wikiod.com/tr/django-rest-framework/kimlik-dogrulama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/django-rest-framework/kimlik-dogrulama/</guid>
+      <description>Global olarak kimlik doğrulamayı ayarlama # Django REST Framework&amp;rsquo;te kimlik doğrulama, varsayılan çerçeve yapılandırmalarının geri kalanı gibi, genel olarak settings.py&amp;rsquo;deki &amp;lsquo;REST_FRAMEWORK&amp;rsquo; değişkeninin bir alt anahtarı olarak yapılandırılabilir.
+REST_FRAMEWORK = { &#39;DEFAULT_AUTHENTICATION_CLASSES&#39;: ( &#39;rest_framework.authentication.BasicAuthentication&#39;, &#39;rest_framework.authentication.SessionAuthentication&#39;, ) } Belirli bir APIView için kimlik doğrulamayı ayarlama # Kimlik doğrulama, belirli bir APIView uç noktası için &amp;ldquo;authentication_classes&amp;rdquo; değişkeni kullanılarak ayarlanabilir:
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication from rest_framework.permissions import IsAuthenticated from rest_framework.response import Response from rest_framework.</description>
+    </item>
+    
+    <item>
+      <title>Filtreler</title>
+      <link>https://www.wikiod.com/tr/django-rest-framework/filtreler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/django-rest-framework/filtreler/</guid>
+      <description>Basitten Karmaşık olanlara Filtreleme Örnekleri # Sade Vanilya Filtreleme # Herhangi bir görünümü filtrelemek için, filtrelenmiş bir sorgu kümesi döndürmek için &amp;ldquo;get_queryset&amp;rdquo; yöntemini geçersiz kılın
+class HREmployees(generics.ListAPIView): def get_queryset(self): return Employee.objects.filter(department=&amp;quot;Human Resources&amp;quot;) Tüm API işlevleri, işlemler için filtrelenmiş sorgu kümesini kullanır. Örneğin, yukarıdaki görünümün listesi yalnızca departmanı İnsan Kaynakları olan çalışanları içerecektir.
+get_queryset&amp;rsquo;te sorgu parametrelerine erişme # İstek parametrelerine göre filtreleme yapmak kolaydır.
+&amp;ldquo;self.request&amp;rdquo;, &amp;ldquo;self.args&amp;rdquo; ve &amp;ldquo;self.kwargs&amp;rdquo; mevcuttur ve mevcut isteğe ve filtreleme için parametrelerine işaret eder</description>
+    </item>
+    
+    <item>
+      <title>sayfalandırma</title>
+      <link>https://www.wikiod.com/tr/django-rest-framework/sayfalandrma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/django-rest-framework/sayfalandrma/</guid>
+      <description>Sayfalandırma, büyük veri kümelerinin ayrılmış ve özerk sayfalara bölünmesidir.
+Django dinlenme çerçevesinde, sayfalandırma, kullanıcının her sayfadaki veri miktarını ve bölmenin uygulandığı stili değiştirmesine olanak tanır.
+[Giriş] Sayfalandırma Stilini Global Olarak Ayarlayın # Tüm proje için sayfalama stilini ayarlamak için proje ayarlarında DEFAULT_PAGINATION_CLASS ve PAGE_SIZE ayarlamanız gerekir.
+Bunu yapmak için &amp;ldquo;settings.py&amp;quot;ye gidin ve &amp;ldquo;REST_FRAMEWORK&amp;rdquo; değişkenine aşağıdakini ekleyin:
+REST_FRAMEWORK = { &#39;DEFAULT_PAGINATION_CLASS&#39;: &#39;rest_framework.pagination.DESIRED_PAGINATION_STYLE&#39;, &#39;PAGE_SIZE&#39;: 100 } &amp;ldquo;DESIRED_PAGINATION_STYLE&amp;rdquo; yerine aşağıdakilerden biri yerleştirilmelidir:
+PageNumberPagination: İstek sorgu parametrelerinde tek bir sayfa numarasını kabul eder.</description>
+    </item>
+    
+    <item>
+      <title>karışımlar</title>
+      <link>https://www.wikiod.com/tr/django-rest-framework/karsmlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/django-rest-framework/karsmlar/</guid>
+      <description>Karıştırma sınıfları, temel görünüm davranışını sağlamak için kullanılan eylemleri sağlar. Karıştırma sınıflarının, &amp;ldquo;.get()&amp;rdquo; ve &amp;ldquo;.post()&amp;rdquo; gibi işleyici yöntemlerini doğrudan tanımlamak yerine eylem yöntemleri sağladığını unutmayın. Bu, daha esnek davranış kompozisyonuna izin verir. -Resmi Django dinlenme Çerçeve Belgeleri-
+[Giriş] Karışımların Listesi ve Görünümlerde/Görüntü Kümelerinde Kullanım # Mevcut karışımların listesi:
+ListModelMixin:, görünüm/görünüm kümesi için bir .list() yöntemi sağlar RetrieveModelMixin:, görünüm/görünüm kümesi için bir .retrieve() yöntemi sağlar CreateModelMixin:, görünüm/görünüm kümesi için bir .create() yöntemi sağlar UpdateModelMixin:, görünüm/görünüm kümesi için bir .</description>
+    </item>
+    
+    <item>
+      <title>Serileştiriciler</title>
+      <link>https://www.wikiod.com/tr/django-rest-framework/serilestiriciler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/django-rest-framework/serilestiriciler/</guid>
+      <description>DRF resmi belgelerine göre serileştiriciler, sorgu kümeleri ve model örneği gibi karmaşık verilerin JSON, XML ve diğer içerik türleri olarak oluşturulabilmesi için yerel python veri türlerine dönüştürülmesine yardımcı olur.
+DRF&amp;rsquo;deki serileştiriciler daha çok Django Form ve ModelForm sınıfına benzer. Serializer sınıfı bize Django Form gibi verileri işlemek için özel bir yol sağlar. Ve ModelSerializer sınıfı bize model tabanlı verileri işlemek için kolay bir yol sağlar.
+Temel Giriş # Diyelim ki ürün adında bir modelimiz var.</description>
+    </item>
+    
+    <item>
+      <title>AngularJS ile Django-rest-framework&#39;ü ön uç çerçeve olarak kullanma.</title>
+      <link>https://www.wikiod.com/tr/django-rest-framework/angularjs-ile-django-rest-frameworku-on-uc-cerceve-olarak-kullanma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/django-rest-framework/angularjs-ile-django-rest-frameworku-on-uc-cerceve-olarak-kullanma/</guid>
+      <description>Bu konuda, bir AngularJS uygulaması için arka uç API olarak Django REST Framework&amp;rsquo;ün nasıl kullanılacağına bakacağız. DRF ve AngularJS&amp;rsquo;nin birlikte kullanılması arasında ortaya çıkan ana sorunlar, genellikle iki teknoloji arasındaki HTTP iletişiminin yanı sıra verilerin her iki uçta temsil edilmesi ve son olarak uygulamanın/sistemin nasıl dağıtılacağı ve tasarlanacağı etrafında döner.
+Açısal İstek # $http.post(&amp;quot;\&amp;lt;domain\&amp;gt;/user-registration/&amp;quot;, {username: username, password: password}) .then(function (data) { // Do success actions here }); DRF Görünümü # class UserRegistration(APIView): def post(self, request, *args, **kwargs): serializer = UserRegistrationSerializer(data=request.</description>
+    </item>
+    
+    <item>
+      <title>Yönlendiriciler</title>
+      <link>https://www.wikiod.com/tr/django-rest-framework/yonlendiriciler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/django-rest-framework/yonlendiriciler/</guid>
+      <description>Yönlendirme, mantığı (görünüm yöntemleri vb.) bir dizi URL&amp;rsquo;ye eşleme işlemidir. REST çerçevesi, Django&amp;rsquo;ya otomatik URL yönlendirme desteği ekler.
+Sözdizimi # yönlendirici = yönlendiriciler.SimpleRouter() router.register(önek, görünüm kümesi) router.urls # kayıtlı görünüm kümesi için oluşturulan url kümesi. [Giriş] Temel kullanım, SimpleRouter # DRF için otomatik yönlendirme, ViewSet sınıfları için gerçekleştirilebilir.
+ViewSet sınıfının aşağıdakiler için MyViewSet adıyla gittiğini varsayalım. this example.
+&amp;ldquo;MyViewSet&amp;rdquo; yönlendirmesini oluşturmak için &amp;ldquo;SimpleRouter&amp;rdquo; kullanılacaktır.
+&amp;ldquo;myapp/urls.py&amp;rdquo; üzerinde:
+from rest_framework import routers router = routers.</description>
+    </item>
+    
+  </channel>
+</rss>

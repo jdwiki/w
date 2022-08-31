@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Akka Tutoriel on </title>
+    <link>https://www.wikiod.com/fr/docs/akka/</link>
+    <description>Recent content in Akka Tutoriel on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/akka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Commencer avec akka</title>
+      <link>https://www.wikiod.com/fr/akka/commencer-avec-akka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/akka/commencer-avec-akka/</guid>
+      <description>Installation ou configuration # Installez JDK 8 ([Windows][1], [Linux][1]) et définissez le chemin ([Windows][1]). Installez Scala ([Linux][2]), Pour Windows, visitez http://www.scala-lang.org/download/ téléchargez et installez la distribution binaire, définissez la variable d&amp;rsquo;environnement pour scala dans PATH qui se trouve dans \scala \bin. Installation de [Typesafe activator][3] (Il contient Scala, Akka, Play, SBT) + échafaudage de projet et modèles. Pour un démarrage rapide, téléchargez le mini-package. Extrayez l&amp;rsquo;activateur Typesafe et définissez le PATH sur activator-x.</description>
+    </item>
+    
+    <item>
+      <title>formes personnalisées akka-streams</title>
+      <link>https://www.wikiod.com/fr/akka/formes-personnalisees-akka-streams/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/akka/formes-personnalisees-akka-streams/</guid>
+      <description>akka fournit des formes prédéfinies, qui devraient probablement correspondre à 99,9 % de votre utilisation. la création d&amp;rsquo;une nouvelle forme ne doit être effectuée que dans de très rares cas. les formes prédéfinies sont :
+Source - 1 sortie, pas d&amp;rsquo;entrées Sink - 1 entrée, pas de sorties Flow - 1 entrée, 1 sortie BidiFlow - 2 entrées, 2 sorties &amp;ldquo;Fermé&amp;rdquo; - pas d&amp;rsquo;entrées, pas de sorties FanInN - N entrées (N &amp;lt;= 22), 1 sortie FanOutN - N sorties (N &amp;lt;= 22), 1 entrée UniformFanIn - n&amp;rsquo;importe quel nombre d&amp;rsquo;entrées du même type, 1 sortie UniformFanOut - n&amp;rsquo;importe quel nombre de sorties du même type, 1 entrée &amp;ldquo;Amorphe&amp;rdquo; - n&amp;rsquo;importe quel nombre d&amp;rsquo;entrées ou de sorties, mais non typé.</description>
+    </item>
+    
+    <item>
+      <title>Acteur DSL</title>
+      <link>https://www.wikiod.com/fr/akka/acteur-dsl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/akka/acteur-dsl/</guid>
+      <description>Acteur simple DSL # Pour créer des acteurs simples sans créer de nouvelle classe, vous pouvez utiliser :
+import akka.actor.ActorDSL._ import akka.actor.ActorSystem implicit val system = ActorSystem(&amp;quot;demo&amp;quot;) val a = actor(new Act { become { case &amp;quot;hello&amp;quot; ⇒ sender() ! &amp;quot;hi&amp;quot; } }) Changement de contexte # Les deux manières possibles d&amp;rsquo;émettre un context.become (en remplaçant ou en ajoutant le nouveau comportement) sont proposées séparément pour permettre une notation sans encombrement des réceptions imbriquées :</description>
+    </item>
+    
+    <item>
+      <title>Bonjour le monde</title>
+      <link>https://www.wikiod.com/fr/akka/bonjour-le-monde/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/akka/bonjour-le-monde/</guid>
+      <description>Akka bonjour le monde (Scala) # Ajouter une dépendance en tant qu&amp;rsquo;acteur (exemple SBT) libraryDependencies += &amp;quot;com.typesafe.akka&amp;quot; % &amp;quot;akka-actor_2.11&amp;quot; % &amp;quot;2.4.8&amp;quot; Créez des classes d&amp;rsquo;acteurs : Acteur pour la sortie de chaîne :
+class OutputActor extends Actor { override def receive: Receive = { case message =&amp;gt; println(message) } } Acteur pour la modification de chaîne :
+class AppendActor(outputActor: ActorRef) extends Actor { override def receive: Receive = { case message: String =&amp;gt; val changed = s&amp;quot;Hello, $message!</description>
+    </item>
+    
+    <item>
+      <title>Supervision et suivi à Akka</title>
+      <link>https://www.wikiod.com/fr/akka/supervision-et-suivi-a-akka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/akka/supervision-et-suivi-a-akka/</guid>
+      <description>Références : [akka.io/docs][1]
+Consultez mon blog : https://blog.knoldus.com/2016/08/07/supervision-and-monitoring-in-akka/
+[1] : http://akka.io/docs/
+Qu&amp;rsquo;est-ce que la supervision ? # Décrit une relation de dépendance entre les acteurs, la relation parent et enfant. Le parent est unique car il a créé l&amp;rsquo;acteur enfant, de sorte que le parent est responsable de réagir lorsque des échecs surviennent chez son enfant.
+Et le parent décide quel choix doit être sélectionné. Lorsqu&amp;rsquo;un parent reçoit le signal d&amp;rsquo;échec de son enfant, selon la nature de l&amp;rsquo;échec, le parent décide parmi les options suivantes :</description>
+    </item>
+    
+    <item>
+      <title>Flux d&#39;Acre</title>
+      <link>https://www.wikiod.com/fr/akka/flux-dacre/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/akka/flux-dacre/</guid>
+      <description>Akka Streams : Bonjour le monde # Akka Streams vous permet de créer facilement un flux en exploitant la puissance du framework Akka sans définir explicitement les comportements et les messages des acteurs. Chaque flux aura au moins une Source (origine des données) et au moins un Sink (destination des données).
+import akka.actor.ActorSystem import akka.stream.ActorMaterializer import akka.stream.scaladsl.{Sink, Source} import java.io.File val stream = Source(Seq(&amp;quot;test1.txt&amp;quot;, &amp;quot;test2.txt&amp;quot;, &amp;quot;test3.txt&amp;quot;)) .map(new File(_)) .filter(_.exists()) .filter(_.length() !</description>
+    </item>
+    
+    <item>
+      <title>Répartiteurs</title>
+      <link>https://www.wikiod.com/fr/akka/repartiteurs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/akka/repartiteurs/</guid>
+      <description>Répartiteur par défaut # Un Akka MessageDispatcher est ce qui fait &amp;ldquo;cocher&amp;rdquo; les acteurs Akka, c&amp;rsquo;est le moteur de la machine pour ainsi dire. Toutes les implémentations de MessageDispatcher sont également un ExecutionContext, ce qui signifie qu&amp;rsquo;elles peuvent être utilisées pour exécuter du code arbitraire, par exemple Futures.
+Chaque ActorSystem aura un répartiteur par défaut qui sera utilisé au cas où rien d&amp;rsquo;autre n&amp;rsquo;est configuré pour un acteur. Le répartiteur par défaut peut être configuré et est par défaut un Dispatcher avec le default-executor spécifié.</description>
+    </item>
+    
+    <item>
+      <title>Injecter des dépendances dans un acteur</title>
+      <link>https://www.wikiod.com/fr/akka/injecter-des-dependances-dans-un-acteur/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/akka/injecter-des-dependances-dans-un-acteur/</guid>
+      <description>Acteur à ressort # En raison de la manière très spécifique d&amp;rsquo;instanciation des acteurs, injecter des dépendances dans une instance d&amp;rsquo;acteur n&amp;rsquo;est pas trivial. Afin d&amp;rsquo;intervenir dans l&amp;rsquo;instanciation des acteurs et de permettre à Spring d&amp;rsquo;injecter des dépendances, il convient d&amp;rsquo;implémenter quelques extensions akka. Le premier de ceux-ci est un IndirectActorProducer :
+import akka.actor.Actor; import akka.actor.IndirectActorProducer; import java.lang.reflect.Constructor; import java.util.Arrays; import org.springframework.beans.factory.config.AutowireCapableBeanFactory; import org.springframework.context.ApplicationContext; /** * An actor producer that lets Spring autowire dependencies into created actors.</description>
+    </item>
+    
+    <item>
+      <title>Akka HTTP</title>
+      <link>https://www.wikiod.com/fr/akka/akka-http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/akka/akka-http/</guid>
+      <description>Akka HTTP est un serveur HTTP léger et une bibliothèque cliente, utilisant des flux akka sous le capot
+Serveur HTTP Akka : Hello World (Scala DSL) # L&amp;rsquo;application suivante démarrera un serveur HTTP écoutant sur le port 8080 qui renvoie &amp;ldquo;Hello world&amp;rdquo; sur &amp;ldquo;GET /hello/world&amp;rdquo;
+import akka.actor.ActorSystem import akka.http.scaladsl.Http import akka.http.scaladsl.server.Directives._ import akka.http.scaladsl.server._ import akka.stream.ActorMaterializer import scala.concurrent.Await import scala.concurrent.duration.Duration object HelloWorld extends App { implicit val system = ActorSystem(&amp;quot;ProxySystem&amp;quot;) implicit val mat = ActorMaterializer() val route: Route = get { path(&amp;quot;hello&amp;quot; / &amp;quot;world&amp;quot;) { complete(&amp;quot;Hello world&amp;quot;) } } val bindingFuture = Http().</description>
+    </item>
+    
+  </channel>
+</rss>

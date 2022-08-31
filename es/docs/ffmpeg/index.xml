@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de ffmpeg on </title>
+    <link>https://www.wikiod.com/es/docs/ffmpeg/</link>
+    <description>Recent content in Tutorial de ffmpeg on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con ffmpeg</title>
+      <link>https://www.wikiod.com/es/ffmpeg/primeros-pasos-con-ffmpeg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/ffmpeg/primeros-pasos-con-ffmpeg/</guid>
+      <description>Instalación o configuración # FFmpeg se puede instalar en una combinación de sistemas operativos, incluidos Unix y OS X. Usando una extensión de línea de comando, esta utilidad también se puede instalar en Windows usando un dll. OS X Para instalar esta utilidad en OS X, simplemente diríjase a [ffmpeg.org](https://www.ffmpeg.org/download.html#build-mac), descargue la versión relativa a la arquitectura de su Mac (instrucciones para encontrar esta se puede encontrar [aquí](https://www.chiefarchitect.com/support/article/KB-01230/determining-if-your-computer-is-32-bit-or-64-bit.html)). Luego coloque la aplicación en un directorio accesible y ejecútela desde la línea de comandos.</description>
+    </item>
+    
+    <item>
+      <title>Descodificación</title>
+      <link>https://www.wikiod.com/es/ffmpeg/descodificacion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/ffmpeg/descodificacion/</guid>
+      <description>Obtener el video/audio sin procesar de flujos de medios codificados.
+Decodificar fotogramas # Dado un contexto de códec y paquetes codificados de un flujo de medios, puede comenzar a decodificar medios en marcos sin formato. Para decodificar un solo cuadro, puede usar el siguiente código:
+// A codec context, and some encoded data packet from a stream/file, given. AVCodecContext *codecContext; // See Open a codec context AVPacket *packet; // See the Reading Media topic // Send the data packet to the decoder int sendPacketResult = avcodec_send_packet(codecContext, packet); if (sendPacketResult == AVERROR(EAGAIN)){ // Decoder can&#39;t take packets right now.</description>
+    </item>
+    
+    <item>
+      <title>Lectura de medios</title>
+      <link>https://www.wikiod.com/es/ffmpeg/lectura-de-medios/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/ffmpeg/lectura-de-medios/</guid>
+      <description>Hay algunas formas de leer Audio/Video en FFmpeg.
+Leer de memoria # libavformat generalmente toma un nombre de archivo y lee los medios directamente desde el sistema de archivos. Si desea leer de la memoria (como secuencias), haga lo siguiente:
+// Define your buffer size const int FILESTREAMBUFFERSZ = 8192; // A IStream - you choose where it comes from IStream* fileStreamData; // Alloc a buffer for the stream unsigned char* fileStreamBuffer = (unsigned char*)av_malloc(FILESTREAMBUFFERSZ); if (fileStreamBuffer == nullptr){ // out of memory } // Get a AVContext stream AVIOContext* ioContext = avio_alloc_context( fileStreamBuffer, // Buffer FILESTREAMBUFFERSZ, // Buffer size 0, // Buffer is only readable - set to 1 for read/write fileStreamData, // User (your) specified data FileStreamRead, // Function - Reading Packets (see example) 0, // Function - Write Packets FileStreamSeek // Function - Seek to position in stream (see example) ); if(ioContext == nullptr){ // out of memory } // Allocate a AVContext AVFormatContext *formatContext = avformat_alloc_context(); // Set up the Format Context formatContext-&amp;gt;pb = ioContext; formatContext-&amp;gt;flags |= AVFMT_FLAG_CUSTOM_IO; // we set up our own IO // Open &amp;quot;file&amp;quot; (open our custom IO) // Empty string is where filename would go.</description>
+    </item>
+    
+    <item>
+      <title>Retransmisión de Ffmpeg</title>
+      <link>https://www.wikiod.com/es/ffmpeg/retransmision-de-ffmpeg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/ffmpeg/retransmision-de-ffmpeg/</guid>
+      <description>Retransmisión de dispositivo simple # Ffmpeg es una navaja suiza para proyectos de transmisión. Para cualquier tipo de transmisión de dispositivos, solo necesita obtener la especificación del dispositivo. Para enumerar el dispositivo
+ffmpeg -f dshow -list_devices true -i dummy El símbolo del sistema mostrará una lista de todos los dispositivos disponibles en la máquina.
+[dshow @ 0000000004052420] DirectShow video devices [dshow @ 0000000004052420] &amp;quot;ManyCam Virtual Webcam&amp;quot; [dshow @ 0000000004052420] &amp;quot;UScreenCapture&amp;quot; [dshow @ 0000000004052420] DirectShow audio devices Para volver a transmitir el dispositivo de audio y video,</description>
+    </item>
+    
+  </channel>
+</rss>

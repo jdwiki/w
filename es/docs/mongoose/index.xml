@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mangosta Tutorial on </title>
+    <link>https://www.wikiod.com/es/docs/mongoose/</link>
+    <description>Recent content in Mangosta Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/mongoose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comenzando con la mangosta</title>
+      <link>https://www.wikiod.com/es/mongoose/comenzando-con-la-mangosta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mongoose/comenzando-con-la-mangosta/</guid>
+      <description>Instalación # Instalar mongoose es tan fácil como ejecutar el comando npm
+npm instalar mongoose --save
+Pero asegúrese de haber instalado MongoDB para su sistema operativo o tener acceso a una base de datos MongoDB.
+Conexión a la base de datos MongoDB: # 1. Importar mangosta a la aplicación:
+import mongoose from &#39;mongoose&#39;; 2. Especifique una biblioteca Promise:
+mongoose.Promise = global.Promise; 3. Conéctese a MongoDB:
+mongoose.connect(&#39;mongodb://127.0.0.1:27017/database&#39;); /* Mongoose connection format looks something like this */ mongoose.</description>
+    </item>
+    
+    <item>
+      <title>mongoose pre y post middleware (ganchos)</title>
+      <link>https://www.wikiod.com/es/mongoose/mongoose-pre-y-post-middleware-ganchos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mongoose/mongoose-pre-y-post-middleware-ganchos/</guid>
+      <description>Programa intermedio # El middleware (también llamado pre y post hooks) son funciones a las que se les pasa el control durante la ejecución de funciones asincrónicas. El middleware se especifica en el nivel de esquema y es útil para escribir complementos. Mongoose 4.0 tiene 2 tipos de middleware: middleware de documentos y middleware de consultas. El middleware de documentos es compatible con las siguientes funciones de documentos.
+en eso validar ahorrar retirar El middleware de consulta es compatible con las siguientes funciones de modelo y consulta.</description>
+    </item>
+    
+    <item>
+      <title>Población de mangostas</title>
+      <link>https://www.wikiod.com/es/mongoose/poblacion-de-mangostas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mongoose/poblacion-de-mangostas/</guid>
+      <description>Sintaxis # Query.populate(ruta, [seleccionar], [modelo], [coincidencia], [opciones]) Parámetros # Parámetro Explicación camino &amp;lt;Object, String&amp;gt; ya sea la ruta para completar o un objeto que especifica todos los parámetros [seleccionar] &amp;lt;Object, String&amp;gt; Selección de campo para la consulta de población (puede usar &#39;-id&#39; para incluir todo menos el campo id) [modelo] &amp;lt;Modelo&amp;gt; El modelo que desea usar para la población. Si no se especifica, poblar buscará el modelo por el nombre en el campo de referencia del esquema.</description>
+    </item>
+    
+    <item>
+      <title>Consultas de mangosta</title>
+      <link>https://www.wikiod.com/es/mongoose/consultas-de-mangosta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mongoose/consultas-de-mangosta/</guid>
+      <description>Mongoose es un controlador de Node.JS para MongoDB. Proporciona ciertos beneficios sobre el controlador MongoDB predeterminado, como agregar tipos a esquemas. Una diferencia es que algunas consultas Mongoose pueden diferir de sus equivalentes MongoDB.
+Buscar una consulta # Importe un modelo Mongoose (consulte el tema &amp;ldquo;Esquemas Mongoose&amp;rdquo;)
+var Usuario = require(&amp;quot;../models/user-schema.js&amp;quot;)
+El método findOne devolverá la primera entrada en la base de datos que coincida con el primer parámetro. El parámetro debe ser un objeto donde la clave es el campo a buscar y el valor es el valor que debe coincidir.</description>
+    </item>
+    
+    <item>
+      <title>Middleware de mangosta</title>
+      <link>https://www.wikiod.com/es/mongoose/middleware-de-mangosta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mongoose/middleware-de-mangosta/</guid>
+      <description>En mongoose, Middlewares también se denominan ganchos pre y post.
+Hay dos tipos de middleware # Ambos middleware admiten ganchos pre y post.
+Middleware de documentos
+Its supported for document functions init, validate, save and remove
+Middleware de consultas
+Its supported for query functions count, find, findOne, findOneAndRemove, findOneAndUpdate, insertMany and update.
+Anzuelos previos y posteriores # Hay dos tipos de anzuelos Pre
+serie
+As the name suggests, Its executed in serial order i.</description>
+    </item>
+    
+    <item>
+      <title>esquemas de mangosta</title>
+      <link>https://www.wikiod.com/es/mongoose/esquemas-de-mangosta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mongoose/esquemas-de-mangosta/</guid>
+      <description>Crear un esquema # var mongoose = require(&#39;mongoose&#39;); //assume Player and Board schemas are already made var Player = mongoose.model(&#39;Player&#39;); var Board = mongoose.model(&#39;Board&#39;); //Each key in the schema is associated with schema type (ie. String, Number, Date, etc) var gameSchema = new mongoose.Schema({ name: String, players: [{ type: mongoose.Schema.Types.ObjectId, ref: &#39;Player&#39; }], host: { type: mongoose.Schema.Types.ObjectId, ref: &#39;Player&#39; }, board: { type: mongoose.Schema.Types.ObjectId, ref: &#39;Board&#39; }, active: { type: Boolean, default: true }, state: { type: String, enum: [&#39;decision&#39;, &#39;run&#39;, &#39;waiting&#39;], default: &#39;waiting&#39; }, numFlags: { type: Number, enum: [1,2,3,4] }, isWon: { type: Boolean, default: false } }); mongoose.</description>
+    </item>
+    
+  </channel>
+</rss>

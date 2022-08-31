@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel WordPress on </title>
+    <link>https://www.wikiod.com/fr/docs/wordpress/</link>
+    <description>Recent content in Tutoriel WordPress on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Démarrer avec WordPress</title>
+      <link>https://www.wikiod.com/fr/wordpress/demarrer-avec-wordpress/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/wordpress/demarrer-avec-wordpress/</guid>
+      <description>Introduction à WordPress # WordPress [WP] est un système de gestion de contenu open source permettant de créer des applications, des sites Web et des blogs. WP est écrit en PHP et utilise MySQL comme magasin de données pour le contenu et la configuration de l&amp;rsquo;utilisateur. Il possède un riche écosystème de [plugins] [1] et [thèmes] [2] et bénéficie d&amp;rsquo;une communauté open source dynamique, d&amp;rsquo;une bonne documentation et de faibles barrières à l&amp;rsquo;entrée.</description>
+    </item>
+    
+    <item>
+      <title>get_bloginfo()</title>
+      <link>https://www.wikiod.com/fr/wordpress/get_bloginfo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/wordpress/get_bloginfo/</guid>
+      <description>Récupère des informations sur le site actuel.
+Syntaxe # get_bloginfo( $show , $filter ) Paramètres # Paramètre Détails $montrer (string) Les informations de configuration du site à récupérer. $filtre (string) La spécification indiquant si une valeur filtrée doit être renvoyée ou non. $montrer
+Valeurs Descriptif Exemple &amp;rsquo;nom&amp;rsquo; (par défaut) Titre du site &#39;Matt Mullenweg&#39; &amp;lsquo;description&amp;rsquo; Slogan du site &#39;Juste un autre site WordPress&#39; &amp;lsquo;wpurl&amp;rsquo; URL de l&amp;rsquo;installation WordPress. Identique à la fonction site_url() &#39;http://exemple.</description>
+    </item>
+    
+    <item>
+      <title>AJAX</title>
+      <link>https://www.wikiod.com/fr/wordpress/ajax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/wordpress/ajax/</guid>
+      <description>AJAX avec .ajax() et WordPress Nonce # fonctions.php
+//Localize the AJAX URL and Nonce add_action(&#39;wp_enqueue_scripts&#39;, &#39;example_localize_ajax&#39;); function example_localize_ajax(){ wp_localize_script(&#39;jquery&#39;, &#39;ajax&#39;, array( &#39;url&#39; =&amp;gt; admin_url(&#39;admin-ajax.php&#39;), &#39;nonce&#39; =&amp;gt; wp_create_nonce(&#39;example_ajax_nonce&#39;), )); } //Example AJAX Function add_action(&#39;wp_ajax_example_function&#39;, &#39;example_function&#39;); add_action(&#39;wp_ajax_nopriv_example_function&#39;, &#39;example_function&#39;); function example_function(){ if ( !wp_verify_nonce($_POST[&#39;nonce&#39;], &#39;example_ajax_nonce&#39;) ){ die(&#39;Permission Denied.&#39;); } $firstname = sanitize_text_field($_POST[&#39;data&#39;][&#39;firstname&#39;]); $lastname = sanitize_text_field($_POST[&#39;data&#39;][&#39;lastname&#39;]); //Do something with data here echo $firstname . &#39; &#39; . $lastname; //Echo for response wp_die(); // this is required to terminate immediately and return a proper response:- https://codex.</description>
+    </item>
+    
+    <item>
+      <title>Bases de la personnalisation (Ajouter un panneau, une section, un paramètre, un contrôle)</title>
+      <link>https://www.wikiod.com/fr/wordpress/bases-de-la-personnalisation-ajouter-un-panneau-une-section-un-parametre-un-controle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/wordpress/bases-de-la-personnalisation-ajouter-un-panneau-une-section-un-parametre-un-controle/</guid>
+      <description>Ajouter un panneau de personnalisation # &amp;lt;?php /** * Panel: WPCustomize * * Basic Customizer panel with basic controls. * * @since 1.0.0 * @package WPC */ // Exit if accessed directly. if ( ! defined( &#39;ABSPATH&#39; ) ) { exit; } // Customize function. if ( ! function_exists( &#39;wpc_panel_wpcustomize&#39; ) ) { // Customize Register action. add_action( &#39;customize_register&#39;, &#39;wpc_panel_wpcustomize&#39; ); /** * Customize Panel. * * Adds a Panel, Section with basic controls.</description>
+    </item>
+    
+    <item>
+      <title>Types de publication personnalisés</title>
+      <link>https://www.wikiod.com/fr/wordpress/types-de-publication-personnalises/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/wordpress/types-de-publication-personnalises/</guid>
+      <description>Syntaxe # register_post_type( $post_type, $args ); Paramètres # Paramètre Détails $post_type (chaîne) (obligatoire) $arguments (tableau/chaîne) (facultatif) ## Ajouter des types de publication personnalisés à la requête principale L&amp;rsquo;enregistrement d&amp;rsquo;un type de publication personnalisé ne signifie pas qu&amp;rsquo;il est automatiquement ajouté à la requête principale. Vous devez utiliser le filtre pre_get_posts pour ajouter des types de publication personnalisés à la requête principale.
+// Show posts of &#39;post&#39; and &#39;book&#39; custom post types on home page add_action( &#39;pre_get_posts&#39;, &#39;add_my_post_types_to_query&#39; ); function add_my_post_types_to_query( $query ) { if ( is_home() &amp;amp;&amp;amp; $query-&amp;gt;is_main_query() ) $query-&amp;gt;set( &#39;post_type&#39;, array( &#39;post&#39;, &#39;book&#39; ) ); return $query; } Enregistrement d&amp;rsquo;un type de publication personnalisé # Supposons que vous ayez un site Web de bibliothèque et que vous souhaitiez avoir un type de publication personnalisé nommé * Livres *.</description>
+    </item>
+    
+    <item>
+      <title>get_the_category()</title>
+      <link>https://www.wikiod.com/fr/wordpress/get_the_category/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/wordpress/get_the_category/</guid>
+      <description>Cette fonction renvoie toutes les catégories sous forme de tableau de la publication ou de la page actuelle ou de la publication ou de la page désignée.
+Syntaxe # get_the_category( $id ) Paramètres # Paramètre Détails $id (int) (Facultatif) par défaut sur l&amp;rsquo;ID de publication actuel. L&amp;rsquo;identifiant du poste. Veuillez noter que get_the_category() renvoie un tableau, ce qui signifie que vous ne pouvez pas directement faire écho à la valeur renvoyée.</description>
+    </item>
+    
+    <item>
+      <title>La boucle (boucle principale de WordPress)</title>
+      <link>https://www.wikiod.com/fr/wordpress/la-boucle-boucle-principale-de-wordpress/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/wordpress/la-boucle-boucle-principale-de-wordpress/</guid>
+      <description>Syntaxe de boucle alternative # Vous pouvez également utiliser une boucle avec des accolades comme ceci :
+if ( have_posts() ) { while ( have_posts() ) { the_post(); var_dump( $post ); } } Structure de boucle WordPress de base # Chaque fois que WordPress charge la page, il exécutera la boucle principale.
+La boucle est le moyen d&amp;rsquo;itérer sur tous les éléments liés à la page sur laquelle vous vous trouvez actuellement.</description>
+    </item>
+    
+    <item>
+      <title>Fonction add_action()</title>
+      <link>https://www.wikiod.com/fr/wordpress/fonction-add_action/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/wordpress/fonction-add_action/</guid>
+      <description>Syntaxe # add_action( $tag, $function_to_add ) add_action( $tag, $function_to_add, $priority ) add_action( $tag, $function_to_add, $priority, $accepted_args ) Paramètres # Paramètre Détails $tag (string) (Obligatoire) Le nom de l&amp;rsquo;action à laquelle la $function_to_add est accrochée $fonction_à_ajouter (callable) (Obligatoire) La fonction qui doit être appelée lorsque l&amp;rsquo;action indiquée par $tag est exécutée $priorité (entier) (Facultatif) Valeur par défaut : 10 Utilisé pour spécifier l&amp;rsquo;ordre dans lequel les fonctions associées à une action particulière sont exécutées.</description>
+    </item>
+    
+    <item>
+      <title>Petit code</title>
+      <link>https://www.wikiod.com/fr/wordpress/petit-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/wordpress/petit-code/</guid>
+      <description>Ajout de nouveaux codes abrégés # function footag_func( $atts ) { return &amp;quot;foo = {$atts[&#39;foo&#39;]}&amp;quot;; } add_shortcode( &#39;footag&#39;, &#39;footag_func&#39; ); Dans les plugins, nous pouvons ajouter des shortcodes en utilisant la fonction add_shortcode.
+Le shortcode peut être utilisé dans n&amp;rsquo;importe quelle page ou publication Wordpress simplement en le mettant entre crochets.
+[footag] Enregistrement du shortcode # Le shortcode est un petit morceau de code qui peut être ajouté dans l&amp;rsquo;éditeur WordPress et produira quelque chose de différent une fois la page publiée ou prévisualisée.</description>
+    </item>
+    
+    <item>
+      <title>add_menu_page()</title>
+      <link>https://www.wikiod.com/fr/wordpress/add_menu_page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/wordpress/add_menu_page/</guid>
+      <description>Cette fonction consiste à ajouter un élément dans la barre de navigation du panneau d&amp;rsquo;administration.
+Syntaxe # add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position) Paramètres # Paramètre Détails $page_title (string) Le texte à afficher dans les balises de titre de la page lorsque le menu est sélectionné. $menu_title (chaîne) Le texte à utiliser pour le menu. $capacité (chaîne) La capacité requise pour que ce menu soit affiché à l&amp;rsquo;utilisateur. $menu_slug (chaîne) Le nom du slug par lequel se référer à ce menu (doit être unique pour ce menu).</description>
+    </item>
+    
+  </channel>
+</rss>

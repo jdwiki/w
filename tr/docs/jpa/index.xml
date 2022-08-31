@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jpa Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/jpa/</link>
+    <description>Recent content in jpa Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/jpa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jpa&#39;yı kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/jpa/jpay-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jpa/jpay-kullanmaya-baslama/</guid>
+      <description>Minimal persistence.xml örneği # Hazırda Beklet (ve yerleşik H2 DB) # &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;persistence xmlns=&amp;quot;http://java.sun.com/xml/ns/persistence&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_1.xsd&amp;quot; version=&amp;quot;2.1&amp;quot;&amp;gt; &amp;lt;persistence-unit name=&amp;quot;persistenceUnit&amp;quot;&amp;gt; &amp;lt;provider&amp;gt;org.hibernate.ejb.HibernatePersistence&amp;lt;/provider&amp;gt; &amp;lt;class&amp;gt;my.application.entities.MyEntity&amp;lt;/class&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;property name=&amp;quot;javax.persistence.jdbc.driver&amp;quot; value=&amp;quot;org.h2.Driver&amp;quot; /&amp;gt; &amp;lt;property name=&amp;quot;javax.persistence.jdbc.url&amp;quot; value=&amp;quot;jdbc:h2:data/myDB.db&amp;quot; /&amp;gt; &amp;lt;property name=&amp;quot;javax.persistence.jdbc.user&amp;quot; value=&amp;quot;sa&amp;quot; /&amp;gt; &amp;lt;!-- DDL change options --&amp;gt; &amp;lt;property name=&amp;quot;javax.persistence.schema-generation.database.action&amp;quot; value=&amp;quot;drop-and-create&amp;quot;/&amp;gt; &amp;lt;property name=&amp;quot;hibernate.dialect&amp;quot; value=&amp;quot;org.hibernate.dialect.H2Dialect&amp;quot;/&amp;gt; &amp;lt;property name=&amp;quot;hibernate.flushMode&amp;quot; value=&amp;quot;FLUSH_AUTO&amp;quot; /&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;/persistence-unit&amp;gt; &amp;lt;/persistence&amp;gt; Eclipselink (ve gömülü H2 DB) # &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;persistence xmlns=&amp;quot;http://java.sun.com/xml/ns/persistence&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_1.xsd&amp;quot; version=&amp;quot;2.1&amp;quot;&amp;gt; &amp;lt;persistence-unit name=&amp;quot;persistenceUnit&amp;quot;&amp;gt; &amp;lt;provider&amp;gt;org.</description>
+    </item>
+    
+    <item>
+      <title>Temel haritalama</title>
+      <link>https://www.wikiod.com/tr/jpa/temel-haritalama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jpa/temel-haritalama/</guid>
+      <description>Parametreler # Açıklama Ayrıntılar @Id Alanı/sütununu varlığın key olarak işaretler @Temel basic türü olarak eşlenecek istenen alanı işaretler. Bu, ilkel türler ve bunların sarmalayıcıları, &amp;ldquo;Dize&amp;rdquo;, &amp;ldquo;Tarih&amp;rdquo; ve &amp;ldquo;Takvim&amp;rdquo; için geçerlidir. Açıklama, herhangi bir parametre verilmezse aslında isteğe bağlıdır, ancak iyi bir stil, niyetlerinizi açık hale getirmek için dikte eder. @Geçici Geçici olarak işaretlenen alanlar, serileştirme için &amp;ldquo;geçici&amp;rdquo; anahtar sözcüğüne çok benzer şekilde kalıcılık için değerlendirilmez. Her zaman varsayılan bir kurucu olması gerekir, yani parametresiz olan.</description>
+    </item>
+    
+    <item>
+      <title>Bire çok ilişki</title>
+      <link>https://www.wikiod.com/tr/jpa/bire-cok-iliski/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jpa/bire-cok-iliski/</guid>
+      <description>Parametreler # Açıklama Amaç @TableGenerator Oluşturucu adını ve oluşturucunun bulunabileceği tablo adını belirtir @GeneratedValue Oluşturma stratejisini belirtir ve üretecin adını belirtir @ManyToOne Çalışan ve Departman @OneToMany(mappedBy=&amp;ldquo;department&amp;rdquo;) Çalışan varlığındaki @ManyToOne ek açıklamasına başvurarak Çalışan ve Departman arasında çift yönlü bir ilişki oluşturur Bire Çok ilişki # Bire Çok eşleme, genellikle Çoktan Bire eşlemenin iki yönlü bir ilişkisidir. Many to one mapping için aldığımız örneği ele alacağız.
+Çalışan.java
+@Entity public class Employee { @TableGenerator(name = &amp;quot;employee_gen&amp;quot;, table = &amp;quot;id_gen&amp;quot;, pkColumnName = &amp;quot;gen_name&amp;quot;, valueColumnName = &amp;quot;gen_val&amp;quot;, allocationSize = 100) @Id @GeneratedValue(strategy = GenerationType.</description>
+    </item>
+    
+    <item>
+      <title>Birleştirilmiş Kalıtım stratejisi</title>
+      <link>https://www.wikiod.com/tr/jpa/birlestirilmis-kaltm-stratejisi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jpa/birlestirilmis-kaltm-stratejisi/</guid>
+      <description>Parametreler # Açıklama Amaç @Kalıtım Kullanılan devralma stratejisinin türünü belirtir @DiscriminatorColumn Her varlığa atanan belirli ID&amp;rsquo;ye dayalı olarak farklı varlıkları tanımlamak için kullanılacak veritabanında bir sütun belirtir @MappedSuperClass eşlenen üst sınıflar kalıcı değildir ve yalnızca alt sınıflarının durumunu tutmak için kullanılır. Genellikle soyut Java sınıfları @MapperSuperClass Birleştirilmiş devralma stratejisi # JPA uygulamasını göreceğimiz bir Örnek sınıf diyagramı. @Entity @Table(name = &amp;quot;VEHICLE&amp;quot;) @Inheritance(strategy = InheritanceType.JOINED) @DiscriminatorColumn(name = &amp;quot;VEHICLE_TYPE&amp;quot;) public abstract class Vehicle { @TableGenerator(name = &amp;quot;VEHICLE_GEN&amp;quot;, table = &amp;quot;ID_GEN&amp;quot;, pkColumnName = &amp;quot;GEN_NAME&amp;quot;, valueColumnName = &amp;quot;GEN_VAL&amp;quot;, allocationSize = 1) @Id @GeneratedValue(strategy = GenerationType.</description>
+    </item>
+    
+    <item>
+      <title>Bire Bir eşleme</title>
+      <link>https://www.wikiod.com/tr/jpa/bire-bir-esleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jpa/bire-bir-esleme/</guid>
+      <description>Parametreler # Açıklama Amaç @TableGenerator Oluşturucu adını ve oluşturucunun bulunabileceği tablo adını belirtir @GeneratedValue Oluşturma stratejisini belirtir ve üretecin adını belirtir @OneToOne Çalışan ile masa arasındaki bire bir ilişkiyi belirtir, burada Çalışan ilişkinin sahibidir mappedBy Bu eleman ilişkinin ters tarafında sağlanır. Bu, çift yönlü ilişkiyi mümkün kılar Çalışan ve masa arasında bire bir ilişki # Çalışan ve masa arasında bire bir çift yönlü bir ilişki düşünün.
+Çalışan.java
+@Entity public class Employee { @TableGenerator(name = &amp;quot;employee_gen&amp;quot;, table = &amp;quot;id_gen&amp;quot;, pkColumnName = &amp;quot;gen_name&amp;quot;, valueColumnName = &amp;quot;gen_val&amp;quot;, allocationSize = 100) @Id @GeneratedValue(strategy = GenerationType.</description>
+    </item>
+    
+    <item>
+      <title>varlıklar arasındaki ilişkiler</title>
+      <link>https://www.wikiod.com/tr/jpa/varlklar-arasndaki-iliskiler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jpa/varlklar-arasndaki-iliskiler/</guid>
+      <description>Varlıklar Arasındaki İlişkiler Temelleri # Bir yabancı anahtar, başka bir tabloda benzersiz bir anahtara, genellikle birincil anahtara başvuran bir veya daha fazla sütun olabilir.
+Bir yabancı anahtar ve başvurduğu birincil üst anahtar, aynı sayıda ve türde alana sahip olmalıdır.
+Yabancı anahtarlar, bir tablodaki bir sütun veya sütunlarla başka bir tablodaki bir sütun veya sütunlar arasındaki ilişkileri temsil eder.
+@JoinTable Ek Açıklama Örneği # JPA&amp;rsquo;da çoktan çoğa ilişkileri eşlerken, yabancı anahtarları birleştirmek için kullanılan tablonun yapılandırması, &amp;ldquo;@JoinTable&amp;rdquo; ek açıklaması kullanılarak sağlanabilir:</description>
+    </item>
+    
+    <item>
+      <title>Çoktan Çoka Haritalama</title>
+      <link>https://www.wikiod.com/tr/jpa/coktan-coka-haritalama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jpa/coktan-coka-haritalama/</guid>
+      <description>Bir &amp;ldquo;ManyToMany&amp;rdquo; eşlemesi, her ikisinin de birbirinin birden fazla örneğiyle ilişkili olabileceği varlıklar arasındaki ilişkiyi tanımlar ve &amp;ldquo;@ManyToMany&amp;rdquo; ek açıklamasıyla tanımlanır.
+Varlık tablosundaki bir yabancı anahtar sütununun kullanılabileceği &amp;lsquo;@OneToMany&amp;rsquo;den farklı olarak, &amp;lsquo;ManyToMany&amp;rsquo;, varlıkları birbirine eşleyen bir birleştirme tablosu gerektirir.
+Parametreler # Açıklama Amaç @TableGenerator GeneratedValue ek açıklaması için bir oluşturucu öğesi belirtildiğinde adıyla başvurulabilecek bir birincil anahtar oluşturucu tanımlar @GeneratedValue Birincil anahtarların değerleri için üretim stratejilerinin belirtilmesini sağlar. Id ek açıklamasıyla birlikte bir varlığın veya eşlenmiş üst sınıfın birincil anahtar özelliğine veya alanına uygulanabilir.</description>
+    </item>
+    
+    <item>
+      <title>Somut sınıf devralma stratejisi başına tablo</title>
+      <link>https://www.wikiod.com/tr/jpa/somut-snf-devralma-stratejisi-basna-tablo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jpa/somut-snf-devralma-stratejisi-basna-tablo/</guid>
+      <description>Araç, UlaşımAraç ve YolcuAraç soyuttur sınıflar ve veritabanında ayrı tabloları olmayacak. Kamyon, Araba ve Bisiklet somut sınıflardır, bu nedenle eşlenecekler karşılık gelen tablolar. Bu tablolar için tüm alanları içermelidir @MappedSuperClass ile açıklamalı sınıflar, çünkü veritabanındaki ilgili tablolar. Böylece, Kamyon tablosundan devralınan alanları depolamak için sütunlar olacaktır. UlaşımAraç ve Araç. Benzer şekilde, Araba ve Bisiklet, devralınan alanları depolamak için sütunlara sahip olacak Binek Araç ve Araçtan. Tam örnek burada bulunabilir</description>
+    </item>
+    
+    <item>
+      <title>Çoktan Bire Eşleme</title>
+      <link>https://www.wikiod.com/tr/jpa/coktan-bire-esleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jpa/coktan-bire-esleme/</guid>
+      <description>Parametreler # Sütun Sütun @TableGenerator Otomatik kimlik oluşturma için tablo oluşturma stratejisini kullanır @GeneratedValue Alanlara uygulanan değerin oluşturulmuş bir değer olduğunu belirtir @Kimlik Alana tanımlayıcı olarak açıklama ekler @ManyToOne Çalışan ve Departman arasındaki Çoktan Bire ilişkiyi belirtir. Bu ek açıklama birçok tarafta işaretlenmiştir. yani, birden fazla çalışan tek bir departmana aittir. Bu nedenle Departman, Çalışan varlığında @ManyToOne ile açıklamalıdır. @JoinColumn İlgili varlık için yabancı anahtarı depolayan veritabanı tablosu sütununu belirtir Çalışandan Departmana ManyToOne ilişkisi # Çalışan Varlık</description>
+    </item>
+    
+    <item>
+      <title>Tek Tablo Kalıtım Stratejisi</title>
+      <link>https://www.wikiod.com/tr/jpa/tek-tablo-kaltm-stratejisi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/jpa/tek-tablo-kaltm-stratejisi/</guid>
+      <description>Parametreler # Açıklama Amaç @Kalıtım Kullanılan devralma stratejisinin türünü belirtir @DiscriminatorColumn Her varlığa atanan belirli ID&amp;rsquo;ye dayalı olarak farklı varlıkları tanımlamak için kullanılacak veritabanında bir sütun belirtir @MappedSuperClass eşlenen üst sınıflar kalıcı değildir ve yalnızca alt sınıflarının durumunu tutmak için kullanılır. Genellikle soyut Java sınıfları @MapperSuperClass @DiscriminatorValue @DiscriminatorColumn tarafından tanımlanan sütunda belirtilen bir değer. Bu değer, varlığın türünü belirlemeye yardımcı olur Tek tablo stratejisinin avantajı, varlıkların alınması ve eklenmesi için karmaşık birleştirmeler gerektirmemesidir, ancak diğer yandan birçok sütunun null yapılabilir olması gerektiği ve onlar için herhangi bir veri olmadığı için veritabanı alanını boşa harcar.</description>
+    </item>
+    
+  </channel>
+</rss>

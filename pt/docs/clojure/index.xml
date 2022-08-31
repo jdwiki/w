@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de Clojure on </title>
+    <link>https://www.wikiod.com/pt/docs/clojure/</link>
+    <description>Recent content in Tutorial de Clojure on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/clojure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução ao Clojure</title>
+      <link>https://www.wikiod.com/pt/clojure/introducao-ao-clojure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/clojure/introducao-ao-clojure/</guid>
+      <description>Instalação e configuração # Opção 1: Leiningen # Requer JDK 6 ou mais recente.
+A maneira mais fácil de começar com o Clojure é baixar e instalar o Leiningen, a ferramenta padrão de fato para gerenciar projetos Clojure, depois executar lein repl para abrir um REPL.
+###Linux
+curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein &amp;gt; ~/bin/lein export PATH=$PATH:~/bin chmod 755 ~/bin/lein OS X # Siga as etapas do Linux acima ou instale com gerenciadores de pacotes do macOS.</description>
+    </item>
+    
+    <item>
+      <title>Desestruturação de Clojure</title>
+      <link>https://www.wikiod.com/pt/clojure/desestruturacao-de-clojure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/clojure/desestruturacao-de-clojure/</guid>
+      <description>Destruindo um mapa # Veja como você pode desestruturar um mapa:
+(def my-map {:a 1 :b 2 :c 3}) Então, por exemplo, dentro de um bloco let você pode extrair valores do mapa de forma bem sucinta como segue:
+(let [{x :a y :c} my-map] (println &amp;quot;:a val:&amp;quot; x &amp;quot;, :c val: &amp;quot; y)) ;; :a val: 1 , :c val: 3 Observe que os valores que estão sendo extraídos em cada mapeamento estão à esquerda e as chaves às quais estão associadas estão à direita.</description>
+    </item>
+    
+    <item>
+      <title>Configurando seu ambiente de desenvolvimento</title>
+      <link>https://www.wikiod.com/pt/clojure/configurando-seu-ambiente-de-desenvolvimento/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/clojure/configurando-seu-ambiente-de-desenvolvimento/</guid>
+      <description>Emacs # Para configurar o Emacs para trabalhar com Clojure, instale o pacote clojure-mode e cider do melpa:
+M-x package-install [RET] clojure-mode [RET] M-x package-install [RET] cider [RET] Agora, quando você abrir um arquivo .clj, execute M-x cider-jack-in para conectar a um REPL. Alternativamente, você pode usar C-u M-x (cider-jack-in) para especificar o nome de um projeto lein ou boot, sem ter que visitar nenhum arquivo nele. Agora você deve ser capaz de avaliar expressões em seu arquivo usando C-x C-e.</description>
+    </item>
+    
+    <item>
+      <title>clojure.spec</title>
+      <link>https://www.wikiod.com/pt/clojure/clojurespec/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/clojure/clojurespec/</guid>
+      <description>Sintaxe # :: é uma abreviação de uma palavra-chave qualificada por namespace. Por exemplo. se estivermos no namespace user: ::foo é uma abreviação de :user/foo #: ou # - sintaxe map-literal para qualificar chaves em um mapa por um namespace Clojure spec é uma nova biblioteca de especificações/contratos para clojure disponível a partir da versão 1.9.
+As especificações são aproveitadas de várias maneiras, incluindo a inclusão na documentação, validação de dados, geração de dados para teste e muito mais.</description>
+    </item>
+    
+    <item>
+      <title>Coleções e Sequências</title>
+      <link>https://www.wikiod.com/pt/clojure/colecoes-e-sequencias/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/clojure/colecoes-e-sequencias/</guid>
+      <description>Sintaxe # &#39;() → () &#39;(1 2 3 4 5) → (1 2 3 4 5) &#39;(1 foo 2 bar 3) → (1 &#39;foo 2 &#39;bar 3) (lista 1 2 3 4 5) → (1 2 3 4 5) (lista* [1 2 3 4 5]) → (1 2 3 4 5) [] → [] [1 2 3 4 5] → [1 2 3 4 5] (vetor 1 2 3 4 5) → [1 2 3 4 5] (vec &#39;(1 2 3 4 5)) → [1 2 3 4 5] {} =&amp;gt; {} {:keyA 1 :keyB 2} → {:keyA 1 :keyB 2} {:keyA 1, :keyB 2} → {:keyA 1 :keyB 2} (hash-map :keyA 1 :keyB 2) → {:keyA 1 :keyB 2} (sorted-map 5 &amp;quot;five&amp;quot; 1 &amp;quot;one&amp;quot;) → {1 &amp;quot;one&amp;quot; 5 &amp;quot;five&amp;quot;} (as entradas são classificadas por chave quando usadas como uma sequência) #{} → #{} #{1 2 3 4 5} → #{4 3 2 5 1} (não ordenado) (hash-set 1 2 3 4 5) → #{2 5 4 1 3} (não ordenado) (conjunto ordenado 2 5 4 3 1) → #{1 2 3 4 5} Listas # Uma lista é indicada por parênteses:</description>
+    </item>
+    
+    <item>
+      <title>Começando com desenvolvimento web</title>
+      <link>https://www.wikiod.com/pt/clojure/comecando-com-desenvolvimento-web/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/clojure/comecando-com-desenvolvimento-web/</guid>
+      <description>Crie um novo aplicativo Ring com http-kit # Ring é uma API padrão de fato para aplicativos HTTP clojure, semelhante ao Rack do Ruby e WSGI do Python.
+Vamos usá-lo com o servidor web http-kit.
+Criar novo projeto Leiningen:
+lein new app myapp Adicione a dependência do http-kit ao project.clj:
+:dependencies [[org.clojure/clojure &amp;quot;1.8.0&amp;quot;] [http-kit &amp;quot;2.1.18&amp;quot;]] Adicione :require para http-kit em core.clj:
+(ns test.core (:gen-class) (:require [org.httpkit.server :refer [run-server]])) Defina o manipulador de solicitação de toque.</description>
+    </item>
+    
+    <item>
+      <title>clojure.test</title>
+      <link>https://www.wikiod.com/pt/clojure/clojuretest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/clojure/clojuretest/</guid>
+      <description>é # A macro is é o núcleo da biblioteca clojure.test. Ele retorna o valor de sua expressão de corpo, imprimindo uma mensagem de erro se a expressão retornar um valor falsey.
+(defn square [x] (+ x x)) (require &#39;[clojure.test :as t]) (t/is (= 0 (square 0))) ;;=&amp;gt; true (t/is (= 1 (square 1))) ;; ;; FAIL in () (foo.clj:1) ;; expected: (= 1 (square 1)) ;; actual: (not (= 1 2)) ;;=&amp;gt; false Envolva cada teste ou todos os testes com acessórios de uso # use-fixtures permite envolver cada deftest no namespace com código que roda antes e depois do teste.</description>
+    </item>
+    
+    <item>
+      <title>Macros</title>
+      <link>https://www.wikiod.com/pt/clojure/macros/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/clojure/macros/</guid>
+      <description>Sintaxe # O símbolo &#39; usado no exemplo da macroexpansão é apenas um açúcar sintático para o operador quote. Você poderia ter escrito (macroexpand (quote (infix 1 + 2))) em vez disso. Macros são apenas funções que são executadas em tempo de compilação, ou seja, durante a etapa eval em um read-eval-print-loop.
+As macros de leitura são outra forma de macro que é expandida no tempo de leitura, em vez de no tempo de compilação.</description>
+    </item>
+    
+    <item>
+      <title>Correspondência de padrões com core.match</title>
+      <link>https://www.wikiod.com/pt/clojure/correspondencia-de-padroes-com-corematch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/clojure/correspondencia-de-padroes-com-corematch/</guid>
+      <description>A biblioteca core.match implementa um algoritmo de compilação de correspondência de padrões que usa a noção de &amp;ldquo;necessidade&amp;rdquo; da correspondência de padrões preguiçosa.
+Literais correspondentes # (let [x true y true z true] (match [x y z] [_ false true] 1 [false true _ ] 2 [_ _ false] 3 [_ _ true] 4)) ;=&amp;gt; 4 Correspondendo a um vetor # (let [v [1 2 3]] (match [v] [[1 1 1]] :a0 [[1 _ 1]] :a1 [[1 2 _]] :a2)) ;; _ is used for wildcard matching ;=&amp;gt; :a2 Correspondência de um mapa # (let [x {:a 1 :b 1}] (match [x] [{:a _ :b 2}] :a0 [{:a 1 :b _}] :a1 [{:x 3 :y _ :z 4}] :a2)) ;=&amp;gt; :a1 Correspondendo a um símbolo literal # (match [[&#39;asymbol]] [[&#39;asymbol]] :success) ;=&amp;gt; :success </description>
+    </item>
+    
+    <item>
+      <title>Funções</title>
+      <link>https://www.wikiod.com/pt/clojure/funcoes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/clojure/funcoes/</guid>
+      <description>Definindo funções # As funções são definidas com cinco componentes: # O cabeçalho, que inclui a palavra-chave defn, o nome da função.
+(defn welcome ....) Uma Docstring opcional que explica e documenta o que a função faz.
+(defn welcome &amp;quot;Return a welcome message to the world&amp;quot; ...) Parâmetros listados entre colchetes.
+(defn welcome &amp;quot;Return a welcome message&amp;quot; [name] ...) O corpo, que descreve os procedimentos que a função realiza.
+(defn welcome &amp;quot;Return a welcome message&amp;quot; [name] (str &amp;quot;Hello, &amp;quot; name &amp;quot;!</description>
+    </item>
+    
+  </channel>
+</rss>

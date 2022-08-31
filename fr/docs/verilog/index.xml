@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Verilog Tutoriel on </title>
+    <link>https://www.wikiod.com/fr/docs/verilog/</link>
+    <description>Recent content in Verilog Tutoriel on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/verilog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec verilog</title>
+      <link>https://www.wikiod.com/fr/verilog/premiers-pas-avec-verilog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/verilog/premiers-pas-avec-verilog/</guid>
+      <description>Introduction # Verilog est un langage de description de matériel (HDL) utilisé pour modéliser des systèmes électroniques. Il décrit le plus souvent un système électronique au niveau d&amp;rsquo;abstraction de transfert de registre (RTL). Il est également utilisé dans la vérification des circuits analogiques et des circuits à signaux mixtes. Sa structure et ses grands principes (tels que décrits ci-dessous) sont conçus pour décrire et mettre en œuvre avec succès un système électronique.</description>
+    </item>
+    
+    <item>
+      <title>Souvenirs</title>
+      <link>https://www.wikiod.com/fr/verilog/souvenirs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/verilog/souvenirs/</guid>
+      <description>Pour les FIFO, vous instanciez généralement un bloc spécifique au fournisseur (également appelé « cœur » ou « IP »).
+RAM simple à double port # RAM double port simple avec adresses et horloges séparées pour les opérations de lecture/écriture.
+module simple_ram_dual_clock #( parameter DATA_WIDTH=8, //width of data bus parameter ADDR_WIDTH=8 //width of addresses buses )( input [DATA_WIDTH-1:0] data, //data to be written input [ADDR_WIDTH-1:0] read_addr, //address for read operation input [ADDR_WIDTH-1:0] write_addr, //address for write operation input we, //write enable signal input read_clk, //clock signal for read operation input write_clk, //clock signal for write operation output reg [DATA_WIDTH-1:0] q //read data ); reg [DATA_WIDTH-1:0] ram [2**ADDR_WIDTH-1:0]; // ** is exponentiation always @(posedge write_clk) begin //WRITE if (we) begin ram[write_addr] &amp;lt;= data; end end always @(posedge read_clk) begin //READ q &amp;lt;= ram[read_addr]; end endmodule Registre à décalage # Registre à décalage profond de N bits avec réinitialisation asynchrone.</description>
+    </item>
+    
+    <item>
+      <title>Blocs procéduraux</title>
+      <link>https://www.wikiod.com/fr/verilog/blocs-proceduraux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/verilog/blocs-proceduraux/</guid>
+      <description>Syntaxe # toujours @ (posege clk) début /* instructions */ fin toujours @ (negedge clk) début /* instructions */ fin toujours @ (posedge clk ou posedge reset) // peut synthétiser moins efficacement que la réinitialisation synchrone Compteur simple # Un compteur utilisant une initialisation de bascule de style FPGA :
+module counter( input clk, output reg[7:0] count ) initial count = 0; always @ (posedge clk) begin count &amp;lt;= count + 1&#39;b1; end Un compteur mis en œuvre à l&amp;rsquo;aide de réinitialisations asynchrones adaptées à la synthèse ASIC :</description>
+    </item>
+    
+    <item>
+      <title>Bonjour le monde</title>
+      <link>https://www.wikiod.com/fr/verilog/bonjour-le-monde/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/verilog/bonjour-le-monde/</guid>
+      <description>Compilation et exécution de l&amp;rsquo;exemple # En supposant un fichier source de hello_world.v et un module de niveau supérieur de hello_world. Le code peut être exécuté à l&amp;rsquo;aide de divers simulateurs. La plupart des simulateurs sont des simulateurs compilés. Ils nécessitent plusieurs étapes pour être compilés et exécutés. Généralement le
+La première étape consiste à compiler le design Verilog. La deuxième étape consiste à élaborer et optimiser le design. La troisième étape consiste à exécuter la simulation.</description>
+    </item>
+    
+    <item>
+      <title>Inadéquation synthèse vs simulation</title>
+      <link>https://www.wikiod.com/fr/verilog/inadequation-synthese-vs-simulation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/verilog/inadequation-synthese-vs-simulation/</guid>
+      <description>Une bonne explication de ce sujet est dans http://www.sunburst-design.com/papers/CummingsSNUG1999SJ_SynthMismatch.pdf
+Comparaison # fil d = 1&amp;rsquo;bx ; // dit du bloc précédent. Sera 1 ou 0 dans le matériel
+if (d == 1&amp;rsquo;b) // faux dans la simulation. Peut être vrai ou faux dans le matériel
+Liste de sensibilité # wire a; wire b; reg q; always @(a) // b missing from sensativity list q = a &amp;amp; b; // In simulation q will change only when a changes Dans le matériel, q changera chaque fois que a ou b change.</description>
+    </item>
+    
+  </channel>
+</rss>

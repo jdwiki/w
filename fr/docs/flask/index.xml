@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel Flacon on </title>
+    <link>https://www.wikiod.com/fr/docs/flask/</link>
+    <description>Recent content in Tutoriel Flacon on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/flask/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec Flask</title>
+      <link>https://www.wikiod.com/fr/flask/premiers-pas-avec-flask/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/flask/premiers-pas-avec-flask/</guid>
+      <description>Bonjour le monde # Créez hello.py :
+from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &#39;Hello, World!&#39; Puis lancez-le avec :
+export FLASK_APP=hello.py flask run * Running on http://localhost:5000/ L&amp;rsquo;ajout du code ci-dessous permettra de l&amp;rsquo;exécuter directement avec python hello.py.
+if __name__ == &#39;__main__&#39;: app.run() Installation - Écurie # Utilisez pip pour installer Flask dans un virtualenv.
+pip install flask Instructions étape par étape pour créer un environnement virtuel pour votre projet :</description>
+    </item>
+    
+    <item>
+      <title>Déploiement de l&#39;application Flask à l&#39;aide du serveur Web uWSGI avec Nginx</title>
+      <link>https://www.wikiod.com/fr/flask/deploiement-de-lapplication-flask-a-laide-du-serveur-web-uwsgi-avec-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/flask/deploiement-de-lapplication-flask-a-laide-du-serveur-web-uwsgi-avec-nginx/</guid>
+      <description>Activer le streaming depuis le flacon # Flask a cette fonctionnalité qui vous permet de diffuser des données à partir d&amp;rsquo;une vue en utilisant des générateurs.
+Modifions le fichier app.py
+ajouter à partir de la réponse d&#39;importation de flacon
+ajouter de datetime import datetime
+ajouter à partir de l&#39;heure d&#39;importation du sommeil
+créer une nouvelle vue :
+@app.route(&amp;quot;/time/&amp;quot;) def time(): def streamer(): while True: yield &amp;ldquo;{}
+&amp;quot;.format(datetime.now()) sleep(1)
+return Response(streamer()) Ouvrez maintenant votre navigateur à localhost/time/.</description>
+    </item>
+    
+    <item>
+      <title>Signaux</title>
+      <link>https://www.wikiod.com/fr/flask/signaux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/flask/signaux/</guid>
+      <description>Flask prend en charge les signaux utilisant [Blinker][1]. La prise en charge du signal est facultative ; ils ne seront activés que si Blinker est installé.
+pip install blinker http://flask.pocoo.org/docs/dev/signals/
+Les signaux ne sont pas asynchrones. Lorsqu&amp;rsquo;un signal est envoyé, il exécute immédiatement chacune des fonctions connectées de manière séquentielle.
+[1] : https://pythonhosted.org/blinker/
+Connexion aux signaux # Utilisez la méthode &amp;ldquo;connect&amp;rdquo; d&amp;rsquo;un signal pour connecter une fonction à un signal. Lorsqu&amp;rsquo;un signal est envoyé, chaque fonction connectée est appelée avec l&amp;rsquo;expéditeur et tous les arguments nommés fournis par le signal.</description>
+    </item>
+    
+    <item>
+      <title>Fichiers statiques</title>
+      <link>https://www.wikiod.com/fr/flask/fichiers-statiques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/flask/fichiers-statiques/</guid>
+      <description>Utilisation de fichiers statiques # Les applications Web nécessitent souvent des fichiers statiques tels que des fichiers CSS ou JavaScript. Pour utiliser des fichiers statiques dans une application Flask, créez un dossier appelé &amp;ldquo;static&amp;rdquo; dans votre package ou à côté de votre module et il sera disponible dans &amp;ldquo;/static&amp;rdquo; sur l&amp;rsquo;application.
+Voici un exemple de structure de projet pour l&amp;rsquo;utilisation de modèles :
+MyApplication/ /static/ /style.css /script.js /templates/ /index.html /app.py app.</description>
+    </item>
+    
+    <item>
+      <title>Pagination</title>
+      <link>https://www.wikiod.com/fr/flask/pagination/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/flask/pagination/</guid>
+      <description>Exemple de route de pagination avec flask-sqlalchemy Paginate # Dans cet exemple, nous utilisons un paramètre dans la route pour spécifier le numéro de page. Nous définissons une valeur par défaut de 1 dans le paramètre de fonction page=1. Nous avons un objet User dans la base de données et nous l&amp;rsquo;interrogeons, en triant par ordre décroissant, en affichant les derniers utilisateurs en premier. Nous utilisons ensuite la méthode [paginate][1] de l&amp;rsquo;objet query dans flask-sqlalchemy.</description>
+    </item>
+    
+    <item>
+      <title>Téléchargements de fichiers</title>
+      <link>https://www.wikiod.com/fr/flask/telechargements-de-fichiers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/flask/telechargements-de-fichiers/</guid>
+      <description>Syntaxe # request.files[&amp;rsquo;nom&amp;rsquo;] # seul fichier requis request.files.get(&amp;rsquo;name&amp;rsquo;) # Aucun si non posté request.files.getlist(&amp;rsquo;name&amp;rsquo;) # liste de zéro ou plusieurs fichiers postés CombinedMultiDict((request.files, request.form)) # combiner les données du formulaire et du fichier Téléchargement de fichiers # Formulaire HTML # Utilisez une entrée de type [file] [1] et le navigateur fournira un champ permettant à l&amp;rsquo;utilisateur de sélectionner un fichier à télécharger. Seuls les formulaires avec la méthode &amp;ldquo;post&amp;rdquo; peuvent envoyer des données de fichier.</description>
+    </item>
+    
+    <item>
+      <title>Routage</title>
+      <link>https://www.wikiod.com/fr/flask/routage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/flask/routage/</guid>
+      <description>Itinéraires de base # Les routes dans Flask peuvent être définies à l&amp;rsquo;aide du décorateur &amp;ldquo;route&amp;rdquo; de l&amp;rsquo;instance d&amp;rsquo;application Flask :
+app = Flask(__name__) @app.route(&#39;/&#39;) def index(): return &#39;Hello Flask&#39; Le décorateur route prend une chaîne qui est l&amp;rsquo;URL à faire correspondre. Lorsqu&amp;rsquo;une demande d&amp;rsquo;URL correspondant à cette chaîne est reçue par l&amp;rsquo;application, la fonction décorée (également appelée fonction d&amp;rsquo;affichage) est invoquée. Donc, pour un itinéraire approximatif, nous aurions:
+@app.route(&#39;/about&#39;) def about(): return &#39;About page&#39; Il est important de noter que ces routes ne sont pas des expressions régulières comme elles le sont dans Django.</description>
+    </item>
+    
+    <item>
+      <title>Plans</title>
+      <link>https://www.wikiod.com/fr/flask/plans/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/flask/plans/</guid>
+      <description>Les Blueprints sont un concept puissant dans le développement d&amp;rsquo;applications Flask qui permettent aux applications Flask d&amp;rsquo;être plus modulaires et de pouvoir suivre plusieurs modèles. Ils facilitent l&amp;rsquo;administration de très grandes applications Flask et peuvent ainsi être utilisés pour faire évoluer les applications Flask. Vous pouvez réutiliser les applications Blueprint, mais vous ne pouvez pas exécuter un Blueprint seul car il doit être enregistré sur votre application principale.
+Un exemple de base de plans de flacons # Une application Flask minimale ressemble à ceci :</description>
+    </item>
+    
+    <item>
+      <title>Travailler avec JSON</title>
+      <link>https://www.wikiod.com/fr/flask/travailler-avec-json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/flask/travailler-avec-json/</guid>
+      <description>Réception de JSON à partir d&amp;rsquo;une requête HTTP # Si le type mime de la requête HTTP est application/json, l&amp;rsquo;appel de request.get_json() renverra les données JSON analysées (sinon, il renvoie None)
+from flask import Flask, jsonify app = Flask(__name__) @app.route(&#39;/api/echo-json&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PUT&#39;]) def add(): data = request.get_json() # ... do your business logic, and return some response # e.g. below we&#39;re just echo-ing back the received JSON data return jsonify(data) Essayez-le avec curl # Le paramètre -H &#39;Content-Type: application/json&#39; spécifie qu&amp;rsquo;il s&amp;rsquo;agit d&amp;rsquo;une requête JSON :</description>
+    </item>
+    
+    <item>
+      <title>Essai</title>
+      <link>https://www.wikiod.com/fr/flask/essai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/flask/essai/</guid>
+      <description>Test d&amp;rsquo;une API JSON implémentée dans Flask # Cet exemple suppose que vous savez comment [tester une application Flask à l&amp;rsquo;aide de pytest](https://www.wikiod.com/fr/flask/essai#Test de notre application Hello World)
+Vous trouverez ci-dessous une API qui prend une entrée JSON avec des valeurs entières a et b, par exemple. {&amp;quot;a&amp;quot;: 1, &amp;quot;b&amp;quot;: 2}, les additionne et renvoie la somme a + b dans une réponse JSON, par ex. {&amp;quot;somme&amp;quot;: 3}.
+# hello_add.py from flask import Flask, request, jsonify app = Flask(__name__) @app.</description>
+    </item>
+    
+  </channel>
+</rss>

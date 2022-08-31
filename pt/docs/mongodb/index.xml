@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial do MongoDB on </title>
+    <link>https://www.wikiod.com/pt/docs/mongodb/</link>
+    <description>Recent content in Tutorial do MongoDB on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução ao MongoDB</title>
+      <link>https://www.wikiod.com/pt/mongodb/introducao-ao-mongodb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongodb/introducao-ao-mongodb/</guid>
+      <description>Execução de um arquivo JavaScript no MongoDB # ./mongo localhost:27017/mydb myjsfile.js Explicação: Esta operação executa o script myjsfile.js em um shell mongo que se conecta ao banco de dados mydb na instância mongod acessível através da interface localhost na porta 27017. localhost:27017 não é obrigatório, pois esta é a porta padrão que o mongodb usa.
+Além disso, você pode executar um arquivo .js de dentro do console mongo.
+&amp;gt;load(&amp;quot;myjsfile.js&amp;quot;) Tornando a saída de find legível no shell # Adicionamos três registros ao nosso teste de coleta como:</description>
+    </item>
+    
+    <item>
+      <title>Operação CRUD</title>
+      <link>https://www.wikiod.com/pt/mongodb/operacao-crud/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongodb/operacao-crud/</guid>
+      <description>Sintaxe # insert(documento ou array de documentos) inserirUm( &amp;lsquo;documento&amp;rsquo;, { writeConcern: &amp;lsquo;document&amp;rsquo; } ) inserirMuitos( { [ documento 1 , documento 2, &amp;hellip; ] }, { writeConcern: document, ordered: boolean } ) find(consulta, projeção) findOne(consulta, projeção) atualização(consulta, atualização) atualizarUm( consulta, atualizar, { upsert: boolean, writeConcern: document } ) atualizarMuitos( consulta, atualizar, { upsert: boolean, writeConcern: document } ) substituirUm( consulta, substituição, { upsert: boolean, writeConcern: document } ) remove(consulta, justOne) findAndModify(query, sort, update, options[opcional]) Atualizar e excluir um documento deve ser feito com cuidado.</description>
+    </item>
+    
+    <item>
+      <title>Agregação do MongoDB</title>
+      <link>https://www.wikiod.com/pt/mongodb/agregacao-do-mongodb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongodb/agregacao-do-mongodb/</guid>
+      <description>Exemplos de consulta agregados úteis para trabalho e aprendizado # A agregação é usada para realizar operações complexas de pesquisa de dados na consulta mongo que não podem ser feitas na consulta &amp;ldquo;localizar&amp;rdquo; normal.
+Crie alguns dados fictícios:
+db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Adma&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Admin&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;german&amp;quot;,&amp;quot;french&amp;quot;,&amp;quot;english&amp;quot;,&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:30, &amp;quot;totalExp&amp;quot;:10}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Anna&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Admin&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;,&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:35, &amp;quot;totalExp&amp;quot;:11}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Bob&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Facilities&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;,&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:36, &amp;quot;totalExp&amp;quot;:14}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Cathy&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;Facilities&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;hindi&amp;quot;],&amp;quot;age&amp;quot;:31, &amp;quot;totalExp&amp;quot;:4}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Mike&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;HR&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;, &amp;quot;hindi&amp;quot;, &amp;quot;spanish&amp;quot;],&amp;quot;age&amp;quot;:26, &amp;quot;totalExp&amp;quot;:3}); db.employees.insert({&amp;quot;name&amp;quot;:&amp;quot;Jenny&amp;quot;,&amp;quot;dept&amp;quot;:&amp;quot;HR&amp;quot;,&amp;quot;languages&amp;quot;:[&amp;quot;english&amp;quot;, &amp;quot;hindi&amp;quot;, &amp;quot;spanish&amp;quot;],&amp;quot;age&amp;quot;:25, &amp;quot;totalExp&amp;quot;:3}); Exemplos por tópico:
+1. Correspondência: Usado para fazer a correspondência de documentos (como a cláusula SQL where)</description>
+    </item>
+    
+    <item>
+      <title>Índices</title>
+      <link>https://www.wikiod.com/pt/mongodb/indices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongodb/indices/</guid>
+      <description>Sintaxe # db.collection.createIndex({ &amp;lt;string field&amp;gt; : &amp;lt;1|-1 order&amp;gt; [, &amp;lt;string field&amp;gt; : &amp;lt;1|-1 order&amp;gt;] }); Impacto no desempenho: observe que os índices melhoram o desempenho de leitura, mas podem ter um impacto negativo no desempenho de gravação, pois a inserção de um documento requer a atualização de todos os índices.
+Descartando/excluindo um índice # Se o nome do índice for conhecido,
+db.collection.dropIndex(&#39;name_of_index&#39;); Se o nome do índice não for conhecido,</description>
+    </item>
+    
+    <item>
+      <title>Mecanismos de armazenamento plugáveis</title>
+      <link>https://www.wikiod.com/pt/mongodb/mecanismos-de-armazenamento-plugaveis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongodb/mecanismos-de-armazenamento-plugaveis/</guid>
+      <description>No MongoDB 3.0, MMAP (padrão) e WiredTiger são os mecanismos de armazenamento estáveis. Normalmente, se o seu aplicativo for de leitura intensa, use o MMAP. Se a gravação for pesada, use o WiredTiger.
+Sua solução também pode ter membros do conjunto de réplicas mistas em que você pode ter um nó configurado com MMAP e outro com WiredTiger. Você pode usar um para inserir dados massivos e o outro para ler com ferramentas analíticas.</description>
+    </item>
+    
+    <item>
+      <title>Agregação</title>
+      <link>https://www.wikiod.com/pt/mongodb/agregacao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongodb/agregacao/</guid>
+      <description>As operações de agregações processam registros de dados e retornam resultados computados. As operações de agregação agrupam valores de vários documentos e podem executar várias operações nos dados agrupados para retornar um único resultado. O MongoDB fornece três maneiras de realizar a agregação: o pipeline de agregação, a função map-reduce e métodos de agregação de propósito único.
+Do manual do Mongo https://docs.mongodb.com/manual/aggregation/
+Sintaxe # db.collection.aggregate(pipeline, opções) Parâmetros # Parâmetro Detalhes tubulação array(Uma sequência de operações ou estágios de agregação de dados) opções document(opcional, disponível apenas se o pipeline estiver presente como um array) A estrutura de agregação no MongoDB é usada para obter a funcionalidade comum GROUP BY do SQL.</description>
+    </item>
+    
+    <item>
+      <title>Configuração</title>
+      <link>https://www.wikiod.com/pt/mongodb/configuracao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongodb/configuracao/</guid>
+      <description>Parâmetros # Parâmetro Padrão systemLog.verbosidade 0 systemLog.quiet falso systemLog.traceAllExceptions falso systemLog.syslogFacility usuário systemLog.path - systemLog.logAppend falso systemLog.logRotate renomear systemLog.destination stdout systemLog.timeStampFormat iso8601-local systemLog.component.accessControl.verbosity 0 systemLog.component.command.verbosity 0 systemLog.component.control.verbosity 0 systemLog.component.ftdc.verbosity 0 systemLog.component.geo.verbosity 0 systemLog.component.index.verbosity 0 systemLog.component.network.verbo 0 systemLog.component.query.verbosity 0 systemLog.component.replication.verbosity 0 systemLog.component.sharding.verbosity 0 systemLog.component.storage.verbosity 0 systemLog.component.storage.journal.verbosity 0 systemLog.component.write.verbosity 0 processManagement.fork falso processManagement.pidFilePath nenhum net.port 27017 net.bindIp 0.0.0.0 net.maxIncomingConnections 65536 net.wireObjectCheck verdadeiro net.ipv6 falso net.unixDomainSocket.enabled verdadeiro net.unixDomainSocket.pathPrefix /tmp net.unixDomainSocket.filePermissions 0700 net.http.enabled falso net.</description>
+    </item>
+    
+    <item>
+      <title>Consulta de dados ( Introdução )</title>
+      <link>https://www.wikiod.com/pt/mongodb/consulta-de-dados--introducao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongodb/consulta-de-dados--introducao/</guid>
+      <description>Exemplos básicos de consulta
+Achar() # recupere todos os documentos em uma coleção
+db.collection.find({}); recupere documentos em uma coleção usando uma condição (semelhante a WHERE no MYSQL)
+db.collection.find({key: value}); example db.users.find({email:&amp;quot;sample@email.com&amp;quot;}); recuperar documentos em uma coleção usando condições booleanas (operadores de consulta)
+//AND db.collection.find( { $and: [ { key: value }, { key: value } ] }) //OR db.collection.find( { $or: [ { key: value }, { key: value } ] }) //NOT db.</description>
+    </item>
+    
+    <item>
+      <title>MongoDB - Configure um ReplicaSet para suportar TLSSSL</title>
+      <link>https://www.wikiod.com/pt/mongodb/mongodb---configure-um-replicaset-para-suportar-tlsssl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongodb/mongodb---configure-um-replicaset-para-suportar-tlsssl/</guid>
+      <description>Como configurar um ReplicaSet para suportar TLS/SSL?
+Implantaremos um ReplicaSet de 3 nós em seu ambiente local e usaremos um certificado autoassinado. Não use um certificado autoassinado em PRODUÇÃO.
+Como conectar seu Cliente a este ReplicaSet?
+Vamos conectar um Mongo Shell.
+Uma descrição de certificados TLS/SSL, PKI (Infraestrutura de Chave Pública) e Autoridade de Certificação está além do escopo desta documentação.
+Como configurar um ReplicaSet para suportar TLS/SSL? # Criar o certificado raiz # O Certificado Raiz (também conhecido como Arquivo CA) será usado para assinar e identificar seu certificado.</description>
+    </item>
+    
+    <item>
+      <title>Mecanismos de autenticação no MongoDB</title>
+      <link>https://www.wikiod.com/pt/mongodb/mecanismos-de-autenticacao-no-mongodb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongodb/mecanismos-de-autenticacao-no-mongodb/</guid>
+      <description>Autenticação é o processo de verificar a identidade de um cliente. Quando o controle de acesso, ou seja, a autorização, está habilitado, o MongoDB exige que todos os clientes se autentiquem para determinar seu acesso.
+O MongoDB oferece suporte a vários mecanismos de autenticação que os clientes podem usar para verificar sua identidade. Esses mecanismos permitem que o MongoDB se integre ao seu sistema de autenticação existente.
+Mecanismos de autenticação # O MongoDB suporta vários mecanismos de autenticação.</description>
+    </item>
+    
+  </channel>
+</rss>

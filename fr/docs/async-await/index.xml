@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel d&#39;attente asynchrone on </title>
+    <link>https://www.wikiod.com/fr/docs/async-await/</link>
+    <description>Recent content in Tutoriel d&#39;attente asynchrone on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/async-await/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec l&#39;attente asynchrone</title>
+      <link>https://www.wikiod.com/fr/async-await/premiers-pas-avec-lattente-asynchrone/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/async-await/premiers-pas-avec-lattente-asynchrone/</guid>
+      <description>vide asynchrone # Vous pouvez utiliser void (au lieu de Task) comme type de retour d&amp;rsquo;une méthode asynchrone. Cela se traduira par une action &amp;ldquo;fire-and-forget&amp;rdquo;:
+public void DoStuff() { FireAndForgetAsync(); } private async void FireAndForgetAsync() { await Task.Delay(1000); throw new Exception(); //will be swallowed } Comme vous retournez void, vous ne pouvez pas attendre FireAndForgetAsync. Vous ne pourrez pas savoir quand la méthode se termine, et toute exception déclenchée à l&amp;rsquo;intérieur de la méthode async void sera avalée.</description>
+    </item>
+    
+    <item>
+      <title>Les meilleures pratiques</title>
+      <link>https://www.wikiod.com/fr/async-await/les-meilleures-pratiques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/async-await/les-meilleures-pratiques/</guid>
+      <description>Éviter le vide asynchrone # Le seul endroit où vous pouvez utiliser en toute sécurité async void est dans les gestionnaires d&amp;rsquo;événements. Considérez le code suivant :
+private async Task&amp;lt;bool&amp;gt; SomeFuncAsync() { ... await ... } public void button1_Click(object sender, EventArgs e) { var result = SomeFuncAsync().Result; SomeOtherFunc(); } Une fois l&amp;rsquo;appel async terminé, il attend que le SynchronizationContext soit disponible. Cependant, le gestionnaire d&amp;rsquo;événements conserve le SynchronizationContext pendant qu&amp;rsquo;il attend que la méthode SomeFuncAsync se termine ; provoquant ainsi une attente circulaire (deadlock).</description>
+    </item>
+    
+  </channel>
+</rss>

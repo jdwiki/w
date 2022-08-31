@@ -1,0 +1,12185 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.7636753edc6f50e96b0045eba39982b1b0b2b6947250d1080bec1f4cbe52399ea6bcecac0e0b6026886b51bdbde879ec9a9820765b03caead79d8ddf3b79336f.css" integrity="sha512-djZ1PtxvUOlrAEXro5mCsbCytpRyUNEIC&#43;wfTL5SOZ6mvOysDgtgJohrUb296HnsmpggdlsDyurXnY3fO3kzbw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Naviguer le long d&#39;un chemin - WikiOD</title>
+<meta name="description" content="Trouver un point sur la courbe # Cet exemple trouve un point sur une courbe de Bézier ou cubique à position où position est l&amp;rsquo;unité de distance sur la courbe 0 &amp;lt;= position &amp;lt;= 1. La position est fixée à la plage donc si les valeurs &amp;lt; 0 ou &amp;gt; 1 sont passés, ils seront mis à 0,1 respectivement.
+Passez la fonction 6 coordonnées pour Bézier quadratique ou 8 pour cubique.">
+  <link rel="canonical" href="https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/">
+<meta property="og:locale" content="fr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Naviguer le long d&#39;un chemin">
+<meta property="og:description" content="Trouver un point sur la courbe # Cet exemple trouve un point sur une courbe de Bézier ou cubique à position où position est l&rsquo;unité de distance sur la courbe 0 &lt;= position &lt;= 1. La position est fixée à la plage donc si les valeurs &lt; 0 ou &gt; 1 sont passés, ils seront mis à 0,1 respectivement.
+Passez la fonction 6 coordonnées pour Bézier quadratique ou 8 pour cubique.">
+<meta property="og:url" content="https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Naviguer le long d&#39;un chemin">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Naviguer le long d&#39;un chemin">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "Bienvenue sur WikiOD - Wiki Documentation en ligne WikiOD est un projet d\u0027écriture collaborative visant à créer une documentation en ligne de la plus haute qualité sur tous les langages de programmation, sujets et concepts liés à l\u0027éducation.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/",
+      "url": "https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/",
+      "name": "Naviguer le long d\u0027un chemin",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/#/schema/image/2"
+      },
+      "inLanguage": "fr",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/fr/",
+          "url": "https://www.wikiod.com/fr/",
+          "name": "Fr"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/fr/html5-canvas/",
+          "url": "https://www.wikiod.com/fr/html5-canvas/",
+          "name": "Html5 Canvas"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Naviguer le long d\u0027un chemin",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Naviguer le long d\u0027un chemin"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9345677191971886" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZZF8Q2L4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y7ZZF8Q2L4');
+</script>
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/fr/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Parcourir docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/html5-canvas/"><h3 class="h6 text-uppercase mb-2">Tutoriel html5-toile</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/premiers-pas-avec-html5-canvas/">Premiers pas avec html5-canvas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/animation/">Animation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/manipulation-de-pixels-avec-getimagedata-et-putimagedata/">Manipulation de pixels avec getImageData et putImageData</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/conception-reactive/">Conception réactive</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/les-types-de-medias-et-le-canevas/">Les types de médias et le canevas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/composition/">Composition</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/images/">Images</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/texte/">Texte</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/">Naviguer le long d&#39;un chemin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/collisions-et-intersections/">Collisions et intersections</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/transformations/">Transformations</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/chemin-syntaxe-uniquement/">Chemin (syntaxe uniquement)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/faire-glisser-des-formes-et-des-images-de-chemin-sur-la-toile/">Faire glisser des formes et des images de chemin sur la toile</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/graphiques-et-diagrammes/">Graphiques et diagrammes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/vider-lecran/">Vider l&#39;écran</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/ombres/">Ombres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/chemins/">Chemins</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/polygones/">Polygones</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/fr/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/fr/docs/">Tutoriels</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/fr/blog/">Des articles</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Français
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/fr/html5-canvas/naviguer-le-long-dun-chemin/">Français</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/html5-canvas/navigating-along-a-path/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/html5-canvas/navegando-a-lo-largo-de-un-camino/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/html5-canvas/navegando-ao-longo-de-um-caminho/" hreflang="pt" lang="pt">Português</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/tr/html5-canvas/bir-yolda-gezinme/" hreflang="tr" lang="tr">Türk</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/html5-canvas/"><h3 class="h6 text-uppercase mb-2">Tutoriel html5-toile</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/premiers-pas-avec-html5-canvas/">Premiers pas avec html5-canvas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/animation/">Animation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/manipulation-de-pixels-avec-getimagedata-et-putimagedata/">Manipulation de pixels avec getImageData et putImageData</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/conception-reactive/">Conception réactive</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/les-types-de-medias-et-le-canevas/">Les types de médias et le canevas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/composition/">Composition</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/images/">Images</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/texte/">Texte</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/">Naviguer le long d&#39;un chemin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/collisions-et-intersections/">Collisions et intersections</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/transformations/">Transformations</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/chemin-syntaxe-uniquement/">Chemin (syntaxe uniquement)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/faire-glisser-des-formes-et-des-images-de-chemin-sur-la-toile/">Faire glisser des formes et des images de chemin sur la toile</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/graphiques-et-diagrammes/">Graphiques et diagrammes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/vider-lecran/">Vider l&#39;écran</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/ombres/">Ombres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/chemins/">Chemins</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/polygones/">Polygones</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/html5-canvas/"><h3 class="h6 text-uppercase mb-2">Tutoriel html5-toile</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/premiers-pas-avec-html5-canvas/">Premiers pas avec html5-canvas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/animation/">Animation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/manipulation-de-pixels-avec-getimagedata-et-putimagedata/">Manipulation de pixels avec getImageData et putImageData</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/conception-reactive/">Conception réactive</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/les-types-de-medias-et-le-canevas/">Les types de médias et le canevas</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/composition/">Composition</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/images/">Images</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/texte/">Texte</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/html5-canvas/naviguer-le-long-dun-chemin/">Naviguer le long d&#39;un chemin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/collisions-et-intersections/">Collisions et intersections</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/transformations/">Transformations</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/chemin-syntaxe-uniquement/">Chemin (syntaxe uniquement)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/faire-glisser-des-formes-et-des-images-de-chemin-sur-la-toile/">Faire glisser des formes et des images de chemin sur la toile</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/graphiques-et-diagrammes/">Graphiques et diagrammes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/vider-lecran/">Vider l&#39;écran</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/ombres/">Ombres</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/chemins/">Chemins</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/html5-canvas/polygones/">Polygones</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Sur cette page</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#trouver-un-point-sur-la-courbe">Trouver un point sur la courbe</a></li>
+    <li><a href="#exemple-dutilisation">Exemple d&rsquo;utilisation</a></li>
+    <li><a href="#la-fonction">La fonction</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-courbe-de-bézier-cubique">Recherche de points le long d&rsquo;une courbe de Bézier cubique</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-courbe-quadratique">Recherche de points le long d&rsquo;une courbe quadratique</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-ligne">Recherche de points le long d&rsquo;une ligne</a></li>
+    <li><a href="#recherche-de-points-le-long-dun-chemin-entier-contenant-des-courbes-et-des-lignes">Recherche de points le long d&rsquo;un chemin entier contenant des courbes et des lignes</a></li>
+    <li><a href="#longueur-dune-courbe-quadratique">Longueur d&rsquo;une courbe quadratique</a></li>
+    <li><a href="#diviser-les-courbes-de-bézier-à-la-position">Diviser les courbes de Bézier à la position</a>
+      <ul>
+        <li><a href="#exemple-dutilisation-1">Exemple d&rsquo;utilisation</a></li>
+      </ul>
+    </li>
+    <li><a href="#la-fonction-de-fractionnement">La fonction de fractionnement</a></li>
+    <li><a href="#exemple-de-fonction">Exemple de fonction</a></li>
+    <li><a href="#trouver-létendue-de-la-courbe-quadratique">Trouver l&rsquo;étendue de la courbe quadratique</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Sur cette page</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#trouver-un-point-sur-la-courbe">Trouver un point sur la courbe</a></li>
+    <li><a href="#exemple-dutilisation">Exemple d&rsquo;utilisation</a></li>
+    <li><a href="#la-fonction">La fonction</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-courbe-de-bézier-cubique">Recherche de points le long d&rsquo;une courbe de Bézier cubique</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-courbe-quadratique">Recherche de points le long d&rsquo;une courbe quadratique</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-ligne">Recherche de points le long d&rsquo;une ligne</a></li>
+    <li><a href="#recherche-de-points-le-long-dun-chemin-entier-contenant-des-courbes-et-des-lignes">Recherche de points le long d&rsquo;un chemin entier contenant des courbes et des lignes</a></li>
+    <li><a href="#longueur-dune-courbe-quadratique">Longueur d&rsquo;une courbe quadratique</a></li>
+    <li><a href="#diviser-les-courbes-de-bézier-à-la-position">Diviser les courbes de Bézier à la position</a>
+      <ul>
+        <li><a href="#exemple-dutilisation-1">Exemple d&rsquo;utilisation</a></li>
+      </ul>
+    </li>
+    <li><a href="#la-fonction-de-fractionnement">La fonction de fractionnement</a></li>
+    <li><a href="#exemple-de-fonction">Exemple de fonction</a></li>
+    <li><a href="#trouver-létendue-de-la-courbe-quadratique">Trouver l&rsquo;étendue de la courbe quadratique</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/fr/">Home</a></li>
+<li class="breadcrumb-item"><a href="/fr/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/fr/docs/html5-canvas/">Tutoriel html5-toile</a></li>
+<li class="breadcrumb-item active" aria-current="page">Naviguer le long d&#39;un chemin</li>
+					</ol>
+				</nav>
+			
+			<h1>Naviguer le long d&#39;un chemin</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Sur cette page</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#trouver-un-point-sur-la-courbe">Trouver un point sur la courbe</a></li>
+    <li><a href="#exemple-dutilisation">Exemple d&rsquo;utilisation</a></li>
+    <li><a href="#la-fonction">La fonction</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-courbe-de-bézier-cubique">Recherche de points le long d&rsquo;une courbe de Bézier cubique</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-courbe-quadratique">Recherche de points le long d&rsquo;une courbe quadratique</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-ligne">Recherche de points le long d&rsquo;une ligne</a></li>
+    <li><a href="#recherche-de-points-le-long-dun-chemin-entier-contenant-des-courbes-et-des-lignes">Recherche de points le long d&rsquo;un chemin entier contenant des courbes et des lignes</a></li>
+    <li><a href="#longueur-dune-courbe-quadratique">Longueur d&rsquo;une courbe quadratique</a></li>
+    <li><a href="#diviser-les-courbes-de-bézier-à-la-position">Diviser les courbes de Bézier à la position</a>
+      <ul>
+        <li><a href="#exemple-dutilisation-1">Exemple d&rsquo;utilisation</a></li>
+      </ul>
+    </li>
+    <li><a href="#la-fonction-de-fractionnement">La fonction de fractionnement</a></li>
+    <li><a href="#exemple-de-fonction">Exemple de fonction</a></li>
+    <li><a href="#trouver-létendue-de-la-courbe-quadratique">Trouver l&rsquo;étendue de la courbe quadratique</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Sur cette page</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#trouver-un-point-sur-la-courbe">Trouver un point sur la courbe</a></li>
+    <li><a href="#exemple-dutilisation">Exemple d&rsquo;utilisation</a></li>
+    <li><a href="#la-fonction">La fonction</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-courbe-de-bézier-cubique">Recherche de points le long d&rsquo;une courbe de Bézier cubique</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-courbe-quadratique">Recherche de points le long d&rsquo;une courbe quadratique</a></li>
+    <li><a href="#recherche-de-points-le-long-dune-ligne">Recherche de points le long d&rsquo;une ligne</a></li>
+    <li><a href="#recherche-de-points-le-long-dun-chemin-entier-contenant-des-courbes-et-des-lignes">Recherche de points le long d&rsquo;un chemin entier contenant des courbes et des lignes</a></li>
+    <li><a href="#longueur-dune-courbe-quadratique">Longueur d&rsquo;une courbe quadratique</a></li>
+    <li><a href="#diviser-les-courbes-de-bézier-à-la-position">Diviser les courbes de Bézier à la position</a>
+      <ul>
+        <li><a href="#exemple-dutilisation-1">Exemple d&rsquo;utilisation</a></li>
+      </ul>
+    </li>
+    <li><a href="#la-fonction-de-fractionnement">La fonction de fractionnement</a></li>
+    <li><a href="#exemple-de-fonction">Exemple de fonction</a></li>
+    <li><a href="#trouver-létendue-de-la-courbe-quadratique">Trouver l&rsquo;étendue de la courbe quadratique</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h2 id="trouver-un-point-sur-la-courbe">Trouver un point sur la courbe <a href="#trouver-un-point-sur-la-courbe" class="anchor" aria-hidden="true">#</a></h2>
+<p>Cet exemple trouve un point sur une courbe de Bézier ou cubique à <code>position</code> où <code>position</code> est l&rsquo;unité de distance sur la courbe 0 &lt;= <code>position</code> &lt;= 1. La position est fixée à la plage donc si les valeurs &lt; 0 ou &gt; 1 sont passés, ils seront mis à 0,1 respectivement.</p>
+<p>Passez la fonction 6 coordonnées pour Bézier quadratique ou 8 pour cubique.</p>
+<p>Le dernier argument facultatif est le vecteur renvoyé (point). S&rsquo;il n&rsquo;est pas donné, il sera créé.</p>
+<hr>
+<h2 id="exemple-dutilisation">Exemple d&rsquo;utilisation <a href="#exemple-dutilisation" class="anchor" aria-hidden="true">#</a></h2>
+<!-- langue : lang-js -->
+<pre><code>var p1 = {x : 10 , y : 100};
+var p2 = {x : 100, y : 200};
+var p3 = {x : 200, y : 0};
+var p4 = {x : 300, y : 100};
+var point = {x : null, y : null};
+
+// for cubic beziers
+point = getPointOnCurve(0.5, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y, point);
+// or No need to set point as it is a referance and will be set
+getPointOnCurve(0.5, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y, point);
+// or to create a new point
+var point1 = getPointOnCurve(0.5, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y);
+
+// for quadratic beziers
+point = getPointOnCurve(0.5, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, null, null, point);
+// or No need to set point as it is a referance and will be set
+getPointOnCurve(0.5, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, null, null, point);
+// or to create a new point
+var point1 = getPointOnCurve(0.5, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
+</code></pre>
+<hr>
+<h2 id="la-fonction">La fonction <a href="#la-fonction" class="anchor" aria-hidden="true">#</a></h2>
+<p><strong>getPointOnCurve = fonction(position, x1, y1, x2, y2, x3, y3, [x4, y4], [vec])</strong></p>
+<blockquote>
+<p><strong>Remarque :</strong> Les arguments à l&rsquo;intérieur de [x4, y4] sont facultatifs.</p>
+</blockquote>
+<blockquote>
+<p><strong>Remarque :</strong> <code>x4</code>,<code>y4</code> si <code>null</code> ou <code>undefined</code> signifie que la courbe est une courbe de Bézier quadratique. <code>vec</code> est facultatif et contiendra le point renvoyé s&rsquo;il est fourni. Sinon, il sera créé.</p>
+</blockquote>
+<!-- langue : lang-js -->
+<pre><code>var getPointOnCurve = function(position, x1, y1, x2, y2, x3, y3, x4, y4, vec){ 
+    var vec, quad;
+    quad = false;
+    if(vec === undefined){        
+        vec = {};
+    }
+    
+    if(x4 === undefined || x4 === null){
+        quad = true;
+        x4 = x3;
+        y4 = y3;
+    }
+        
+    if(position &lt;= 0){
+        vec.x = x1;
+        vec.y = y1;
+        return vec;
+    }
+    if(position &gt;= 1){
+        vec.x = x4;
+        vec.y = y4;
+        return vec;
+    }
+    c = position;
+    if(quad){
+        x1 += (x2 - x1) * c;
+        y1 += (y2 - y1) * c;
+        x2 += (x3 - x2) * c;
+        y2 += (y3 - y2) * c;
+        vec.x = x1 + (x2 - x1) * c;
+        vec.y = y1 + (y2 - y1) * c;
+        return vec;
+    }
+    x1 += (x2 - x1) * c;
+    y1 += (y2 - y1) * c;
+    x2 += (x3 - x2) * c;
+    y2 += (y3 - y2) * c;
+    x3 += (x4 - x3) * c;
+    y3 += (y4 - y3) * c;
+    x1 += (x2 - x1) * c;
+    y1 += (y2 - y1) * c;
+    x2 += (x3 - x2) * c;
+    y2 += (y3 - y2) * c;
+    vec.x = x1 + (x2 - x1) * c;
+    vec.y = y1 + (y2 - y1) * c;
+    return vec;     
+}
+</code></pre>
+<h2 id="recherche-de-points-le-long-dune-courbe-de-bézier-cubique">Recherche de points le long d&rsquo;une courbe de Bézier cubique <a href="#recherche-de-points-le-long-dune-courbe-de-b%c3%a9zier-cubique" class="anchor" aria-hidden="true">#</a></h2>
+<p>Cet exemple trouve un tableau de points approximativement régulièrement espacés le long d&rsquo;une courbe de Bézier cubique.</p>
+<p>Il décompose les segments de chemin créés avec <code>context.bezierCurveTo</code> en points le long de cette courbe.</p>
+<!-- langue : lang-js -->
+<pre><code>// Return: an array of approximately evenly spaced points along a cubic Bezier curve
+//
+// Attribution: Stackoverflow's @Blindman67
+// Cite: http://stackoverflow.com/questions/36637211/drawing-a-curved-line-in-css-or-canvas-and-moving-circle-along-it/36827074#36827074
+// As modified from the above citation
+// 
+// ptCount: sample this many points at interval along the curve
+// pxTolerance: approximate spacing allowed between points
+// Ax,Ay,Bx,By,Cx,Cy,Dx,Dy: control points defining the curve
+//
+function plotCBez(ptCount,pxTolerance,Ax,Ay,Bx,By,Cx,Cy,Dx,Dy){
+    var deltaBAx=Bx-Ax;
+    var deltaCBx=Cx-Bx;
+    var deltaDCx=Dx-Cx;
+    var deltaBAy=By-Ay;
+    var deltaCBy=Cy-By;
+    var deltaDCy=Dy-Cy;
+    var ax,ay,bx,by;
+    var lastX=-10000;
+    var lastY=-10000;
+    var pts=[{x:Ax,y:Ay}];
+    for(var i=1;i&lt;ptCount;i++){
+        var t=i/ptCount;
+        ax=Ax+deltaBAx*t;
+        bx=Bx+deltaCBx*t;
+        cx=Cx+deltaDCx*t;
+        ax+=(bx-ax)*t;
+        bx+=(cx-bx)*t;
+        //
+        ay=Ay+deltaBAy*t;
+        by=By+deltaCBy*t;
+        cy=Cy+deltaDCy*t;
+        ay+=(by-ay)*t;
+        by+=(cy-by)*t;
+        var x=ax+(bx-ax)*t;
+        var y=ay+(by-ay)*t;
+        var dx=x-lastX;
+        var dy=y-lastY;
+        if(dx*dx+dy*dy&gt;pxTolerance){
+            pts.push({x:x,y:y});
+            lastX=x;
+            lastY=y;
+        }
+    }
+    pts.push({x:Dx,y:Dy});
+    return(pts);
+}
+</code></pre>
+<h2 id="recherche-de-points-le-long-dune-courbe-quadratique">Recherche de points le long d&rsquo;une courbe quadratique <a href="#recherche-de-points-le-long-dune-courbe-quadratique" class="anchor" aria-hidden="true">#</a></h2>
+<p>Cet exemple trouve un tableau de points approximativement régulièrement espacés le long d&rsquo;une courbe quadratique.</p>
+<p>Il décompose les segments de chemin créés avec <code>context.quadraticCurveTo</code> en points le long de cette courbe.</p>
+<!-- langue : lang-js -->
+<pre><code>// Return: an array of approximately evenly spaced points along a Quadratic curve
+//
+// Attribution: Stackoverflow's @Blindman67
+// Cite: http://stackoverflow.com/questions/36637211/drawing-a-curved-line-in-css-or-canvas-and-moving-circle-along-it/36827074#36827074
+// As modified from the above citation
+//
+// ptCount: sample this many points at interval along the curve
+// pxTolerance: approximate spacing allowed between points
+// Ax,Ay,Bx,By,Cx,Cy: control points defining the curve
+//
+function plotQBez(ptCount,pxTolerance,Ax,Ay,Bx,By,Cx,Cy){
+    var deltaBAx=Bx-Ax;
+    var deltaCBx=Cx-Bx;
+    var deltaBAy=By-Ay;
+    var deltaCBy=Cy-By;
+    var ax,ay;
+    var lastX=-10000;
+    var lastY=-10000;
+    var pts=[{x:Ax,y:Ay}];
+    for(var i=1;i&lt;ptCount;i++){
+        var t=i/ptCount;
+        ax=Ax+deltaBAx*t;
+        ay=Ay+deltaBAy*t;
+        var x=ax+((Bx+deltaCBx*t)-ax)*t;
+        var y=ay+((By+deltaCBy*t)-ay)*t;
+        var dx=x-lastX;
+        var dy=y-lastY;
+        if(dx*dx+dy*dy&gt;pxTolerance){
+            pts.push({x:x,y:y});
+            lastX=x;
+            lastY=y;
+        }
+    }
+    pts.push({x:Cx,y:Cy});
+    return(pts);
+}
+</code></pre>
+<h2 id="recherche-de-points-le-long-dune-ligne">Recherche de points le long d&rsquo;une ligne <a href="#recherche-de-points-le-long-dune-ligne" class="anchor" aria-hidden="true">#</a></h2>
+<p>Cet exemple trouve un tableau de points approximativement régulièrement espacés le long d&rsquo;une ligne.</p>
+<p>Il décompose les segments de chemin créés avec <code>context.lineTo</code> en points le long de cette ligne.</p>
+<!-- langue : lang-js -->
+<pre><code>// Return: an array of approximately evenly spaced points along a line
+//
+// pxTolerance: approximate spacing allowed between points
+// Ax,Ay,Bx,By: end points defining the line
+//
+function plotLine(pxTolerance,Ax,Ay,Bx,By){
+    var dx=Bx-Ax;
+    var dy=By-Ay;
+    var ptCount=parseInt(Math.sqrt(dx*dx+dy*dy))*3;
+    var lastX=-10000;
+    var lastY=-10000;
+    var pts=[{x:Ax,y:Ay}];
+    for(var i=1;i&lt;=ptCount;i++){
+        var t=i/ptCount;
+        var x=Ax+dx*t;
+        var y=Ay+dy*t;
+        var dx1=x-lastX;
+        var dy1=y-lastY;
+        if(dx1*dx1+dy1*dy1&gt;pxTolerance){
+            pts.push({x:x,y:y});
+            lastX=x;
+            lastY=y;
+        }
+    }
+    pts.push({x:Bx,y:By});
+    return(pts);
+}
+</code></pre>
+<h2 id="recherche-de-points-le-long-dun-chemin-entier-contenant-des-courbes-et-des-lignes">Recherche de points le long d&rsquo;un chemin entier contenant des courbes et des lignes <a href="#recherche-de-points-le-long-dun-chemin-entier-contenant-des-courbes-et-des-lignes" class="anchor" aria-hidden="true">#</a></h2>
+<p>Cet exemple trouve un tableau de points approximativement régulièrement espacés le long d&rsquo;un chemin entier.</p>
+<p>Il décompose tous les segments de chemin créés avec <code>context.lineTo</code>, <code>context.quadraticCurveTo</code> et/ou <code>context.bezierCurveTo</code> en points le long de ce chemin.</p>
+<p><strong>Usage</strong></p>
+<!-- langue : lang-js -->
+<pre><code>// Path related variables
+var A={x:50,y:100};
+var B={x:125,y:25};
+var BB={x:150,y:15};
+var BB2={x:150,y:185};
+var C={x:175,y:200};
+var D={x:300,y:150};
+var n=1000;
+var tolerance=1.5;
+var pts;
+
+// canvas related variables
+var canvas=document.createElement(&quot;canvas&quot;);
+var ctx=canvas.getContext(&quot;2d&quot;);
+document.body.appendChild(canvas);
+canvas.width=378;
+canvas.height=256;
+
+// Tell the Context to plot waypoint in addition to 
+// drawing the path
+plotPathCommands(ctx,n,tolerance);
+
+// Path drawing commands
+ctx.beginPath();
+ctx.moveTo(A.x,A.y);
+ctx.bezierCurveTo(B.x,B.y,C.x,C.y,D.x,D.y);
+ctx.quadraticCurveTo(BB.x,BB.y,A.x,A.y);
+ctx.lineTo(D.x,D.y);
+ctx.strokeStyle='gray';
+ctx.stroke();
+
+// Tell the Context to stop plotting waypoints
+ctx.stopPlottingPathCommands();
+
+// Demo: Incrementally draw the path using the plotted points
+ptsToRects(ctx.getPathPoints());
+function ptsToRects(pts){
+    ctx.fillStyle='red';
+    var i=0;
+    requestAnimationFrame(animate);
+    function animate(){
+        ctx.fillRect(pts[i].x-0.50,pts[i].y-0.50,tolerance,tolerance);
+        i++;
+        if(i&lt;pts.length){ requestAnimationFrame(animate); }
+    }
+}
+</code></pre>
+<p><strong>Un plug-in qui calcule automatiquement les points le long du chemin</strong></p>
+<p>Ce code modifie les commandes de dessin de ces contextes de canevas afin que les commandes ne dessinent pas seulement la ligne ou la courbe, mais créent également un tableau de points tout au long du chemin :</p>
+<ul>
+<li>débutChemin,</li>
+<li>déménager à,</li>
+<li>ligneVers,</li>
+<li>quadraticCurveTo,</li>
+<li>Courbe de BézierVers.</li>
+</ul>
+<p><em>Note importante!</em></p>
+<p>Ce code modifie les fonctions de dessin réelles du contexte. Ainsi, lorsque vous avez terminé de tracer des points le long du chemin, vous devez appeler les <code>stopPlottingPathCommands</code> fournis pour remettre les fonctions de dessin du contexte dans leur état non modifié.</p>
+<p>Le but de ce contexte modifié est de vous permettre de &ldquo;brancher&rdquo; le calcul du tableau de points dans votre code existant sans avoir à modifier vos commandes de dessin de chemin existantes. Mais, vous n&rsquo;avez pas besoin d&rsquo;utiliser ce contexte modifié - vous pouvez appeler séparément les fonctions individuelles qui décomposent une ligne, une courbe quadratique et une courbe de Bézier cubique, puis concaténer manuellement ces tableaux de points individuels en un seul tableau de points pour tout le chemin.</p>
+<p>Vous récupérez une copie du tableau de points résultant à l&rsquo;aide de la fonction <code>getPathPoints</code> fournie.</p>
+<p>Si vous dessinez plusieurs chemins avec le contexte modifié, le tableau de points contiendra un seul ensemble concaténé de points pour tous les multiples chemins dessinés.</p>
+<p>Si, à la place, vous souhaitez obtenir des tableaux de points séparés, vous pouvez récupérer le tableau actuel avec <code>getPathPoints</code>, puis effacer ces points du tableau avec la fonction <code>clearPathPoints</code> fournie.</p>
+<!-- langue : lang-js -->
+<pre><code>// Modify the Canvas' Context to calculate a set of approximately
+//     evenly spaced waypoints as it draws path(s).
+function plotPathCommands(ctx,sampleCount,pointSpacing){
+    ctx.mySampleCount=sampleCount;
+    ctx.myPointSpacing=pointSpacing;
+    ctx.myTolerance=pointSpacing*pointSpacing;
+    ctx.myBeginPath=ctx.beginPath;
+    ctx.myMoveTo=ctx.moveTo;
+    ctx.myLineTo=ctx.lineTo;
+    ctx.myQuadraticCurveTo=ctx.quadraticCurveTo;
+    ctx.myBezierCurveTo=ctx.bezierCurveTo;
+    // don't use myPathPoints[] directly -- use &quot;ctx.getPathPoints&quot;
+    ctx.myPathPoints=[];
+    ctx.beginPath=function(){
+        this.myLastX=0;
+        this.myLastY=0;
+        this.myBeginPath();
+    }
+    ctx.moveTo=function(x,y){
+        this.myLastX=x;
+        this.myLastY=y;
+        this.myMoveTo(x,y);
+    }
+    ctx.lineTo=function(x,y){
+        var pts=plotLine(this.myTolerance,this.myLastX,this.myLastY,x,y);
+        Array.prototype.push.apply(this.myPathPoints,pts);
+        this.myLastX=x;
+        this.myLastY=y;
+        this.myLineTo(x,y);
+    }
+    ctx.quadraticCurveTo=function(x0,y0,x1,y1){
+        var pts=plotQBez(this.mySampleCount,this.myTolerance,this.myLastX,this.myLastY,x0,y0,x1,y1);
+        Array.prototype.push.apply(this.myPathPoints,pts);
+        this.myLastX=x1;
+        this.myLastY=y1;
+        this.myQuadraticCurveTo(x0,y0,x1,y1);
+    }
+    ctx.bezierCurveTo=function(x0,y0,x1,y1,x2,y2){
+        var pts=plotCBez(this.mySampleCount,this.myTolerance,this.myLastX,this.myLastY,x0,y0,x1,y1,x2,y2);
+        Array.prototype.push.apply(this.myPathPoints,pts);
+        this.myLastX=x2;
+        this.myLastY=y2;
+        this.myBezierCurveTo(x0,y0,x1,y1,x2,y2);
+    }
+    ctx.getPathPoints=function(){
+        return(this.myPathPoints.slice());
+    }
+    ctx.clearPathPoints=function(){
+        this.myPathPoints.length=0;
+    }
+    ctx.stopPlottingPathCommands=function(){
+        if(!this.myBeginPath){return;}
+        this.beginPath=this.myBeginPath;
+        this.moveTo=this.myMoveTo;
+        this.lineTo=this.myLineTo;
+        this.quadraticCurveto=this.myQuadraticCurveTo;
+        this.bezierCurveTo=this.myBezierCurveTo;
+        this.myBeginPath=undefined;
+    }
+}
+</code></pre>
+<p><strong>Une démo complète :</strong></p>
+<!-- langue : lang-js -->
+<pre><code>// Path related variables
+var A={x:50,y:100};
+var B={x:125,y:25};
+var BB={x:150,y:15};
+var BB2={x:150,y:185};
+var C={x:175,y:200};
+var D={x:300,y:150};
+var n=1000;
+var tolerance=1.5;
+var pts;
+
+// canvas related variables
+var canvas=document.createElement(&quot;canvas&quot;);
+var ctx=canvas.getContext(&quot;2d&quot;);
+document.body.appendChild(canvas);
+canvas.width=378;
+canvas.height=256;
+
+// Tell the Context to plot waypoint in addition to 
+// drawing the path
+plotPathCommands(ctx,n,tolerance);
+
+// Path drawing commands
+ctx.beginPath();
+ctx.moveTo(A.x,A.y);
+ctx.bezierCurveTo(B.x,B.y,C.x,C.y,D.x,D.y);
+ctx.quadraticCurveTo(BB.x,BB.y,A.x,A.y);
+ctx.lineTo(D.x,D.y);
+ctx.strokeStyle='gray';
+ctx.stroke();
+
+// Tell the Context to stop plotting waypoints
+ctx.stopPlottingPathCommands();
+
+// Incrementally draw the path using the plotted points
+ptsToRects(ctx.getPathPoints());
+function ptsToRects(pts){
+    ctx.fillStyle='red';
+    var i=0;
+    requestAnimationFrame(animate);
+    function animate(){
+        ctx.fillRect(pts[i].x-0.50,pts[i].y-0.50,tolerance,tolerance);
+        i++;
+        if(i&lt;pts.length){ requestAnimationFrame(animate); }
+    }
+}
+
+
+////////////////////////////////////////
+// A Plug-in
+////////////////////////////////////////
+
+// Modify the Canvas' Context to calculate a set of approximately
+//     evenly spaced waypoints as it draws path(s).
+function plotPathCommands(ctx,sampleCount,pointSpacing){
+    ctx.mySampleCount=sampleCount;
+    ctx.myPointSpacing=pointSpacing;
+    ctx.myTolerance=pointSpacing*pointSpacing;
+    ctx.myBeginPath=ctx.beginPath;
+    ctx.myMoveTo=ctx.moveTo;
+    ctx.myLineTo=ctx.lineTo;
+    ctx.myQuadraticCurveTo=ctx.quadraticCurveTo;
+    ctx.myBezierCurveTo=ctx.bezierCurveTo;
+    // don't use myPathPoints[] directly -- use &quot;ctx.getPathPoints&quot;
+    ctx.myPathPoints=[];
+    ctx.beginPath=function(){
+        this.myLastX=0;
+        this.myLastY=0;
+        this.myBeginPath();
+    }
+    ctx.moveTo=function(x,y){
+        this.myLastX=x;
+        this.myLastY=y;
+        this.myMoveTo(x,y);
+    }
+    ctx.lineTo=function(x,y){
+        var pts=plotLine(this.myTolerance,this.myLastX,this.myLastY,x,y);
+        Array.prototype.push.apply(this.myPathPoints,pts);
+        this.myLastX=x;
+        this.myLastY=y;
+        this.myLineTo(x,y);
+    }
+    ctx.quadraticCurveTo=function(x0,y0,x1,y1){
+        var pts=plotQBez(this.mySampleCount,this.myTolerance,this.myLastX,this.myLastY,x0,y0,x1,y1);
+        Array.prototype.push.apply(this.myPathPoints,pts);
+        this.myLastX=x1;
+        this.myLastY=y1;
+        this.myQuadraticCurveTo(x0,y0,x1,y1);
+    }
+    ctx.bezierCurveTo=function(x0,y0,x1,y1,x2,y2){
+        var pts=plotCBez(this.mySampleCount,this.myTolerance,this.myLastX,this.myLastY,x0,y0,x1,y1,x2,y2);
+        Array.prototype.push.apply(this.myPathPoints,pts);
+        this.myLastX=x2;
+        this.myLastY=y2;
+        this.myBezierCurveTo(x0,y0,x1,y1,x2,y2);
+    }
+    ctx.getPathPoints=function(){
+        return(this.myPathPoints.slice());
+    }
+    ctx.clearPathPoints=function(){
+        this.myPathPoints.length=0;
+    }
+    ctx.stopPlottingPathCommands=function(){
+        if(!this.myBeginPath){return;}
+        this.beginPath=this.myBeginPath;
+        this.moveTo=this.myMoveTo;
+        this.lineTo=this.myLineTo;
+        this.quadraticCurveto=this.myQuadraticCurveTo;
+        this.bezierCurveTo=this.myBezierCurveTo;
+        this.myBeginPath=undefined;
+    }
+}
+
+
+////////////////////////////////
+// Helper functions
+////////////////////////////////
+
+// Return: a set of approximately evenly spaced points along a cubic Bezier curve
+//
+// Attribution: Stackoverflow's @Blindman67
+// Cite: http://stackoverflow.com/questions/36637211/drawing-a-curved-line-in-css-or-canvas-and-moving-circle-along-it/36827074#36827074
+// As modified from the above citation
+// 
+// ptCount: sample this many points at interval along the curve
+// pxTolerance: approximate spacing allowed between points
+// Ax,Ay,Bx,By,Cx,Cy,Dx,Dy: control points defining the curve
+//
+function plotCBez(ptCount,pxTolerance,Ax,Ay,Bx,By,Cx,Cy,Dx,Dy){
+    var deltaBAx=Bx-Ax;
+    var deltaCBx=Cx-Bx;
+    var deltaDCx=Dx-Cx;
+    var deltaBAy=By-Ay;
+    var deltaCBy=Cy-By;
+    var deltaDCy=Dy-Cy;
+    var ax,ay,bx,by;
+    var lastX=-10000;
+    var lastY=-10000;
+    var pts=[{x:Ax,y:Ay}];
+    for(var i=1;i&lt;ptCount;i++){
+        var t=i/ptCount;
+        ax=Ax+deltaBAx*t;
+        bx=Bx+deltaCBx*t;
+        cx=Cx+deltaDCx*t;
+        ax+=(bx-ax)*t;
+        bx+=(cx-bx)*t;
+        //
+        ay=Ay+deltaBAy*t;
+        by=By+deltaCBy*t;
+        cy=Cy+deltaDCy*t;
+        ay+=(by-ay)*t;
+        by+=(cy-by)*t;
+        var x=ax+(bx-ax)*t;
+        var y=ay+(by-ay)*t;
+        var dx=x-lastX;
+        var dy=y-lastY;
+        if(dx*dx+dy*dy&gt;pxTolerance){
+            pts.push({x:x,y:y});
+            lastX=x;
+            lastY=y;
+        }
+    }
+    pts.push({x:Dx,y:Dy});
+    return(pts);
+}
+
+// Return: an array of approximately evenly spaced points along a Quadratic curve
+//
+// Attribution: Stackoverflow's @Blindman67
+// Cite: http://stackoverflow.com/questions/36637211/drawing-a-curved-line-in-css-or-canvas-and-moving-circle-along-it/36827074#36827074
+// As modified from the above citation
+//
+// ptCount: sample this many points at interval along the curve
+// pxTolerance: approximate spacing allowed between points
+// Ax,Ay,Bx,By,Cx,Cy: control points defining the curve
+//
+function plotQBez(ptCount,pxTolerance,Ax,Ay,Bx,By,Cx,Cy){
+    var deltaBAx=Bx-Ax;
+    var deltaCBx=Cx-Bx;
+    var deltaBAy=By-Ay;
+    var deltaCBy=Cy-By;
+    var ax,ay;
+    var lastX=-10000;
+    var lastY=-10000;
+    var pts=[{x:Ax,y:Ay}];
+    for(var i=1;i&lt;ptCount;i++){
+        var t=i/ptCount;
+        ax=Ax+deltaBAx*t;
+        ay=Ay+deltaBAy*t;
+        var x=ax+((Bx+deltaCBx*t)-ax)*t;
+        var y=ay+((By+deltaCBy*t)-ay)*t;
+        var dx=x-lastX;
+        var dy=y-lastY;
+        if(dx*dx+dy*dy&gt;pxTolerance){
+            pts.push({x:x,y:y});
+            lastX=x;
+            lastY=y;
+        }
+    }
+    pts.push({x:Cx,y:Cy});
+    return(pts);
+}
+
+// Return: an array of approximately evenly spaced points along a line
+//
+// pxTolerance: approximate spacing allowed between points
+// Ax,Ay,Bx,By: end points defining the line
+//
+function plotLine(pxTolerance,Ax,Ay,Bx,By){
+    var dx=Bx-Ax;
+    var dy=By-Ay;
+    var ptCount=parseInt(Math.sqrt(dx*dx+dy*dy))*3;
+    var lastX=-10000;
+    var lastY=-10000;
+    var pts=[{x:Ax,y:Ay}];
+    for(var i=1;i&lt;=ptCount;i++){
+        var t=i/ptCount;
+        var x=Ax+dx*t;
+        var y=Ay+dy*t;
+        var dx1=x-lastX;
+        var dy1=y-lastY;
+        if(dx1*dx1+dy1*dy1&gt;pxTolerance){
+            pts.push({x:x,y:y});
+            lastX=x;
+            lastY=y;
+        }
+    }
+    pts.push({x:Bx,y:By});
+    return(pts);
+}
+</code></pre>
+<h2 id="longueur-dune-courbe-quadratique">Longueur d&rsquo;une courbe quadratique <a href="#longueur-dune-courbe-quadratique" class="anchor" aria-hidden="true">#</a></h2>
+<p>Étant donné les 3 points d&rsquo;une courbe quadratique, la fonction suivante renvoie la longueur.</p>
+<!-- langue : lang-js -->
+<pre><code>function quadraticBezierLength(x1,y1,x2,y2,x3,y3)
+    var a, e, c, d, u, a1, e1, c1, d1, u1, v1x, v1y;
+
+    v1x = x2 * 2;
+    v1y = y2 * 2;
+    d = x1 - v1x + x3;
+    d1 = y1 - v1y + y3;
+    e = v1x - 2 * x1;
+    e1 = v1y - 2 * y1;
+    c1 = (a = 4 * (d * d + d1 * d1));
+    c1 += (b = 4 * (d * e + d1 * e1));
+    c1 += (c = e * e + e1 * e1);
+    c1 = 2 * Math.sqrt(c1);
+    a1 = 2 * a * (u = Math.sqrt(a));
+    u1 = b / u;
+    a = 4 * c * a - b * b;
+    c = 2 * Math.sqrt(c);
+    return (a1 * c1 + u * b * (c1 - c) + a * Math.log((2 * u + u1 + c1) / (u1 + c))) / (4 * a1);
+} 
+</code></pre>
+<p>Dérivée de la fonction de Bézier quadratique F(t) = a * (1 - t)<sup>2</sup> + 2 * b * (1 - t) * t + c * t<sup>2</sup></p>
+<h2 id="diviser-les-courbes-de-bézier-à-la-position">Diviser les courbes de Bézier à la position <a href="#diviser-les-courbes-de-b%c3%a9zier-%c3%a0-la-position" class="anchor" aria-hidden="true">#</a></h2>
+<p>Cet exemple divise les courbes cubiques et de Bézier en deux.</p>
+<p>La fonction <code>splitCurveAt</code> divise la courbe à <code>position</code> où <code>0.0</code> = début, <code>0.5</code> = milieu et <code>1</code> = fin. Il peut diviser les courbes quadratiques et cubiques. Le type de courbe est déterminé par le dernier argument x <code>x4</code>. Si ce n&rsquo;est pas &lsquo;undefined&rsquo; ou &rsquo;null&rsquo; alors il suppose que la courbe est cubique sinon la courbe est quadratique</p>
+<h3 id="exemple-dutilisation-1">Exemple d&rsquo;utilisation <a href="#exemple-dutilisation-1" class="anchor" aria-hidden="true">#</a></h3>
+<p>Séparer la courbe de Bézier quadratique en deux</p>
+<!-- langue : lang-js -->
+<pre><code>var p1 = {x : 10 , y : 100};
+var p2 = {x : 100, y : 200};
+var p3 = {x : 200, y : 0};
+var newCurves = splitCurveAt(0.5, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y)
+
+var i = 0;
+var p = newCurves
+// Draw the 2 new curves
+// Assumes ctx is canvas 2d context
+ctx.lineWidth = 1;
+ctx.strokeStyle = &quot;black&quot;;
+ctx.beginPath();
+ctx.moveTo(p[i++],p[i++]);
+ctx.quadraticCurveTo(p[i++], p[i++], p[i++], p[i++]);
+ctx.quadraticCurveTo(p[i++], p[i++], p[i++], p[i++]);
+ctx.stroke();
+</code></pre>
+<p>Séparer la courbe de Bézier cubique en deux</p>
+<!-- langue : lang-js -->
+<pre><code>var p1 = {x : 10 , y : 100};
+var p2 = {x : 100, y : 200};
+var p3 = {x : 200, y : 0};
+var p4 = {x : 300, y : 100};
+var newCurves = splitCurveAt(0.5, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y)
+
+var i = 0;
+var p = newCurves
+// Draw the 2 new curves
+// Assumes ctx is canvas 2d context
+ctx.lineWidth = 1;
+ctx.strokeStyle = &quot;black&quot;;
+ctx.beginPath();
+ctx.moveTo(p[i++],p[i++]);
+ctx.bezierCurveTo(p[i++], p[i++], p[i++], p[i++], p[i++], p[i++]);
+ctx.bezierCurveTo(p[i++], p[i++], p[i++], p[i++], p[i++], p[i++]);
+ctx.stroke();
+</code></pre>
+<hr>
+<h2 id="la-fonction-de-fractionnement">La fonction de fractionnement <a href="#la-fonction-de-fractionnement" class="anchor" aria-hidden="true">#</a></h2>
+<p><strong>splitCurveAt = fonction(position, x1, y1, x2, y2, x3, y3, [x4, y4])</strong></p>
+<blockquote>
+<p><strong>Remarque :</strong> Les arguments à l&rsquo;intérieur de [x4, y4] sont facultatifs.</p>
+</blockquote>
+<blockquote>
+<p><strong>Remarque :</strong> La fonction a un code <code>/* */</code> facultatif commenté qui traite des cas extrêmes où les courbes résultantes peuvent avoir une longueur nulle ou tomber en dehors du début ou des extrémités de la courbe d&rsquo;origine. Comme tenter de diviser une courbe en dehors de la plage valide pour <code>position &gt;= 0</code> ou <code>position &gt;= 1</code> générera une erreur de plage. Cela peut être supprimé et fonctionnera très bien, bien que vous puissiez avoir des courbes résultantes qui ont une longueur nulle.</p>
+</blockquote>
+<!-- langue : lang-js -->
+<pre><code>// With throw RangeError if not 0 &lt; position &lt; 1
+// x1, y1, x2, y2, x3, y3 for quadratic curves
+// x1, y1, x2, y2, x3, y3, x4, y4 for cubic curves
+// Returns an array of points representing 2 curves. The curves are the same type as the split curve
+var splitCurveAt = function(position, x1, y1, x2, y2, x3, y3, x4, y4){
+    var v1, v2, v3, v4, quad, retPoints, i, c;
+    
+    // =============================================================================================
+    // you may remove this as the function will still work and resulting curves will still render
+    // but other curve functions may not like curves with 0 length
+    // =============================================================================================
+    if(position &lt;= 0 || position &gt;= 1){
+        throw RangeError(&quot;spliteCurveAt requires position &gt; 0 &amp;&amp; position &lt; 1&quot;);
+    }
+
+    // =============================================================================================
+    // If you remove the above range error you may use one or both of the following commented sections
+    // Splitting curves position &lt; 0 or position &gt; 1 will still create valid curves but they will 
+    // extend past the end points
+    
+    // =============================================================================================
+    // Lock the position to split on the curve. 
+    /* optional A
+    position = position &lt; 0 ? 0 : position &gt; 1 ? 1 : position;
+    optional A end */
+    
+    // =============================================================================================
+    // the next commented section will return the original curve if the split results in 0 length curve
+    // You may wish to uncomment this If you desire such functionality
+    /*  optional B
+    if(position &lt;= 0 || position &gt;= 1){
+        if(x4 === undefined || x4 === null){
+            return [x1, y1, x2, y2, x3, y3];
+        }else{
+            return [x1, y1, x2, y2, x3, y3, x4, y4];
+        }
+    }
+    optional B end */
+    
+    
+    retPoints = []; // array of coordinates
+    i = 0;
+    quad = false;  // presume cubic bezier
+    v1 = {};
+    v2 = {};
+    v4 = {};
+    v1.x = x1;
+    v1.y = y1;
+    v2.x = x2;
+    v2.y = y2;
+    if(x4 === undefined || x4 === null){
+        quad = true;  // this is a quadratic bezier
+        v4.x = x3;
+        v4.y = y3;
+    }else{
+        v3 = {};
+        v3.x = x3;
+        v3.y = y3;
+        v4.x = x4;
+        v4.y = y4;
+    }
+    c = position;
+    retPoints[i++] = v1.x;  // start point 
+    retPoints[i++] = v1.y;
+
+    if(quad){ // split quadratic bezier
+        retPoints[i++] = (v1.x += (v2.x - v1.x) * c);  // new control point for first curve
+        retPoints[i++] = (v1.y += (v2.y - v1.y) * c);
+        v2.x += (v4.x - v2.x) * c;
+        v2.y += (v4.y - v2.y) * c;
+        retPoints[i++] = v1.x + (v2.x - v1.x) * c;  // new end and start of first and second curves
+        retPoints[i++] = v1.y + (v2.y - v1.y) * c;
+        retPoints[i++] = v2.x;  // new control point for second curve
+        retPoints[i++] = v2.y;
+        retPoints[i++] = v4.x;  // new endpoint of second curve
+        retPoints[i++] = v4.y;
+        //=======================================================
+        // return array with 2 curves
+        return retPoints;
+    }
+    retPoints[i++] = (v1.x += (v2.x - v1.x) * c); // first curve first control point                
+    retPoints[i++] = (v1.y += (v2.y - v1.y) * c);
+    v2.x += (v3.x - v2.x) * c;
+    v2.y += (v3.y - v2.y) * c;
+    v3.x += (v4.x - v3.x) * c;
+    v3.y += (v4.y - v3.y) * c;
+    retPoints[i++] = (v1.x += (v2.x - v1.x) * c); // first curve second control point
+    retPoints[i++] = (v1.y += (v2.y - v1.y) * c);
+    v2.x += (v3.x - v2.x) * c;
+    v2.y += (v3.y - v2.y) * c;
+    retPoints[i++] = v1.x + (v2.x - v1.x) * c; // end and start point of first second curves
+    retPoints[i++] = v1.y + (v2.y - v1.y) * c;
+    retPoints[i++] = v2.x;  // second curve first control point
+    retPoints[i++] = v2.y;
+    retPoints[i++] = v3.x;  // second curve second control point
+    retPoints[i++] = v3.y;
+    retPoints[i++] = v4.x;  // endpoint of second curve
+    retPoints[i++] = v4.y;
+    //=======================================================
+    // return array with 2 curves
+    return retPoints;              
+}
+</code></pre>
+<!------ Futurs éditeurs Veuillez noter que cette fonction sera utilisée par d'autres exemples (à écrire le 10 août 2016) Si vous modifiez les arguments d'entrée ou de sortie, ou décommentez les parties facultatives (à l'exception du A facultatif), vous devra également modifier ces fonctions pour tenir compte du changement de comportement. Je vais ajouter des liens dans cet exemple à tous les exemples dépendants. ------!>
+
+## Couper la courbe de Bézier.
+Cet exemple vous montre comment couper un Bézier.
+
+La fonction trimBezier coupe les extrémités de la courbe en renvoyant la courbe `fromPos` à `toPos`. `fromPos` et `toPos` sont compris entre 0 et 1 inclus, il peut couper les courbes quadratiques et cubiques. Le type de courbe est déterminé par le dernier argument x `x4`. Si ce n'est pas 'undefined' ou 'null' alors il suppose que la courbe est cubique sinon la courbe est quadratique
+
+La courbe ajustée est renvoyée sous la forme d'un tableau de points. 6 points pour les courbes quadratiques et 8 pour les courbes cubiques.
+
+-----
+### Exemple d'utilisation
+
+Ajustement d'une courbe quadratique.
+
+<!-- langue : lang-js -->
+<pre><code>var p1 = {x : 10 , y : 100};
+var p2 = {x : 100, y : 200};
+var p3 = {x : 200, y : 0};
+var newCurve = splitCurveAt(0.25, 0.75, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y)
+
+var i = 0;
+var p = newCurve
+// Draw the trimmed curve
+// Assumes ctx is canvas 2d context
+ctx.lineWidth = 1;
+ctx.strokeStyle = &quot;black&quot;;
+ctx.beginPath();
+ctx.moveTo(p[i++],p[i++]);
+ctx.quadraticCurveTo(p[i++], p[i++], p[i++], p[i++]);
+ctx.stroke();
+</code></pre>
+<p>Ajuster une courbe cubique.</p>
+<!-- langue : lang-js -->
+<pre><code>var p1 = {x : 10 , y : 100};
+var p2 = {x : 100, y : 200};
+var p3 = {x : 200, y : 0};
+var p4 = {x : 300, y : 100};
+var newCurve = splitCurveAt(0.25, 0.75, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y)
+
+var i = 0;
+var p = newCurve
+// Draw the trimmed curve
+// Assumes ctx is canvas 2d context
+ctx.lineWidth = 1;
+ctx.strokeStyle = &quot;black&quot;;
+ctx.beginPath();
+ctx.moveTo(p[i++],p[i++]);
+ctx.bezierCurveTo(p[i++], p[i++], p[i++], p[i++], p[i++], p[i++]);
+ctx.stroke();
+</code></pre>
+<hr>
+<h2 id="exemple-de-fonction">Exemple de fonction <a href="#exemple-de-fonction" class="anchor" aria-hidden="true">#</a></h2>
+<p><strong>trimBezier = function(fromPos, toPos, x1, y1, x2, y2, x3, y3, [x4, y4])</strong></p>
+<blockquote>
+<p><strong>Remarque :</strong> Les arguments à l&rsquo;intérieur de [x4, y4] sont facultatifs.</p>
+</blockquote>
+<blockquote>
+<p><strong>Remarque :</strong> Cette fonction nécessite la fonction de l&rsquo;exemple Diviser les courbes de Bézier à dans cette section</p>
+</blockquote>
+<!-- langue : lang-js -->
+<pre><code>var trimBezier = function(fromPos, toPos, x1, y1, x2, y2, x3, y3, x4, y4){
+    var quad, i, s, retBez;
+    quad = false;
+    if(x4 === undefined || x4 === null){
+        quad = true;  // this is a quadratic bezier    
+    }
+    if(fromPos &gt; toPos){ // swap is from is after to
+        i = fromPos;
+        fromPos = toPos
+        toPos = i;
+    }
+    // clamp to on the curve
+    toPos = toPos &lt;= 0 ? 0 : toPos &gt;= 1 ? 1 : toPos;
+    fromPos = fromPos &lt;= 0 ? 0 : fromPos &gt;= 1 ? 1 : fromPos;
+    if(toPos === fromPos){
+        s = splitBezierAt(toPos, x1, y1, x2, y2, x3, y3, x4, y4);
+        i = quad ? 4 : 6;
+        retBez = [s[i], s[i+1], s[i], s[i+1], s[i], s[i+1]];
+        if(!quad){
+            retBez.push(s[i], s[i+1]);
+        }
+        return retBez;
+    }
+    if(toPos === 1 &amp;&amp; fromPos === 0){       // no trimming required
+        retBez = [x1, y1, x2, y2, x3, y3];  // return original bezier
+        if(!quad){
+            retBez.push(x4, y4);
+        }
+        return retBez;
+    }
+    if(fromPos === 0){
+        if(toPos &lt; 1){
+            s = splitBezierAt(toPos, x1, y1, x2, y2, x3, y3, x4, y4);
+            i = 0;
+            retBez = [s[i++], s[i++], s[i++], s[i++], s[i++], s[i++]];
+            if(!quad){
+                retBez.push(s[i++], s[i++]);
+            }
+        }
+        return retBez;
+    }
+    if(toPos === 1){
+        if(fromPos &lt; 1){
+            s = splitBezierAt(toPos, x1, y1, x2, y2, x3, y3, x4, y4);
+            i = quad ? 4 : 6;
+            retBez = [s[i++], s[i++], s[i++], s[i++], s[i++], s[i++]];
+            if(!quad){
+                retBez.push(s[i++], s[i++]);
+            }
+        }
+        return retBez;
+    }
+    s = splitBezierAt(fromPos, x1, y1, x2, y2, x3, y3, x4, y4);
+    if(quad){
+        i = 4;
+        toPos = (toPos - fromPos) / (1 - fromPos);
+        s = splitBezierAt(toPos, s[i++], s[i++], s[i++], s[i++], s[i++], s[i++]);
+        i = 0;
+        retBez = [s[i++], s[i++], s[i++], s[i++], s[i++], s[i++]];
+        return retBez;
+        
+    }
+    i = 6;
+    toPos = (toPos - fromPos) / (1 - fromPos);
+    s = splitBezierAt(toPos, s[i++], s[i++], s[i++], s[i++], s[i++], s[i++], s[i++], s[i++]);
+    i = 0;
+    retBez = [s[i++], s[i++], s[i++], s[i++], s[i++], s[i++], s[i++], s[i++]];
+    return retBez;
+}
+</code></pre>
+<!---- Veuillez noter que toute personne modifiant cet exemple dépend de l'exemple Diviser les courbes de Bézier à. Si vous apportez des modifications à l'un ou l'autre des exemples, assurez-vous qu'ils restent compatibles. Si vous supprimez la dépendance, veuillez fournir une fonction de remplacement ou la supprimer également (et risquez-vous d'être infesté de bogues) ----- !>
+
+## Longueur d'une courbe de Bézier cubique (une approximation proche)
+Étant donné les 4 points d'une courbe de Bézier cubique, la fonction suivante renvoie sa longueur.
+
+<h>
+
+**Méthode :** La longueur d'une courbe de Bézier cubique n'a pas de calcul mathématique direct. Cette méthode de "force brute" trouve un échantillon de points le long de la courbe et calcule la distance totale parcourue par ces points.
+
+**Précision :** La longueur approximative est précise à plus de 99 % en utilisant la taille d'échantillonnage par défaut de 40.
+
+<!-- langue : lang-js -->
+<pre><code>// Return: Close approximation of the length of a Cubic Bezier curve
+//
+// Ax,Ay,Bx,By,Cx,Cy,Dx,Dy: the 4 control points of the curve
+// sampleCount [optional, default=40]: how many intervals to calculate
+// Requires: cubicQxy (included below)
+//
+function cubicBezierLength(Ax,Ay,Bx,By,Cx,Cy,Dx,Dy,sampleCount){
+    var ptCount=sampleCount||40;
+    var totDist=0;
+    var lastX=Ax;
+    var lastY=Ay;
+    var dx,dy;
+    for(var i=1;i&lt;ptCount;i++){
+        var pt=cubicQxy(i/ptCount,Ax,Ay,Bx,By,Cx,Cy,Dx,Dy);
+        dx=pt.x-lastX;
+        dy=pt.y-lastY;
+        totDist+=Math.sqrt(dx*dx+dy*dy);
+        lastX=pt.x;
+        lastY=pt.y;
+    }
+    dx=Dx-lastX;
+    dy=Dy-lastY;
+    totDist+=Math.sqrt(dx*dx+dy*dy);
+    return(parseInt(totDist));
+}
+
+
+// Return: an [x,y] point along a cubic Bezier curve at interval T
+//
+// Attribution: Stackoverflow's @Blindman67
+// Cite: http://stackoverflow.com/questions/36637211/drawing-a-curved-line-in-css-or-canvas-and-moving-circle-along-it/36827074#36827074
+// As modified from the above citation
+// 
+// t: an interval along the curve (0&lt;=t&lt;=1)
+// ax,ay,bx,by,cx,cy,dx,dy: control points defining the curve
+//
+function cubicQxy(t,ax,ay,bx,by,cx,cy,dx,dy) {
+    ax += (bx - ax) * t;
+    bx += (cx - bx) * t;
+    cx += (dx - cx) * t;
+    ax += (bx - ax) * t;
+    bx += (cx - bx) * t;
+    ay += (by - ay) * t;
+    by += (cy - by) * t;
+    cy += (dy - cy) * t;
+    ay += (by - ay) * t;
+    by += (cy - by) * t;
+    return({
+        x:ax +(bx - ax) * t,
+        y:ay +(by - ay) * t     
+    });
+}
+</code></pre>
+<h2 id="trouver-létendue-de-la-courbe-quadratique">Trouver l&rsquo;étendue de la courbe quadratique <a href="#trouver-l%c3%a9tendue-de-la-courbe-quadratique" class="anchor" aria-hidden="true">#</a></h2>
+<p>Lorsque vous avez besoin de trouver le rectangle englobant d&rsquo;une courbe de Bézier quadratique, vous pouvez utiliser la méthode performante suivante.</p>
+<!-- langue : lang-js -->
+<pre><code>// This method was discovered by Blindman67 and solves by first normalising the control point thereby reducing the algorithm complexity 
+// x1,y1, x2,y2, x3,y3 Start, Control, and End coords of bezier
+// [extent] is optional and if provided the extent will be added to it allowing you to use the function
+//        to get the extent of many beziers.
+// returns extent object (if not supplied a new extent is created)
+// Extent object properties
+// top, left,right,bottom,width,height
+function getQuadraticCurevExtent(x1, y1, x2, y2, x3, y3, extent) {
+    var brx, bx, x, bry, by, y, px, py;
+
+    // solve quadratic for bounds by BM67 normalizing equation
+    brx = x3 - x1; // get x range
+    bx = x2 - x1; // get x control point offset
+    x = bx / brx; // normalise control point which is used to check if maxima is in range
+
+    // do the same for the y points
+    bry = y3 - y1;
+    by = y2 - y1;
+    y = by / bry;
+
+    px = x1; // set defaults in case maximas outside range
+    py = y1;
+
+    // find top/left, top/right, bottom/left, or bottom/right
+    if (x &lt; 0 || x &gt; 1) { // check if x maxima is on the curve
+        px = bx * bx / (2 * bx - brx) + x1; // get the x maxima
+    }
+    if (y &lt; 0 || y &gt; 1) { // same as x
+        py = by * by / (2 * by - bry) + y1;
+    }
+
+    // create extent object and add extent
+    if (extent === undefined) {
+        extent = {};
+        extent.left = Math.min(x1, x3, px);
+        extent.top = Math.min(y1, y3, py);
+        extent.right = Math.max(x1, x3, px);
+        extent.bottom = Math.max(y1, y3, py);
+    } else { // use spplied extent and extend it to fit this curve
+        extent.left = Math.min(x1, x3, px, extent.left);
+        extent.top = Math.min(y1, y3, py, extent.top);
+        extent.right = Math.max(x1, x3, px, extent.right);
+        extent.bottom = Math.max(y1, y3, py, extent.bottom);
+    }
+
+    extent.width = extent.right - extent.left;
+    extent.height = extent.bottom - extent.top;
+    return extent;
+}
+</code></pre>
+<!-- fin de l'extrait -->
+<p>Pour un aperçu plus détaillé de la résolution de l&rsquo;étendue, voir la réponse [Pour obtenir l&rsquo;étendue d&rsquo;un Bézier quadratique] [1] qui comprend des démos exécutables.</p>
+<p>[1] : http://stackoverflow.com/a/39396368/3877726</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/fr/html5-canvas/texte/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Texte
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/fr/html5-canvas/collisions-et-intersections/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Collisions et intersections &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/fr/about/">À propos de</a></li>
+          <li class="list-inline-item"><a href="/fr/disclaimers/">Avis de non-responsabilité</a></li>
+          <li class="list-inline-item"><a href="/fr/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/fr/terms-of-use/">Conditions d&#39;utilisation</a></li>
+          <li class="list-inline-item"><a href="/fr/privacy-policy/">Politique de confidentialité</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

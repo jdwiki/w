@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial da API Win32 on </title>
+    <link>https://www.wikiod.com/pt/docs/winapi/</link>
+    <description>Recent content in Tutorial da API Win32 on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/winapi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução à API do Win32</title>
+      <link>https://www.wikiod.com/pt/winapi/introducao-a-api-do-win32/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/winapi/introducao-a-api-do-win32/</guid>
+      <description>Olá Mundo # Os aplicativos do Microsoft Windows geralmente são escritos como um aplicativo de console ou um aplicativo em janela (existem outros tipos, como serviços e plug-ins). A diferença para o programador é a diferença na interface do ponto de entrada principal para a fonte do aplicativo fornecida pelo programador.
+Quando um aplicativo C ou C++ é iniciado, o ponto de entrada executável usado pelo carregador executável é o tempo de execução fornecido pelo compilador.</description>
+    </item>
+    
+    <item>
+      <title>Relatório e tratamento de erros</title>
+      <link>https://www.wikiod.com/pt/winapi/relatorio-e-tratamento-de-erros/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/winapi/relatorio-e-tratamento-de-erros/</guid>
+      <description>Cada thread terá seu próprio último código de erro. A API do Windows definirá o último código de erro no thread de chamada.
+Você deve sempre chamar a função GetLastError imediatamente após verificar o valor de retorno de uma função da API do Windows.
+A maioria das funções da API do Windows define o último código de erro quando falham. Alguns também definirão o último código de erro quando forem bem-sucedidos.</description>
+    </item>
+    
+    <item>
+      <title>Funções Ansi e Wide-character</title>
+      <link>https://www.wikiod.com/pt/winapi/funcoes-ansi-e-wide-character/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/winapi/funcoes-ansi-e-wide-character/</guid>
+      <description>Introdução # A documentação da API do Windows para funções que usam uma ou mais string como argumento geralmente será assim:
+BOOL WINAPI CopyFile( _In_ LPCTSTR lpExistingFileName, _In_ LPCTSTR lpNewFileName, _In_ BOOL bFailIfExists ); O tipo de dados para os dois parâmetros de string é composto de várias partes:
+LP = ponteiro longo C = const T = TCHAR STR = cadeia Agora o que significa TCHAR? Isso depende da plataforma escolhida para a compilação do programa.</description>
+    </item>
+    
+    <item>
+      <title>Gerenciamento de processos e threads</title>
+      <link>https://www.wikiod.com/pt/winapi/gerenciamento-de-processos-e-threads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/winapi/gerenciamento-de-processos-e-threads/</guid>
+      <description>Crie um processo e verifique seu código de saída # Este exemplo inicia o Bloco de Notas, espera que ele seja fechado e, em seguida, obtém seu código de saída.
+#include &amp;lt;Windows.h&amp;gt; int main() { STARTUPINFOW si = { 0 }; si.cb = sizeof(si); PROCESS_INFORMATION pi = { 0 }; // Create the child process BOOL success = CreateProcessW( L&amp;quot;C:\\Windows\\system32\\notepad.exe&amp;quot;, // Path to executable NULL, // Command line arguments NULL, // Process attributes NULL, // Thread attributes FALSE, // Inherit handles 0, // Creation flags NULL, // Environment NULL, // Working directory &amp;amp;si, // Startup info &amp;amp;pi); // Process information if (success) { // Wait for the process to exit WaitForSingleObject(pi.</description>
+    </item>
+    
+    <item>
+      <title>Subclasse do Windows</title>
+      <link>https://www.wikiod.com/pt/winapi/subclasse-do-windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/winapi/subclasse-do-windows/</guid>
+      <description>A subclassificação de janelas é uma maneira de conectar-se ao procedimento de janela padrão e modificar ou estender seu comportamento padrão. Um aplicativo subclassifica uma janela substituindo o procedimento de janela original da janela por um novo procedimento de janela. Este procedimento de nova janela recebe todas as mensagens enviadas ou postadas na janela.
+Sintaxe # BOOL SetWindowSubclass(HWND hWnd, SUBCLASSPROC SubclassProc, UINT_PTR SubclassId, DWORD_PTR RefData); BOOL RemoveWindowSubclass(HWND hWnd, SUBCLASSPROC SubclassProc, UINT_PTR SubclassId); BOOL GetWindowSubclass(HWND hWnd, SUBCLASSPROC SubclassProc, UINT_PTR SubclassId, DORD_PTR* RefData); LRESULT DefSubclassProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam); Parâmetros # Parâmetro Detalhe hWnd O identificador da janela para a subclasse.</description>
+    </item>
+    
+    <item>
+      <title>Mensagens da janela</title>
+      <link>https://www.wikiod.com/pt/winapi/mensagens-da-janela/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/winapi/mensagens-da-janela/</guid>
+      <description>Sintaxe # #include &amp;lt;windows.h&amp;gt; BOOL WINAPI DestroyWindow(HWND hwnd); VOID WINAPI PostQuitMessage(int exitcode); BOOL WINAPI MoveWindow(HWND hwnd, int x, int y, int cx, int cy, BOOL bRepaint); WM_DESTROY # Esta mensagem é enviada ao seu procedimento de janela quando uma janela está sendo destruída. Ele é enviado depois que a janela é removida da tela. A maioria dos aplicativos libera quaisquer recursos, como memória ou handles, obtidos em WM_CREATE. Se você lidar com esta mensagem, retorne 0.</description>
+    </item>
+    
+    <item>
+      <title>Lidando com janelas</title>
+      <link>https://www.wikiod.com/pt/winapi/lidando-com-janelas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/winapi/lidando-com-janelas/</guid>
+      <description>Criando uma janela # #define UNICODE #define _UNICODE #include &amp;lt;windows.h&amp;gt; #include &amp;lt;tchar.h&amp;gt; const TCHAR CLSNAME[] = TEXT(&amp;quot;helloworldWClass&amp;quot;); LRESULT CALLBACK winproc(HWND hwnd, UINT wm, WPARAM wp, LPARAM lp); int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PTSTR cmdline, int cmdshow) { WNDCLASSEX wc = { }; MSG msg; HWND hwnd; wc.cbSize = sizeof (wc); wc.style = 0; wc.lpfnWndProc = winproc; wc.cbClsExtra = 0; wc.cbWndExtra = 0; wc.hInstance = hInst; wc.hIcon = LoadIcon (NULL, IDI_APPLICATION); wc.</description>
+    </item>
+    
+    <item>
+      <title>Gerenciamento de arquivos</title>
+      <link>https://www.wikiod.com/pt/winapi/gerenciamento-de-arquivos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/winapi/gerenciamento-de-arquivos/</guid>
+      <description>Crie um arquivo e escreva nele # Este exemplo cria um novo arquivo chamado &amp;ldquo;NewFile.txt&amp;rdquo; e grava &amp;ldquo;Hello World!&amp;rdquo; ao seu corpo. Se o arquivo já existir, CreateFile falhará e nenhum dado será gravado. Consulte o parâmetro dwCreationDisposition na documentação do CreateFile se você não quiser que a função falhe se o arquivo já existir.
+#include &amp;lt;Windows.h&amp;gt; #include &amp;lt;string&amp;gt; int main() { // Open a handle to the file HANDLE hFile = CreateFile( L&amp;quot;C:\\NewFile.</description>
+    </item>
+    
+    <item>
+      <title>Serviços do Windows</title>
+      <link>https://www.wikiod.com/pt/winapi/servicos-do-windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/winapi/servicos-do-windows/</guid>
+      <description>Verifique se um serviço está instalado # Este exemplo mostra como você pode verificar se um serviço já existe (*ou seja, está instalado na máquina) ou não. Esse código requer apenas os privilégios mais baixos necessários, para que cada processo possa realizar a verificação, independentemente do nível de segurança em que está sendo executado.
+#define UNICODE #define _UNICODE #include &amp;lt;Windows.h&amp;gt; #include &amp;lt;string&amp;gt; #include &amp;lt;iostream&amp;gt; enum Result { unknown, serviceManager_AccessDenied, serviceManager_DatabaseDoesNotExist, service_AccessDenied, service_InvalidServiceManagerHandle, service_InvalidServiceName, service_DoesNotExist, service_Exist }; Result ServiceExists(const std::wstring &amp;amp;serviceName) { Result r = unknown; // Get a handle to the SCM database SC_HANDLE manager = OpenSCManager(NULL, SERVICES_ACTIVE_DATABASE, GENERIC_READ); if (manager == NULL) { DWORD lastError = GetLastError(); // At this point, we can return directly because no handles need to be closed.</description>
+    </item>
+    
+    <item>
+      <title>Utilizando a documentação do MSDN</title>
+      <link>https://www.wikiod.com/pt/winapi/utilizando-a-documentacao-do-msdn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/winapi/utilizando-a-documentacao-do-msdn/</guid>
+      <description>A API do Windows é vasta e contém muitos recursos. O tamanho da API é tal que ninguém pode saber tudo. Embora existam muitos recursos como o StackOverflow, não há substituto para a documentação oficial.
+Exemplos de Documentação:
+Visão geral do tópico: Considerações e práticas recomendadas sobre o desempenho do Gerenciador de janelas da área de trabalho Amostras: Personalizar uma miniatura icônica e um bitmap de visualização ao vivo Funções: função DwmSetIconicThumbnail Tipos de Documentação Disponíveis # A biblioteca MSDN contém vários tipos diferentes de documentação que podem ser usados ​​para implementar recursos.</description>
+    </item>
+    
+  </channel>
+</rss>

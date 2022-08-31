@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel adb on </title>
+    <link>https://www.wikiod.com/fr/docs/adb/</link>
+    <description>Recent content in Tutoriel adb on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/adb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec adb</title>
+      <link>https://www.wikiod.com/fr/adb/premiers-pas-avec-adb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/adb/premiers-pas-avec-adb/</guid>
+      <description>Introduction # adb est un outil de ligne de commande pour communiquer avec une instance d&amp;rsquo;émulateur ou un périphérique connecté. Il permet d&amp;rsquo;installer et de déboguer des applications, de transférer des fichiers, ainsi qu&amp;rsquo;une variété d&amp;rsquo;autres interactions avec l&amp;rsquo;émulateur ou l&amp;rsquo;appareil connecté. Le système ADB se compose d&amp;rsquo;un client, qui envoie des commandes depuis l&amp;rsquo;ordinateur hôte, d&amp;rsquo;un démon, qui s&amp;rsquo;exécute sur l&amp;rsquo;appareil connecté et exécute les commandes reçues du client, et d&amp;rsquo;un serveur, qui s&amp;rsquo;exécute sur l&amp;rsquo;ordinateur hôte et gère les communications entre le client et le démon.</description>
+    </item>
+    
+    <item>
+      <title>Démarrer une application en mode débogage</title>
+      <link>https://www.wikiod.com/fr/adb/demarrer-une-application-en-mode-debogage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/adb/demarrer-une-application-en-mode-debogage/</guid>
+      <description>Comment attendre le débogueur avant de démarrer l&amp;rsquo;application ? # Supposons que votre activité de lancement s&amp;rsquo;appelle &amp;ldquo;MainActivity&amp;rdquo;, dans votre application com.example.myapp. Dans le manifeste :
+&amp;lt;activity android:name=&amp;quot;.MainActivity&amp;quot; &amp;gt; &amp;lt;intent-filter&amp;gt; &amp;lt;action android:name=&amp;quot;android.intent.action.MAIN&amp;quot;/&amp;gt; &amp;lt;category android:name=&amp;quot;android.intent.category.LAUNCHER&amp;quot;/&amp;gt; &amp;lt;/intent-filter&amp;gt; &amp;lt;/activity&amp;gt; Supposons maintenant que vous souhaitiez lancer l&amp;rsquo;application, afin qu&amp;rsquo;elle attende que le débogueur se connecte avant que l&amp;rsquo;application ne démarre réellement.
+Vous pouvez utiliser adb shell pour y parvenir. Dans notre cas, lancez simplement :</description>
+    </item>
+    
+    <item>
+      <title>Affichage des journaux sur ADB</title>
+      <link>https://www.wikiod.com/fr/adb/affichage-des-journaux-sur-adb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/adb/affichage-des-journaux-sur-adb/</guid>
+      <description>Affichage et filtrage avec Logcat # L&amp;rsquo;affichage de tous les journaux du tampon par défaut sur la ligne de commande peut être accompli en :
+adb logcat Cette commande vous montrera tous les journaux du tampon principal de l&amp;rsquo;appareil. Notez que si vous l&amp;rsquo;utilisez pour la première fois, vous obtiendrez beaucoup d&amp;rsquo;informations, un énorme flux de données. Donc, vous voudrez peut-être d&amp;rsquo;abord effacer les journaux&amp;hellip;
+Nettoyage des bûches :
+adb logcat -c Cela effacera les journaux et recommencera à zéro.</description>
+    </item>
+    
+    <item>
+      <title>Transfert de fichiers par push et pull</title>
+      <link>https://www.wikiod.com/fr/adb/transfert-de-fichiers-par-push-et-pull/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/adb/transfert-de-fichiers-par-push-et-pull/</guid>
+      <description>Syntaxe # adb push [-p] LOCALE À DISTANCE adb pull [-a] [-p] DISTANT [LOCAL] Paramètres # Paramètres Détails LOCAL Un fichier ou un répertoire situé sur l&amp;rsquo;ordinateur de l&amp;rsquo;utilisateur REMOTE Un fichier ou un répertoire situé sur l&amp;rsquo;appareil Android de l&amp;rsquo;utilisateur -a Copiez également dans le fichier les données d&amp;rsquo;horodatage et de mode de fichier du fichier distant -p Afficher la progression du transfert pendant la copie du fichier ou du répertoire Si LOCAL est omis dans la commande adb pull, le nom de fichier de REMOTE est utilisé</description>
+    </item>
+    
+    <item>
+      <title>Collecte du journal des commandes adb</title>
+      <link>https://www.wikiod.com/fr/adb/collecte-du-journal-des-commandes-adb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/adb/collecte-du-journal-des-commandes-adb/</guid>
+      <description>Assurez-vous que votre automatisation n&amp;rsquo;utilise pas la commande adb kill-server.
+sous Windows # Ouvrez une fenêtre Invite de commandes et exécutez les commandes suivantes :
+adb kill-server set ADB_TRACE=sockets adb nodaemon server 2&amp;gt;&amp;amp;1 | for /f &amp;quot;usebackq tokens=7*&amp;quot; %a in (`findstr /c:&amp;quot;): &#39;&amp;quot;`) do @echo %a %b &amp;gt;&amp;gt; %USERPROFILE%\Desktop\adb_host_log.txt Vous pouvez maintenant exécuter votre automatisation Android. Une fois terminé, exécutez adb kill-server dans une autre fenêtre * Invite de commandes *.</description>
+    </item>
+    
+    <item>
+      <title>Connexion au dispositif</title>
+      <link>https://www.wikiod.com/fr/adb/connexion-au-dispositif/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/adb/connexion-au-dispositif/</guid>
+      <description>Recherche d&amp;rsquo;appareils connectés à votre PC # Activez le débogage USB sur votre appareil et à partir de la ligne de commande, tapez &amp;ldquo;adb devices&amp;rdquo;. Si tout est OK, la réponse devrait être :
+Liste des appareils connectés 1234567890 appareil
+Où 1234567890 est l&amp;rsquo;identifiant de l&amp;rsquo;appareil. Si plusieurs appareils sont connectés, vous devriez tous les voir :
+Liste des appareils connectés 1234567890 appareil 2222222222 appareil &amp;hellip;
+Lorsque vous connectez un appareil pour la première fois, une fenêtre contextuelle s&amp;rsquo;affiche sur votre appareil, vous demandant d&amp;rsquo;approuver la connexion.</description>
+    </item>
+    
+  </channel>
+</rss>

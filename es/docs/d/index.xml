@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de lenguaje D on </title>
+    <link>https://www.wikiod.com/es/docs/d/</link>
+    <description>Recent content in Tutorial de lenguaje D on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con D Language</title>
+      <link>https://www.wikiod.com/es/d/primeros-pasos-con-d-language/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/d/primeros-pasos-con-d-language/</guid>
+      <description>Instalación o configuración # El compilador estándar DMD del lenguaje de programación D puede ejecutarse en todas las plataformas principales. Para instalar DMD consulte aquí. Para instalar por línea de comando, puede ejecutar el comando (que se encuentra en el sitio web de D):
+curl -fsS https://dlang.org/install.sh | bash -s dmd Administradores de paquetes # Arco Linux # pacman -S dlang Chocolatoso # choco install dmd Gentoo # layman -f -a dlang Cerveza casera OSX # brew install dmd Debian/Ubuntu # La instalación en distribuciones Debian/Ubuntu necesita que el repositorio APT se agregue a la lista de fuentes.</description>
+    </item>
+    
+    <item>
+      <title>Matrices y sectores dinámicos</title>
+      <link>https://www.wikiod.com/es/d/matrices-y-sectores-dinamicos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/d/matrices-y-sectores-dinamicos/</guid>
+      <description>Sintaxis # &amp;lt;tipo&amp;gt;[] &amp;lt;nombre&amp;gt;; Los segmentos generan una nueva vista en la memoria existente. No crean una nueva copia. Si ningún segmento contiene más una referencia a esa memoria, o una parte dividida de ella, el recolector de basura lo liberará.
+Usando segmentos, es posible escribir código muy eficiente para, p. analizadores que solo operan en un bloque de memoria y solo cortan las partes en las que realmente necesitan trabajar, sin necesidad de asignar nuevos bloques de memoria.</description>
+    </item>
+    
+    <item>
+      <title>Rangos</title>
+      <link>https://www.wikiod.com/es/d/rangos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/d/rangos/</guid>
+      <description>Si el compilador encuentra un foreach
+foreach (element; range) { se reescribe internamente de forma similar a lo siguiente:
+for (auto it = range; !it.empty; it.popFront()) { auto element = it.front; ... } Cualquier objeto que cumpla con la interfaz anterior se denomina rango de entrada y, por lo tanto, es un tipo que se puede iterar:
+struct InputRange { @property bool empty(); @property T front(); void popFront(); } Las cadenas y las matrices son rangos # import std.</description>
+    </item>
+    
+    <item>
+      <title>Matrices asociativas</title>
+      <link>https://www.wikiod.com/es/d/matrices-asociativas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/d/matrices-asociativas/</guid>
+      <description>Uso estándar # int[string] wordCount(string[] wordList) { int[string] words; foreach (word; wordList) { words[word]++; } return words; } void main() { int[string] count = wordCount([&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;, &amp;quot;I&amp;quot;, &amp;quot;say&amp;quot;, &amp;quot;hello&amp;quot;]); foreach (key; count.keys) { writefln(&amp;quot;%s: %s&amp;quot;, key, count[key]); } // hello: 2 // world: 1 // I: 1 // say: 1 // note: the order in the foreach is unspecified } Literales # int[string] aa0 = [&amp;quot;x&amp;quot;: 5, &amp;quot;y&amp;quot;: 6]; //int values, string keys auto aa1 = [&amp;quot;x&amp;quot;: 5.</description>
+    </item>
+    
+    <item>
+      <title>Evaluación de función de tiempo de compilación (CTFE)</title>
+      <link>https://www.wikiod.com/es/d/evaluacion-de-funcion-de-tiempo-de-compilacion-ctfe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/d/evaluacion-de-funcion-de-tiempo-de-compilacion-ctfe/</guid>
+      <description>CTFE es un mecanismo que permite al compilador ejecutar funciones en tiempo de compilación. No es necesario un conjunto especial del lenguaje D para usar esta función: siempre que una función solo dependa de los valores conocidos del tiempo de compilación, el compilador D puede decidir interpretarla durante la compilación.
+También puede jugar de forma interactiva con CTFE.
+Evaluar una función en tiempo de compilación # long fib(long n) { return n &amp;lt; 2 ?</description>
+    </item>
+    
+    <item>
+      <title>UFCS - Sintaxis de llamada de función uniforme</title>
+      <link>https://www.wikiod.com/es/d/ufcs---sintaxis-de-llamada-de-funcion-uniforme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/d/ufcs---sintaxis-de-llamada-de-funcion-uniforme/</guid>
+      <description>Sintaxis # aThirdFun(anotherFun(myFun(), 42); // notación común (también válida) miDiversión().otraDiversión(42).unaTerceraDiversión(); // UFCS miDiversión.otraDiversión(42).aTerceraDiversión; // las llaves vacías se pueden quitar En una llamada a.b(args...), si el tipo a no tiene un método llamado b, entonces el compilador intentará reescribir la llamada como b(a, args...) .
+Comprobar si un número es primo # import std.stdio; bool isPrime(int number) { foreach(i; 2..number) { if (number % i == 0) { return false; } } return true; } void main() { writeln(2.</description>
+    </item>
+    
+    <item>
+      <title>Protectores de alcance</title>
+      <link>https://www.wikiod.com/es/d/protectores-de-alcance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/d/protectores-de-alcance/</guid>
+      <description>Sintaxis # alcance (salida) - las declaraciones se llaman sin importar cómo se salió del bloque actual alcance (éxito) - las declaraciones se llaman cuando el bloque actual se salió normalmente alcance (fallo): las declaraciones se llaman cuando se salió del bloque actual mediante el lanzamiento de una excepción El uso de protectores de alcance hace que el código sea mucho más limpio y permite colocar la asignación de recursos y limpiar el código uno al lado del otro.</description>
+    </item>
+    
+    <item>
+      <title>Contratos</title>
+      <link>https://www.wikiod.com/es/d/contratos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/d/contratos/</guid>
+      <description>Las afirmaciones se optimizarán en una versión de lanzamiento.
+Contratos de funciones # Los contratos de función permiten al programador verificar las inconsistencias. Las incoherencias incluyen parámetros no válidos, comprobaciones del valor de retorno correcto o un estado no válido del objeto.
+Las comprobaciones pueden ocurrir antes y después de que se ejecute el cuerpo de la función o método.
+void printNotGreaterThan42(uint number) in { assert(number &amp;lt; 42); } body { import std.</description>
+    </item>
+    
+    <item>
+      <title>estructuras</title>
+      <link>https://www.wikiod.com/es/d/estructuras/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/d/estructuras/</guid>
+      <description>Definiendo una nueva Estructura # Para definir la estructura llamada Persona con una variable de tipo entero edad, variable de tipo entero altura y variable de tipo flotante edadXAltura:
+struct Person { int age; int height; float ageXHeight; } En general:
+struct structName { /+ values go here +/ } Constructores de estructuras # En D podemos usar constructores para inicializar estructuras como una clase. Para definir una construcción para la estructura declarada en el ejemplo anterior, podemos escribir:</description>
+    </item>
+    
+    <item>
+      <title>Bucles</title>
+      <link>https://www.wikiod.com/es/d/bucles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/d/bucles/</guid>
+      <description>Sintaxis # for (&amp;lt;inicializador&amp;gt;; &amp;lt;condición de bucle&amp;gt;; &amp;lt;sentencia de bucle&amp;gt;) { &amp;lt;sentencias&amp;gt; }
+while (&amp;lt;condición&amp;gt;) { &amp;lt;sentencias&amp;gt; }
+do { &amp;lt;sentencias&amp;gt; } while (&amp;lt;condición&amp;gt;);
+foreach (&amp;lt;el&amp;gt;, &amp;lt;colección&amp;gt;)
+foreach_reverse (&amp;lt;el&amp;gt;, &amp;lt;colección&amp;gt;)
+Bucle for en Programación en D, especificación
+Bucle while en Programación en D, especificación
+Ciclo do while en Programación en D, [especificación](https://dlang.org/spec/statement.html# hacer-declaración)
+foreach en Programación en D, [opApply](http://ddili.org/ders/d.en/foreach_opapply. html), especificación
+Puedes jugar con loops y foreach en línea .</description>
+    </item>
+    
+  </channel>
+</rss>

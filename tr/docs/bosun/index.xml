@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bozun Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/bosun/</link>
+    <description>Recent content in Bozun Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/bosun/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bosun&#39;u kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/bosun/bosunu-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bosun/bosunu-kullanmaya-baslama/</guid>
+      <description>Örnek Yapılandırma Dosyası # Geliştirme ortamında kullanılan bir Bosun yapılandırma dosyası örneği:
+tsdbHost = localhost:4242 httpListen = :8070 smtpHost = localhost:25 emailFrom = bosun@example.org timeAndDate = 202,75,179,136 ledisDir = ../ledis_data checkFrequency = 5m notification example.notification { email = alerts@example.org print = true } Bu durumda yapılandırma dosyası, Bosun&amp;rsquo;un 4242 numaralı bağlantı noktasında yerel bir OpenTSDB örneğine bağlanması, 8070 numaralı bağlantı noktasındaki istekleri dinlemesi (ana bilgisayara bağlı tüm IP adreslerinde), e-posta için localhost SMTP sistemini kullanması, [ek saat dilimlerini] görüntülemesi gerektiğini belirtir.</description>
+    </item>
+    
+    <item>
+      <title>Scolector Harici Kollektörler</title>
+      <link>https://www.wikiod.com/tr/bosun/scolector-harici-kollektorler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bosun/scolector-harici-kollektorler/</guid>
+      <description>Scollector, tcollector stilini harici koleksiyoncular destekler bosun.org/scollector/external-collectors) özel komut dosyaları veya yürütülebilir dosyalar aracılığıyla metrikleri Bosun&amp;rsquo;a göndermek için kullanılabilir. Harici toplayıcılar veri toplamaya başlamak için harika bir yoldur, ancak mümkün olduğunda uygulamaların doğrudan Bosun&amp;rsquo;a veri göndermesi veya ek sistemleri doğal olarak desteklemesi için scollector&amp;rsquo;ı güncellemesi önerilir.
+ColDir yapılandırma anahtarı, genellikle Linux&amp;rsquo;ta /opt/scollector/collectors/ veya C:\Program Files\scollector\collectors gibi bir şeye ayarlanan harici toplayıcı dizinini belirtir. \ Windows&amp;rsquo;ta. OpenTSDB tcollector&amp;rsquo;da kullanılanlar gibi numaralandırılmış dizinleri içermelidir.</description>
+    </item>
+    
+    <item>
+      <title>Scolector Süreç ve Hizmet İzleme</title>
+      <link>https://www.wikiod.com/tr/bosun/scolector-surec-ve-hizmet-izleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bosun/scolector-surec-ve-hizmet-izleme/</guid>
+      <description>Scollector, Windows ve Linux&amp;rsquo;ta süreçleri ve hizmetleri izlemek için kullanılabilir. IIS uygulama havuzları gibi bazı işlemler otomatik olarak izlenir, ancak genellikle hangi işlemleri ve hizmetleri izlemek istediğinizi belirtmeniz gerekir.
+Linux süreci ve sistemd hizmeti izleme # Scollector, yapılandırma dosyasında belirtilen Linux işlemlerini izleyecektir.
+[[Process]] Command = &amp;quot;/opt/bosun/bosun&amp;quot; Name = &amp;quot;bosun&amp;quot; [[Process]] Command = &amp;quot;ruby&amp;quot; Name = &amp;quot;puppet-agent&amp;quot; Args = &amp;quot;puppet&amp;quot; [[Process]] Command = &amp;quot;/haproxy$&amp;quot; Name = &amp;quot;haproxy-t1&amp;quot; Args = &amp;quot;/etc/haproxy-t1/haproxy-t1.cfg&amp;quot; [[Process]] Command = &#39;/usr/bin/redis-server \*:16389&#39; Name = &amp;quot;redis-bosun-dev&amp;quot; IncludeCount = true Scollector, systemd tarafından yönetilen hizmetlerin ve yapılandırma dosyasında belirtilen durumunu belirlemek için D-Bus API&amp;rsquo;sini de kullanabilir.</description>
+    </item>
+    
+    <item>
+      <title>Tam Örnekler</title>
+      <link>https://www.wikiod.com/tr/bosun/tam-ornekler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bosun/tam-ornekler/</guid>
+      <description>Linux Bağlama Sağlığı # Şablon Tanımı # template linux.bonding { subject = {{.Last.Status}}: {{.Eval .Alert.Vars.by_host}} bad bond(s) on {{.Group.host}} body = `{{template &amp;quot;header&amp;quot; .}} &amp;lt;h2&amp;gt;Bond Status&amp;lt;/h2&amp;gt; &amp;lt;table&amp;gt; &amp;lt;tr&amp;gt;&amp;lt;th&amp;gt;Bond&amp;lt;/th&amp;gt;&amp;lt;th&amp;gt;Slave&amp;lt;/th&amp;gt;&amp;lt;th&amp;gt;Status&amp;lt;/th&amp;gt;&amp;lt;/tr&amp;gt; {{range $r := .EvalAll .Alert.Vars.slave_status}} {{if eq $.Group.host .Group.host}} &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;{{$r.Group.bond}}&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;{{$r.Group.slave}}&amp;lt;/td&amp;gt; &amp;lt;td {{if lt $r.Value 1.0}} style=&amp;quot;color: red;&amp;quot; {{end}}&amp;gt;{{$r.Value}}&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; {{end}} {{end}} &amp;lt;/table&amp;gt; ` } Uyarı Tanımı # alert linux.bonding { template = linux.bonding macro = host_based $notes = This alert triggers when a bond only has a single interface, or the status of a slave in the bond is not up $slave_status = max(q(&amp;quot;sum:linux.</description>
+    </item>
+    
+    <item>
+      <title>Scolector&#39;a Genel Bakış</title>
+      <link>https://www.wikiod.com/tr/bosun/scolectora-genel-baks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bosun/scolectora-genel-baks/</guid>
+      <description>Scollector, metrikleri Bosun&amp;rsquo;a veya OpenTSDB tarzı metrikleri kabul eden herhangi bir sisteme göndermek için kullanılabilen bir izleme aracıdır. OpenTSDB&amp;rsquo;nin tcollector veri toplama çerçevesinden sonra modellenmiştir ancak Go&amp;rsquo;da yazılmıştır ve tek bir ikili dosyada derlenmiştir. Tasarım hedeflerinden biri, metriklerin minimum yapılandırmayla veya hiç yapılandırma gerektirmeden gönderilmesi için hizmetleri otomatik olarak algılamaktır. Ayrıca, bir komut dosyası veya yürütülebilir dosya kullanarak metrikler oluşturan harici toplayıcılar oluşturabilir ve metrikleri sıraya almak ve sunucuya göndermek için Scollector&amp;rsquo;ı kullanabilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>Bildirimlere Genel Bakış</title>
+      <link>https://www.wikiod.com/tr/bosun/bildirimlere-genel-baks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bosun/bildirimlere-genel-baks/</guid>
+      <description>Sözdizimi # bildirim isim { e-posta = dev-alerts@example.com, prod-alerts@example.com, &amp;hellip; gönderi = http://example.com get = http://example.com sonraki = başka bir bildirim tanımı zaman aşımı = 30m runOnActions = yanlış gövde = {&amp;ldquo;metin&amp;rdquo;: {{.|json}}} contentType = uygulama/json yazdır = doğru -} Bosun&amp;rsquo;da bildirimler hem yeni uyarı olayları için hem de bir uyarı onaylandığında/kapatıldığında/vb. için kullanılır. Diğer olayların bir bildirim tetiklemesini istemiyorsanız, bildirim tanımına &amp;ldquo;runOnActions = false&amp;rdquo; ifadesini ekleyin.
+Ayrıca bakınız:
+Bildirimler: Sohbet Sistemleri HTTP GET/POST Bildirimleri # Uyarı olayları, HTTP GET veya HTTP POST istekleri kullanılarak başka bir sisteme gönderilebilir.</description>
+    </item>
+    
+    <item>
+      <title>Şablonlara Genel Bakış</title>
+      <link>https://www.wikiod.com/tr/bosun/sablonlara-genel-baks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bosun/sablonlara-genel-baks/</guid>
+      <description>Sözdizimi # #Go Şablonu Eylem ve İşlev sözdizimi için https://golang.org/pkg/text/template/ adresine bakın ifade = uyarı durumu {{.Last.Status}} ve bir değişken {{.Eval .Alert.Vars.q | printf &amp;ldquo;%.2f&amp;rdquo;}} ifade = `Yaymak için ters tik kullan satır sonları ile birden çok satır Bosun yapılandırma dosyasında` şablon adı* { konu = ifade gövde = ifade -} Bosun şablonları Go html/template paketini temel alır ve birden fazla uyarı arasında paylaşılabilir, ancak bu uyarı için tüm Bosun Bildirimlerini işlemek için tek bir şablon kullanılır.</description>
+    </item>
+    
+    <item>
+      <title>Paketler ve Başlatma Komut Dosyaları</title>
+      <link>https://www.wikiod.com/tr/bosun/paketler-ve-baslatma-komut-dosyalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bosun/paketler-ve-baslatma-komut-dosyalar/</guid>
+      <description>Şu anda Bosun veya Scollector için sağlanan herhangi bir kurulum paketi yok, sadece Bosun sürümü sayfasındaki ikili dosyalar. Dosyaları dağıtmanın ve bir hizmet olarak çalıştırmanın en iyi yolunu bulmak son kullanıcıya kalmıştır.
+Bosun sistemd birim dosyası # #Create Bosun unit file at /etc/systemd/system/bosun.service [Unit] Description=Bosun Service After=network.target After=rsyslog.service [Service] Type=simple User=root ExecStart=/opt/bosun/bosun -c /opt/bosun/config/prod.conf Restart=on-abort [Install] WantedBy=multi-user.target #enable and start service #systemctl enable bosun #systemctl start bosun #If you edit this file, be sure to run `systemctl daemon reload` so Systemd recognizes the changes made TSDBRelay sistemd birim dosyası # TSDBRelay, metrikleri bir OpenTSDB örneğine iletmek, indeksleme için Bosun&amp;rsquo;a göndermek ve yedekleme/DR/HA için başka bir opentsdb uyumlu örneğine iletmek için kullanılabilir.</description>
+    </item>
+    
+    <item>
+      <title>Şablonlar Graph ve GraphAll</title>
+      <link>https://www.wikiod.com/tr/bosun/sablonlar-graph-ve-graphall/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bosun/sablonlar-graph-ve-graphall/</guid>
+      <description>Bosun Şablonları, bir bildirim gönderirken daha fazla bilgi sağlamak için grafikler içerebilir. Grafikler, uyarı örneği için etiket kümesindeki uyarı ve filtre tabanındaki değişkenleri kullanabilir veya tüm serilerin grafiğini oluşturmak için GraphAll işlevini kullanabilir. Gösterge Tablosunda veya bir e-postada görüntülendiğinde, İfade sayfasına yüklemek için grafiğe tıklayabilirsiniz.
+Ayrıca, birden çok uyarı arasında paylaşılabilen bir İsteğe bağlı Grafiklere sahip Genel Şablon oluşturabilirsiniz.
+2: https://www.wikiod.com/tr/bosun/sablonlara-genel-baks#İsteğe bağlı Grafiklerle Genel Şablon
+Uyarı Değişkenini Kullanan Grafik # .</description>
+    </item>
+    
+    <item>
+      <title>Uyarılar Gelişmiş Kapsam Belirleme</title>
+      <link>https://www.wikiod.com/tr/bosun/uyarlar-gelismis-kapsam-belirleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bosun/uyarlar-gelismis-kapsam-belirleme/</guid>
+      <description>Devir işlevini anlama: t() # Genel Bakış # Devir işlevi, Bosun&amp;rsquo;un daha güçlü işlevlerinden biridir, ancak anlaşılması da çaba gerektirir. Güçlüdür çünkü temel alınan verilerin etiket yapısından farklı seviyelerde uyarı vermemizi sağlar.
+Transpose, uyarınızın kapsamını değiştirir. Bu, şeyleri daha büyük koleksiyonlara kapsamlamanızı sağlar. Örneğin, &amp;ldquo;host,cluster&amp;rdquo; kapsamını döndüren sorgularınız varsa ve bireysel ana bilgisayarlar yerine küme sağlığına göre uyarı vermek istiyorsanız, bunu yapmak için devrik kullanılabilir.
+kapsam nedir? Kapsam, nihai sonucunuzu oluşturan etiket anahtarlarının listesidir.</description>
+    </item>
+    
+  </channel>
+</rss>

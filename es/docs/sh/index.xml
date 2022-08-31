@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on </title>
+    <link>https://www.wikiod.com/es/docs/sh/</link>
+    <description>Recent content in Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/sh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Empezando con sh</title>
+      <link>https://www.wikiod.com/es/sh/empezando-con-sh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sh/empezando-con-sh/</guid>
+      <description>¡Hola Mundo! # Con eco:
+$ echo Hello, world! Hello, world! Con printf:
+$ printf &#39;Hello, world!\n&#39; Hello, world! Como un archivo:
+#!/bin/sh printf &#39;%s\n&#39; &#39;Hello, world!&#39; Portabilidad de eco # $ for shell in ash bash dash ksh ksh93 zsh; do &amp;gt; $shell -c &amp;quot;echo &#39;\\\\&#39;$shell&#39;\\\\&#39;&amp;quot; &amp;gt; done \\ash\\ \\bash\\ \dash\ \pdksh\ \\ksh93\\ \zsh\ &amp;rsquo;echo&amp;rsquo; solo se puede usar de manera consistente, en todas las implementaciones, si sus argumentos no contienen barras diagonales inversas (reverse-solidi) y si el primer argumento no comienza con un guión (guion-menos).</description>
+    </item>
+    
+    <item>
+      <title>Control de trabajo</title>
+      <link>https://www.wikiod.com/es/sh/control-de-trabajo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sh/control-de-trabajo/</guid>
+      <description>Pausa, ejecutar en segundo plano, ejecutar en primer plano # Vamos a crear un proceso que es bastante largo para completar:
+$ sleep 1000 Para pausar el proceso, escriba Ctrl + Z:
+^Z [1]+ Stopped sleep 1000 Puede usar trabajos para ver la lista de procesos en ejecución o detenidos en la terminal actual:
+$ jobs [1]+ Stopped sleep 1000 Para recuperar un trabajo en primer plano, use fg con la identificación escrita entre paréntesis en la lista proporcionada por jobs:</description>
+    </item>
+    
+    <item>
+      <title>El comando `leer`</title>
+      <link>https://www.wikiod.com/es/sh/el-comando-leer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sh/el-comando-leer/</guid>
+      <description>Leer una línea palabra por palabra # $ IFS= read -r foo &amp;lt;&amp;lt;EOF &amp;gt; this is a \n line &amp;gt;EOF $ printf &#39;%s\n&#39; &amp;quot;$foo&amp;quot; this is a \n line Leer una línea, eliminando los espacios en blanco iniciales y finales # $ read -r foo &amp;lt;&amp;lt;EOF &amp;gt; this is a line &amp;gt;EOF $ printf &#39;%s\n&#39; &amp;quot;$foo&amp;quot; this is a line </description>
+    </item>
+    
+    <item>
+      <title>Expansión Aritmética</title>
+      <link>https://www.wikiod.com/es/sh/expansion-aritmetica/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sh/expansion-aritmetica/</guid>
+      <description>Los números en expansiones aritméticas deben coincidir con el siguiente ERE:
+[-+]?(0[0-7]+|[1-9][0-9]*|0[Xx][0-9A-Fa-f]+) Las expresiones aritméticas admiten operadores de enteros con signo, comparaciones, expresiones booleanas, asignaciones y expresiones ternarias de C.
+Recursos # Expansión aritmética en POSIX Precedencia del operador Recuento de líneas # i=0 while read -r line; do i=$((i+1)) done &amp;lt; file echo $i Con un archivo que contiene:
+Alpha Beta Gamma Delta Epsilon El script anterior imprime: 5</description>
+    </item>
+    
+    <item>
+      <title>Redirección de ES</title>
+      <link>https://www.wikiod.com/es/sh/redireccion-de-es/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sh/redireccion-de-es/</guid>
+      <description>Generalmente, un comando toma entradas de la terminal y las salidas de vuelta a la terminal. Normalmente, un comando lee la entrada del teclado y muestra el resultado en la pantalla. Aquí está la importancia de la redirección de entrada/salida
+Sintaxis # [fd]&amp;lt;archivo [fd]&amp;lt;&amp;amp;fd [fd]&amp;lt;&amp;amp;- [fd]&amp;gt;archivo [fd]&amp;gt;&amp;amp;fd [fd]&amp;gt;&amp;amp;- [fd]&amp;gt;|archivo [fd]&amp;raquo;archivo [fd]&amp;lt;&amp;gt;archivo [fd]&amp;laquo;[-] palabra &amp;hellip;
+palabra Recursos # La sección POSIX &amp;lsquo;Lenguaje de comandos de Shell&amp;rsquo; en &amp;lsquo;Redirección&amp;rsquo; Redirección de salida # Por lo general, la salida de un comando va a la terminal.</description>
+    </item>
+    
+    <item>
+      <title>citando</title>
+      <link>https://www.wikiod.com/es/sh/citando/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sh/citando/</guid>
+      <description>Referencias # La sección POSIX &amp;lsquo;Shell Command Language&amp;rsquo; en &amp;lsquo;Cotización&amp;rsquo; Comillas simples # Las comillas simples son cadenas literales, y la falta de caracteres de escape significa que el único carácter que no puede aparecer dentro de una cadena entre comillas simples es una comilla simple.
+$ echo &#39;$var \$var \\$var \\\$var&#39; $var \$var \\$var \\\$var $ echo &#39;&amp;quot;quoted string&amp;quot;&#39; &amp;quot;quoted string&amp;quot; $ echo &#39;var=$(echo $var)&#39; var=$(echo $var) Doble comillas # Las comillas dobles conservan todos los caracteres que no sean el terminador &amp;quot;, las expansiones $, las sustituciones de comandos ` y los escapes \ de cualquiera de estos caracteres (y la eliminación de nueva línea).</description>
+    </item>
+    
+    <item>
+      <title>Prueba</title>
+      <link>https://www.wikiod.com/es/sh/prueba/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sh/prueba/</guid>
+      <description>Sintaxis # prueba prueba [!] [ -n | -z ] cadena prueba [!] { -b | -c | -d | -e | -f | -g | -h | -L | -p | -r | -S | -s | -u | -w | -x } archivo prueba [!] -t fd prueba [!] cadena { = | != } cadena prueba [!] entero { -eq | -ne | -gt | -ge | -lt | -el } entero [ ] [ [!</description>
+    </item>
+    
+  </channel>
+</rss>

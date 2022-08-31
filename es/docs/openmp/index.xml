@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de openmp on </title>
+    <link>https://www.wikiod.com/es/docs/openmp/</link>
+    <description>Recent content in Tutorial de openmp on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/openmp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comenzando con openmp</title>
+      <link>https://www.wikiod.com/es/openmp/comenzando-con-openmp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/openmp/comenzando-con-openmp/</guid>
+      <description>Compilacion # Hay muchos compiladores que admiten diferentes versiones de la especificación OpenMP. OpenMP mantiene una lista aquí con el compilador que lo admite y la versión compatible. En general, para compilar (y vincular) una aplicación compatible con OpenMP, solo necesita agregar un indicador de compilación y, si usa la API de OpenMP, debe incluir el encabezado OpenMP (omp.h). Si bien el archivo de encabezado tiene un nombre fijo, el indicador de compilación depende del compilador.</description>
+    </item>
+    
+    <item>
+      <title>Paralelismo OpenMP irregular</title>
+      <link>https://www.wikiod.com/es/openmp/paralelismo-openmp-irregular/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/openmp/paralelismo-openmp-irregular/</guid>
+      <description>Un error común es creer que todos los subprocesos de una región paralela deben instanciar (crear) tareas, pero este no suele ser el caso, a menos que desee crear tantas tareas como el número de subprocesos multiplicado por el número de elementos a procesar. Por lo tanto, en los códigos de tareas de OpenMP encontrará algo similar a
+#pragma omp parallel #pragma omp single ... #pragma omp task { code for a given task; } .</description>
+    </item>
+    
+    <item>
+      <title>Ejemplo paralelo simple</title>
+      <link>https://www.wikiod.com/es/openmp/ejemplo-paralelo-simple/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/openmp/ejemplo-paralelo-simple/</guid>
+      <description>Sintaxis # #pragma omp paralelo indica que el siguiente bloque será ejecutado por todos los hilos.
+int omp_get_num_threads (void) : devuelve el número de subprocesos que trabajan en la región paralela (también conocido como equipo de subprocesos).
+int omp_get_thread_num (void) : devuelve el identificador del subproceso de llamada (va de 0 a N-1 donde N está limitado a omp_get_num_threads()).
+Puede utilizar la variable de entorno OMP_NUM_THREADS o la directiva num_threads dentro de #pragma parallel para indicar el número de subprocesos en ejecución para toda la aplicación o para la región especificada, respectivamente.</description>
+    </item>
+    
+    <item>
+      <title>Paralelismo de bucles en OpenMP</title>
+      <link>https://www.wikiod.com/es/openmp/paralelismo-de-bucles-en-openmp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/openmp/paralelismo-de-bucles-en-openmp/</guid>
+      <description>Parámetros # Cláusula Parámetro privado Lista separada por comas de variables privadas primeroprivado Como private, pero inicializado al valor de la variable antes de entrar en el bucle últimoprivado Como private, pero la variable obtendrá el valor correspondiente a la última iteración del ciclo al salir reducción operador de reducción : lista separada por comas de las variables de reducción correspondientes horario static, dynamic, guided, auto o runtime con un tamaño de fragmento opcional después de una coma para los 3 primeros colapso Número de bucles perfectamente anidados para colapsar y paralelizar juntos ordenado Indica que algunas partes del ciclo deberán mantenerse en orden (estas partes se identificarán específicamente con algunas cláusulas &amp;ldquo;ordenadas&amp;rdquo; dentro del cuerpo del ciclo) sin esperar Eliminar la barrera implícita existente por defecto al final de la construcción del bucle El significado de la cláusula schedule es el siguiente:</description>
+    </item>
+    
+    <item>
+      <title>Reducciones OpenMP</title>
+      <link>https://www.wikiod.com/es/openmp/reducciones-openmp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/openmp/reducciones-openmp/</guid>
+      <description>Aproximación de PI utilizando la cláusula de reducción de #pragma omp # h = 1.0 / n; #pragma omp parallel for private(x) shared(n, h) reduction(+:area) for (i = 1; i &amp;lt;= n; i++) { x = h * (i - 0.5); area += (4.0 / (1.0 + x*x)); } pi = h * area; En este ejemplo, cada subproceso ejecuta un subconjunto del recuento de iteraciones. Cada subproceso tiene su copia privada local de area y al final de la región paralela, todos aplican la operación de suma (+) para generar el valor final de area.</description>
+    </item>
+    
+    <item>
+      <title>Ejecución paralela condicional</title>
+      <link>https://www.wikiod.com/es/openmp/ejecucion-paralela-condicional/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/openmp/ejecucion-paralela-condicional/</guid>
+      <description>Cláusulas condicionales en regiones paralelas de OpenMP # #include &amp;lt;omp.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; int main (void) { int t = (0 == 0); // true value int f = (1 == 0); // false value #pragma omp parallel if (f) { printf (&amp;quot;FALSE: I am thread %d\n&amp;quot;, omp_get_thread_num()); } #pragma omp parallel if (t) { printf (&amp;quot;TRUE : I am thread %d\n&amp;quot;, omp_get_thread_num()); } return 0; } Su salida es:
+$ OMP_NUM_THREADS=4 .</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>château-windsor Tutoriel on </title>
+    <link>https://www.wikiod.com/fr/docs/castle-windsor/</link>
+    <description>Recent content in château-windsor Tutoriel on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/castle-windsor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec château-windsor</title>
+      <link>https://www.wikiod.com/fr/castle-windsor/premiers-pas-avec-chateau-windsor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/castle-windsor/premiers-pas-avec-chateau-windsor/</guid>
+      <description>Hello World - Château de Windsor # class Program { static void Main(string[] args) { //Initialize a new container WindsorContainer container = new WindsorContainer(); //Register IService with a specific implementation and supply its dependencies container.Register(Component.For&amp;lt;IService&amp;gt;() .ImplementedBy&amp;lt;SomeService&amp;gt;() .DependsOn(Dependency.OnValue(&amp;quot;dependency&amp;quot;, &amp;quot;I am Castle Windsor&amp;quot;))); //Request the IService from the container var service = container.Resolve&amp;lt;IService&amp;gt;(); //Will print to console: &amp;quot;Hello World! I am Castle Windsor service.Foo(); } Prestations de service:
+public interface IService { void Foo(); } public class SomeService : IService { public SomeService(string dependency) { _dependency = dependency; } public void Foo() { Console.</description>
+    </item>
+    
+    <item>
+      <title>Installateurs</title>
+      <link>https://www.wikiod.com/fr/castle-windsor/installateurs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/castle-windsor/installateurs/</guid>
+      <description>Bases - Création et utilisation d&amp;rsquo;un programme d&amp;rsquo;installation # Les programmes d&amp;rsquo;installation sont des types personnalisés qui implémentent l&amp;rsquo;interface &amp;ldquo;IWindsorInstaller&amp;rdquo; et sont utilisés pour enregistrer les &amp;ldquo;composants&amp;rdquo; dans le conteneur, à l&amp;rsquo;aide de l&amp;rsquo;API d&amp;rsquo;enregistrement fluide.
+public class MyInstaller : IWindsorInstaller { public void Install(IWindsorContainer container, IConfigurationStore store) { container.Register(Component.For&amp;lt;IMyType&amp;gt;() .ImplementedBy&amp;lt;ConcreteMyType1&amp;gt;()); //Registering several components in one call to .Register container.Register( Component.For&amp;lt;IFoo&amp;gt;().ImplementedBy&amp;lt;Foo&amp;gt;(), Component.For&amp;lt;IBar&amp;gt;().ImplementedBy&amp;lt;Bar()); } } //To use the installer: WindsorContainer container = new WindsorContainer(); container.</description>
+    </item>
+    
+    <item>
+      <title>Usine abstraite</title>
+      <link>https://www.wikiod.com/fr/castle-windsor/usine-abstraite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/castle-windsor/usine-abstraite/</guid>
+      <description>Usine de validateur d&amp;rsquo;adresse - nécessite un paramètre pour sélectionner une implémentation # Scénario : vous devez sélectionner une implémentation de la validation d&amp;rsquo;adresse lorsqu&amp;rsquo;une commande client est soumise, et le validateur est déterminé par le pays vers lequel la commande est expédiée. La fabrique doit inspecter une valeur passée en argument pour sélectionner la bonne implémentation.
+Tout d&amp;rsquo;abord, écrivez une interface pour la fabrique :
+public interface IAddressValidatorFactory { IAddressValidator GetAddressValidator(Address address); void Release(IAddressValidator created); } L&amp;rsquo;interface indique que l&amp;rsquo;implémentation de IAddressValidator sera déterminée par Address passé en argument à GetAddressValidator.</description>
+    </item>
+    
+    <item>
+      <title>Intercepteurs</title>
+      <link>https://www.wikiod.com/fr/castle-windsor/intercepteurs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/castle-windsor/intercepteurs/</guid>
+      <description>Création d&amp;rsquo;intercepteurs personnalisés # Les intercepteurs nécessitent l&amp;rsquo;interface IInterceptor. Toute méthode publique dans la classe interceptée sera interceptée (y compris les getters et les setters)
+public class MyInterceptor : IInterceptor { public void Intercept(IInvocation invocation) { //Calls the next method in the chain - The last one will be the //original method that was intercepted invocation.Proceed(); } } Lisez ceci pour [informations sur l&amp;rsquo;enregistrement d&amp;rsquo;un intercepteur] [1] aux composants
+[1] : https://www.</description>
+    </item>
+    
+    <item>
+      <title>Enregistrement fluide de l&#39;API</title>
+      <link>https://www.wikiod.com/fr/castle-windsor/enregistrement-fluide-de-lapi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/castle-windsor/enregistrement-fluide-de-lapi/</guid>
+      <description>Enregistrement de plusieurs types de la même interface # Lors de l&amp;rsquo;enregistrement de types dans le conteneur, Castle utilise le type de la classe afin de résoudre. Dans le cas où il y a plus d&amp;rsquo;un enregistrement pour un type spécifique, la propriété Name doit être définie :
+public void Install(IWindsorContainer container, IConfigurationStore store) { container.Register( Component.For&amp;lt;IFoo&amp;gt;().ImplementedBy&amp;lt;Foo&amp;gt;().Named(&amp;quot;Registration1&amp;quot;), Component.For&amp;lt;IBar&amp;gt;().ImplementedBy&amp;lt;Bar().Named(&amp;quot;Registration2&amp;quot;)); } Spécifier le style de vie # Un Style de vie est le &amp;ldquo;comment&amp;rdquo; Castle contrôle la portée dans laquelle un composant est utilisé et quand le nettoyer.</description>
+    </item>
+    
+    <item>
+      <title>Modes de vie</title>
+      <link>https://www.wikiod.com/fr/castle-windsor/modes-de-vie/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/castle-windsor/modes-de-vie/</guid>
+      <description>Modes de vie standards # Lorsqu&amp;rsquo;un Composant est résolu à partir du conteneur Windsor, il doit avoir une définition de la portée dans laquelle il se trouve. Par portée, cela signifie si et comment il est réutilisé et quand libérer l&amp;rsquo;objet pour que le Garbage Collector le détruise. C&amp;rsquo;est le LifeStlye du Component.
+La façon de spécifier un LifeStyle consiste à enregistrer un composant. Les deux &amp;ldquo;styles de vie&amp;rdquo; les plus courants sont :</description>
+    </item>
+    
+  </channel>
+</rss>

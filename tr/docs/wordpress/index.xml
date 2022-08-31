@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WordPress Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/wordpress/</link>
+    <description>Recent content in WordPress Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WordPress&#39;i kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/wordpress/wordpressi-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wordpress/wordpressi-kullanmaya-baslama/</guid>
+      <description>WordPress&amp;rsquo;e Giriş # WordPress [WP] uygulamalar, web siteleri ve bloglar oluşturmak için açık kaynaklı bir İçerik Yönetim Sistemidir. WP, PHP ile yazılmıştır ve kullanıcı içeriği ve yapılandırması için veri deposu olarak MySQL&amp;rsquo;i kullanır. Zengin bir eklentiler ve temalar ekosistemine sahiptir ve canlı bir açık kaynak topluluğuna, iyi belgelere ve düşük giriş engellerine sahiptir. Kullanılabilirlik ve geliştirici belgeleri WP Codex&amp;rsquo;te bulunabilir.
+WordPress&amp;rsquo;i diğer birçok CMS ürününden farklı kılan bir parçası da Olay Odaklı Programlama.</description>
+    </item>
+    
+    <item>
+      <title>get_bloginfo()</title>
+      <link>https://www.wikiod.com/tr/wordpress/get_bloginfo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wordpress/get_bloginfo/</guid>
+      <description>Geçerli site hakkında bilgi alır.
+Sözdizimi # get_bloginfo( $göster , $filtre ) Parametreler # parametre Ayrıntılar $göster (string) Alınacak site ayar bilgileri. $filtre (string) Filtrelenmiş bir değerin döndürülüp döndürülmeyeceğine ilişkin belirtim. $göster
+Değerler Açıklama Örnek &amp;lsquo;ad&amp;rsquo; (Varsayılan) Site başlığı &amp;lsquo;&amp;lsquo;Matt Mullenweg&amp;rsquo;&amp;rsquo; &amp;lsquo;açıklama&amp;rsquo; Site sloganı `&amp;lsquo;Sadece başka bir WordPress sitesi&amp;rsquo;&amp;rsquo; &amp;lsquo;wpurl&amp;rsquo; WordPress kurulumunun URL&amp;rsquo;si. site_url() işleviyle aynı `&amp;lsquo;http://example.com&amp;rsquo;&amp;rsquo; , &amp;lsquo;&amp;lsquo;http://localhost/wordpress&amp;rsquo;&amp;rsquo; &amp;lsquo;url&amp;rsquo; sitenin URL&amp;rsquo;si. home_url() işleviyle aynı `&amp;lsquo;http://example.com&amp;rsquo;&amp;rsquo; , &amp;lsquo;&amp;lsquo;http://localhost/wordpress&amp;rsquo;&amp;rsquo; &amp;lsquo;admin_e-posta&amp;rsquo; Ana Yöneticinin e-posta adresi `&amp;lsquo;matt@mullenweg.</description>
+    </item>
+    
+    <item>
+      <title>AJAX</title>
+      <link>https://www.wikiod.com/tr/wordpress/ajax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wordpress/ajax/</guid>
+      <description>.ajax() ve WordPress Nonce ile AJAX # işlevler.php
+//Localize the AJAX URL and Nonce add_action(&#39;wp_enqueue_scripts&#39;, &#39;example_localize_ajax&#39;); function example_localize_ajax(){ wp_localize_script(&#39;jquery&#39;, &#39;ajax&#39;, array( &#39;url&#39; =&amp;gt; admin_url(&#39;admin-ajax.php&#39;), &#39;nonce&#39; =&amp;gt; wp_create_nonce(&#39;example_ajax_nonce&#39;), )); } //Example AJAX Function add_action(&#39;wp_ajax_example_function&#39;, &#39;example_function&#39;); add_action(&#39;wp_ajax_nopriv_example_function&#39;, &#39;example_function&#39;); function example_function(){ if ( !wp_verify_nonce($_POST[&#39;nonce&#39;], &#39;example_ajax_nonce&#39;) ){ die(&#39;Permission Denied.&#39;); } $firstname = sanitize_text_field($_POST[&#39;data&#39;][&#39;firstname&#39;]); $lastname = sanitize_text_field($_POST[&#39;data&#39;][&#39;lastname&#39;]); //Do something with data here echo $firstname . &#39; &#39; . $lastname; //Echo for response wp_die(); // this is required to terminate immediately and return a proper response:- https://codex.</description>
+    </item>
+    
+    <item>
+      <title>Özelleştirici Temelleri (Panel, Bölüm, Ayar, Kontrol Ekleme)</title>
+      <link>https://www.wikiod.com/tr/wordpress/ozellestirici-temelleri-panel-bolum-ayar-kontrol-ekleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wordpress/ozellestirici-temelleri-panel-bolum-ayar-kontrol-ekleme/</guid>
+      <description>Özelleştirici Paneli Ekle # &amp;lt;?php /** * Panel: WPCustomize * * Basic Customizer panel with basic controls. * * @since 1.0.0 * @package WPC */ // Exit if accessed directly. if ( ! defined( &#39;ABSPATH&#39; ) ) { exit; } // Customize function. if ( ! function_exists( &#39;wpc_panel_wpcustomize&#39; ) ) { // Customize Register action. add_action( &#39;customize_register&#39;, &#39;wpc_panel_wpcustomize&#39; ); /** * Customize Panel. * * Adds a Panel, Section with basic controls.</description>
+    </item>
+    
+    <item>
+      <title>Özel Gönderi Türleri</title>
+      <link>https://www.wikiod.com/tr/wordpress/ozel-gonderi-turleri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wordpress/ozel-gonderi-turleri/</guid>
+      <description>Sözdizimi # register_post_type( $post_type, $args); Parametreler # parametre Ayrıntılar $post_type (dize) (Gerekli) $arg&amp;rsquo;lar (dizi/dize) (İsteğe bağlı) Ana Sorguya Özel Gönderi Türleri Ekleme # Özel bir gönderi türünün kaydedilmesi, ana sorguya otomatik olarak ekleneceği anlamına gelmez. Ana sorguya özel gönderi türleri eklemek için pre_get_posts filtresini kullanmanız gerekir.
+// Show posts of &#39;post&#39; and &#39;book&#39; custom post types on home page add_action( &#39;pre_get_posts&#39;, &#39;add_my_post_types_to_query&#39; ); function add_my_post_types_to_query( $query ) { if ( is_home() &amp;amp;&amp;amp; $query-&amp;gt;is_main_query() ) $query-&amp;gt;set( &#39;post_type&#39;, array( &#39;post&#39;, &#39;book&#39; ) ); return $query; } Özel Bir Gönderi Türü Kaydetme # Diyelim ki bir kütüphane web siteniz var ve Kitaplar adında özel bir yazı tipiniz olsun istiyorsunuz.</description>
+    </item>
+    
+    <item>
+      <title>get_the_category()</title>
+      <link>https://www.wikiod.com/tr/wordpress/get_the_category/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wordpress/get_the_category/</guid>
+      <description>Bu işlev, tüm kategorileri geçerli gönderi veya sayfanın bir dizisi veya belirlenen gönderi veya sayfa olarak döndürür.
+Sözdizimi # get_the_category( $id ) Parametreler # parametre Ayrıntılar $kimlik (int) (İsteğe bağlı) varsayılan olarak geçerli posta kimliğine. Posta kimliği. Lütfen get_the_category() öğesinin bir dizi döndürdüğünü unutmayın; bu, döndürülen değeri doğrudan yansıtamayacağınız anlamına gelir.
+Her kategoriden yazdırabileceğiniz nesnelerin listesi aşağıdadır:
+term_id isim sümüklü böcek term_group term_taxonomy_id taksonomi tanım ebeveyn saymak Nesne Kimliği filtre kedi_kimliği kategori_sayısı Kategori tanımı kedi_adı kategori_güzeladı kategori_ebeveyn Gönderinin tüm kategorilerinin adlarını alın # Kod</description>
+    </item>
+    
+    <item>
+      <title>Döngü (ana WordPress döngüsü)</title>
+      <link>https://www.wikiod.com/tr/wordpress/dongu-ana-wordpress-dongusu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wordpress/dongu-ana-wordpress-dongusu/</guid>
+      <description>Alternatif döngü sözdizimi # Döngüyü ayrıca şu şekilde küme parantezleriyle de kullanabilirsiniz:
+if ( have_posts() ) { while ( have_posts() ) { the_post(); var_dump( $post ); } } Temel WordPress döngü yapısı # WordPress sayfayı her yüklediğinde, ana döngü çalışacaktır.
+Döngü, şu anda bulunduğunuz sayfayla ilgili tüm öğeleri yinelemenin yoludur.
+Ana döngü, global bir &amp;lsquo;WP_Query&amp;rsquo; nesnesi üzerinde çalışacaktır. Sorgu, tüm sonuçlar arasında döngü yapmamızı sağlayan globalleştirilmiş bir have_posts() yöntemine sahiptir. Son olarak, döngü içinde, genel gönderi nesnesini döngü içindeki geçerli gönderiye ayarlayan ve gönderi verilerini geçerli gönderiye ayarlayan the_post() yöntemini (aynı zamanda global bir işlev olarak) çağırabilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>işlev add_action()</title>
+      <link>https://www.wikiod.com/tr/wordpress/islev-add_action/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wordpress/islev-add_action/</guid>
+      <description>Sözdizimi # add_action( $etiket, $function_to_add ) add_action( $etiket, $function_to_add, $öncelik) add_action( $etiket, $function_to_add, $priority, $accepted_args ) Parametreler # parametre Ayrıntılar $ etiketi (string) (Gerekli) $function_to_add öğesinin bağlı olduğu eylemin adı $function_to_add (çağrılabilir) (Gerekli) $tag ile belirtilen eylem yürütüldüğünde çağrılması gereken işlev $öncelik (int) (İsteğe bağlı) Varsayılan değer: 10 Belirli bir eylemle ilişkili işlevlerin yürütülme sırasını belirtmek için kullanılır. Daha düşük sayılar önceki yürütmeye karşılık gelir ve aynı önceliğe sahip işlevler, eyleme eklendikleri sırayla yürütülür.</description>
+    </item>
+    
+    <item>
+      <title>Kısa kod</title>
+      <link>https://www.wikiod.com/tr/wordpress/ksa-kod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wordpress/ksa-kod/</guid>
+      <description>Yeni Kısa Kodlar Ekleme # function footag_func( $atts ) { return &amp;quot;foo = {$atts[&#39;foo&#39;]}&amp;quot;; } add_shortcode( &#39;footag&#39;, &#39;footag_func&#39; ); Eklentilerde add_shortcode işlevini kullanarak kısa kodlar ekleyebiliriz.
+Kısa kod, herhangi bir Wordpress sayfasında veya yalnızca köşeli parantez içine alınarak kullanılabilir.
+[footag] Kısa kod kaydediliyor # Kısa kod, WordPress düzenleyicisine eklenebilen ve sayfa yayınlandığında veya ön izleme yapıldığında farklı bir çıktı verecek küçük bir kod parçasıdır.
+Sıklıkla, kısa kodlar functions.php teması dosyasına eklenir, ancak bu iyi bir uygulama değildir çünkü kısa kodların temaları değiştirdikten sonra çalışmaya devam etmesi beklenir.</description>
+    </item>
+    
+    <item>
+      <title>add_menu_page()</title>
+      <link>https://www.wikiod.com/tr/wordpress/add_menu_page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wordpress/add_menu_page/</guid>
+      <description>Bu işlev, yönetici panelinin gezinme çubuğuna bir öğe eklemek içindir.
+Sözdizimi # add_menu_page( $page_title, $menu_title, $yetenek, $menu_slug, $işlev, $icon_url, $pozisyon) Parametreler # parametre Ayrıntılar $sayfa_başlığı (string) Menü seçildiğinde sayfanın başlık etiketlerinde görüntülenecek metin. $menü_başlığı (string) Menü için kullanılacak metin. $yetenek (string) Bu menünün kullanıcıya gösterilmesi için gereken yetenek. $menu_sümüğü (string) Bu menüye atıfta bulunulacak bilgi adı (bu menü için benzersiz olmalıdır). $fonksiyon (çağrılabilir) (isteğe bağlı) Bu sayfanın içeriğini çıkarmak için çağrılacak işlev.</description>
+    </item>
+    
+  </channel>
+</rss>

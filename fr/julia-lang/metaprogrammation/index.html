@@ -1,0 +1,12815 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.7636753edc6f50e96b0045eba39982b1b0b2b6947250d1080bec1f4cbe52399ea6bcecac0e0b6026886b51bdbde879ec9a9820765b03caead79d8ddf3b79336f.css" integrity="sha512-djZ1PtxvUOlrAEXro5mCsbCytpRyUNEIC&#43;wfTL5SOZ6mvOysDgtgJohrUb296HnsmpggdlsDyurXnY3fO3kzbw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Métaprogrammation - WikiOD</title>
+<meta name="description" content="Syntaxe # nom de la macro (ex) &amp;hellip; fin citation &amp;hellip; fin :(&amp;hellip;) $x Meta.quot(x) QuoteNode(x) esc(x) Les fonctionnalités de métaprogrammation de Julia sont fortement inspirées de celles des langages de type Lisp et sembleront familières à ceux qui ont une certaine expérience de Lisp. La métaprogrammation est très puissante. Lorsqu&amp;rsquo;il est utilisé correctement, il peut conduire à un code plus concis et lisible.
+Le quote ... end est une syntaxe quasiquote.">
+  <link rel="canonical" href="https://www.wikiod.com/fr/julia-lang/metaprogrammation/">
+<meta property="og:locale" content="fr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Métaprogrammation">
+<meta property="og:description" content="Syntaxe # nom de la macro (ex) &hellip; fin citation &hellip; fin :(&hellip;) $x Meta.quot(x) QuoteNode(x) esc(x) Les fonctionnalités de métaprogrammation de Julia sont fortement inspirées de celles des langages de type Lisp et sembleront familières à ceux qui ont une certaine expérience de Lisp. La métaprogrammation est très puissante. Lorsqu&rsquo;il est utilisé correctement, il peut conduire à un code plus concis et lisible.
+Le quote ... end est une syntaxe quasiquote.">
+<meta property="og:url" content="https://www.wikiod.com/fr/julia-lang/metaprogrammation/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Métaprogrammation">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Métaprogrammation">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "Bienvenue sur WikiOD - Wiki Documentation en ligne WikiOD est un projet d\u0027écriture collaborative visant à créer une documentation en ligne de la plus haute qualité sur tous les langages de programmation, sujets et concepts liés à l\u0027éducation.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/fr/julia-lang/metaprogrammation/",
+      "url": "https://www.wikiod.com/fr/julia-lang/metaprogrammation/",
+      "name": "Métaprogrammation",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/fr/julia-lang/metaprogrammation/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/fr/julia-lang/metaprogrammation/#/schema/image/2"
+      },
+      "inLanguage": "fr",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/fr/julia-lang/metaprogrammation/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/fr/julia-lang/metaprogrammation/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/fr/",
+          "url": "https://www.wikiod.com/fr/",
+          "name": "Fr"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/fr/julia-lang/",
+          "url": "https://www.wikiod.com/fr/julia-lang/",
+          "name": "Julia Lang"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/fr/julia-lang/metaprogrammation/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Métaprogrammation",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/fr/julia-lang/metaprogrammation/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/fr/julia-lang/metaprogrammation/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/fr/julia-lang/metaprogrammation/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/fr/julia-lang/metaprogrammation/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Métaprogrammation"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9345677191971886" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZZF8Q2L4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y7ZZF8Q2L4');
+</script>
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/fr/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Parcourir docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/julia-lang/"><h3 class="h6 text-uppercase mb-2">Tutoriel de langue Julia</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/premiers-pas-avec-julia-language/">Premiers pas avec Julia Language</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/pour-les-boucles/">pour les boucles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/fermetures/">Fermetures</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/json/">JSON</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/saisir/">Saisir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/conditionnels/">Conditionnels</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/julia-lang/metaprogrammation/">Métaprogrammation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/traitement-parallele/">Traitement parallèle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tuples/">Tuples</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tests-unitaires/">Tests unitaires</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tandis-que-les-boucles/">tandis que les boucles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/les-fonctions/">Les fonctions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/comparaisons/">Comparaisons</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/fonctions-dordre-superieur/">Fonctions d&#39;ordre supérieur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/paquets/">Paquets</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/goto-et-label/">@goto et @label</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/expressions/">Expressions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/macros-de-chaine/">Macros de chaîne</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/scripts-shell-et-tuyauterie/">Scripts Shell et tuyauterie</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/comprehensions/">Compréhensions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/cordes/">Cordes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/enumerations/">Énumérations</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tableaux/">Tableaux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/sub2ind/">sub2ind</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/stabilite-des-types/">Stabilité des types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/temps/">Temps</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/combinateurs/">Combinateurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/compatibilite-entre-versions/">Compatibilité entre versions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/les-types/">Les types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/iterables/">Itérables</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/regex/">Regex</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/repl/">REPL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/arithmetique/">Arithmétique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/modules/">Modules</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/lire-un-dataframe-a-partir-dun-fichier/">Lire un DataFrame à partir d&#39;un fichier</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/normalisation-des-chaines/">Normalisation des chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/dictionnaires/">Dictionnaires</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/fr/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/fr/docs/">Tutoriels</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/fr/blog/">Des articles</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Français
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/fr/julia-lang/metaprogrammation/">Français</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/julia-lang/metaprogramming/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/julia-lang/metaprogramacion/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/julia-lang/metaprogramacao/" hreflang="pt" lang="pt">Português</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/tr/julia-lang/metaprogramlama/" hreflang="tr" lang="tr">Türk</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/julia-lang/"><h3 class="h6 text-uppercase mb-2">Tutoriel de langue Julia</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/premiers-pas-avec-julia-language/">Premiers pas avec Julia Language</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/pour-les-boucles/">pour les boucles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/fermetures/">Fermetures</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/json/">JSON</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/saisir/">Saisir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/conditionnels/">Conditionnels</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/julia-lang/metaprogrammation/">Métaprogrammation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/traitement-parallele/">Traitement parallèle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tuples/">Tuples</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tests-unitaires/">Tests unitaires</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tandis-que-les-boucles/">tandis que les boucles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/les-fonctions/">Les fonctions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/comparaisons/">Comparaisons</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/fonctions-dordre-superieur/">Fonctions d&#39;ordre supérieur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/paquets/">Paquets</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/goto-et-label/">@goto et @label</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/expressions/">Expressions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/macros-de-chaine/">Macros de chaîne</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/scripts-shell-et-tuyauterie/">Scripts Shell et tuyauterie</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/comprehensions/">Compréhensions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/cordes/">Cordes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/enumerations/">Énumérations</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tableaux/">Tableaux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/sub2ind/">sub2ind</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/stabilite-des-types/">Stabilité des types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/temps/">Temps</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/combinateurs/">Combinateurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/compatibilite-entre-versions/">Compatibilité entre versions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/les-types/">Les types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/iterables/">Itérables</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/regex/">Regex</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/repl/">REPL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/arithmetique/">Arithmétique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/modules/">Modules</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/lire-un-dataframe-a-partir-dun-fichier/">Lire un DataFrame à partir d&#39;un fichier</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/normalisation-des-chaines/">Normalisation des chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/dictionnaires/">Dictionnaires</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/fr/docs/julia-lang/"><h3 class="h6 text-uppercase mb-2">Tutoriel de langue Julia</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/premiers-pas-avec-julia-language/">Premiers pas avec Julia Language</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/pour-les-boucles/">pour les boucles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/fermetures/">Fermetures</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/json/">JSON</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/saisir/">Saisir</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/conditionnels/">Conditionnels</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/fr/julia-lang/metaprogrammation/">Métaprogrammation</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/traitement-parallele/">Traitement parallèle</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tuples/">Tuples</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tests-unitaires/">Tests unitaires</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tandis-que-les-boucles/">tandis que les boucles</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/les-fonctions/">Les fonctions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/comparaisons/">Comparaisons</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/fonctions-dordre-superieur/">Fonctions d&#39;ordre supérieur</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/paquets/">Paquets</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/goto-et-label/">@goto et @label</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/expressions/">Expressions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/macros-de-chaine/">Macros de chaîne</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/scripts-shell-et-tuyauterie/">Scripts Shell et tuyauterie</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/comprehensions/">Compréhensions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/cordes/">Cordes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/enumerations/">Énumérations</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/tableaux/">Tableaux</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/sub2ind/">sub2ind</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/stabilite-des-types/">Stabilité des types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/temps/">Temps</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/combinateurs/">Combinateurs</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/compatibilite-entre-versions/">Compatibilité entre versions</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/les-types/">Les types</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/iterables/">Itérables</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/regex/">Regex</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/repl/">REPL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/arithmetique/">Arithmétique</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/modules/">Modules</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/lire-un-dataframe-a-partir-dun-fichier/">Lire un DataFrame à partir d&#39;un fichier</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/normalisation-des-chaines/">Normalisation des chaînes</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/fr/julia-lang/dictionnaires/">Dictionnaires</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Sur cette page</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#syntaxe">Syntaxe</a></li>
+    <li><a href="#réimplémenter-la-macro-show">Réimplémenter la macro @show</a></li>
+    <li><a href="#python-dictjson-comme-syntaxe-pour-les-littéraux-dict">Python <code>dict</code>/JSON comme syntaxe pour les littéraux <code>Dict</code>.</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#définition-des-macros">Définition des macros</a></li>
+    <li><a href="#utilisation">Utilisation</a></li>
+    <li><a href="#mauvaise-utilisation">Mauvaise utilisation</a></li>
+    <li><a href="#jusquà-la-boucle">Jusqu&rsquo;à la boucle</a></li>
+    <li><a href="#quotenode-metaquot-et-exprquote">QuoteNode, Meta.quot et Expr(:quote)</a></li>
+    <li><a href="#la-différence-entre-metaquot-et-quotenode-expliquée">La différence entre <code>Meta.quot</code> et <code>QuoteNode</code>, expliquée</a></li>
+    <li><a href="#quen-est-il-de-exprquote">Qu&rsquo;en est-il de Expr(:quote) ?</a></li>
+    <li><a href="#guide">Guide</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#symbole"><strong>Symbole</strong></a></li>
+    <li><a href="#expr-ast"><strong>Expr</strong> (AST)</a></li>
+    <li><a href="#exprs-multilignes-utilisant-quote"><code>Expr</code>s multilignes utilisant <strong><code>quote</code></strong></a></li>
+    <li><a href="#quote--ing-a-quote"><strong><code>quote</code></strong> -ing a <strong><code>quote</code></strong></a></li>
+    <li><a href="#-et--sont-ils-en-quelque-sorte-inverses-lun-de-lautre"><strong>$</strong> et <strong>:(…)</strong> sont-ils en quelque sorte inverses l&rsquo;un de l&rsquo;autre ?</a></li>
+    <li><a href="#est-ce-que-foo-est-identique-à-evalfoo">Est-ce que <strong><code>$</code></strong><code>foo</code> est identique à <strong><code>eval(</code></strong><code>foo</code><strong><code>)</code></strong> ?</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#créons-notre-propre-macro-show">Créons notre propre macro <strong><code>@show</code></strong> :</a></li>
+    <li><a href="#expand-pour-diminuer-un-expr"><strong><code>expand</code></strong> pour diminuer un <strong><code>Expr</code></strong></a></li>
+    <li><a href="#esc"><strong><code>esc()</code></strong></a>
+      <ul>
+        <li><a href="#exemple-swap-macro-pour-illustrer-esc">Exemple : <strong><code>swap</code></strong> macro pour illustrer <strong><code>esc()</code></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#exemple-macro-jusquà">Exemple : macro <strong><code>jusqu'à</code></strong></a></li>
+    <li><a href="#interpolation-et-macro-assert">Interpolation et macro <code>assert</code></a>
+      <ul>
+        <li><a href="#un-hack-amusant-pour-utiliser---pour-les-blocs">Un hack amusant pour utiliser { } pour les blocs</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#macro-de-scott">Macro de Scott :</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#affichervider-une-macro"><strong>afficher</strong>/<strong>vider</strong> une macro</a></li>
+        <li><a href="#comment-comprendre-evalsymbolm">Comment comprendre <code>eval(Symbol(&quot;@M&quot;))</code> ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#pourquoi-code_typed-naffiche-pas-les-paramètres">Pourquoi <strong><code>code_typed</code></strong> n&rsquo;affiche pas les paramètres ?</a></li>
+    <li><a href="#heading">???</a>
+      <ul>
+        <li><a href="#module-gotcha">Module Gotcha</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Sur cette page</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#syntaxe">Syntaxe</a></li>
+    <li><a href="#réimplémenter-la-macro-show">Réimplémenter la macro @show</a></li>
+    <li><a href="#python-dictjson-comme-syntaxe-pour-les-littéraux-dict">Python <code>dict</code>/JSON comme syntaxe pour les littéraux <code>Dict</code>.</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#définition-des-macros">Définition des macros</a></li>
+    <li><a href="#utilisation">Utilisation</a></li>
+    <li><a href="#mauvaise-utilisation">Mauvaise utilisation</a></li>
+    <li><a href="#jusquà-la-boucle">Jusqu&rsquo;à la boucle</a></li>
+    <li><a href="#quotenode-metaquot-et-exprquote">QuoteNode, Meta.quot et Expr(:quote)</a></li>
+    <li><a href="#la-différence-entre-metaquot-et-quotenode-expliquée">La différence entre <code>Meta.quot</code> et <code>QuoteNode</code>, expliquée</a></li>
+    <li><a href="#quen-est-il-de-exprquote">Qu&rsquo;en est-il de Expr(:quote) ?</a></li>
+    <li><a href="#guide">Guide</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#symbole"><strong>Symbole</strong></a></li>
+    <li><a href="#expr-ast"><strong>Expr</strong> (AST)</a></li>
+    <li><a href="#exprs-multilignes-utilisant-quote"><code>Expr</code>s multilignes utilisant <strong><code>quote</code></strong></a></li>
+    <li><a href="#quote--ing-a-quote"><strong><code>quote</code></strong> -ing a <strong><code>quote</code></strong></a></li>
+    <li><a href="#-et--sont-ils-en-quelque-sorte-inverses-lun-de-lautre"><strong>$</strong> et <strong>:(…)</strong> sont-ils en quelque sorte inverses l&rsquo;un de l&rsquo;autre ?</a></li>
+    <li><a href="#est-ce-que-foo-est-identique-à-evalfoo">Est-ce que <strong><code>$</code></strong><code>foo</code> est identique à <strong><code>eval(</code></strong><code>foo</code><strong><code>)</code></strong> ?</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#créons-notre-propre-macro-show">Créons notre propre macro <strong><code>@show</code></strong> :</a></li>
+    <li><a href="#expand-pour-diminuer-un-expr"><strong><code>expand</code></strong> pour diminuer un <strong><code>Expr</code></strong></a></li>
+    <li><a href="#esc"><strong><code>esc()</code></strong></a>
+      <ul>
+        <li><a href="#exemple-swap-macro-pour-illustrer-esc">Exemple : <strong><code>swap</code></strong> macro pour illustrer <strong><code>esc()</code></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#exemple-macro-jusquà">Exemple : macro <strong><code>jusqu'à</code></strong></a></li>
+    <li><a href="#interpolation-et-macro-assert">Interpolation et macro <code>assert</code></a>
+      <ul>
+        <li><a href="#un-hack-amusant-pour-utiliser---pour-les-blocs">Un hack amusant pour utiliser { } pour les blocs</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#macro-de-scott">Macro de Scott :</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#affichervider-une-macro"><strong>afficher</strong>/<strong>vider</strong> une macro</a></li>
+        <li><a href="#comment-comprendre-evalsymbolm">Comment comprendre <code>eval(Symbol(&quot;@M&quot;))</code> ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#pourquoi-code_typed-naffiche-pas-les-paramètres">Pourquoi <strong><code>code_typed</code></strong> n&rsquo;affiche pas les paramètres ?</a></li>
+    <li><a href="#heading">???</a>
+      <ul>
+        <li><a href="#module-gotcha">Module Gotcha</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/fr/">Home</a></li>
+<li class="breadcrumb-item"><a href="/fr/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/fr/docs/julia-lang/">Tutoriel de langue Julia</a></li>
+<li class="breadcrumb-item active" aria-current="page">Métaprogrammation</li>
+					</ol>
+				</nav>
+			
+			<h1>Métaprogrammation</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Sur cette page</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#syntaxe">Syntaxe</a></li>
+    <li><a href="#réimplémenter-la-macro-show">Réimplémenter la macro @show</a></li>
+    <li><a href="#python-dictjson-comme-syntaxe-pour-les-littéraux-dict">Python <code>dict</code>/JSON comme syntaxe pour les littéraux <code>Dict</code>.</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#définition-des-macros">Définition des macros</a></li>
+    <li><a href="#utilisation">Utilisation</a></li>
+    <li><a href="#mauvaise-utilisation">Mauvaise utilisation</a></li>
+    <li><a href="#jusquà-la-boucle">Jusqu&rsquo;à la boucle</a></li>
+    <li><a href="#quotenode-metaquot-et-exprquote">QuoteNode, Meta.quot et Expr(:quote)</a></li>
+    <li><a href="#la-différence-entre-metaquot-et-quotenode-expliquée">La différence entre <code>Meta.quot</code> et <code>QuoteNode</code>, expliquée</a></li>
+    <li><a href="#quen-est-il-de-exprquote">Qu&rsquo;en est-il de Expr(:quote) ?</a></li>
+    <li><a href="#guide">Guide</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#symbole"><strong>Symbole</strong></a></li>
+    <li><a href="#expr-ast"><strong>Expr</strong> (AST)</a></li>
+    <li><a href="#exprs-multilignes-utilisant-quote"><code>Expr</code>s multilignes utilisant <strong><code>quote</code></strong></a></li>
+    <li><a href="#quote--ing-a-quote"><strong><code>quote</code></strong> -ing a <strong><code>quote</code></strong></a></li>
+    <li><a href="#-et--sont-ils-en-quelque-sorte-inverses-lun-de-lautre"><strong>$</strong> et <strong>:(…)</strong> sont-ils en quelque sorte inverses l&rsquo;un de l&rsquo;autre ?</a></li>
+    <li><a href="#est-ce-que-foo-est-identique-à-evalfoo">Est-ce que <strong><code>$</code></strong><code>foo</code> est identique à <strong><code>eval(</code></strong><code>foo</code><strong><code>)</code></strong> ?</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#créons-notre-propre-macro-show">Créons notre propre macro <strong><code>@show</code></strong> :</a></li>
+    <li><a href="#expand-pour-diminuer-un-expr"><strong><code>expand</code></strong> pour diminuer un <strong><code>Expr</code></strong></a></li>
+    <li><a href="#esc"><strong><code>esc()</code></strong></a>
+      <ul>
+        <li><a href="#exemple-swap-macro-pour-illustrer-esc">Exemple : <strong><code>swap</code></strong> macro pour illustrer <strong><code>esc()</code></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#exemple-macro-jusquà">Exemple : macro <strong><code>jusqu'à</code></strong></a></li>
+    <li><a href="#interpolation-et-macro-assert">Interpolation et macro <code>assert</code></a>
+      <ul>
+        <li><a href="#un-hack-amusant-pour-utiliser---pour-les-blocs">Un hack amusant pour utiliser { } pour les blocs</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#macro-de-scott">Macro de Scott :</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#affichervider-une-macro"><strong>afficher</strong>/<strong>vider</strong> une macro</a></li>
+        <li><a href="#comment-comprendre-evalsymbolm">Comment comprendre <code>eval(Symbol(&quot;@M&quot;))</code> ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#pourquoi-code_typed-naffiche-pas-les-paramètres">Pourquoi <strong><code>code_typed</code></strong> n&rsquo;affiche pas les paramètres ?</a></li>
+    <li><a href="#heading">???</a>
+      <ul>
+        <li><a href="#module-gotcha">Module Gotcha</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Sur cette page</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#syntaxe">Syntaxe</a></li>
+    <li><a href="#réimplémenter-la-macro-show">Réimplémenter la macro @show</a></li>
+    <li><a href="#python-dictjson-comme-syntaxe-pour-les-littéraux-dict">Python <code>dict</code>/JSON comme syntaxe pour les littéraux <code>Dict</code>.</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#définition-des-macros">Définition des macros</a></li>
+    <li><a href="#utilisation">Utilisation</a></li>
+    <li><a href="#mauvaise-utilisation">Mauvaise utilisation</a></li>
+    <li><a href="#jusquà-la-boucle">Jusqu&rsquo;à la boucle</a></li>
+    <li><a href="#quotenode-metaquot-et-exprquote">QuoteNode, Meta.quot et Expr(:quote)</a></li>
+    <li><a href="#la-différence-entre-metaquot-et-quotenode-expliquée">La différence entre <code>Meta.quot</code> et <code>QuoteNode</code>, expliquée</a></li>
+    <li><a href="#quen-est-il-de-exprquote">Qu&rsquo;en est-il de Expr(:quote) ?</a></li>
+    <li><a href="#guide">Guide</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#symbole"><strong>Symbole</strong></a></li>
+    <li><a href="#expr-ast"><strong>Expr</strong> (AST)</a></li>
+    <li><a href="#exprs-multilignes-utilisant-quote"><code>Expr</code>s multilignes utilisant <strong><code>quote</code></strong></a></li>
+    <li><a href="#quote--ing-a-quote"><strong><code>quote</code></strong> -ing a <strong><code>quote</code></strong></a></li>
+    <li><a href="#-et--sont-ils-en-quelque-sorte-inverses-lun-de-lautre"><strong>$</strong> et <strong>:(…)</strong> sont-ils en quelque sorte inverses l&rsquo;un de l&rsquo;autre ?</a></li>
+    <li><a href="#est-ce-que-foo-est-identique-à-evalfoo">Est-ce que <strong><code>$</code></strong><code>foo</code> est identique à <strong><code>eval(</code></strong><code>foo</code><strong><code>)</code></strong> ?</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#créons-notre-propre-macro-show">Créons notre propre macro <strong><code>@show</code></strong> :</a></li>
+    <li><a href="#expand-pour-diminuer-un-expr"><strong><code>expand</code></strong> pour diminuer un <strong><code>Expr</code></strong></a></li>
+    <li><a href="#esc"><strong><code>esc()</code></strong></a>
+      <ul>
+        <li><a href="#exemple-swap-macro-pour-illustrer-esc">Exemple : <strong><code>swap</code></strong> macro pour illustrer <strong><code>esc()</code></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#exemple-macro-jusquà">Exemple : macro <strong><code>jusqu'à</code></strong></a></li>
+    <li><a href="#interpolation-et-macro-assert">Interpolation et macro <code>assert</code></a>
+      <ul>
+        <li><a href="#un-hack-amusant-pour-utiliser---pour-les-blocs">Un hack amusant pour utiliser { } pour les blocs</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#macro-de-scott">Macro de Scott :</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#affichervider-une-macro"><strong>afficher</strong>/<strong>vider</strong> une macro</a></li>
+        <li><a href="#comment-comprendre-evalsymbolm">Comment comprendre <code>eval(Symbol(&quot;@M&quot;))</code> ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#pourquoi-code_typed-naffiche-pas-les-paramètres">Pourquoi <strong><code>code_typed</code></strong> n&rsquo;affiche pas les paramètres ?</a></li>
+    <li><a href="#heading">???</a>
+      <ul>
+        <li><a href="#module-gotcha">Module Gotcha</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h2 id="syntaxe">Syntaxe <a href="#syntaxe" class="anchor" aria-hidden="true">#</a></h2>
+<ul>
+<li>nom de la macro (ex) &hellip; fin</li>
+<li>citation &hellip; fin</li>
+<li>:(&hellip;)</li>
+<li>$x</li>
+<li>Meta.quot(x)</li>
+<li>QuoteNode(x)</li>
+<li>esc(x)</li>
+</ul>
+<p>Les fonctionnalités de métaprogrammation de Julia sont fortement inspirées de celles des langages de type Lisp et sembleront familières à ceux qui ont une certaine expérience de Lisp. La métaprogrammation est très puissante. Lorsqu&rsquo;il est utilisé correctement, il peut conduire à un code plus concis et lisible.</p>
+<p>Le <code>quote ... end</code> est une syntaxe quasiquote. Au lieu que les expressions soient évaluées, elles sont simplement analysées. La valeur de l&rsquo;expression <code>quote ... end</code> est l&rsquo;arbre de syntaxe abstraite (AST) résultant.</p>
+<p>La syntaxe <code>:(...)</code> est similaire à la syntaxe <code>quote ... end</code>, mais elle est plus légère. Cette syntaxe est plus concise que <code>quote ... end</code>.</p>
+<p>À l&rsquo;intérieur d&rsquo;un quasiquote, l&rsquo;opérateur <code>$</code> est spécial et <em>interpole</em> son argument dans l&rsquo;AST. L&rsquo;argument devrait être une expression qui est épissée directement dans l&rsquo;AST.</p>
+<p>La fonction <code>Meta.quot(x)</code> cite son argument. Ceci est souvent utile en combinaison avec l&rsquo;utilisation de <code>$</code> pour l&rsquo;interpolation, car cela permet aux expressions et aux symboles d&rsquo;être épissés littéralement dans l&rsquo;AST.</p>
+<h2 id="réimplémenter-la-macro-show">Réimplémenter la macro @show <a href="#r%c3%a9impl%c3%a9menter-la-macro-show" class="anchor" aria-hidden="true">#</a></h2>
+<p>Dans Julia, la macro <code>@show</code> est souvent utile à des fins de débogage. Il affiche à la fois l&rsquo;expression à évaluer et son résultat, renvoyant finalement la valeur du résultat :</p>
+<!-- language-all: lang-rb -->
+<pre><code>julia&gt; @show 1 + 1
+1 + 1 = 2
+2
+</code></pre>
+<p>Il est simple de créer notre propre version de <code>@show</code> :</p>
+<pre><code>julia&gt; macro myshow(expression)
+           quote
+               value = $expression
+               println($(Meta.quot(expression)), &quot; = &quot;, value)
+               value
+           end
+       end
+</code></pre>
+<p>Pour utiliser la nouvelle version, utilisez simplement la macro <code>@myshow</code> :</p>
+<pre><code class="language-julia">julia&gt; x = @myshow 1 + 1
+1 + 1 = 2
+2
+
+julia&gt; x
+2
+</code></pre>
+<h2 id="python-dictjson-comme-syntaxe-pour-les-littéraux-dict">Python <code>dict</code>/JSON comme syntaxe pour les littéraux <code>Dict</code>. <a href="#python-dictjson-comme-syntaxe-pour-les-litt%c3%a9raux-dict" class="anchor" aria-hidden="true">#</a></h2>
+<h2 id="introduction">Introduction <a href="#introduction" class="anchor" aria-hidden="true">#</a></h2>
+<p>Julia utilise la syntaxe suivante pour les dictionnaires :</p>
+<!-- language-all: lang-rb -->
+<pre><code>Dict({k₁ =&gt; v₁, k₂ =&gt; v₂, …, kₙ₋₁ =&gt; vₙ₋₁, kₙ =&gt; vₙ)
+</code></pre>
+<p>Alors que Python et JSON ressemblent à ceci :</p>
+<pre><code>{k₁: v₁, k₂: v₂, …, kₙ₋₁: vₙ₋₁, kₙ: vₙ}
+</code></pre>
+<p>À des fins <strong>d&rsquo;illustration</strong>, nous pourrions également utiliser cette syntaxe dans Julia et y ajouter une nouvelle sémantique (la syntaxe &ldquo;Dict&rdquo; est la méthode idiomatique dans Julia, ce qui est recommandé).</p>
+<p>Voyons d&rsquo;abord de quel <em>type</em> d&rsquo;expression il s&rsquo;agit :</p>
+<pre><code>julia&gt; parse(&quot;{1:2 , 3: 4}&quot;) |&gt; Meta.show_sexpr
+(:cell1d, (:(:), 1, 2), (:(:), 3, 4))
+</code></pre>
+<p>Cela signifie que nous devons prendre cette expression <code>:cell1d</code> et la transformer ou renvoyer une nouvelle expression qui devrait ressembler à ceci :</p>
+<pre><code>julia&gt; parse(&quot;Dict(1 =&gt; 2 , 3 =&gt; 4)&quot;) |&gt; Meta.show_sexpr
+(:call, :Dict, (:(=&gt;), 1, 2), (:(=&gt;), 3, 4))
+</code></pre>
+<h2 id="définition-des-macros">Définition des macros <a href="#d%c3%a9finition-des-macros" class="anchor" aria-hidden="true">#</a></h2>
+<p>La macro suivante, bien que simple, permet de démontrer une telle génération et transformation de code :</p>
+<pre><code>macro dict(expr)
+    # Check the expression has the correct form:
+    if expr.head ≠ :cell1d || any(sub_expr.head ≠ :(:) for sub_expr ∈ expr.args)
+        error(&quot;syntax: expected `{k₁: v₁, k₂: v₂, …, kₙ₋₁: vₙ₋₁, kₙ: vₙ}`&quot;)
+    end
+
+    # Create empty `:Dict` expression which will be returned:
+    block = Expr(:call, :Dict)    # :(Dict())
+
+    # Append `(key =&gt; value)` pairs to the block:
+    for pair in expr.args
+        k, v = pair.args
+        push!(block.args, :($k =&gt; $v))
+    end    # :(Dict(k₁ =&gt; v₁, k₂ =&gt; v₂, …, kₙ₋₁ =&gt; vₙ₋₁, kₙ =&gt; vₙ))
+
+    # Block is escaped so it can reach variables from it's calling scope:
+    return esc(block)
+end
+</code></pre>
+<p>Voyons l&rsquo;extension de macro résultante :</p>
+<pre><code>julia&gt; :(@dict {&quot;a&quot;: :b, 'c': 1, :d: 2.0}) |&gt; macroexpand
+:(Dict(&quot;a&quot; =&gt; :b,'c' =&gt; 1,:d =&gt; 2.0))
+</code></pre>
+<h2 id="utilisation">Utilisation <a href="#utilisation" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code>julia&gt; @dict {&quot;a&quot;: :b, 'c': 1, :d: 2.0}
+Dict{Any,Any} with 3 entries:          
+  &quot;a&quot; =&gt; :b                            
+  :d  =&gt; 2.0                           
+  'c' =&gt; 1                             
+
+julia&gt; @dict {                      
+           &quot;string&quot;: :b,            
+           'c'     : 1,             
+           :symbol : π,             
+           Function: print,         
+           (1:10)  : range(1, 10)   
+       }                            
+Dict{Any,Any} with 5 entries:       
+  1:10     =&gt; 1:10                  
+  Function =&gt; print                 
+  &quot;string&quot; =&gt; :b                    
+  :symbol  =&gt; π = 3.1415926535897...
+  'c'      =&gt; 1         
+</code></pre>
+<p>Le dernier exemple est exactement équivalent à :</p>
+<pre><code>Dict(                      
+    &quot;string&quot; =&gt; :b,            
+    'c'      =&gt; 1,             
+    :symbol  =&gt; π,             
+    Function =&gt; print,         
+    (1:10)   =&gt; range(1, 10)   
+)
+</code></pre>
+<h2 id="mauvaise-utilisation">Mauvaise utilisation <a href="#mauvaise-utilisation" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code>julia&gt; @dict {&quot;one&quot;: 1, &quot;two&quot;: 2, &quot;three&quot;: 3, &quot;four&quot;: 4, &quot;five&quot; =&gt; 5}
+syntax: expected `{k₁: v₁, k₂: v₂, …, kₙ₋₁: vₙ₋₁, kₙ: vₙ}`
+
+julia&gt; @dict [&quot;one&quot;: 1, &quot;two&quot;: 2, &quot;three&quot;: 3, &quot;four&quot;: 4, &quot;five&quot; =&gt; 5]
+syntax: expected `{k₁: v₁, k₂: v₂, …, kₙ₋₁: vₙ₋₁, kₙ: vₙ}`
+</code></pre>
+<p>Notez que Julia a d&rsquo;autres utilisations pour les deux-points <code>:</code> en tant que tel, vous devrez envelopper les expressions littérales de plage avec des parenthèses ou utiliser la fonction <code>range</code>, par exemple.</p>
+<h2 id="jusquà-la-boucle">Jusqu&rsquo;à la boucle <a href="#jusqu%c3%a0-la-boucle" class="anchor" aria-hidden="true">#</a></h2>
+<p>Nous sommes tous habitués à la syntaxe <code>while</code>, qui exécute son corps pendant que la condition est évaluée à <code>true</code>. Que se passe-t-il si nous voulons implémenter une boucle &ldquo;jusqu&rsquo;à&rdquo;, qui exécute une boucle jusqu&rsquo;à ce que la condition soit évaluée à &ldquo;vrai&rdquo; ?</p>
+<p>Dans Julia, nous pouvons le faire en créant une macro <code>@until</code>, qui s&rsquo;arrête pour exécuter son corps lorsque la condition est remplie :</p>
+<pre><code class="language-julia">
+macro until(condition, expression)
+    quote
+        while !($condition)
+            $expression
+        end
+    end |&gt; esc
+end
+</code></pre>
+<p>Ici, nous avons utilisé la syntaxe de chaînage de fonctions <code>|&gt;</code>, qui équivaut à appeler la fonction <code>esc</code> sur l&rsquo;ensemble du bloc <code>quote</code>. La fonction <code>esc</code> empêche l&rsquo;application de l&rsquo;hygiène des macros au contenu de la macro ; sans cela, les variables incluses dans la macro seront renommées pour éviter les collisions avec des variables extérieures. Voir la documentation de Julia sur [la macro hygiène] (http://docs.julialang.org/en/stable/manual/metaprogramming/#hygiene) pour plus de détails.</p>
+<p>Vous pouvez utiliser plus d&rsquo;une expression dans cette boucle, en mettant simplement tout dans un bloc <code>begin ... end</code> :</p>
+<pre><code class="language-julia">julia&gt; i = 0;
+
+julia&gt; @until i == 10 begin
+           println(i)
+           i += 1
+       end
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+julia&gt; i
+10
+</code></pre>
+<h2 id="quotenode-metaquot-et-exprquote">QuoteNode, Meta.quot et Expr(:quote) <a href="#quotenode-metaquot-et-exprquote" class="anchor" aria-hidden="true">#</a></h2>
+<p>Il existe trois façons de citer quelque chose à l&rsquo;aide d&rsquo;une fonction Julia :</p>
+<pre><code>julia&gt; QuoteNode(:x)
+:(:x)
+
+julia&gt; Meta.quot(:x)
+:(:x)
+
+julia&gt; Expr(:quote, :x)
+:(:x)
+</code></pre>
+<p>Que signifie &ldquo;citer&rdquo; et à quoi cela sert-il ? Les guillemets nous permettent d&rsquo;empêcher que les expressions soient interprétées comme des formes spéciales par Julia. Un cas d&rsquo;utilisation courant est lorsque nous générons des [expressions][1] qui doivent contenir des éléments qui s&rsquo;évaluent en symboles. (Par exemple, [cette macro][2] doit renvoyer une expression qui correspond à un symbole.) Cela ne fonctionne pas simplement pour renvoyer le symbole :</p>
+<pre><code>julia&gt; macro mysym(); :x; end
+@mysym (macro with 1 method)
+
+julia&gt; @mysym
+ERROR: UndefVarError: x not defined
+
+julia&gt; macroexpand(:(@mysym))
+:x
+</code></pre>
+<p>Que se passe t-il ici? <code>@mysym</code> se développe en <code>:x</code>, qui, en tant qu&rsquo;expression, est interprété comme la variable <code>x</code>. Mais rien n&rsquo;a encore été attribué à <code>x</code>, nous obtenons donc une erreur <code>x non défini</code>.</p>
+<p>Pour contourner cela, il faut citer le résultat de notre macro :</p>
+<pre><code>julia&gt; macro mysym2(); Meta.quot(:x); end
+@mysym2 (macro with 1 method)
+
+julia&gt; @mysym2
+:x
+
+julia&gt; macroexpand(:(@mysym2))
+:(:x)
+</code></pre>
+<p>Ici, nous avons utilisé la fonction <code>Meta.quot</code> pour transformer notre symbole en un symbole entre guillemets, ce qui est le résultat que nous voulons.</p>
+<p>Quelle est la différence entre <code>Meta.quot</code> et <code>QuoteNode</code>, et lequel dois-je utiliser ? Dans presque tous les cas, la différence n&rsquo;a pas vraiment d&rsquo;importance. Il est peut-être parfois un peu plus sûr d&rsquo;utiliser <code>QuoteNode</code> au lieu de <code>Meta.quot</code>. Cependant, explorer la différence est instructif sur le fonctionnement des expressions et des macros Julia.</p>
+<h2 id="la-différence-entre-metaquot-et-quotenode-expliquée">La différence entre <code>Meta.quot</code> et <code>QuoteNode</code>, expliquée <a href="#la-diff%c3%a9rence-entre-metaquot-et-quotenode-expliqu%c3%a9e" class="anchor" aria-hidden="true">#</a></h2>
+<p>Voici une règle d&rsquo;or :</p>
+<ul>
+<li>Si vous avez besoin ou souhaitez prendre en charge l&rsquo;interpolation, utilisez <code>Meta.quot</code> ;</li>
+<li>Si vous ne pouvez pas ou ne voulez pas autoriser l&rsquo;interpolation, utilisez <code>QuoteNode</code>.</li>
+</ul>
+<p>En bref, la différence est que <code>Meta.quot</code> permet l&rsquo;interpolation dans la chose citée, tandis que <code>QuoteNode</code> protège son argument de toute interpolation. Pour comprendre l&rsquo;interpolation, il est important de mentionner l&rsquo;expression <code>$</code>. Il existe une sorte d&rsquo;expression dans Julia appelée expression <code>$</code>. Ces expressions permettent de s&rsquo;échapper. Par exemple, considérons l&rsquo;expression suivante :</p>
+<pre><code>julia&gt; ex = :( x = 1; :($x + $x) )
+quote 
+    x = 1
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+</code></pre>
+<p>Lorsqu&rsquo;elle est évaluée, cette expression évaluera <code>1</code> et l&rsquo;affectera à <code>x</code>, puis construira une expression de la forme <code>_ + _</code> où le <code>_</code> sera remplacé par la valeur de <code>x</code>. Ainsi, le résultat de ceci devrait être l&rsquo;<em>expression</em> <code>1 + 1</code> (qui n&rsquo;est pas encore évaluée, et donc distincte de la <em>value</em> <code>2</code>). En effet, c&rsquo;est le cas :</p>
+<pre><code>julia&gt; eval(ex)
+:(1 + 1)
+</code></pre>
+<p>Disons maintenant que nous écrivons une macro pour construire ce genre d&rsquo;expressions. Notre macro prendra un argument, qui remplacera le &lsquo;1&rsquo; dans le &rsquo;ex&rsquo; ci-dessus. Cet argument peut être n&rsquo;importe quelle expression, bien sûr. Voici quelque chose qui n&rsquo;est pas tout à fait ce que nous voulons :</p>
+<pre><code>julia&gt; macro makeex(arg)
+           quote
+               :( x = $(esc($arg)); :($x + $x) )
+           end
+       end
+@makeex (macro with 1 method)
+
+julia&gt; @makeex 1
+quote 
+    x = $(Expr(:escape, 1))
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+
+julia&gt; @makeex 1 + 1
+quote 
+    x = $(Expr(:escape, 2))
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+</code></pre>
+<p>Le deuxième cas est incorrect, car nous devons garder <code>1 + 1</code> non évalué. Nous corrigeons cela en citant l&rsquo;argument avec <code>Meta.quot</code> :</p>
+<pre><code>julia&gt; macro makeex2(arg)
+           quote
+               :( x = $$(Meta.quot(arg)); :($x + $x) )
+           end
+       end
+@makeex2 (macro with 1 method)
+
+julia&gt; @makeex2 1 + 1
+quote 
+    x = 1 + 1
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+</code></pre>
+<p>La macro hygiène ne s&rsquo;applique pas au contenu d&rsquo;un devis, donc s&rsquo;échapper n&rsquo;est pas nécessaire dans ce cas (et en fait pas légal) dans ce cas.</p>
+<p>Comme mentionné précédemment, <code>Meta.quot</code> permet l&rsquo;interpolation. Alors essayons ça :</p>
+<pre><code>julia&gt; @makeex2 1 + $(sin(1))
+quote 
+    x = 1 + 0.8414709848078965
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+
+julia&gt; let q = 0.5
+           @makeex2 1 + $q
+       end
+quote 
+    x = 1 + 0.5
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+</code></pre>
+<p>À partir du premier exemple, nous voyons que l&rsquo;interpolation nous permet d&rsquo;intégrer le <code>sin(1)</code>, au lieu d&rsquo;avoir l&rsquo;expression littérale <code>sin(1)</code>. Le deuxième exemple montre que cette interpolation est effectuée dans la portée d&rsquo;appel de la macro, et non dans la propre portée de la macro. C&rsquo;est parce que notre macro n&rsquo;a évalué aucun code ; tout ce qu&rsquo;il fait est de générer du code. L&rsquo;évaluation du code (qui fait son chemin dans l&rsquo;expression) est effectuée lorsque l&rsquo;expression générée par la macro est réellement exécutée.</p>
+<p>Et si nous avions utilisé <code>QuoteNode</code> à la place ? Comme vous pouvez le deviner, étant donné que <code>QuoteNode</code> empêche l&rsquo;interpolation de se produire, cela signifie que cela ne fonctionnera pas.</p>
+<pre><code>julia&gt; macro makeex3(arg)
+           quote
+               :( x = $$(QuoteNode(arg)); :($x + $x) )
+           end
+       end
+@makeex3 (macro with 1 method)
+
+julia&gt; @makeex3 1 + $(sin(1))
+quote 
+    x = 1 + $(Expr(:$, :(sin(1))))
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+
+julia&gt; let q = 0.5
+           @makeex3 1 + $q
+       end
+quote 
+    x = 1 + $(Expr(:$, :q))
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+
+julia&gt; eval(@makeex3 $(sin(1)))
+ERROR: unsupported or misplaced expression $
+ in eval(::Module, ::Any) at ./boot.jl:234
+ in eval(::Any) at ./boot.jl:233
+</code></pre>
+<p>Dans cet exemple, nous pourrions convenir que <code>Meta.quot</code> offre une plus grande flexibilité, car il permet l&rsquo;interpolation. Alors, pourquoi pourrions-nous envisager d&rsquo;utiliser <code>QuoteNode</code> ? Dans certains cas, nous pouvons ne pas souhaiter l&rsquo;interpolation et vouloir l&rsquo;expression littérale <code>$</code>. Quand serait-ce souhaitable ? Considérons une généralisation de <code>@makeex</code> où nous pouvons passer des arguments supplémentaires déterminant ce qui vient à gauche et à droite du signe <code>+</code> :</p>
+<pre><code>julia&gt; macro makeex4(expr, left, right)
+           quote
+               quote
+                   $$(Meta.quot(expr))
+                   :($$$(Meta.quot(left)) + $$$(Meta.quot(right)))
+               end
+           end
+       end
+@makeex4 (macro with 1 method)
+
+julia&gt; @makeex4 x=1 x x
+quote  # REPL[110], line 4:
+    x = 1 # REPL[110], line 5:
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+
+julia&gt; eval(ans)
+:(1 + 1)
+</code></pre>
+<p>Une limitation de notre implémentation de <code>@makeex4</code> est que nous ne pouvons pas utiliser directement les expressions comme côtés gauche et droit de l&rsquo;expression, car elles sont interpolées. En d&rsquo;autres termes, les expressions peuvent être évaluées pour l&rsquo;interpolation, mais nous pouvons souhaiter qu&rsquo;elles soient conservées. (Puisqu&rsquo;il existe de nombreux niveaux de citation et d&rsquo;évaluation ici, clarifions : notre macro génère un <em>code</em> qui construit une <em>expression</em> qui, lorsqu&rsquo;elle est évaluée, produit une autre <em>expression</em>. Ouf !)</p>
+<pre><code>julia&gt; @makeex4 x=1 x/2 x
+quote  # REPL[110], line 4:
+    x = 1 # REPL[110], line 5:
+    $(Expr(:quote, :($(Expr(:$, :(x / 2))) + $(Expr(:$, :x)))))
+end
+
+julia&gt; eval(ans)
+:(0.5 + 1)
+</code></pre>
+<p>Nous devrions permettre à l&rsquo;utilisateur de spécifier quand l&rsquo;interpolation doit se produire et quand elle ne devrait pas se produire. Théoriquement, c&rsquo;est une solution simple : nous pouvons simplement supprimer l&rsquo;un des signes &ldquo;$&rdquo; de notre application et laisser l&rsquo;utilisateur contribuer le sien. Cela signifie que nous interpolons une version entre guillemets de l&rsquo;expression entrée par l&rsquo;utilisateur (que nous avons déjà citée et interpolée une fois). Cela conduit au code suivant, qui peut être un peu déroutant au début, en raison des multiples niveaux imbriqués de guillemets et de non-guillemets. Essayez de lire et de comprendre à quoi sert chaque évasion.</p>
+<pre><code>julia&gt; macro makeex5(expr, left, right)
+           quote
+               quote
+                   $$(Meta.quot(expr))
+                   :($$(Meta.quot($(Meta.quot(left)))) + $$(Meta.quot($(Meta.quot(right)))))
+               end
+           end
+       end
+@makeex5 (macro with 1 method)
+
+julia&gt; @makeex5 x=1 1/2 1/4
+quote  # REPL[121], line 4:
+    x = 1 # REPL[121], line 5:
+    $(Expr(:quote, :($(Expr(:$, :($(Expr(:quote, :(1 / 2)))))) + $(Expr(:$, :($(Expr(:quote, :(1 / 4)))))))))
+end
+
+julia&gt; eval(ans)
+:(1 / 2 + 1 / 4)
+
+julia&gt; @makeex5 y=1 $y $y
+ERROR: UndefVarError: y not defined
+</code></pre>
+<p>Les choses ont bien commencé, mais quelque chose a mal tourné. Le code généré par la macro essaie d&rsquo;interpoler la copie de <code>y</code> dans la portée d&rsquo;invocation de la macro ; mais il n&rsquo;y a <em>aucune</em> copie de <code>y</code> dans la portée d&rsquo;invocation de la macro. Notre erreur permet l&rsquo;interpolation avec les deuxième et troisième arguments de la macro. Pour corriger cette erreur, nous devons utiliser <code>QuoteNode</code>.</p>
+<pre><code>julia&gt; macro makeex6(expr, left, right)
+           quote
+               quote
+                   $$(Meta.quot(expr))
+                   :($$(Meta.quot($(QuoteNode(left)))) + $$(Meta.quot($(QuoteNode(right)))))
+               end
+           end
+       end
+@makeex6 (macro with 1 method)
+
+julia&gt; @makeex6 y=1 1/2 1/4
+quote  # REPL[129], line 4:
+    y = 1 # REPL[129], line 5:
+    $(Expr(:quote, :($(Expr(:$, :($(Expr(:quote, :(1 / 2)))))) + $(Expr(:$, :($(Expr(:quote, :(1 / 4)))))))))
+end
+
+julia&gt; eval(ans)
+:(1 / 2 + 1 / 4)
+
+julia&gt; @makeex6 y=1 $y $y
+quote  # REPL[129], line 4:
+    y = 1 # REPL[129], line 5:
+    $(Expr(:quote, :($(Expr(:$, :($(Expr(:quote, :($(Expr(:$, :y)))))))) + $(Expr(:$, :($(Expr(:quote, :($(Expr(:$, :y)))))))))))
+end
+
+julia&gt; eval(ans)
+:(1 + 1)
+
+julia&gt; @makeex6 y=1 1+$y $y
+quote  # REPL[129], line 4:
+    y = 1 # REPL[129], line 5:
+    $(Expr(:quote, :($(Expr(:$, :($(Expr(:quote, :(1 + $(Expr(:$, :y)))))))) + $(Expr(:$, :($(Expr(:quote, :($(Expr(:$, :y)))))))))))
+end
+
+julia&gt; @makeex6 y=1 $y/2 $y
+quote  # REPL[129], line 4:
+    y = 1 # REPL[129], line 5:
+    $(Expr(:quote, :($(Expr(:$, :($(Expr(:quote, :($(Expr(:$, :y)) / 2)))))) + $(Expr(:$, :($(Expr(:quote, :($(Expr(:$, :y)))))))))))
+end
+
+julia&gt; eval(ans)
+:(1 / 2 + 1)
+</code></pre>
+<p>En utilisant <code>QuoteNode</code>, nous avons protégé nos arguments de l&rsquo;interpolation. Étant donné que <code>QuoteNode</code> n&rsquo;a pour effet que des protections supplémentaires, il n&rsquo;est jamais nuisible d&rsquo;utiliser <code>QuoteNode</code>, sauf si vous souhaitez une interpolation. Cependant, comprendre la différence permet de comprendre où et pourquoi <code>Meta.quot</code> pourrait être un meilleur choix.</p>
+<p>Ce long exercice s&rsquo;appuie sur un exemple manifestement trop complexe pour apparaître dans une application raisonnable. Par conséquent, nous avons justifié la règle empirique suivante, mentionnée précédemment :</p>
+<ul>
+<li>Si vous avez besoin ou souhaitez prendre en charge l&rsquo;interpolation, utilisez <code>Meta.quot</code> ;</li>
+<li>Si vous ne pouvez pas ou ne voulez pas autoriser l&rsquo;interpolation, utilisez <code>QuoteNode</code>.</li>
+</ul>
+<h2 id="quen-est-il-de-exprquote">Qu&rsquo;en est-il de Expr(:quote) ? <a href="#quen-est-il-de-exprquote" class="anchor" aria-hidden="true">#</a></h2>
+<p><code>Expr(:quote, x)</code> est équivalent à <code>Meta.quot(x)</code>. Cependant, ce dernier est plus idiomatique et est préféré. Pour le code qui utilise fortement la métaprogrammation, une ligne <code>using Base.Meta</code> est souvent utilisée, ce qui permet à <code>Meta.quot</code> d&rsquo;être simplement appelé <code>quot</code>.</p>
+<p>[1] : https://www.wikiod.com/fr/julia-lang/expressions
+[2] : https://www.wikiod.com/fr/julia-lang/macros-de-chaine#Symboles qui ne sont pas des identifiants légaux</p>
+<h2 id="guide">Guide <a href="#guide" class="anchor" aria-hidden="true">#</a></h2>
+<h1 id="bits--bobs-de-métaprogrammation-de-π">Bits &amp; bobs de métaprogrammation de π <a href="#bits--bobs-de-m%c3%a9taprogrammation-de-%cf%80" class="anchor" aria-hidden="true">#</a></h1>
+<p><strong>Buts:</strong></p>
+<ul>
+<li>
+<p>Enseigner à travers des exemples fonctionnels / utiles / non abstraits ciblés minimaux (par exemple, <code>@swap</code> ou <code>@assert</code>) qui introduisent des concepts dans des contextes appropriés</p>
+</li>
+<li>
+<p>Préférez laisser le code illustrer/démontrer les concepts plutôt que des paragraphes d&rsquo;explication</p>
+</li>
+<li>
+<p>Évitez de lier la &ldquo;lecture obligatoire&rdquo; à d&rsquo;autres pages - cela interrompt le récit</p>
+</li>
+<li>
+<p>Présenter les choses dans un ordre raisonnable qui facilitera l&rsquo;apprentissage</p>
+</li>
+</ul>
+<p><strong>Ressources:</strong></p>
+<p><a href="http://docs.julialang.org/en/release-0.5/manual/metaprogramming/">julialang.org</a>
+<a href="https://en.wikibooks.org/w/index.php?title=Introducing_Julia/Metaprogramming">wikibook (@Cormullion)</a>
+<a href="http://blog.leahhanson.us/post/julia/julia-introspects.html">5 couches (Leah Hanson)</a>
+[Citation SO-Doc (@TotalVerb)](https://www.wikiod.com/fr/julia-lang/metaprogrammation#QuoteNode, Meta.quot et Expr(:quote))
+[SO-Doc &ndash; Symboles qui ne sont pas des identifiants légaux (@TotalVerb)](https://www.wikiod.com/fr/julia-lang/macros-de-chaine#Symboles qui ne sont pas des identifiants légaux identifiants#t=201610090041530343729)
+<a href="http://stackoverflow.com/questions/23480722/what-is-a-symbol-in-julia">SO: Qu&rsquo;est-ce qu&rsquo;un symbole dans Julia (@StefanKarpinski)</a>
+<a href="https://discourse.julialang.org/t/simple-metaprogramming-exercises-challenges">Fil de discussion (@p-i-)</a>
+https://www.wikiod.com/fr/julia-lang/metaprogrammation</p>
+<p>La plupart du matériel provient du canal du discours, la plupart de celui-ci provient de fcard&hellip; s&rsquo;il vous plaît, demandez-moi si j&rsquo;avais oublié les attributions.</p>
+<h2 id="symbole"><strong>Symbole</strong> <a href="#symbole" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code class="language-julia">julia&gt; mySymbol = Symbol(&quot;myName&quot;)  # or 'identifier'
+:myName
+
+julia&gt; myName = 42
+42
+
+julia&gt; mySymbol |&gt; eval  # 'foo |&gt; bar' puts output of 'foo' into 'bar', so 'bar(foo)'
+42
+
+julia&gt; :( $mySymbol = 1 ) |&gt; eval
+1
+
+julia&gt; myName
+1
+</code></pre>
+<p><strong>Passage d&rsquo;indicateurs dans des fonctions :</strong></p>
+<pre><code class="language-julia">function dothing(flag)
+  if flag == :thing_one
+    println(&quot;did thing one&quot;)
+  elseif flag == :thing_two
+    println(&quot;did thing two&quot;)
+  end
+end
+julia&gt; dothing(:thing_one)
+did thing one
+
+julia&gt; dothing(:thing_two)
+did thing two
+</code></pre>
+<p><strong>Un exemple de clé de hachage :</strong></p>
+<pre><code class="language-julia">number_names = Dict{Symbol, Int}()
+number_names[:one] = 1
+number_names[:two] = 2
+number_names[:six] = 6
+</code></pre>
+<p><strong>(Avancé)</strong>
+(@fcard) <code>:foo</code> a.k.a. <code>:(foo)</code> donne un symbole si <code>foo</code> est un identifiant valide, sinon une expression.</p>
+<pre><code class="language-julia"># NOTE: Different use of ':' is:
+julia&gt; :mySymbol = Symbol('hello world')
+
+#(You can create a symbol with any name with Symbol(&quot;&lt;name&gt;&quot;), 
+# which lets us create such gems as:
+julia&gt; one_plus_one = Symbol(&quot;1 + 1&quot;)
+Symbol(&quot;1 + 1&quot;)
+
+julia&gt; eval(one_plus_one)
+ERROR: UndefVarError: 1 + 1 not defined
+...
+
+julia&gt; valid_math = :($one_plus_one = 3)
+:(1 + 1 = 3)
+
+julia&gt; one_plus_one_plus_two = :($one_plus_one + 2)
+:(1 + 1 + 2)
+
+julia&gt; eval(quote
+           $valid_math
+           @show($one_plus_one_plus_two)
+       end)
+1 + 1 + 2 = 5
+...
+</code></pre>
+<p>Fondamentalement, vous pouvez traiter les symboles comme des chaînes légères. Ce n&rsquo;est pas à ça qu&rsquo;ils servent, mais vous pouvez le faire, alors pourquoi pas. Julia&rsquo;s Base le fait lui-même, <code>print_with_color(:red, &quot;abc&quot;)</code> imprime un abc de couleur rouge.</p>
+<h2 id="expr-ast"><strong>Expr</strong> (AST) <a href="#expr-ast" class="anchor" aria-hidden="true">#</a></h2>
+<p>(Presque) tout dans Julia est une expression, c&rsquo;est-à-dire une instance de <code>Expr</code>, qui contiendra un <a href="http://docs.julialang.org/en/latest/devdocs/ast/">AST</a>.</p>
+<pre><code class="language-julia"># when you type ...
+julia&gt; 1+1
+2
+
+# Julia is doing: eval(parse(&quot;1+1&quot;))
+# i.e. First it parses the string &quot;1+1&quot; into an `Expr` object ...
+julia&gt; ast = parse(&quot;1+1&quot;)
+:(1 + 1)
+
+# ... which it then evaluates:
+julia&gt; eval(ast)
+2
+
+# An Expr instance holds an AST (Abstract Syntax Tree).  Let's look at it:
+julia&gt; dump(ast)
+Expr
+  head: Symbol call
+  args: Array{Any}((3,))
+    1: Symbol +
+    2: Int64 1
+    3: Int64 1
+  typ: Any
+  
+# TRY: fieldnames(typeof(ast))
+ 
+julia&gt;      :(a + b*c + 1)  ==
+       parse(&quot;a + b*c + 1&quot;) ==
+       Expr(:call, :+, :a, Expr(:call, :*, :b, :c), 1)
+true
+</code></pre>
+<p><strong>Imbrication <code>Expr</code>s :</strong></p>
+<pre><code class="language-julia">julia&gt; dump( :(1+2/3) )
+Expr
+  head: Symbol call
+  args: Array{Any}((3,))
+    1: Symbol +
+    2: Int64 1
+    3: Expr
+      head: Symbol call
+      args: Array{Any}((3,))
+        1: Symbol /
+        2: Int64 2
+        3: Int64 3
+      typ: Any
+  typ: Any
+  
+# Tidier rep'n using s-expr
+julia&gt; Meta.show_sexpr( :(1+2/3) ) 
+(:call, :+, 1, (:call, :/, 2, 3))
+</code></pre>
+<h2 id="exprs-multilignes-utilisant-quote"><code>Expr</code>s multilignes utilisant <strong><code>quote</code></strong> <a href="#exprs-multilignes-utilisant-quote" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code class="language-julia">julia&gt; blk = quote
+           x=10
+           x+1
+       end
+quote  # REPL[121], line 2:
+    x = 10 # REPL[121], line 3:
+    x + 1
+end
+
+julia&gt; blk == :( begin  x=10; x+1  end )
+true
+
+# Note: contains debug info:
+julia&gt; Meta.show_sexpr(blk)
+(:block,
+  (:line, 2, Symbol(&quot;REPL[121]&quot;)),
+  (:(=), :x, 10),
+  (:line, 3, Symbol(&quot;REPL[121]&quot;)),
+  (:call, :+, :x, 1)
+)
+
+# ... unlike:
+julia&gt; noDbg = :( x=10; x+1 ) 
+quote 
+    x = 10
+    x + 1
+end
+</code></pre>
+<p>&hellip; donc <code>quote</code> est fonctionnellement le même mais fournit des informations de débogage supplémentaires.</p>
+<p>(*) <strong>CONSEIL</strong> : Utilisez &rsquo;let&rsquo; pour conserver &lsquo;x&rsquo; dans le bloc</p>
+<h2 id="quote--ing-a-quote"><strong><code>quote</code></strong> -ing a <strong><code>quote</code></strong> <a href="#quote--ing-a-quote" class="anchor" aria-hidden="true">#</a></h2>
+<p><code>Expr(:quote, x)</code> est utilisé pour représenter des guillemets entre guillemets.</p>
+<pre><code>Expr(:quote, :(x + y)) == :(:(x + y))
+
+Expr(:quote, Expr(:$, :x)) == :(:($x))
+</code></pre>
+<p><code>QuoteNode(x)</code> est similaire à <code>Expr(:quote, x)</code> mais il empêche l&rsquo;interpolation.</p>
+<pre><code>eval(Expr(:quote, Expr(:$, 1))) == 1
+
+eval(QuoteNode(Expr(:$, 1))) == Expr(:$, 1)
+</code></pre>
+<p>(http://stackoverflow.com/questions/41089019/disambiguate-the-various-quoting-mechanisms-in-julia-metaprogramming)</p>
+<h2 id="-et--sont-ils-en-quelque-sorte-inverses-lun-de-lautre"><strong>$</strong> et <strong>:(…)</strong> sont-ils en quelque sorte inverses l&rsquo;un de l&rsquo;autre ? <a href="#-et--sont-ils-en-quelque-sorte-inverses-lun-de-lautre" class="anchor" aria-hidden="true">#</a></h2>
+<p><code>:(foo)</code> signifie &ldquo;ne regarde pas la valeur, regarde l&rsquo;expression&rdquo;
+<code>$foo</code> signifie &ldquo;modifier l&rsquo;expression à sa valeur&rdquo;</p>
+<p><code>:($(foo)) == foo</code>.
+<code>$(:(foo))</code> est une erreur.
+<code>$(...)</code> n&rsquo;est pas une opération et ne fait rien par lui-même, c&rsquo;est un &ldquo;interpoler ceci!&rdquo; signe que la syntaxe des guillemets utilise. c&rsquo;est-à-dire qu&rsquo;il n&rsquo;existe que dans un devis.</p>
+<h2 id="est-ce-que-foo-est-identique-à-evalfoo">Est-ce que <strong><code>$</code></strong><code>foo</code> est identique à <strong><code>eval(</code></strong><code>foo</code><strong><code>)</code></strong> ? <a href="#est-ce-que-foo-est-identique-%c3%a0-evalfoo" class="anchor" aria-hidden="true">#</a></h2>
+<p><strong>Non!</strong>
+<code>$foo</code> est échangé contre la valeur au moment de la compilation
+<code>eval(foo)</code> signifie faire cela au moment de l&rsquo;exécution</p>
+<p><code>eval</code> se produira dans la portée globale
+l&rsquo;interpolation est locale</p>
+<p><code>eval(:&lt;expr&gt;)</code> doit renvoyer la même chose que <code>&lt;expr&gt;</code> (en supposant que <code>&lt;expr&gt;</code> est une expression valide dans l&rsquo;espace global actuel)</p>
+<pre><code>eval(:(1 + 2)) == 1 + 2
+
+eval(:(let x=1; x + 1 end)) == let x=1; x + 1 end
+</code></pre>
+<h1 id="macro-s"><strong><code>macro</code></strong> s <a href="#macro-s" class="anchor" aria-hidden="true">#</a></h1>
+<p>Prêt? :)</p>
+<pre><code class="language-julia"># let's try to make this!
+julia&gt; x = 5; @show x;
+x = 5
+</code></pre>
+<h2 id="créons-notre-propre-macro-show">Créons notre propre macro <strong><code>@show</code></strong> : <a href="#cr%c3%a9ons-notre-propre-macro-show" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code class="language-julia">macro log(x)
+  :(
+    println( &quot;Expression: &quot;, $(string(x)), &quot; has value: &quot;, $x )
+  )
+end
+
+u = 42
+f = x -&gt; x^2
+@log(u)       # Expression: u has value: 42
+@log(42)      # Expression: 42 has value: 42
+@log(f(42))   # Expression: f(42) has value: 1764
+@log(:u)      # Expression: :u has value: u
+</code></pre>
+<h2 id="expand-pour-diminuer-un-expr"><strong><code>expand</code></strong> pour diminuer un <strong><code>Expr</code></strong> <a href="#expand-pour-diminuer-un-expr" class="anchor" aria-hidden="true">#</a></h2>
+<p><a href="http://blog.leahhanson.us/post/julia/julia-introspects.html">5 couches (Leah Hanson)</a> &lt;&ndash; explique comment Julia prend le code source sous forme de chaîne, le segmente en une <code>Expr</code>- tree (AST), développe toutes les macros (toujours AST), <em><strong>baisse</strong></em> (AST abaissé), puis se convertit en LLVM (et au-delà - pour le moment, nous n&rsquo;avons pas à nous soucier de ce qui se trouve au-delà ! )</p>
+<p>Q : <code>code_lowered</code> agit sur les fonctions. Est-il possible de baisser un <code>Expr</code> ?
+R : ouaip !</p>
+<pre><code class="language-julia"># function -&gt; lowered-AST
+julia&gt; code_lowered(*,(String,String))
+1-element Array{LambdaInfo,1}:
+ LambdaInfo template for *(s1::AbstractString, ss::AbstractString...) at strings/basic.jl:84
+
+# Expr(i.e. AST) -&gt; lowered-AST
+julia&gt; expand(:(x ? y : z))
+:(begin
+        unless x goto 3
+        return y
+        3:
+        return z
+    end)
+
+julia&gt; expand(:(y .= x.(i)))
+:((Base.broadcast!)(x,y,i))
+
+# 'Execute' AST or lowered-AST
+julia&gt; eval(ast)
+</code></pre>
+<p>Si vous souhaitez développer uniquement les macros, vous pouvez utiliser <strong><code>macroexpand</code></strong> :</p>
+<pre><code class="language-julia"># AST -&gt; (still nonlowered-)AST but with macros expanded:
+julia&gt; macroexpand(:(@show x))
+quote
+    (Base.println)(&quot;x = &quot;,(Base.repr)(begin  # show.jl, line 229:
+                #28#value = x
+            end))
+    #28#value
+end
+</code></pre>
+<p>&hellip; qui renvoie un AST non abaissé mais avec toutes les macros développées.</p>
+<h2 id="esc"><strong><code>esc()</code></strong> <a href="#esc" class="anchor" aria-hidden="true">#</a></h2>
+<p><code>esc(x)</code> renvoie un Expr qui dit &ldquo;n&rsquo;appliquez pas d&rsquo;hygiène à cela&rdquo;, c&rsquo;est la même chose que <code>Expr(:escape, x)</code>. L&rsquo;hygiène est ce qui maintient une macro autonome, et vous &ldquo;esc&rdquo; les choses si vous voulez qu&rsquo;elles &ldquo;fuient&rdquo;. par exemple.</p>
+<h3 id="exemple-swap-macro-pour-illustrer-esc">Exemple : <strong><code>swap</code></strong> macro pour illustrer <strong><code>esc()</code></strong> <a href="#exemple-swap-macro-pour-illustrer-esc" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code class="language-julia">macro swap(p, q)
+  quote
+    tmp = $(esc(p))
+    $(esc(p)) = $(esc(q))
+    $(esc(q)) = tmp
+  end
+end
+
+x,y = 1,2
+@swap(x,y)
+println(x,y)  # 2 1
+</code></pre>
+<p><code>$</code> nous permet de &lsquo;sortir&rsquo; de la <code>quote</code>.
+Alors pourquoi ne pas simplement <code>$p</code> et <code>$q</code> ? c&rsquo;est à dire.</p>
+<pre><code class="language-julia">    # FAIL!
+    tmp = $p
+    $p = $q
+    $q = tmp
+</code></pre>
+<p>Parce que cela regarderait d&rsquo;abord la portée <code>macro</code> pour <code>p</code>, et il trouverait un <code>p</code> local, c&rsquo;est-à-dire le paramètre <code>p</code> (oui, si vous accédez ensuite à <code>p</code> sans <code>esc</code>-ing, la macro considère le paramètre <code>p</code> comme une variable locale).</p>
+<p>Donc <code>$p = ...</code> n&rsquo;est qu&rsquo;une affectation au <code>p</code> local. cela n&rsquo;affecte pas la variable transmise dans le contexte d&rsquo;appel.</p>
+<p>Bon alors que diriez-vous :</p>
+<pre><code class="language-julia">    # Almost!
+    tmp = $p          # &lt;-- you might think we don't 
+    $(esc(p)) = $q    #       need to esc() the RHS
+    $(esc(q)) = tmp
+</code></pre>
+<p>Donc <code>esc(p)</code> est &lsquo;fuite&rsquo; <code>p</code> dans le contexte d&rsquo;appel. <em>&ldquo;La chose qui a été passée dans la macro que <strong>nous recevons comme <code>p</code></strong>&rdquo;</em></p>
+<pre><code class="language-julia">julia&gt; macro swap(p, q)                  
+         quote                           
+           tmp = $p                      
+           $(esc(p)) = $q                
+           $(esc(q)) = tmp               
+         end                             
+       end                               
+@swap (macro with 1 method)              
+
+julia&gt; x, y = 1, 2                       
+(1,2)                                    
+
+julia&gt; @swap(x, y);                      
+
+julia&gt; @show(x, y);                      
+x = 2                                    
+y = 1                                    
+
+julia&gt; macroexpand(:(@swap(x, y)))       
+quote  # REPL[34], line 3:               
+    #10#tmp = x # REPL[34], line 4:      
+    x = y # REPL[34], line 5:            
+    y = #10#tmp                          
+end                                      
+</code></pre>
+<p>Comme vous pouvez le voir, <code>tmp</code> obtient le traitement d&rsquo;hygiène <code>#10#tmp</code>, contrairement à <code>x</code> et <code>y</code>.
+Julia crée un identifiant unique pour <code>tmp</code>, quelque chose que vous pouvez faire manuellement avec <code>gensym</code>, c&rsquo;est-à-dire :</p>
+<pre><code class="language-julia">julia&gt; gensym(:tmp)
+Symbol(&quot;##tmp#270&quot;)
+</code></pre>
+<p>Mais : <strong>Il y a un piège :</strong></p>
+<pre><code class="language-julia">julia&gt; module Swap
+       export @swap
+
+       macro swap(p, q)
+         quote
+           tmp = $p
+           $(esc(p)) = $q
+           $(esc(q)) = tmp
+         end
+       end
+       end
+Swap
+
+julia&gt; using Swap
+
+julia&gt; x,y = 1,2
+(1,2)
+
+julia&gt; @swap(x,y)
+ERROR: UndefVarError: x not defined
+</code></pre>
+<p>Une autre chose que fait la macro hygiene de julia est que, si la macro provient d&rsquo;un autre module, elle rend toutes les variables (qui n&rsquo;ont pas été assignées dans l&rsquo;expression de retour de la macro, comme <code>tmp</code> dans ce cas) des globales du module actuel, donc <code>$p</code> devient <code>Swap.$p</code>, de même <code>$q</code> -&gt; <code>Swap.$q</code>.</p>
+<p>En général, si vous avez besoin d&rsquo;une variable qui est en dehors de la portée de la macro, vous devez l&rsquo;esc, donc vous devez <code>esc(p)</code> et <code>esc(q)</code> indépendamment du fait qu&rsquo;ils soient sur le LHS ou le RHS d&rsquo;une expression, ou même par eux-mêmes.</p>
+<p>les gens ont déjà mentionné <code>gensym</code>s à quelques reprises et bientôt vous serez séduit par le côté obscur de ne pas échapper à toute l&rsquo;expression avec quelques <code>gensym</code>s parsemés ici et là, mais &hellip; Assurez-vous de comprendre comment fonctionne l&rsquo;hygiène avant d&rsquo;essayer d&rsquo;être plus malin que ça ! Ce n&rsquo;est pas un algorithme particulièrement complexe donc cela ne devrait pas prendre trop de temps, mais ne vous précipitez pas ! N&rsquo;utilisez pas ce pouvoir tant que vous n&rsquo;en avez pas compris toutes les ramifications&hellip; (@fcard)</p>
+<h2 id="exemple-macro-jusquà">Exemple : macro <strong><code>jusqu'à</code></strong> <a href="#exemple-macro-jusqu%c3%a0" class="anchor" aria-hidden="true">#</a></h2>
+<p>(@Ismaël-VC)</p>
+<pre><code class="language-julia">&quot;until loop&quot;
+macro until(condition, block)
+    quote
+        while ! $condition
+            $block
+        end
+    end |&gt; esc
+end
+
+julia&gt; i=1;  @until(  i==5,  begin; print(i); i+=1; end  )
+1234
+
+</code></pre>
+<p>(@fcard) <code>|&gt;</code> est cependant controversé. Je suis surpris qu&rsquo;une foule ne soit pas encore venue se disputer. (peut-être que tout le monde en a marre). Il est recommandé que la plupart sinon la totalité de la macro soit simplement un appel à une fonction, donc :</p>
+<pre><code class="language-julia">macro until(condition, block)
+    esc(until(condition, block))
+end
+
+function until(condition, block)
+    quote
+        while !$condition
+            $block
+        end
+    end
+end
+</code></pre>
+<p>&hellip; est une alternative plus sûre.</p>
+<p>Le défi macro simple de ##@fcard</p>
+<p>Tâche : Échangez les opérandes, donc <code>swaps(1/2)</code> donne <code>2.00</code> c&rsquo;est-à-dire <code>2/1</code></p>
+<pre><code class="language-julia">macro swaps(e)
+    e.args[2:3] = e.args[3👎2]   
+    e
+end
+@swaps(1/2)
+2.00
+</code></pre>
+<p>Plus de défis macro de @fcard <a href="https://gist.github.com/fcard/b735e642e6613feffad2d00f3c4298bd">ici</a></p>
+<hr>
+<h2 id="interpolation-et-macro-assert">Interpolation et macro <code>assert</code> <a href="#interpolation-et-macro-assert" class="anchor" aria-hidden="true">#</a></h2>
+<p>http://docs.julialang.org/en/release-0.5/manual/metaprogramming/#building-an-advanced-macro</p>
+<pre><code class="language-julia">macro assert(ex)
+    return :( $ex ? nothing : throw(AssertionError($(string(ex)))) )
+end
+</code></pre>
+<p>Q : Pourquoi le dernier « $ » ?
+R : Il interpole, c&rsquo;est-à-dire qu&rsquo;il force Julia à &ldquo;évaluer&rdquo; cette &ldquo;chaîne (ex)&rdquo; lorsque l&rsquo;exécution passe par l&rsquo;invocation de cette macro.
+c&rsquo;est-à-dire que si vous exécutez simplement ce code, il ne forcera aucune évaluation. Mais au moment où vous faites <code>assert(foo)</code>, Julia <em><strong>invoquera</strong></em> cette macro en remplaçant son &lsquo;AST token/Expr&rsquo; par ce qu&rsquo;elle renvoie, et le <code>$</code> <em>entrera</em> en action.</p>
+<h3 id="un-hack-amusant-pour-utiliser---pour-les-blocs">Un hack amusant pour utiliser { } pour les blocs <a href="#un-hack-amusant-pour-utiliser---pour-les-blocs" class="anchor" aria-hidden="true">#</a></h3>
+<p>(@fcard) Je ne pense pas qu&rsquo;il y ait quoi que ce soit de technique qui empêche <code>{}</code> d&rsquo;être utilisé comme blocs, en fait on peut même jouer sur la syntaxe résiduelle <code>{}</code> pour le faire fonctionner :</p>
+<pre><code class="language-julia">julia&gt; macro c(block)
+         @assert block.head == :cell1d
+         esc(quote
+           $(block.args...)
+         end)
+       end
+@c (macro with 1 method)
+
+julia&gt; @c {
+         print(1)
+         print(2)
+         1+2
+       }
+123
+</code></pre>
+<p>*(il est peu probable que cela fonctionne encore si/quand la syntaxe {} est réutilisée)</p>
+<hr>
+<p><strong><em>Donc, Julia voit d&rsquo;abord le jeton de macro, donc elle va lire/analyser les jetons jusqu&rsquo;à la &ldquo;fin&rdquo; correspondante, et créer quoi ? Un <code>Expr</code> avec <code>.head=:macro</code> ou quelque chose ? Stocke-t-il <code>&quot;a+1&quot;</code> sous forme de chaîne ou le divise-t-il en <code>:+(:a, 1)</code> ? Comment afficher ?</em></strong></p>
+<p>?</p>
+<p>(@fcard) Dans ce cas, en raison de la portée lexicale, a n&rsquo;est pas défini dans la portée de <code>@M</code>s, il utilise donc la variable globale &hellip;
+J&rsquo;ai en fait oublié d&rsquo;échapper à l&rsquo;expression flipplin &lsquo;dans mon exemple stupide, mais la partie * &ldquo;ne fonctionne que dans le même module&rdquo; * s&rsquo;applique toujours.</p>
+<pre><code class="language-julia">julia&gt; module M
+       macro m()
+         :(a+1)
+       end
+       end
+M
+
+julia&gt; a = 1
+1
+
+julia&gt; M.@m
+ERROR: UndefVarError: a not defined
+</code></pre>
+<p>La raison en est que, si la macro est utilisée dans un module autre que celui dans lequel elle a été définie, toutes les variables non définies dans le code à développer sont traitées comme des variables globales du module de la macro.</p>
+<pre><code class="language-julia">julia&gt; macroexpand(:(M.@m))
+:(M.a + 1)
+</code></pre>
+<hr>
+<h1 id="avancée"><em><strong>AVANCÉE</strong></em> <a href="#avanc%c3%a9e" class="anchor" aria-hidden="true">#</a></h1>
+<p>###@Ismael-VC</p>
+<pre><code class="language-julia">@eval begin
+    &quot;do-until loop&quot;
+    macro $(:do)(block, until::Symbol, condition)
+        until ≠ :until &amp;&amp; 
+            error(&quot;@do expected `until` got `$until`&quot;)
+        quote
+            let
+                $block
+                @until $condition begin
+                    $block
+                end
+            end
+        end |&gt; esc
+    end
+end
+julia&gt; i = 0            
+0                       
+
+julia&gt; @do begin        
+           @show i      
+           i += 1       
+       end until i == 5 
+i = 0                   
+i = 1                   
+i = 2                   
+i = 3                   
+i = 4
+</code></pre>
+<h3 id="macro-de-scott">Macro de Scott : <a href="#macro-de-scott" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code>&quot;&quot;&quot;
+Internal function to return captured line number information from AST
+
+##Parameters
+- a:     Expression in the julia type Expr
+
+##Return
+
+- Line number in the file where the calling macro was invoked
+&quot;&quot;&quot;
+_lin(a::Expr) = a.args[2].args[1].args[1]
+
+&quot;&quot;&quot;
+Internal function to return captured file name information from AST
+
+##Parameters
+- a:     Expression in the julia type Expr
+
+##Return
+- The name of the file where the macro was invoked
+&quot;&quot;&quot;
+_fil(a::Expr) = string(a.args[2].args[1].args[2])
+
+&quot;&quot;&quot;
+Internal function to determine if a symbol is a status code or variable
+&quot;&quot;&quot;
+function _is_status(sym::Symbol)
+    sym in (:OK, :WARNING, :ERROR) &amp;&amp; return true
+    str = string(sym)
+    length(str) &gt; 4 &amp;&amp; (str[1:4] == &quot;ERR_&quot; || str[1:5] == &quot;WARN_&quot; || str[1:5] == &quot;INFO_&quot;)
+end
+
+&quot;&quot;&quot;
+Internal function to return captured error code from AST
+
+##Parameters
+- a:     Expression in the julia type Expr
+
+##Return
+- Error code from the captured info in the AST from the calling macro
+&quot;&quot;&quot;
+_err(a::Expr) =
+    (sym = a.args[2].args[2] ; _is_status(sym) ? Expr(:., :Status, QuoteNode(sym)) : sym)
+
+&quot;&quot;&quot;
+Internal function to produce a call to the log function based on the macro arguments and the AST from the ()-&gt;ERRCODE anonymous function definition used to capture error code, file name and line number where the macro is used
+
+##Parameters
+- level:     Loglevel which has to be logged with macro
+- a:         Expression in the julia type Expr
+- msgs:      Optional message
+
+##Return
+- Statuscode
+&quot;&quot;&quot;
+function _log(level, a, msgs)
+    if isempty(msgs)
+        :( log($level, $(esc(:Symbol))($(_fil(a))), $(_lin(a)), $(_err(a)) )
+    else
+        :( log($level, $(esc(:Symbol))($(_fil(a))), $(_lin(a)), $(_err(a)), message=$(esc(msgs[1]))) )
+    end
+end
+
+macro warn(a, msgs...)  ; _log(Warning, a, msgs) ; end
+</code></pre>
+<h1 id="-indésirable--non-traité--">*** indésirable / non traité &hellip; *** <a href="#-ind%c3%a9sirable--non-trait%c3%a9--" class="anchor" aria-hidden="true">#</a></h1>
+<h3 id="affichervider-une-macro"><strong>afficher</strong>/<strong>vider</strong> une macro <a href="#affichervider-une-macro" class="anchor" aria-hidden="true">#</a></h3>
+<p>(@p-i-) Supposons que je fasse simplement <code>macro m(); un+1 ; end</code> dans un nouveau REPL. Sans &ldquo;a&rdquo; défini. Comment puis-je le &ldquo;visualiser&rdquo; ?
+par exemple, existe-t-il un moyen de &ldquo;vider&rdquo; une macro ?
+Sans vraiment l&rsquo;exécuter</p>
+<p>(@fcard) Tout le code des macros est en fait placé dans des fonctions, vous ne pouvez donc voir que leur code abaissé ou déduit par type.</p>
+<pre><code class="language-julia">julia&gt; macro m()  a+1  end
+@m (macro with 1 method)
+
+julia&gt; @code_typed @m
+LambdaInfo for @m()
+:(begin 
+        return Main.a + 1
+    end)
+
+julia&gt; @code_lowered @m  
+CodeInfo(:(begin
+        nothing
+        return Main.a + 1
+    end))
+# ^ or: code_lowered(eval(Symbol(&quot;@m&quot;)))[1] # ouf!
+</code></pre>
+<p>Autres façons d&rsquo;obtenir la fonction d&rsquo;une macro :</p>
+<pre><code class="language-julia">julia&gt; macro getmacro(call) call.args[1] end
+@getmacro (macro with 1 method)
+
+julia&gt; getmacro(name) = getfield(current_module(), name.args[1])
+getmacro (generic function with 1 method)
+
+julia&gt; @getmacro @m
+@m (macro with 1 method)
+
+julia&gt; getmacro(:@m)
+@m (macro with 1 method)
+</code></pre>
+<pre><code class="language-julia">julia&gt; eval(Symbol(&quot;@M&quot;))
+@M (macro with 1 method)
+
+julia&gt; dump( eval(Symbol(&quot;@M&quot;)) )
+@M (function of type #@M)
+
+julia&gt; code_typed( eval(Symbol(&quot;@M&quot;)) )
+1-element Array{Any,1}:
+ LambdaInfo for @M()
+
+julia&gt; code_typed( eval(Symbol(&quot;@M&quot;)) )[1]
+LambdaInfo for @M()
+:(begin 
+        return $(Expr(:copyast, :($(QuoteNode(:(a + 1))))))
+    end::Expr)
+
+julia&gt; @code_typed @M
+LambdaInfo for @M()
+:(begin 
+        return $(Expr(:copyast, :($(QuoteNode(:(a + 1))))))
+    end::Expr)
+</code></pre>
+<p>^ on dirait que je peux utiliser <code>code_typed</code> à la place</p>
+<h3 id="comment-comprendre-evalsymbolm">Comment comprendre <code>eval(Symbol(&quot;@M&quot;))</code> ? <a href="#comment-comprendre-evalsymbolm" class="anchor" aria-hidden="true">#</a></h3>
+<p>(@fcard) Actuellement, chaque macro est associée à une fonction. Si vous avez une macro appelée <code>M</code>, alors la fonction de la macro s&rsquo;appelle <code>@M</code>. Généralement, vous pouvez obtenir la valeur d&rsquo;une fonction avec, par exemple. <code>eval(:print)</code> mais avec la fonction d&rsquo;une macro, vous devez faire <code>Symbol(&quot;@M&quot;)</code>, car juste <code>:@M</code> devient un <code>Expr(:macrocall, Symbol(&quot;@M&quot;))</code> et l&rsquo;évaluation qui provoque une macro-expansion.</p>
+<h2 id="pourquoi-code_typed-naffiche-pas-les-paramètres">Pourquoi <strong><code>code_typed</code></strong> n&rsquo;affiche pas les paramètres ? <a href="#pourquoi-code_typed-naffiche-pas-les-param%c3%a8tres" class="anchor" aria-hidden="true">#</a></h2>
+<p>(@pi-)</p>
+<pre><code class="language-julia">julia&gt; code_typed( x -&gt; x^2 )[1]
+LambdaInfo for (::##5#6)(::Any)
+:(begin 
+        return x ^ 2
+    end)
+</code></pre>
+<p>^ ici, je vois un paramètre <code>::Any</code>, mais il ne semble pas être lié au jeton <code>x</code>.</p>
+<pre><code class="language-julia"> julia&gt; code_typed( print )[1]
+LambdaInfo for print(::IO, ::Char)
+:(begin 
+        (Base.write)(io,c)
+        return Base.nothing
+    end::Void)
+</code></pre>
+<p>^ de même ici; il n&rsquo;y a rien pour connecter <code>io</code> avec le <code>::IO</code>
+Donc, cela ne peut sûrement pas être un vidage complet de la représentation AST de cette méthode <code>print</code> particulière… ?</p>
+<p>(@fcard) <code>print(::IO, ::Char)</code> vous indique seulement de quelle méthode il s&rsquo;agit, cela ne fait pas partie de l&rsquo;AST.
+Il n&rsquo;est même plus présent dans master :</p>
+<pre><code class="language-julia">julia&gt; code_typed(print)[1]
+CodeInfo(:(begin
+        (Base.write)(io,c)
+        return Base.nothing
+    end))=&gt;Void
+</code></pre>
+<p>(@p-i-) Je ne comprends pas ce que vous entendez par là. Il semble vider l&rsquo;AST pour le corps de cette méthode, non ?
+Je pensais que <code>code_typed</code> donnait l&rsquo;AST pour une fonction. Mais il semble manquer la première étape, c&rsquo;est-à-dire la configuration de jetons pour les paramètres.</p>
+<p>(@fcard) <code>code_typed</code> est censé afficher uniquement l&rsquo;AST du corps, mais pour l&rsquo;instant, il donne l&rsquo;AST complet de la méthode, sous la forme d&rsquo;un <code>LambdaInfo</code> (0.5) ou <code>CodeInfo</code> (0.6), mais un beaucoup d&rsquo;informations sont omises lors de l&rsquo;impression sur le repl. Vous devrez inspecter le champ <code>LambdaInfo</code> champ par champ afin d&rsquo;obtenir tous les détails. <code>dump</code> va inonder votre repl, vous pouvez donc essayer :</p>
+<pre><code class="language-julia">macro method_info(call)
+  quote
+    method = @code_typed $(esc(call))
+    print_info_fields(method)
+  end
+end
+
+function print_info_fields(method)
+  for field in fieldnames(typeof(method))
+    if isdefined(method, field) &amp;&amp; !(field in [Symbol(&quot;&quot;), :code])
+      println(&quot;  $field = &quot;, getfield(method, field))
+    end
+  end
+  display(method)
+end
+
+print_info_fields(x::Pair) = print_info_fields(x[1])
+</code></pre>
+<p>Ce qui donne toutes les valeurs des champs nommés de l&rsquo;AST d&rsquo;une méthode :</p>
+<pre><code class="language-julia">julia&gt; @method_info print(STDOUT, 'a')
+  rettype = Void
+  sparam_syms = svec()
+  sparam_vals = svec()
+  specTypes = Tuple{Base.#print,Base.TTY,Char}
+  slottypes = Any[Base.#print,Base.TTY,Char]
+  ssavaluetypes = Any[]
+  slotnames = Any[Symbol(&quot;#self#&quot;),:io,:c]
+  slotflags = UInt8[0x00,0x00,0x00]
+  def = print(io::IO, c::Char) at char.jl:45
+  nargs = 3
+  isva = false
+  inferred = true
+  pure = false
+  inlineable = true
+  inInference = false
+  inCompile = false
+  jlcall_api = 0
+  fptr = Ptr{Void} @0x00007f7a7e96ce10
+LambdaInfo for print(::Base.TTY, ::Char)
+:(begin
+        $(Expr(:invoke, LambdaInfo for write(::Base.TTY, ::Char), :(Base.write), :(io), :(c)))
+        return Base.nothing
+    end::Void)
+</code></pre>
+<p>Voir le petit&rsquo; <code>def = print(io::IO, c::Char)</code>? Voilà! (également la partie <code>slotnames = [..., :io, :c]</code>)
+Oui aussi, la différence de sortie est due au fait que je montrais les résultats sur master.</p>
+<h2 id="heading">??? <a href="#heading" class="anchor" aria-hidden="true">#</a></h2>
+<p>(@Ismael-VC) tu veux dire comme ça ?
+http://stackoverflow.com/questions/39314925/generic-dispatch-with-symbols/39315024#39315024</p>
+<p>Vous pouvez le faire de cette façon :</p>
+<pre><code class="language-julia">julia&gt; function dispatchtest{alg}(::Type{Val{alg}})
+           println(&quot;This is the generic dispatch. The algorithm is $alg&quot;)
+       end
+dispatchtest (generic function with 1 method)
+
+julia&gt; dispatchtest(alg::Symbol) = dispatchtest(Val{alg})
+dispatchtest (generic function with 2 methods)
+
+julia&gt; function dispatchtest(::Type{Val{:Euler}})
+           println(&quot;This is for the Euler algorithm!&quot;)
+       end
+dispatchtest (generic function with 3 methods)
+
+julia&gt; dispatchtest(:Foo)
+This is the generic dispatch. The algorithm is Foo
+
+julia&gt; dispatchtest(:Euler)
+</code></pre>
+<p>C&rsquo;est pour l&rsquo;algorithme d&rsquo;Euler !
+Je me demande ce que @fcard pense de l&rsquo;envoi de symboles génériques ! &mdash;^ :ange:</p>
+<h3 id="module-gotcha">Module Gotcha <a href="#module-gotcha" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code class="language-julia">@def m begin
+  a+2
+end
+
+@m # replaces the macro at compile-time with the expression a+2
+</code></pre>
+<p>Plus précisément, ne fonctionne que dans le niveau supérieur du module dans lequel la macro a été définie.</p>
+<pre><code class="language-julia">julia&gt; module M
+       macro m1()
+         a+1
+       end
+       end
+M
+
+julia&gt; macro m2()
+         a+1
+       end
+@m2 (macro with 1 method)
+
+julia&gt; a = 1
+1
+
+julia&gt; M.@m1
+ERROR: UndefVarError: a not defined
+
+julia&gt; @m2
+2
+
+julia&gt; let a = 20
+         @m2
+       end
+2
+</code></pre>
+<p><code>esc</code> empêche que cela se produise, mais le fait de toujours l&rsquo;utiliser par défaut va à l&rsquo;encontre de la conception du langage.
+Une bonne défense consiste à éviter d&rsquo;utiliser et d&rsquo;introduire des noms dans les macros, ce qui les rend difficiles à suivre pour un lecteur humain.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/fr/julia-lang/conditionnels/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Conditionnels
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/fr/julia-lang/traitement-parallele/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Traitement parallèle &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/fr/about/">À propos de</a></li>
+          <li class="list-inline-item"><a href="/fr/disclaimers/">Avis de non-responsabilité</a></li>
+          <li class="list-inline-item"><a href="/fr/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/fr/terms-of-use/">Conditions d&#39;utilisation</a></li>
+          <li class="list-inline-item"><a href="/fr/privacy-policy/">Politique de confidentialité</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

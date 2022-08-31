@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>yudum Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/gulp/</link>
+    <description>Recent content in yudum Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/gulp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gulp ile başlamak</title>
+      <link>https://www.wikiod.com/tr/gulp/gulp-ile-baslamak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gulp/gulp-ile-baslamak/</guid>
+      <description>Görev bağımlılığı # İkinci bir parametreyi gulp.task() öğesine ileterek görevleri seri olarak çalıştırabilirsiniz.
+Bu parametreler, göreviniz çalıştırılmadan önce yürütülecek ve tamamlanacak bir dizi görevdir:
+var gulp = require(&#39;gulp&#39;); gulp.task(&#39;one&#39;, function() { // compile sass css }); gulp.task(&#39;two&#39;, function() { // compile coffeescript }); // task three will execute only after tasks one and two have been completed // note that task one and two run in parallel and order is not guaranteed gulp.</description>
+    </item>
+    
+    <item>
+      <title>gulp-jslint ile hataları göster</title>
+      <link>https://www.wikiod.com/tr/gulp/gulp-jslint-ile-hatalar-goster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gulp/gulp-jslint-ile-hatalar-goster/</guid>
+      <description>Kurulum ve kullanım # Kurulum
+$ npm install gulp-jslint --save-dev Kullanım
+gulpfile.js&amp;rsquo;de şunu ekleyin:
+var gulp = require(&#39;gulp&#39;); var jslint = require(&#39;gulp-jslint&#39;); gulp.task(&#39;lint&#39;, function(){ return gulp.src([&#39;source.js&#39;]) .pipe(jslint({ /* this object represents the JSLint directives being passed down */ })) .pipe(jslint.reporter( &#39;my-reporter&#39; )); }); bu görevi kullanmak için:
+$ ./node_modules/gulp/bin/gulp.js lint </description>
+    </item>
+    
+    <item>
+      <title>HTML&#39;yi küçültme</title>
+      <link>https://www.wikiod.com/tr/gulp/htmlyi-kucultme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gulp/htmlyi-kucultme/</guid>
+      <description>gulp-htmlmin kullanarak HTML&amp;rsquo;yi küçültün # İlk olarak, dizini yerel olarak projelendirmek için gulp ve gulp-htmlmin kurun
+npm install --save-dev gulp gulp-htmlmin Ardından, gulpfile.js dosyanıza minify-html görevini ekleyin.
+var gulp = require(&#39;gulp&#39;); var htmlmin = require(&#39;gulp-htmlmin&#39;); // Task to minify HTML gulp.task(&#39;minify-html&#39;, function() { return gulp.src(&#39;source/*.html&#39;) .pipe(htmlmin()) .pipe(gulp.dest(&#39;public/&#39;)); }); gulp.task(&#39;watch&#39;, function (){ gulp.watch(&#39;source/*.html&#39;, [&#39;minify-html&#39;]); // other tasks }); gulp.task(&#39;default&#39;, [&#39;minify-html&#39;, &#39;watch&#39;]); Bu görev, &amp;ldquo;.html&amp;rdquo; uzantılı &amp;ldquo;kaynak&amp;rdquo; dizindeki tüm dosyaları bulur, onları küçültür ve ardından ortaya çıkan dosyaları &amp;ldquo;genel&amp;rdquo; dizine gönderir.</description>
+    </item>
+    
+    <item>
+      <title>gulp-jsdoc3 ile belgeler oluşturun</title>
+      <link>https://www.wikiod.com/tr/gulp/gulp-jsdoc3-ile-belgeler-olusturun/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gulp/gulp-jsdoc3-ile-belgeler-olusturun/</guid>
+      <description>Kurulum # Öncelikle projenize gulp ve gulp-jsdoc3 kurun:
+npm install gulp-jsdoc3 --save-dev Ardından gulpfile.js&amp;rsquo;nize ekleyin
+var gulp = require(&#39;gulp&#39;); var jsdoc = require(&#39;gulp-jsoc3&#39;); gulp.task(&#39;doc&#39;, function (cb){ gulp.src(&#39;src/*.js&#39;) .pipe(jsdoc(cb)); }); Örneğin bir işlevi belgelemek için, işlevin hemen üstüne şu şekilde bir yorum eklemeniz gerekir:
+/** * @function example * @summary This is a short description of example * @author Whoever * @param {any} cb * @returns */ function example(cb){ //Code } Kullanılacak daha fazla blok etiketi öğrenmek istiyorsanız, lütfen usejsdoc.</description>
+    </item>
+    
+    <item>
+      <title>JS&#39;yi küçültme</title>
+      <link>https://www.wikiod.com/tr/gulp/jsyi-kucultme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gulp/jsyi-kucultme/</guid>
+      <description>Sözdizimi # `ext&amp;rsquo; Çıktı kaynağını ve küçültülmüş dosya uzantılarını belirten bir nesne. source Kaynak dosyalarının çıktısını alan dosya adlarının son ek dizesi ile biter. min When string: Küçültülmüş dosyaların çıktısını alan dosya adlarının son ek dizesi ile biter. When Array: Girilen dosya adlarıyla değiştirilecek regex ifadeleri. Örneğin: [/.(.*)-source.js$/, &amp;lsquo;$1.js&amp;rsquo;] exclude Dizinlerdeki dosyaları küçültmez. noSource Hedef dizinlerde kaynak kodu çıktısı vermez. ignoreFiles Kalıpla eşleşen dosyaları küçültmez. &amp;ldquo;yönetme&amp;rdquo; Değiştirme adlarını atlamak için &amp;ldquo;yanlış&amp;quot;ı iletin.</description>
+    </item>
+    
+    <item>
+      <title>Dosyaları birleştirme</title>
+      <link>https://www.wikiod.com/tr/gulp/dosyalar-birlestirme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gulp/dosyalar-birlestirme/</guid>
+      <description>Concat ve Uglify JS ve CSS dosyaları # Önce tüm dosyaları devDependencies&amp;rsquo;e yüklemeyi unutmayın. Örneğin.
+npm install --save-dev gulp gulp-concat gulp-rename gulp-uglify gulp-uglifycss Gulpfile.js
+var gulp = require(&#39;gulp&#39;); var gulp_concat = require(&#39;gulp-concat&#39;); var gulp_rename = require(&#39;gulp-rename&#39;); var gulp_uglify = require(&#39;gulp-uglify&#39;); var uglifycss = require(&#39;gulp-uglifycss&#39;); var destDir = &#39;./public/assets/dist/&#39;; //or any folder inside your public asset folder var tempDir = &#39;./public/assets/temp/&#39;; //any place where you want to store the concatenated, but unuglified/beautified files //To concat and Uglify All JS files in a particular folder gulp.</description>
+    </item>
+    
+    <item>
+      <title>CSS&#39;yi küçültme</title>
+      <link>https://www.wikiod.com/tr/gulp/cssyi-kucultme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gulp/cssyi-kucultme/</guid>
+      <description>gulp-clean-css ve gulp-rename kullanma # İlk olarak, gulp, gulp-clean-css ve gulp-rename kurun. npmjs.com/package/gulp-rename) dizini yerel olarak projelendirmek için
+npm install --save-dev gulp gulp-clean-css gulp-rename Ardından gulpfile.js dosyanıza aşağıdaki minify-css görevini ekleyin.
+var gulp = require(&#39;gulp&#39;); var cleanCSS = require(&#39;gulp-clean-css&#39;); var rename = require(&#39;gulp-rename&#39;); gulp.task(&#39;minify-css&#39;, function() { return gulp.src(&#39;css/dist/dist.css&#39;) .pipe(cleanCSS()) .pipe(rename(&#39;dist.min.css&#39;)) .pipe(gulp.dest(&#39;css/dist&#39;)); }); gulp.task(&#39;watch&#39;, function(){ gulp.watch(&#39;css/dist/**/*.css&#39;, [&#39;minify-css&#39;]); // Other watchers }); gulp.task(&#39;default&#39;, [&#39;minify-css&#39;, &#39;watch&#39;]); Burada .pipe(cleanCSS()), css/dist/dist.css dosyanızın küçültülmesini yürütür ve .</description>
+    </item>
+    
+    <item>
+      <title>Gulpjs ile Ön Uç İş Akışı Otomasyonu için Kapsamlı Kılavuz -1  2</title>
+      <link>https://www.wikiod.com/tr/gulp/gulpjs-ile-on-uc-is-aks-otomasyonu-icin-kapsaml-klavuz--1--2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gulp/gulpjs-ile-on-uc-is-aks-otomasyonu-icin-kapsaml-klavuz--1--2/</guid>
+      <description>Sözdizimi # npm install [eklenti adı] &amp;ndash;save-dev npm install [eklenti adı] &amp;ndash;save Function &amp;lt;function-name&amp;gt; (glob) { $.src(glob).pipe([plugin 1]).pipe([plugin 2])&amp;hellip;.pipe([plugin n]).pipe( $.dest(&amp;lt;destination-name&amp;gt;) } $.task(&amp;lt;taskname&amp;gt; , [bağımlılıklar] , &amp;lt;body&amp;gt;); Okumaya Devam Et - Varsayılan bir görev oluşturma ve tarayıcı senkronizasyonunu ayarlama
+Referanslar
+Gulp-Clean-Css Gulp-Çirkin Gulp-Autoprefixer - tarayıcı uyumluluğunu koruyan Css Önekleri için Gulp-Önbelleğe Alınmış Gulp-Hatırla Gulp-Jshint Blogumda belgelediğim mutlak yeni başlayanlar için Gulp İş Akışı Otomasyonuna Yönelik Adım Adım Kılavuz
+Tüm Eklentileri Package.</description>
+    </item>
+    
+    <item>
+      <title>İzleyici oluştur</title>
+      <link>https://www.wikiod.com/tr/gulp/izleyici-olustur/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gulp/izleyici-olustur/</guid>
+      <description>İzleyici görevi # config.paths.html, HTML dosyanızın yolunu temsil eder.
+gulp.task(&amp;quot;watch&amp;quot;, function() { gulp.watch(config.paths.html, [&amp;quot;html&amp;quot;]); }); Görev de varsayılana eklenmelidir:
+gulp.task(&amp;quot;default&amp;quot;, [&amp;quot;html&amp;quot;, &amp;quot;watch&amp;quot;]); </description>
+    </item>
+    
+    <item>
+      <title>Görüntü kayıpsız sıkıştırma (gulp-imagemin ile)</title>
+      <link>https://www.wikiod.com/tr/gulp/goruntu-kaypsz-skstrma-gulp-imagemin-ile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/gulp/goruntu-kaypsz-skstrma-gulp-imagemin-ile/</guid>
+      <description>Sözdizimi # imagemin([eklentiler], {seçenekler}) Parametreler # argüman Açıklama &amp;ldquo;kaynakYol&amp;rdquo; Görsellerin kaynak dizini (örneğin: /assets/images) buildPath Hedef yolu (örneğin: /static/dist/) &amp;ldquo;imagemin&amp;rdquo; yapıcısının ilk argümanı eklenti dizisidir. Varsayılan olarak şu eklentiler kullanılır: [imagemin.gifsicle(), imagemin.jpegtran(), imagemin.optipng(), imagemin.svgo()]
+İkinci argüman seçeneklerdir. Yukarıdaki örnekte aşağıdaki seçenekler kullanılmıştır:
+{ progressive: true, interlaced: true, svgoPlugins: [{removeUnknownsAndDefaults: false}, {cleanupIDs: false}] } Bunlar tamamen isteğe bağlı.
+&amp;ldquo;aşamalı&amp;rdquo;, &amp;ldquo;imagemin-jpegtran&amp;rdquo; tarafından kullanılır.
+&amp;ldquo;interlaced&amp;rdquo;, &amp;ldquo;imagemin-gifsicle&amp;rdquo; tarafından kullanılır.
+removeUnknownsAndDefaults ve &amp;ldquo;cleanupID&amp;rsquo;ler&amp;rdquo;, &amp;ldquo;imagemin-svgo&amp;rdquo; tarafından kullanılır.</description>
+    </item>
+    
+  </channel>
+</rss>

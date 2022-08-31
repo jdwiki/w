@@ -1,0 +1,12335 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.7636753edc6f50e96b0045eba39982b1b0b2b6947250d1080bec1f4cbe52399ea6bcecac0e0b6026886b51bdbde879ec9a9820765b03caead79d8ddf3b79336f.css" integrity="sha512-djZ1PtxvUOlrAEXro5mCsbCytpRyUNEIC&#43;wfTL5SOZ6mvOysDgtgJohrUb296HnsmpggdlsDyurXnY3fO3kzbw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Metin - WikiOD</title>
+<meta name="description" content="Çizim Metni # Tuval üzerine çizim yapmak yalnızca şekiller ve görüntülerle sınırlı değildir. Ayrıca tuvale metin de çizebilirsiniz.
+Tuval üzerine metin çizmek için tuvale bir referans alın ve ardından bağlamda &amp;lsquo;fillText&amp;rsquo; yöntemini çağırın.
+var canvas = document.getElementById(&#39;canvas&#39;); var ctx = canvas.getContext(&#39;2d&#39;); ctx.fillText(&amp;quot;My text&amp;quot;, 0, 0); &amp;ldquo;fillText&amp;quot;e iletilen üç gerekli bağımsız değişken şunlardır:
+Görüntülemek istediğiniz metin Yatay (x ekseni) konumu Dikey (y ekseni) konumu Ek olarak, metninizin piksel cinsinden maksimum genişliğini belirtmek için kullanabileceğiniz dördüncü bir isteğe bağlı bağımsız değişken vardır.">
+  <link rel="canonical" href="https://www.wikiod.com/tr/html5-canvas/metin/">
+<meta property="og:locale" content="tr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Metin">
+<meta property="og:description" content="Çizim Metni # Tuval üzerine çizim yapmak yalnızca şekiller ve görüntülerle sınırlı değildir. Ayrıca tuvale metin de çizebilirsiniz.
+Tuval üzerine metin çizmek için tuvale bir referans alın ve ardından bağlamda &lsquo;fillText&rsquo; yöntemini çağırın.
+var canvas = document.getElementById(&#39;canvas&#39;); var ctx = canvas.getContext(&#39;2d&#39;); ctx.fillText(&quot;My text&quot;, 0, 0); &ldquo;fillText&quot;e iletilen üç gerekli bağımsız değişken şunlardır:
+Görüntülemek istediğiniz metin Yatay (x ekseni) konumu Dikey (y ekseni) konumu Ek olarak, metninizin piksel cinsinden maksimum genişliğini belirtmek için kullanabileceğiniz dördüncü bir isteğe bağlı bağımsız değişken vardır.">
+<meta property="og:url" content="https://www.wikiod.com/tr/html5-canvas/metin/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Metin">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Metin">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "WikiOD\u0027ye Hoş Geldiniz - Wiki Çevrimiçi Belgeleme WikiOD, tüm programlama dilleri, eğitimle ilgili konular ve kavramların en yüksek kalitede çevrimiçi belgelerini oluşturmak için ortak bir yazma projesidir.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/tr/html5-canvas/metin/",
+      "url": "https://www.wikiod.com/tr/html5-canvas/metin/",
+      "name": "Metin",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/tr/html5-canvas/metin/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/tr/html5-canvas/metin/#/schema/image/2"
+      },
+      "inLanguage": "tr",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/tr/html5-canvas/metin/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/tr/html5-canvas/metin/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/",
+          "url": "https://www.wikiod.com/tr/",
+          "name": "Tr"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/html5-canvas/",
+          "url": "https://www.wikiod.com/tr/html5-canvas/",
+          "name": "Html5 Canvas"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/tr/html5-canvas/metin/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Metin",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/tr/html5-canvas/metin/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/tr/html5-canvas/metin/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/tr/html5-canvas/metin/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/tr/html5-canvas/metin/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Metin"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9345677191971886" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZZF8Q2L4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y7ZZF8Q2L4');
+</script>
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/tr/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Araştır docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/html5-canvas/"><h3 class="h6 text-uppercase mb-2">html5-tuval Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/html5-canvas-kullanmaya-baslama/">html5-canvas&#39;ı kullanmaya başlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/animasyon/">Animasyon</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/getimagedata-ve-putimagedata-ile-piksel-manipulasyonu/">getImageData ve putImageData ile Piksel Manipülasyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/sorumlu-tasarm/">Sorumlu tasarım</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/medya-turleri-ve-tuval/">Medya türleri ve tuval</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/kompozisyon/">Kompozisyon</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/goruntuler/">Görüntüler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/html5-canvas/metin/">Metin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/bir-yolda-gezinme/">Bir Yolda Gezinme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/carpsmalar-ve-kavsaklar/">Çarpışmalar ve Kavşaklar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/donusumler/">Dönüşümler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/yol-yalnzca-sozdizimi/">Yol (Yalnızca sözdizimi)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/tuval-uzerine-yol-sekillerini-ve-goruntulerini-surukleme/">Tuval Üzerine Yol Şekillerini ve Görüntülerini Sürükleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/ekran-temizleme/">Ekranı temizleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/grafikler-ve-diyagramlar/">Grafikler ve Diyagramlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/golgeler/">gölgeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/yollar/">yollar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/cokgenler/">çokgenler</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/tr/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/docs/">öğreticiler</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/blog/">Nesne</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Türk
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/tr/html5-canvas/metin/">Türk</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/html5-canvas/text/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/html5-canvas/texto/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/fr/html5-canvas/texte/" hreflang="fr" lang="fr">Français</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/html5-canvas/texto/" hreflang="pt" lang="pt">Português</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/html5-canvas/"><h3 class="h6 text-uppercase mb-2">html5-tuval Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/html5-canvas-kullanmaya-baslama/">html5-canvas&#39;ı kullanmaya başlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/animasyon/">Animasyon</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/getimagedata-ve-putimagedata-ile-piksel-manipulasyonu/">getImageData ve putImageData ile Piksel Manipülasyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/sorumlu-tasarm/">Sorumlu tasarım</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/medya-turleri-ve-tuval/">Medya türleri ve tuval</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/kompozisyon/">Kompozisyon</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/goruntuler/">Görüntüler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/html5-canvas/metin/">Metin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/bir-yolda-gezinme/">Bir Yolda Gezinme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/carpsmalar-ve-kavsaklar/">Çarpışmalar ve Kavşaklar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/donusumler/">Dönüşümler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/yol-yalnzca-sozdizimi/">Yol (Yalnızca sözdizimi)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/tuval-uzerine-yol-sekillerini-ve-goruntulerini-surukleme/">Tuval Üzerine Yol Şekillerini ve Görüntülerini Sürükleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/ekran-temizleme/">Ekranı temizleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/grafikler-ve-diyagramlar/">Grafikler ve Diyagramlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/golgeler/">gölgeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/yollar/">yollar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/cokgenler/">çokgenler</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/html5-canvas/"><h3 class="h6 text-uppercase mb-2">html5-tuval Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/html5-canvas-kullanmaya-baslama/">html5-canvas&#39;ı kullanmaya başlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/animasyon/">Animasyon</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/getimagedata-ve-putimagedata-ile-piksel-manipulasyonu/">getImageData ve putImageData ile Piksel Manipülasyonu</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/sorumlu-tasarm/">Sorumlu tasarım</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/medya-turleri-ve-tuval/">Medya türleri ve tuval</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/kompozisyon/">Kompozisyon</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/goruntuler/">Görüntüler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/html5-canvas/metin/">Metin</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/bir-yolda-gezinme/">Bir Yolda Gezinme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/carpsmalar-ve-kavsaklar/">Çarpışmalar ve Kavşaklar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/donusumler/">Dönüşümler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/yol-yalnzca-sozdizimi/">Yol (Yalnızca sözdizimi)</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/tuval-uzerine-yol-sekillerini-ve-goruntulerini-surukleme/">Tuval Üzerine Yol Şekillerini ve Görüntülerini Sürükleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/ekran-temizleme/">Ekranı temizleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/grafikler-ve-diyagramlar/">Grafikler ve Diyagramlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/golgeler/">gölgeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/yollar/">yollar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/html5-canvas/cokgenler/">çokgenler</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#çizim-metni">Çizim Metni</a></li>
+    <li><a href="#metni-biçimlendirme">Metni Biçimlendirme</a></li>
+    <li><a href="#metni-paragraflara-sarma">Metni paragraflara sarma</a></li>
+    <li><a href="#düzensiz-şekillere-metin-paragrafları-çizin">Düzensiz şekillere metin paragrafları çizin</a></li>
+    <li><a href="#metni-bir-resimle-doldurun">Metni bir resimle doldurun</a></li>
+    <li><a href="#bir-yay-boyunca-metin-oluşturma">Bir yay boyunca metin oluşturma.</a></li>
+    <li><a href="#örnek-oluşturma"><strong>Örnek oluşturma</strong></a></li>
+    <li><a href="#örnek-kod">Örnek kod</a></li>
+    <li><a href="#işlev-açıklamaları"><strong>İşlev açıklamaları</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#kullanım-örnekleri"><strong>Kullanım örnekleri</strong></a></li>
+    <li><a href="#eğri-kübik-ve-ikinci-dereceden-bezer-üzerine-metin">Eğri, kübik ve ikinci dereceden bezer üzerine metin</a>
+      <ul>
+        <li><a href="#örnek-kullanım">Örnek kullanım:</a></li>
+      </ul>
+    </li>
+    <li><a href="#yaslanmış-metin">Yaslanmış metin</a></li>
+    <li><a href="#örnek-oluşturma-1">Örnek oluşturma.</a></li>
+    <li><a href="#örnek">Örnek</a></li>
+    <li><a href="#nasıl-kullanılır">Nasıl kullanılır</a></li>
+    <li><a href="#işlev-bağımsız-değişkenleri">İşlev bağımsız değişkenleri</a></li>
+    <li><a href="#kullanim-örnekleri">KULLANIM Örnekleri</a></li>
+    <li><a href="#yaslanmış-paragraflar">Yaslanmış paragraflar.</a></li>
+    <li><a href="#örnek-oluşturma-2">Örnek oluşturma</a></li>
+    <li><a href="#örnek-kod-1">Örnek kod</a></li>
+    <li><a href="#nasıl-kullanılır-1">Nasıl kullanılır</a></li>
+    <li><a href="#nesneyi-döndür">Nesneyi döndür</a></li>
+    <li><a href="#kullanım-örneği">Kullanım örneği</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#çizim-metni">Çizim Metni</a></li>
+    <li><a href="#metni-biçimlendirme">Metni Biçimlendirme</a></li>
+    <li><a href="#metni-paragraflara-sarma">Metni paragraflara sarma</a></li>
+    <li><a href="#düzensiz-şekillere-metin-paragrafları-çizin">Düzensiz şekillere metin paragrafları çizin</a></li>
+    <li><a href="#metni-bir-resimle-doldurun">Metni bir resimle doldurun</a></li>
+    <li><a href="#bir-yay-boyunca-metin-oluşturma">Bir yay boyunca metin oluşturma.</a></li>
+    <li><a href="#örnek-oluşturma"><strong>Örnek oluşturma</strong></a></li>
+    <li><a href="#örnek-kod">Örnek kod</a></li>
+    <li><a href="#işlev-açıklamaları"><strong>İşlev açıklamaları</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#kullanım-örnekleri"><strong>Kullanım örnekleri</strong></a></li>
+    <li><a href="#eğri-kübik-ve-ikinci-dereceden-bezer-üzerine-metin">Eğri, kübik ve ikinci dereceden bezer üzerine metin</a>
+      <ul>
+        <li><a href="#örnek-kullanım">Örnek kullanım:</a></li>
+      </ul>
+    </li>
+    <li><a href="#yaslanmış-metin">Yaslanmış metin</a></li>
+    <li><a href="#örnek-oluşturma-1">Örnek oluşturma.</a></li>
+    <li><a href="#örnek">Örnek</a></li>
+    <li><a href="#nasıl-kullanılır">Nasıl kullanılır</a></li>
+    <li><a href="#işlev-bağımsız-değişkenleri">İşlev bağımsız değişkenleri</a></li>
+    <li><a href="#kullanim-örnekleri">KULLANIM Örnekleri</a></li>
+    <li><a href="#yaslanmış-paragraflar">Yaslanmış paragraflar.</a></li>
+    <li><a href="#örnek-oluşturma-2">Örnek oluşturma</a></li>
+    <li><a href="#örnek-kod-1">Örnek kod</a></li>
+    <li><a href="#nasıl-kullanılır-1">Nasıl kullanılır</a></li>
+    <li><a href="#nesneyi-döndür">Nesneyi döndür</a></li>
+    <li><a href="#kullanım-örneği">Kullanım örneği</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/tr/">Home</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/html5-canvas/">html5-tuval Eğitimi</a></li>
+<li class="breadcrumb-item active" aria-current="page">Metin</li>
+					</ol>
+				</nav>
+			
+			<h1>Metin</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#çizim-metni">Çizim Metni</a></li>
+    <li><a href="#metni-biçimlendirme">Metni Biçimlendirme</a></li>
+    <li><a href="#metni-paragraflara-sarma">Metni paragraflara sarma</a></li>
+    <li><a href="#düzensiz-şekillere-metin-paragrafları-çizin">Düzensiz şekillere metin paragrafları çizin</a></li>
+    <li><a href="#metni-bir-resimle-doldurun">Metni bir resimle doldurun</a></li>
+    <li><a href="#bir-yay-boyunca-metin-oluşturma">Bir yay boyunca metin oluşturma.</a></li>
+    <li><a href="#örnek-oluşturma"><strong>Örnek oluşturma</strong></a></li>
+    <li><a href="#örnek-kod">Örnek kod</a></li>
+    <li><a href="#işlev-açıklamaları"><strong>İşlev açıklamaları</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#kullanım-örnekleri"><strong>Kullanım örnekleri</strong></a></li>
+    <li><a href="#eğri-kübik-ve-ikinci-dereceden-bezer-üzerine-metin">Eğri, kübik ve ikinci dereceden bezer üzerine metin</a>
+      <ul>
+        <li><a href="#örnek-kullanım">Örnek kullanım:</a></li>
+      </ul>
+    </li>
+    <li><a href="#yaslanmış-metin">Yaslanmış metin</a></li>
+    <li><a href="#örnek-oluşturma-1">Örnek oluşturma.</a></li>
+    <li><a href="#örnek">Örnek</a></li>
+    <li><a href="#nasıl-kullanılır">Nasıl kullanılır</a></li>
+    <li><a href="#işlev-bağımsız-değişkenleri">İşlev bağımsız değişkenleri</a></li>
+    <li><a href="#kullanim-örnekleri">KULLANIM Örnekleri</a></li>
+    <li><a href="#yaslanmış-paragraflar">Yaslanmış paragraflar.</a></li>
+    <li><a href="#örnek-oluşturma-2">Örnek oluşturma</a></li>
+    <li><a href="#örnek-kod-1">Örnek kod</a></li>
+    <li><a href="#nasıl-kullanılır-1">Nasıl kullanılır</a></li>
+    <li><a href="#nesneyi-döndür">Nesneyi döndür</a></li>
+    <li><a href="#kullanım-örneği">Kullanım örneği</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#çizim-metni">Çizim Metni</a></li>
+    <li><a href="#metni-biçimlendirme">Metni Biçimlendirme</a></li>
+    <li><a href="#metni-paragraflara-sarma">Metni paragraflara sarma</a></li>
+    <li><a href="#düzensiz-şekillere-metin-paragrafları-çizin">Düzensiz şekillere metin paragrafları çizin</a></li>
+    <li><a href="#metni-bir-resimle-doldurun">Metni bir resimle doldurun</a></li>
+    <li><a href="#bir-yay-boyunca-metin-oluşturma">Bir yay boyunca metin oluşturma.</a></li>
+    <li><a href="#örnek-oluşturma"><strong>Örnek oluşturma</strong></a></li>
+    <li><a href="#örnek-kod">Örnek kod</a></li>
+    <li><a href="#işlev-açıklamaları"><strong>İşlev açıklamaları</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#kullanım-örnekleri"><strong>Kullanım örnekleri</strong></a></li>
+    <li><a href="#eğri-kübik-ve-ikinci-dereceden-bezer-üzerine-metin">Eğri, kübik ve ikinci dereceden bezer üzerine metin</a>
+      <ul>
+        <li><a href="#örnek-kullanım">Örnek kullanım:</a></li>
+      </ul>
+    </li>
+    <li><a href="#yaslanmış-metin">Yaslanmış metin</a></li>
+    <li><a href="#örnek-oluşturma-1">Örnek oluşturma.</a></li>
+    <li><a href="#örnek">Örnek</a></li>
+    <li><a href="#nasıl-kullanılır">Nasıl kullanılır</a></li>
+    <li><a href="#işlev-bağımsız-değişkenleri">İşlev bağımsız değişkenleri</a></li>
+    <li><a href="#kullanim-örnekleri">KULLANIM Örnekleri</a></li>
+    <li><a href="#yaslanmış-paragraflar">Yaslanmış paragraflar.</a></li>
+    <li><a href="#örnek-oluşturma-2">Örnek oluşturma</a></li>
+    <li><a href="#örnek-kod-1">Örnek kod</a></li>
+    <li><a href="#nasıl-kullanılır-1">Nasıl kullanılır</a></li>
+    <li><a href="#nesneyi-döndür">Nesneyi döndür</a></li>
+    <li><a href="#kullanım-örneği">Kullanım örneği</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h2 id="çizim-metni">Çizim Metni <a href="#%c3%a7izim-metni" class="anchor" aria-hidden="true">#</a></h2>
+<p>Tuval üzerine çizim yapmak yalnızca şekiller ve görüntülerle sınırlı değildir. Ayrıca tuvale metin de çizebilirsiniz.</p>
+<p>Tuval üzerine metin çizmek için tuvale bir referans alın ve ardından bağlamda &lsquo;fillText&rsquo; yöntemini çağırın.</p>
+<pre><code>var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+ctx.fillText(&quot;My text&quot;, 0, 0);
+</code></pre>
+<p>&ldquo;fillText&quot;e iletilen üç <strong>gerekli</strong> bağımsız değişken şunlardır:</p>
+<ol>
+<li>Görüntülemek istediğiniz metin</li>
+<li>Yatay (x ekseni) konumu</li>
+<li>Dikey (y ekseni) konumu</li>
+</ol>
+<p>Ek olarak, metninizin piksel cinsinden maksimum genişliğini belirtmek için kullanabileceğiniz dördüncü bir <strong>isteğe bağlı</strong> bağımsız değişken vardır. Aşağıdaki örnekte &ldquo;200&rdquo; değeri, metnin maksimum genişliğini 200 piksel ile sınırlar:</p>
+<pre><code>ctx.fillText(&quot;My text&quot;, 0, 0, 200);
+</code></pre>
+<p>Sonuç:</p>
+<p><a href="http://i.stack.imgur.com/ugzVs.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/ugzVs.png" alt="Tuval üzerinde fillText yöntemini kullanmanın örnek sonucu"></a></p>
+<p>Ayrıca, &ldquo;strokeText&rdquo; yöntemini kullanarak dolgusuz metin ve bunun yerine yalnızca anahat çizebilirsiniz:</p>
+<pre><code>ctx.strokeText(&quot;My text&quot;, 0, 0);
+</code></pre>
+<p>Sonuç:</p>
+<p><a href="http://i.stack.imgur.com/8Exp1.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/8Exp1.png" alt="Tuval üzerinde konturText yöntemini kullanmanın örnek sonucu"></a></p>
+<p>Herhangi bir yazı tipi biçimlendirme özelliği uygulanmadan, tuval varsayılan olarak metni sans-serif&rsquo;te 10 pikselde işler, bu da &ldquo;fillText&rdquo; ve &ldquo;strokeText&rdquo; yöntemlerinin sonucu arasındaki farkı görmeyi zorlaştırır. Metin boyutunun nasıl artırılacağı ve metne diğer estetik değişikliklerin nasıl uygulanacağı hakkında ayrıntılar için [Metni Biçimlendirme örneği][3]&rsquo;ne bakın.</p>
+<p>[3]: https://www.wikiod.com/tr/html5-canvas/metin#Metin Biçimlendirme</p>
+<h2 id="metni-biçimlendirme">Metni Biçimlendirme <a href="#metni-bi%c3%a7imlendirme" class="anchor" aria-hidden="true">#</a></h2>
+<p>&ldquo;fillText&rdquo; ve &ldquo;strokeText&rdquo; yöntemleri tarafından sağlanan varsayılan yazı tipi biçimlendirmesi estetik açıdan pek çekici değildir. Neyse ki tuval API&rsquo;si, metni biçimlendirmek için özellikler sağlar.</p>
+<p>&ldquo;font&rdquo; özelliğini kullanarak şunları belirtebilirsiniz:</p>
+<ul>
+<li>yazı stili</li>
+<li>yazı tipi değişkeni</li>
+<li>yazı tipi ağırlığı</li>
+<li>yazı tipi boyutu / satır yüksekliği</li>
+<li>font ailesi</li>
+</ul>
+<p>Örneğin:</p>
+<!-- dil: lang-js -->
+<pre><code>ctx.font = &quot;italic small-caps bold 40px Helvetica, Arial, sans-serif&quot;;
+ctx.fillText(&quot;My text&quot;, 20, 50);
+</code></pre>
+<p>Sonuç:</p>
+<p><a href="http://i.stack.imgur.com/ugzVs.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/ugzVs.png" alt="Yazı tipi özelliklerini belirlemenin örnek sonucu"></a></p>
+<p>&ldquo;textAlign&rdquo; özelliğini kullanarak, metin hizalamasını aşağıdakilerden birine de değiştirebilirsiniz:</p>
+<ul>
+<li>ayrıldı</li>
+<li>merkez</li>
+<li>Sağ</li>
+<li>bitiş (sağdakiyle aynı)</li>
+<li>başlat (soldakiyle aynı)</li>
+</ul>
+<p>Örneğin:</p>
+<!-- dil: lang-js -->
+<pre><code>ctx.textAlign = &quot;center&quot;;
+</code></pre>
+<h2 id="metni-paragraflara-sarma">Metni paragraflara sarma <a href="#metni-paragraflara-sarma" class="anchor" aria-hidden="true">#</a></h2>
+<p>Native Canvas API, istenen maksimum genişliğe ulaşıldığında metni bir sonraki satıra kaydırma yöntemine sahip değildir. Bu örnek, metni paragraflara sarar.</p>
+<pre><code>function wrapText(text, x, y, maxWidth, fontSize, fontFace){
+  var firstY=y;
+  var words = text.split(' ');
+  var line = '';
+  var lineHeight=fontSize*1.286; // a good approx for 10-18px sizes
+
+  ctx.font=fontSize+&quot; &quot;+fontFace;
+  ctx.textBaseline='top';
+
+  for(var n = 0; n &lt; words.length; n++) {
+    var testLine = line + words[n] + ' ';
+    var metrics = ctx.measureText(testLine);
+    var testWidth = metrics.width;
+    if(testWidth &gt; maxWidth) {
+      ctx.fillText(line, x, y);
+      if(n&lt;words.length-1){
+          line = words[n] + ' ';
+          y += lineHeight;
+      }
+    }
+    else {
+      line = testLine;
+    }
+  }
+  ctx.fillText(line, x, y);
+}
+</code></pre>
+<h2 id="düzensiz-şekillere-metin-paragrafları-çizin">Düzensiz şekillere metin paragrafları çizin <a href="#d%c3%bczensiz-%c5%9fekillere-metin-paragraflar%c4%b1-%c3%a7izin" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bu örnek, tuvalin opak piksellere sahip herhangi bir bölümüne metin paragrafları çizer.</p>
+<p>Bir sonraki belirtilen sözcüğü içerecek kadar büyük olan bir sonraki opak piksel bloğunu bularak ve bu bloğu belirtilen sözcükle doldurarak çalışır.</p>
+<p>Opak pikseller herhangi bir kaynaktan gelebilir: Yol çizim komutları ve/veya görüntüler.</p>
+<p><a href="http://i.stack.imgur.com/ugzVs.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/ugzVs.png" alt="buraya resim açıklamasını girin"></a></p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+    body{ background-color:white; padding:10px; }
+    #canvas{border:1px solid red;}
+&lt;/style&gt;
+&lt;script&gt;
+window.onload=(function(){
+
+    var canvas=document.getElementById(&quot;canvas&quot;);
+    var ctx=canvas.getContext(&quot;2d&quot;);
+    var cw=canvas.width;
+    var ch=canvas.height;
+
+    var fontsize=12;
+    var fontface='verdana';
+    var lineHeight=parseInt(fontsize*1.286);
+
+    var text='It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way; in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.';
+    var words=text.split(' ');
+    var wordWidths=[];
+    ctx.font=fontsize+'px '+fontface;
+    for(var i=0;i&lt;words.length;i++){ wordWidths.push(ctx.measureText(words[i]).width); }
+    var spaceWidth=ctx.measureText(' ').width;
+    var wordIndex=0
+    var data=[];
+
+    // Demo: draw Heart 
+    // Note: the shape can be ANY opaque drawing -- even an image
+    ctx.scale(3,3);
+    ctx.beginPath();
+    ctx.moveTo(75,40);
+    ctx.bezierCurveTo(75,37,70,25,50,25);
+    ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
+    ctx.bezierCurveTo(20,80,40,102,75,120);
+    ctx.bezierCurveTo(110,102,130,80,130,62.5);
+    ctx.bezierCurveTo(130,62.5,130,25,100,25);
+    ctx.bezierCurveTo(85,25,75,37,75,40);
+    ctx.fillStyle='red';
+    ctx.fill();
+    ctx.setTransform(1,0,0,1,0,0);
+
+    // fill heart with text
+    ctx.fillStyle='white';
+    var imgDataData=ctx.getImageData(0,0,cw,ch).data;
+    for(var i=0;i&lt;imgDataData.length;i+=4){
+        data.push(imgDataData[i+3]);
+    }
+    placeWords();   
+
+    // draw words sequentially into next available block of 
+    //    available opaque pixels 
+    function placeWords(){
+        var sx=0;
+        var sy=0;
+        var y=0;
+        var wordIndex=0;
+        ctx.textBaseline='top';
+        while(y&lt;ch &amp;&amp; wordIndex&lt;words.length){
+            sx=0;
+            sy=y;
+            var startingIndex=wordIndex;
+            while(sx&lt;cw &amp;&amp; wordIndex&lt;words.length){
+                var x=getRect(sx,sy,lineHeight);
+                var available=x-sx;
+                var spacer=spaceWidth;  // spacer=0 to have no left margin
+                var w=spacer+wordWidths[wordIndex];
+                while(available&gt;=w){
+                    ctx.fillText(words[wordIndex],spacer+sx,sy);
+                    sx+=w;
+                    available-=w;
+                    spacer=spaceWidth;
+                    wordIndex++;
+                    w=spacer+wordWidths[wordIndex];
+                }
+                sx=x+1;
+            }
+            y=(wordIndex&gt;startingIndex)?y+lineHeight:y+1;
+        }
+    }
+
+    // find a rectangular block of opaque pixels
+    function getRect(sx,sy,height){
+        var x=sx;
+        var y=sy;
+        var ok=true;
+        while(ok){
+            if(data[y*cw+x]&lt;250){ok=false;}
+            y++;
+            if(y&gt;=sy+height){
+                y=sy;
+                x++;
+                if(x&gt;=cw){ok=false;}
+            }
+        }
+        return(x);
+    }
+
+}); // end $(function(){});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h4&gt;Note: the shape must be closed and alpha&gt;=250 inside&lt;/h4&gt;
+    &lt;canvas id=&quot;canvas&quot; width=400 height=400&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="metni-bir-resimle-doldurun">Metni bir resimle doldurun <a href="#metni-bir-resimle-doldurun" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bu örnek, metni belirtilen bir görüntüyle doldurur.</p>
+<p>Önemli! Bu işlev çağrılmadan önce belirtilen görüntü tam olarak yüklenmelidir, aksi takdirde çizim başarısız olur. Resmin tamamen yüklendiğinden emin olmak için <code>image.onload</code> kullanın.</p>
+<p><a href="http://i.stack.imgur.com/ugzVs.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/ugzVs.png" alt="buraya resim açıklamasını girin"></a></p>
+<pre><code>function drawImageInsideText(canvas,x,y,img,text,font){
+    var c=canvas.cloneNode();
+    var ctx=c.getContext('2d');
+    ctx.font=font;
+    ctx.fillText(text,x,y);
+    ctx.globalCompositeOperation='source-atop';
+    ctx.drawImage(img,0,0);
+    canvas.getContext('2d').drawImage(c,0,0);
+}
+</code></pre>
+<h2 id="bir-yay-boyunca-metin-oluşturma">Bir yay boyunca metin oluşturma. <a href="#bir-yay-boyunca-metin-olu%c5%9fturma" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bu örnek, metnin bir yay boyunca nasıl oluşturulacağını gösterir. Prototipini genişleterek &ldquo;CanvasRenderingContext2D&quot;ye nasıl işlevsellik ekleyebileceğinizi içerir.</p>
+<p>Bu örnekler, yığın akışı yanıtından <a href="http://i.stack.imgur.com/ugzVs.png">Circular Text</a> türetilmiştir.</p>
+<hr>
+<h2 id="örnek-oluşturma"><strong>Örnek oluşturma</strong> <a href="#%c3%b6rnek-olu%c5%9fturma" class="anchor" aria-hidden="true">#</a></h2>
+<p><a href="http://i.stack.imgur.com/8Exp1.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/8Exp1.png" alt="Çember metni örneği"></a></p>
+<hr>
+<h2 id="örnek-kod">Örnek kod <a href="#%c3%b6rnek-kod" class="anchor" aria-hidden="true">#</a></h2>
+<p>Örnek, 2B bağlam prototipine 3 yeni metin oluşturma işlevi ekler.</p>
+<ul>
+<li><strong>ctx.fillCircleText(metin, x, y, yarıçap, başlangıç, bitiş, ileri);</strong></li>
+<li><strong>ctx.strokeCircleText(metin, x, y, yarıçap, başlangıç, bitiş, ileri);</strong></li>
+<li><strong>ctx.measureCircleText(metin, yarıçap);</strong></li>
+</ul>
+<!-- dil: lang-js -->
+<pre><code>(function(){
+    const FILL = 0;        // const to indicate filltext render
+    const STROKE = 1;
+    var renderType = FILL; // used internal to set fill or stroke text
+    const multiplyCurrentTransform = true; // if true Use current transform when rendering
+                                           // if false use absolute coordinates which is a little quicker
+                                           // after render the currentTransform is restored to default transform
+                                           
+      
+
+    // measure circle text
+    // ctx: canvas context
+    // text: string of text to measure
+    // r: radius in pixels
+    //
+    // returns the size metrics of the text
+    //
+    // width: Pixel width of text
+    // angularWidth : angular width of text in radians
+    // pixelAngularSize : angular width of a pixel in radians
+    var measure = function(ctx, text, radius){        
+        var textWidth = ctx.measureText(text).width; // get the width of all the text
+        return {
+            width               : textWidth,
+            angularWidth        : (1 / radius) * textWidth,
+            pixelAngularSize    : 1 / radius
+        };
+    }
+
+    // displays text along a circle
+    // ctx: canvas context
+    // text: string of text to measure
+    // x,y: position of circle center
+    // r: radius of circle in pixels
+    // start: angle in radians to start. 
+    // [end]: optional. If included text align is ignored and the text is 
+    //        scaled to fit between start and end;
+    // [forward]: optional default true. if true text direction is forwards, if false  direction is backward
+    var circleText = function (ctx, text, x, y, radius, start, end, forward) {
+        var i, textWidth, pA, pAS, a, aw, wScale, aligned, dir, fontSize;
+        if(text.trim() === &quot;&quot; || ctx.globalAlpha === 0){ // dont render empty string or transparent
+            return;
+        }
+        if(isNaN(x) || isNaN(y) || isNaN(radius) || isNaN(start) || (end !== undefined &amp;&amp; end !== null &amp;&amp; isNaN(end))){ // 
+            throw TypeError(&quot;circle text arguments requires a number for x,y, radius, start, and end.&quot;)
+        }
+        aligned = ctx.textAlign;        // save the current textAlign so that it can be restored at end
+        dir = forward ? 1 : forward === false ? -1 : 1;  // set dir if not true or false set forward as true  
+        pAS = 1 / radius;               // get the angular size of a pixel in radians
+        textWidth = ctx.measureText(text).width; // get the width of all the text
+        if (end !== undefined &amp;&amp; end !== null) { // if end is supplied then fit text between start and end
+            pA = ((end - start) / textWidth) * dir;
+            wScale = (pA / pAS) * dir;
+        } else {                 // if no end is supplied correct start and end for alignment
+            // if forward is not given then swap top of circle text to read the correct direction
+            if(forward === null || forward === undefined){
+                if(((start % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2) &gt; Math.PI){
+                    dir = -1;
+                }
+            }
+            pA = -pAS * dir ;
+            wScale = -1 * dir;
+            switch (aligned) {
+            case &quot;center&quot;:       // if centered move around half width
+                start -= (pA * textWidth )/2;
+                end = start + pA * textWidth;
+                break;
+            case &quot;right&quot;:// intentionally falls through to case &quot;end&quot;
+            case &quot;end&quot;:
+                end = start;
+                start -= pA * textWidth;
+                break;
+            case &quot;left&quot;:  // intentionally falls through to case &quot;start&quot;
+            case &quot;start&quot;:
+                end = start + pA * textWidth;
+            }
+        }
+
+        ctx.textAlign = &quot;center&quot;;                     // align for rendering
+        a = start;                                    // set the start angle
+        for (var i = 0; i &lt; text.length; i += 1) {    // for each character
+            aw = ctx.measureText(text[i]).width * pA; // get the angular width of the text
+            var xDx = Math.cos(a + aw / 2);           // get the yAxies vector from the center x,y out
+            var xDy = Math.sin(a + aw / 2);
+            if(multiplyCurrentTransform){ // transform multiplying current transform
+                ctx.save();
+                if (xDy &lt; 0) { // is the text upside down. If it is flip it
+                    ctx.transform(-xDy * wScale, xDx * wScale, -xDx, -xDy, xDx * radius + x, xDy * radius + y);
+                } else {
+                    ctx.transform(-xDy * wScale, xDx * wScale, xDx, xDy, xDx * radius + x, xDy * radius + y);
+                }
+            }else{
+                if (xDy &lt; 0) { // is the text upside down. If it is flip it
+                    ctx.setTransform(-xDy * wScale, xDx * wScale, -xDx, -xDy, xDx * radius + x, xDy * radius + y);
+                } else {
+                    ctx.setTransform(-xDy * wScale, xDx * wScale, xDx, xDy, xDx * radius + x, xDy * radius + y);
+                }
+            }
+            if(renderType === FILL){
+                ctx.fillText(text[i], 0, 0);    // render the character
+            }else{                    
+                ctx.strokeText(text[i], 0, 0);  // render the character
+            }
+            if(multiplyCurrentTransform){  // restore current transform
+                ctx.restore();
+            }
+            a += aw;                     // step to the next angle
+        }
+        // all done clean up.
+        if(!multiplyCurrentTransform){
+            ctx.setTransform(1, 0, 0, 1, 0, 0); // restore the transform
+        }
+        ctx.textAlign = aligned;            // restore the text alignment
+    }
+    // define fill text
+    var fillCircleText = function(text, x, y, radius, start, end, forward){
+        renderType = FILL;
+        circleText(this, text, x, y, radius, start, end, forward);
+    }
+    // define stroke text
+    var strokeCircleText = function(text, x, y, radius, start, end, forward){
+        renderType = STROKE;
+        circleText(this, text, x, y, radius, start, end, forward);
+    }
+    // define measure text
+    var measureCircleTextExt = function(text,radius){
+        return measure(this, text, radius);
+    }
+    // set the prototypes
+    CanvasRenderingContext2D.prototype.fillCircleText = fillCircleText;
+    CanvasRenderingContext2D.prototype.strokeCircleText = strokeCircleText;
+    CanvasRenderingContext2D.prototype.measureCircleText = measureCircleTextExt;  
+})();
+</code></pre>
+<hr>
+<h2 id="işlev-açıklamaları"><strong>İşlev açıklamaları</strong> <a href="#i%c5%9flev-a%c3%a7%c4%b1klamalar%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bu örnek, &lsquo;CanvasRenderingContext2D prototipine&rsquo; 3 işlev ekler. &ldquo;fillCircleText&rdquo;, &ldquo;strokeCircleText&rdquo; ve &ldquo;measureCircleText&rdquo;</p>
+<h1 id="canvasrenderingcontext2dfillcircletextmetin-x-y-yarıçap-başlangıç-son-ileribr"><em>CanvasRenderingContext2D.fillCircleText(metin, x, y, yarıçap, başlangıç, [son, [ileri]]);</em><br> <a href="#canvasrenderingcontext2dfillcircletextmetin-x-y-yar%c4%b1%c3%a7ap-ba%c5%9flang%c4%b1%c3%a7-son-ileribr" class="anchor" aria-hidden="true">#</a></h1>
+<h1 id="canvasrenderingcontext2dstrokecircletextmetin-x-y-yarıçap-başlangıç-son-ileri"><em>CanvasRenderingContext2D.strokeCircleText(metin, x, y, yarıçap, başlangıç, [son, [ileri]]);</em> <a href="#canvasrenderingcontext2dstrokecircletextmetin-x-y-yar%c4%b1%c3%a7ap-ba%c5%9flang%c4%b1%c3%a7-son-ileri" class="anchor" aria-hidden="true">#</a></h1>
+<ul>
+<li><strong>metin:</strong> Dize olarak işlenecek metin.</li>
+<li><strong>x</strong>,<strong>y</strong>: Daire merkezinin Sayılar olarak konumu.</li>
+<li><strong>yarıçap:</strong> dairenin piksel cinsinden yarıçapı</li>
+<li><strong>başlangıç:</strong> başlangıç ​​için radyan cinsinden açı.</li>
+<li><strong>[son]:</strong> isteğe bağlı. Dahil edilirse <code>ctx.textAlign</code> yok sayılır ve metin başlangıç ​​ve bitiş arasına sığacak şekilde ölçeklenir.</li>
+<li><strong>[ileri]:</strong> isteğe bağlı varsayılan &rsquo;true&rsquo;. doğru metin yönü ileri, &lsquo;yanlış&rsquo; yön geriye ise.</li>
+</ul>
+<p>Her iki işlev de metni yarıçap çevresinde dikey olarak konumlandırmak için textBaseline&rsquo;ı kullanır. En iyi sonuçlar için <code>ctx.TextBaseline</code> kullanın.</p>
+<p>Fonksiyonlar bir <code>TypeError</code> atar, NaN olarak herhangi bir sayısal argümandır.</p>
+<p>&ldquo;metin&rdquo; bağımsız değişkeni boş bir dizeye kesilirse veya &ldquo;ctx.globalAlpha = 0&rdquo; olursa, işlev yalnızca düşer ve hiçbir şey yapmaz.</p>
+<h1 id="canvasrenderingcontext2dmeasurecircletextmetin-yarıçap"><em>CanvasRenderingContext2D.measureCircleText(metin, yarıçap);</em> <a href="#canvasrenderingcontext2dmeasurecircletextmetin-yar%c4%b1%c3%a7ap" class="anchor" aria-hidden="true">#</a></h1>
+<pre><code> - **text:** String of text to measure.
+ - **radius:** radius of circle in pixels.
+</code></pre>
+<p>Dairesel metin oluşturmak için çeşitli boyut ölçümleri içeren bir Nesne döndürür</p>
+<pre><code>   - **width:** Pixel width of text as it would normaly be rendered
+   - **angularWidth:** angular width of text in radians.
+   - **pixelAngularSize:** angular width of a pixel in radians.
+</code></pre>
+<hr>
+<h2 id="kullanım-örnekleri"><strong>Kullanım örnekleri</strong> <a href="#kullan%c4%b1m-%c3%b6rnekleri" class="anchor" aria-hidden="true">#</a></h2>
+<!-- dil: lang-js -->
+<pre><code>const rad = canvas.height * 0.4;
+const text = &quot;Hello circle TEXT!&quot;;
+const fontSize = 40;
+const centX = canvas.width / 2;
+const centY = canvas.height / 2;
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+ctx.font = fontSize + &quot;px verdana&quot;;
+ctx.textAlign = &quot;center&quot;;
+ctx.textBaseline = &quot;bottom&quot;;
+ctx.fillStyle = &quot;#000&quot;;
+ctx.strokeStyle = &quot;#666&quot;;
+
+// Text under stretched from Math.PI to 0 (180 - 0 deg)
+ctx.fillCircleText(text, centX, centY, rad, Math.PI, 0);
+
+// text over top centered at Math.PI * 1.5 ( 270 deg)
+ctx.fillCircleText(text, centX, centY, rad, Math.PI * 1.5);
+
+// text under top centered at Math.PI * 1.5 ( 270 deg)
+ctx.textBaseline = &quot;top&quot;;
+ctx.fillCircleText(text, centX, centY, rad, Math.PI * 1.5);
+
+
+// text over top centered at Math.PI * 1.5 ( 270 deg)
+ctx.textBaseline = &quot;middle&quot;;
+ctx.fillCircleText(text, centX, centY, rad, Math.PI * 1.5);
+
+
+// Use measureCircleText to get angular size
+var circleTextMetric = ctx.measureCircleText(&quot;Text to measure&quot;, rad);
+console.log(circleTextMetric.width);            // width of text if rendered normally
+console.log(circleTextMetric.angularWidth);     // angular width of text
+console.log(circleTextMetric.pixelAngularSize); // angular size of a pixel    
+
+
+
+// Use measure text to draw a arc around the text
+ctx.textBaseline = &quot;middle&quot;;
+var width = ctx.measureCircleText(text, rad).angularWidth;    
+ctx.fillCircleText(text, centX, centY, rad, Math.PI * 1.5);
+
+// render the arc around the text
+ctx.strokeStyle= &quot;red&quot;;
+ctx.lineWidth = 3;
+ctx.beginPath();
+ctx.arc(centX, centY, rad + fontSize / 2,Math.PI * 1.5 - width/2,Math.PI*1.5 + width/2);
+ctx.arc(centX, centY, rad - fontSize / 2,Math.PI * 1.5 + width/2,Math.PI*1.5 - width/2,true);
+ctx.closePath();
+ctx.stroke();
+</code></pre>
+<hr>
+<hr>
+<blockquote>
+<blockquote>
+<p>NOT:** Oluşturulan metin, dairesel metnin yalnızca bir tahminidir. Örneğin, iki l işlenirse, iki çizgi paralel olmaz, ancak bir &ldquo;H&rdquo; oluşturursanız, iki kenar paralel olacaktır. Bunun nedeni, her pikselin dairesel metin oluşturmak için doğru şekilde dönüştürülmesi yerine, her karakterin gerekli yöne mümkün olduğunca yakın oluşturulmasıdır.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>NOT:</strong> Bu örnekte tanımlanan <code>const multiplyCurrentTransform = true;</code>, kullanılan dönüştürme yöntemini ayarlamak için kullanılır. &ldquo;yanlış&rdquo; ise, dairesel metin oluşturma için dönüşüm mutlaktır ve mevcut dönüştürme durumuna bağlı değildir. Metin, önceki herhangi bir ölçekleme, döndürme veya çevirme dönüşümlerinden etkilenmeyecektir. Bu, işleme işlevinin performansını artıracaktır, işlev çağrıldıktan sonra dönüşüm varsayılan <code>setTransform(1,0,0,1,0,0)</code> değerine ayarlanacaktır <br><br>
+Eğer &ldquo;multiplyCurrentTransform = true&rdquo; (bu örnekte varsayılan olarak ayarlanmıştır) metin, metnin çevrilebilmesi, eğrilebilmesi, döndürülebilmesi vb. için geçerli dönüşümü kullanacaktır, ancak &ldquo;fillCircleText&rdquo; ve &ldquo;strokeCircleText&rdquo; çağrılmadan önce geçerli dönüşüm değiştirilecektir. fonksiyonlar. 2B bağlamın mevcut durumuna bağlı olarak bu, <code>multiplyCurrentTransform = false</code> değerinden biraz daha yavaş olabilir.</p>
+</blockquote>
+<!--- 
+Blindman67: Editörleri, gelecekteki editörler ve gözden geçirenlerle ilgili her türlü bilgiyi iletmek için bu yorum bölümünü kullanmaya teşvik etmek istiyorum.
+
+Blindman67: Gözden geçirenler için bu örnek, önceki sürümü SO kullanıcısı http://stackoverflow.com/users/411591/marke düzenlemek yerine "Bir daire etrafında metin çiz" örneğinin yerine geçmiştir ve ben yeni bir tane oluşturmaya karar verdim. Bu not gelecekteki düzenlemelerde kaldırılabilir.
+
+--->
+<h2 id="eğri-kübik-ve-ikinci-dereceden-bezer-üzerine-metin">Eğri, kübik ve ikinci dereceden bezer üzerine metin <a href="#e%c4%9fri-k%c3%bcbik-ve-ikinci-dereceden-bezer-%c3%bczerine-metin" class="anchor" aria-hidden="true">#</a></h2>
+<p><a href="http://i.stack.imgur.com/ugzVs.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/ugzVs.png" alt="buraya resim açıklamasını girin"></a></p>
+<p><strong>textOnCurve(metin,kaydırma,x1,y1,x2,y2,x3,y3,x4,y4)</strong></p>
+<p>Metni ikinci dereceden ve kübik eğrilerde işler.</p>
+<ul>
+<li>&ldquo;metin&rdquo;, oluşturulacak metindir</li>
+<li>eğrinin başlangıcından metne olan &ldquo;offset&rdquo; mesafesi &gt;= 0</li>
+<li>&lsquo;x1,y1&rsquo; - &lsquo;x3,y3&rsquo; ikinci dereceden eğri noktaları veya</li>
+<li><code>x1,y1</code> - <code>x4,y4</code> kübik eğri noktaları veya</li>
+</ul>
+<h3 id="örnek-kullanım">Örnek kullanım: <a href="#%c3%b6rnek-kullan%c4%b1m" class="anchor" aria-hidden="true">#</a></h3>
+<!-- dil: lang-js -->
+<pre><code>textOnCurve(&quot;Hello world!&quot;,50,100,100,200,200,300,100); // draws text on quadratic curve
+                                                        // 50 pixels from start of curve
+
+
+textOnCurve(&quot;Hello world!&quot;,50,100,100,200,200,300,100,400,200); 
+                                                        // draws text on cubic curve
+                                                        // 50 pixels from start of curve
+</code></pre>
+<p>İşlev ve eğri yardımcı işlevi</p>
+<!-- dil: lang-js -->
+<pre><code>// pass 8 values for cubic bezier
+// pass 6 values for quadratic
+// Renders text from start of curve
+var textOnCurve = function(text,offset,x1,y1,x2,y2,x3,y3,x4,y4){
+    ctx.save();
+    ctx.textAlign = &quot;center&quot;;
+    var widths = [];
+    for(var i = 0; i &lt; text.length; i ++){
+        widths[widths.length] = ctx.measureText(text[i]).width;
+    }
+    var ch = curveHelper(x1,y1,x2,y2,x3,y3,x4,y4);
+    var pos = offset;
+    var cpos = 0;
+
+    for(var i = 0; i &lt; text.length; i ++){
+        pos += widths[i] / 2;
+        cpos = ch.forward(pos);
+        ch.tangent(cpos);
+        ctx.setTransform(ch.vect.x, ch.vect.y, -ch.vect.y, ch.vect.x, ch.vec.x, ch.vec.y);
+        ctx.fillText(text[i],0,0);     
+
+        pos += widths[i] / 2;
+    }
+    ctx.restore();
+}
+</code></pre>
+<p>Eğri yardımcısı işlevi, bezier üzerindeki noktaları bulma performansını artırmak için tasarlanmıştır.</p>
+<!-- dil: lang-js -->
+<pre><code>// helper function locates points on bezier curves.
+function curveHelper(x1, y1, x2, y2, x3, y3, x4, y4){
+    var tx1, ty1, tx2, ty2, tx3, ty3, tx4, ty4;
+    var a,b,c,u;
+    var vec,currentPos,vec1,vect;
+    vec = {x:0,y:0};
+    vec1 = {x:0,y:0};
+    vect = {x:0,y:0};
+    quad = false;
+    currentPos = 0;
+    currentDist = 0;
+    if(x4 === undefined || x4 === null){
+        quad = true;
+        x4 = x3;
+        y4 = y3;
+    }
+    var estLen = Math.sqrt((x4 - x1) * (x4 - x1) + (y4 - y1) * (y4 - y1));
+    var onePix = 1 / estLen;
+    function posAtC(c){
+        tx1 = x1; ty1 = y1;
+        tx2 = x2; ty2 = y2;
+        tx3 = x3; ty3 = y3;
+        tx1 += (tx2 - tx1) * c;
+        ty1 += (ty2 - ty1) * c;
+        tx2 += (tx3 - tx2) * c;
+        ty2 += (ty3 - ty2) * c;
+        tx3 += (x4 - tx3) * c;
+        ty3 += (y4 - ty3) * c;
+        tx1 += (tx2 - tx1) * c;
+        ty1 += (ty2 - ty1) * c;
+        tx2 += (tx3 - tx2) * c;
+        ty2 += (ty3 - ty2) * c;
+        vec.x = tx1 + (tx2 - tx1) * c;
+        vec.y = ty1 + (ty2 - ty1) * c;    
+        return vec;
+    }
+    function posAtQ(c){
+        tx1 = x1; ty1 = y1;
+        tx2 = x2; ty2 = y2;
+        tx1 += (tx2 - tx1) * c;
+        ty1 += (ty2 - ty1) * c;
+        tx2 += (x3 - tx2) * c;
+        ty2 += (y3 - ty2) * c;
+        vec.x = tx1 + (tx2 - tx1) * c;
+        vec.y = ty1 + (ty2 - ty1) * c;
+        return vec;
+    }    
+    function forward(dist){
+        var step;
+        helper.posAt(currentPos);
+
+        while(currentDist &lt; dist){
+            vec1.x = vec.x;
+            vec1.y = vec.y;            
+            currentPos += onePix;
+            helper.posAt(currentPos);
+            currentDist += step = Math.sqrt((vec.x - vec1.x) * (vec.x - vec1.x) + (vec.y - vec1.y) * (vec.y - vec1.y));
+
+        }
+        currentPos -= ((currentDist - dist) / step) * onePix
+        currentDist -= step;
+        helper.posAt(currentPos);
+        currentDist += Math.sqrt((vec.x - vec1.x) * (vec.x - vec1.x) + (vec.y - vec1.y) * (vec.y - vec1.y));
+        return currentPos;
+    }
+    
+    function tangentQ(pos){
+        a = (1-pos) * 2;
+        b = pos * 2;
+        vect.x = a * (x2 - x1) + b * (x3 - x2);
+        vect.y = a * (y2 - y1) + b * (y3 - y2);       
+        u = Math.sqrt(vect.x * vect.x + vect.y * vect.y);
+        vect.x /= u;
+        vect.y /= u;        
+    }
+    function tangentC(pos){
+        a  = (1-pos)
+        b  = 6 * a * pos;       
+        a *= 3 * a;                  
+        c  = 3 * pos * pos; 
+        vect.x  = -x1 * a + x2 * (a - b) + x3 * (b - c) + x4 * c;
+        vect.y  = -y1 * a + y2 * (a - b) + y3 * (b - c) + y4 * c;
+        u = Math.sqrt(vect.x * vect.x + vect.y * vect.y);
+        vect.x /= u;
+        vect.y /= u;
+    }  
+    var helper = {
+        vec : vec,
+        vect : vect,
+        forward : forward,
+    }
+    if(quad){
+        helper.posAt = posAtQ;
+        helper.tangent = tangentQ;
+    }else{
+        helper.posAt = posAtC;
+        helper.tangent = tangentC;
+    }
+    return helper
+}
+</code></pre>
+<h2 id="yaslanmış-metin">Yaslanmış metin <a href="#yaslanm%c4%b1%c5%9f-metin" class="anchor" aria-hidden="true">#</a></h2>
+<p>Bu örnek, iki yana yaslanmış metin oluşturur. Prototipini genişleterek veya global bir nesne &ldquo;justifiedText&rdquo; olarak &lsquo;CanvasRenderingContext2D&rsquo;ye ekstra işlevsellik ekler (isteğe bağlı bkz. Not A).</p>
+<hr>
+<h2 id="örnek-oluşturma-1">Örnek oluşturma. <a href="#%c3%b6rnek-olu%c5%9fturma-1" class="anchor" aria-hidden="true">#</a></h2>
+<p><a href="http://i.stack.imgur.com/ugzVs.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/ugzVs.png" alt="buraya resim açıklamasını girin"></a><br>
+<sub><em>Bu resmin oluşturulacağı kod, alttaki kullanım örneklerindedir</em>.</sub></p>
+<hr>
+<h2 id="örnek">Örnek <a href="#%c3%b6rnek" class="anchor" aria-hidden="true">#</a></h2>
+<p>Anonim olarak işlev, hemen çağrılan işlevdir.</p>
+<!-- dil: lang-js -->
+<pre><code>(function(){
+    const FILL = 0;        // const to indicate filltext render
+    const STROKE = 1;
+    const MEASURE = 2;
+    var renderType = FILL; // used internal to set fill or stroke text
+    
+    var maxSpaceSize = 3; // Multiplier for max space size. If greater then no justificatoin applied
+    var minSpaceSize = 0.5; // Multiplier for minimum space size
+    var renderTextJustified = function(ctx,text,x,y,width){
+        var words, wordsWidth, count, spaces, spaceWidth, adjSpace, renderer, i, textAlign, useSize, totalWidth;
+        textAlign = ctx.textAlign; // get current align settings
+        ctx.textAlign = &quot;left&quot;;
+        wordsWidth = 0;
+        words = text.split(&quot; &quot;).map(word =&gt; {
+            var w = ctx.measureText(word).width;                
+            wordsWidth += w;
+            return {
+                width : w,
+                word : word,
+            };
+        });
+        // count = num words, spaces = number spaces, spaceWidth normal space size
+        // adjSpace new space size &gt;= min size. useSize Resulting space size used to render
+        count = words.length;
+        spaces = count - 1;
+        spaceWidth = ctx.measureText(&quot; &quot;).width;
+        adjSpace = Math.max(spaceWidth * minSpaceSize, (width - wordsWidth) / spaces);
+        useSize = adjSpace &gt; spaceWidth * maxSpaceSize ? spaceWidth : adjSpace;
+        totalWidth = wordsWidth + useSize * spaces
+        if(renderType === MEASURE){ // if measuring return size
+            ctx.textAlign = textAlign;
+            return totalWidth;
+        }
+        renderer = renderType === FILL ? ctx.fillText.bind(ctx) : ctx.strokeText.bind(ctx); // fill or stroke
+        switch(textAlign){
+            case &quot;right&quot;:
+                x -= totalWidth;
+                break;
+            case &quot;end&quot;:
+                x += width - totalWidth;
+                break;
+            case &quot;center&quot;: // intentional fall through to default
+                x -= totalWidth / 2;                     
+            default:
+        }
+        if(useSize === spaceWidth){ // if space size unchanged
+            renderer(text,x,y);
+        } else {
+            for(i = 0; i &lt; count; i += 1){
+                renderer(words[i].word,x,y);
+                x += words[i].width;
+                x += useSize;
+            }
+        }
+        ctx.textAlign = textAlign;
+    }
+    // Parse vet and set settings object.
+    var justifiedTextSettings = function(settings){
+        var min,max;
+        var vetNumber = (num, defaultNum) =&gt; {
+            num = num !== null &amp;&amp; num !== null &amp;&amp; !isNaN(num) ? num : defaultNum;
+            if(num &lt; 0){
+                num = defaultNum;
+            }
+            return num;
+        }
+        if(settings === undefined || settings === null){
+            return;
+        }
+        max = vetNumber(settings.maxSpaceSize, maxSpaceSize);
+        min = vetNumber(settings.minSpaceSize, minSpaceSize);
+        if(min &gt; max){
+            return;
+        }
+        minSpaceSize = min;
+        maxSpaceSize = max;
+    }
+    // define fill text
+    var fillJustifyText = function(text, x, y, width, settings){
+        justifiedTextSettings(settings);
+        renderType = FILL;
+        renderTextJustified(this, text, x, y, width);
+    }
+    // define stroke text
+    var strokeJustifyText = function(text, x, y, width, settings){
+        justifiedTextSettings(settings);
+        renderType = STROKE;
+        renderTextJustified(this, text, x, y, width);
+    }
+    // define measure text
+    var measureJustifiedText = function(text, width, settings){
+        justifiedTextSettings(settings);
+        renderType = MEASURE;
+        return renderTextJustified(this, text, 0, 0, width);
+    }
+    // code point A
+    // set the prototypes
+    CanvasRenderingContext2D.prototype.fillJustifyText = fillJustifyText;
+    CanvasRenderingContext2D.prototype.strokeJustifyText = strokeJustifyText;
+    CanvasRenderingContext2D.prototype.measureJustifiedText = measureJustifiedText;  
+    // code point B
+    
+    // optional code if you do not wish to extend the CanvasRenderingContext2D prototype
+    /* Uncomment from here to the closing comment
+    window.justifiedText = {
+        fill : function(ctx, text, x, y, width, settings){
+            justifiedTextSettings(settings);
+            renderType = FILL;
+            renderTextJustified(ctx, text, x, y, width);
+        },
+        stroke : function(ctx, text, x, y, width, settings){
+            justifiedTextSettings(settings);
+            renderType = STROKE;
+            renderTextJustified(ctx, text, x, y, width);
+        },
+        measure : function(ctx, text, width, settings){
+            justifiedTextSettings(settings);
+            renderType = MEASURE;
+            return renderTextJustified(ctx, text, 0, 0, width);
+        }
+    }
+    to here*/
+})();
+</code></pre>
+<blockquote>
+<p><strong>Not A:</strong> &lsquo;CanvasRenderingContext2D&rsquo; prototipini genişletmek istemiyorsanız &lsquo;// kod noktası A&rsquo; ve &lsquo;// kod noktası B&rsquo; arasındaki tüm kodu örnekten kaldırın ve &lsquo;/* işaretli kodun yorumunu kaldırın Buradan kapanış yorumuna yorum yap&rsquo;</p>
+</blockquote>
+<hr>
+<h2 id="nasıl-kullanılır">Nasıl kullanılır <a href="#nas%c4%b1l-kullan%c4%b1l%c4%b1r" class="anchor" aria-hidden="true">#</a></h2>
+<p>&lsquo;CanvasRenderingContext2D&rsquo;ye üç işlev eklenir ve oluşturulan tüm 2B bağlam nesnelerinde kullanılabilir.</p>
+<ul>
+<li>ctx.fillJustifyText(metin, x, y, genişlik, [ayarlar]);</li>
+<li>ctx.strokeJustifyText(metin, x, y, genişlik, [ayarlar]);</li>
+<li>ctx.measureJustifiedText(metin, genişlik, [ayarlar]);</li>
+</ul>
+<p>Doldur ve kontur metni işlevi, metni doldur veya kontur ve aynı argümanları kullanır. &ldquo;measureJustifiedText&rdquo; metnin oluşturulacağı gerçek genişliği döndürür. Bu, geçerli ayarlara bağlı olarak &ldquo;width&rdquo; bağımsız değişkenine eşit, daha az veya daha büyük olabilir.</p>
+<blockquote>
+<p><strong>Not:</strong> <code>[</code> ve <code>]</code> içindeki bağımsız değişkenler isteğe bağlıdır.</p>
+</blockquote>
+<h2 id="işlev-bağımsız-değişkenleri">İşlev bağımsız değişkenleri <a href="#i%c5%9flev-ba%c4%9f%c4%b1ms%c4%b1z-de%c4%9fi%c5%9fkenleri" class="anchor" aria-hidden="true">#</a></h2>
+<ul>
+<li>
+<p><strong>metin:</strong> Oluşturulacak metni içeren dize.</p>
+</li>
+<li>
+<p><strong>x, y:</strong> Metnin oluşturulacağı koordinatlar.</p>
+</li>
+<li>
+<p><strong>genişlik:</strong> Yaslanmış metnin genişliği. Metin, genişliğe sığdırmak için kelimeler arasındaki boşlukları artıracak/azaltacaktır. Sözcükler arasındaki boşluk <code>maxSpaceSize</code> (varsayılan = 6) katından büyükse, normal boşluk kullanılacak ve metin gerekli genişliği doldurmayacaktır. Boşluk, &ldquo;minSpaceSize&rdquo; (varsayılan = 0,5) normal aralıktan küçükse, minimum boşluk boyutu kullanılır ve metin istenen genişliği aşacaktır.</p>
+</li>
+<li>
+<p><strong>ayarlar:</strong> İsteğe bağlı. Minimum ve maksimum alan boyutlarını içeren nesne.</p>
+</li>
+</ul>
+<p>&lsquo;ayarlar&rsquo; bağımsız değişkeni isteğe bağlıdır ve dahil edilmemişse metin oluşturma, tanımlanan son ayarı veya varsayılanı (aşağıda gösterilmiştir) kullanır.</p>
+<p>Hem min hem de max, sözcükleri ayıran [boşluk] karakteri için minimum ve maksimum boyutlardır. Varsayılan &ldquo;maxSpaceSize = 6&rdquo;, karakterler arasındaki boşluk &gt; 63 * olduğunda ctx.measureText(&rdquo; &ldquo;).width metninin iki yana yaslanmayacağı anlamına gelir. Yaslanacak metnin boşlukları <code>minSpaceSize = 0,5</code> (varsayılan değer 0,5) * <code>ctx.measureText(&quot; &quot;.width</code> değerinden daha azsa, boşluk <code>minSpaceSize * ctx.measureText(&quot; &quot;).width</code> olarak ayarlanacaktır. ve ortaya çıkan metin, yaslama genişliğini aşacaktır.</p>
+<p>Aşağıdaki kurallar uygulanır, min ve max sayı olmalıdır. Aksi takdirde, ortak değerler değiştirilmeyecektir. &ldquo;minSpaceSize&rdquo;, &ldquo;maxSpaceSize&rdquo; değerinden büyükse, her iki giriş ayarı da geçersizdir ve min max değiştirilmez.</p>
+<p>Varsayılanlara sahip örnek ayar nesnesi</p>
+<!-- dil: lang-js -->
+<pre><code>settings = { 
+    maxSpaceSize : 6;   // Multiplier for max space size. 
+    minSpaceSize : 0.5; // Multiplier for minimum space size
+};
+</code></pre>
+<blockquote>
+<p><strong>NOT:</strong> Bu metin işlevleri, 2B bağlamın &rsquo;textAlign&rsquo; özelliği için ince bir davranış değişikliği sunar. &lsquo;Sol&rsquo;, &lsquo;sağ&rsquo;, &lsquo;merkez&rsquo; ve &lsquo;başlangıç&rsquo; beklendiği gibi davranır, ancak &lsquo;son&rsquo;, &lsquo;x&rsquo; işlev argümanının sağından değil, &lsquo;x + genişliği&rsquo;nin sağından hizalanır.</p>
+</blockquote>
+<blockquote>
+<p><strong>Not:</strong> ayarlar (minimum ve maksimum alan boyutu) tüm 2B bağlam nesneleri için geneldir.</p>
+</blockquote>
+<hr>
+<h2 id="kullanim-örnekleri">KULLANIM Örnekleri <a href="#kullanim-%c3%b6rnekleri" class="anchor" aria-hidden="true">#</a></h2>
+<!-- dil: lang-js -->
+<pre><code>var i = 0;
+text[i++] = &quot;This text is aligned from the left of the canvas.&quot;; 
+text[i++] = &quot;This text is near the max spacing size&quot;; 
+text[i++] = &quot;This text is way too short.&quot;; 
+text[i++] = &quot;This text is too long for the space provied and will overflow#&quot;;
+text[i++] = &quot;This text is aligned using 'end' and starts at x + width&quot;; 
+text[i++] = &quot;This text is near the max spacing size&quot;; 
+text[i++] = &quot;This text is way too short.&quot;; 
+text[i++] = &quot;#This text is too long for the space provied and will overflow&quot;;
+text[i++] = &quot;This is aligned with 'center' and is placed from the center&quot;; 
+text[i++] = &quot;This text is near the max spacing size&quot;; 
+text[i++] = &quot;This text is way too short.&quot;; 
+text[i++] = &quot;This text is just too long for the space provied and will overflow&quot;;
+
+// ctx is the 2d context
+// canvas is the canvas
+
+ctx.clearRect(0,0,w,h);
+ctx.font = &quot;25px arial&quot;;
+ctx.textAlign = &quot;center&quot;
+var left = 20;
+var center = canvas.width / 2;
+var width = canvas.width-left*2;
+var y = 40;
+var size = 16;
+var i = 0;
+ctx.fillText(&quot;Justified text examples.&quot;,center,y);
+y+= 40;
+ctx.font = &quot;14px arial&quot;;
+ctx.textAlign = &quot;left&quot;
+var ww = ctx.measureJustifiedText(text[0], width);
+var setting = {
+    maxSpaceSize : 6,
+    minSpaceSize : 0.5
+}
+ctx.strokeStyle = &quot;red&quot;
+ctx.beginPath();
+ctx.moveTo(left,y - size * 2);
+ctx.lineTo(left, y + size * 15);
+ctx.moveTo(canvas.width - left,y - size * 2);
+ctx.lineTo(canvas.width - left, y + size * 15);
+ctx.stroke();
+ctx.textAlign = &quot;left&quot;;
+ctx.fillStyle = &quot;red&quot;;
+ctx.fillText(&quot;&lt; 'left' aligned&quot;,left,y - size)
+ctx.fillStyle = &quot;black&quot;;
+ctx.fillJustifyText(text[i++], left, y, width, setting);  // settings is remembered
+ctx.fillJustifyText(text[i++], left, y+=size, width);
+ctx.fillJustifyText(text[i++], left, y+=size, width);
+ctx.fillJustifyText(text[i++], left, y+=size, width);
+y += 2.3*size;
+ctx.fillStyle = &quot;red&quot;;
+ctx.fillText(&quot;&lt; 'end' aligned from x plus the width --------------------&gt;&quot;,left,y - size)
+ctx.fillStyle = &quot;black&quot;;
+ctx.textAlign = &quot;end&quot;;
+ctx.fillJustifyText(text[i++], left, y, width);
+ctx.fillJustifyText(text[i++], left, y+=size, width);
+ctx.fillJustifyText(text[i++], left, y+=size, width);
+ctx.fillJustifyText(text[i++], left, y+=size, width);
+
+y += 40;
+ctx.strokeStyle = &quot;red&quot;
+ctx.beginPath();
+ctx.moveTo(center,y - size * 2);
+ctx.lineTo(center, y + size * 5);
+ctx.stroke();
+ctx.textAlign = &quot;center&quot;;
+ctx.fillStyle = &quot;red&quot;;
+ctx.fillText(&quot;'center' aligned&quot;,center,y - size)
+ctx.fillStyle = &quot;black&quot;;
+ctx.fillJustifyText(text[i++], center, y, width);
+ctx.fillJustifyText(text[i++], center, y+=size, width);
+ctx.fillJustifyText(text[i++], center, y+=size, width);
+ctx.fillJustifyText(text[i++], center, y+=size, width);
+</code></pre>
+<h2 id="yaslanmış-paragraflar">Yaslanmış paragraflar. <a href="#yaslanm%c4%b1%c5%9f-paragraflar" class="anchor" aria-hidden="true">#</a></h2>
+<p>Metni yaslı paragraflar olarak işler. <strong>GEREKTİRİR</strong> örnek <strong>Yaslanmış metin</strong></p>
+<hr>
+<h2 id="örnek-oluşturma-2">Örnek oluşturma <a href="#%c3%b6rnek-olu%c5%9fturma-2" class="anchor" aria-hidden="true">#</a></h2>
+<p><a href="http://i.stack.imgur.com/ugzVs.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/ugzVs.png" alt="buraya resim açıklamasını girin"></a>
+<br><sub>Üst paragraf <b>setting.compact = true</b> ve alt <b>false</b> değerine sahiptir ve satır aralığı varsayılan <b> yerine <b>1.2</b> şeklindedir. 1.5</b>. Bu örneğin alt kısmındaki kod kullanım örneği tarafından oluşturulmuştur.</sub></p>
+<hr>
+<h2 id="örnek-kod-1">Örnek kod <a href="#%c3%b6rnek-kod-1" class="anchor" aria-hidden="true">#</a></h2>
+<!-- dil: lang-js -->
+<pre><code> // Requires justified text extensions 
+(function(){
+    // code point A
+    if(typeof CanvasRenderingContext2D.prototype.fillJustifyText !== &quot;function&quot;){
+        throw new ReferenceError(&quot;Justified Paragraph extension missing requiered CanvasRenderingContext2D justified text extension&quot;);
+    }
+    var maxSpaceSize = 3; // Multiplier for max space size. If greater then no justificatoin applied
+    var minSpaceSize = 0.5; // Multiplier for minimum space size   
+    var compact = true; // if true then try and fit as many words as possible. If false then try to get the spacing as close as possible to normal
+    var lineSpacing = 1.5; // space between lines
+    const noJustifySetting = {  // This setting forces justified text off. Used to render last line of paragraph.
+        minSpaceSize : 1,
+        maxSpaceSize : 1,
+    }
+
+    // Parse vet and set settings object.
+    var justifiedTextSettings = function(settings){
+        var min, max;
+        var vetNumber = (num, defaultNum) =&gt; {
+            num = num !== null &amp;&amp; num !== null &amp;&amp; !isNaN(num) ? num : defaultNum;
+            return num &lt; 0 ? defaultNum : num;
+        }
+        if(settings === undefined || settings === null){ return; }
+        compact = settings.compact === true ? true : settings.compact === false ? false : compact;
+        max = vetNumber(settings.maxSpaceSize, maxSpaceSize);
+        min = vetNumber(settings.minSpaceSize, minSpaceSize);
+        lineSpacing = vetNumber(settings.lineSpacing, lineSpacing);
+        if(min &gt; max){ return; }
+        minSpaceSize = min;
+        maxSpaceSize = max;
+    }        
+    var getFontSize = function(font){  // get the font size. 
+        var numFind = /[0-9]+/;
+        var number = numFind.exec(font)[0];
+        if(isNaN(number)){
+            throw new ReferenceError(&quot;justifiedPar Cant find font size&quot;);
+        }
+        return Number(number);
+    }
+    function justifiedPar(ctx, text, x, y, width, settings, stroke){
+        var spaceWidth, minS, maxS, words, count, lines, lineWidth, lastLineWidth, lastSize, i, renderer, fontSize, adjSpace, spaces, word, lineWords, lineFound;
+        spaceWidth = ctx.measureText(&quot; &quot;).width;
+        minS = spaceWidth * minSpaceSize;
+        maxS = spaceWidth * maxSpaceSize;
+        words = text.split(&quot; &quot;).map(word =&gt; {  // measure all words.
+            var w = ctx.measureText(word).width;                
+            return {
+                width : w,
+                word : word,
+            };
+        });
+        // count = num words, spaces = number spaces, spaceWidth normal space size
+        // adjSpace new space size &gt;= min size. useSize Resulting space size used to render
+        count = 0;
+        lines = [];
+        // create lines by shifting words from the words array until the spacing is optimal. If compact
+        // true then will true and fit as many words as possible. Else it will try and get the spacing as
+        // close as possible to the normal spacing
+        while(words.length &gt; 0){
+            lastLineWidth = 0;
+            lastSize = -1;
+            lineFound = false;
+            // each line must have at least one word.
+            word = words.shift();
+            lineWidth = word.width;
+            lineWords = [word.word];
+            count = 0;
+            while(lineWidth &lt; width &amp;&amp; words.length &gt; 0){ // Add words to line
+                word = words.shift();
+                lineWidth += word.width;
+                lineWords.push(word.word);
+                count += 1;
+                spaces = count - 1;
+                adjSpace =  (width - lineWidth) / spaces;
+                if(minS &gt; adjSpace){  // if spacing less than min remove last word and finish line
+                    lineFound = true;
+                    words.unshift(word);
+                    lineWords.pop();
+                }else{
+                    if(!compact){ // if compact mode 
+                        if(adjSpace &lt; spaceWidth){ // if less than normal space width
+                            if(lastSize === -1){
+                                lastSize = adjSpace;
+                            }
+                            // check if with last word on if its closer to space width
+                            if(Math.abs(spaceWidth - adjSpace) &lt; Math.abs(spaceWidth - lastSize)){
+                                lineFound = true; // yes keep it
+                            }else{
+                                words.unshift(word);  // no better fit if last word removes
+                                lineWords.pop();
+                                lineFound = true;
+                            }
+                        }
+                    }
+                }
+                lastSize = adjSpace; // remember spacing 
+            }
+            lines.push(lineWords.join(&quot; &quot;)); // and the line
+        }
+        // lines have been worked out get font size, render, and render all the lines. last
+        // line may need to be rendered as normal so it is outside the loop.
+        fontSize = getFontSize(ctx.font);
+        renderer = stroke === true ? ctx.strokeJustifyText.bind(ctx) : ctx.fillJustifyText.bind(ctx);
+        for(i = 0; i &lt; lines.length - 1; i ++){
+            renderer(lines[i], x, y, width, settings);
+            y += lineSpacing * fontSize;
+        }
+        if(lines.length &gt; 0){ // last line if left or start aligned for no justify
+            if(ctx.textAlign === &quot;left&quot; || ctx.textAlign === &quot;start&quot;){
+                renderer(lines[lines.length - 1], x, y, width, noJustifySetting);
+                ctx.measureJustifiedText(&quot;&quot;, width, settings);
+            }else{
+                renderer(lines[lines.length - 1], x, y, width);
+            }
+        }
+        // return details about the paragraph.
+        y += lineSpacing * fontSize;
+        return {
+            nextLine : y,
+            fontSize : fontSize,
+            lineHeight : lineSpacing * fontSize,
+        };
+    }
+    // define fill
+    var fillParagraphText = function(text, x, y, width, settings){
+        justifiedTextSettings(settings);
+        settings = {
+            minSpaceSize : minSpaceSize,
+            maxSpaceSize : maxSpaceSize,
+        };
+        return justifiedPar(this, text, x, y, width, settings);
+    }
+    // define stroke
+    var strokeParagraphText = function(text, x, y, width, settings){
+        justifiedTextSettings(settings);
+        settings = {
+            minSpaceSize : minSpaceSize,
+            maxSpaceSize : maxSpaceSize,
+        };
+        return justifiedPar(this, text, x, y, width, settings,true);
+    }
+    CanvasRenderingContext2D.prototype.fillParaText = fillParagraphText;
+    CanvasRenderingContext2D.prototype.strokeParaText = strokeParagraphText;
+})();
+</code></pre>
+<blockquote>
+<p><strong>NOT</strong> bu, &lsquo;CanvasRenderingContext2D&rsquo; prototipini genişletir. Bunun olmasını istemiyorsanız, bu örneğin global ad alanının bir parçası olacak şekilde nasıl değiştirileceğini bulmak için <strong>Yaslanmış metin</strong> örneğini kullanın.</p>
+</blockquote>
+<blockquote>
+<p><strong>NOT</strong> Bu örnek <code>CanvasRenderingContext2D.prototype.fillJustifyText</code> işlevini bulamazsa bir ReferenceError verir.</p>
+</blockquote>
+<hr>
+<h2 id="nasıl-kullanılır-1">Nasıl kullanılır <a href="#nas%c4%b1l-kullan%c4%b1l%c4%b1r-1" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code>ctx.fillParaText(text, x, y, width, [settings]);
+ctx.strokeParaText(text, x, y, width, [settings]);
+</code></pre>
+<p>Argümanlarla ilgili ayrıntılar için <strong>Yaslanmış metin</strong> konusuna bakın. &lsquo;[&rsquo; ve &lsquo;]&rsquo; arasındaki bağımsız değişkenler isteğe bağlıdır.</p>
+<p>&ldquo;ayarlar&rdquo; bağımsız değişkeninin iki ek özelliği vardır.</p>
+<ul>
+<li><strong>kompakt:</strong> Varsayılan &ldquo;true&rdquo;. true ise, satır başına mümkün olduğunca çok kelime toplamaya çalışır. false ise, sözcük aralığını normal aralığa olabildiğince yakın tutmaya çalışır.</li>
+<li><strong>lineSpacing</strong> Varsayılan &ldquo;1.5&rdquo;. Satır başına boşluk varsayılan &ldquo;1.5&rdquo; yazı tipi boyutu açısından satırdan diğerine olan mesafe</li>
+</ul>
+<p>Ayarlar nesnesinde eksik olan özellikler, varsayılan değerlerine veya son geçerli değerlere varsayılan olacaktır. Özellikler yalnızca yeni değerler geçerliyse değiştirilir. &ldquo;Kompakt&rdquo; için geçerli değerler yalnızca booleanlardır &ldquo;doğru&rdquo; veya &ldquo;yanlış&rdquo; Doğruluk değerleri geçerli kabul edilmez.</p>
+<h2 id="nesneyi-döndür">Nesneyi döndür <a href="#nesneyi-d%c3%b6nd%c3%bcr" class="anchor" aria-hidden="true">#</a></h2>
+<p>İki işlev, sonraki paragrafı yerleştirmenize yardımcı olacak bilgileri içeren bir nesne döndürür. Nesne aşağıdaki özellikleri içerir.</p>
+<ul>
+<li><strong>nextLine</strong> Paragraf piksellerinden sonraki satırın konumu.</li>
+<li><strong>fontSize</strong> Yazı tipinin boyutu. (lütfen yalnızca piksel cinsinden tanımlanan yazı tiplerini kullanın, örneğin &lsquo;14px arial&rsquo;)</li>
+<li><strong>lineHeight</strong> Bir satırdan diğerine piksel cinsinden uzaklık</li>
+</ul>
+<p>Bu örnek, bir paragrafa en uygun olanı bulmak için her seferinde bir satır çalışan basit bir algoritma kullanır. Bu en uygun olduğu anlamına gelmez (daha doğrusu algoritmanın en iyisi) Oluşturulan hatlar üzerinde çok geçişli bir hat algoritması oluşturarak algoritmayı geliştirmek isteyebilirsiniz. Kelimeleri bir satırın sonundan sonrakinin başına veya baştan sona taşıma. En iyi görünüm, tüm paragraf üzerindeki boşluk en küçük varyasyona sahip olduğunda ve normal metin aralığına en yakın olduğunda elde edilir.</p>
+<p>Bu örnek, <strong>Yaslanmış metin</strong> örneğine bağlı olduğundan, kod çok benzerdir. İkisini tek bir işleve taşımak isteyebilirsiniz. Diğer örnekteki &lsquo;justifiedTextSettings&rsquo; işlevini bu örnekte kullanılanla değiştirin. Ardından, bu örnekteki kodun geri kalanını <strong>Yaslanmış metin</strong> örneğinin anonim işlev gövdesine kopyalayın. Artık <code>// Kod noktası A</code>da bulunan bağımlılıkları test etmenize gerek kalmayacak. Kaldırılabilir.</p>
+<hr>
+<h2 id="kullanım-örneği">Kullanım örneği <a href="#kullan%c4%b1m-%c3%b6rne%c4%9fi" class="anchor" aria-hidden="true">#</a></h2>
+<!-- dil: lang-js -->
+<pre><code>ctx.font = &quot;25px arial&quot;;
+ctx.textAlign = &quot;center&quot;
+
+var left = 10;
+var center = canvas.width / 2;
+var width = canvas.width-left*2;
+var y = 20;
+var size = 16;
+var i = 0;
+ctx.fillText(&quot;Justified paragraph examples.&quot;,center,y);
+y+= 30;
+ctx.font = &quot;14px arial&quot;;
+ctx.textAlign = &quot;left&quot;
+// set para settings
+var setting = {
+    maxSpaceSize : 6,
+    minSpaceSize : 0.5,
+    lineSpacing : 1.2,
+    compact : true,
+}
+// Show the left and right bounds.
+ctx.strokeStyle = &quot;red&quot;
+ctx.beginPath();
+ctx.moveTo(left,y - size * 2);
+ctx.lineTo(left, y + size * 15);
+ctx.moveTo(canvas.width - left,y - size * 2);
+ctx.lineTo(canvas.width - left, y + size * 15);
+ctx.stroke();
+ctx.textAlign = &quot;left&quot;;
+ctx.fillStyle = &quot;black&quot;;
+
+// Draw paragraph
+var line = ctx.fillParaText(para, left, y, width, setting);  // settings is remembered    
+
+// Next paragraph
+y = line.nextLine + line.lineHeight;
+setting.compact = false;
+ctx.fillParaText(para, left, y, width, setting);
+</code></pre>
+<blockquote>
+<p><strong>Not:</strong> &ldquo;Sola&rdquo; veya &ldquo;başlangıç&quot;a hizalanmış metin için, paragrafın son satırında her zaman normal boşluk olacaktır. Diğer tüm hizalamalar için son satıra diğerleri gibi davranılır.</p>
+</blockquote>
+<blockquote>
+<p><strong>Not:</strong> Paragrafın başlangıcına boşluk bırakabilirsiniz. Gerçi bu paragraftan paragrafa tutarlı olmayabilir. Bir fonksiyonun ne yaptığını öğrenmek ve onu değiştirmek her zaman iyi bir şeydir. Bir alıştırma, ilk satırı sabit bir miktarda girintileyen ayarlara bir ayar eklemek olacaktır. while döngüsünün geçici olarak ilk sözcüğü daha büyük (+ girinti) <code>words[0].width += ?</code> ve ardından satırları oluştururken ilk satırı girintili hale getirmesi gerekecek.</p>
+</blockquote>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/tr/html5-canvas/goruntuler/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Görüntüler
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/tr/html5-canvas/bir-yolda-gezinme/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Bir Yolda Gezinme &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/tr/about/">Hakkında</a></li>
+          <li class="list-inline-item"><a href="/tr/disclaimers/">Sorumluluk Reddi</a></li>
+          <li class="list-inline-item"><a href="/tr/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/tr/terms-of-use/">Kullanım Şartları</a></li>
+          <li class="list-inline-item"><a href="/tr/privacy-policy/">Gizlilik Politikası</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

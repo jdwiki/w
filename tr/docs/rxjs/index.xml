@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rxjs Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/rxjs/</link>
+    <description>Recent content in rxjs Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/rxjs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rxjs&#39;ye başlarken</title>
+      <link>https://www.wikiod.com/tr/rxjs/rxjsye-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rxjs/rxjsye-baslarken/</guid>
+      <description>Kurulum veya Kurulum # CDN kullanma: # &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.jsdelivr.net/rxjs/4.1.0/rx.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;script&amp;gt; // `Rx` is available var one$ = Rx.Observable.of(1); var onesub = one$.subscribe(function (one) { console.log(one); // 1 }); // alternatively: subscribe(console.log) &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; RxJS 5 (RC) kullanılıyorsa CDN:
+&amp;lt;script src=&amp;quot;https://npmcdn.com/@reactivex/rxjs@5.0.0-rc.1/dist/global/Rx.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; Paketleyici kullanma: # Önce npm ile proje dizininize kurun:
+npm install rx Veya RxJS 5 (RC) kullanarak:
+npm install rxjs Ardından, JavaScript dosyanızda:
+var Rx = require(&#39;rx&#39;); //var Rx = require(&#39;rxjs/Rx&#39;); // v5beta var one$ = Rx.</description>
+    </item>
+    
+    <item>
+      <title>Ortak tarifler</title>
+      <link>https://www.wikiod.com/tr/rxjs/ortak-tarifler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rxjs/ortak-tarifler/</guid>
+      <description>Yaygın kullanım örnekleri koleksiyonu ve bunların RxJS&amp;rsquo;de uygulanması.
+HTTP yanıtlarını önbelleğe alma # RxJS için tipik bir kullanım örneği, HTTP istekleri oluşturmak ve sonuçlarını bir süre önbelleğe almaktır. Ayrıca, her zaman bir seferde yalnızca bir istek çalıştırmak ve yanıtını paylaşmak istiyoruz.
+Örneğin, aşağıdaki kod 1 öğeyi maks. 1000ms:
+var updateRequest = Observable.defer(() =&amp;gt; makeMockHttpRequest()) .publishReplay(1, 1000) .refCount() .take(1); var counter = 1; function makeMockHttpRequest() { return Observable.of(counter++) .delay(100); } function requestCachedHttpResult() { return updateRequest; } &amp;lsquo;makeMockHttpRequest()&amp;rsquo; işlevi, &amp;lsquo;100ms&amp;rsquo; gecikmeyle gelen bir HTTP isteğini simüle eder.</description>
+    </item>
+    
+    <item>
+      <title>Operatör YayınlaTekrar Oynat</title>
+      <link>https://www.wikiod.com/tr/rxjs/operator-yaynlatekrar-oynat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rxjs/operator-yaynlatekrar-oynat/</guid>
+      <description>PublishReplay nasıl çalışır? # Dahili olarak bir ReplaySubject oluşturur ve onu çok noktaya yayın uyumlu hale getirir. &amp;ldquo;ReplaySubject&amp;quot;in minimum tekrar değeri 1 emisyondur. Bu, aşağıdakilerle sonuçlanır:
+İlk abonelik, kaynak akışına dahili olarak abone olmak ve tüm emisyonları &amp;ldquo;ReplaySubject&amp;rdquo; yoluyla yönlendirmek için &amp;ldquo;publishReplay(1)&amp;ldquo;i tetikler ve son n(=1) emisyonları etkin bir şekilde önbelleğe alır Kaynak hala aktifken ikinci bir abonelik başlatılırsa, &amp;lsquo;multicast()&amp;rsquo; bizi aynı &amp;lsquo;replaySubject&amp;rsquo;e bağlayacak ve kaynak akışı tamamlanana kadar sonraki tüm emisyonları alacağız.</description>
+    </item>
+    
+    <item>
+      <title>Operatör haritası  seçin</title>
+      <link>https://www.wikiod.com/tr/rxjs/operator-haritas--secin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rxjs/operator-haritas--secin/</guid>
+      <description>Sözdizimi # Rx.Observable.prototype.map(seçici, [thisArg]) Rx.Observable.prototype.select(selektör, [thisArg]) Parametreler # Parametre, Tip Ayrıntılar &amp;lsquo;seçici&amp;rsquo;, &amp;lsquo;İşlev&amp;rsquo; veya &amp;lsquo;Nesne&amp;rsquo; Her kaynak öğeye veya elde edilecek bir öğeye uygulanacak dönüştürme işlevi. Seçici bir fonksiyon ise, aşağıdaki bilgilerle çağrılır: 1. elemanın değeri, 2. elemanın indeksi, 3. Abone olunan Gözlenebilir nesne. [thisArg], `Herhangi biri&amp;rsquo; Yüklem yürütülürken &amp;ldquo;bu&amp;rdquo; olarak kullanılacak nesne. &amp;ldquo;harita&amp;rdquo; ve &amp;ldquo;seç&amp;rdquo; takma adlardır.
+Kaynak gözlemlenebilir her öğe yaydığında bir öğe yayan gözlemlenebilir bir dizi üretirler.</description>
+    </item>
+    
+    <item>
+      <title>Retry ve RetryWhen Operatörleri</title>
+      <link>https://www.wikiod.com/tr/rxjs/retry-ve-retrywhen-operatorleri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rxjs/retry-ve-retrywhen-operatorleri/</guid>
+      <description>Retry ve RetryWhen, akışlarında hata olabilecek Gözlenebilirleri kurtarmaya çalışmak için kullanılabilir.
+Sözdizimi # .retry(n: sayı): Gözlenebilir n: retry will attempt the source Observable this many times. .retryWhen(alır: bildirimHandler, the: planlayıcı): Gözlenebilir receives: an Observable of notifications which the use can complete or error. If the &amp;lsquo;receives&amp;rsquo; Observable returns cleanly (completes) the source Observable will be reattempted. If the &amp;lsquo;receives&amp;rsquo; Observable returns an error, the source Observable is aborted. scheduler: The source Observable is subscribed to this scheduler.</description>
+    </item>
+    
+    <item>
+      <title>Ders</title>
+      <link>https://www.wikiod.com/tr/rxjs/ders/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rxjs/ders/</guid>
+      <description>Özneler, aynı anda hem Gözlenebilir hem de gözlemci olarak davranan sınıflardır.
+http://reactivex.io/documentation/subject.html
+Konu ve dahili durumu # Rx&amp;rsquo;te Deneklerin davranışlarını kontrol edebilen dahili durumları vardır.
+Ortak bir kullanım durumu formu Konu, onu birden çok Gözlenebilir&amp;rsquo;e abone ediyor. Aşağıdaki örnek, iki farklı Gözlemlenebilir oluşturur ve her ikisine de bir Konu abonesi olur. Ardından, geçen tüm değerleri yazdırmaya çalışır:
+let subject = new Subject(); subject.subscribe(val =&amp;gt; console.log(val)); Observable.range(1, 5).subscribe(subject); Observable.from([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]).subscribe(subject); Canlı demoyu görün: https://jsbin.</description>
+    </item>
+    
+    <item>
+      <title>zamanlayıcı</title>
+      <link>https://www.wikiod.com/tr/rxjs/zamanlayc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/rxjs/zamanlayc/</guid>
+      <description>Zamanı manuel olarak ilerletmek için bir TestScheduler kullanma # Çoğu Rx operatörü, gelecekteki yinelemelerini planlamak için isteğe bağlı bir zamanlayıcı alır. Sağlanmazlarsa, varsayılan yapılandırılmış zamanlayıcılarını kullanırlar. Test yürütme hızı için gerçek zaman yerine sanal zamandan bahsetmeyi sevdiğimiz test amaçları için bir zamanlayıcı sağlamak faydalı olabilir.
+const scheduler = new Rx.TestScheduler(); scheduler.stop(); Rx.Observable.interval(100, scheduler) .do(i =&amp;gt; console.log(i)) .subscribe(); scheduler.advanceBy(10 * 100); </description>
+    </item>
+    
+  </channel>
+</rss>

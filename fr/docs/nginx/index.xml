@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel nginx on </title>
+    <link>https://www.wikiod.com/fr/docs/nginx/</link>
+    <description>Recent content in Tutoriel nginx on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec nginx</title>
+      <link>https://www.wikiod.com/fr/nginx/premiers-pas-avec-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/nginx/premiers-pas-avec-nginx/</guid>
+      <description>Recharger le fichier de configuration NGINX # En tant qu&amp;rsquo;utilisateur root :
+sudo nginx -s reload Exemple d&amp;rsquo;Ubuntu 14.04 # sudo service nginx reload Exemple d&amp;rsquo;Ubuntu 16.04 # sudo systemctl reload nginx Avant de recharger, c&amp;rsquo;est une bonne idée de vérifier la configuration pour les erreurs de syntaxe :
+sudo nginx -t Ou
+sudo service nginx configtest Installation et configuration # Nginx est un serveur Web utilisé pour traiter les requêtes HTTP sur Internet.</description>
+    </item>
+    
+    <item>
+      <title>Redirections utiles</title>
+      <link>https://www.wikiod.com/fr/nginx/redirections-utiles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/nginx/redirections-utiles/</guid>
+      <description>Redirection HTTPS # server { listen 80 default_server; listen [::]:80 default_server; server_name example.com www.example.com; return 307 https://$host$request_uri; } Une redirection 301 est également une alternative, mais si un POST est effectué vers un 301, de nombreux clients soumettront à nouveau la demande en tant que GET - ce qui échouera presque toujours côté serveur. Un 307 mandats le même type de demande.
+Rediriger les requêtes vers un autre serveur # server { server_name example.</description>
+    </item>
+    
+    <item>
+      <title>Configurations Nginx</title>
+      <link>https://www.wikiod.com/fr/nginx/configurations-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/nginx/configurations-nginx/</guid>
+      <description>Tester le fichier de configuration NGINX # Vous pouvez vérifier les erreurs de syntaxe et les fichiers référencés dans un fichier de configuration NGINX avant de l&amp;rsquo;exécuter avec :
+nginx -t Vous pouvez également exécuter le script de service
+service nginx configtest Alors que ces deux commandes vous diront si votre nouvelle configuration nginx est correcte [sans tuer votre instance actuelle]. Configtest utilise le service en cours d&amp;rsquo;exécution et vous indique s&amp;rsquo;il réussit ou échoue à la vérification, tandis que nginx -t vérifiera non seulement la configuration, mais imprimera toutes les informations, les avertissements ainsi que les messages d&amp;rsquo;erreur.</description>
+    </item>
+    
+    <item>
+      <title>Enregistrement</title>
+      <link>https://www.wikiod.com/fr/nginx/enregistrement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/nginx/enregistrement/</guid>
+      <description>Exemple de base # Syntaxe # Syntax: log_format name string ...; Syntax: access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]]; access_log off; Les utiliser ensemble
+log_format compression &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&amp;quot;$request&amp;quot; $status $bytes_sent &#39; &#39;&amp;quot;$http_referer&amp;quot; &amp;quot;$http_user_agent&amp;quot; &amp;quot;$gzip_ratio&amp;quot;&#39;; access_log /spool/logs/nginx-access.log compression buffer=32k; error_log /spool/logs/nginx-error.log; Rouvrir les fichiers journaux # En tant qu&amp;rsquo;utilisateur root, exécutez :
+nginx -s reopen Évitez de vous connecter pour favicon.ico et robots.txt # location = /favicon.ico { log_not_found off; access_log off; } location = /robots.</description>
+    </item>
+    
+    <item>
+      <title>proxy inverse nginx</title>
+      <link>https://www.wikiod.com/fr/nginx/proxy-inverse-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/nginx/proxy-inverse-nginx/</guid>
+      <description>proxy inverse simple # # Define which servers to include in the load balancing scheme. # It&#39;s best to use the servers&#39; private IPs for better performance and security. upstream backend { ip_hash; server 10.10.10.10 slow_start=30s max_fails=3 fail_timeout=15s; server 10.10.10.12 slow_start=30s max_fails=3 fail_timeout=15s; # Activates the cache for connections to upstream servers. keepalive 20; } # This server accepts all traffic to port 80 and passes it to the upstream. # Notice that the upstream name and the proxy_pass need to match.</description>
+    </item>
+    
+    <item>
+      <title>Utilisation de nginx pour fournir des URL de navigateur propres</title>
+      <link>https://www.wikiod.com/fr/nginx/utilisation-de-nginx-pour-fournir-des-url-de-navigateur-propres/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/nginx/utilisation-de-nginx-pour-fournir-des-url-de-navigateur-propres/</guid>
+      <description>Redirection vs proxy inverse # Les applications Web conçues par des professionnels n&amp;rsquo;exposent pas les détails internes de l&amp;rsquo;environnement du serveur à l&amp;rsquo;utilisateur. Lorsque vous passez une commande chez votre revendeur, vous ne voyez pas (ou devez saisir) https://mydealer.com:8443/Dealerapp/entryPage.html, mais uniquement mydealer.com, bien que le serveur d&amp;rsquo;application ait besoin de tous les détails. indiqué dans l&amp;rsquo;URL plus longue. Ceci peut être réalisé via :
+if ($scheme = http) { return 301 https://$server_name$request_uri; } Ceci fait une redirection.</description>
+    </item>
+    
+    <item>
+      <title>Intégration du blog Wordpress avec l&#39;application rails à l&#39;aide de nginx</title>
+      <link>https://www.wikiod.com/fr/nginx/integration-du-blog-wordpress-avec-lapplication-rails-a-laide-de-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/nginx/integration-du-blog-wordpress-avec-lapplication-rails-a-laide-de-nginx/</guid>
+      <description>bloc de serveur nginx # Une fois que vous avez installé et configuré les paramètres php5-fpm et wordpress, vous pouvez configurer le fichier /etc/nginx/conf/nginx.conf comme ci-dessous.
+Vous devez définir les blocs d&amp;rsquo;emplacement à l&amp;rsquo;intérieur du bloc de serveur et réécrire l&amp;rsquo;URL comme défini.
+server { listen 443 ssl; server_name abc.co.uk; root /home/ubuntu/www/abc/current/public; try_files $uri/index.html $uri @unicorn; ssl on; ssl_certificate /etc/nginx/ssl/abc.crt; ssl_certificate_key /etc/nginx/ssl/abc.key; location /blog/wp-admin/ { root /var/www/html/; index index.php; try_files $uri $uri/ /index.</description>
+    </item>
+    
+  </channel>
+</rss>

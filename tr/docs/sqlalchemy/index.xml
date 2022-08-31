@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sqlalchemy Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/sqlalchemy/</link>
+    <description>Recent content in sqlalchemy Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/sqlalchemy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sqlalchemy ile başlarken</title>
+      <link>https://www.wikiod.com/tr/sqlalchemy/sqlalchemy-ile-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sqlalchemy/sqlalchemy-ile-baslarken/</guid>
+      <description>Selam Dünya! (SQLAlchemy Çekirdeği) # Bu örnek, SQLAlchemy Core kullanarak bir tablonun nasıl oluşturulacağını, veri ekleneceğini ve veritabanından nasıl seçileceğini gösterir. Yeniden bilgi için: SQLAlchemy ORM, buraya bakın.
+İlk olarak, veritabanımıza bağlanma yapmamız gerekecek.
+from sqlalchemy import create_engine engine = create_engine(&#39;sqlite://&#39;) Motor, herhangi bir SQLAlchemy uygulamasının başlangıç ​​noktasıdır. Bu, gerçek veritabanı ve onun DBAPI&amp;rsquo;si için bir &amp;ldquo;ana üs&amp;rdquo; olup, bir SQLAlchemy uygulamasına bir bağlantı havuzu ve belirli bir veritabanı/DBAPI kombinasyonuyla nasıl konuşulacağını açıklayan bir lehçe aracılığıyla teslim edilir.</description>
+    </item>
+    
+    <item>
+      <title>ORM</title>
+      <link>https://www.wikiod.com/tr/sqlalchemy/orm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sqlalchemy/orm/</guid>
+      <description>SQLAlchemy ORM, SQLAlchemy Core üzerine inşa edilmiştir. Örneğin, model sınıfları &amp;lsquo;Column&amp;rsquo; nesneleri kullanmasına rağmen, bunlar çekirdeğin bir parçasıdır ve daha ilgili belgeler burada bulunacaktır.
+ORM&amp;rsquo;nin ana bölümleri oturum, sorgu ve eşlenmiş sınıflardır (tipik olarak modern SQLAlchemy&amp;rsquo;deki bildirimsel uzantıyı kullanır.)
+Bir sorgu sonucunu dict&amp;rsquo;e dönüştürme # İlk önce örnek için kurulum:
+import datetime as dt from sqlalchemy import Column, Date, Integer, Text, create_engine, inspect from sqlalchemy.orm import sessionmaker from sqlalchemy.ext.declarative import declarative_base Base = declarative_base() Session = sessionmaker() class User(Base): __tablename__ = &#39;users&#39; id = Column(Integer, primary_key=True) name = Column(Text, nullable=False) birthday = Column(Date) engine = create_engine(&#39;sqlite://&#39;) Base.</description>
+    </item>
+    
+    <item>
+      <title>Oturum</title>
+      <link>https://www.wikiod.com/tr/sqlalchemy/oturum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sqlalchemy/oturum/</guid>
+      <description>Bir oturum, ORM nesnelerini ve değişikliklerini takip eder, işlemleri yönetir ve sorgular gerçekleştirmek için kullanılır. .
+Oturum Oluşturma # Bir oturum genellikle sessionmaker kullanılarak elde edilir /session_api.html#sqlalchemy.orm.session.sessionmaker), uygulamanıza özel bir &amp;ldquo;Session&amp;rdquo; sınıfı oluşturur. En yaygın olarak, &amp;ldquo;Session&amp;rdquo; sınıfı bir motora bağlıdır ve örneklerin motoru dolaylı olarak kullanmasına izin verir.
+from sqlalchemy.orm import sessionmaker # Initial configuration arguments Session = sessionmaker(bind=engine) &amp;ldquo;Motor&amp;rdquo; ve &amp;ldquo;Oturum&amp;rdquo; yalnızca bir kez oluşturulmalıdır.
+Oturum, oluşturduğumuz sınıfın bir örneğidir:</description>
+    </item>
+    
+    <item>
+      <title>SQLSimya Çekirdeği</title>
+      <link>https://www.wikiod.com/tr/sqlalchemy/sqlsimya-cekirdegi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sqlalchemy/sqlsimya-cekirdegi/</guid>
+      <description>Sonucu dict&amp;rsquo;e dönüştürme # SQLAlchemy çekirdeğinde sonuç &amp;lsquo;RowProxy&amp;rsquo;dir. Açık bir sözlük istediğiniz durumlarda dict(row) çağırabilirsiniz.
+İlk önce örnek için kurulum:
+import datetime as dt from sqlalchemy import ( Column, Date, Integer, MetaData, Table, Text, create_engine, select) metadata = MetaData() users = Table( &#39;users&#39;, metadata, Column(&#39;id&#39;, Integer, primary_key=True), Column(&#39;name&#39;, Text, nullable=False), Column(&#39;birthday&#39;, Date), ) engine = create_engine(&#39;sqlite://&#39;) metadata.create_all(bind=engine) engine.execute(users.insert(), name=&#39;Alice&#39;, birthday=dt.date(1990, 1, 1)) Ardından, sonuç satırından bir sözlük oluşturmak için:
+with engine.</description>
+    </item>
+    
+    <item>
+      <title>Flask-SQLAlchemy</title>
+      <link>https://www.wikiod.com/tr/sqlalchemy/flask-sqlalchemy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sqlalchemy/flask-sqlalchemy/</guid>
+      <description>Flask-SQLAlchemy, çoğu zaman ihtiyacınız olmayan şeyleri sizin için varsayarak, oturumun otomatik olarak yok edilmesi gibi bazı ek işlevler ekler.
+Minimal Bir Uygulama # Tek bir Flask uygulamasına sahip olmanın yaygın durumu için tek yapmanız gereken Flask uygulamanızı oluşturmak, tercih edilen konfigürasyonu yüklemek ve ardından SQLAlchemy nesnesini uygulamaya geçirerek oluşturmaktır.
+Oluşturulduktan sonra, bu nesne hem sqlalchemy hem de sqlalchemy.orm&amp;rsquo;daki tüm işlevleri ve yardımcıları içerir. Ayrıca, modelleri bildirmek için kullanılabilecek bildirim temelli Model adlı bir sınıf sağlar:</description>
+    </item>
+    
+    <item>
+      <title>Bağlanıyor</title>
+      <link>https://www.wikiod.com/tr/sqlalchemy/baglanyor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sqlalchemy/baglanyor/</guid>
+      <description>Motor # Motor, bir bağlantı URL&amp;rsquo;si kullanarak farklı veritabanlarına bağlanmak için kullanılır:
+from sqlalchemy import create_engine engine = create_engine(&#39;postgresql://user:pass@localhost/test&#39;) Bununla birlikte, motorun ilk kullanılana kadar gerçekte bir bağlantı kurmadığını unutmayın.
+Motor otomatik olarak bir bağlantı havuzu oluşturur, ancak yeni bağlantıları tembelce açar (yani, yalnızca bir tane isterseniz SQLAlchemy 5 bağlantı açmaz).
+Bağlantı Kullanma # Bir bağlam yöneticisi kullanarak bir bağlantı açabilirsiniz (yani havuzdan bir tane talep edebilirsiniz):
+with engine.connect() as conn: result = conn.</description>
+    </item>
+    
+  </channel>
+</rss>

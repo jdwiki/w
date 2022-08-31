@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de la API de Dropbox on </title>
+    <link>https://www.wikiod.com/es/docs/dropbox-api/</link>
+    <description>Recent content in Tutorial de la API de Dropbox on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/dropbox-api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con la API de Dropbox</title>
+      <link>https://www.wikiod.com/es/dropbox-api/primeros-pasos-con-la-api-de-dropbox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dropbox-api/primeros-pasos-con-la-api-de-dropbox/</guid>
+      <description>Obtener un token de acceso OAuth 2 para la API de Dropbox a través de la concesión de código mediante curl # Abreviado de https://blogs.dropbox.com/developers/2013/07/using-oauth-2-0-with-the-core-api/:
+Paso 1: Comience la autorización
+Envía al usuario a esta página web, con tus valores rellenados:
+https://www.dropbox.com/oauth2/authorize?client_id=&amp;lt;app key&amp;gt;&amp;amp;response_type=code&amp;amp;redirect_uri=&amp;lt;redirect URI&amp;gt;&amp;amp;state=&amp;lt;CSRF token&amp;gt; El código de autorización se incluirá como el parámetro &amp;ldquo;código&amp;rdquo; en el URI de redirección.
+Paso 2: Obtenga un token de acceso
+curl https://api.dropbox.com/oauth2/token -d code=&amp;lt;authorization code&amp;gt; -d grant_type=authorization_code -d redirect_uri=&amp;lt;redirect URI&amp;gt; -u &amp;lt;app key&amp;gt;:&amp;lt;app secret&amp;gt; Paso 3: Llame a la API</description>
+    </item>
+    
+    <item>
+      <title>Descargando un archivo</title>
+      <link>https://www.wikiod.com/es/dropbox-api/descargando-un-archivo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dropbox-api/descargando-un-archivo/</guid>
+      <description>Descarga de un archivo usando la biblioteca Python de Dropbox # Esto usa el SDK de Dropbox Python para descargar un archivo de la API de Dropbox en la ruta remota /Homework/math/Prime_Numbers.txt al archivo local Prime_Numbers.txt:
+import dropbox dbx = dropbox.Dropbox(&amp;quot;&amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot;) with open(&amp;quot;Prime_Numbers.txt&amp;quot;, &amp;quot;wb&amp;quot;) as f: metadata, res = dbx.files_download(path=&amp;quot;/Homework/math/Prime_Numbers.txt&amp;quot;) f.write(res.content) &amp;lt;ACCESS_TOKEN&amp;gt; debe reemplazarse con su token de acceso.
+Descarga de una parte de un archivo a través de curl usando Solicitudes de recuperación de rango # Esto descarga solo una parte de un archivo, utilizando Solicitudes de recuperación de rango, desde la API de Dropbox en la ruta remota /Homework/math/Prime_Numbers.</description>
+    </item>
+    
+    <item>
+      <title>Compartir una carpeta</title>
+      <link>https://www.wikiod.com/es/dropbox-api/compartir-una-carpeta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dropbox-api/compartir-una-carpeta/</guid>
+      <description>Invitar a un miembro a una carpeta compartida usando curl # curl -X POST https://api.dropboxapi.com/2/sharing/add_folder_member \ --header &amp;quot;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot; \ --header &amp;quot;Content-Type: application/json&amp;quot; \ --data &amp;quot;{\&amp;quot;shared_folder_id\&amp;quot;: \&amp;quot;&amp;lt;SHARED_FOLDER_ID\&amp;quot;,\&amp;quot;members\&amp;quot;: [{\&amp;quot;member\&amp;quot;: {\&amp;quot;.tag\&amp;quot;: \&amp;quot;email\&amp;quot;,\&amp;quot;email\&amp;quot;: \&amp;quot;&amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt;\&amp;quot;},\&amp;quot;access_level\&amp;quot;: {\&amp;quot;.tag\&amp;quot;: \&amp;quot;editor\&amp;quot;}}],\&amp;quot;quiet\&amp;quot;: false,\&amp;quot;custom_message\&amp;quot;: \&amp;quot;Code examples\&amp;quot;}&amp;quot; &amp;lt;ACCESS_TOKEN&amp;gt; debe reemplazarse con el token de acceso OAuth 2.
+&amp;lt;SHARED_FOLDER_ID&amp;gt; debe reemplazarse con el ID de la carpeta compartida, por ejemplo, como lo devuelve /2/sharing/share_folder o /2/sharing/list_folders.
+&amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt; debe reemplazarse con la dirección de correo electrónico del usuario a invitar.</description>
+    </item>
+    
+    <item>
+      <title>Cargando un archivo</title>
+      <link>https://www.wikiod.com/es/dropbox-api/cargando-un-archivo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dropbox-api/cargando-un-archivo/</guid>
+      <description>Subir un archivo usando la biblioteca de Dropbox .NET # Este ejemplo usa la biblioteca .NET de Dropbox para cargar un archivo a una cuenta de Dropbox, usando sesiones de carga para archivos más grandes:
+private async Task Upload(string localPath, string remotePath) { const int ChunkSize = 4096 * 1024; using (var fileStream = File.Open(localPath, FileMode.Open)) { if (fileStream.Length &amp;lt;= ChunkSize) { await this.client.Files.UploadAsync(remotePath, body: fileStream); } else { await this.</description>
+    </item>
+    
+    <item>
+      <title>Listado de una carpeta</title>
+      <link>https://www.wikiod.com/es/dropbox-api/listado-de-una-carpeta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dropbox-api/listado-de-una-carpeta/</guid>
+      <description>Listado de la carpeta raíz a través de curl # Esto enumera la carpeta raíz, que se identifica con la cadena vacía &amp;quot;&amp;quot; para Dropbox API v2, usando curl, usando /files/list_folder:
+curl -X POST https://api.dropboxapi.com/2/files/list_folder \ --header &amp;quot;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot; \ --header &amp;quot;Content-Type: application/json&amp;quot; \ --data &amp;quot;{\&amp;quot;path\&amp;quot;: \&amp;quot;\&amp;quot;}&amp;quot; &amp;lt;ACCESS_TOKEN&amp;gt; debe reemplazarse con el token de acceso OAuth 2.
+Tenga en cuenta que la respuesta puede contener has_more=true, en cuyo caso su aplicación debería volver a llamar a /files/list_folder/continue para continuar recibiendo más entradas.</description>
+    </item>
+    
+    <item>
+      <title>Obtener un enlace compartido para un archivo o carpeta</title>
+      <link>https://www.wikiod.com/es/dropbox-api/obtener-un-enlace-compartido-para-un-archivo-o-carpeta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dropbox-api/obtener-un-enlace-compartido-para-un-archivo-o-carpeta/</guid>
+      <description>Creando un enlace compartido para un archivo usando curl en PHP # &amp;lt;?php $parameters = array(&#39;path&#39; =&amp;gt; &#39;/test.txt&#39;); $headers = array(&#39;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&#39;, &#39;Content-Type: application/json&#39;); $curlOptions = array( CURLOPT_HTTPHEADER =&amp;gt; $headers, CURLOPT_POST =&amp;gt; true, CURLOPT_POSTFIELDS =&amp;gt; json_encode($parameters), CURLOPT_RETURNTRANSFER =&amp;gt; true, CURLOPT_VERBOSE =&amp;gt; true ); $ch = curl_init(&#39;https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings&#39;); curl_setopt_array($ch, $curlOptions); $response = curl_exec($ch); echo $response; curl_close($ch); ?&amp;gt; &amp;lt;ACCESS_TOKEN&amp;gt; debe reemplazarse con el token de acceso OAuth 2.
+Creando un enlace compartido para una carpeta usando la biblioteca Python de Dropbox # Esto usa el SDK de Dropbox Python para crear un enlace compartido para una carpeta:</description>
+    </item>
+    
+    <item>
+      <title>Obtener metadatos de archivos</title>
+      <link>https://www.wikiod.com/es/dropbox-api/obtener-metadatos-de-archivos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dropbox-api/obtener-metadatos-de-archivos/</guid>
+      <description>Manejo del error al obtener metadatos para una ruta inexistente usando la biblioteca Dropbox .NET # Este ejemplo usa la biblioteca .NET de Dropbox para intentar obtener los metadatos de un elemento en una ruta particular y busca un error NotFound:
+try { var metadata = await this.client.Files.GetMetadataAsync(&amp;quot;/non-existant path&amp;quot;); Console.WriteLine(metadata.Name); } catch (Dropbox.Api.ApiException&amp;lt;Dropbox.Api.Files.GetMetadataError&amp;gt; e) { if (e.ErrorResponse.IsPath) { var pathError = e.ErrorResponse.AsPath.Value; if (pathError.IsNotFound) { Console.WriteLine (&amp;quot;File or folder not found.</description>
+    </item>
+    
+    <item>
+      <title>Obtener información de la cuenta</title>
+      <link>https://www.wikiod.com/es/dropbox-api/obtener-informacion-de-la-cuenta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dropbox-api/obtener-informacion-de-la-cuenta/</guid>
+      <description>Obtener información de la cuenta del usuario vinculado a través de curl # curl -X POST https://api.dropboxapi.com/2/users/get_current_account \ --header &amp;quot;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot; &amp;lt;ACCESS_TOKEN&amp;gt; debe reemplazarse con su token de acceso.
+Obtener información de cuenta para el usuario vinculado a través de curl en C++ # #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curl/curl.h&amp;gt; int main (int argc, char *argv[]) { CURL *curl; CURLcode res; /* In windows, this will init the winsock stuff */ curl_global_init(CURL_GLOBAL_ALL); /* get a curl handle */ curl = curl_easy_init(); if(curl) { printf (&amp;quot;Running curl test.</description>
+    </item>
+    
+    <item>
+      <title>Compartir un archivo</title>
+      <link>https://www.wikiod.com/es/dropbox-api/compartir-un-archivo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dropbox-api/compartir-un-archivo/</guid>
+      <description>Invitar a un miembro a un archivo compartido mediante la biblioteca Java de Dropbox # Esto usa Dropbox Java SDK para compartir un archivo en &amp;ldquo;/test.txt&amp;rdquo; con un usuario específico:
+List&amp;lt;MemberSelector&amp;gt; newMembers = new ArrayList&amp;lt;MemberSelector&amp;gt;(); MemberSelector newMember = MemberSelector.email(&amp;quot;&amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt;&amp;quot;); newMembers.add(newMember); List&amp;lt;FileMemberActionResult&amp;gt; fileMemberActionResults = client.sharing().addFileMember(&amp;quot;/test.txt&amp;quot;, newMembers); System.out.print(fileMemberActionResults); &amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt; debe reemplazarse con la dirección de correo electrónico del usuario a invitar. Además, newMembers es una matriz y puede contener varios usuarios.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sh Tutoriel on </title>
+    <link>https://www.wikiod.com/fr/docs/sh/</link>
+    <description>Recent content in sh Tutoriel on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/sh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Commencer avec sh</title>
+      <link>https://www.wikiod.com/fr/sh/commencer-avec-sh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/sh/commencer-avec-sh/</guid>
+      <description>Bonjour le monde! # Avec &amp;ldquo;écho&amp;rdquo;:
+$ echo Hello, world! Hello, world! Avec &amp;lsquo;printf&amp;rsquo; :
+$ printf &#39;Hello, world!\n&#39; Hello, world! Sous forme de fichier :
+#!/bin/sh printf &#39;%s\n&#39; &#39;Hello, world!&#39; Portabilité de l&amp;rsquo;écho # $ for shell in ash bash dash ksh ksh93 zsh; do &amp;gt; $shell -c &amp;quot;echo &#39;\\\\&#39;$shell&#39;\\\\&#39;&amp;quot; &amp;gt; done \\ash\\ \\bash\\ \dash\ \pdksh\ \\ksh93\\ \zsh\ &amp;rsquo;echo&amp;rsquo; ne peut être utilisé de manière cohérente, dans toutes les implémentations, que si ses arguments ne contiennent pas de barres obliques inverses (solide inversé) et si le premier argument ne commence pas par un tiret (trait d&amp;rsquo;union moins).</description>
+    </item>
+    
+    <item>
+      <title>Contrôle des tâches</title>
+      <link>https://www.wikiod.com/fr/sh/controle-des-taches/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/sh/controle-des-taches/</guid>
+      <description>Pause, exécution en arrière-plan, exécution au premier plan # Créons un processus assez long à réaliser :
+$ sleep 1000 Pour mettre le processus en pause, tapez Ctrl + Z :
+^Z [1]+ Stopped sleep 1000 Vous pouvez utiliser jobs pour voir la liste des processus en cours d&amp;rsquo;exécution ou arrêtés dans le terminal actuel :
+$ jobs [1]+ Stopped sleep 1000 Pour ramener un travail au premier plan, utilisez fg avec l&amp;rsquo;id écrit entre parenthèses dans la liste fournie par jobs :</description>
+    </item>
+    
+    <item>
+      <title>Développement arithmétique</title>
+      <link>https://www.wikiod.com/fr/sh/developpement-arithmetique/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/sh/developpement-arithmetique/</guid>
+      <description>Les nombres dans les expansions arithmétiques doivent correspondre à l&amp;rsquo;ERE suivant :
+[-+]?(0[0-7]+|[1-9][0-9]*|0[Xx][0-9A-Fa-f]+) Les expressions arithmétiques prennent en charge les opérateurs d&amp;rsquo;entiers signés, les comparaisons, les expressions booléennes, les affectations et les expressions ternaires de C.
+Ressources # [Développement arithmétique dans POSIX] (http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_04) Priorité des opérateurs Nombre de lignes # i=0 while read -r line; do i=$((i+1)) done &amp;lt; file echo $i Avec un fichier contenant :
+Alpha Beta Gamma Delta Epsilon Le script ci-dessus imprime : &amp;ldquo;5&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>La commande lire</title>
+      <link>https://www.wikiod.com/fr/sh/la-commande-lire/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/sh/la-commande-lire/</guid>
+      <description>Lire une ligne textuellement # $ IFS= read -r foo &amp;lt;&amp;lt;EOF &amp;gt; this is a \n line &amp;gt;EOF $ printf &#39;%s\n&#39; &amp;quot;$foo&amp;quot; this is a \n line Lire une ligne, en supprimant les espaces de début et de fin # $ read -r foo &amp;lt;&amp;lt;EOF &amp;gt; this is a line &amp;gt;EOF $ printf &#39;%s\n&#39; &amp;quot;$foo&amp;quot; this is a line </description>
+    </item>
+    
+    <item>
+      <title>Redirection d&#39;ES</title>
+      <link>https://www.wikiod.com/fr/sh/redirection-des/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/sh/redirection-des/</guid>
+      <description>Généralement, une commande prend des entrées du terminal et des sorties vers le terminal. Normalement, une commande lit l&amp;rsquo;entrée du clavier et affiche le résultat à l&amp;rsquo;écran. Voici l&amp;rsquo;importance de la redirection d&amp;rsquo;entrée/sortie
+Syntaxe # [fd]&amp;lt;fichier [fd]&amp;lt;&amp;amp;fd [fd]&amp;lt;&amp;amp;- [fd]&amp;gt;fichier [fd]&amp;gt;&amp;amp;fd [fd]&amp;gt;&amp;amp;- [fd]&amp;gt;|fichier [fd]&amp;raquo;fichier [fd]&amp;lt;&amp;gt;fichier [fd]&amp;laquo;[-] mot &amp;hellip;
+mot Ressources # [La section POSIX &amp;lsquo;Shell Command Language&amp;rsquo; sur &amp;lsquo;Redirection&amp;rsquo;][posix] [posix] : http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_07
+Redirection de sortie # Habituellement, la sortie d&amp;rsquo;une commande va au terminal.</description>
+    </item>
+    
+    <item>
+      <title>Citation</title>
+      <link>https://www.wikiod.com/fr/sh/citation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/sh/citation/</guid>
+      <description>Références # [La section POSIX &amp;lsquo;Shell Command Language&amp;rsquo; sur &amp;lsquo;Quoting&amp;rsquo;][posix] [posix] : http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_02
+Guillemets simples # Les guillemets simples sont des chaînes littérales et l&amp;rsquo;absence de caractères d&amp;rsquo;échappement signifie que le seul caractère qui ne peut pas apparaître à l&amp;rsquo;intérieur d&amp;rsquo;une chaîne à guillemets simples est un guillemet simple.
+$ echo &#39;$var \$var \\$var \\\$var&#39; $var \$var \\$var \\\$var $ echo &#39;&amp;quot;quoted string&amp;quot;&#39; &amp;quot;quoted string&amp;quot; $ echo &#39;var=$(echo $var)&#39; var=$(echo $var) Double citation # Les guillemets doubles préservent tous les caractères autres que le terminateur &amp;quot;, les extensions $, les substitutions de commande ` et les échappements \ de l&amp;rsquo;un de ces caractères (et la suppression de la nouvelle ligne).</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://www.wikiod.com/fr/sh/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/sh/test/</guid>
+      <description>Syntaxe # test tester [!] [ -n | -z ] chaîne tester [!] { -b | -c | -d | -e | -f | -g | -h | -L | -p | -r | -S | -s | -u | -w | -x } fichier tester [!] -t fd tester [!] string { = | != } chaîne test [!] integer { -eq | -ne | -gt | -ge | -lt | -le } integer [ ] [ [!</description>
+    </item>
+    
+  </channel>
+</rss>

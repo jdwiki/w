@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>symfony-forms Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/symfony-forms/</link>
+    <description>Recent content in symfony-forms Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/symfony-forms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>symfony-formları kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/symfony-forms/symfony-formlar-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/symfony-forms/symfony-formlar-kullanmaya-baslama/</guid>
+      <description>Kurulum veya Kurulum # Symfony-forms&amp;rsquo;u kurma veya kurma hakkında ayrıntılı talimatlar.</description>
+    </item>
+    
+    <item>
+      <title>Symfony Form Olayları Örneği</title>
+      <link>https://www.wikiod.com/tr/symfony-forms/symfony-form-olaylar-ornegi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/symfony-forms/symfony-form-olaylar-ornegi/</guid>
+      <description>Yukarıdaki örnekte Daha Fazla Symfony Form Etkinliği İçin Bekleyin.
+FormEvents::PRE_SUBMIT # Bu örnek, kullanıcının daha önce formla yaptığı kararlara bağlı olarak formu değiştirmekle ilgilidir.
+Özel durumumda, belirli bir onay kutusu ayarlanmamışsa bir seçim kutusunu devre dışı bırakmam gerekiyordu.
+Böylece, &amp;lsquo;FormEvents::PRE_SUBMIT&amp;rsquo; olayında &amp;lsquo;EventListener&amp;rsquo;ı ayarladığımız FormBuilder&amp;rsquo;a sahibiz. Bu olayı kullanıyoruz çünkü form, formun gönderilen verileriyle zaten ayarlanmış, ancak yine de formu değiştirebiliyoruz.
+class ExampleFormType extends AbstractType { public function buildForm(FormBuilderInterface $builder, array $options) { $data = $builder-&amp;gt;getData(); $builder -&amp;gt;add(&#39;choiceField&#39;, ChoiceType::class, array( &#39;choices&#39; =&amp;gt; array( &#39;A&#39; =&amp;gt; &#39;1&#39;, &#39;B&#39; =&amp;gt; &#39;2&#39; ), &#39;choices_as_values&#39; =&amp;gt; true, )) -&amp;gt;add(&#39;hiddenField&#39;, HiddenType::class, array( &#39;required&#39; =&amp;gt; false, &#39;label&#39; =&amp;gt; &#39;&#39; )) -&amp;gt;addEventListener(FormEvents::PRE_SUBMIT, function(FormEvent $event) { // get the form from the event $form = $event-&amp;gt;getForm(); // get the form element and its options $config = $form-&amp;gt;get(&#39;choiceField&#39;)-&amp;gt;getConfig(); $options = $config-&amp;gt;getOptions(); // get the form data, that got submitted by the user with this request / event $data = $event-&amp;gt;getData(); // overwrite the choice field with the options, you want to set // in this case, we&#39;ll disable the field, if the hidden field isn&#39;t set $form-&amp;gt;add( &#39;choiceField&#39;, $config-&amp;gt;getType()-&amp;gt;getName(), array_replace( $options, array( &#39;disabled&#39; =&amp;gt; ($data[&#39;hiddenField&#39;] == 0 ?</description>
+    </item>
+    
+    <item>
+      <title>Formlar</title>
+      <link>https://www.wikiod.com/tr/symfony-forms/formlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/symfony-forms/formlar/</guid>
+      <description>Sözdizimi # Form createForm(string|FormTypeInterface $type, karışık $veri = null, dizi $seçenekler = dizi()) FormBuilder createFormBuilder(karışık $veri = boş, dizi $seçenek = dizi()) Form bileşeni sürecinin Etkinliğini, Etkinlik Gönderici Bileşeni ile uyumlu bir Form Etkinliği ile &amp;ldquo;özelleştirebilirsiniz&amp;rdquo;.
+Symfony Belgeleri :
+Form bileşeni, EventDispatcher bileşenini kullanarak formlarınızı özelleştirmenize olanak tanıyan yapılandırılmış bir süreç sağlar. Form olaylarını kullanarak, iş akışının farklı adımlarındaki bilgileri veya alanları değiştirebilirsiniz: formun doldurulmasından talepten verilerin gönderilmesine kadar.
+Özel bir form türü oluşturun # Özel form türü, yeniden kullanılabilir bir form bileşenini tanımlayan bir sınıftır.</description>
+    </item>
+    
+  </channel>
+</rss>

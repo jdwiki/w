@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel sur le langage Scala on </title>
+    <link>https://www.wikiod.com/fr/docs/scala/</link>
+    <description>Recent content in Tutoriel sur le langage Scala on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/scala/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec le langage Scala</title>
+      <link>https://www.wikiod.com/fr/scala/premiers-pas-avec-le-langage-scala/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/scala/premiers-pas-avec-le-langage-scala/</guid>
+      <description>Hello World en étendant l&amp;rsquo;application # object HelloWorld extends App { println(&amp;quot;Hello, world!&amp;quot;) } [Démo en direct] (http://ideone.com/UgmX9y)
+En étendant le App [trait][1], vous pouvez éviter de définir une méthode main explicite . Le corps entier de l&amp;rsquo;objet HelloWorld est traité comme &amp;ldquo;la méthode principale&amp;rdquo;.
+Initialisation retardée # Selon la documentation officielle, App utilise une fonctionnalité appelée Delayed Initialization. Cela signifie que les champs de l&amp;rsquo;objet sont initialisés après l&amp;rsquo;appel de la méthode principale.</description>
+    </item>
+    
+    <item>
+      <title>Correspondance de modèle</title>
+      <link>https://www.wikiod.com/fr/scala/correspondance-de-modele/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/scala/correspondance-de-modele/</guid>
+      <description>Syntaxe # le sélecteur correspond à la fonction partielle selector match {list of case alternatives) // C&amp;rsquo;est la forme la plus courante de ce qui précède Paramètres # Paramètre Détails sélecteur L&amp;rsquo;expression dont la valeur est mise en correspondance avec un modèle. alternatives une liste d&amp;rsquo;alternatives délimitées par la casse. Correspondance de modèle simple # Cet exemple montre comment faire correspondre une entrée à plusieurs valeurs :
+def f(x: Int): String = x match { case 1 =&amp;gt; &amp;quot;One&amp;quot; case 2 =&amp;gt; &amp;quot;Two&amp;quot; case _ =&amp;gt; &amp;quot;Unknown!</description>
+    </item>
+    
+    <item>
+      <title>Implicites</title>
+      <link>https://www.wikiod.com/fr/scala/implicites/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/scala/implicites/</guid>
+      <description>Syntaxe # valeur implicite x : T = ??? Les classes implicites permettent d&amp;rsquo;ajouter des méthodes personnalisées aux types existants, sans avoir à modifier leur code, enrichissant ainsi les types sans avoir besoin de contrôler le code.
+L&amp;rsquo;utilisation de types implicites pour enrichir une classe existante est souvent appelée modèle « enrichir ma bibliothèque ».
+Restrictions sur les classes implicites
+Les classes implicites ne peuvent exister qu&amp;rsquo;au sein d&amp;rsquo;une autre classe, objet ou trait.</description>
+    </item>
+    
+    <item>
+      <title>JSON</title>
+      <link>https://www.wikiod.com/fr/scala/json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/scala/json/</guid>
+      <description>JSON avec Circé # [Circe][1] fournit des codecs dérivés au moment de la compilation pour en/decode json dans les classes de cas. Un exemple simple ressemble à ceci :
+import io.circe._ import io.circe.generic.auto._ import io.circe.parser._ import io.circe.syntax._ case class User(id: Long, name: String) val user = User(1, &amp;quot;John Doe&amp;quot;) // {&amp;quot;id&amp;quot;:1,&amp;quot;name&amp;quot;:&amp;quot;John Doe&amp;quot;} val json = user.asJson.noSpaces // Right(User(1L, &amp;quot;John Doe&amp;quot;)) val res: Either[Error, User] = decode[User](json) [1] : https://github.com/travisbrown/circe
+JSON avec spray-json # spray-json fournit un moyen simple de travailler avec JSON.</description>
+    </item>
+    
+    <item>
+      <title>Extracteurs</title>
+      <link>https://www.wikiod.com/fr/scala/extracteurs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/scala/extracteurs/</guid>
+      <description>Syntaxe # val extractor(extractedValue1, _ /* deuxième valeur extraite ignorée */) = valueToBeExtracted valueToBeExtracted match { extracteur de cas (extractedValue1, _) =&amp;gt; ???} val (tuple1, tuple2, tuple3) = tupleWith3Elements object Foo { def unapply(foo: Foo): Option[String] = Some(foo.x); } Extracteurs de classe de cas # Une [classe de cas] [1] est une classe avec beaucoup de code passe-partout standard automatiquement inclus. L&amp;rsquo;un des avantages de ceci est que Scala facilite l&amp;rsquo;utilisation d&amp;rsquo;extracteurs avec des classes de cas.</description>
+    </item>
+    
+    <item>
+      <title>Collections</title>
+      <link>https://www.wikiod.com/fr/scala/collections/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/scala/collections/</guid>
+      <description>Feuille de triche de liste et de vecteur # Il est maintenant recommandé d&amp;rsquo;utiliser Vector au lieu de List car les implémentations ont de meilleures performances [Les caractéristiques de performance peuvent être trouvées ici][traversableperf]. Vector peut être utilisé partout où List est utilisé.
+[traversableperf] : http://docs.scala-lang.org/overviews/collections/performance-characteristics.html
+Création de liste
+List[Int]() // Declares an empty list of type Int List.empty[Int] // Uses `empty` method to declare empty list of type Int Nil // A list of type Nothing that explicitly has nothing in it List(1, 2, 3) // Declare a list with some elements 1 :: 2 :: 3 :: Nil // Chaining element prepending to an empty list, in a LISP-style Prendre élément</description>
+    </item>
+    
+    <item>
+      <title>Monades</title>
+      <link>https://www.wikiod.com/fr/scala/monades/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/scala/monades/</guid>
+      <description>Définition de monade # De manière informelle, une monade est un conteneur d&amp;rsquo;éléments, noté F[_], contenant 2 fonctions : flatMap (pour transformer ce conteneur) et unit (pour créer ce conteneur).
+Les exemples de bibliothèque courants incluent List[T], Set[T] et Option[T].
+Définition formelle
+Monad M est un [type paramétrique][1] M[T] avec deux opérations flatMap et unit, telles que :
+trait M[T] { def flatMap[U](f: T =&amp;gt; M[U]): M[U] } def unit[T](x: T): M[T] Ces fonctions doivent satisfaire trois lois :</description>
+    </item>
+    
+    <item>
+      <title>Classes de cas</title>
+      <link>https://www.wikiod.com/fr/scala/classes-de-cas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/scala/classes-de-cas/</guid>
+      <description>Syntaxe # case class Foo() // Les classes de cas sans paramètres doivent avoir une liste vide case class Foo(a1: A1, &amp;hellip;, aN: AN) // Crée une classe de cas avec les champs a1 &amp;hellip; aN case object Bar // Crée une classe de cas singleton Artefacts de code générés # Le modificateur case oblige le compilateur Scala à générer automatiquement un code passe-partout commun pour la classe. L&amp;rsquo;implémentation manuelle de ce code est fastidieuse et source d&amp;rsquo;erreurs.</description>
+    </item>
+    
+    <item>
+      <title>Énumérations</title>
+      <link>https://www.wikiod.com/fr/scala/enumerations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/scala/enumerations/</guid>
+      <description>L&amp;rsquo;approche avec sealed trait et case objects est préférable car l&amp;rsquo;énumération Scala présente quelques problèmes :
+Les énumérations ont le même type après effacement.
+Le compilateur ne se plaint pas de &amp;ldquo;Match n&amp;rsquo;est pas exhaustif&amp;rdquo;, si le cas est manqué, il échouera dans le runtime scala.MatchError :
+def isWeekendWithBug(day: WeekDays.Value): Boolean = day match { case WeekDays.Sun | WeekDays.Sat =&amp;gt; true }
+isWeekendWithBug(WeekDays.Fri) scala.MatchError: Fri (of class scala.Enumeration$Val)
+Comparer avec:</description>
+    </item>
+    
+    <item>
+      <title>Curry</title>
+      <link>https://www.wikiod.com/fr/scala/curry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/scala/curry/</guid>
+      <description>Syntaxe # aFunction(10)_ //Utilisation de &amp;lsquo;_&amp;rsquo; Indique au compilateur que tous les paramètres du reste des groupes de paramètres seront mis au curry. nArityFunction.curried //Convertit une fonction n-arité en une version curry équivalente anotherFunction(x)(_: String)(z) // Currying d&amp;rsquo;un paramètre arbitraire. Il a besoin que son type soit explicitement indiqué. Quand utiliser le curry # [Currying][1] est la technique de traduction de l&amp;rsquo;évaluation d&amp;rsquo;une fonction qui prend plusieurs arguments en évaluation d&amp;rsquo;une séquence de fonctions, chacune avec un seul argument.</description>
+    </item>
+    
+  </channel>
+</rss>

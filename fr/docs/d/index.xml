@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel en langage D on </title>
+    <link>https://www.wikiod.com/fr/docs/d/</link>
+    <description>Recent content in Tutoriel en langage D on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec le langage D</title>
+      <link>https://www.wikiod.com/fr/d/premiers-pas-avec-le-langage-d/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/d/premiers-pas-avec-le-langage-d/</guid>
+      <description>Installation ou configuration # Le compilateur standard DMD du langage de programmation D peut s&amp;rsquo;exécuter sur toutes les principales plates-formes. Pour installer DMD, voir ici. Pour installer en ligne de commande, vous pouvez exécuter la commande (trouvé sur le site Web de D) :
+curl -fsS https://dlang.org/install.sh | bash -s dmd Gestionnaires de paquets # Arch Linux # pacman -S dlang Chocolaté # choco install dmd Gentoo # layman -f -a dlang Homebrew OSX # brew install dmd Debian/Ubuntu # L&amp;rsquo;installation sur les distributions Debian/Ubuntu nécessite que le [dépôt APT][1] soit ajouté à la liste des sources.</description>
+    </item>
+    
+    <item>
+      <title>Tableaux et tranches dynamiques</title>
+      <link>https://www.wikiod.com/fr/d/tableaux-et-tranches-dynamiques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/d/tableaux-et-tranches-dynamiques/</guid>
+      <description>Syntaxe # &amp;lt;type&amp;gt;[] &amp;lt;nom&amp;gt; ; Les tranches génèrent une nouvelle vue sur la mémoire existante. Ils ne créent pas de nouvelle copie. Si aucune tranche ne contient plus de référence à cette mémoire - ou une partie de celle-ci - elle sera libérée par le ramasse-miettes.
+En utilisant des tranches, il est possible d&amp;rsquo;écrire du code très efficace pour, par exemple. des analyseurs qui n&amp;rsquo;opèrent que sur un bloc de mémoire et découpent simplement les parties sur lesquelles ils ont vraiment besoin de travailler - pas besoin d&amp;rsquo;allouer de nouveaux blocs de mémoire.</description>
+    </item>
+    
+    <item>
+      <title>Gammes</title>
+      <link>https://www.wikiod.com/fr/d/gammes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/d/gammes/</guid>
+      <description>Si un foreach est rencontré par le compilateur
+foreach (element; range) { il est réécrit en interne comme suit :
+for (auto it = range; !it.empty; it.popFront()) { auto element = it.front; ... } Tout objet qui remplit l&amp;rsquo;interface ci-dessus est appelé une plage d&amp;rsquo;entrée et est donc un type qui peut être itéré :
+struct InputRange { @property bool empty(); @property T front(); void popFront(); } Les chaînes et les tableaux sont des plages # import std.</description>
+    </item>
+    
+    <item>
+      <title>Tableaux associatifs</title>
+      <link>https://www.wikiod.com/fr/d/tableaux-associatifs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/d/tableaux-associatifs/</guid>
+      <description>Utilisation standard # int[string] wordCount(string[] wordList) { int[string] words; foreach (word; wordList) { words[word]++; } return words; } void main() { int[string] count = wordCount([&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;, &amp;quot;I&amp;quot;, &amp;quot;say&amp;quot;, &amp;quot;hello&amp;quot;]); foreach (key; count.keys) { writefln(&amp;quot;%s: %s&amp;quot;, key, count[key]); } // hello: 2 // world: 1 // I: 1 // say: 1 // note: the order in the foreach is unspecified } Littéraux # int[string] aa0 = [&amp;quot;x&amp;quot;: 5, &amp;quot;y&amp;quot;: 6]; //int values, string keys auto aa1 = [&amp;quot;x&amp;quot;: 5.</description>
+    </item>
+    
+    <item>
+      <title>Évaluation de la fonction de temps de compilation (CTFE)</title>
+      <link>https://www.wikiod.com/fr/d/evaluation-de-la-fonction-de-temps-de-compilation-ctfe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/d/evaluation-de-la-fonction-de-temps-de-compilation-ctfe/</guid>
+      <description>CTFE est un mécanisme qui permet au compilateur d&amp;rsquo;exécuter des fonctions au moment de la compilation. Il n&amp;rsquo;y a pas d&amp;rsquo;ensemble spécial du langage D nécessaire pour utiliser cette fonctionnalité - chaque fois qu&amp;rsquo;une fonction dépend uniquement de valeurs connues au moment de la compilation, le compilateur D peut décider de l&amp;rsquo;interpréter lors de la compilation.
+Vous pouvez également jouer de manière interactive avec CTFE.
+Evaluer une fonction au moment de la compilation # long fib(long n) { return n &amp;lt; 2 ?</description>
+    </item>
+    
+    <item>
+      <title>UFCS - Syntaxe d&#39;appel de fonction uniforme</title>
+      <link>https://www.wikiod.com/fr/d/ufcs---syntaxe-dappel-de-fonction-uniforme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/d/ufcs---syntaxe-dappel-de-fonction-uniforme/</guid>
+      <description>Syntaxe # aThirdFun(anotherFun(myFun(), 42); // notation commune (également valide) myFun().anotherFun(42).aThirdFun(); // UFCS myFun.anotherFun(42).aThirdFun ; // les accolades vides peuvent être supprimées Dans un appel a.b(args...), si le type a n&amp;rsquo;a pas de méthode nommée b, alors le compilateur essaiera de réécrire l&amp;rsquo;appel comme b(a, args...) .
+Vérifier si un nombre est premier # import std.stdio; bool isPrime(int number) { foreach(i; 2..number) { if (number % i == 0) { return false; } } return true; } void main() { writeln(2.</description>
+    </item>
+    
+    <item>
+      <title>Gardes de portée</title>
+      <link>https://www.wikiod.com/fr/d/gardes-de-portee/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/d/gardes-de-portee/</guid>
+      <description>Syntaxe # scope(exit) - les instructions sont appelées quelle que soit la façon dont le bloc actuel a été quitté scope(success) - les instructions sont appelées lorsque le bloc actuel a été quitté normalement portée (échec) - les instructions sont appelées lorsque le bloc actuel a été quitté via la levée d&amp;rsquo;exception L&amp;rsquo;utilisation de protections de portée rend le code beaucoup plus propre et permet de placer l&amp;rsquo;allocation des ressources et le nettoyage du code côte à côte.</description>
+    </item>
+    
+    <item>
+      <title>Contrats</title>
+      <link>https://www.wikiod.com/fr/d/contrats/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/d/contrats/</guid>
+      <description>Les assertions seront optimisées dans une version de version.
+Contrats de fonction # Les contrats de fonction permettent au programmeur de vérifier les incohérences. Les incohérences incluent des paramètres non valides, des vérifications de la valeur de retour correcte ou un état non valide de l&amp;rsquo;objet.
+Les vérifications peuvent avoir lieu avant et après l&amp;rsquo;exécution du corps de la fonction ou de la méthode.
+void printNotGreaterThan42(uint number) in { assert(number &amp;lt; 42); } body { import std.</description>
+    </item>
+    
+    <item>
+      <title>Structures</title>
+      <link>https://www.wikiod.com/fr/d/structures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/d/structures/</guid>
+      <description>Définition d&amp;rsquo;un nouveau Struct # Pour définir la structure appelée Person avec une variable de type entier age, une variable de type entier height et une variable de type float ageXHeight :
+struct Person { int age; int height; float ageXHeight; } En général:
+struct structName { /+ values go here +/ } Constructeurs de structure # En D, nous pouvons utiliser des constructeurs pour initialiser des structures comme une classe.</description>
+    </item>
+    
+    <item>
+      <title>Boucles</title>
+      <link>https://www.wikiod.com/fr/d/boucles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/d/boucles/</guid>
+      <description>Syntaxe # for (&amp;lt;initializer&amp;gt; ; &amp;lt;condition de boucle&amp;gt; ; &amp;lt;instruction de boucle&amp;gt;) { &amp;lt;instructions&amp;gt; }
+while (&amp;lt;condition&amp;gt;) { &amp;lt;instructions&amp;gt; }
+do { &amp;lt;instructions&amp;gt; } while (&amp;lt;condition&amp;gt;);
+foreach (&amp;lt;el&amp;gt;, &amp;lt;collection&amp;gt;)
+foreach_reverse (&amp;lt;el&amp;gt;, &amp;lt;collection&amp;gt;)
+Boucle for dans Programmation en D, spécification
+Boucle while dans Programmation en D, spécification
+Boucle do while dans Programmation en D, [spécification](https://dlang.org/spec/statement.html# do-instruction)
+foreach dans Programming in D, [opApply](http://ddili.org/ders/d.en/foreach_opapply. html), spécification
+Vous pouvez jouer avec loops et foreach en ligne .</description>
+    </item>
+    
+  </channel>
+</rss>

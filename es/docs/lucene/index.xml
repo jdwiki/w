@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial lucena on </title>
+    <link>https://www.wikiod.com/es/docs/lucene/</link>
+    <description>Recent content in Tutorial lucena on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/lucene/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comenzando con lucene</title>
+      <link>https://www.wikiod.com/es/lucene/comenzando-con-lucene/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/lucene/comenzando-con-lucene/</guid>
+      <description>Hola Mundo # Este ejemplo básico de Lucene crea un índice simple y busca en él.
+Nota: RAMDirectory crea un índice residente en la memoria y es útil para experimentar y probar, pero en la práctica, la mayoría de las personas necesitarán tener un índice almacenado en el sistema de archivos (consulte [FSDirectory.open](https://lucene.apache. org/core/6_1_0/core/org/apache/lucene/store/FSDirectory.html#open-java.nio.file.Path-)).
+import java.io.IOException; import org.apache.lucene.analysis.Analyzer; import org.apache.lucene.analysis.standard.StandardAnalyzer; import org.apache.lucene.document.*; import org.apache.lucene.index.*; import org.apache.lucene.queryparser.classic.*; import org.apache.lucene.search.*; import org.apache.lucene.store.*; public class HelloLucene { public static void main(String[] args) throws IOException, ParseException { //Create a new index and open a writer Directory dir = new RAMDirectory(); Analyzer analyzer = new StandardAnalyzer(); IndexWriterConfig config = new IndexWriterConfig(analyzer); IndexWriter writer = new IndexWriter(dir, config); //Create a document to index Document doc = new Document(); doc.</description>
+    </item>
+    
+    <item>
+      <title>Consultas</title>
+      <link>https://www.wikiod.com/es/lucene/consultas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/lucene/consultas/</guid>
+      <description>consulta booleana # BooleanQuery se utiliza para combinar otras consultas.
+Se pueden combinar usando tres parámetros BooleanClause.Occur:
+BooleanClause.Occur.MUST - La subconsulta debe coincidir. BooleanClause.Occur.SHOULD - Es posible que la subconsulta no coincida, pero obtendrá una puntuación más alta si lo es. Si no hay cláusulas MUST, entonces debe coincidir al menos una cláusula SHOULD. BooleanClause.Occur.MUST_NOT - La subconsulta no debe coincidir con el documento. En este ejemplo, un documento coincidirá si tiene &amp;ldquo;importante&amp;rdquo;, pero no &amp;ldquo;prohibido&amp;rdquo;, y obtendrá una puntuación más alta si también tiene &amp;ldquo;útil&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Análisis</title>
+      <link>https://www.wikiod.com/es/lucene/analisis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/lucene/analisis/</guid>
+      <description>Crear un analizador personalizado # La mayor parte de la personalización del análisis está en la clase createComponents, donde se definen Tokenizer y TokenFilters.
+CharFilters se pueden agregar en el método initReader.
+Analyzer analyzer = new Analyzer() { @Override protected Reader initReader(String fieldName, Reader reader) { return new HTMLStripCharFilter(reader); } @Override protected TokenStreamComponents createComponents(String fieldName) { Tokenizer tokenizer = new StandardTokenizer(); TokenStream stream = new StandardFilter(tokenizer); //Order matters! If LowerCaseFilter and StopFilter were swapped here, StopFilter&#39;s //matching would be case sensitive, so &amp;quot;the&amp;quot; would be eliminated, but not &amp;quot;The&amp;quot; stream = new LowerCaseFilter(stream); stream = new StopFilter(stream, StopAnalyzer.</description>
+    </item>
+    
+    <item>
+      <title>Eliminación de documentos mediante una consulta de varios términos</title>
+      <link>https://www.wikiod.com/es/lucene/eliminacion-de-documentos-mediante-una-consulta-de-varios-terminos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/lucene/eliminacion-de-documentos-mediante-una-consulta-de-varios-terminos/</guid>
+      <description>Eliminar documentos de un índice de Lucene es fácil cuando tiene un campo de clave principal en su documento (como en las bases de datos SQL tradicionales).
+Sin embargo, a veces lo que necesita es eliminar una cantidad de documentos en función de múltiples campos en el documento. La API de Lucene le permite lograr esto especificando una consulta para usar para la eliminación.
+Para hacer esto, elija el analizador correcto, construya la consulta, pase la consulta a indexWriter para eliminar los documentos.</description>
+    </item>
+    
+  </channel>
+</rss>

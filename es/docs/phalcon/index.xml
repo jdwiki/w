@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial halcón on </title>
+    <link>https://www.wikiod.com/es/docs/phalcon/</link>
+    <description>Recent content in Tutorial halcón on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/phalcon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comenzando con el halcón</title>
+      <link>https://www.wikiod.com/es/phalcon/comenzando-con-el-halcon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/phalcon/comenzando-con-el-halcon/</guid>
+      <description>Instalación # Descargue los archivos de instalación de Phalcon [página de descarga dedicada] (https://phalconphp.com/en/download), y encuentre manuales sobre cómo hacer que Phalcon funcione con plataformas populares.
+ventanas # Coloque los [archivos DLL] reales (https://phalconphp.com/en/download/windows) en un directorio adecuado para ampliar la funcionalidad de PHP. Para XAMPP use xampp\php\ext\ - y para WAMP use el directorio wamp\bin\php\php*\ext\. Luego habilite Phalcon agregando extension=php_phalcon.dll al archivo php.ini apropiado. Reinicie el servidor web y Phalcon debería estar disponible.</description>
+    </item>
+    
+    <item>
+      <title>Validación</title>
+      <link>https://www.wikiod.com/es/phalcon/validacion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/phalcon/validacion/</guid>
+      <description>La referencia de API a la clase de validación se puede encontrar aquí: https://docs.phalconphp.com/en/latest/api/Phalcon_Validation.html Si se proporciona una entidad en \Phalcon\Validation, no necesita pasar la clave del modelo en \Phalcon\Validation\Validator\Uniqueness Validadores incorporados # PresenceOf: valida que un valor no sea una cadena vacía o nula
+$validator-&amp;gt;add(&#39;name&#39;, new \Phalcon\Validation\Validator\PresenceOf([ &#39;message&#39; =&amp;gt; &#39;The name is required&#39; ])); Correo electrónico - Comprueba si un valor tiene un formato de correo electrónico correcto</description>
+    </item>
+    
+    <item>
+      <title>Trabajando con ACL</title>
+      <link>https://www.wikiod.com/es/phalcon/trabajando-con-acl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/phalcon/trabajando-con-acl/</guid>
+      <description>Sintaxis # Puede usar &amp;lsquo;*&amp;rsquo; como segundo y tercer parámetro en los métodos Phalcon\Acl::allow y Phalcon\Acl::deny. Esto significará cualquier recurso y acción respectivamente.
+El segundo argumento en Phalcon\Acl::addRole indica desde qué rol se accede a la herencia.
+Debe serializar su ACL en algún archivo o servidor de caché en lugar de crearlo en cada solicitud.
+También es buena idea mantener acl en un archivo separado.
+Phalcon\Acl puede enviar eventos al administrador de eventos, hay dos eventos: beforeCheckAccess y afterCheckAccess.</description>
+    </item>
+    
+    <item>
+      <title>Enrutamiento y despacho</title>
+      <link>https://www.wikiod.com/es/phalcon/enrutamiento-y-despacho/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/phalcon/enrutamiento-y-despacho/</guid>
+      <description>Rutas API RESTful para aplicaciones de módulos múltiples # // Define new router group $api = new \Phalcon\Mvc\Router\Group([ &#39;module&#39; =&amp;gt; &#39;api&#39;, ]); $api-&amp;gt;setPrefix(&#39;/api/v1&#39;); // API routes (Maps to Cotnroller::Action) $api-&amp;gt;addGet(&#39;/users&#39;, &#39;Users::index&#39;); $api-&amp;gt;addGet(&#39;/users/search/{query}&#39;, &#39;Users::search&#39;); $api-&amp;gt;addGet(&#39;/users/{id:[0-9]+}&#39;, &#39;Users::fetch&#39;); $api-&amp;gt;addPost(&#39;/users&#39;, &#39;Users::add&#39;); $api-&amp;gt;addPut(&#39;/users/{id:[0-9]+}&#39;, &#39;Users::edit&#39;); $api-&amp;gt;addDelete(&#39;/users/{id:[0-9]+}&#39;, &#39;Users::delete&#39;); // Add API routes to main router $router-&amp;gt;mount($api); Ejemplo de creación de un usuario:
+curl -i -X POST -d &#39;{&amp;quot;name&amp;quot;: &amp;quot;John Snow&amp;quot;, &amp;quot;title&amp;quot;: &amp;quot;King of the North&amp;quot;}&#39; http://example.com/api/v1/users Rutas de módulos configuradas dinámicamente # $router = new \Phalcon\Mvc\Router(false); $router-&amp;gt;removeExtraSlashes(true); $request = new \Phalcon\Http\Request(); $action = strtolower($request-&amp;gt;getMethod()); // get, post, etc.</description>
+    </item>
+    
+    <item>
+      <title>Encargado de eventos</title>
+      <link>https://www.wikiod.com/es/phalcon/encargado-de-eventos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/phalcon/encargado-de-eventos/</guid>
+      <description>Comprobación dinámica de ACL # Cree una clase de seguridad para ejecutar su lógica de ACL.
+&amp;lt;?php namespace Plugins; use Phalcon\Events\Event; use Phalcon\Mvc\Dispatcher; use Phalcon\Acl; use Phalcon\Acl\Role; use Phalcon\Acl\Resource; use Phalcon\Acl\Adapter\Memory as AclList; class Security extends \Phalcon\Mvc\User\Plugin { public function beforeExecuteRoute(Event $event, Dispatcher $dispatcher) { // your acl logic here } } Enganche la clase de seguridad al despachador, para ejecutar beforeExecuteRoute.
+$di = new \Phalcon\DI\FactoryDefault(); $eventsManager = $di[&#39;eventsManager&#39;]; $di-&amp;gt;setShared(&#39;dispatcher&#39;, function() use ($eventsManager) { $eventsManager-&amp;gt;attach(&#39;dispatch:beforeExecuteRoute&#39;, new \Plugins\Security); $dispatcher = new \Phalcon\Mvc\Dispatcher; $dispatcher-&amp;gt;setEventsManager($eventsManager); return $dispatcher; }); </description>
+    </item>
+    
+    <item>
+      <title>Gestión de base de datos</title>
+      <link>https://www.wikiod.com/es/phalcon/gestion-de-base-de-datos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/phalcon/gestion-de-base-de-datos/</guid>
+      <description>Gestión de base de datos usando Phalcon Model # Se puede crear un modelo para una nueva tabla ejecutando el siguiente comando desde la ubicación raíz del terminal:
+phalcon model &amp;lt;table-name&amp;gt; Tomemos los usuarios modelo.
+SELECCIONE
+Hay dos funciones predeterminadas para realizar operaciones de selección en phalcon, find() y findFirst()
+findFirst() se usa para obtener la primera fila que satisface las condiciones que estamos pasando. Devuelve un solo objeto con los datos en la primera fila.</description>
+    </item>
+    
+    <item>
+      <title>Incubadora</title>
+      <link>https://www.wikiod.com/es/phalcon/incubadora/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/phalcon/incubadora/</guid>
+      <description>Introducción # La Incubadora Phalcon puede ser utilizada por la comunidad para experimentar con nuevas características o ampliar los adaptadores, prototipos o funcionalidades existentes de Phalcon.
+Cualquier cosa en la Incubadora puede incorporarse potencialmente al marco.
+Repositorio Github: https://github.com/phalcon/incubator
+Instalación # Instalación a través de Composer # La forma más fácil de instalar la incubadora es usando Composer.
+Instale Composer y cree un nuevo archivo composer.json en la raíz de su proyecto.</description>
+    </item>
+    
+    <item>
+      <title>Filtrado y Sanitización</title>
+      <link>https://www.wikiod.com/es/phalcon/filtrado-y-sanitizacion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/phalcon/filtrado-y-sanitizacion/</guid>
+      <description>Conveniente desinfección en el modelo # Establezca un método de conveniencia en su modelo base
+namespace Base; class Model extends \Phalcon\Mvc\Model { public function sanitize($attr, $filterName) { $filter = $this-&amp;gt;getDI()-&amp;gt;get(&#39;filter&#39;); $this-&amp;gt;$attr = $filter-&amp;gt;sanitize($this-&amp;gt;$attr, $filterName); } } Entonces usa así
+class User extends \Base\Model { public function beforeValidation() { $this-&amp;gt;sanitize(&#39;id&#39;, &#39;int&#39;); // input $this-&amp;gt;id: 123abc // output: 123 $this-&amp;gt;sanitize(&#39;email&#39;, &#39;email&#39;); // input $this-&amp;gt;email: youre(-)mail@dom/ain.com // output: youremail@domain.com $this-&amp;gt;sanitize(&#39;wage&#39;, &#39;float&#39;); // input $this-&amp;gt;wage: +1234ab.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel xpath on </title>
+    <link>https://www.wikiod.com/fr/docs/xpath/</link>
+    <description>Recent content in Tutoriel xpath on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/xpath/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec xpath</title>
+      <link>https://www.wikiod.com/fr/xpath/premiers-pas-avec-xpath/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/xpath/premiers-pas-avec-xpath/</guid>
+      <description>Tester les Xpaths dans la console du navigateur # Un moyen rapide de tester votre xpath est dans la console de l&amp;rsquo;outil de développement de votre navigateur.
+Le format est
+$x(&#39;//insert xpath here&#39;) $ - spécifie qu&amp;rsquo;il s&amp;rsquo;agit d&amp;rsquo;un sélecteur.
+x - spécifie qu&amp;rsquo;il utilise xpaths
+Exemple:
+$x(&amp;quot;//button[text() =&#39;Submit&#39;]&amp;quot;) Lorsque cette commande est entrée, elle renverra toutes les occurrences d&amp;rsquo;éléments qui sont des boutons avec un texte égal à Soumettre.</description>
+    </item>
+    
+    <item>
+      <title>Recherche d&#39;éléments contenant un texte spécifique</title>
+      <link>https://www.wikiod.com/fr/xpath/recherche-delements-contenant-un-texte-specifique/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/xpath/recherche-delements-contenant-un-texte-specifique/</guid>
+      <description>Trouver tous les éléments avec un certain texte # Imaginez le XML suivant :
+&amp;lt;root&amp;gt; &amp;lt;element&amp;gt;hello&amp;lt;/element&amp;gt; &amp;lt;another&amp;gt; hello &amp;lt;/another&amp;gt; &amp;lt;example&amp;gt;Hello, &amp;lt;nested&amp;gt; I am an example &amp;lt;/nested&amp;gt;.&amp;lt;/example&amp;gt; &amp;lt;/root&amp;gt; L&amp;rsquo;expression XPath suivante :
+//*[text() = &#39;hello&#39;] renverra l&amp;rsquo;élément &amp;lt;element&amp;gt;hello&amp;lt;/element&amp;gt;, mais pas l&amp;rsquo;élément &amp;lt;another&amp;gt;. C&amp;rsquo;est parce que l&amp;rsquo;élément &amp;lt;another&amp;gt; contient des espaces autour du texte hello.
+Pour récupérer à la fois &amp;lt;element&amp;gt; et &amp;lt;another&amp;gt;, on pourrait utiliser :
+//*[normalize-space(text()) = &#39;hello&#39;] ou
+//*[normalize-space() = &#39;hello&#39;] qui coupera l&amp;rsquo;espace blanc environnant avant de faire la comparaison.</description>
+    </item>
+    
+    <item>
+      <title>Vérifier si le texte d&#39;un nœud est vide</title>
+      <link>https://www.wikiod.com/fr/xpath/verifier-si-le-texte-dun-nud-est-vide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/xpath/verifier-si-le-texte-dun-nud-est-vide/</guid>
+      <description>Syntaxe # booléen(path_to_node/text()) string(path_to_node) != &#39;&#39; La fonction booléenne a d&amp;rsquo;autres utilisations
+[Vérifier si un nœud est présent][1] Vérifiez si l&amp;rsquo;argument n&amp;rsquo;est pas un nombre (NaN) ou est 0 La fonction String est utilisée pour renvoyer la valeur de chaîne d&amp;rsquo;un nœud.
+[1] : https://www.wikiod.com/fr/xpath/verifier-si-un-nud-est-present
+Vérifiez si Deborah a un maître et que sa valeur de texte n&amp;rsquo;est pas vide # XML
+&amp;lt;Deborah&amp;gt; &amp;lt;address&amp;gt;Dark world&amp;lt;/address&amp;gt; &amp;lt;master&amp;gt;Babadi&amp;lt;/master&amp;gt; &amp;lt;ID&amp;gt;#0&amp;lt;/ID&amp;gt; &amp;lt;colour&amp;gt;red&amp;lt;/colour&amp;gt; &amp;lt;side&amp;gt;evil&amp;lt;/side&amp;gt; &amp;lt;/Deborah&amp;gt; XPATH</description>
+    </item>
+    
+    <item>
+      <title>Rechercher des nœuds qui ont un attribut spécifique</title>
+      <link>https://www.wikiod.com/fr/xpath/rechercher-des-nuds-qui-ont-un-attribut-specifique/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/xpath/rechercher-des-nuds-qui-ont-un-attribut-specifique/</guid>
+      <description>Syntaxe # À l&amp;rsquo;intérieur d&amp;rsquo;un nœud spécifique /path to/element[@attribute_name] N&amp;rsquo;importe où dans le document //*[@attribute_name] À l&amp;rsquo;intérieur d&amp;rsquo;un nœud spécifique avec une certaine valeur /path to/element[@attribute_name=&amp;lsquo;search value&amp;rsquo;] /path to/element[@attribute_name=&amp;ldquo;search value&amp;rdquo;] N&amp;rsquo;importe où dans le document avec une certaine valeur //*[@attribute_name=&amp;lsquo;search string&amp;rsquo;] //*[@attribute_name=&amp;ldquo;search string&amp;rdquo;] Paramètres # Sélecteur fonction @nom_attribut Il sélectionne la valeur d&amp;rsquo;attribut pour un nœud, s&amp;rsquo;il est présent En utilisant [@attribute_name], nous pouvons sélectionner les nœuds qui ont l&amp;rsquo;attribut quelle que soit la valeur.</description>
+    </item>
+    
+    <item>
+      <title>Chemins et axes de localisation</title>
+      <link>https://www.wikiod.com/fr/xpath/chemins-et-axes-de-localisation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/xpath/chemins-et-axes-de-localisation/</guid>
+      <description>Un chemin de localisation XPath est une série d&amp;rsquo;étapes de localisation séparées par un caractère / :
+step1/step2/step3 Une étape de localisation contient un axe, un test de nœud et une liste facultative de prédicats. L&amp;rsquo;axe et le test de nœud sont séparés par deux caractères deux-points ::. Les prédicats sont entre crochets :
+axis::nodeTest[predicate1][predicate2] L&amp;rsquo;évaluation d&amp;rsquo;un chemin de localisation commence par un ensemble de nœuds contenant le nœud de contexte donné par le contexte de l&amp;rsquo;expression, ou le nœud racine, si le chemin de localisation commence par un /.</description>
+    </item>
+    
+    <item>
+      <title>Sélectionnez les nœuds avec des noms égaux ou contenant une chaîne</title>
+      <link>https://www.wikiod.com/fr/xpath/selectionnez-les-nuds-avec-des-noms-egaux-ou-contenant-une-chaine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/xpath/selectionnez-les-nuds-avec-des-noms-egaux-ou-contenant-une-chaine/</guid>
+      <description>Syntaxe # À l&amp;rsquo;intérieur d&amp;rsquo;un nœud spécifique :
+{path-to-parent}/name()=&amp;lsquo;search string&amp;rsquo;]
+N&amp;rsquo;importe où dans le document :
+//*[name()=&amp;lsquo;search string&amp;rsquo;]
+Paramètres # fonction valeur de retour nom-local() le nom du nœud sans préfixe le résultat local-name() n&amp;rsquo;inclut pas le préfixe (fonction Lookup name() XPATH pour celui-ci)
+Rechercher des nœuds avec le nom Light, Device ou Sensor # XML
+&amp;lt;Galaxy&amp;gt; &amp;lt;Light&amp;gt;sun&amp;lt;/Light&amp;gt; &amp;lt;Device&amp;gt;satellite&amp;lt;/Device&amp;gt; &amp;lt;Sensor&amp;gt;human&amp;lt;/Sensor&amp;gt; &amp;lt;Name&amp;gt;Milky Way&amp;lt;/Name&amp;gt; &amp;lt;/Galaxy&amp;gt; XPATH
+/Galaxy/*[local-name()=&#39;Light&#39; or local-name()=&#39;Device&#39; or local-name()=&#39;Sensor&#39;] ou</description>
+    </item>
+    
+    <item>
+      <title>Espaces de noms</title>
+      <link>https://www.wikiod.com/fr/xpath/espaces-de-noms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/xpath/espaces-de-noms/</guid>
+      <description>XPath 1.0 n&amp;rsquo;a pas le concept d&amp;rsquo;espace de noms par défaut.
+De plus, les préfixes d&amp;rsquo;espace de noms définis dans le document XML d&amp;rsquo;origine n&amp;rsquo;affectent pas XPath - les préfixes d&amp;rsquo;espace de noms doivent être explicitement enregistrés auprès du fournisseur XPath, sinon les préfixes ne peuvent pas du tout être utilisés dans l&amp;rsquo;expression XPath.
+Fonctions compatibles avec les espaces de noms # &amp;lt;root xmlns=&amp;quot;http://test/&amp;quot;&amp;gt; &amp;lt;element xmlns:example=&amp;quot;http://foobar/&amp;quot;&amp;gt; &amp;lt;example:hello_world attribute=&amp;quot;another example&amp;quot; /&amp;gt; &amp;lt;/element&amp;gt; &amp;lt;/root&amp;gt; L&amp;rsquo;expression /root ne renverra rien, car il n&amp;rsquo;y a pas d&amp;rsquo;élément sans espace de noms appelé root au niveau racine du document.</description>
+    </item>
+    
+    <item>
+      <title>Obtenir des nœuds relatifs au nœud actuel</title>
+      <link>https://www.wikiod.com/fr/xpath/obtenir-des-nuds-relatifs-au-nud-actuel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/xpath/obtenir-des-nuds-relatifs-au-nud-actuel/</guid>
+      <description>Syntaxe # Tous les ancêtres d&amp;rsquo;un nœud /path to the node/ancestor::node() Un ancêtre spécifique d&amp;rsquo;un nœud /path to the node/ancestor::ancestor_name Parent d&amp;rsquo;un nœud /path to the node/parent::node() Suivre les frères et sœurs d&amp;rsquo;un nœud /path to the node/following-sibling::node() Un frère spécifique suivant un nœud /path to the node/following-sibling::sibling_name Frères et sœurs précédents d&amp;rsquo;un nœud /path to the node/preceding-sibling::node() Un frère spécifique précédant un nœud /path to the node/preceding-sibling::sibling_name Tous les nœuds enfants immédiats d&amp;rsquo;un nœud /path to the node/child::node() Un nœud enfant immédiat spécifique d&amp;rsquo;un nœud /path to the node/child::chid_name Tous les descendants d&amp;rsquo;un nœud /path to the node/descendant::node() Tous les descendants spécifiques d&amp;rsquo;un nœud /path the to node/descendant::descendant_name Paramètres # Axe sélectionne ancêtre tous les nœuds ancêtres parent nœud parent frère-suivant frères et sœurs suivant le nœud frère-précédent frères et sœurs précédant le nœud enfant enfants immédiats descendant tous les descendants quel que soit le niveau d&amp;rsquo;imbrication Ces axes peuvent être utilisés en combinaison avec d&amp;rsquo;autres fonctions selon nos besoins.</description>
+    </item>
+    
+    <item>
+      <title>Obtenir le nombre de nœuds</title>
+      <link>https://www.wikiod.com/fr/xpath/obtenir-le-nombre-de-nuds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/xpath/obtenir-le-nombre-de-nuds/</guid>
+      <description>Syntaxe # count(node-set) Paramètres # fonction retours compter nombre total de nœuds dans l&amp;rsquo;ensemble de nœuds Nous pouvons l&amp;rsquo;utiliser en combinaison avec d&amp;rsquo;autres fonctions et axes pour répondre à nos besoins.
+Combien d&amp;rsquo;enfants Goku a-t-il ? # XML
+&amp;lt;Goku&amp;gt; &amp;lt;child name=&amp;quot;Gohan&amp;quot;/&amp;gt; &amp;lt;child name=&amp;quot;Goten&amp;quot;/&amp;gt; &amp;lt;/Goku&amp;gt; XPATH
+count(/Goku/child) PRODUCTION
+2.0 Combien y a-t-il de plantes dans la maison ? # XML
+&amp;lt;House&amp;gt; &amp;lt;LivingRoom&amp;gt; &amp;lt;plant name=&amp;quot;rose&amp;quot;/&amp;gt; &amp;lt;/LivingRoom&amp;gt; &amp;lt;TerraceGarden&amp;gt; &amp;lt;plant name=&amp;quot;passion fruit&amp;quot;/&amp;gt; &amp;lt;plant name=&amp;quot;lily&amp;quot;/&amp;gt; &amp;lt;plant name=&amp;quot;golden duranta&amp;quot;/&amp;gt; &amp;lt;/TerraceGarden&amp;gt; &amp;lt;/House&amp;gt; XPATH</description>
+    </item>
+    
+    <item>
+      <title>Recherche d&#39;éléments contenant des attributs spécifiques</title>
+      <link>https://www.wikiod.com/fr/xpath/recherche-delements-contenant-des-attributs-specifiques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/xpath/recherche-delements-contenant-des-attributs-specifiques/</guid>
+      <description>Trouver tous les éléments avec un certain attribut # Imaginez le XML suivant :
+&amp;lt;root&amp;gt; &amp;lt;element foobar=&amp;quot;hello_world&amp;quot; /&amp;gt; &amp;lt;element example=&amp;quot;this is one!&amp;quot; /&amp;gt; &amp;lt;/root&amp;gt; /root/element[@foobar] et renverra l&amp;rsquo;élément &amp;lt;element foobar=&amp;quot;hello_world&amp;quot; /&amp;gt;.
+Trouver tous les éléments avec une certaine valeur d&amp;rsquo;attribut # Imaginez le XML suivant :
+&amp;lt;root&amp;gt; &amp;lt;element foobar=&amp;quot;hello_world&amp;quot; /&amp;gt; &amp;lt;element example=&amp;quot;this is one!&amp;quot; /&amp;gt; &amp;lt;/root&amp;gt; L&amp;rsquo;expression XPath suivante :
+/root/element[@foobar = &#39;hello_world&#39;] renverra l&amp;rsquo;élément &amp;lt;element foobar=&amp;quot;hello_world&amp;quot; /&amp;gt;.
+les guillemets doubles peuvent également être utilisés :</description>
+    </item>
+    
+  </channel>
+</rss>

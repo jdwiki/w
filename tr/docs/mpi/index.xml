@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mpi Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/mpi/</link>
+    <description>Recent content in mpi Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/mpi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mpi&#39;yi kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/mpi/mpiyi-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mpi/mpiyi-kullanmaya-baslama/</guid>
+      <description>Selam Dünya! # MPI kullanmayı öğrenmeye başlarken genellikle üç şey önemlidir. İlk olarak, kullanmaya hazır olduğunuzda kütüphaneyi başlatmanız gerekir (işiniz bittiğinde de sonlandırmanız gerekir). İkinci olarak, Communicator&amp;rsquo;ınızın boyutunu (diğer işlemlere mesaj göndermek için kullandığınız şey) bilmek isteyeceksiniz. Üçüncüsü, o iletişimci içindeki derecenizi (o iletişimcide hangi işlem numarası olduğunuzu) bilmek isteyeceksiniz.
+#include &amp;lt;mpi.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; int main(int argc, char **argv) { int size, rank; int res; res = MPI_Init(&amp;amp;argc, &amp;amp;argv); if (res !</description>
+    </item>
+    
+    <item>
+      <title>Kolektifler</title>
+      <link>https://www.wikiod.com/tr/mpi/kolektifler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mpi/kolektifler/</guid>
+      <description>Toplu işlemler, bir iletişimcinin işaret ettiği süreçleri tek bir işlemde iletmek veya aralarında bir senkronizasyon gerçekleştirmek için tasarlanmış MPI çağrılarıdır. Bunlar genellikle diğer süreçlerin sağladığı verilere dayalı olarak bir veya daha fazla değeri hesaplamak veya diğer tüm süreçlerden veri toplamak veya dağıtmak için kullanılır.
+Communicator&amp;rsquo;daki tüm işlemlerin sırayla aynı toplu işlemleri başlatması gerektiğini unutmayın, aksi takdirde uygulama engellenir.
+Yayın # Aşağıdaki kod, &amp;ldquo;MPI_Bcast&amp;rdquo; işlemini kullanarak &amp;ldquo;MPI_COMM_WORLD&amp;rdquo; iletişimcisine ait tüm işlemler (yani paralel olarak çalışan tüm işlemler) arasında &amp;ldquo;arabellek&amp;rdquo; içindeki içeriği yayınlar.</description>
+    </item>
+    
+    <item>
+      <title>Süreç oluşturma ve yönetimi</title>
+      <link>https://www.wikiod.com/tr/mpi/surec-olusturma-ve-yonetimi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mpi/surec-olusturma-ve-yonetimi/</guid>
+      <description>Yumurtlama # Ana süreç, iki alt süreç üretir ve işçilere &amp;lsquo;sendbuf&amp;rsquo; dağıtır.
+master.c
+#include &amp;quot;mpi.h&amp;quot; int main(int argc, char *argv[]) { int n_spawns = 2; MPI_Comm intercomm; MPI_Init(&amp;amp;argc, &amp;amp;argv); MPI_Comm_spawn(&amp;quot;worker_program&amp;quot;, MPI_ARGV_NULL, n_spawns, MPI_INFO_NULL, 0, MPI_COMM_SELF, &amp;amp;intercomm, MPI_ERRCODES_IGNORE); int sendbuf[2] = {3, 5}; int recvbuf; // redundant for master. MPI_Scatter(sendbuf, 1, MPI_INT, &amp;amp;recvbuf, 1, MPI_INT, MPI_ROOT, intercomm); MPI_Finalize(); return 0; } işçi.c
+#include &amp;quot;mpi.h&amp;quot; #include &amp;lt;stdio.h&amp;gt; int main(int argc, char *argv[]) { MPI_Init(&amp;amp;argc, &amp;amp;argv); MPI_Comm intercomm; MPI_Comm_get_parent(&amp;amp;intercomm); int sendbuf[2]; // redundant for worker.</description>
+    </item>
+    
+    <item>
+      <title>MPI Programı Çalıştırma</title>
+      <link>https://www.wikiod.com/tr/mpi/mpi-program-calstrma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mpi/mpi-program-calstrma/</guid>
+      <description>Parametreler # parametre Ayrıntılar -n &amp;lt;num_procs&amp;gt; İş için başlatılacak MPI işlemlerinin sayısı İşini yürüt # İşinizi yürütmenin en basit yolu &amp;ldquo;mpiexec&amp;rdquo; veya &amp;ldquo;mpirun&amp;rdquo; kullanmaktır (bunlar genellikle aynı şeydir ve birbirlerinin takma adlarıdır).
+mpiexec -n 2 ./my_prog </description>
+    </item>
+    
+    <item>
+      <title>Bir MPI Programının Derlenmesi</title>
+      <link>https://www.wikiod.com/tr/mpi/bir-mpi-programnn-derlenmesi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mpi/bir-mpi-programnn-derlenmesi/</guid>
+      <description>MPI&amp;rsquo;nin programınızı derlerken ekstra kitaplıklar eklemesi ve derleme satırınıza dizinler eklemesi gerekir. Hepsini kendiniz izlemek yerine, genellikle derleyici sarmalayıcılarından birini kullanabilirsiniz.
+C Sarıcı # mpicc -o my_prog my_prog.c </description>
+    </item>
+    
+    <item>
+      <title>MPI Uygulamaları</title>
+      <link>https://www.wikiod.com/tr/mpi/mpi-uygulamalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mpi/mpi-uygulamalar/</guid>
+      <description>MPI, bir programlama kitaplığı değil, bir standarttır. Standardın birçok uygulaması vardır. En yaygın açık kaynak kodlu olanlar MPICH ve Open MPI. Bu iki kitaplığın açık kaynak veya ticari (veya her ikisi) olan birçok türevi vardır.
+Hangi uygulamaya sahip olduğunuzu bilmek önemlidir, çünkü programınızı derleme veya çalıştırma şekliniz küçük bir değişiklik gösterebilir.
+MPICH&amp;rsquo;i Homebrew ile Mac&amp;rsquo;e Yükleme # brew install mpich Homebrew ile Mac&amp;rsquo;te Open MPI Kurulumu # brew install open-mpi </description>
+    </item>
+    
+    <item>
+      <title>Süreç Topolojileri</title>
+      <link>https://www.wikiod.com/tr/mpi/surec-topolojileri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mpi/surec-topolojileri/</guid>
+      <description>Grafik topolojisi oluşturma ve iletişim # Her düğümün komşularını tanımlaması için dağıtılmış bir şekilde bir grafik topolojisi oluşturur. Her düğüm, sırasını komşular arasında MPI_Neighbor_allgather ile iletir.
+#include &amp;lt;mpi.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #define nnode 4 int main() { MPI_Init(NULL, NULL); int rank; MPI_Comm_rank(MPI_COMM_WORLD, &amp;amp;rank); int source = rank; int degree; int dest[nnode]; int weight[nnode] = {1, 1, 1, 1}; int recv[nnode] = {-1, -1, -1, -1}; int send = rank; // set dest and degree.</description>
+    </item>
+    
+  </channel>
+</rss>

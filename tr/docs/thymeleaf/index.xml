@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kekik yaprağı on </title>
+    <link>https://www.wikiod.com/tr/docs/thymeleaf/</link>
+    <description>Recent content in kekik yaprağı on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/thymeleaf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kekik yaprağına başlarken</title>
+      <link>https://www.wikiod.com/tr/thymeleaf/kekik-yapragna-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/thymeleaf/kekik-yapragna-baslarken/</guid>
+      <description>Yapılandırma # Thymeleaf&amp;rsquo;ı kullanmaya başlamak için resmi indirme sayfasını ziyaret edin.
+Maven bağımlılığı
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.0.1.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Gradle bağımlılığı
+compile group: &#39;org.thymeleaf&#39;, name: &#39;thymeleaf&#39;, version: &#39;3.0.1.RELEASE&#39; Örnek yapılandırma
+3.0 sürümünden itibaren Thymeleaf yalnızca Java yapılandırmasını destekler.
+public ViewResolver viewResolver() { ThymeleafViewResolver resolver = new ThymeleafViewResolver(); resolver.setTemplateEngine(templateEngine()); resolver.setCharacterEncoding(&amp;quot;UTF-8&amp;quot;); resolver.setContentType(&amp;quot;text/html; charset=UTF-8&amp;quot;); return resolver; } viewResolver() yönteminde, örn. görünümler için kodlama ve içerik türü. daha fazla bilgi
+public TemplateEngine templateEngine() { SpringTemplateEngine engine = new SpringTemplateEngine(); engine.</description>
+    </item>
+    
+    <item>
+      <title>Bahar Güvenliği ve Kekik</title>
+      <link>https://www.wikiod.com/tr/thymeleaf/bahar-guvenligi-ve-kekik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/thymeleaf/bahar-guvenligi-ve-kekik/</guid>
+      <description>Web Uygulamanızı Oturum Açma ve Oturumu Kapatma ile koruyun # Bu örnek çok basit bir Spring Boot uygulamasıdır.
+Maven Bağımlılıkları # İlk önce projenize aşağıdaki bağımlılıkları ekleyin. Yeni bir proje oluşturduğunuzda Spring Initializr önerilir.
+&amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.5.1.RELEASE&amp;lt;/version&amp;gt; &amp;lt;relativePath/&amp;gt; &amp;lt;/parent&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-security&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-thymeleaf&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf.extras&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf-extras-springsecurity4&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; Web Uygulamanızı oluşturun # Web siteleri ve denetleyici ile bir web uygulaması oluşturun.</description>
+    </item>
+    
+    <item>
+      <title>Thymeleaf&#39;ta Metni Dışsallaştırma</title>
+      <link>https://www.wikiod.com/tr/thymeleaf/thymeleafta-metni-dssallastrma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/thymeleaf/thymeleafta-metni-dssallastrma/</guid>
+      <description>Yerelleştirme # Mesajlarınız için dosyalar oluşturun
+messages.properties
+messages_en.properties messages_fr.properties
+&amp;hellip;
+Bu dosyalara şöyle mesajlar yazın
+header.label.title=Başlık
+Bu dosyaların yolunu (bu durumda D:/project/messages klasöründe) aşağıdaki gibi uygulama özelliklerinde yapılandırın:
+messages.basename.path=D:/project/messages/messages
+MessageSource&amp;rsquo;u Yapılandırın
+@Value(&amp;quot;${messages.basename.path}&amp;quot;) private String messagesBasename;
+@Bean public MessageSource messageSource() { ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource(); messageSource.setFallbackToSystemLocale(false); messageSource.setBasenames(&amp;ldquo;file:&amp;rdquo; + messagesBasename); return messageSource; }
+Sayfalardaki mesajları kullanın
+&amp;lt;p th:text=&amp;quot;#{header.label.title}&amp;quot;&amp;gt;Başlık&amp;lt;/p&amp;gt;
+Parametrelerle yerelleştirme mesajları # Mesajlar.properties&amp;rsquo;e mesaj yaz
+welcome.message=Hello, {0}! {0}&amp;lsquo;i thymeleaf etiketinin içindeki kullanıcı adıyla değiştirin</description>
+    </item>
+    
+    <item>
+      <title>Kekik Yapraklı Listeleri Kullanma</title>
+      <link>https://www.wikiod.com/tr/thymeleaf/kekik-yaprakl-listeleri-kullanma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/thymeleaf/kekik-yaprakl-listeleri-kullanma/</guid>
+      <description>Seçimde listeyi kullanma # &amp;ldquo;&amp;rdquo; öğelerini oluşturmak için liste değişkenini kullanabilirsiniz
+&amp;lt;select th:field=&amp;quot;*{countries}&amp;quot;&amp;gt; &amp;lt;option th:each=&amp;quot;country: ${countries}&amp;quot; th:value=&amp;quot;${country.id}&amp;quot; th:text=&amp;quot;#{${&#39;selected.label.&#39; + country.name}}&amp;quot;/&amp;gt; &amp;lt;/select&amp;gt; Form tablosu # &amp;lt;table id=&amp;quot;countryList&amp;quot;&amp;gt; &amp;lt;thead&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;th th:text=&amp;quot;#{country.label.name}&amp;quot;&amp;gt; Country &amp;lt;/th&amp;gt; &amp;lt;th th:text=&amp;quot;#{country.label.capital}&amp;quot;&amp;gt; Capital &amp;lt;/th&amp;gt; &amp;lt;th th:text=&amp;quot;#{country.label.square}&amp;quot;&amp;gt; Square &amp;lt;/th&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/thead&amp;gt; &amp;lt;tbody&amp;gt; &amp;lt;tr th:each=&amp;quot;country : ${countryList}&amp;quot;&amp;gt; &amp;lt;td th:text=&amp;quot;${country.name}&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td th:text=&amp;quot;${country.capital}&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td th:text=&amp;quot;${country.square}&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>İfade Yardımcı Nesneleri</title>
+      <link>https://www.wikiod.com/tr/thymeleaf/ifade-yardmc-nesneleri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/thymeleaf/ifade-yardmc-nesneleri/</guid>
+      <description>Biçim tarihi # &amp;lt;p&amp;gt; Today: &amp;lt;span th:text=&amp;quot;${#calendars.format(today,&#39;dd MMMM yyyy&#39;)}&amp;quot;&amp;gt;30 May 2017&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; IP uzunluğu # &amp;lt;div th:if=&amp;quot;*{userMessage!=null and #strings.length(userMessage)&amp;gt;0}&amp;quot;&amp;gt; &amp;lt;label th:text = &amp;quot;*{userMessage}&amp;quot;/&amp;gt; &amp;lt;/div&amp;gt; Dize şunları içerir: # &amp;lt;div th:if=&amp;quot;${#strings.contains(#httpServletRequest.requestURI, &#39;email&#39;)}&amp;quot;&amp;gt; &amp;lt;div th:replace=&amp;quot;fragments/email::welcome&amp;quot;&amp;gt; &amp;lt;/div&amp;gt; Ayrıştırma tarihi # tarihten itibaren yılı al
+&amp;lt;p&amp;gt; Year: &amp;lt;span th:text=&amp;quot;${#dates.year(today)}&amp;quot;&amp;gt;2017&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; ayı al
+&amp;lt;p&amp;gt; Month number: &amp;lt;span th:text=&amp;quot;${#dates.month(today)}&amp;quot;&amp;gt;8&amp;lt;/span&amp;gt; Month: &amp;lt;span th:text=&amp;quot;${#dates.monthName(today)}&amp;quot;&amp;gt;August&amp;lt;/span&amp;gt; Month short name: &amp;lt;span th:text=&amp;quot;${#dates.monthNameShort(today)}&amp;quot;&amp;gt;Aug&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; gün al
+&amp;lt;p&amp;gt; Day: &amp;lt;span th:text=&amp;quot;${#dates.day(today)}&amp;quot;&amp;gt;26&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; Haftanın gününü al</description>
+    </item>
+    
+  </channel>
+</rss>

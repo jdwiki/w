@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>solrj Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/solrj/</link>
+    <description>Recent content in solrj Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/solrj/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>solrj&#39;ye başlarken</title>
+      <link>https://www.wikiod.com/tr/solrj/solrjye-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/solrj/solrjye-baslarken/</guid>
+      <description>Kurulum veya Kurulum # SolrJ, Solr 1.x&amp;rsquo;ten beri Solr dağıtımının bir parçası olarak gelir. En son Solr sürümü buradan indirilebilir. Mevcut en son sürüm olan Solr-6.3.0&amp;rsquo;dan aşağıdaki kitaplıkları almamız ve bunları derleme yolumuza eklememiz gerekiyor: /dist/apache-solr-solrj-.jar /dist/solrj-lib/
+İşimiz bittiğinde SolrJ, Solr örneğimizle iletişim kurmaya hazır. Aşağıdaki örnekte, Solr&amp;rsquo;a içerik eklemek veya sorgulamak için SolrJ&amp;rsquo;nin nasıl kullanılacağını göreceğiz.
+SolrJ kullanarak Solr&amp;rsquo;a belge ekleyin # Şuna benzeyen bir şemamız varsa:
+&amp;lt;field name=&amp;quot;id&amp;quot; type=&amp;quot;string&amp;quot; indexed=&amp;quot;true&amp;quot; stored=&amp;quot;true&amp;quot; required=&amp;quot;true&amp;quot; /&amp;gt; &amp;lt;field name=&amp;quot;name&amp;quot; type=&amp;quot;string&amp;quot; indexed=&amp;quot;true&amp;quot; stored=&amp;quot;true&amp;quot; /&amp;gt; Solr&amp;rsquo;a içerik eklemek için solrj kodu şöyle görünecektir:</description>
+    </item>
+    
+    <item>
+      <title>SolrJ ile vurgulanan parçacıkları alın</title>
+      <link>https://www.wikiod.com/tr/solrj/solrj-ile-vurgulanan-parcacklar-aln/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/solrj/solrj-ile-vurgulanan-parcacklar-aln/</guid>
+      <description>Solr yanıtımızda programlı olarak vurgulanan snippet&amp;rsquo;leri aldığımızda, bunları çıkarmamız ve işlememiz gerekir. Aşağıdaki kod, bunun SolrJ ile nasıl yapılacağını gösterir.
+Tek değerli alanlar için vurgulanan metni alın # public String getHighlightedText(final QueryResponse queryResponse, final String fieldName, final String docId) { String highlightedText = &amp;quot;&amp;quot;; Map&amp;lt;String, Map&amp;lt;String, List&amp;lt;String&amp;gt;&amp;gt;&amp;gt; highlights = queryResponse.getHighlighting(); if (highlights!=null &amp;amp;&amp;amp; MapUtils.isNotEmpty(highlights.get(docId))) { List&amp;lt;String&amp;gt; snippets = highlights.get(docId).get(fieldName); if (CollectionUtils.isNotEmpty(snippets)) { highlightedText = getFragments(snippets); } } return highlightedText; } private static final String getFragments(List&amp;lt;String&amp;gt; snippets){ StringBuilder fragments = new StringBuilder(); for (int i = 0; i &amp;lt; snippets.</description>
+    </item>
+    
+    <item>
+      <title>SolrJ kullanarak parça liderleri edinin</title>
+      <link>https://www.wikiod.com/tr/solrj/solrj-kullanarak-parca-liderleri-edinin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/solrj/solrj-kullanarak-parca-liderleri-edinin/</guid>
+      <description>Bazı durumlarda, örneğin solrcloud koleksiyonlarını programlı olarak yedeklemek istediğimizde, Shard Liderlerinin ne olduğunu bilmemiz gerekir. Aşağıdaki örnek, bunun SolrJ kullanılarak nasıl başarılabileceğini göstermektedir.
+SolrJ API kullanarak parça liderleri edinin # private final String COLLECTION_NAME = &amp;quot;myCollection&amp;quot;; private final String ZOOKEPER_CLIENT_TIMEOUT_MS = &amp;quot;1000000&amp;quot; private Map&amp;lt;String, String&amp;gt; getShardLeaders(CloudSolrServer cloudSolrServer) throws InterruptedException, KeeperException { Map&amp;lt;String, String&amp;gt; shardleaders = new TreeMap&amp;lt;String, String&amp;gt;(); ZkStateReader zkStateReader = cloudSolrServer.getZkStateReader(); for (Slice slice : zkStateReader.getClusterState().getSlices(COLLECTION_NAME)) { shardleaders.put(slice.getName(), zkStateReader.getLeaderUrl(COLLECTION_NAME, slice.</description>
+    </item>
+    
+  </channel>
+</rss>

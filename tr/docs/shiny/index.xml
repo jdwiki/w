@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>parlak öğretici on </title>
+    <link>https://www.wikiod.com/tr/docs/shiny/</link>
+    <description>Recent content in parlak öğretici on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parlak ile başlamak</title>
+      <link>https://www.wikiod.com/tr/shiny/parlak-ile-baslamak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/shiny/parlak-ile-baslamak/</guid>
+      <description>Basit Uygulama # Her &amp;ldquo;parlak&amp;rdquo; uygulama iki bölümden oluşur: Bir kullanıcı arabirimi tanımı (&amp;ldquo;UI&amp;rdquo;) ve bir sunucu komut dosyası (&amp;ldquo;sunucu&amp;rdquo;). Bu örnek, &amp;ldquo;Merhaba dünya&amp;rdquo; yı kullanıcı arayüzünden veya sunucudan nasıl yazdırabileceğinizi gösterir.
+UI.R
+Kullanıcı arayüzünde bazı görüntüleme nesneleri (div, girişler, düğmeler vb.) yerleştirebilirsiniz.
+library(shiny) # Define UI for application print &amp;quot;Hello world&amp;quot; shinyUI( # Create bootstrap page fluidPage( # Paragraph &amp;quot;Hello world&amp;quot; p(&amp;quot;Hello world&amp;quot;), # Create button to print &amp;quot;Hello world&amp;quot; from server actionButton(inputId = &amp;quot;Print_Hello&amp;quot;, label = &amp;quot;Print_Hello World&amp;quot;), # Create position for server side text textOutput(&amp;quot;Server_Hello&amp;quot;) ) ) Sunucu.</description>
+    </item>
+    
+    <item>
+      <title>Javascript API&#39;si</title>
+      <link>https://www.wikiod.com/tr/shiny/javascript-apisi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/shiny/javascript-apisi/</guid>
+      <description>Sözdizimi # session$sendCustomMessage(name,parametre listesi) Shiny.addCustomMessageHandler(name, parametre listesini kabul eden JS işlevi) Shiny.onInputChange(ad,değer) Sunucudan istemciye veri gönderme # Birçok durumda, R sunucusundan JS istemcisine veri göndermek isteyeceksiniz. İşte çok basit bir örnek:
+library(shiny) runApp( list( ui = fluidPage( tags$script( &amp;quot;Shiny.addCustomMessageHandler(&#39;message&#39;, function(params) { alert(params); });&amp;quot; ), actionButton(&amp;quot;btn&amp;quot;,&amp;quot;Press Me&amp;quot;) ), server = function(input, output, session) { observeEvent(input$btn,{ randomNumber &amp;lt;- runif(1,0,100) session$sendCustomMessage(&amp;quot;message&amp;quot;,list(paste0(randomNumber,&amp;quot; is a random number!&amp;quot;))) }) } ) ) Buradaki çalışanlar, &amp;ldquo;R&amp;quot;deki &amp;ldquo;session$sendCustomMessage&amp;rdquo; işlevi ve &amp;ldquo;javascript&amp;quot;teki &amp;ldquo;Shiny.</description>
+    </item>
+    
+    <item>
+      <title>reaktif, reaktifDeğer ve olayReaktif, gözlemle ve gözlemleEvent in Shiny</title>
+      <link>https://www.wikiod.com/tr/shiny/reaktif-reaktifdeger-ve-olayreaktif-gozlemle-ve-gozlemleevent-in-shiny/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/shiny/reaktif-reaktifdeger-ve-olayreaktif-gozlemle-ve-gozlemleevent-in-shiny/</guid>
+      <description>reactive, reactiveValue ve eventReactive Shiny&amp;rsquo;deki çeşitli reaktif ifadelerdir. Diğer ifadelerde girdi olarak kullanılabilecek çıktılar verirler ve bu da reaktif ifadeye bağımlı hale gelir.
+gözlem ve gözlemEvent reaktif ifadelere benzer. En büyük fark, gözlemcilerin herhangi bir çıktı vermemeleri ve bu nedenle yalnızca yan etkileri için faydalı olmalarıdır.
+Kullanımlarının örnekleri bu belgede verilmiştir.
+reaktif # Çıktının başka bir ifadeye bağlı olmasını sağlamak için bir reaktif kullanılabilir. Aşağıdaki örnekte, output$text öğesi text_reactive öğesine, bu da input$user_text öğesine bağlıdır.</description>
+    </item>
+    
+    <item>
+      <title>Parıltıya Veri Yükle</title>
+      <link>https://www.wikiod.com/tr/shiny/parltya-veri-yukle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/shiny/parltya-veri-yukle/</guid>
+      <description>Shiny&amp;rsquo;ye csv dosyaları yükleme # Bir kullanıcının Shiny uygulamanıza csv yüklemesi de mümkündür. Aşağıdaki kod, bunun nasıl başarılabileceğine dair küçük bir örnek göstermektedir. Ayrıca, kullanıcının kullanılacak ayırıcıyı etkileşimli olarak seçebilmesi için bir radioButton girişi içerir.
+library(shiny) library(DT) # Define UI ui &amp;lt;- shinyUI(fluidPage( fileInput(&#39;target_upload&#39;, &#39;Choose file to upload&#39;, accept = c( &#39;text/csv&#39;, &#39;text/comma-separated-values&#39;, &#39;.csv&#39; )), radioButtons(&amp;quot;separator&amp;quot;,&amp;quot;Separator: &amp;quot;,choices = c(&amp;quot;;&amp;quot;,&amp;quot;,&amp;quot;,&amp;quot;:&amp;quot;), selected=&amp;quot;;&amp;quot;,inline=TRUE), DT::dataTableOutput(&amp;quot;sample_table&amp;quot;) ) ) # Define server logic server &amp;lt;- shinyServer(function(input, output) { df_products_upload &amp;lt;- reactive({ inFile &amp;lt;- input$target_upload if (is.</description>
+    </item>
+    
+    <item>
+      <title>MCVE nasıl yazılır (Minimum, Tam ve Doğrulanabilir örnek) Parlak uygulamalar</title>
+      <link>https://www.wikiod.com/tr/shiny/mcve-nasl-yazlr-minimum-tam-ve-dogrulanabilir-ornek-parlak-uygulamalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/shiny/mcve-nasl-yazlr-minimum-tam-ve-dogrulanabilir-ornek-parlak-uygulamalar/</guid>
+      <description>Shiny uygulamalarınızla ilgili sorun yaşıyorsanız, amacınızı gösteren bir uygulama oluşturmak iyi bir uygulamadır. Bu uygulama, sorununuzu yansıtırken mümkün olduğunca basit olmalıdır. Bu, basit veri kümeleri kullanmak, kendi kendini açıklayan adlandırma (özellikle G/Ç kimlikleri için) ve grafikleri daha basit olanlarla değiştirmek anlamına gelir.
+MCVE&amp;rsquo;nizi mümkün olduğunca az standart dışı kitaplık gerektirecek şekilde oluşturmanız da önerilir.
+Basit yapı # MCVE&amp;rsquo;ler, konsolda kopyalandıklarında Shiny uygulamasını başlatmalıdır. Bunu yapmanın kolay bir yolu, &amp;ldquo;shinyApp&amp;rdquo; işlevini kullanmaktır.</description>
+    </item>
+    
+  </channel>
+</rss>

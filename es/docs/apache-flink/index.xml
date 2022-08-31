@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apache-flink Tutorial on </title>
+    <link>https://www.wikiod.com/es/docs/apache-flink/</link>
+    <description>Recent content in apache-flink Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/apache-flink/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con apache-flink</title>
+      <link>https://www.wikiod.com/es/apache-flink/primeros-pasos-con-apache-flink/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/apache-flink/primeros-pasos-con-apache-flink/</guid>
+      <description>Resumen y requisitos # Que es Flink # Al igual que Apache Hadoop y Apache Spark, Apache Flink es un marco de código abierto impulsado por la comunidad para el análisis distribuido de Big Data. . Escrito en Java, Flink tiene API para Scala, Java y Python, lo que permite análisis de transmisión por lotes y en tiempo real.
+Requisitos # un entorno tipo UNIX, como Linux, Mac OS X o Cygwin; Java 6.</description>
+    </item>
+    
+    <item>
+      <title>Consumir datos de Kafka</title>
+      <link>https://www.wikiod.com/es/apache-flink/consumir-datos-de-kafka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/apache-flink/consumir-datos-de-kafka/</guid>
+      <description>Esquemas de deserialización incorporados # SimpleStringSchema: SimpleStringSchema deserializa el mensaje como una cadena. En caso de que sus mensajes tengan claves, estas últimas serán ignoradas.
+new FlinkKafkaConsumer09&amp;lt;&amp;gt;(kafkaInputTopic, new SimpleStringSchema(), prop); JSONDeserializationSchema
+JSONDeserializationSchema deserializa los mensajes con formato json utilizando jackson y devuelve un flujo de objetos com.fasterxml.jackson.databind.node.ObjectNode. Luego puede usar el método .get(&amp;quot;property&amp;quot;) para acceder a los campos. Una vez más, las claves se ignoran.
+new FlinkKafkaConsumer09&amp;lt;&amp;gt;(kafkaInputTopic, new JSONDeserializationSchema(), prop); JSONKeyValueDeserializationSchema</description>
+    </item>
+    
+    <item>
+      <title>Puntos de guardado y puntos de control externalizados</title>
+      <link>https://www.wikiod.com/es/apache-flink/puntos-de-guardado-y-puntos-de-control-externalizados/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/apache-flink/puntos-de-guardado-y-puntos-de-control-externalizados/</guid>
+      <description>Los puntos de guardado son puntos de control &amp;ldquo;gruesos&amp;rdquo;, almacenados externamente que nos permiten reanudar un programa de flink con estado después de una falla permanente, una cancelación o una actualización de código. Antes de Flink 1.2 y la introducción de puntos de control externalizados, los puntos de guardado debían activarse explícitamente.
+Puntos de control externalizados (Flink 1.2+) # Antes de la versión 1.2, la única forma de persistir en el estado/retener un punto de control después de la terminación/cancelación/falla persistente de un trabajo era a través de un punto de guardado, que se activa manualmente.</description>
+    </item>
+    
+    <item>
+      <title>Inicio sesión</title>
+      <link>https://www.wikiod.com/es/apache-flink/inicio-sesion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/apache-flink/inicio-sesion/</guid>
+      <description>Este tema muestra cómo usar y configurar el registro (log4j) en aplicaciones Flink.
+Configuración de registro # Modo local # En modo local, por ejemplo, cuando ejecuta su aplicación desde un IDE, puede configurar log4j como de costumbre, es decir, haciendo que log4j.properties esté disponible en el classpath. Una manera fácil en maven es crear log4j.properties en la carpeta src/main/resources. Aquí hay un ejemplo:
+log4j.rootLogger=INFO, console # patterns: # d = date # c = class # F = file # p = priority (INFO, WARN, etc) # x = NDC (nested diagnostic context) associated with the thread that generated the logging event # m = message # Log all infos in the console log4j.</description>
+    </item>
+    
+    <item>
+      <title>punto de control</title>
+      <link>https://www.wikiod.com/es/apache-flink/punto-de-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/apache-flink/punto-de-control/</guid>
+      <description>(probado en Flink 1.2 y versiones anteriores)
+Cada función, fuente u operador en Flink puede tener estado. Los puntos de control le permiten a Flink recuperar el estado y las posiciones en los flujos para darle a la aplicación la misma semántica que una ejecución sin fallas. Es el mecanismo detrás de las garantías de tolerancia a fallas y procesamiento exactamente una vez.
+Lea este artículo para comprender los aspectos internos.</description>
+    </item>
+    
+    <item>
+      <title>Cómo definir un esquema de (des)serialización personalizado</title>
+      <link>https://www.wikiod.com/es/apache-flink/como-definir-un-esquema-de-desserializacion-personalizado/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/apache-flink/como-definir-un-esquema-de-desserializacion-personalizado/</guid>
+      <description>Algunos conectores (Kafka, RabbitMQ) utilizan esquemas para convertir mensajes en objetos Java y viceversa.
+Ejemplo de esquema personalizado # Para usar un esquema personalizado, todo lo que necesita hacer es implementar una de las interfaces SerializationSchema o DeserializationSchema.
+public class MyMessageSchema implements DeserializationSchema&amp;lt;MyMessage&amp;gt;, SerializationSchema&amp;lt;MyMessage&amp;gt; { @Override public MyMessage deserialize(byte[] bytes) throws IOException { return MyMessage.fromString(new String(bytes)); } @Override public byte[] serialize(MyMessage myMessage) { return myMessage.toString().getBytes(); } @Override public TypeInformation&amp;lt;MyMessage&amp;gt; getProducedType() { return TypeExtractor.</description>
+    </item>
+    
+    <item>
+      <title>API de tabla</title>
+      <link>https://www.wikiod.com/es/apache-flink/api-de-tabla/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/apache-flink/api-de-tabla/</guid>
+      <description>Dependencias de Maven # Para usar Table API, agregue flink-table como una dependencia experta (además de flink-clients y flink-core):
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.flink&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;flink-table_2.11&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.1.4&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Asegúrese de que la versión de Scala (aquí 2.11) sea compatible con su sistema.
+Agregación simple desde un CSV # Dado el archivo CSV peoples.csv:
+1,Reed,United States,Female 2,Bradley,United States,Female 3,Adams,United States,Male 4,Lane,United States,Male 5,Marshall,United States,Female 6,Garza,United States,Male 7,Gutierrez,United States,Male 8,Fox,Germany,Female 9,Medina,United States,Male 10,Nichols,United States,Male 11,Woods,United States,Male 12,Welch,United States,Female 13,Burke,United States,Female 14,Russell,United States,Female 15,Burton,United States,Male 16,Johnson,United States,Female 17,Flores,United States,Male 18,Boyd,United States,Male 19,Evans,Germany,Male 20,Stephens,United States,Male Queremos contar personas por país y por país+género:</description>
+    </item>
+    
+  </channel>
+</rss>

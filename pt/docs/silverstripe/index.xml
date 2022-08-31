@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial Silverstripe on </title>
+    <link>https://www.wikiod.com/pt/docs/silverstripe/</link>
+    <description>Recent content in Tutorial Silverstripe on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/silverstripe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com Silver Stripe</title>
+      <link>https://www.wikiod.com/pt/silverstripe/comecando-com-silver-stripe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/silverstripe/comecando-com-silver-stripe/</guid>
+      <description>Instalação # SilverStripe pode ser instalado via compositor ou através da extração do arquivo zip baixado.
+Para instalar através do composer executamos o seguinte comando
+composer create-project silverstripe/installer /path/to/project 3.4.0 Um arquivo zip para download pode ser encontrado na página de download do site SilverStripe. Uma vez baixado, este arquivo precisa ser extraído para o diretório raiz do projeto desejado.
+Ao visitar o site pela primeira vez, um assistente de instalação será apresentado para configurar e configurar a instalação do SilverStripe.</description>
+    </item>
+    
+    <item>
+      <title>Formulários</title>
+      <link>https://www.wikiod.com/pt/silverstripe/formularios/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/silverstripe/formularios/</guid>
+      <description>Sintaxe # Form::create($this, __FUNCTION__, $fields, $actions, $validator) // criação de formulário padrão Form::create(&amp;hellip;)-&amp;gt;addExtraClass(&amp;lsquo;my-css-class outra-class&amp;rsquo;) // adiciona classes CSS ao seu formulário Form::create(&amp;hellip;)-&amp;gt;loadDataFrom(Member::get()-&amp;gt;byID(1)); // preenche um formulário com os detalhes de um objeto Criando um formulário # Aqui está um formulário de exemplo básico com um campo de texto obrigatório e um botão de envio, que envia para uma função personalizada:
+class Page_Controller extends ContentController { private static $allowed_actions = array( &#39;ExampleForm&#39; ); public function ExampleForm() { $fields = FieldList::create( TextField::create(&#39;Name&#39;, &#39;Your Name&#39;) ); $actions = FieldList::create( FormAction::create(&#39;doExampleFormAction&#39;, &#39;Go&#39;) ); $requiredFields = RequiredFields::create(&#39;Name&#39;); $form = Form::create( $this, &#39;ExampleForm&#39;, $fields, $actions, $requiredFields ); return $form; } public function doExampleFormAction($data, Form $form) { $form-&amp;gt;sessionMessage(&#39;Hello &#39;.</description>
+    </item>
+    
+    <item>
+      <title>O carregador automático</title>
+      <link>https://www.wikiod.com/pt/silverstripe/o-carregador-automatico/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/silverstripe/o-carregador-automatico/</guid>
+      <description>Quando você faz qualquer alteração nas classes, você precisa executar um dev/build?flush=1 para reconstruir o manifesto.
+MinhaClasse.php # &amp;lt;?php class MyClass { ... } class OtherClass { ... } ?&amp;gt; Qualquer classe que tenha o mesmo nome que o nome do arquivo será carregada automaticamente pelo Silverstripe.
+OtherClass também será carregado porque está em um arquivo que está sendo lido.
+MinhaPágina.php
+&amp;lt;?php class MyPage_Controller extends BookingPage_Controller { ... } ?&amp;gt; Para funções do controlador, você pode omitir a parte &amp;ldquo;_Controller&amp;rdquo; no nome do arquivo.</description>
+    </item>
+    
+    <item>
+      <title>ModelAdmin</title>
+      <link>https://www.wikiod.com/pt/silverstripe/modeladmin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/silverstripe/modeladmin/</guid>
+      <description>Controlar o nome do DataObject exibido na interface do usuário # class MyDataObject extends DataObject { private static $singular_name = &#39;My Object&#39;; private static $plural_name = &#39;My Objects&#39;; ... } DataObjects podem ser classificados por padrão # class SortDataObject extends DataObject { private static $db = array( &#39;Name&#39; =&amp;gt; &#39;Varchar&#39;, &#39;SortOrder&#39; =&amp;gt; &#39;Int&#39; ); private static $default_sort = &#39;SortOrder DESC&#39;; } Colunas de controle exibidas para o DataObject # class MyDataObject extends DataObject { private static $db = array( &#39;Name&#39; =&amp;gt; &#39;Varchar&#39; ); private static $has_one = array( &#39;OtherDataObject&#39; =&amp;gt; &#39;OtherDataObject&#39; ); private static $summary_fields = array( &#39;Name&#39;, &#39;OtherDataObject.</description>
+    </item>
+    
+    <item>
+      <title>O sistema de configuração</title>
+      <link>https://www.wikiod.com/pt/silverstripe/o-sistema-de-configuracao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/silverstripe/o-sistema-de-configuracao/</guid>
+      <description>Qual é o sistema de configuração # SilverStripe usa um sistema de configuração global para armazenar as configurações das classes e do aplicativo. Essas variáveis ​​de configuração podem ser usadas para definir a estrutura de modelos, configurações de segurança em controladores ou chaves de API para serviços de terceiros.
+Como funciona # Os valores Config são preenchidos pelo SS_ConfigStaticManifest durante um dev/build e cache flush (anexando ?flush a qualquer URL`) ou na primeira execução do código do aplicativo.</description>
+    </item>
+    
+    <item>
+      <title>Usando o ORM</title>
+      <link>https://www.wikiod.com/pt/silverstripe/usando-o-orm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/silverstripe/usando-o-orm/</guid>
+      <description>Lendo e gravando DataObjects # DataObjects em SilverStripe representam uma linha de tabela de banco de dados. Os campos no modelo têm métodos mágicos que tratam da obtenção e configuração de dados por meio de seus nomes de propriedade.
+Dado que temos um DataObject simples como exemplo:
+class Fruit extends DataObject { private static $db = [&#39;Name&#39; =&amp;gt; &#39;Varchar&#39;]; } Você pode criar, definir dados e escrever um Fruit da seguinte forma:</description>
+    </item>
+    
+    <item>
+      <title>Esquerda e Principal</title>
+      <link>https://www.wikiod.com/pt/silverstripe/esquerda-e-principal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/silverstripe/esquerda-e-principal/</guid>
+      <description>LeftAndMain é mais uma API de nível inferior e muitas vezes não é necessária devido à existência de ModelAdmin. No entanto, se você quiser criar uma interface de usuário personalizada que não exija necessariamente a funcionalidade de ModelAdmin no painel de administração do seu módulo, então LeftAndMain é onde você deseja começar.
+1. Introdução # Este guia destina-se a ajudá-lo a criar sua própria interface de usuário subclassificando a classe LeftAndMain.</description>
+    </item>
+    
+    <item>
+      <title>Extensões de dados</title>
+      <link>https://www.wikiod.com/pt/silverstripe/extensoes-de-dados/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/silverstripe/extensoes-de-dados/</guid>
+      <description>Adicionando campos a um DataObject # Você pode usar o mecanismo DataExtension para adicionar campos de banco de dados extras a um DataObject existente:
+class MyMemberExtension extends DataExtension { private static $db = [ &#39;HairColour&#39; =&amp;gt; &#39;Varchar&#39; ]; } E aplique a extensão:
+# File: mysite/_config/app.yml Member: extensions: - MyMemberExtension Isso adicionará HairColour como um campo para objetos Member.
+Adicionando métodos a um DataObject # Você pode adicionar métodos públicos a um DataObject usando o mecanismo de extensão, por exemplo:</description>
+    </item>
+    
+    <item>
+      <title>Complementos e Módulos</title>
+      <link>https://www.wikiod.com/pt/silverstripe/complementos-e-modulos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/silverstripe/complementos-e-modulos/</guid>
+      <description>Addons e módulos são encorajados a serem registrados no Packagist, o que significa que eles são encontrados e registrados no repositório de complementos SilverStripe
+A instalação dos módulos é recomendada através do uso do Composer
+Módulo de Extensões de Campo de Grade SilverStripe # O SilverStripe Grid Field Extensions Module tem alguns recursos muito bons para aprimorar o GridField básico&amp;hellip;
+GridFieldAddExistingSearchButton - um formulário de pesquisa mais avançado para adicionar itens GridFieldAddNewInlineButton - se baseia em GridFieldEditableColumns para permitir a criação inline de registros.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial do mangusto on </title>
+    <link>https://www.wikiod.com/pt/docs/mongoose/</link>
+    <description>Recent content in Tutorial do mangusto on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/mongoose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com o mangusto</title>
+      <link>https://www.wikiod.com/pt/mongoose/comecando-com-o-mangusto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongoose/comecando-com-o-mangusto/</guid>
+      <description>Instalação # Instalar o mongoose é tão fácil quanto executar o comando npm
+npm install mangusto --save
+Mas certifique-se de também ter instalado o MongoDB para o seu sistema operacional ou ter acesso a um banco de dados MongoDB.
+Conectando-se ao banco de dados MongoDB: # 1. Importar mangusto para o aplicativo:
+import mongoose from &#39;mongoose&#39;; 2. Especifique uma biblioteca Promise:
+mongoose.Promise = global.Promise; 3. Conecte-se ao MongoDB:
+mongoose.connect(&#39;mongodb://127.0.0.1:27017/database&#39;); /* Mongoose connection format looks something like this */ mongoose.</description>
+    </item>
+    
+    <item>
+      <title>mangusto pré e pós middleware (ganchos)</title>
+      <link>https://www.wikiod.com/pt/mongoose/mangusto-pre-e-pos-middleware-ganchos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongoose/mangusto-pre-e-pos-middleware-ganchos/</guid>
+      <description>Middleware # Middleware (também chamados de ganchos pré e pós) são funções que recebem controle durante a execução de funções assíncronas. O middleware é especificado no nível do esquema e é útil para escrever plugins. O Mongoose 4.0 possui 2 tipos de middleware: middleware de documento e middleware de consulta. O middleware de documento é suportado para as seguintes funções de documento.
+iniciar validar Salve  remover O middleware de consulta é compatível com as funções de modelo e consulta a seguir.</description>
+    </item>
+    
+    <item>
+      <title>População de mangustos</title>
+      <link>https://www.wikiod.com/pt/mongoose/populacao-de-mangustos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongoose/populacao-de-mangustos/</guid>
+      <description>Sintaxe # Query.populate(path, [select], [model], [match], [options]) Parâmetros # Parâmetro Explicação caminho &amp;lt;Object, String&amp;gt; o caminho a ser preenchido ou um objeto especificando todos os parâmetros [selecionar] &amp;lt;Object, String&amp;gt; Seleção de campo para a consulta de população (pode usar &#39;-id&#39; para incluir tudo menos o campo id) [modelo] &amp;lt;Model&amp;gt; O modelo que você deseja usar para a população. Se não for especificado, populate procurará o modelo pelo nome no campo ref do Schema.</description>
+    </item>
+    
+    <item>
+      <title>Consultas de mangusto</title>
+      <link>https://www.wikiod.com/pt/mongoose/consultas-de-mangusto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongoose/consultas-de-mangusto/</guid>
+      <description>Mongoose é um driver Node.JS para MongoDB. Ele fornece alguns benefícios sobre o driver padrão do MongoDB, como adicionar tipos aos esquemas. Uma diferença é que algumas consultas do Mongoose podem diferir de seus equivalentes do MongoDB.
+Encontre uma consulta # Importar um modelo do Mongoose (consulte o tópico &amp;ldquo;Esquemas do Mongoose&amp;rdquo;)
+var User = require(&amp;quot;../models/user-schema.js&amp;quot;)
+O método findOne retornará a primeira entrada no banco de dados que corresponde ao primeiro parâmetro.</description>
+    </item>
+    
+    <item>
+      <title>Middleware de mangusto</title>
+      <link>https://www.wikiod.com/pt/mongoose/middleware-de-mangusto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongoose/middleware-de-mangusto/</guid>
+      <description>No mangusto, Middlewares também são chamados de ganchos pre e post.
+Existem dois tipos de middleware # Ambos os middlewares suportam ganchos pré e pós.
+Middleware de documentos
+Its supported for document functions init, validate, save and remove
+Middleware de consulta
+Its supported for query functions count, find, findOne, findOneAndRemove, findOneAndUpdate, insertMany and update.
+Ganchos pré e pós # Existem dois tipos de ganchos Pré
+série
+As the name suggests, Its executed in serial order i.</description>
+    </item>
+    
+    <item>
+      <title>Esquemas de mangusto</title>
+      <link>https://www.wikiod.com/pt/mongoose/esquemas-de-mangusto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mongoose/esquemas-de-mangusto/</guid>
+      <description>Criando um esquema # var mongoose = require(&#39;mongoose&#39;); //assume Player and Board schemas are already made var Player = mongoose.model(&#39;Player&#39;); var Board = mongoose.model(&#39;Board&#39;); //Each key in the schema is associated with schema type (ie. String, Number, Date, etc) var gameSchema = new mongoose.Schema({ name: String, players: [{ type: mongoose.Schema.Types.ObjectId, ref: &#39;Player&#39; }], host: { type: mongoose.Schema.Types.ObjectId, ref: &#39;Player&#39; }, board: { type: mongoose.Schema.Types.ObjectId, ref: &#39;Board&#39; }, active: { type: Boolean, default: true }, state: { type: String, enum: [&#39;decision&#39;, &#39;run&#39;, &#39;waiting&#39;], default: &#39;waiting&#39; }, numFlags: { type: Number, enum: [1,2,3,4] }, isWon: { type: Boolean, default: false } }); mongoose.</description>
+    </item>
+    
+  </channel>
+</rss>

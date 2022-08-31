@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dropbox API Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/dropbox-api/</link>
+    <description>Recent content in Dropbox API Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/dropbox-api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dropbox API&#39;sini kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/dropbox-api/dropbox-apisini-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/dropbox-api/dropbox-apisini-kullanmaya-baslama/</guid>
+      <description>Dropbox API için curl kullanarak kod hibesi aracılığıyla bir OAuth 2 erişim belirteci alma # https://blogs.dropbox.com/developers/2013/07/using-oauth-2-0-with-the-core-api/ adresinden kısaltılmıştır:
+1. Adım: Yetkilendirmeyi başlatın
+Kullanıcıyı, değerleriniz doldurulmuş olarak bu web sayfasına gönderin:
+https://www.dropbox.com/oauth2/authorize?client_id=&amp;lt;app key&amp;gt;&amp;amp;response_type=code&amp;amp;redirect_uri=&amp;lt;redirect URI&amp;gt;&amp;amp;state=&amp;lt;CSRF token&amp;gt; Yetkilendirme kodu, yeniden yönlendirme URI&amp;rsquo;sinde &amp;ldquo;kod&amp;rdquo; parametresi olarak eklenecektir.
+Adım 2: Bir erişim belirteci edinin
+curl https://api.dropbox.com/oauth2/token -d code=&amp;lt;authorization code&amp;gt; -d grant_type=authorization_code -d redirect_uri=&amp;lt;redirect URI&amp;gt; -u &amp;lt;app key&amp;gt;:&amp;lt;app secret&amp;gt; Adım 3: API&amp;rsquo;yi arayın
+API çağrınızda başlığı ayarlayın:</description>
+    </item>
+    
+    <item>
+      <title>Dosya indirme</title>
+      <link>https://www.wikiod.com/tr/dropbox-api/dosya-indirme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/dropbox-api/dosya-indirme/</guid>
+      <description>Dropbox Python kitaplığını kullanarak dosya indirme # Bu, /Homework/math/Prime_Numbers.txt uzak yolundaki Dropbox API&amp;rsquo;sinden Prime_Numbers.txt yerel dosyasına bir dosya indirmek için Dropbox Python SDK kullanır:
+import dropbox dbx = dropbox.Dropbox(&amp;quot;&amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot;) with open(&amp;quot;Prime_Numbers.txt&amp;quot;, &amp;quot;wb&amp;quot;) as f: metadata, res = dbx.files_download(path=&amp;quot;/Homework/math/Prime_Numbers.txt&amp;quot;) f.write(res.content) &amp;ldquo;&amp;lt;ACCESS_TOKEN&amp;gt;&amp;rdquo;, erişim jetonunuzla değiştirilmelidir.
+Aralık Alma İsteklerini kullanarak kıvrılma yoluyla bir dosya parçası indirme # Bu, /Homework/math/Prime_Numbers.txt uzak yolundaki Dropbox API&amp;rsquo;sinden Aralık Alma İsteklerini kullanarak dosyanın yalnızca bir parçasını indirir. geçerli klasör:</description>
+    </item>
+    
+    <item>
+      <title>Bir klasörü paylaşma</title>
+      <link>https://www.wikiod.com/tr/dropbox-api/bir-klasoru-paylasma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/dropbox-api/bir-klasoru-paylasma/</guid>
+      <description>curl kullanarak paylaşılan bir klasöre üye davet etme # curl -X POST https://api.dropboxapi.com/2/sharing/add_folder_member \ --header &amp;quot;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot; \ --header &amp;quot;Content-Type: application/json&amp;quot; \ --data &amp;quot;{\&amp;quot;shared_folder_id\&amp;quot;: \&amp;quot;&amp;lt;SHARED_FOLDER_ID\&amp;quot;,\&amp;quot;members\&amp;quot;: [{\&amp;quot;member\&amp;quot;: {\&amp;quot;.tag\&amp;quot;: \&amp;quot;email\&amp;quot;,\&amp;quot;email\&amp;quot;: \&amp;quot;&amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt;\&amp;quot;},\&amp;quot;access_level\&amp;quot;: {\&amp;quot;.tag\&amp;quot;: \&amp;quot;editor\&amp;quot;}}],\&amp;quot;quiet\&amp;quot;: false,\&amp;quot;custom_message\&amp;quot;: \&amp;quot;Code examples\&amp;quot;}&amp;quot; &amp;ldquo;&amp;lt;ACCESS_TOKEN&amp;gt;&amp;rdquo;, OAuth 2 erişim belirteci ile değiştirilmelidir.
+&amp;ldquo;&amp;lt;SHARED_FOLDER_ID&amp;gt;&amp;rdquo;, paylaşılan klasör kimliğiyle değiştirilmelidir, örneğin /2/sharing/share_folder veya /2/sharing/list_folders tarafından döndürüldüğü gibi.
+&amp;ldquo;&amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt;&amp;rdquo;, davet edilecek kullanıcının e-posta adresiyle değiştirilmelidir. Ayrıca, &amp;ldquo;üyeler&amp;rdquo; bir dizidir ve birden çok kullanıcı içerebilir.</description>
+    </item>
+    
+    <item>
+      <title>Dosya yükleme</title>
+      <link>https://www.wikiod.com/tr/dropbox-api/dosya-yukleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/dropbox-api/dosya-yukleme/</guid>
+      <description>Dropbox .NET kitaplığını kullanarak dosya yükleme # Bu örnek, daha büyük dosyalar için yükleme oturumlarını kullanarak bir dosyayı Dropbox hesabına yüklemek için Dropbox .NET kitaplığını kullanır:
+private async Task Upload(string localPath, string remotePath) { const int ChunkSize = 4096 * 1024; using (var fileStream = File.Open(localPath, FileMode.Open)) { if (fileStream.Length &amp;lt;= ChunkSize) { await this.client.Files.UploadAsync(remotePath, body: fileStream); } else { await this.ChunkUpload(remotePath, fileStream, (int)ChunkSize); } } } private async Task ChunkUpload(String path, FileStream stream, int chunkSize) { ulong numChunks = (ulong)Math.</description>
+    </item>
+    
+    <item>
+      <title>Bir klasör listeleme</title>
+      <link>https://www.wikiod.com/tr/dropbox-api/bir-klasor-listeleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/dropbox-api/bir-klasor-listeleme/</guid>
+      <description>Curl ile kök klasörü listeleme # Bu, Dropbox API v2 için &amp;quot;&amp;quot; boş dizesiyle tanımlanan kök klasörü, /files/list_folder kullanarak curl kullanarak listeler:
+curl -X POST https://api.dropboxapi.com/2/files/list_folder \ --header &amp;quot;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot; \ --header &amp;quot;Content-Type: application/json&amp;quot; \ --data &amp;quot;{\&amp;quot;path\&amp;quot;: \&amp;quot;\&amp;quot;}&amp;quot; &amp;ldquo;&amp;lt;ACCESS_TOKEN&amp;gt;&amp;rdquo;, OAuth 2 erişim belirteci ile değiştirilmelidir.
+Yanıtın &amp;ldquo;has_more=true&amp;rdquo; içerebileceğini unutmayın; bu durumda uygulamanız daha fazla giriş almaya devam etmek için /files/list_folder/continue adresini geri aramalıdır.
+PHP&amp;rsquo;de curl ve cURL uzantısı aracılığıyla kök klasörü listeleme # &amp;lt;?</description>
+    </item>
+    
+    <item>
+      <title>Bir dosya veya klasör için paylaşılan bir bağlantı alma</title>
+      <link>https://www.wikiod.com/tr/dropbox-api/bir-dosya-veya-klasor-icin-paylaslan-bir-baglant-alma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/dropbox-api/bir-dosya-veya-klasor-icin-paylaslan-bir-baglant-alma/</guid>
+      <description>PHP&amp;rsquo;de curl kullanarak bir dosya için paylaşılan bir bağlantı oluşturma # &amp;lt;?php $parameters = array(&#39;path&#39; =&amp;gt; &#39;/test.txt&#39;); $headers = array(&#39;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&#39;, &#39;Content-Type: application/json&#39;); $curlOptions = array( CURLOPT_HTTPHEADER =&amp;gt; $headers, CURLOPT_POST =&amp;gt; true, CURLOPT_POSTFIELDS =&amp;gt; json_encode($parameters), CURLOPT_RETURNTRANSFER =&amp;gt; true, CURLOPT_VERBOSE =&amp;gt; true ); $ch = curl_init(&#39;https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings&#39;); curl_setopt_array($ch, $curlOptions); $response = curl_exec($ch); echo $response; curl_close($ch); ?&amp;gt; &amp;ldquo;&amp;lt;ACCESS_TOKEN&amp;gt;&amp;rdquo;, OAuth 2 erişim belirteci ile değiştirilmelidir.
+Dropbox Python kitaplığını kullanarak bir klasör için paylaşılan bağlantı oluşturma # Bu, bir klasör için paylaşılan bir bağlantı oluşturmak için Dropbox Python SDK kullanır:</description>
+    </item>
+    
+    <item>
+      <title>Dosya meta verilerini alma</title>
+      <link>https://www.wikiod.com/tr/dropbox-api/dosya-meta-verilerini-alma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/dropbox-api/dosya-meta-verilerini-alma/</guid>
+      <description>Dropbox .NET kitaplığını kullanarak var olmayan bir yol için meta veri alırken hatayı işleme # Bu örnek, belirli bir yoldaki bir öğenin meta verilerini almaya çalışmak için Dropbox .NET kitaplığını kullanır ve &amp;ldquo;NotFound&amp;rdquo; hatasını kontrol eder:
+try { var metadata = await this.client.Files.GetMetadataAsync(&amp;quot;/non-existant path&amp;quot;); Console.WriteLine(metadata.Name); } catch (Dropbox.Api.ApiException&amp;lt;Dropbox.Api.Files.GetMetadataError&amp;gt; e) { if (e.ErrorResponse.IsPath) { var pathError = e.ErrorResponse.AsPath.Value; if (pathError.IsNotFound) { Console.WriteLine (&amp;quot;File or folder not found.&amp;quot;); } else { Console.WriteLine (pathError); } } else { Console.</description>
+    </item>
+    
+    <item>
+      <title>Hesap bilgilerini alma</title>
+      <link>https://www.wikiod.com/tr/dropbox-api/hesap-bilgilerini-alma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/dropbox-api/hesap-bilgilerini-alma/</guid>
+      <description>Bağlantılı kullanıcı için curl aracılığıyla hesap bilgilerini alma # curl -X POST https://api.dropboxapi.com/2/users/get_current_account \ --header &amp;quot;Authorization: Bearer &amp;lt;ACCESS_TOKEN&amp;gt;&amp;quot; &amp;ldquo;&amp;lt;ACCESS_TOKEN&amp;gt;&amp;rdquo;, erişim jetonunuzla değiştirilmelidir.
+Bağlantılı kullanıcı için C++&amp;lsquo;da curl aracılığıyla hesap bilgilerini alma # #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curl/curl.h&amp;gt; int main (int argc, char *argv[]) { CURL *curl; CURLcode res; /* In windows, this will init the winsock stuff */ curl_global_init(CURL_GLOBAL_ALL); /* get a curl handle */ curl = curl_easy_init(); if(curl) { printf (&amp;quot;Running curl test.</description>
+    </item>
+    
+    <item>
+      <title>Dosya paylaşma</title>
+      <link>https://www.wikiod.com/tr/dropbox-api/dosya-paylasma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/dropbox-api/dosya-paylasma/</guid>
+      <description>Dropbox Java kitaplığını kullanarak bir üyeyi paylaşılan bir dosyaya davet etme # Bu, belirli bir kullanıcıyla &amp;ldquo;/test.txt&amp;rdquo; adresindeki bir dosyayı paylaşmak için Dropbox Java SDK kullanır:
+List&amp;lt;MemberSelector&amp;gt; newMembers = new ArrayList&amp;lt;MemberSelector&amp;gt;(); MemberSelector newMember = MemberSelector.email(&amp;quot;&amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt;&amp;quot;); newMembers.add(newMember); List&amp;lt;FileMemberActionResult&amp;gt; fileMemberActionResults = client.sharing().addFileMember(&amp;quot;/test.txt&amp;quot;, newMembers); System.out.print(fileMemberActionResults); &amp;ldquo;&amp;lt;EMAIL_ADDRESS_TO_INVITE&amp;gt;&amp;rdquo;, davet edilecek kullanıcının e-posta adresiyle değiştirilmelidir. Ayrıca, &amp;rsquo;newMembers&amp;rsquo; bir dizidir ve birden çok kullanıcı içerebilir.</description>
+    </item>
+    
+  </channel>
+</rss>

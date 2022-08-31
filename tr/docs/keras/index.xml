@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>keras Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/keras/</link>
+    <description>Recent content in keras Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/keras/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keras&#39;ı kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/keras/keras-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/keras/keras-kullanmaya-baslama/</guid>
+      <description>Keras&amp;rsquo;a Başlarken : 30 Saniye # Keras&amp;rsquo;ın temel veri yapısı, katmanları düzenlemenin bir yolu olan bir modeldir. Ana model türü, doğrusal bir katman yığını olan Sıralı modelidir. Daha karmaşık mimariler için Keras fonksiyonel API kullanmalısınız.
+İşte Sıralı model:
+from keras.models import Sequential model = Sequential() Katmanları istiflemek .add() kadar kolaydır:
+from keras.layers import Dense, Activation model.add(Dense(output_dim=64, input_dim=100)) model.add(Activation(&amp;quot;relu&amp;quot;)) model.add(Dense(output_dim=10)) model.add(Activation(&amp;quot;softmax&amp;quot;)) Modeliniz iyi göründüğünde, öğrenme sürecini .compile() ile yapılandırın:
+model.compile(loss=&#39;categorical_crossentropy&#39;, optimizer=&#39;sgd&#39;, metrics=[&#39;accuracy&#39;]) Gerekirse, optimize edicinizi daha fazla yapılandırabilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>Keras fit_generator, Python oluşturucuları ve HDF5 dosya biçimini kullanarak büyük eğitim veri kümeleriyle ilgilenmek</title>
+      <link>https://www.wikiod.com/tr/keras/keras-fit_generator-python-olusturucular-ve-hdf5-dosya-bicimini-kullanarak-buyuk-egitim-veri-kumeleriyle-ilgilenmek/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/keras/keras-fit_generator-python-olusturucular-ve-hdf5-dosya-bicimini-kullanarak-buyuk-egitim-veri-kumeleriyle-ilgilenmek/</guid>
+      <description>Makine öğrenimi sorunları genellikle, sınırlı bilgi işlem kaynakları, özellikle bellek ile büyük miktarlarda eğitim verileriyle uğraşmayı gerektirir. Bir eğitim setinin tamamını belleğe yüklemek her zaman mümkün değildir. Neyse ki bu, Keras&amp;rsquo;ın fit_generator yöntemi, Python oluşturucuları ve HDF5 dosya formatı kullanılarak halledilebilir.
+Bu örnekte, keras, numpy (np olarak) ve h5py&amp;rsquo;nin zaten kurulu olduğu ve içe aktarıldığı varsayılmaktadır. Ayrıca, video girişlerinin ve etiketlerinin zaten işlendiğini ve belirtilen biçimde belirtilen HDF5 dosyasına kaydedildiğini ve verilen girişle çalışmak üzere bir video sınıflandırma modelinin zaten oluşturulmuş olduğunu varsayar.</description>
+    </item>
+    
+    <item>
+      <title>Basit bir Sıralı Model oluşturun</title>
+      <link>https://www.wikiod.com/tr/keras/basit-bir-sral-model-olusturun/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/keras/basit-bir-sral-model-olusturun/</guid>
+      <description>&amp;ldquo;Sıralı&amp;rdquo; model, doğrusal bir katman yığınıdır.
+Sıralı Modellerle Basit Çok Katmanlı Algılayıcı # Yapıcıya bir katman örnekleri listesi ileterek Sıralı bir model oluşturabilirsiniz:
+from keras.models import Sequential from keras.layers import Dense, Activation model = Sequential([ Dense(32, input_dim=784), Activation(&#39;relu&#39;), Dense(10), Activation(&#39;softmax&#39;), ]) Ayrıca, .add() yöntemiyle katmanlar da ekleyebilirsiniz:
+model = Sequential() model.add(Dense(32, input_dim=784)) model.add(Activation(&#39;relu&#39;)) Modeller kullanımdan önce derlenmelidir:
+model.compile(loss=&#39;binary_crossentropy&#39;, optimizer=&#39;sgd&#39;, metrics=[&#39;accuracy&#39;]) </description>
+    </item>
+    
+    <item>
+      <title>Keras&#39;ta özel kayıp işlevi ve ölçümleri</title>
+      <link>https://www.wikiod.com/tr/keras/kerasta-ozel-kayp-islevi-ve-olcumleri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/keras/kerasta-ozel-kayp-islevi-ve-olcumleri/</guid>
+      <description>Keras&amp;rsquo;ta, her veri noktası için bir skaler döndüren ve şu iki bağımsız değişkeni alan bir TensorFlow/Theano sembolik işlevi tanımlayarak özel bir kayıp işlevi ve metrikler oluşturabilirsiniz: gerçek değerlerin tensörü, karşılık gelen tahmin edilen değerlerin tensörü.
+Kayıp/ölçün (görüntüleme ve optimizasyon için), toplu işteki tüm veri noktalarındaki kayıpların/ölçümün ortalaması olarak hesaplandığını unutmayın.
+Keras kaybı işlevleri loses.py içinde tanımlanmıştır.
+Keras için ek kayıp işlevleri keras-contrib deposunda bulunabilir.
+Öklid mesafe kaybı # Özel bir kayıp işlevi tanımlayın:</description>
+    </item>
+    
+    <item>
+      <title>CNN&#39;ler, RNN&#39;ler ve MLP&#39;ler ile Spatiotemporal Girdileri Sınıflandırma</title>
+      <link>https://www.wikiod.com/tr/keras/cnnler-rnnler-ve-mlpler-ile-spatiotemporal-girdileri-snflandrma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/keras/cnnler-rnnler-ve-mlpler-ile-spatiotemporal-girdileri-snflandrma/</guid>
+      <description>Mekânsal-zamansal veriler veya uzamsal ve zamansal niteliklere sahip veriler yaygın bir durumdur. Örnekler, videoları ve spektrogramlar gibi görüntü benzeri veri dizilerini içerir.
+Evrişimli Sinir Ağları (CNN&amp;rsquo;ler) özellikle uzaysal kalıpları bulmak için uygundur. Öte yandan Tekrarlayan Sinir Ağları (RNN&amp;rsquo;ler), zamansal kalıpları bulmak için özellikle uygundur. Bu ikisi, Çok Katmanlı Algılayıcılarla birlikte, uzay-zamansal girdileri sınıflandırmak için etkili olabilir.
+Bu örnekte, ImageNet veritabanında önceden eğitilmiş bir VGG-16 modeli kullanılmıştır. Eğitilebilir bir VGG-16 modeli isteniyorsa, rastgele başlatma için VGG-16 &amp;ldquo;ağırlıklar&amp;rdquo; parametresini &amp;ldquo;Yok&amp;rdquo; olarak ayarlayın ve &amp;ldquo;cnn.</description>
+    </item>
+    
+    <item>
+      <title>Keras kullanarak Öğrenmeyi ve İnce Ayarı Aktarın</title>
+      <link>https://www.wikiod.com/tr/keras/keras-kullanarak-ogrenmeyi-ve-ince-ayar-aktarn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/keras/keras-kullanarak-ogrenmeyi-ve-ince-ayar-aktarn/</guid>
+      <description>Bu konu, önceden eğitilmiş ağırlıkların yüklenmesine, önceden eğitilmiş olanların üstüne veya ortasına yeni katmanlar eklenmesine ve kısmen önceden eğitilmiş ağırlıklarla yeni bir ağ eğitiminin kısa, kısa ama kapsamlı örneklerini içerir. Keras kitaplığında (VGG, ResNet, Inception, Xception, MobileNet) bulunan, kullanıma hazır önceden eğitilmiş ağların her biri için bir örnek gereklidir.
+Keras ve VGG kullanarak Öğrenmeyi Aktarma # Bu örnekte, üç kısa ve kapsamlı alt örnek sunulmaktadır:
+Keras kitaplığına dahil, önceden eğitilmiş mevcut modellerden yükleme ağırlıkları Herhangi bir VGG katmanının üzerine eğitim için başka bir ağ yerleştirme Diğer katmanların ortasına bir katman ekleme VGG ile İnce Ayar ve transfer öğrenimi için ipuçları ve genel kurallar Önceden eğitilmiş ağırlıkların yüklenmesi # VGG-16 ve VGG-19 dahil ImageNet modellerinde önceden eğitilmiş, Keras&amp;rsquo;ta mevcuttur.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lusen Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/lucene/</link>
+    <description>Recent content in lusen Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/lucene/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>lucene ile başlarken</title>
+      <link>https://www.wikiod.com/tr/lucene/lucene-ile-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/lucene/lucene-ile-baslarken/</guid>
+      <description>Selam Dünya # Bu temel Lucene örneği, basit bir dizin oluşturur ve üzerinde arama yapar.
+Not: RAMDirectory bellekte yerleşik bir dizin oluşturur ve deneme ve test etme için kullanışlıdır, ancak pratikte çoğu kişinin dosya sisteminde depolanmış bir dizine sahip olması gerekir (bkz. [FSDirectory.open](https://lucene.apache. org/core/6_1_0/core/org/apache/lucene/store/FSDirectory.html#open-java.nio.file.Path-)).
+import java.io.IOException; import org.apache.lucene.analysis.Analyzer; import org.apache.lucene.analysis.standard.StandardAnalyzer; import org.apache.lucene.document.*; import org.apache.lucene.index.*; import org.apache.lucene.queryparser.classic.*; import org.apache.lucene.search.*; import org.apache.lucene.store.*; public class HelloLucene { public static void main(String[] args) throws IOException, ParseException { //Create a new index and open a writer Directory dir = new RAMDirectory(); Analyzer analyzer = new StandardAnalyzer(); IndexWriterConfig config = new IndexWriterConfig(analyzer); IndexWriter writer = new IndexWriter(dir, config); //Create a document to index Document doc = new Document(); doc.</description>
+    </item>
+    
+    <item>
+      <title>Sorguları</title>
+      <link>https://www.wikiod.com/tr/lucene/sorgular/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/lucene/sorgular/</guid>
+      <description>Boole Sorgusu # BooleanQuery, diğer sorguları birleştirmek için kullanılır.
+Üç BooleanClause.Occur parametresi kullanılarak birleştirilebilirler:
+BooleanClause.Occur.MUST - Alt sorgu eşleşmelidir. BooleanClause.Occur.SHOULD - Alt sorgu eşleşmeyebilir, ancak eşleşirse daha yüksek puan alır. MUST yan tümcesi yoksa, en az bir SHOULD yan tümcesi eşleştirilmelidir. BooleanClause.Occur.MUST_NOT - Alt sorgu belgeyle eşleşmemelidir. Bu örnekte, bir belge &amp;ldquo;önemli&amp;rdquo; ise ancak * &amp;ldquo;yasak&amp;rdquo; değilse* eşleşir ve aynı zamanda &amp;ldquo;yararlı&amp;rdquo; ise daha yüksek bir puan alır.
+Query importantQuery = new TermQuery(new Term(&amp;quot;fieldname&amp;quot;, &amp;quot;important&amp;quot;)); Query optionalQuery = new TermQuery(new Term(&amp;quot;fieldname&amp;quot;, &amp;quot;helpful&amp;quot;)); Query forbidQuery = new TermQuery(new Term(&amp;quot;fieldname&amp;quot;, &amp;quot;forbidden&amp;quot;)); BooleanQuery query = new BooleanQuery.</description>
+    </item>
+    
+    <item>
+      <title>analiz</title>
+      <link>https://www.wikiod.com/tr/lucene/analiz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/lucene/analiz/</guid>
+      <description>Özel bir analizör oluşturma # Çoğu analiz özelleştirmesi, Tokenizer ve TokenFilters&amp;rsquo;ın tanımlandığı &amp;lsquo;createComponents&amp;rsquo; sınıfındadır.
+CharFilters, initReader yöntemine eklenebilir.
+Analyzer analyzer = new Analyzer() { @Override protected Reader initReader(String fieldName, Reader reader) { return new HTMLStripCharFilter(reader); } @Override protected TokenStreamComponents createComponents(String fieldName) { Tokenizer tokenizer = new StandardTokenizer(); TokenStream stream = new StandardFilter(tokenizer); //Order matters! If LowerCaseFilter and StopFilter were swapped here, StopFilter&#39;s //matching would be case sensitive, so &amp;quot;the&amp;quot; would be eliminated, but not &amp;quot;The&amp;quot; stream = new LowerCaseFilter(stream); stream = new StopFilter(stream, StopAnalyzer.</description>
+    </item>
+    
+    <item>
+      <title>Çok Terimli Sorgu Kullanarak Belgeleri Silme</title>
+      <link>https://www.wikiod.com/tr/lucene/cok-terimli-sorgu-kullanarak-belgeleri-silme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/lucene/cok-terimli-sorgu-kullanarak-belgeleri-silme/</guid>
+      <description>Belgenizde birincil anahtar alanınız varsa (geleneksel SQL veritabanlarında olduğu gibi) bir Lucene dizininden belgeleri silmek kolaydır.
+Ancak, bazen ihtiyacınız olan şey, belgedeki birden çok alana dayalı olarak bir dizi belgeyi silmektir. Lucene API, silme için kullanılacak bir sorgu belirleyerek bunu başarmanızı sağlar.
+Bunu yapmak için doğru Analyzer&amp;rsquo;ı seçin, sorguyu oluşturun, belgeleri silmek için sorguyu indexWriter&amp;rsquo;a iletin.
+Sözdizimi # indexWriter.deleteDocuments(multiTermQuery); Sorgu multiTermQuery = new QueryParser(&amp;quot;&amp;quot;, Analyzer).parse(&amp;ldquo;field_name1:&amp;quot;field value 1&amp;quot; AND field_name2:&amp;quot;field value 2&amp;quot;&amp;rdquo;); BooleanQuery multiTermQuery = new BooleanQuery(); multiTermQuery.</description>
+    </item>
+    
+  </channel>
+</rss>

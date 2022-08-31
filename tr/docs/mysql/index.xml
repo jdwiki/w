@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/mysql/</link>
+    <description>Recent content in MySQL Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL&#39;i kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/mysql/mysqli-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mysql/mysqli-kullanmaya-baslama/</guid>
+      <description>Başlarken # MySQL&amp;rsquo;de veritabanı oluşturma
+CREATE DATABASE mydb; Geri dönüş değeri:
+Sorgu Tamam, 1 satır etkilendi (0,05 sn)
+Oluşturulan veritabanını kullanma mydb
+USE mydb; Geri dönüş değeri:
+Veritabanı Değiştirildi
+MySQL&amp;rsquo;de tablo oluşturma
+CREATE TABLE mytable ( id int unsigned NOT NULL auto_increment, username varchar(100) NOT NULL, email varchar(100) NOT NULL, PRIMARY KEY (id) ); &amp;ldquo;CREATE TABLE mytable&amp;rdquo;, &amp;ldquo;mytable&amp;rdquo; adında yeni bir tablo oluşturacaktır.
+&amp;lsquo;id int unsigned NOT NULL auto_increment&amp;rsquo; &amp;lsquo;id&amp;rsquo; sütununu oluşturur, bu tür bir alan tablodaki her kayda benzersiz bir sayısal kimlik atar (bu durumda iki satırın aynı &amp;lsquo;id&amp;rsquo;ye sahip olamayacağı anlamına gelir), MySQL kaydın &amp;ldquo;id&amp;rdquo; alanına otomatik olarak yeni, benzersiz bir değer atar (1 ile başlayarak).</description>
+    </item>
+    
+    <item>
+      <title>Tablo Oluşturma</title>
+      <link>https://www.wikiod.com/tr/mysql/tablo-olusturma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mysql/tablo-olusturma/</guid>
+      <description>Sözdizimi # TABLO OLUŞTUR tablo_adı ( sütun_adı1 veri_türü(boyut), sütun_adı2 veri_türü(boyut), column_name3 data_type(boyut), &amp;hellip;. ); // Temel tablo oluşturma
+CREATE TABLE table_name [VAR DEĞİLSE] ( sütun_adı1 veri_türü(boyut), sütun_adı2 veri_türü(boyut), column_name3 data_type(boyut), &amp;hellip;. ); // Mevcut tablo oluşturma kontrolü
+CREATE [GEÇİCİ] TABLO tablo_adı [MEVCUT DEĞİLSE] ( sütun_adı1 veri_türü(boyut), sütun_adı2 veri_türü(boyut), column_name3 data_type(boyut), &amp;hellip;. ); // Geçici tablo oluşturma
+TABLO OLUŞTUR new_tbl [AS] SELECT * FROM orig_tbl; // SELECT&amp;rsquo;ten tablo oluşturma
+&amp;ldquo;CREATE TABLE&amp;rdquo; ifadesi bir &amp;ldquo;ENGINE&amp;rdquo; belirtimi ile bitmelidir:</description>
+    </item>
+    
+    <item>
+      <title>SEÇME</title>
+      <link>https://www.wikiod.com/tr/mysql/secme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mysql/secme/</guid>
+      <description>&amp;lsquo;SEÇ&amp;rsquo;, bir veya daha fazla tablodan seçilen satırları almak için kullanılır.
+Sözdizimi # TabloAdı&amp;rsquo;ndan [WHERE koşulları] FARKLI [ifadeler] SEÇİN; ///Basit Seçim
+AYRI SEÇ(a), b &amp;hellip;, AYRI SEÇ a, b &amp;hellip; ile aynıdır.
+SEÇ [ TÜMÜ | FARKLI | AYIRT ] [ HIGH_PRIORITY ] [ STRAIGHT_JOIN ] [ SQL_SMALL_RESULT | SQL_BIG_RESULT ] [ SQL_BUFFER_RESULT ] [ SQL_CACHE | SQL_NO_CACHE ] [ SQL_CALC_FOUND_ROWS ] ifade tablolardan [NEREDE koşulları] [GROUP BY ifadeleri] [HAVING koşulu] [ORDER BY ifadesi [ ASC | AÇIKLAMA ]] [LIMIT [offset_value] number_rows | LIMIT sayı_satır OFFSET ofset_değeri] [PROSEDÜR prosedür_adı] [INTO [ OUTFILE &amp;lsquo;dosya_adı&amp;rsquo; seçenekleri | DUMPFILE &amp;lsquo;file_name&amp;rsquo; | @variable1, @variable2, &amp;hellip; @variable_n] [GÜNCELLEME İÇİN | PAYLAŞIM MODUNDA KİLİT]; ///Tam Seçim Sözdizimi</description>
+    </item>
+    
+    <item>
+      <title>mysqldump kullanarak yedekleme</title>
+      <link>https://www.wikiod.com/tr/mysql/mysqldump-kullanarak-yedekleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mysql/mysqldump-kullanarak-yedekleme/</guid>
+      <description>Sözdizimi # mysqldump -u [kullanıcı adı] -p[parola] [diğer seçenekler] db_name &amp;gt; dumpFileName.sql /// Tek veritabanını yedeklemek için mysqldump -u [kullanıcı adı] -p[parola] [diğer seçenekler] db_name [tbl_name1 tbl_name2 tbl_name2 &amp;hellip;] &amp;gt; dumpFileName.sql /// Bir veya daha fazla tabloyu yedeklemek için mysqldump -u [kullanıcı adı] -p[parola] [diğer seçenekler] &amp;ndash;databases db_name1 db_name2 db_name3 &amp;hellip; &amp;gt; dumpFileName.sql /// Bir veya daha fazla tam veritabanını yedeklemek için mysqldump -u [kullanıcı adı] -p[parola] [diğer seçenekler] &amp;ndash;all-databases &amp;gt; dumpFileName.</description>
+    </item>
+    
+    <item>
+      <title>JSON</title>
+      <link>https://www.wikiod.com/tr/mysql/json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mysql/json/</guid>
+      <description>MySQL 5.7.8&amp;rsquo;den itibaren MySQL, JSON (JavaScript Object Notation) belgelerindeki verilere verimli erişim sağlayan yerel bir JSON veri türünü destekler.
+https://dev.mysql.com/doc/refman/5.7/en/json.html
+MySQL 5.7.8&amp;rsquo;den başlayarak, MySQL bir JSON türü ile birlikte gelir. Pek çok geliştirici, JSON verilerini bir günlük süre boyunca metin sütunlarına kaydediyor ancak JSON türü farklı, veriler doğrulamadan sonra ikili biçimde kaydediliyor. Bu, her okumada metni ayrıştırmanın ek yükünü önler.
+Birincil anahtar ve JSON alanıyla basit tablo oluşturun # CREATE TABLE table_name ( id INT NOT NULL AUTO_INCREMENT, json_col JSON, PRIMARY KEY(id) ); Basit bir JSON ekleyin # INSERT INTO table_name (json_col) VALUES (&#39;{&amp;quot;City&amp;quot;: &amp;quot;Galle&amp;quot;, &amp;quot;Description&amp;quot;: &amp;quot;Best damn city in the world&amp;quot;}&#39;); Bu olabildiğince basit, ancak JSON sözlük anahtarlarının çift tırnak içine alınması gerektiğinden, her şeyin tek tırnak içine alınması gerektiğini unutmayın.</description>
+    </item>
+    
+    <item>
+      <title>SOKMAK</title>
+      <link>https://www.wikiod.com/tr/mysql/sokmak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mysql/sokmak/</guid>
+      <description>Sözdizimi # EKLE [LOW_PRIORITY | GECİKMELİ | HIGH_PRIORITY] [IGNORE] [INTO] tbl_name [PARTITION (partition_name,&amp;hellip;)] [(col_name,&amp;hellip;)] {VALUES | VALUE} ({expr | DEFAULT},&amp;hellip;),(&amp;hellip;),&amp;hellip; [ ON DUPLICATE KEY UPDATE col_name=expr [, col_name=expr] &amp;hellip; ]
+EKLE [LOW_PRIORITY | GECİKMELİ | HIGH_PRIORITY] [IGNORE] [INTO] tbl_name [PARTITION (partition_name,&amp;hellip;)] SET col_name={expr | DEFAULT}, &amp;hellip; [ ON DUPLICATE KEY UPDATE col_name=expr [, col_name=expr] &amp;hellip; ]
+EKLE [LOW_PRIORITY | HIGH_PRIORITY] [IGNORE] [INTO] tbl_name [PARTITION (partition_name,&amp;hellip;)] [(col_name,&amp;hellip;)] SELECT &amp;hellip; [ ON DUPLICATE KEY UPDATE col_name=expr [, col_name=expr] &amp;hellip; ]</description>
+    </item>
+    
+    <item>
+      <title>birleşir</title>
+      <link>https://www.wikiod.com/tr/mysql/birlesir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mysql/birlesir/</guid>
+      <description>Sözdizimi # &amp;lsquo;INNER&amp;rsquo; ve &amp;lsquo;OUTER&amp;rsquo; yok sayılır.
+&amp;ldquo;FULL&amp;rdquo; MySQL&amp;rsquo;de uygulanmaz.
+&amp;ldquo;commajoin&amp;rdquo; (FROM a,b WHERE a.x=b.y) kaşlarını çattı; bunun yerine FROM a JOIN b ON a.x=b.y kullanın.
+JOIN b ON a.x=b.y her iki tabloda da eşleşen satırları içerir.
+LEFT JOIN b ON a.x=b.y &amp;ldquo;a&amp;quot;daki tüm satırları, artı &amp;ldquo;b&amp;quot;deki eşleşen verileri veya eşleşen satır yoksa &amp;ldquo;NULL&amp;rsquo;ları&amp;rdquo; içerir.
+Birleştirmeler görselleştirildi # Görsel odaklı biriyseniz, bu Venn şeması MySQL&amp;rsquo;de bulunan farklı &amp;lsquo;JOIN&amp;rsquo; türlerini anlamanıza yardımcı olabilir.</description>
+    </item>
+    
+    <item>
+      <title>Saklanan rutinler (prosedürler ve işlevler)</title>
+      <link>https://www.wikiod.com/tr/mysql/saklanan-rutinler-prosedurler-ve-islevler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mysql/saklanan-rutinler-prosedurler-ve-islevler/</guid>
+      <description>Parametreler # parametre Ayrıntılar İADE Bir işlevden döndürülebilecek veri türünü belirtir. DÖNÜŞ &amp;lsquo;RETURN&amp;rsquo; sözdizimini izleyen gerçek değişken veya değer, işlevin çağrıldığı yere döndürülen değerdir. Depolanmış bir rutin ya bir prosedür ya da bir fonksiyondur.
+Bir CALL deyimi kullanılarak bir prosedür çağrılır ve yalnızca geri dönebilir çıkış değişkenlerini kullanan değerler.
+Bir fonksiyon, tıpkı diğerleri gibi, bir deyimin içinden çağrılabilir. işlev ve skaler bir değer döndürebilir.
+IN, OUT, INOUT parametreleriyle saklı prosedür # DELIMITER $$ DROP PROCEDURE IF EXISTS sp_nested_loop$$ CREATE PROCEDURE sp_nested_loop(IN i INT, IN j INT, OUT x INT, OUT y INT, INOUT z INT) BEGIN DECLARE a INTEGER DEFAULT 0; DECLARE b INTEGER DEFAULT 0; DECLARE c INTEGER DEFAULT 0; WHILE a &amp;lt; i DO WHILE b &amp;lt; j DO SET c = c + 1; SET b = b + 1; END WHILE; SET a = a + 1; SET b = 0; END WHILE; SET x = a, y = c; SET z = x + y + z; END $$ DELIMITER ; Saklı yordamı çağırır (CALL):</description>
+    </item>
+    
+    <item>
+      <title>Hata kodları</title>
+      <link>https://www.wikiod.com/tr/mysql/hata-kodlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mysql/hata-kodlar/</guid>
+      <description>Hata kodu 1064: Sözdizimi hatası # select LastName, FirstName, from Person Mesajı döndürür:
+Hata Kodu: 1064. SQL sözdiziminizde bir hata var; 2. satırdaki &amp;lsquo;Kişiden&amp;rsquo; yakınında kullanılacak doğru sözdizimi için MySQL sunucu sürümünüze karşılık gelen kılavuza bakın.
+MySQL&amp;rsquo;den &amp;ldquo;1064 hatası&amp;rdquo; mesajı almak, sorgunun sözdizimi hataları olmadan ayrıştırılamayacağı anlamına gelir. Başka bir deyişle, sorguyu anlamlandıramaz.
+Hata mesajındaki alıntı, MySQL&amp;rsquo;in nasıl ayrıştırılacağını çözemediği sorgunun ilk karakteriyle başlar. Bu örnekte MySQL, bağlamda &amp;ldquo;Kişiden&amp;rdquo; anlam ifade edemez.</description>
+    </item>
+    
+    <item>
+      <title>Limit ve Ofset</title>
+      <link>https://www.wikiod.com/tr/mysql/limit-ve-ofset/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mysql/limit-ve-ofset/</guid>
+      <description>Sözdizimi # sütun_1 [, sütun_2 ] SEÇ tablo_1&amp;rsquo;DEN sipariş_sütununa göre SİPARİŞ LIMIT satır_sayısı [OFFSET row_offset] sütun_1 [, sütun_2 ] SEÇ tablo_1&amp;rsquo;DEN sipariş_sütununa göre SİPARİŞ LIMIT [row_offset,] row_count &amp;ldquo;Limit&amp;rdquo;, &amp;ldquo;Tablodaki maksimum satır sayısı&amp;rdquo; anlamına gelebilir.
+&amp;ldquo;Ofset&amp;rdquo;, &amp;ldquo;satır&amp;rdquo; sayısından seçim anlamına gelir (birincil anahtar değeri veya herhangi bir alan veri değeri ile karıştırılmamalıdır)
+Limit ve Offset ilişkisi # Aşağıdaki &amp;ldquo;kullanıcılar&amp;rdquo; tablosunu göz önünde bulundurarak:
+kimlik Kullanıcı adı 1 kullanıcı1 2 kullanıcı2 3 kullanıcı3 4 kullanıcı4 5 kullanıcı5 Bir &amp;lsquo;SEÇ&amp;rsquo; sorgusunun sonuç kümesindeki satır sayısını sınırlamak için, &amp;lsquo;LIMIT&amp;rsquo; yan tümcesi argüman olarak bir veya iki pozitif tamsayı ile birlikte kullanılabilir (sıfır dahil).</description>
+    </item>
+    
+  </channel>
+</rss>

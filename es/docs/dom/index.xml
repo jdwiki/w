@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de DOM on </title>
+    <link>https://www.wikiod.com/es/docs/dom/</link>
+    <description>Recent content in Tutorial de DOM on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/dom/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con DOM</title>
+      <link>https://www.wikiod.com/es/dom/primeros-pasos-con-dom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dom/primeros-pasos-con-dom/</guid>
+      <description>marcado HTML # entrada de ejemplo:
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;the title&amp;lt;/title&amp;gt; &amp;lt;link href=&#39;css/app.css&#39; type=&#39;text/css&#39; rel=&#39;stylesheet&#39;&amp;gt; &amp;lt;script src=&#39;js/app.js&#39;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;header&amp;lt;/h1&amp;gt; &amp;lt;div&amp;gt; &amp;lt;p&amp;gt;hello!&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Salida del elemento DOM: # ------------ | document | &amp;lt;--- DOM root object. ------------ | | ------------ | html | &amp;lt;--- document.documentElement ------------ ______________|______________ | | ------------ ------------ | head | | body | ------------ ------------ ______________|______________ |______________ | | | | | ------------ ------------ ------------ ------------ ------------ | title | | link | | script | | h1 | | div | ------------ ------------ ------------ ------------ ------------ | | ------------ | p | ------------ Todos los elementos anteriores se heredan de la interfaz HTMLElement y se personalizan según la etiqueta específica</description>
+    </item>
+    
+    <item>
+      <title>Eventos</title>
+      <link>https://www.wikiod.com/es/dom/eventos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dom/eventos/</guid>
+      <description>Parámetros # Parámetro Descripción tipo String define el nombre del evento a escuchar. oyente La Función se dispara cuando ocurre el evento. opciones Booleano para configurar la captura, si Objeto puede establecer las siguientes propiedades en él, tenga en cuenta que la opción de objeto es débilmente compatible. 1. capturar Un valor booleano que indica que los eventos de este tipo se enviarán al agente de escucha registrado antes de enviarse a cualquier EventTarget debajo de él en el árbol DOM.</description>
+    </item>
+    
+    <item>
+      <title>Recuperando Elementos</title>
+      <link>https://www.wikiod.com/es/dom/recuperando-elementos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dom/recuperando-elementos/</guid>
+      <description>Por identificación # document.getElementById(&#39;uniqueID&#39;) recuperará
+&amp;lt;div id=&amp;quot;uniqueID&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; Siempre que exista un elemento con el ID dado, document.getElementById devolverá solo ese elemento. De lo contrario, devolverá null.
+Nota: Los ID deben ser únicos. Varios elementos no pueden tener el mismo ID.
+Por nombre de etiqueta # document.getElementsByTagName(&#39;b&#39;) recuperará
+&amp;lt;b&amp;gt;All&amp;lt;/b&amp;gt; &amp;lt;b&amp;gt;of&amp;lt;/b&amp;gt; &amp;lt;b&amp;gt;the b elements.&amp;lt;/b&amp;gt; Si no existen elementos con el nombre de etiqueta dado, se devolverá una colección vacía.
+Por selector de CSS # Considere seguir el código html</description>
+    </item>
+    
+    <item>
+      <title>Manipulación de una lista de clases CSS</title>
+      <link>https://www.wikiod.com/es/dom/manipulacion-de-una-lista-de-clases-css/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dom/manipulacion-de-una-lista-de-clases-css/</guid>
+      <description>Prueba para una clase # Los navegadores modernos proporcionan un objeto classList para facilitar la manipulación del atributo de clase del elemento. Los navegadores más antiguos requieren una manipulación directa de la propiedad className del elemento.
+* Tenga en cuenta que los nombres de clase no se almacenan en la propiedad del elemento en ningún orden en particular
+Probar si un elemento contiene una clase requiere un poco de manipulación de la propiedad className.</description>
+    </item>
+    
+    <item>
+      <title>El recorrido</title>
+      <link>https://www.wikiod.com/es/dom/el-recorrido/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dom/el-recorrido/</guid>
+      <description>Caminando por los árboles # Iterando sobre nodos # La interfaz NodeIterator proporciona métodos para iterar sobre nodos en un árbol DOM.
+Dado un documento como este:
+&amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;section class=&amp;quot;main&amp;quot;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;List Item&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;List Item&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;List Item&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;List Item&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/section&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Uno podría imaginar un iterador para obtener los elementos &amp;lt;li&amp;gt;:
+let root = document.body; let whatToShow = NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT; let filter = (node) =&amp;gt; node.nodeName.toLowerCase() === &#39;li&#39; ?</description>
+    </item>
+    
+    <item>
+      <title>Manipulación de elementos</title>
+      <link>https://www.wikiod.com/es/dom/manipulacion-de-elementos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dom/manipulacion-de-elementos/</guid>
+      <description>Clonación de elementos # Agregando un elemento # En este ejemplo, creamos un nuevo elemento de lista con el texto &amp;ldquo;nuevo texto&amp;rdquo; y seleccionamos la primera lista desordenada y su primer elemento de lista.
+let newElement = document.createElement(&amp;quot;li&amp;quot;); newElement.innerHTML = &amp;quot;new text&amp;quot;; let parentElement = document.querySelector(&amp;quot;ul&amp;quot;); let nextSibling = parentElement.querySelector(&amp;quot;li&amp;quot;); Cuando insertamos un elemento, lo hacemos debajo del elemento principal, y justo antes de un elemento secundario particular de ese elemento principal.</description>
+    </item>
+    
+    <item>
+      <title>Usando estilos CSS</title>
+      <link>https://www.wikiod.com/es/dom/usando-estilos-css/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dom/usando-estilos-css/</guid>
+      <description>Las interfaces detalladas en este documento se introdujeron en DOM Level 2 Style, que salió aproximadamente al mismo tiempo que DOM Level 2 Core y, por lo tanto, se considera &amp;ldquo;parte de DOM versión 2&amp;rdquo;.
+Leer y cambiar estilos en línea # Estilo en línea # Puede manipular el estilo CSS en línea de un elemento HTML simplemente leyendo o editando su propiedad style.
+Suponga el siguiente elemento:
+&amp;lt;div id=&amp;quot;element_id&amp;quot; style=&amp;quot;color:blue;width:200px;&amp;quot;&amp;gt;abc&amp;lt;/div&amp;gt; Con este JavaScript aplicado:</description>
+    </item>
+    
+    <item>
+      <title>Manipulación de atributos</title>
+      <link>https://www.wikiod.com/es/dom/manipulacion-de-atributos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/dom/manipulacion-de-atributos/</guid>
+      <description>Los atributos son un tipo específico de objeto en la API DOM. En versiones anteriores de la API DOM, heredaban del tipo Nodo, pero esto se cambió en la versión 4.
+En los ejemplos que se refieren a conjunto de datos, los &amp;ldquo;navegadores modernos&amp;rdquo; excluyen específicamente las versiones de Internet Explorer anteriores a la 11. Consulte caniuse.com para obtener información más actualizada. .
+Obtener un atributo # Se puede acceder directamente a algunos atributos como propiedades del elemento (por ejemplo, alt, href, id, title y value).</description>
+    </item>
+    
+  </channel>
+</rss>

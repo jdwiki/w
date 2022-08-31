@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de electrones on </title>
+    <link>https://www.wikiod.com/es/docs/electron/</link>
+    <description>Recent content in Tutorial de electrones on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/electron/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comenzando con el electrón</title>
+      <link>https://www.wikiod.com/es/electron/comenzando-con-el-electron/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/electron/comenzando-con-el-electron/</guid>
+      <description>Instalación de Electron # Dependencias # Para instalar electron, primero debe instalar Node.js, que viene con npm.
+¿Cómo instalarlo? # Utilice npm:
+# Install the `electron` command globally in your $PATH npm install electron -g # OR # Install as a development dependency npm install electron --save-dev ¡Hola Mundo! # Configuración # La estructura de un proyecto de Electron generalmente se ve así:
+hello-world-app/ ├── package.json ├── index.js └── index.html Ahora vamos a crear los archivos e inicializar nuestro package.</description>
+    </item>
+    
+    <item>
+      <title>Proceso principal y renderizador.</title>
+      <link>https://www.wikiod.com/es/electron/proceso-principal-y-renderizador/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/electron/proceso-principal-y-renderizador/</guid>
+      <description>El proceso que ejecuta el script principal de package.json se llama proceso principal. El proceso principal crea páginas web mediante la creación de instancias de BrowserWindow. Cada página web en Electron se ejecuta en su propio proceso, que se denomina proceso de representación. El proceso principal gestiona todas las páginas web y sus correspondientes procesos de representación. Cada proceso de representación está aislado y solo se preocupa por la página web que se ejecuta en él.</description>
+    </item>
+    
+    <item>
+      <title>instalador de electrones</title>
+      <link>https://www.wikiod.com/es/electron/instalador-de-electrones/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/electron/instalador-de-electrones/</guid>
+      <description>Módulo NPM que crea instaladores de Windows para aplicaciones Electron. Ayudará a crear un EXE único para la aplicación Electron windows.
+Sintaxis # Instalar globalmente npm install -g electron-winstaller Instalar localmente npm install &amp;ndash;save-dev electron-winstaller Parámetros # Nombre de configuración Descripción directorio de aplicaciones El valor de los autores para los metadatos del paquete nuget. El valor predeterminado es el campo de autor del archivo package.json de su aplicación cuando no se especifica.</description>
+    </item>
+    
+    <item>
+      <title>Empaquetado de una aplicación de electrones</title>
+      <link>https://www.wikiod.com/es/electron/empaquetado-de-una-aplicacion-de-electrones/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/electron/empaquetado-de-una-aplicacion-de-electrones/</guid>
+      <description>Cuando esté lista para su distribución, su aplicación electrónica se puede empaquetar en un archivo ejecutable.
+Las aplicaciones de Electron se pueden empaquetar para ejecutarse en Windows (32/64 bits), OSX (macOS) y Linux (x86/x86_64).
+Para empaquetar su código, use el paquete npm &amp;rsquo;electron-packager\
+https://github.com/electron-userland/electron-packager
+Sintaxis # $ electrón-empaquetador sourcedir nombre de la aplicación &amp;ndash;plataforma=plataforma &amp;ndash;arco=arco [banderas opcionales&amp;hellip;] Parámetros # Parámetro Detalles fuentedir El directorio de sus archivos de solicitud electrónica nombre de la aplicación El nombre de su aplicación plataforma La plataforma para la que desea compilar su código.</description>
+    </item>
+    
+    <item>
+      <title>Función remota use funciones de Electron en JavaScript</title>
+      <link>https://www.wikiod.com/es/electron/funcion-remota-use-funciones-de-electron-en-javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/electron/funcion-remota-use-funciones-de-electron-en-javascript/</guid>
+      <description>Si tiene que cambiar algunas cosas en renderer.js o main.js pero quiere hacer los cambios en index.html, puede usar la función remota. ¡Te permite acceder a todas las funciones electrónicas que necesitas!
+Sintaxis # use el control remoto como require(&amp;quot;electron&amp;quot;):
+main.js: const electron = require(&amp;quot;electron&amp;quot;);
+index.html: const electron = require(&amp;quot;electron&amp;quot;).remote;
+Usando el control remoto configurando la barra de progreso # const { remote } = require(&amp;quot;electron&amp;quot;); // &amp;lt;- The Node.js require() function is // added to JavaScript by electron function setProgress(p) { // p = number from 0 to 1 const currentWindow = remote.</description>
+    </item>
+    
+    <item>
+      <title>aplicación de bandeja de electrones</title>
+      <link>https://www.wikiod.com/es/electron/aplicacion-de-bandeja-de-electrones/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/electron/aplicacion-de-bandeja-de-electrones/</guid>
+      <description>Aplicación de bandeja de electrones # Agregar un ícono a su barra de bandeja
+let tray = null; let mainWindow = null; let user = null; app.on(&#39;ready&#39;, () =&amp;gt; { /** * Tray related code. */ const iconName = &#39;icon.png&#39;; const iconPath = path.join(__dirname, iconName); tray = new Tray(iconPath); tray.setToolTip(&#39;AMP Notifier App&#39;); const contextMenu = Menu.buildFromTemplate([{ label: &#39;Quit&#39;, click: destroyApp }]); tray.setContextMenu(contextMenu); tray.on(&#39;click&#39;, () =&amp;gt; { app.quit(); }); }); </description>
+    </item>
+    
+    <item>
+      <title>Usando bootstrap en electrones</title>
+      <link>https://www.wikiod.com/es/electron/usando-bootstrap-en-electrones/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/electron/usando-bootstrap-en-electrones/</guid>
+      <description>Uno de los mejores marcos front-end en el mundo web en twitter bootstrap. Como electron depende del navegador web, podemos usar fácilmente bootstrap con electron para usar el poder de bootstrap en nuestro marco de electrones. La última versión de bootstrap a partir de hoy es 3.3.7 y bootstrap 4 todavía está en fase alfa.
+Vinculación de electrones con Bootstrap # Para usar bootstrap, hay 2 casos.
+La aplicación de electrones está conectada a Internet.</description>
+    </item>
+    
+    <item>
+      <title>Usando nedb en electrones</title>
+      <link>https://www.wikiod.com/es/electron/usando-nedb-en-electrones/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/electron/usando-nedb-en-electrones/</guid>
+      <description>Instalación de nedb # Es muy fácil de instalar nedb.
+npm install nedb --save # Put latest version in your package.json Para las personas amantes de la glorieta,
+bower install nedb Conexión de la aplicación de electrones con Nedb # Al crear aplicaciones electrónicas, generalmente el backend está en una carpeta separada (archivos js) y el front-end está en una carpeta separada (archivos html). En el backend, para usar la base de datos, tenemos que incluir el paquete nedb con la instrucción require de la siguiente manera.</description>
+    </item>
+    
+  </channel>
+</rss>

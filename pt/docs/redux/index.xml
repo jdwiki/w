@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial redux on </title>
+    <link>https://www.wikiod.com/pt/docs/redux/</link>
+    <description>Recent content in Tutorial redux on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/redux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com redux</title>
+      <link>https://www.wikiod.com/pt/redux/comecando-com-redux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/redux/comecando-com-redux/</guid>
+      <description>Instalação ou Configuração # Instalação básica:
+Você pode baixar o arquivo javascript redux, usando este link.
+Além disso, você pode instalar o redux, usando bower :
+bower install https://npmcdn.com/redux@latest/dist/redux.min.js Em seguida, você precisa incluir redux em sua página:
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/path/to/redux.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; // Redux is available as `window.Redux` variable. &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Instalação Npm:
+Se você estiver usando npm, para instalar o redux, você precisa executar:</description>
+    </item>
+    
+    <item>
+      <title>Fluxo de dados assíncrono</title>
+      <link>https://www.wikiod.com/pt/redux/fluxo-de-dados-assincrono/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/redux/fluxo-de-dados-assincrono/</guid>
+      <description>Redux-thunk: básico # Embora o redux em si seja totalmente síncrono, você pode usar um middleware como o redux-thunk para lidar com ações assíncronas.
+Um &amp;ldquo;thunk&amp;rdquo; é outro nome para um retorno de chamada. É uma função normalmente passado como um argumento a ser chamado posteriormente.
+Para usar, aplique o middleware à sua loja redux:
+import ReduxThunk from &#39;redux-thunk&#39;; const store = createStore( reducer, applyMiddleware(ReduxThunk) ); Isso permite que você passe uma conversão para dispatch em vez de um objeto simples.</description>
+    </item>
+    
+    <item>
+      <title>Pure Redux - Redux sem nenhum framework</title>
+      <link>https://www.wikiod.com/pt/redux/pure-redux---redux-sem-nenhum-framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/redux/pure-redux---redux-sem-nenhum-framework/</guid>
+      <description>Parâmetros # Paramentador Descrição ação Deve ser um objeto com pelo menos a propriedade type. Qualquer outra propriedade pode ser passada e estará acessível dentro da função redutora. Se você não estiver usando bundlers como Webpack e Browserify, altere a primeira linha para:
+const { createStore } = Redux; Ou apenas chame-o diretamente do Redux global ao criar a loja:
+const store = Redux.createStore(counter); Exemplo completo # index.html # &amp;lt;button id=&amp;quot;increment&amp;quot;&amp;gt;Increment&amp;lt;/button&amp;gt; &amp;lt;button id=&amp;quot;decrement&amp;quot;&amp;gt;Decrement&amp;lt;/button&amp;gt; &amp;lt;p id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/p&amp;gt; index.</description>
+    </item>
+    
+    <item>
+      <title>Testando aplicativos Redux</title>
+      <link>https://www.wikiod.com/pt/redux/testando-aplicativos-redux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/redux/testando-aplicativos-redux/</guid>
+      <description>Redux + Mocha # O Redux é muito funcional, então o teste de unidade é muito simples.
+Criador da ação:
+export function showSidebar () { return { type: &#39;SHOW_SIDEBAR&#39; } } Teste de unidade de criadores de ação:
+import expect from &#39;expect&#39; import actions from &#39;./actions&#39; import * as type from &#39;./constants&#39; describe(&#39;actions&#39;, () =&amp;gt; { it(&#39;should show sidebar&#39;, () =&amp;gt; { const expectedAction = { type: type.SHOW_SIDEBAR } expect(actions.showSidebar()).toEqual(expectedAction) }) }) Testando uma loja Redux com Mocha e Chai # import { expect } from &#39;chai&#39;; import { createStore } from &#39;redux&#39;; describe(&#39;redux store test demonstration&#39;, () =&amp;gt; { describe(&#39;testReducer&#39;, () =&amp;gt; { it(&#39;should increment value on TEST_ACTION&#39;, () =&amp;gt; { // define a test reducer with initial state: test: 0 const testReducer = (state = { test: 0 }, action) =&amp;gt; { switch (action.</description>
+    </item>
+    
+    <item>
+      <title>Como vincular redux e reagir</title>
+      <link>https://www.wikiod.com/pt/redux/como-vincular-redux-e-reagir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/redux/como-vincular-redux-e-reagir/</guid>
+      <description>Sintaxe # &amp;lt;Loja do provedor&amp;gt; connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [opções]) Parâmetros # Argumento Descrição loja Loja Redux mapStateToProps Mapeamento fornecido pelo usuário: (state, ownProps) =&amp;gt; resultProps Fornecedor # Para vincular facilmente sua loja Redux aos seus componentes React, você pode usar uma biblioteca adicional: react-redux.
+Primeiro, você precisa envolver seu aplicativo em um Provider, que é um componente que passa sua loja para ser usado por componentes filhos:
+import { Provider } from &#39;react-redux&#39;; /// .</description>
+    </item>
+    
+    <item>
+      <title>Redutor</title>
+      <link>https://www.wikiod.com/pt/redux/redutor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/redux/redutor/</guid>
+      <description>Redutores alteram o estado do aplicativo com base nas ações acionadas.
+O estado é imutável, o que significa que os redutores devem ser puros: para a mesma entrada, você deve sempre obter a mesma saída. Por isso, a mutabilidade é proibida em redutores.
+Redutor básico # Um redutor básico ficaria assim:
+// Import the action types to recognise them import { ACTION_ERROR, ACTION_ENTITIES_LOADED, ACTION_ENTITY_CREATED } from &#39;./actions&#39;; // Set up a default state const initialState = { error: undefined, entities: [] }; // If no state is provided, we take the default state export default (state = initilState, action) =&amp;gt; { // Based on the type of action received, we calculate the new state switch(action.</description>
+    </item>
+    
+  </channel>
+</rss>

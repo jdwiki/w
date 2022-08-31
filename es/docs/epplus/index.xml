@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on </title>
+    <link>https://www.wikiod.com/es/docs/epplus/</link>
+    <description>Recent content in Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/epplus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con epplus</title>
+      <link>https://www.wikiod.com/es/epplus/primeros-pasos-con-epplus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/epplus/primeros-pasos-con-epplus/</guid>
+      <description>Instalación # Descargue los archivos de CodePlex y agréguelos al proyecto.
+O instale los archivos con el Administrador de paquetes.
+PM&amp;gt; Install-Package EPPlus Empezando # //Create a new ExcelPackage using (ExcelPackage excelPackage = new ExcelPackage()) { //Set some properties of the Excel document excelPackage.Workbook.Properties.Author = &amp;quot;VDWWD&amp;quot;; excelPackage.Workbook.Properties.Title = &amp;quot;Title of Document&amp;quot;; excelPackage.Workbook.Properties.Subject = &amp;quot;EPPlus demo export data&amp;quot;; excelPackage.Workbook.Properties.Created = DateTime.Now; //Create the WorkSheet ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add(&amp;quot;Sheet 1&amp;quot;); //Add some text to cell A1 worksheet.</description>
+    </item>
+    
+    <item>
+      <title>Crear fórmulas y calcular rangos</title>
+      <link>https://www.wikiod.com/es/epplus/crear-formulas-y-calcular-rangos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/epplus/crear-formulas-y-calcular-rangos/</guid>
+      <description>Ejemplos básicos de cómo crear celdas con una fórmula para cálculos dentro de la hoja de Excel.
+Agregar fórmulas a una celda # //set the total value of cells in range A1 - A25 into A27 worksheet.Cells[&amp;quot;A27&amp;quot;].Formula = &amp;quot;=SUM(A1:A25)&amp;quot;; //set the number of cells with content in range C1 - C25 into C27 worksheet.Cells[&amp;quot;C27&amp;quot;].Formula = &amp;quot;=COUNT(C1:C25)&amp;quot;; //fill column K with the sum of each row, range A - J for (int i = 1; i &amp;lt;= 25; i++) { var cell = worksheet.</description>
+    </item>
+    
+    <item>
+      <title>Guardar el documento de Excel</title>
+      <link>https://www.wikiod.com/es/epplus/guardar-el-documento-de-excel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/epplus/guardar-el-documento-de-excel/</guid>
+      <description>Ejemplos de cómo guardar la hoja de Excel creada en el Disco o enviarla al Navegador.
+Guardar en el disco # //Using File.WriteAllBytes using (ExcelPackage excelPackage = new ExcelPackage()) { //create a new Worksheet ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add(&amp;quot;Sheet 1&amp;quot;); //add some text to cell A1 worksheet.Cells[&amp;quot;A1&amp;quot;].Value = &amp;quot;My second EPPlus spreadsheet!&amp;quot;; //convert the excel package to a byte array byte[] bin = excelPackage.GetAsByteArray(); //the path of the file string filePath = &amp;quot;C:\\ExcelDemo.</description>
+    </item>
+    
+    <item>
+      <title>Importación de datos de un archivo existente</title>
+      <link>https://www.wikiod.com/es/epplus/importacion-de-datos-de-un-archivo-existente/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/epplus/importacion-de-datos-de-un-archivo-existente/</guid>
+      <description>Cómo importar datos de un archivo Excel o CSV existente.
+Importar datos desde un archivo de Excel # //create a list to hold all the values List&amp;lt;string&amp;gt; excelData = new List&amp;lt;string&amp;gt;(); //read the Excel file as byte array byte[] bin = File.ReadAllBytes(&amp;quot;C:\\ExcelDemo.xlsx&amp;quot;); //or if you use asp.net, get the relative path byte[] bin = File.ReadAllBytes(Server.MapPath(&amp;quot;ExcelDemo.xlsx&amp;quot;)); //create a new Excel package in a memorystream using (MemoryStream stream = new MemoryStream(bin)) using (ExcelPackage excelPackage = new ExcelPackage(stream)) { //loop all worksheets foreach (ExcelWorksheet worksheet in excelPackage.</description>
+    </item>
+    
+    <item>
+      <title>Validación de entrada de usuario</title>
+      <link>https://www.wikiod.com/es/epplus/validacion-de-entrada-de-usuario/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/epplus/validacion-de-entrada-de-usuario/</guid>
+      <description>Cómo validar las entradas del usuario. La validación restringe los valores que un usuario puede ingresar en una celda y/o establece un cuadro combinado para que el usuario seleccione el valor de la celda. Opcionalmente, se puede mostrar un mensaje cuando el usuario hace clic en una celda y un mensaje de error, cuando falla la validación.
+Validación de lista # //Add a List validation to B column. Values should be in a list var val = worksheet.</description>
+    </item>
+    
+    <item>
+      <title>Mesas</title>
+      <link>https://www.wikiod.com/es/epplus/mesas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/epplus/mesas/</guid>
+      <description>Este tema describe cómo agregar y diseñar tablas
+Agregar y formatear una tabla # //Using statement for ExcelTable and TableStyles using OfficeOpenXml.Table; //Defining the tables parameters int firstRow =1; int lastRow = worksheet.Dimension.End.Row; int firstColumn = 1; int lastColumn = worksheet.Dimension.End.Column; ExcelRange rg = worksheet.Cells[firstRow, firstColumn, lastRow, LastColumn]; string tableName = &amp;quot;Table1&amp;quot;; //Ading a table to a Range ExcelTable tab = worksheet.Tables.Add(rg, tableName); //Formating the table style tab.TableStyle = TableStyles.Light8; </description>
+    </item>
+    
+    <item>
+      <title>Tabla dinámica</title>
+      <link>https://www.wikiod.com/es/epplus/tabla-dinamica/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/epplus/tabla-dinamica/</guid>
+      <description>La tabla dinámica es un tipo de tabla interactiva, que se puede usar para calcular datos, como obtener una suma o contar datos. Además, los usuarios pueden cambiar el diseño de la tabla dinámica para analizar datos de diferentes maneras o reasignar la etiqueta de fila/columna. Cada vez que los usuarios cambien el diseño, los datos se volverán a calcular en la tabla dinámica.
+Crear una tabla dinámica # //create a new ExcelPackage using (ExcelPackage excelPackage = new ExcelPackage()) { //create 2 WorkSheets.</description>
+    </item>
+    
+    <item>
+      <title>Agregar datos al documento existente</title>
+      <link>https://www.wikiod.com/es/epplus/agregar-datos-al-documento-existente/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/epplus/agregar-datos-al-documento-existente/</guid>
+      <description>Cómo agregar datos a un documento de Excel ya existente.
+Anexando datos # //the path of the file string filePath = &amp;quot;C:\\ExcelDemo.xlsx&amp;quot;; //or if you use asp.net, get the relative path filePath = Server.MapPath(&amp;quot;ExcelDemo.xlsx&amp;quot;); //create a fileinfo object of an excel file on the disk FileInfo file = new FileInfo(filePath); //create a new Excel package from the file using (ExcelPackage excelPackage = new ExcelPackage(file)) { //create an instance of the the first sheet in the loaded file ExcelWorksheet worksheet = excelPackage.</description>
+    </item>
+    
+    <item>
+      <title>Valores de formato</title>
+      <link>https://www.wikiod.com/es/epplus/valores-de-formato/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/epplus/valores-de-formato/</guid>
+      <description>Cómo obtener el formato deseado de valores DateTime y Numeric.
+Formateo de números # //integer (not really needed unless you need to round numbers, Excel with use default cell properties) worksheet.Cells[&amp;quot;A1:A25&amp;quot;].Style.Numberformat.Format = &amp;quot;0&amp;quot;; //integer without displaying the number 0 in the cell worksheet.Cells[&amp;quot;A1:A25&amp;quot;].Style.Numberformat.Format = &amp;quot;#&amp;quot;; //number with 1 decimal place worksheet.Cells[&amp;quot;A1:A25&amp;quot;].Style.Numberformat.Format = &amp;quot;0.0&amp;quot;; //number with 2 decimal places worksheet.Cells[&amp;quot;A1:A25&amp;quot;].Style.Numberformat.Format = &amp;quot;0.00&amp;quot;; //number with 2 decimal places and thousand separator worksheet.Cells[&amp;quot;A1:A25&amp;quot;].Style.Numberformat.Format = &amp;quot;#,##0.</description>
+    </item>
+    
+    <item>
+      <title>Columnas y filas</title>
+      <link>https://www.wikiod.com/es/epplus/columnas-y-filas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/epplus/columnas-y-filas/</guid>
+      <description>Este tema contiene información sobre cómo trabajar con columnas y filas, como cambiar el tamaño, ocultar, ajustar automáticamente
+Columnas de ajuste automático # //Make all text fit the cells worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(); //Autofit with minimum size for the column. double minimumSize = 10; worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(minimumSize); //Autofit with minimum and maximum size for the column. double maximumSize = 50; worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(minimumSize, maximumSize); //optional use this to make all columms just a bit wider, text would sometimes still overflow after AutoFitColumns().</description>
+    </item>
+    
+  </channel>
+</rss>

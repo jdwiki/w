@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tutorial adb on </title>
+    <link>https://www.wikiod.com/pt/docs/adb/</link>
+    <description>Recent content in tutorial adb on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/adb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução ao adb</title>
+      <link>https://www.wikiod.com/pt/adb/introducao-ao-adb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/adb/introducao-ao-adb/</guid>
+      <description>Introdução # adb é uma ferramenta de linha de comando para comunicação com uma instância do emulador ou dispositivo conectado. Ele permite instalar e depurar aplicativos, transferir arquivos, bem como uma variedade de outras interações com o emulador ou dispositivo conectado. O sistema ADB consiste em um cliente, que envia comandos do computador host, um daemon, que é executado no dispositivo conectado e executa os comandos recebidos do cliente, e um servidor, que é executado no computador host e gerencia as comunicações entre o cliente e o daemon.</description>
+    </item>
+    
+    <item>
+      <title>Iniciando um aplicativo no modo de depuração</title>
+      <link>https://www.wikiod.com/pt/adb/iniciando-um-aplicativo-no-modo-de-depuracao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/adb/iniciando-um-aplicativo-no-modo-de-depuracao/</guid>
+      <description>Como esperar pelo depurador antes de iniciar o aplicativo? # Digamos que sua atividade de inicialização seja chamada de MainActivity, em seu aplicativo com.example.myapp. No manifesto:
+&amp;lt;activity android:name=&amp;quot;.MainActivity&amp;quot; &amp;gt; &amp;lt;intent-filter&amp;gt; &amp;lt;action android:name=&amp;quot;android.intent.action.MAIN&amp;quot;/&amp;gt; &amp;lt;category android:name=&amp;quot;android.intent.category.LAUNCHER&amp;quot;/&amp;gt; &amp;lt;/intent-filter&amp;gt; &amp;lt;/activity&amp;gt; Agora, digamos que você deseja iniciar o aplicativo, para que ele aguarde a conexão do depurador antes que o aplicativo realmente inicie.
+Você pode usar o adb shell para conseguir isso. No nosso caso, basta executar:</description>
+    </item>
+    
+    <item>
+      <title>Mostrando logs no ADB</title>
+      <link>https://www.wikiod.com/pt/adb/mostrando-logs-no-adb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/adb/mostrando-logs-no-adb/</guid>
+      <description>Exibindo e filtrando com Logcat # A exibição de todos os logs do buffer padrão na linha de comando pode ser realizada por:
+adb logcat Este comando mostrará todos os logs do buffer principal do dispositivo. Observe que, se você usá-lo pela primeira vez, obterá muitas informações, um enorme fluxo de dados. Então você pode querer limpar os logs primeiro &amp;hellip;
+Limpando os registros:
+adb logcat -c Isso limpará os logs e começará de novo.</description>
+    </item>
+    
+    <item>
+      <title>Transferindo arquivos usando push and pull</title>
+      <link>https://www.wikiod.com/pt/adb/transferindo-arquivos-usando-push-and-pull/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/adb/transferindo-arquivos-usando-push-and-pull/</guid>
+      <description>Sintaxe # adb push [-p] LOCAL REMOTO adb pull [-a] [-p] REMOTO [LOCAL] Parâmetros # Parâmetros Detalhes LOCAL Um arquivo ou diretório que está localizado no computador do usuário REMOTE Um arquivo ou diretório localizado no dispositivo Android do usuário -a Também copie o arquivo o registro de data e hora do arquivo remoto e os dados do modo de arquivo -p Exibe o progresso da transferência enquanto o arquivo ou diretório está copiando Se LOCAL for omitido no comando adb pull, o nome do arquivo de REMOTE será usado</description>
+    </item>
+    
+    <item>
+      <title>Coletando log de comandos adb</title>
+      <link>https://www.wikiod.com/pt/adb/coletando-log-de-comandos-adb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/adb/coletando-log-de-comandos-adb/</guid>
+      <description>Certifique-se de que sua automação não use o comando adb kill-server.
+no Windows # Abra uma janela Prompt de comando e execute os seguintes comandos:
+adb kill-server set ADB_TRACE=sockets adb nodaemon server 2&amp;gt;&amp;amp;1 | for /f &amp;quot;usebackq tokens=7*&amp;quot; %a in (`findstr /c:&amp;quot;): &#39;&amp;quot;`) do @echo %a %b &amp;gt;&amp;gt; %USERPROFILE%\Desktop\adb_host_log.txt Agora você pode executar sua automação Android. Quando terminar, execute adb kill-server em outra janela Prompt de Comando. Agora o arquivo adb_host_log.</description>
+    </item>
+    
+    <item>
+      <title>Conectando ao dispositivo</title>
+      <link>https://www.wikiod.com/pt/adb/conectando-ao-dispositivo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/adb/conectando-ao-dispositivo/</guid>
+      <description>Encontrando dispositivos conectados ao seu PC # Ative a depuração USB no seu dispositivo e na linha de comando digite adb devices. Se tudo estiver OK, a resposta deve ser:
+Lista de dispositivos anexados 1234567890 dispositivo
+Onde 1234567890 é o id do dispositivo. Se vários dispositivos estiverem conectados, você deverá ver todos eles:
+Lista de dispositivos anexados 1234567890 dispositivo dispositivo 2222222222 &amp;hellip;
+Ao conectar um dispositivo pela primeira vez, você verá uma janela pop-up em seu dispositivo, solicitando a aprovação da conexão.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mockito Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/mockito/</link>
+    <description>Recent content in mockito Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/mockito/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mockito&#39;yu kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/mockito/mockitoyu-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mockito/mockitoyu-kullanmaya-baslama/</guid>
+      <description>Alaylı nesneye davranış ekleyin # Mockito.when(mock.returnSomething()).thenReturn(&amp;quot;my val&amp;quot;); mock.returnSomething(); // returns &amp;quot;my val&amp;quot; mock.returnSomething(); // returns &amp;quot;my val&amp;quot; again mock.returnSomething(); // returns &amp;quot;my val&amp;quot; again and again and again... İkinci çağrıda farklı bir değer istiyorsanız, thenReturn yöntemine istenen dönüş argümanını ekleyebilirsiniz:
+Mockito.when(mock.returnSomething()).thenReturn(&amp;quot;my val&amp;quot;, &amp;quot;other val&amp;quot;); mock.returnSomething(); // returns &amp;quot;my val&amp;quot; mock.returnSomething(); // returns &amp;quot;other val&amp;quot; mock.returnSomething(); // returns &amp;quot;other val&amp;quot; again Alay etmek için davranış eklemeden yöntemi çağırırsanız, null döndürür:
+barMock.mock.returnSomethingElse(); // returns null Alaylı yöntemin parametreleri olması durumunda, değerleri de bildirmelisiniz:</description>
+    </item>
+    
+    <item>
+      <title>Mockito En İyi Uygulamaları</title>
+      <link>https://www.wikiod.com/tr/mockito/mockito-en-iyi-uygulamalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mockito/mockito-en-iyi-uygulamalar/</guid>
+      <description>BDDMockito stili # Davranış Odaklı Geliştirme (BDD) test stili, testlerde &amp;ldquo;verilen&amp;rdquo;, &amp;ldquo;ne zaman&amp;rdquo; ve &amp;ldquo;sonra&amp;rdquo; aşamaları etrafında döner. Bununla birlikte, klasik Mockito, &amp;ldquo;verilen&amp;rdquo; aşama için &amp;ldquo;ne zaman&amp;rdquo; kelimesini kullanır ve BDD&amp;rsquo;yi kapsayabilecek diğer doğal dil yapılarını içermez. Bu nedenle, davranışa dayalı testleri kolaylaştırmak için 1.8.0 sürümünde BDDMockito takma adları tanıtıldı.
+En yaygın durum, bir yöntemin dönüşlerini saplamaktır. Aşağıdaki örnekte, sahte &amp;ldquo;StudentRepository&amp;quot;nin &amp;ldquo;getStudent(String)&amp;rdquo; yöntemi, &amp;ldquo;givenName&amp;quot;e eşit bir argümanla çağrılırsa &amp;ldquo;new Student(givenName, GivenScore)&amp;rdquo; değerini döndürür.</description>
+    </item>
+    
+    <item>
+      <title>Yöntem çağrılarını doğrulama</title>
+      <link>https://www.wikiod.com/tr/mockito/yontem-cagrlarn-dogrulama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mockito/yontem-cagrlarn-dogrulama/</guid>
+      <description>ArgumentCaptor kullanarak çağrı bağımsız değişkenlerini doğrulayın # &amp;ldquo;ArgumentCaptor&amp;rdquo;, yönteme geçirilen gerçek çağırma argümanlarını alacak.
+ArgumentCaptor&amp;lt;Foo&amp;gt; captor = ArgumentCaptor.forClass(Foo.class); verify(mockObj).doSomethind(captor.capture()); Foo invocationArg = captor.getValue(); //do any assertions on invocationArg Tüm çağırma bağımsız değişkenlerini almak için alaylı yöntemin birden çok çağrılması durumunda
+List&amp;lt;Foo&amp;gt; invocationArgs = captor.getAllValues(); Aynı yaklaşım varargları yakalamak için de kullanılır.
+Ayrıca &amp;lsquo;@Captor&amp;rsquo; açıklamasını kullanarak &amp;lsquo;ArgumentCaptor&amp;rsquo; oluşturma imkanı da vardır:
+@Captor private ArgumentCaptor&amp;lt;Foo&amp;gt; captor; Basit yöntem çağrısı doğrulaması # Mockito.verify() kullanılarak bir yöntemin bir sahte üzerinde çağrılmış olup olmadığı doğrulanabilir.</description>
+    </item>
+    
+    <item>
+      <title>alay</title>
+      <link>https://www.wikiod.com/tr/mockito/alay/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mockito/alay/</guid>
+      <description>Ek açıklamaları kullanarak bir sınıfla alay etme # Kısmi alay için &amp;ldquo;Casus&amp;rdquo; # Sahte nesnelerde özel alanlar ayarlayın # Test edilen sınıfınızda, yapıcı aracılığıyla bile erişilemeyen bazı özel alanlarınız olabilir. Bu gibi durumlarda, bu tür özellikleri ayarlamak için yansıma kullanabilirsiniz. Bu, böyle bir JUnit testinden bir pasajdır.
+@InjectMocks private GreetingsService greetingsService = new GreetingsService(); // mocking this class @Before public void setUp() { MockitoAnnotations.initMocks(this); String someName = &amp;quot;Some Name&amp;quot;; ReflectionTestUtils.setField(greetingsService, // inject into this object &amp;quot;name&amp;quot;, // assign to this field someName); // object to be injected } Ben burada basitleştirmek için Sptring&amp;rsquo;in ReflectionTestUtils.</description>
+    </item>
+    
+    <item>
+      <title>Bir geçersiz dönüş yöntemine ardışık çağrıları alay etmek</title>
+      <link>https://www.wikiod.com/tr/mockito/bir-gecersiz-donus-yontemine-ardsk-cagrlar-alay-etmek/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mockito/bir-gecersiz-donus-yontemine-ardsk-cagrlar-alay-etmek/</guid>
+      <description>Mockito docs bir dizi yanıtın nasıl sağlanacağına dair mükemmel bir örneğe sahiptir bir sahte birden fazla çağrı için. Ancak, stubbing void yöntemlerinin do yöntem ailesini kullanmayı gerektirdiğini belirtmek dışında, void döndüren bir yöntem için bunun nasıl yapılacağını kapsamazlar. -core/2.7.2/org/mockito/Mockito.html#do_family_methods_stubs).
+Void olmayan yöntemler için, When(mock.method()).thenThrow().thenReturn() sürümünün (bkz. docs olduğunu unutmayın. core/2.7.2/org/mockito/Mockito.html#stubbing_consecutive_calls)) argüman türü açısından güvenli ve daha okunabilir olduğundan tercih edilir.
+Geçici bir hatayı taklit etme # Bu arayüze çağrı yapan kodu test ettiğinizi ve yeniden deneme kodunuzun çalıştığından emin olmak istediğinizi hayal edin.</description>
+    </item>
+    
+    <item>
+      <title>Son sınıfları ve yöntemleri taklit edin</title>
+      <link>https://www.wikiod.com/tr/mockito/son-snflar-ve-yontemleri-taklit-edin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/mockito/son-snflar-ve-yontemleri-taklit-edin/</guid>
+      <description>Mockito 2.x&amp;rsquo;ten beri, son sınıfları ve yöntemleri taklit etme yeteneğine sahibiz.
+Nasıl yapılır # Adımlar:
+&amp;lsquo;Gradle&amp;rsquo;ınızda Mockito sürüm 2.x&amp;rsquo;e bağımlılık ekleyin (bu metni yazarken en son sürüm 2.7.22&amp;lsquo;dir):
+testCompile &amp;quot;org.mockito:mockito-core:$versions.mockito&amp;quot; Test kaynaklarında org.mockito.plugins.MockMaker adında bir dosya oluşturun: Bu dosyaya bir sonraki satırı ekleyin:
+mock-maker-inline </description>
+    </item>
+    
+  </channel>
+</rss>

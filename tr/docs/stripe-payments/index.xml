@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>şerit ödemeler Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/stripe-payments/</link>
+    <description>Recent content in şerit ödemeler Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/stripe-payments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Şerit ödemeleri kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/stripe-payments/serit-odemeleri-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/stripe-payments/serit-odemeleri-kullanmaya-baslama/</guid>
+      <description>Stripe API&amp;rsquo;sine Giriş # Stripe ile tipik bir ödeme akışı iki adıma ayrılabilir:
+Müşteri tarafında, ön uç (HTML + Javascript) kodunuzda, Stripe&amp;rsquo;in önceden oluşturulmuş Ödeme formunu veya Öğeler form alan(lar)ını kullanarak müşterinin ödeme bilgilerini toplarsınız. Bu, daha sonra sunucunuza göndereceğiniz bir belirteç döndürür.
+Sunucu tarafı, arka uç kodunuzda (PHP, Python, Ruby veya tercih ettiğiniz sunucu tarafı programlama dilinde), kartı gerçekten şarj etmek için belirteci bir ücret oluşturma isteğinde kullanırsınız.
+Bu 2 adımlı akışın amacı, sunucunuzun yalnızca kart jetonları ile çalışması ve hiçbir zaman ham kart bilgisi ile çalışmasıdır.</description>
+    </item>
+    
+    <item>
+      <title>Symfony2 için PHP-Stripe Connect belgeleri</title>
+      <link>https://www.wikiod.com/tr/stripe-payments/symfony2-icin-php-stripe-connect-belgeleri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/stripe-payments/symfony2-icin-php-stripe-connect-belgeleri/</guid>
+      <description>Parametreler # parametre Ayrıntılar miktar gerekli - En küçük para birimi cinsinden pozitif bir tamsayı (örneğin, 1,00 ABD Doları tahsil etmek için 100 sent veya 100 Yen tahsil etmek için 100 sent, 0 ondalık para birimi), karttan ne kadar tahsil edileceğini temsil eder. Minimum tutar 0,50 ABD doları veya ücretli para birimindeki eşdeğeridir. para birimi gerekli - para birimi için 3 harfli ISO kodu. açıklama isteğe bağlı, varsayılan null - Bir ücret nesnesine ekleyebileceğiniz isteğe bağlı bir dize.</description>
+    </item>
+    
+    <item>
+      <title>Stripe.Net Giriş</title>
+      <link>https://www.wikiod.com/tr/stripe-payments/stripenet-giris/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/stripe-payments/stripenet-giris/</guid>
+      <description>Sözdizimi # var stripeSubscriptionOptions = yeni StripeSubscriptionCreateOptions(); // options nesnesini tutmak için bir değişken oluşturun
+stripeSubscriptionOptions.Quantity = model.update; //bir abonelik için lisans miktarına ilişkin örnek seçenek
+var subscriptionService = new StripeSubscriptionService(); // API çağrısı yapmak için bir servis oluşturun
+var stripeSubscription = subscriptionService.Create(user.CustomerIdentifier, planId, stripeSubscriptionOptions);
+// service.create( string CustID, string PlanID, Object AbonelikSeçenekleri)
+//Müşteri kimliği veritabanınızdan kaydedilmelidir, alabilirsiniz PlanService kullanarak şeritten planID yapın ve options nesnesini oluşturun yukarıdaki gibi. NuGet yaparsanız Stripe.</description>
+    </item>
+    
+    <item>
+      <title>Şerit Aynı Kullanıcıya birden fazla kart ekle</title>
+      <link>https://www.wikiod.com/tr/stripe-payments/serit-ayn-kullancya-birden-fazla-kart-ekle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/stripe-payments/serit-ayn-kullancya-birden-fazla-kart-ekle/</guid>
+      <description>Şeritte müşteri oluştur # public function createCustomer($data , $token)//pass form data and token id { $customer=Customer::create(array( &amp;quot;email&amp;quot;=&amp;gt;$data[&#39;email&#39;], &amp;quot;description&amp;quot; =&amp;gt; $data[&#39;name&#39;], &amp;quot;source&amp;quot; =&amp;gt; $token // obtained with Stripe.js )); return $customer[&#39;id&#39;]; } Daha fazla bilgi için bu Bağlantıyı takip edin
+Müşteri nasıl alınır ve Stripe&amp;rsquo;ta kartlar nasıl eklenir # public function addCard($cust_id, $token) { $retriveResult=Customer::retrieve($cust_id); $tokendata = Token::retrieve($token); $newcard = $tokendata[&#39;card&#39;]; $flag = 1; foreach ($retriveResult[&#39;sources&#39;][&#39;data&#39;] as $card) { if($card[&#39;fingerprint&#39;] === $newcard[&#39;fingerprint&#39;]) { $cardid = $card[&#39;id&#39;]; $flag = 0; break; } } if($flag) { $savecard = $retriveResult-&amp;gt;sources-&amp;gt;create(array(&amp;quot;source&amp;quot; =&amp;gt;$token)); $cardid = $savecard[&#39;id&#39;]; } return $cardid; } </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dal Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/twig/</link>
+    <description>Recent content in dal Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/twig/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dal ile başlarken</title>
+      <link>https://www.wikiod.com/tr/twig/dal-ile-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/twig/dal-ile-baslarken/</guid>
+      <description>Temel API Kullanımı # Ayrıca kaynak kodu indirip projenizin bir dizinine yerleştirerek de kurulabilir. Ancak besteci kullanmanın birçok faydası vardır.
+require &#39;/path/to/lib/Twig/Autoloader.php&#39;; Twig_Autoloader::register(); $loader = new Twig_Loader_Filesystem(&#39;/path/to/templates&#39;); $options = array( &#39;strict_variables&#39; =&amp;gt; false, &#39;debug&#39; =&amp;gt; false, &#39;cache&#39;=&amp;gt; false ); $twig = new Twig_Environment($loader, $options); Yeni bir &amp;ldquo;Twig_Environment&amp;rdquo; örneği oluştururken, yapıcının ikinci argümanı olarak bir dizi seçenek iletebilirsiniz. Kullanılabilir seçeneklerin bir listesi:
+hata ayıklama (boolean, varsayılan &amp;ldquo;yanlış&amp;rdquo;) true olarak ayarlandığında, oluşturulan şablonların, oluşturulan düğümleri görüntülemek için kullanabileceğiniz bir __toString() yöntemi vardır.</description>
+    </item>
+    
+    <item>
+      <title>uzanan dal</title>
+      <link>https://www.wikiod.com/tr/twig/uzanan-dal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/twig/uzanan-dal/</guid>
+      <description>Twig&amp;rsquo;de zaten bazı yerleşik filtreler ve [işlevler](http://twig.sensiolabs.org/doc/functions/index. html), ancak yerleşik özellikler eksikse veya bir şablondaki bazı varsayılan &amp;lsquo;PHP&amp;rsquo; işlevlerine erişmeniz gerekiyorsa ne olur?
+Twig_Extension Oluşturma # Tüm özel işlevlerinizi/filtrelerinizi/testlerinizi/&amp;hellip; özel bir &amp;lsquo;Twig_Extension&amp;rsquo; sınıfı içinde gruplayabilirsiniz:
+ProjectTwigUzantısı
+class ProjectTwigExtension extends Twig_Extension { public function getFunctions() { return array( new Twig_SimpleFunction(&#39;twig_function_name&#39;, array($this, &#39;getTwigFunctionName&#39;)), new Twig_SimpleFunction(&#39;twig_function_foo&#39;, array($this, &#39;getTwigFunctionFoo&#39;)), ); } public function getFilters() { return array( new Twig_SimpleFilter(&#39;twig_filter_name&#39; , array($this, &#39;getTwigFilterName&#39;)), new Twig_SimpleFilter(&#39;twig_filter_foo&#39; , array($this, &#39;getTwigFilterFoo&#39;)), ); } public function getName() { return &#39;ProjectTwigExtension&#39;; } } Twig&amp;rsquo;deki uzantıyı kaydedin</description>
+    </item>
+    
+    <item>
+      <title>Temel şablon sözdizimi</title>
+      <link>https://www.wikiod.com/tr/twig/temel-sablon-sozdizimi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/twig/temel-sablon-sozdizimi/</guid>
+      <description>Temel şablon sözdizimi yapılarının açıklaması
+Değişkenlere erişme # Twig şablonlarında değişkenlere çift kaşlı ayraç {{ değişkenAdı }} gösterimi kullanılarak erişilebilir.
+Kullanıcıyı selamlamanın temel örneği
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;span&amp;gt;Hello {{ name }}&amp;lt;/span&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Dizi öğelerine erişme # Dal parametre olarak dizi alabilir. Dizinin belirli bir öğesine erişmek için normal php dizi erişim köşeli ayraç gösterimi `{{ dizi[anahtar] }}&amp;rsquo; kullanabilirsiniz.
+Diziyi parametre olarak kullanmak için değiştirilen önceki örnek
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;span&amp;gt;Hello {{ user[&#39;name&#39;] }}&amp;lt;/span&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Nesne özelliklerine erişme # Nesneler ayrıca şablona parametre olarak iletilebilir.</description>
+    </item>
+    
+    <item>
+      <title>Şablon devralma</title>
+      <link>https://www.wikiod.com/tr/twig/sablon-devralma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/twig/sablon-devralma/</guid>
+      <description>Temel şablon kullanma # base.twig.html # &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;{{ title | default(&#39;Hello World&#39;) }}&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;theme.css&amp;quot;&amp;gt; {% block css %} {% endblock %} &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; {% block body %} &amp;lt;nav&amp;gt; {% block navigation %} &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;Link&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;Link&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;Link&amp;lt;/a&amp;gt; {% endblock navigation %} &amp;lt;/nav&amp;gt; &amp;lt;section id=&amp;quot;container&amp;quot;&amp;gt; &amp;lt;section id=&amp;quot;content&amp;quot;&amp;gt; {% block content %} &amp;lt;p&amp;gt; Lorem ipsum dolor sit amet. &amp;lt;/p&amp;gt; &amp;lt;/section&amp;gt; {% endblock content %} &amp;lt;/section&amp;gt; {% endblock body %} &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; sayfa.</description>
+    </item>
+    
+    <item>
+      <title>Gelişmiş kullanım</title>
+      <link>https://www.wikiod.com/tr/twig/gelismis-kullanm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/twig/gelismis-kullanm/</guid>
+      <description>Lütfen Twig uzantısının PHP7 ile uyumlu olmadığını ve bu durumu çözmek için bir çekme isteği olmasına rağmen, henüz 1.x sürümünün bir parçası yapılmadığını unutmayın. En son Twig 2.x sürümü ile C uzantısı kaldırıldı ancak 2.1&amp;rsquo;in bir parçası olabilir. Bazı kıyaslamalar, PHP7 altındaki C uzantısıyla minimum iyileştirmeler ortaya koyuyor.
+C Uzantısını Oluşturma # C uzantısı, şablon oluşturmada bazı performans iyileştirmeleri sunan isteğe bağlı bir Twig özelliğidir. Uzantının kaynak kodu, Twig kaynak kodu dizininde &amp;ldquo;ext/twig&amp;rdquo; konumunda bulunur.</description>
+    </item>
+    
+  </channel>
+</rss>

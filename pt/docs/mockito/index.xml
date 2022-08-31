@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial mockito on </title>
+    <link>https://www.wikiod.com/pt/docs/mockito/</link>
+    <description>Recent content in Tutorial mockito on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/mockito/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução ao mockito</title>
+      <link>https://www.wikiod.com/pt/mockito/introducao-ao-mockito/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mockito/introducao-ao-mockito/</guid>
+      <description>Adicionar comportamento ao objeto simulado # Mockito.when(mock.returnSomething()).thenReturn(&amp;quot;my val&amp;quot;); mock.returnSomething(); // returns &amp;quot;my val&amp;quot; mock.returnSomething(); // returns &amp;quot;my val&amp;quot; again mock.returnSomething(); // returns &amp;quot;my val&amp;quot; again and again and again... Se você quiser um valor diferente na segunda chamada, você pode adicionar o argumento de retorno desejado ao método thenReturn:
+Mockito.when(mock.returnSomething()).thenReturn(&amp;quot;my val&amp;quot;, &amp;quot;other val&amp;quot;); mock.returnSomething(); // returns &amp;quot;my val&amp;quot; mock.returnSomething(); // returns &amp;quot;other val&amp;quot; mock.returnSomething(); // returns &amp;quot;other val&amp;quot; again Se você chamar o método sem adicionar comportamento para simular, ele retornará null:</description>
+    </item>
+    
+    <item>
+      <title>Práticas recomendadas do Mockito</title>
+      <link>https://www.wikiod.com/pt/mockito/praticas-recomendadas-do-mockito/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mockito/praticas-recomendadas-do-mockito/</guid>
+      <description>Estilo BDMockito # O estilo de teste do Behavior Driven Development (BDD) gira em torno dos estágios &amp;ldquo;dado&amp;rdquo;, &amp;ldquo;quando&amp;rdquo; e &amp;ldquo;então&amp;rdquo; nos testes. No entanto, o Mockito clássico usa a palavra &amp;ldquo;quando&amp;rdquo; para a fase &amp;ldquo;dada&amp;rdquo; e não inclui outras construções de linguagem natural que possam abranger o BDD. Assim, os aliases BDDMockito foram introduzidos na versão 1.8.0 para facilitar os testes orientados ao comportamento.
+A situação mais comum é stub retornos de um método.</description>
+    </item>
+    
+    <item>
+      <title>Verificar chamadas de método</title>
+      <link>https://www.wikiod.com/pt/mockito/verificar-chamadas-de-metodo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mockito/verificar-chamadas-de-metodo/</guid>
+      <description>Verifique os argumentos da chamada usando ArgumentCaptor # ArgumentCaptor receberá os argumentos de invocação reais que foram passados ​​para o método.
+ArgumentCaptor&amp;lt;Foo&amp;gt; captor = ArgumentCaptor.forClass(Foo.class); verify(mockObj).doSomethind(captor.capture()); Foo invocationArg = captor.getValue(); //do any assertions on invocationArg Para casos de várias invocações do método simulado para receber todos os argumentos de invocação
+List&amp;lt;Foo&amp;gt; invocationArgs = captor.getAllValues(); A mesma abordagem é usada para capturar varargs.
+Também existe a possibilidade de criar ArgumentCaptor usando a anotação @Captor:</description>
+    </item>
+    
+    <item>
+      <title>Zombar</title>
+      <link>https://www.wikiod.com/pt/mockito/zombar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mockito/zombar/</guid>
+      <description>Zombando de uma classe usando anotações # &amp;ldquo;Spy&amp;rdquo; para zombaria parcial # Definir campos privados em objetos simulados # Na sua classe que está em teste, você pode ter alguns campos privados que não são acessíveis mesmo por meio do construtor. Nesses casos, você pode usar a reflexão para definir essas propriedades. Este é um trecho de tal teste JUnit.
+@InjectMocks private GreetingsService greetingsService = new GreetingsService(); // mocking this class @Before public void setUp() { MockitoAnnotations.</description>
+    </item>
+    
+    <item>
+      <title>Zombando de chamadas consecutivas para um método de retorno void</title>
+      <link>https://www.wikiod.com/pt/mockito/zombando-de-chamadas-consecutivas-para-um-metodo-de-retorno-void/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mockito/zombando-de-chamadas-consecutivas-para-um-metodo-de-retorno-void/</guid>
+      <description>Os documentos Mockito têm um excelente exemplo de como fornecer uma sequência de respostas para várias chamadas para um mock. No entanto, eles não abordam como fazer isso para um método que retorna void, além de observar que métodos stub void exigem o uso da [família de métodos do](https://static.javadoc.io/org.mockito/mockito -core/2.7.2/org/mockito/Mockito.html#do_family_methods_stubs).
+Lembre-se, para métodos não void, a versão when(mock.method()).thenThrow().thenReturn() (consulte [docs](https://static.javadoc.io/org.mockito/mockito- core/2.7.2/org/mockito/Mockito.html#stubbing_consecutive_calls)) é preferido porque é seguro para argumentos e mais legível.</description>
+    </item>
+    
+    <item>
+      <title>Aulas e métodos finais simulados</title>
+      <link>https://www.wikiod.com/pt/mockito/aulas-e-metodos-finais-simulados/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/mockito/aulas-e-metodos-finais-simulados/</guid>
+      <description>Desde o Mockito 2.x temos a capacidade de simular classes e métodos finais.
+Como fazer isso # Passos:
+Adicione dependência ao Mockito versão 2.x em seu gradle (no momento em que escrevo este texto, a versão mais recente é 2.7.22):
+testCompile &amp;quot;org.mockito:mockito-core:$versions.mockito&amp;quot; Crie um arquivo nos recursos de teste com o nome org.mockito.plugins.MockMaker: Adicione a próxima linha neste arquivo:
+mock-maker-inline </description>
+    </item>
+    
+  </channel>
+</rss>

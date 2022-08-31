@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stripe-paiements Tutoriel on </title>
+    <link>https://www.wikiod.com/fr/docs/stripe-payments/</link>
+    <description>Recent content in Stripe-paiements Tutoriel on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/stripe-payments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec les paiements par bandes</title>
+      <link>https://www.wikiod.com/fr/stripe-payments/premiers-pas-avec-les-paiements-par-bandes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/stripe-payments/premiers-pas-avec-les-paiements-par-bandes/</guid>
+      <description>## Introduction à l&amp;rsquo;API de Stripe Un flux de paiement typique avec Stripe peut être divisé en deux étapes :
+Côté client, dans votre code frontal (HTML + Javascript), vous collectez les informations de paiement du client à l&amp;rsquo;aide du formulaire prédéfini [Checkout][1] ou du ou des champs de formulaire [Elements][2] de Stripe. Cela renverra un jeton que vous enverrez ensuite à votre serveur.
+Côté serveur, dans votre code backend (en PHP, Python, Ruby ou tout autre langage de programmation côté serveur que vous préférez), vous utilisez le jeton dans une [demande de création de charge][3] pour charger réellement la carte.</description>
+    </item>
+    
+    <item>
+      <title>Documentation PHP-Stripe Connect pour Symfony2</title>
+      <link>https://www.wikiod.com/fr/stripe-payments/documentation-php-stripe-connect-pour-symfony2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/stripe-payments/documentation-php-stripe-connect-pour-symfony2/</guid>
+      <description>Paramètres # Paramètre Détails montant obligatoire - Un entier positif dans la plus petite unité monétaire (par exemple, 100 cents pour facturer 1,00 $ ou 100 pour facturer 100 ¥, une devise à 0 décimale) représentant le montant à facturer sur la carte. Le montant minimum est de 0,50 $ US ou l&amp;rsquo;équivalent dans la devise de facturation. monnaie requis : code ISO à 3 lettres pour la devise. descriptif facultatif, la valeur par défaut est null - Une chaîne arbitraire que vous pouvez attacher à un objet de charge.</description>
+    </item>
+    
+    <item>
+      <title>Présentation de Stripe.Net</title>
+      <link>https://www.wikiod.com/fr/stripe-payments/presentation-de-stripenet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/stripe-payments/presentation-de-stripenet/</guid>
+      <description>Syntaxe # var stripeSubscriptionOptions = nouveau StripeSubscriptionCreateOptions(); // crée une variable pour contenir l&amp;rsquo;objet options
+stripeSubscriptionOptions.Quantity = model.update; //exemple d&amp;rsquo;option de quantité de places pour un abonnement
+var subscriptionService = new StripeSubscriptionService(); //créer un service pour effectuer l&amp;rsquo;appel d&amp;rsquo;API
+var stripeSubscription = subscriptionService.Create(user.CustomerIdentifier, planId, stripeSubscriptionOptions);
+// service.create( string CustID, string PlanID, Object Options d&amp;rsquo;abonnement)
+// L&amp;rsquo;ID client doit être enregistré à partir de votre base de données, vous pouvez récupérer planID de Stripe à l&amp;rsquo;aide d&amp;rsquo;un PlanService et créez l&amp;rsquo;objet d&amp;rsquo;options comme ci-dessus.</description>
+    </item>
+    
+    <item>
+      <title>Stripe Ajouter plusieurs cartes au même utilisateur</title>
+      <link>https://www.wikiod.com/fr/stripe-payments/stripe-ajouter-plusieurs-cartes-au-meme-utilisateur/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/stripe-payments/stripe-ajouter-plusieurs-cartes-au-meme-utilisateur/</guid>
+      <description>Créer un client dans Stripe # public function createCustomer($data , $token)//pass form data and token id { $customer=Customer::create(array( &amp;quot;email&amp;quot;=&amp;gt;$data[&#39;email&#39;], &amp;quot;description&amp;quot; =&amp;gt; $data[&#39;name&#39;], &amp;quot;source&amp;quot; =&amp;gt; $token // obtained with Stripe.js )); return $customer[&#39;id&#39;]; } Pour plus d&amp;rsquo;informations, suivez ce [lien] [1]
+[1] : https://stripe.com/docs/api#create_customer
+Comment récupérer un client et ajouter des cartes dans Stripe # public function addCard($cust_id, $token) { $retriveResult=Customer::retrieve($cust_id); $tokendata = Token::retrieve($token); $newcard = $tokendata[&#39;card&#39;]; $flag = 1; foreach ($retriveResult[&#39;sources&#39;][&#39;data&#39;] as $card) { if($card[&#39;fingerprint&#39;] === $newcard[&#39;fingerprint&#39;]) { $cardid = $card[&#39;id&#39;]; $flag = 0; break; } } if($flag) { $savecard = $retriveResult-&amp;gt;sources-&amp;gt;create(array(&amp;quot;source&amp;quot; =&amp;gt;$token)); $cardid = $savecard[&#39;id&#39;]; } return $cardid; } </description>
+    </item>
+    
+  </channel>
+</rss>

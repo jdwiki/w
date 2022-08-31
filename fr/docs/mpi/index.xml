@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel mpi on </title>
+    <link>https://www.wikiod.com/fr/docs/mpi/</link>
+    <description>Recent content in Tutoriel mpi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/mpi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec mpi</title>
+      <link>https://www.wikiod.com/fr/mpi/premiers-pas-avec-mpi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mpi/premiers-pas-avec-mpi/</guid>
+      <description>Bonjour le monde! # Trois choses sont généralement importantes lorsque vous commencez à apprendre à utiliser MPI. Tout d&amp;rsquo;abord, vous devez initialiser la bibliothèque lorsque vous êtes prêt à l&amp;rsquo;utiliser (vous devez également la finaliser lorsque vous avez terminé). Deuxièmement, vous voudrez connaître la taille de votre communicateur (ce que vous utilisez pour envoyer des messages à d&amp;rsquo;autres processus). Troisièmement, vous voudrez connaître votre rang au sein de ce communicateur (quel numéro de processus êtes-vous dans ce communicateur).</description>
+    </item>
+    
+    <item>
+      <title>Collectifs</title>
+      <link>https://www.wikiod.com/fr/mpi/collectifs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mpi/collectifs/</guid>
+      <description>Les opérations collectives sont des appels MPI destinés à communiquer les processus pointés par un communicateur en une seule opération ou à effectuer une synchronisation entre eux. Ceux-ci sont souvent utilisés pour calculer une ou plusieurs valeurs basées sur des données fournies par d&amp;rsquo;autres processus ou pour distribuer ou collecter des données à partir de tous les autres processus.
+Notez que tous les processus du communicateur doivent invoquer les mêmes opérations collectives dans l&amp;rsquo;ordre, sinon l&amp;rsquo;application se bloquerait.</description>
+    </item>
+    
+    <item>
+      <title>Création et gestion de processus</title>
+      <link>https://www.wikiod.com/fr/mpi/creation-et-gestion-de-processus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mpi/creation-et-gestion-de-processus/</guid>
+      <description>Frai # Le processus maître génère deux processus de travail et diffuse &amp;ldquo;sendbuf&amp;rdquo; aux travailleurs.
+maître.c
+#include &amp;quot;mpi.h&amp;quot; int main(int argc, char *argv[]) { int n_spawns = 2; MPI_Comm intercomm; MPI_Init(&amp;amp;argc, &amp;amp;argv); MPI_Comm_spawn(&amp;quot;worker_program&amp;quot;, MPI_ARGV_NULL, n_spawns, MPI_INFO_NULL, 0, MPI_COMM_SELF, &amp;amp;intercomm, MPI_ERRCODES_IGNORE); int sendbuf[2] = {3, 5}; int recvbuf; // redundant for master. MPI_Scatter(sendbuf, 1, MPI_INT, &amp;amp;recvbuf, 1, MPI_INT, MPI_ROOT, intercomm); MPI_Finalize(); return 0; } travailleur.c
+#include &amp;quot;mpi.h&amp;quot; #include &amp;lt;stdio.h&amp;gt; int main(int argc, char *argv[]) { MPI_Init(&amp;amp;argc, &amp;amp;argv); MPI_Comm intercomm; MPI_Comm_get_parent(&amp;amp;intercomm); int sendbuf[2]; // redundant for worker.</description>
+    </item>
+    
+    <item>
+      <title>Exécution d&#39;un programme MPI</title>
+      <link>https://www.wikiod.com/fr/mpi/execution-dun-programme-mpi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mpi/execution-dun-programme-mpi/</guid>
+      <description>Paramètres # Paramètre Détails -n &amp;lt;num_procs&amp;gt; Le nombre de processus MPI à démarrer pour le travail Exécutez votre travail # La façon la plus simple d&amp;rsquo;exécuter votre travail est d&amp;rsquo;utiliser mpiexec ou mpirun (ils sont généralement la même chose et des alias l&amp;rsquo;un de l&amp;rsquo;autre).
+mpiexec -n 2 ./my_prog </description>
+    </item>
+    
+    <item>
+      <title>Compilation d&#39;un programme MPI</title>
+      <link>https://www.wikiod.com/fr/mpi/compilation-dun-programme-mpi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mpi/compilation-dun-programme-mpi/</guid>
+      <description>MPI doit ajouter des bibliothèques supplémentaires et inclure des répertoires à votre ligne de compilation lors de la compilation de votre programme. Plutôt que de tous les suivre vous-même, vous pouvez généralement utiliser l&amp;rsquo;un des wrappers du compilateur.
+C Enveloppe # mpicc -o my_prog my_prog.c </description>
+    </item>
+    
+    <item>
+      <title>Implémentations MPI</title>
+      <link>https://www.wikiod.com/fr/mpi/implementations-mpi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mpi/implementations-mpi/</guid>
+      <description>MPI est un standard, pas une bibliothèque de programmation. Il existe de nombreuses implémentations de la norme. Les logiciels open source les plus courants sont MPICH et Open MPI. Il existe de nombreux dérivés de ces deux bibliothèques qui sont soit open source, soit commerciaux (ou les deux).
+Il est important de savoir quelle implémentation vous avez car la façon dont vous compilez ou exécutez votre programme peut changer subtilement.</description>
+    </item>
+    
+    <item>
+      <title>Topologies de processus</title>
+      <link>https://www.wikiod.com/fr/mpi/topologies-de-processus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/mpi/topologies-de-processus/</guid>
+      <description>## Création et communication de la topologie des graphes Crée une topologie de graphe de manière distribuée afin que chaque nœud définisse ses voisins. Chaque nœud communique son rang parmi ses voisins avec MPI_Neighbor_allgather.
+[![entrez la description de l&amp;rsquo;image ici][1]][1]
+#include &amp;lt;mpi.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #define nnode 4 int main() { MPI_Init(NULL, NULL); int rank; MPI_Comm_rank(MPI_COMM_WORLD, &amp;amp;rank); int source = rank; int degree; int dest[nnode]; int weight[nnode] = {1, 1, 1, 1}; int recv[nnode] = {-1, -1, -1, -1}; int send = rank; // set dest and degree.</description>
+    </item>
+    
+  </channel>
+</rss>

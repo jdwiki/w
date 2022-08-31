@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rehber öğretici on </title>
+    <link>https://www.wikiod.com/tr/docs/guice/</link>
+    <description>Recent content in rehber öğretici on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/guice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>guice&#39;a başlarken</title>
+      <link>https://www.wikiod.com/tr/guice/guicea-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/guice/guicea-baslarken/</guid>
+      <description>&amp;lsquo;Merhaba dünya!&amp;rsquo; kurulumu örnek # Guice bir Java kütüphanesidir. Bunu kullanmak için Java projenizin sınıf yoluna bir JAR dosyası eklemelisiniz.
+Örnek sınıflar # Aşağıda &amp;ldquo;Merhaba dünya!&amp;rdquo; için birkaç sınıf bulunmaktadır. örnek.
+Merhaba &amp;ldquo;hizmet&amp;rdquo; arayüzü:
+public interface HelloWorldService { public void sayHello(); } Hizmetin uygulanması:
+public class HelloWorldServiceImpl implements HelloWorldService { @Override public void sayHello() { System.out.println(&amp;quot;Hello, world!&amp;quot;); } } Bir Guice adlandırma modülü. Guice&amp;rsquo;e merhaba servisinin gerekli olduğu yerlerde HelloWorldServiceImpl enjekte edileceğine dair talimat vermek gerekiyor.</description>
+    </item>
+    
+    <item>
+      <title>Guice&#39;i Java WebSockets ile Kullanma (JSR-356)</title>
+      <link>https://www.wikiod.com/tr/guice/guicei-java-websockets-ile-kullanma-jsr-356/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/guice/guicei-java-websockets-ile-kullanma-jsr-356/</guid>
+      <description>Websocket uç noktalarında Guice enjeksiyonu almak için yapılandırma # İlk olarak, özel bir uç nokta oluşturucuya ihtiyacımız var.
+public class WSConfigurator extends ServerEndpointConfig.Configurator { @Inject private static Injector injector; @Override public &amp;lt;T&amp;gt; T getEndpointInstance(Class&amp;lt;T&amp;gt; endpointClass) throws InstantiationException { return injector.getInstance(endpointClass); } } Yukarıdaki yapılandırıcıdaki enjektörü Guice modüllerimizden birinden önyüklememiz gerekiyor.
+public class WebSocketModule extends AbstractModule { @Override protected void configure() { requestStaticInjection(WSConfigurator.class); } } Son olarak, bitiş noktaları yapıcısında @Inject kullanabiliriz.</description>
+    </item>
+    
+    <item>
+      <title>Guice yöntemi önleyici</title>
+      <link>https://www.wikiod.com/tr/guice/guice-yontemi-onleyici/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/guice/guice-yontemi-onleyici/</guid>
+      <description>Basit örnek # Yakalanan yöntem:
+public class ExampleService implements Example { @MyAnnotation public doHomework() { System.out.println(&amp;quot;working&amp;quot;); } } Dipnot:
+@Retention(RetentionPolicy.RUNTIME) @Target(ElementType.METHOD) public @interface MyAnnotation {} önleyici:
+public class MyInterceptor implements MethodInterceptor { @Override public Object invoke(MethodInvocation arg0) throws Throwable { System.out.println(&amp;quot;***** intercepted *****&amp;quot;); return arg0.proceed(); } } Modül:
+public class MyModule extends AbstractModule { @Override protected void configure() { bind(CallerService.class).to(Caller.class); bind(ExampleService.class).to(Example.class); bindInterceptor(Matchers.any(), Matchers.annotatedWith(MyAnnotation.class), new MyInterceptor()); } } arayan:
+public class CallerService implements Caller { @Inject private Client client; public void call() { client.</description>
+    </item>
+    
+    <item>
+      <title>Guice&#39;i Jersey 2 ile Kullanma (JAX-RS RI)</title>
+      <link>https://www.wikiod.com/tr/guice/guicei-jersey-2-ile-kullanma-jax-rs-ri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/guice/guicei-jersey-2-ile-kullanma-jax-rs-ri/</guid>
+      <description>JAX-RS kaynaklarına Guice enjeksiyonları alma # Projenizde guice-bridge&amp;lsquo;ye ihtiyacınız olacak.
+@ApplicationPath(&amp;quot;api&amp;quot;) public class ApiRest extends ResourceConfig { @Inject public ApiRest(ServiceLocator serviceLocator, ServletContext servletContext) { packages(&amp;quot;net.sargue.app.api&amp;quot;); GuiceBridge.getGuiceBridge().initializeGuiceBridge(serviceLocator); GuiceIntoHK2Bridge guiceBridge = serviceLocator.getService(GuiceIntoHK2Bridge.class); Injector injector = (Injector) servletContext.getAttribute(Injector.class.getName()); if (injector == null) throw new RuntimeException(&amp;quot;Guice Injector not found&amp;quot;); guiceBridge.bridgeGuiceInjector(injector); register(RolesAllowedDynamicFeature.class); } } </description>
+    </item>
+    
+  </channel>
+</rss>

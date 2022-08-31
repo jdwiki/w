@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de rxjs on </title>
+    <link>https://www.wikiod.com/pt/docs/rxjs/</link>
+    <description>Recent content in Tutorial de rxjs on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/rxjs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com rxjs</title>
+      <link>https://www.wikiod.com/pt/rxjs/comecando-com-rxjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/rxjs/comecando-com-rxjs/</guid>
+      <description>Instalação ou Configuração # Usando um CDN: # &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.jsdelivr.net/rxjs/4.1.0/rx.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;script&amp;gt; // `Rx` is available var one$ = Rx.Observable.of(1); var onesub = one$.subscribe(function (one) { console.log(one); // 1 }); // alternatively: subscribe(console.log) &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; CDN se estiver usando RxJS 5 (RC):
+&amp;lt;script src=&amp;quot;https://npmcdn.com/@reactivex/rxjs@5.0.0-rc.1/dist/global/Rx.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; Usando um empacotador: # Primeiro instale no diretório do seu projeto com npm:
+npm install rx Ou usando RxJS 5 (RC):</description>
+    </item>
+    
+    <item>
+      <title>Receitas comuns</title>
+      <link>https://www.wikiod.com/pt/rxjs/receitas-comuns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/rxjs/receitas-comuns/</guid>
+      <description>Uma coleção de casos de uso comuns e sua implementação no RxJS.
+Cache de respostas HTTP # Um caso de uso típico para RxJS é criar solicitações HTTP e armazenar seus resultados em cache por algum período de tempo. Além disso, sempre queremos executar apenas uma solicitação por vez e compartilhar sua resposta.
+Por exemplo, o código a seguir armazena em cache 1 item para max. 1000ms:
+var updateRequest = Observable.</description>
+    </item>
+    
+    <item>
+      <title>Operador PublishReplay</title>
+      <link>https://www.wikiod.com/pt/rxjs/operador-publishreplay/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/rxjs/operador-publishreplay/</guid>
+      <description>Como funciona o PublishReplay # Ele cria internamente um ReplaySubject e o torna compatível com multicast. O valor mínimo de repetição de ReplaySubject é 1 emissão. Isso resulta no seguinte:
+A primeira assinatura acionará o publishReplay(1) para assinar internamente o fluxo de origem e canalizar todas as emissões através do ReplaySubject, efetivamente armazenando em cache as últimas n(=1) emissões Se uma segunda assinatura for iniciada enquanto a fonte ainda estiver ativa, o multicast() nos conectará ao mesmo replaySubject e receberemos todas as próximas emissões até que o fluxo da fonte seja concluído.</description>
+    </item>
+    
+    <item>
+      <title>Mapa do operador  selecione</title>
+      <link>https://www.wikiod.com/pt/rxjs/mapa-do-operador--selecione/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/rxjs/mapa-do-operador--selecione/</guid>
+      <description>Sintaxe # Rx.Observable.prototype.map(selector, [thisArg]) Rx.Observable.prototype.select(selector, [thisArg]) Parâmetros # Parâmetro, Tipo Detalhes selector, Function ou Object Função de transformação a ser aplicada a cada elemento de origem ou a um elemento a ser produzido. Se seletor for uma função, ela será chamada com as seguintes informações: 1. o valor do elemento, 2. o índice do elemento, 3. o objeto Observable que está sendo inscrito. [thisArg], Qualquer Objeto a ser usado como this ao executar o predicado.</description>
+    </item>
+    
+    <item>
+      <title>Operadores Retry e RetryWhen</title>
+      <link>https://www.wikiod.com/pt/rxjs/operadores-retry-e-retrywhen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/rxjs/operadores-retry-e-retrywhen/</guid>
+      <description>Retry e RetryWhen podem ser usados ​​para tentar recuperar Observables que podem ter erros em seu fluxo.
+Sintaxe # .retry(n: número): Observável n: retry will attempt the source Observable this many times. .retryWhen(recebe: notificationHandler, o: scheduler): Observável receives: an Observable of notifications which the use can complete or error. If the &amp;lsquo;receives&amp;rsquo; Observable returns cleanly (completes) the source Observable will be reattempted. If the &amp;lsquo;receives&amp;rsquo; Observable returns an error, the source Observable is aborted.</description>
+    </item>
+    
+    <item>
+      <title>Sujeito</title>
+      <link>https://www.wikiod.com/pt/rxjs/sujeito/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/rxjs/sujeito/</guid>
+      <description>Sujeitos são classes que se comportam como Observables e observadores ao mesmo tempo.
+http://reactivex.io/documentation/subject.html
+Assunto e seu estado interno # Em Rx os sujeitos possuem estados internos que podem controlar seu comportamento.
+Um Assunto de formulário de caso de uso comum está inscrevendo-o em vários Observables. O exemplo a seguir cria dois Observables diferentes e inscreve um Subject em ambos. Em seguida, tenta imprimir todos os valores que passaram:
+let subject = new Subject(); subject.</description>
+    </item>
+    
+    <item>
+      <title>Agendador</title>
+      <link>https://www.wikiod.com/pt/rxjs/agendador/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/rxjs/agendador/</guid>
+      <description>Usando um TestScheduler para avançar o tempo manualmente # A maioria dos operadores Rx usa um agendador opcional para agendar suas futuras iterações. Se não for fornecido, eles usarão seu agendador configurado padrão. Fornecer um escalonador pode ser útil para propósitos de teste nos quais gostamos de falar sobre tempo virtual em vez de tempo real para velocidade de execução do teste.
+const scheduler = new Rx.TestScheduler(); scheduler.stop(); Rx.Observable.interval(100, scheduler) .</description>
+    </item>
+    
+  </channel>
+</rss>

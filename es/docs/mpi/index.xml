@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tutorial mpi on </title>
+    <link>https://www.wikiod.com/es/docs/mpi/</link>
+    <description>Recent content in tutorial mpi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/mpi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con mpi</title>
+      <link>https://www.wikiod.com/es/mpi/primeros-pasos-con-mpi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mpi/primeros-pasos-con-mpi/</guid>
+      <description>¡Hola Mundo! # Tres cosas suelen ser importantes cuando se empieza a aprender a utilizar MPI. Primero, debe inicializar la biblioteca cuando esté listo para usarla (también debe finalizarla cuando haya terminado). En segundo lugar, querrá saber el tamaño de su comunicador (lo que usa para enviar mensajes a otros procesos). En tercer lugar, querrá saber su rango dentro de ese comunicador (qué número de proceso tiene dentro de ese comunicador).</description>
+    </item>
+    
+    <item>
+      <title>Colectivos</title>
+      <link>https://www.wikiod.com/es/mpi/colectivos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mpi/colectivos/</guid>
+      <description>Las operaciones colectivas son llamadas MPI diseñadas para comunicar los procesos señalados por un comunicador en una sola operación o para realizar una sincronización entre ellos. Estos se utilizan a menudo para calcular uno o más valores en función de los datos aportados por otros procesos o para distribuir o recopilar datos de todos los demás procesos.
+Tenga en cuenta que todos los procesos en el comunicador deben invocar las mismas operaciones colectivas en orden; de lo contrario, la aplicación se bloquearía.</description>
+    </item>
+    
+    <item>
+      <title>Creación y gestión de procesos.</title>
+      <link>https://www.wikiod.com/es/mpi/creacion-y-gestion-de-procesos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mpi/creacion-y-gestion-de-procesos/</guid>
+      <description>Aparecer # El proceso maestro genera dos procesos de trabajo y distribuye sendbuf a los trabajadores.
+maestro.c
+#include &amp;quot;mpi.h&amp;quot; int main(int argc, char *argv[]) { int n_spawns = 2; MPI_Comm intercomm; MPI_Init(&amp;amp;argc, &amp;amp;argv); MPI_Comm_spawn(&amp;quot;worker_program&amp;quot;, MPI_ARGV_NULL, n_spawns, MPI_INFO_NULL, 0, MPI_COMM_SELF, &amp;amp;intercomm, MPI_ERRCODES_IGNORE); int sendbuf[2] = {3, 5}; int recvbuf; // redundant for master. MPI_Scatter(sendbuf, 1, MPI_INT, &amp;amp;recvbuf, 1, MPI_INT, MPI_ROOT, intercomm); MPI_Finalize(); return 0; } trabajador.c
+#include &amp;quot;mpi.h&amp;quot; #include &amp;lt;stdio.h&amp;gt; int main(int argc, char *argv[]) { MPI_Init(&amp;amp;argc, &amp;amp;argv); MPI_Comm intercomm; MPI_Comm_get_parent(&amp;amp;intercomm); int sendbuf[2]; // redundant for worker.</description>
+    </item>
+    
+    <item>
+      <title>Ejecución de un programa MPI</title>
+      <link>https://www.wikiod.com/es/mpi/ejecucion-de-un-programa-mpi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mpi/ejecucion-de-un-programa-mpi/</guid>
+      <description>Parámetros # Parámetro Detalles -n &amp;lt;núm_proces&amp;gt; El número de procesos de MPI que se iniciarán para el trabajo Ejecuta tu trabajo # La forma más sencilla de ejecutar su trabajo es usar mpiexec o mpirun (generalmente son lo mismo y alias entre sí).
+mpiexec -n 2 ./my_prog </description>
+    </item>
+    
+    <item>
+      <title>Compilar un programa MPI</title>
+      <link>https://www.wikiod.com/es/mpi/compilar-un-programa-mpi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mpi/compilar-un-programa-mpi/</guid>
+      <description>MPI necesita agregar bibliotecas adicionales e incluir directorios en su línea de compilación al compilar su programa. En lugar de rastrearlos a todos usted mismo, generalmente puede usar uno de los contenedores del compilador.
+C Envoltura # mpicc -o my_prog my_prog.c </description>
+    </item>
+    
+    <item>
+      <title>Implementaciones MPI</title>
+      <link>https://www.wikiod.com/es/mpi/implementaciones-mpi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mpi/implementaciones-mpi/</guid>
+      <description>MPI es un estándar, no una biblioteca de programación. Hay muchas implementaciones del estándar. Los más comunes de código abierto son MPICH y Open MPI. Hay muchos derivados de estas dos bibliotecas que son de código abierto o comerciales (o ambos).
+Es importante saber qué implementación tiene porque la forma en que compila o ejecuta su programa puede cambiar sutilmente.
+Instalar MPICH en Mac con Homebrew # brew install mpich Instalar Open MPI en Mac con Homebrew # brew install open-mpi </description>
+    </item>
+    
+    <item>
+      <title>Topologías de procesos</title>
+      <link>https://www.wikiod.com/es/mpi/topologias-de-procesos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/mpi/topologias-de-procesos/</guid>
+      <description>Creación y comunicación de topologías de grafos # Crea una topología gráfica de manera distribuida para que cada nodo defina sus vecinos. Cada nodo comunica su rango entre los vecinos con MPI_Neighbor_allgather.
+#include &amp;lt;mpi.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #define nnode 4 int main() { MPI_Init(NULL, NULL); int rank; MPI_Comm_rank(MPI_COMM_WORLD, &amp;amp;rank); int source = rank; int degree; int dest[nnode]; int weight[nnode] = {1, 1, 1, 1}; int recv[nnode] = {-1, -1, -1, -1}; int send = rank; // set dest and degree.</description>
+    </item>
+    
+  </channel>
+</rss>

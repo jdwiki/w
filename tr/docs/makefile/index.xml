@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>makefile Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/makefile/</link>
+    <description>Recent content in makefile Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/makefile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>makefile&#39;ı kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/makefile/makefile-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/makefile/makefile-kullanmaya-baslama/</guid>
+      <description>Temel Makefile # Bir &amp;ldquo;merhaba dünya!&amp;rdquo; yazmayı düşünün. program c. Kaynak kodumuzun source.c adlı bir dosyada olduğunu varsayalım, şimdi programımızı çalıştırmak için onu derlememiz gerekiyor, tipik olarak Linux&amp;rsquo;ta (gcc kullanarak) `$&amp;gt; gcc source.c -o output&amp;rsquo; yazmamız gerekecek. çıktı, oluşturulacak yürütülebilir dosyanın adıdır. Temel bir program için bu iyi çalışır ancak programlar daha karmaşık hale geldikçe derleme komutumuz da daha karmaşık hale gelebilir. Burada Makefile devreye girer, makefile&amp;rsquo;ler bir programın nasıl derleneceğine dair oldukça karmaşık kurallar dizisi yazmamıza ve ardından komut satırına make yazarak basitçe derlememize izin verir.</description>
+    </item>
+    
+    <item>
+      <title>Gelişmiş Makefile</title>
+      <link>https://www.wikiod.com/tr/makefile/gelismis-makefile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/makefile/gelismis-makefile/</guid>
+      <description>Farklı kaynak klasörlerden farklı hedef klasörlere oluşturma # Bu Makefile&amp;rsquo;ın ana özellikleri:
+Belirtilen klasörlerdeki C kaynaklarının otomatik tespiti Çoklu kaynak klasörleri Nesne ve bağımlılık dosyaları için birden çok ilgili hedef klasör Her hedef klasör için otomatik kural oluşturma Var olmadıklarında hedef klasörlerin oluşturulması gcc ile bağımlılık yönetimi: Yalnızca gerekli olanı oluşturun Unix ve DOS sistemlerinde çalışır GNU Make için yazılmıştır Bu Makefile, bu tür bir yapıya sahip bir proje oluşturmak için kullanılabilir:</description>
+    </item>
+    
+    <item>
+      <title>Değişkenler</title>
+      <link>https://www.wikiod.com/tr/makefile/degiskenler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/makefile/degiskenler/</guid>
+      <description>Koşullu Değişken Atama # ?= operatörü, değişken önceden ayarlanmamışsa yalnızca atamasının gerçekleşmesi dışında = gibi davranan bir uzantıdır.
+x = hello x ?= world # $(x) will yield &amp;quot;hello&amp;quot; Otomatik Değişkenler # Tek bir kural bağlamında Make, bir dizi özel değişkeni otomatik olarak tanımlar. Bu değişkenler, bir makefile içindeki her kural için farklı bir değere sahip olabilir ve yazma kurallarını daha basit hale getirmek için tasarlanmıştır. Bu değişkenler yalnızca bir kuralın tarif kısmında kullanılabilir.</description>
+    </item>
+    
+    <item>
+      <title>.PHONY hedefi</title>
+      <link>https://www.wikiod.com/tr/makefile/phony-hedefi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/makefile/phony-hedefi/</guid>
+      <description>Dosya olmayan hedefler için .PHONY kullanma # Dosya olmayan hedefleri belirtmek için &amp;ldquo;.PHONY&amp;rdquo; kullanın, örneğin &amp;ldquo;temiz&amp;rdquo; veya &amp;ldquo;mrproper&amp;rdquo;.
+İyi örnek
+.PHONY: clean clean: rm *.o temp Kötü örnek
+clean: rm *.o temp İyi örnekte &amp;lsquo;make&amp;rsquo;, &amp;lsquo;clean&amp;rsquo;in bir dosya olmadığını bilir, bu nedenle güncel olup olmadığını aramaz ve tarifi çalıştırır.
+Kötü örnekte &amp;lsquo;make&amp;rsquo;, &amp;lsquo;clean&amp;rsquo; adında bir dosya arayacaktır. Mevcut değilse veya güncel değilse reçeteyi uygular, ancak mevcutsa ve güncelse reçete yürütülmez.</description>
+    </item>
+    
+    <item>
+      <title>GNU Model Kuralları</title>
+      <link>https://www.wikiod.com/tr/makefile/gnu-model-kurallar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/makefile/gnu-model-kurallar/</guid>
+      <description>Birden çok Model Kuralıyla eşleşen hedefler # Bir hedef birden fazla model kuralıyla eşleşirse, make, önkoşulları mevcut olan veya oluşturulabilecek olanı kullanır. Örneğin:
+%.o: %.c $(CC) $(CFLAGS) -c $&amp;lt; -o $@ %.o: %.s $(AS) $(ASFLAGS) $&amp;lt; -o $@ Hangisinin &amp;ldquo;foo.c&amp;rdquo; veya &amp;ldquo;foo.s&amp;rdquo; olduğuna bağlı olarak &amp;ldquo;foo.c&amp;quot;yi &amp;ldquo;foo.o&amp;quot;ya derleyecek veya &amp;ldquo;foo.s&amp;quot;yi &amp;ldquo;foo.o&amp;quot;ya birleştirecektir.
+Birden çok kuralın mevcut veya oluşturulabilecek önkoşulları varsa, make, en kısa gövdeyle eşleşen kuralı kullanır. Örneğin:
+f%r: @echo Stem is: $* fo%r: @echo Stem is: $* Hedefi &amp;lsquo;foo.</description>
+    </item>
+    
+  </channel>
+</rss>

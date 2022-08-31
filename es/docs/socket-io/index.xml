@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de socket.io on </title>
+    <link>https://www.wikiod.com/es/docs/socket-io/</link>
+    <description>Recent content in Tutorial de socket.io on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/socket-io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con socket.io</title>
+      <link>https://www.wikiod.com/es/socket-io/primeros-pasos-con-socketio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/socket-io/primeros-pasos-con-socketio/</guid>
+      <description>&amp;ldquo;¡Hola Mundo!&amp;rdquo; con mensajes de socket. # Instalar módulos de nodo
+npm install express npm install socket.io Servidor Node.js
+const express = require(&#39;express&#39;); const app = express(); const server = app.listen(3000,console.log(&amp;quot;Socket.io Hello Wolrd server started!&amp;quot;)); const io = require(&#39;socket.io&#39;)(server); io.on(&#39;connection&#39;, (socket) =&amp;gt; { //console.log(&amp;quot;Client connected!&amp;quot;); socket.on(&#39;message-from-client-to-server&#39;, (msg) =&amp;gt; { console.log(msg); }) socket.emit(&#39;message-from-server-to-client&#39;, &#39;Hello World!&#39;); }); cliente del navegador
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Hello World with Socket.io&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.</description>
+    </item>
+    
+    <item>
+      <title>Escuchar eventos</title>
+      <link>https://www.wikiod.com/es/socket-io/escuchar-eventos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/socket-io/escuchar-eventos/</guid>
+      <description>Escuchar eventos internos y personalizados: # Sintaxis del servidor
+var io = require(&#39;socket.io&#39;)(80); io.on(&#39;connection&#39;, function (mysocket) { //custom event called `private message` mysocket.on(&#39;private message&#39;, function (from, msg) { console.log(&#39;I received a private message by &#39;, from, &#39; saying &#39;, msg); }); //internal `disconnect` event fired, when a socket disconnects mysocket.on(&#39;disconnect&#39;, function () { console.log(&#39;user disconnected&#39;); }); }); Sintaxis del cliente:
+var mysocket = io(&#39;http://example.com&#39;); mysocket.on(&#39;private message&#39;, function (data) { console.log(data); }); </description>
+    </item>
+    
+    <item>
+      <title>Manejo de usuarios con socket.io</title>
+      <link>https://www.wikiod.com/es/socket-io/manejo-de-usuarios-con-socketio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/socket-io/manejo-de-usuarios-con-socketio/</guid>
+      <description>Manejar a los usuarios dentro de socket.io es tan simple o tan complejo como usted decida, aunque hay algunos enfoques más &amp;lsquo;obvios&amp;rsquo; para hacer esto, esta documentación describirá un enfoque usando map().
+Ejemplo de código del lado del servidor para manejar usuarios # En primer lugar, es importante tener en cuenta que cuando se crea un nuevo socket, se le asigna una identificación única que se recupera llamando a socket.id. Este id se puede almacenar dentro de un objeto usuario y podemos asignar un identificador como un nombre de usuario que se ha utilizado en este ejemplo para recuperar objetos usuario.</description>
+    </item>
+    
+    <item>
+      <title>Transmisión</title>
+      <link>https://www.wikiod.com/es/socket-io/transmision/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/socket-io/transmision/</guid>
+      <description>Transmitiendo a todos los usuarios # Es posible enviar un mensaje o datos a todas las conexiones disponibles. Esto se puede lograr inicializando primero el servidor y luego usando el objeto socket.io para encontrar todos los sockets y luego emitir como lo haría normalmente a un solo socket.
+var io = require(&#39;socket.io&#39;)(80) // 80 is the HTTP port io.on(&#39;connection&#39;, function (socket) { //Callback when a socket connects ); io.sockets.emit(&#39;callbackFunction&#39;,data); Transmitir a todos los demás sockets # Es posible emitir un mensaje o datos a todos los usuarios excepto al que realiza la solicitud:</description>
+    </item>
+    
+    <item>
+      <title>Eventos de incendio</title>
+      <link>https://www.wikiod.com/es/socket-io/eventos-de-incendio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/socket-io/eventos-de-incendio/</guid>
+      <description>Eventos personalizados de incendios # Sintaxis del servidor:
+var io = require(&#39;socket.io&#39;)(80); io.on(&#39;connection&#39;, function (mysocket) { //emit to all but the one who started it mysocket.broadcast.emit(&#39;user connected&#39;); //emit to all sockets io.emit(&#39;my event&#39;, { messg: &#39;for all&#39;}); }); // a javascript client would listen like this: // var mysocket = io(&#39;http://example.com&#39;); // mysocket.on(&#39;my event&#39;, function (data) { // console.log(data); // }); Sintaxis del cliente:
+var mysocket = io(&#39;http://example.com&#39;); mysocket.emit(&#39;another event&#39;, { messg: &#39;hello&#39; }); // a node.</description>
+    </item>
+    
+  </channel>
+</rss>

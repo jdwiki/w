@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial do Frasco on </title>
+    <link>https://www.wikiod.com/pt/docs/flask/</link>
+    <description>Recent content in Tutorial do Frasco on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/flask/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução ao Flask</title>
+      <link>https://www.wikiod.com/pt/flask/introducao-ao-flask/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/flask/introducao-ao-flask/</guid>
+      <description>Olá Mundo # Crie hello.py:
+from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &#39;Hello, World!&#39; Em seguida, execute-o com:
+export FLASK_APP=hello.py flask run * Running on http://localhost:5000/ Adicionar o código abaixo permitirá executá-lo diretamente com python hello.py.
+if __name__ == &#39;__main__&#39;: app.run() Instalação - Estável # Use pip para instalar o Flask em um virtualenv.
+pip install flask Instruções passo a passo para criar um virtualenv para seu projeto:</description>
+    </item>
+    
+    <item>
+      <title>Implantando o aplicativo Flask usando o servidor web uWSGI com Nginx</title>
+      <link>https://www.wikiod.com/pt/flask/implantando-o-aplicativo-flask-usando-o-servidor-web-uwsgi-com-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/flask/implantando-o-aplicativo-flask-usando-o-servidor-web-uwsgi-com-nginx/</guid>
+      <description>Ativar streaming do frasco # O Flask tem esse recurso que permite transmitir dados de uma visualização usando geradores.
+Vamos alterar o arquivo app.py
+adicione from flask import Response
+adicione from datetime import datetime
+adicione from time import sleep
+crie uma nova visualização:
+@app.route(&amp;quot;/time/&amp;quot;) def time(): def streamer(): while True: yield &amp;ldquo;{}
+&amp;quot;.format(datetime.now()) sleep(1)
+return Response(streamer()) Agora abra seu navegador em localhost/time/. O site será carregado para sempre porque o nginx espera até que a resposta seja concluída.</description>
+    </item>
+    
+    <item>
+      <title>Sinais</title>
+      <link>https://www.wikiod.com/pt/flask/sinais/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/flask/sinais/</guid>
+      <description>Flask suporta sinais usando Blinker. O suporte de sinal é opcional; eles só serão habilitados se o Blinker estiver instalado.
+pip install blinker http://flask.pocoo.org/docs/dev/signals/
+Os sinais não são assíncronos. Quando um sinal é enviado, ele executa imediatamente cada uma das funções conectadas sequencialmente.
+Conectando-se a sinais # Use o método connect de um sinal para conectar uma função a um sinal. Quando um sinal é enviado, cada função conectada é chamada com o remetente e quaisquer argumentos nomeados que o sinal fornece.</description>
+    </item>
+    
+    <item>
+      <title>Arquivos estáticos</title>
+      <link>https://www.wikiod.com/pt/flask/arquivos-estaticos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/flask/arquivos-estaticos/</guid>
+      <description>Usando arquivos estáticos # Os aplicativos da Web geralmente exigem arquivos estáticos, como arquivos CSS ou JavaScript. Para usar arquivos estáticos em uma aplicação Flask, crie uma pasta chamada static em seu pacote ou próximo ao seu módulo e ela estará disponível em /static na aplicação.
+Um exemplo de estrutura de projeto para usar modelos é o seguinte:
+MyApplication/ /static/ /style.css /script.js /templates/ /index.html /app.py app.py é um exemplo básico de Flask com renderização de modelo.</description>
+    </item>
+    
+    <item>
+      <title>Paginação</title>
+      <link>https://www.wikiod.com/pt/flask/paginacao/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/flask/paginacao/</guid>
+      <description>Exemplo de rota de paginação com paginação de flask-sqlalchemy # Neste exemplo, usamos um parâmetro na rota para especificar o número da página. Definimos um padrão de 1 no parâmetro de função page=1. Temos um objeto User no banco de dados e o consultamos, ordenando em ordem decrescente, mostrando os usuários mais recentes primeiro. Em seguida, usamos o método paginate do objeto query em flask-sqlalchemy. Em seguida, passamos isso para render_template para ser renderizado.</description>
+    </item>
+    
+    <item>
+      <title>Uploads de arquivos</title>
+      <link>https://www.wikiod.com/pt/flask/uploads-de-arquivos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/flask/uploads-de-arquivos/</guid>
+      <description>Sintaxe # request.files[&amp;rsquo;name&amp;rsquo;] # único arquivo necessário request.files.get(&amp;rsquo;name&amp;rsquo;) # Nenhum se não for postado request.files.getlist(&amp;rsquo;name&amp;rsquo;) # lista de zero ou mais arquivos postados CombinedMultiDict((request.files, request.form)) # combina dados de formulário e arquivo Fazendo upload de arquivos # Formulário HTML # Use um file type input e o navegador fornecerá um campo que permite ao usuário selecionar um arquivo para upload. Somente formulários com o método post podem enviar dados de arquivos.</description>
+    </item>
+    
+    <item>
+      <title>Roteamento</title>
+      <link>https://www.wikiod.com/pt/flask/roteamento/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/flask/roteamento/</guid>
+      <description>Rotas básicas # As rotas no Flask podem ser definidas usando o decorador route da instância do aplicativo Flask:
+app = Flask(__name__) @app.route(&#39;/&#39;) def index(): return &#39;Hello Flask&#39; O decorador route pega uma string que é a URL para corresponder. Quando uma solicitação de uma URL que corresponde a essa string é recebida pelo aplicativo, a função decorada (também chamada de função de visualização) será invocada. Então, para uma rota sobre, teríamos:</description>
+    </item>
+    
+    <item>
+      <title>Plantas</title>
+      <link>https://www.wikiod.com/pt/flask/plantas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/flask/plantas/</guid>
+      <description>Os blueprints são um conceito poderoso no desenvolvimento de aplicativos Flask que permitem que os aplicativos do frasco sejam mais modulares e possam seguir vários padrões. Eles facilitam a administração de aplicativos Flask muito grandes e, como tal, podem ser usados ​​para dimensionar aplicativos Flask. Você pode reutilizar aplicativos do Blueprint, mas não pode executar um blueprint sozinho, pois ele deve ser registrado em seu aplicativo principal.
+Um exemplo básico de diagramas de frascos # Um aplicativo Flask mínimo se parece com isto:</description>
+    </item>
+    
+    <item>
+      <title>Trabalhando com JSON</title>
+      <link>https://www.wikiod.com/pt/flask/trabalhando-com-json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/flask/trabalhando-com-json/</guid>
+      <description>Recebendo JSON de uma solicitação HTTP # Se o tipo mime da solicitação HTTP for application/json, chamar request.get_json() retornará os dados JSON analisados ​​(caso contrário, retornará None)
+from flask import Flask, jsonify app = Flask(__name__) @app.route(&#39;/api/echo-json&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PUT&#39;]) def add(): data = request.get_json() # ... do your business logic, and return some response # e.g. below we&#39;re just echo-ing back the received JSON data return jsonify(data) Experimente com curl # O parâmetro -H &#39;Content-Type: application/json&#39; especifica que esta é uma solicitação JSON:</description>
+    </item>
+    
+    <item>
+      <title>Teste</title>
+      <link>https://www.wikiod.com/pt/flask/teste/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/flask/teste/</guid>
+      <description>Testando uma API JSON implementada no Flask # Este exemplo pressupõe que você saiba como [testar um aplicativo Flask usando pytest](https://www.wikiod.com/pt/flask/teste#Testando nosso aplicativo Hello World)
+Abaixo está uma API que recebe uma entrada JSON com valores inteiros a e b, por exemplo {&amp;quot;a&amp;quot;: 1, &amp;quot;b&amp;quot;: 2}, soma-os e retorna a soma a + b em uma resposta JSON, por exemplo {&amp;quot;soma&amp;quot;: 3}.
+# hello_add.py from flask import Flask, request, jsonify app = Flask(__name__) @app.</description>
+    </item>
+    
+  </channel>
+</rss>

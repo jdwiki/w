@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>D Dil Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/d/</link>
+    <description>Recent content in D Dil Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>D Dilini kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/d/d-dilini-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/d/d-dilini-kullanmaya-baslama/</guid>
+      <description>Kurulum veya Kurulum # D programlama dilinin standart derleyici DMD&amp;rsquo;si tüm büyük platformlarda çalışabilir. DMD&amp;rsquo;yi yüklemek için buraya bakın. Komut satırı ile kurmak için şu komutu çalıştırabilirsiniz (D web sitesinde bulunur):
+curl -fsS https://dlang.org/install.sh | bash -s dmd Paket Yöneticileri # Arch Linux # pacman -S dlang çikolatalı # choco install dmd Gentoo # layman -f -a dlang OSX Homebrew # brew install dmd Debian/Ubuntu # Debian/Ubuntu dağıtımlarına kurulum için APT deposunun kaynaklar listesine eklenmesi gerekir.</description>
+    </item>
+    
+    <item>
+      <title>Dinamik Diziler ve Dilimler</title>
+      <link>https://www.wikiod.com/tr/d/dinamik-diziler-ve-dilimler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/d/dinamik-diziler-ve-dilimler/</guid>
+      <description>Sözdizimi # &amp;lt;tür&amp;gt;[] &amp;lt;ad&amp;gt;; Dilimler, mevcut bellek üzerinde yeni bir görünüm oluşturur. Yeni bir kopya oluşturmazlar. Artık hiçbir dilim o belleğe bir referans içermiyorsa - veya dilimlenmiş bir parçası - çöp toplayıcı tarafından serbest bırakılacaktır.
+Dilimleri kullanarak örneğin çok verimli kod yazmak mümkündür. sadece bir bellek bloğu üzerinde çalışan ve gerçekten üzerinde çalışması gereken parçaları dilimleyen ayrıştırıcılar - yeni bellek blokları ayırmaya gerek yok.
+Dizi işlemleri # import std.stdio; void main() { int[] arr = [1, 2, 3]; // concatenate arr ~= 4; writeln(arr); // [1, 2, 3, 4] // per element operations arr[] += 10 writeln(arr); // [11, 12, 13, 14] } Bildirim ve başlatma # import std.</description>
+    </item>
+    
+    <item>
+      <title>Aralıklar</title>
+      <link>https://www.wikiod.com/tr/d/aralklar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/d/aralklar/</guid>
+      <description>Derleyici tarafından bir foreach ile karşılaşılırsa
+foreach (element; range) { aşağıdakine benzer şekilde dahili olarak yeniden yazılmıştır:
+for (auto it = range; !it.empty; it.popFront()) { auto element = it.front; ... } Yukarıdaki arabirimi karşılayan herhangi bir nesneye giriş aralığı denir ve bu nedenle yinelenebilen bir türdür:
+struct InputRange { @property bool empty(); @property T front(); void popFront(); } Dizeler ve diziler aralıklardır # import std.stdio; void main() { auto s = &amp;quot;hello world&amp;quot;; auto a = [1, 2, 3, 4]; foreach (c; s) { write(c, &amp;quot;!</description>
+    </item>
+    
+    <item>
+      <title>ilişkisel diziler</title>
+      <link>https://www.wikiod.com/tr/d/iliskisel-diziler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/d/iliskisel-diziler/</guid>
+      <description>Standart kullanım # int[string] wordCount(string[] wordList) { int[string] words; foreach (word; wordList) { words[word]++; } return words; } void main() { int[string] count = wordCount([&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;, &amp;quot;I&amp;quot;, &amp;quot;say&amp;quot;, &amp;quot;hello&amp;quot;]); foreach (key; count.keys) { writefln(&amp;quot;%s: %s&amp;quot;, key, count[key]); } // hello: 2 // world: 1 // I: 1 // say: 1 // note: the order in the foreach is unspecified } Değişmezler # int[string] aa0 = [&amp;quot;x&amp;quot;: 5, &amp;quot;y&amp;quot;: 6]; //int values, string keys auto aa1 = [&amp;quot;x&amp;quot;: 5.</description>
+    </item>
+    
+    <item>
+      <title>Derleme Zamanı İşlev Değerlendirmesi (CTFE)</title>
+      <link>https://www.wikiod.com/tr/d/derleme-zaman-islev-degerlendirmesi-ctfe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/d/derleme-zaman-islev-degerlendirmesi-ctfe/</guid>
+      <description>CTFE, derleyicinin derleme zamanında işlevleri yürütmesine izin veren bir mekanizmadır. Bu özelliği kullanmak için gerekli özel bir D dili seti yoktur - bir işlev yalnızca derleme zamanı bilinen değerlerine bağlı olduğunda, D derleyicisi derleme sırasında onu yorumlamaya karar verebilir.
+Ayrıca CTFE ile etkileşimli olarak oynayabilirsiniz.
+Derleme zamanında bir işlevi değerlendirin # long fib(long n) { return n &amp;lt; 2 ? n : fib(n - 1) + fib(n - 2); } struct FibStruct(int n) { // Remarks: n is a template ubyte[fib(n)] data; } void main() { import std.</description>
+    </item>
+    
+    <item>
+      <title>UFCS - Tekdüzen İşlev Çağrısı Sözdizimi</title>
+      <link>https://www.wikiod.com/tr/d/ufcs---tekduzen-islev-cagrs-sozdizimi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/d/ufcs---tekduzen-islev-cagrs-sozdizimi/</guid>
+      <description>Sözdizimi # aThirdFun(anotherFun(myFun(), 42); // ortak gösterim (ayrıca geçerlidir) myFun().anotherFun(42).aThirdFun(); // UFCS myFun.anotherFun(42).aThirdFun; // boş parantezler kaldırılabilir Bir &amp;ldquo;a.b(args&amp;hellip;)&amp;rdquo; çağrısında, &amp;ldquo;a&amp;rdquo; türünün &amp;ldquo;b&amp;rdquo; adında bir yöntemi yoksa, derleyici çağrıyı &amp;ldquo;b(a, args&amp;hellip;)&amp;rdquo; olarak yeniden yazmaya çalışır. .
+Bir Sayının Asal olup olmadığını kontrol etme # import std.stdio; bool isPrime(int number) { foreach(i; 2..number) { if (number % i == 0) { return false; } } return true; } void main() { writeln(2.</description>
+    </item>
+    
+    <item>
+      <title>Kapsam muhafızları</title>
+      <link>https://www.wikiod.com/tr/d/kapsam-muhafzlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/d/kapsam-muhafzlar/</guid>
+      <description>Sözdizimi # kapsam(çıkış) - geçerli bloktan nasıl çıkılırsa çıkılsın deyimler çağrılır kapsam(başarı) - geçerli bloktan normal olarak çıkıldığında ifadeler çağrılır kapsam(arıza) - deyimler, istisna atma yoluyla mevcut bloktan çıkıldığında çağrılır Kapsam korumalarının kullanılması, kodu çok daha temiz hale getirir ve kaynak tahsisine ve kodun yan yana yerleştirilmesine olanak tanır. Bu küçük yardımcılar aynı zamanda güvenliği de artırırlar çünkü çalışma zamanında hangi yolların alındığına bakılmaksızın her zaman belirli temizleme kodunun çağrıldığından emin olurlar.</description>
+    </item>
+    
+    <item>
+      <title>Sözleşmeler</title>
+      <link>https://www.wikiod.com/tr/d/sozlesmeler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/d/sozlesmeler/</guid>
+      <description>İddialar, bir sürüm derlemesinde optimize edilecektir.
+İşlev sözleşmeleri # İşlev sözleşmeleri, programcının tutarsızlıkları kontrol etmesine olanak tanır. Tutarsızlıklar, geçersiz parametreler, doğru dönüş değeri için kontroller veya nesnenin geçersiz bir durumunu içerir.
+Kontroller, işlevin veya yöntemin gövdesi yürütülmeden önce ve sonra yapılabilir.
+void printNotGreaterThan42(uint number) in { assert(number &amp;lt; 42); } body { import std.stdio : writeln; writeln(number); } İddialar, bir sürüm derlemesinde optimize edilecektir.
+İşlev sözleşmeleri # Örneğin, bir yöntem çağrıldığında, nesnenin durumu, bir yöntemin belirli parametrelerle çağrılmasına veya hiç çağrılmasına izin vermeyebilir.</description>
+    </item>
+    
+    <item>
+      <title>yapılar</title>
+      <link>https://www.wikiod.com/tr/d/yaplar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/d/yaplar/</guid>
+      <description>Yeni bir Yapı tanımlama # Bir tamsayı türü değişkeni yaş, tamsayı türü değişken yüksekliği ve kayan nokta türü değişkeni ageXHeight ile Kişi adlı yapıyı tanımlamak için:
+struct Person { int age; int height; float ageXHeight; } Genel olarak:
+struct structName { /+ values go here +/ } Yapı Oluşturucuları # D&amp;rsquo;de, tıpkı bir sınıf gibi yapıları başlatmak için yapıcıları kullanabiliriz. Önceki örnekte bildirilen yapı için bir yapı tanımlamak için şunu yazabiliriz:</description>
+    </item>
+    
+    <item>
+      <title>döngüler</title>
+      <link>https://www.wikiod.com/tr/d/donguler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/d/donguler/</guid>
+      <description>Sözdizimi # for (&amp;lt;initializer&amp;gt;; &amp;lt;loop koşulu&amp;gt;; &amp;lt;loop deyimi&amp;gt;) { &amp;lt;ifadeler&amp;gt; }
+while (&amp;lt;koşul&amp;gt;) { &amp;lt;ifadeler&amp;gt; }
+do { &amp;lt;ifadeler&amp;gt; } while (&amp;lt;koşul&amp;gt;);
+foreach (&amp;lt;el&amp;gt;, &amp;lt;koleksiyon&amp;gt;)
+foreach_reverse (&amp;lt;el&amp;gt;, &amp;lt;koleksiyon&amp;gt;)
+Programming in D, spesifikasyon içindeki &amp;lsquo;for&amp;rsquo; döngüsü )
+Programming in D, spesifikasyon içindeki &amp;lsquo;while&amp;rsquo; döngüsü )
+Programming in D, spesifikasyon içindeki &amp;lsquo;do while&amp;rsquo; döngüsü do-ifadesi)
+Programming in D, [opApply](http://ddili.org/ders/d.en/foreach_opapply. html), şartname
+looplar ve foreach ile çevrimiçi oynayabilirsiniz .
+Döngü için # void main() { import std.</description>
+    </item>
+    
+  </channel>
+</rss>

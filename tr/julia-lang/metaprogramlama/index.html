@@ -1,0 +1,12816 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.7636753edc6f50e96b0045eba39982b1b0b2b6947250d1080bec1f4cbe52399ea6bcecac0e0b6026886b51bdbde879ec9a9820765b03caead79d8ddf3b79336f.css" integrity="sha512-djZ1PtxvUOlrAEXro5mCsbCytpRyUNEIC&#43;wfTL5SOZ6mvOysDgtgJohrUb296HnsmpggdlsDyurXnY3fO3kzbw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Metaprogramlama - WikiOD</title>
+<meta name="description" content="Sözdizimi # makro adı(ex) &amp;hellip; bitiş alıntı &amp;hellip; son :(&amp;hellip;) $x Meta.quot(x) AlıntıDüğümü(x) esc(x) Julia&amp;rsquo;nın metaprogramlama özellikleri, Lisp benzeri dillerden büyük ölçüde esinlenmiştir ve bazı Lisp geçmişine sahip olanlara tanıdık gelecektir. Metaprogramlama çok güçlüdür. Doğru kullanıldığında, daha özlü ve okunabilir kodlara yol açabilir.
+&amp;ldquo;alıntı &amp;hellip; bitiş&amp;rdquo; yarı alıntı sözdizimidir. Değerlendirilmekte olan ifadeler yerine basitçe ayrıştırılır. &amp;ldquo;quote &amp;hellip; end&amp;rdquo; ifadesinin değeri, sonuçta ortaya çıkan Soyut Sözdizimi Ağacıdır (AST).
+:(...) sözdizimi, quote .">
+  <link rel="canonical" href="https://www.wikiod.com/tr/julia-lang/metaprogramlama/">
+<meta property="og:locale" content="tr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Metaprogramlama">
+<meta property="og:description" content="Sözdizimi # makro adı(ex) &hellip; bitiş alıntı &hellip; son :(&hellip;) $x Meta.quot(x) AlıntıDüğümü(x) esc(x) Julia&rsquo;nın metaprogramlama özellikleri, Lisp benzeri dillerden büyük ölçüde esinlenmiştir ve bazı Lisp geçmişine sahip olanlara tanıdık gelecektir. Metaprogramlama çok güçlüdür. Doğru kullanıldığında, daha özlü ve okunabilir kodlara yol açabilir.
+&ldquo;alıntı &hellip; bitiş&rdquo; yarı alıntı sözdizimidir. Değerlendirilmekte olan ifadeler yerine basitçe ayrıştırılır. &ldquo;quote &hellip; end&rdquo; ifadesinin değeri, sonuçta ortaya çıkan Soyut Sözdizimi Ağacıdır (AST).
+:(...) sözdizimi, quote .">
+<meta property="og:url" content="https://www.wikiod.com/tr/julia-lang/metaprogramlama/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="Metaprogramlama">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="Metaprogramlama">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "WikiOD\u0027ye Hoş Geldiniz - Wiki Çevrimiçi Belgeleme WikiOD, tüm programlama dilleri, eğitimle ilgili konular ve kavramların en yüksek kalitede çevrimiçi belgelerini oluşturmak için ortak bir yazma projesidir.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/tr/julia-lang/metaprogramlama/",
+      "url": "https://www.wikiod.com/tr/julia-lang/metaprogramlama/",
+      "name": "Metaprogramlama",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/tr/julia-lang/metaprogramlama/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/tr/julia-lang/metaprogramlama/#/schema/image/2"
+      },
+      "inLanguage": "tr",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/tr/julia-lang/metaprogramlama/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/tr/julia-lang/metaprogramlama/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/",
+          "url": "https://www.wikiod.com/tr/",
+          "name": "Tr"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/julia-lang/",
+          "url": "https://www.wikiod.com/tr/julia-lang/",
+          "name": "Julia Lang"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/tr/julia-lang/metaprogramlama/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "Metaprogramlama",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/tr/julia-lang/metaprogramlama/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/tr/julia-lang/metaprogramlama/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/tr/julia-lang/metaprogramlama/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/tr/julia-lang/metaprogramlama/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "Metaprogramlama"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9345677191971886" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZZF8Q2L4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y7ZZF8Q2L4');
+</script>
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/tr/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Araştır docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/julia-lang/"><h3 class="h6 text-uppercase mb-2">Julia Dil Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/julia-languagei-kullanmaya-baslama/">Julia Language&#39;i kullanmaya başlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/donguler-icin/">Döngüler için</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/kapanslar/">Kapanışlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/json/">JSON</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/giris/">Giriş</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/julia-lang/metaprogramlama/">Metaprogramlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/sartllar/">Şartlılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/paralel-isleme/">Paralel İşleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/demetler/">demetler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/birim-testi/">Birim Testi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/while-donguler/">while Döngüler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/fonksiyonlar/">Fonksiyonlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/karslastrmalar/">karşılaştırmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/paketler/">Paketler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/ust-duzey-fonksiyonlar/">Üst Düzey Fonksiyonlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/goto-ve-label/">@goto ve @label</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/dize-makrolar/">Dize Makroları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/ifade/">İfade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/kabuk-komut-dosyas-ve-borulama/">Kabuk Komut Dosyası ve Borulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/anlayslar/">anlayışlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/diziler/">diziler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/numaralandrmalar/">Numaralandırmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/teller/">Teller</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/alt2ind/">alt2ind</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/tip-kararllg/">Tip Kararlılığı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/zaman/">Zaman</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/birlestiriciler/">birleştiriciler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/surumler-aras-uyumluluk/">Sürümler Arası Uyumluluk</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/turler/">Türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/yinelenebilirler/">yinelenebilirler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/normal-ifadeler/">normal ifadeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/repl/">REPL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/aritmetik/">Aritmetik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/moduller/">Modüller</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/bir-dosyadan-dataframe-okuma/">Bir dosyadan DataFrame okuma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/dize-normallestirme/">Dize Normalleştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/sozlukler/">sözlükler</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/tr/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/docs/">öğreticiler</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/blog/">Nesne</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Türk
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/tr/julia-lang/metaprogramlama/">Türk</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/julia-lang/metaprogramming/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/julia-lang/metaprogramacion/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/fr/julia-lang/metaprogrammation/" hreflang="fr" lang="fr">Français</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/julia-lang/metaprogramacao/" hreflang="pt" lang="pt">Português</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/julia-lang/"><h3 class="h6 text-uppercase mb-2">Julia Dil Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/julia-languagei-kullanmaya-baslama/">Julia Language&#39;i kullanmaya başlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/donguler-icin/">Döngüler için</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/kapanslar/">Kapanışlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/json/">JSON</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/giris/">Giriş</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/julia-lang/metaprogramlama/">Metaprogramlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/sartllar/">Şartlılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/paralel-isleme/">Paralel İşleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/demetler/">demetler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/birim-testi/">Birim Testi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/while-donguler/">while Döngüler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/fonksiyonlar/">Fonksiyonlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/karslastrmalar/">karşılaştırmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/paketler/">Paketler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/ust-duzey-fonksiyonlar/">Üst Düzey Fonksiyonlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/goto-ve-label/">@goto ve @label</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/dize-makrolar/">Dize Makroları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/ifade/">İfade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/kabuk-komut-dosyas-ve-borulama/">Kabuk Komut Dosyası ve Borulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/anlayslar/">anlayışlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/diziler/">diziler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/numaralandrmalar/">Numaralandırmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/teller/">Teller</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/alt2ind/">alt2ind</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/tip-kararllg/">Tip Kararlılığı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/zaman/">Zaman</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/birlestiriciler/">birleştiriciler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/surumler-aras-uyumluluk/">Sürümler Arası Uyumluluk</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/turler/">Türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/yinelenebilirler/">yinelenebilirler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/normal-ifadeler/">normal ifadeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/repl/">REPL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/aritmetik/">Aritmetik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/moduller/">Modüller</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/bir-dosyadan-dataframe-okuma/">Bir dosyadan DataFrame okuma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/dize-normallestirme/">Dize Normalleştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/sozlukler/">sözlükler</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/julia-lang/"><h3 class="h6 text-uppercase mb-2">Julia Dil Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/julia-languagei-kullanmaya-baslama/">Julia Language&#39;i kullanmaya başlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/donguler-icin/">Döngüler için</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/kapanslar/">Kapanışlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/json/">JSON</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/giris/">Giriş</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/julia-lang/metaprogramlama/">Metaprogramlama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/sartllar/">Şartlılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/paralel-isleme/">Paralel İşleme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/demetler/">demetler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/birim-testi/">Birim Testi</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/while-donguler/">while Döngüler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/fonksiyonlar/">Fonksiyonlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/karslastrmalar/">karşılaştırmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/paketler/">Paketler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/ust-duzey-fonksiyonlar/">Üst Düzey Fonksiyonlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/goto-ve-label/">@goto ve @label</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/dize-makrolar/">Dize Makroları</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/ifade/">İfade</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/kabuk-komut-dosyas-ve-borulama/">Kabuk Komut Dosyası ve Borulama</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/anlayslar/">anlayışlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/diziler/">diziler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/numaralandrmalar/">Numaralandırmalar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/teller/">Teller</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/alt2ind/">alt2ind</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/tip-kararllg/">Tip Kararlılığı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/zaman/">Zaman</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/birlestiriciler/">birleştiriciler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/surumler-aras-uyumluluk/">Sürümler Arası Uyumluluk</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/turler/">Türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/yinelenebilirler/">yinelenebilirler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/normal-ifadeler/">normal ifadeler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/repl/">REPL</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/aritmetik/">Aritmetik</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/moduller/">Modüller</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/bir-dosyadan-dataframe-okuma/">Bir dosyadan DataFrame okuma</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/dize-normallestirme/">Dize Normalleştirme</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/julia-lang/sozlukler/">sözlükler</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sözdizimi">Sözdizimi</a></li>
+    <li><a href="#show-makrosunu-yeniden-uygulama">@show makrosunu yeniden uygulama</a></li>
+    <li><a href="#python-dictjson-dict-değişmezleri-için-sözdizimi-gibi">Python &lsquo;dict&rsquo;/JSON &lsquo;Dict&rsquo; değişmezleri için sözdizimi gibi.</a></li>
+    <li><a href="#giriiş">Giriiş</a></li>
+    <li><a href="#makro-tanımı">Makro tanımı</a></li>
+    <li><a href="#kullanım">Kullanım</a></li>
+    <li><a href="#yanlış-kullanım">Yanlış Kullanım</a></li>
+    <li><a href="#döngüye-kadar">Döngüye kadar</a></li>
+    <li><a href="#quotenode-metaquot-ve-exprquote">QuoteNode, Meta.quot ve Expr(:quote)</a></li>
+    <li><a href="#metaquot-ve-quotenode-arasındaki-fark-açıklandı">&lsquo;Meta.quot&rsquo; ve &lsquo;QuoteNode&rsquo; arasındaki fark açıklandı</a></li>
+    <li><a href="#peki-ya-ifadealıntı">Peki ya İfade(:alıntı)?</a></li>
+    <li><a href="#kılavuz">Kılavuz</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#sembol"><strong>Sembol</strong></a></li>
+    <li><a href="#ifade-ast"><strong>İfade</strong> (AST)</a></li>
+    <li><a href="#çok-satırlı-ifadeler-alıntı-kullanıyor">çok satırlı <code>İfade</code>ler <strong><code>alıntı</code></strong> kullanıyor</a></li>
+    <li><a href="#alıntı--bir-alıntı"><strong><code>alıntı</code></strong> -bir <strong><code>alıntı</code></strong></a></li>
+    <li><a href="#-ve--bir-şekilde-birbirinin-tersi-mi"><strong>$</strong> ve <strong>:(…)</strong> bir şekilde birbirinin tersi mi?</a></li>
+    <li><a href="#foo-ile-evalfoo-aynı-mı"><strong><code>$</code></strong><code>foo</code> ile <strong><code>eval(</code></strong><code>foo</code><strong><code>)</code></strong> aynı mı?</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#hadi-kendi-show-makromuzu-yapalım">Hadi kendi <strong><code>@show</code></strong> makromuzu yapalım:</a></li>
+    <li><a href="#expr-değerini-düşürmek-için-genişlet"><strong><code>Expr</code></strong> değerini düşürmek için <strong><code>genişlet</code></strong></a></li>
+    <li><a href="#esc"><strong><code>esc()</code></strong></a>
+      <ul>
+        <li><a href="#örnek-esc-göstermek-için-swap-makrosu">Örnek: <strong><code>esc()</code></strong> göstermek için <strong><code>swap</code></strong> makrosu</a></li>
+      </ul>
+    </li>
+    <li><a href="#örnek-kadar-makrosu">Örnek: <strong><code>kadar</code></strong> makrosu</a></li>
+    <li><a href="#interpolasyon-ve-assert-makrosu">İnterpolasyon ve &ldquo;assert&rdquo; makrosu</a>
+      <ul>
+        <li><a href="#bloklar-için---kullanmak-için-eğlenceli-bir-tüyo">Bloklar için { } kullanmak için eğlenceli bir tüyo</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#scottın-makrosu">Scott&rsquo;ın makrosu:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#görüntülemebir-makroyu-boşaltma"><strong>görüntüleme</strong>/<strong>bir makroyu boşaltma</strong></a></li>
+        <li><a href="#evalsymbolm-nasıl-anlaşılır"><code>eval(Symbol(&quot;@M&quot;))</code> nasıl anlaşılır?</a></li>
+      </ul>
+    </li>
+    <li><a href="#neden-code_typed-parametreleri-göstermiyor">Neden <strong><code>code_typed</code></strong> parametreleri göstermiyor?</a></li>
+    <li><a href="#heading">???</a>
+      <ul>
+        <li><a href="#modül-anladım">Modül Anladım</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sözdizimi">Sözdizimi</a></li>
+    <li><a href="#show-makrosunu-yeniden-uygulama">@show makrosunu yeniden uygulama</a></li>
+    <li><a href="#python-dictjson-dict-değişmezleri-için-sözdizimi-gibi">Python &lsquo;dict&rsquo;/JSON &lsquo;Dict&rsquo; değişmezleri için sözdizimi gibi.</a></li>
+    <li><a href="#giriiş">Giriiş</a></li>
+    <li><a href="#makro-tanımı">Makro tanımı</a></li>
+    <li><a href="#kullanım">Kullanım</a></li>
+    <li><a href="#yanlış-kullanım">Yanlış Kullanım</a></li>
+    <li><a href="#döngüye-kadar">Döngüye kadar</a></li>
+    <li><a href="#quotenode-metaquot-ve-exprquote">QuoteNode, Meta.quot ve Expr(:quote)</a></li>
+    <li><a href="#metaquot-ve-quotenode-arasındaki-fark-açıklandı">&lsquo;Meta.quot&rsquo; ve &lsquo;QuoteNode&rsquo; arasındaki fark açıklandı</a></li>
+    <li><a href="#peki-ya-ifadealıntı">Peki ya İfade(:alıntı)?</a></li>
+    <li><a href="#kılavuz">Kılavuz</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#sembol"><strong>Sembol</strong></a></li>
+    <li><a href="#ifade-ast"><strong>İfade</strong> (AST)</a></li>
+    <li><a href="#çok-satırlı-ifadeler-alıntı-kullanıyor">çok satırlı <code>İfade</code>ler <strong><code>alıntı</code></strong> kullanıyor</a></li>
+    <li><a href="#alıntı--bir-alıntı"><strong><code>alıntı</code></strong> -bir <strong><code>alıntı</code></strong></a></li>
+    <li><a href="#-ve--bir-şekilde-birbirinin-tersi-mi"><strong>$</strong> ve <strong>:(…)</strong> bir şekilde birbirinin tersi mi?</a></li>
+    <li><a href="#foo-ile-evalfoo-aynı-mı"><strong><code>$</code></strong><code>foo</code> ile <strong><code>eval(</code></strong><code>foo</code><strong><code>)</code></strong> aynı mı?</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#hadi-kendi-show-makromuzu-yapalım">Hadi kendi <strong><code>@show</code></strong> makromuzu yapalım:</a></li>
+    <li><a href="#expr-değerini-düşürmek-için-genişlet"><strong><code>Expr</code></strong> değerini düşürmek için <strong><code>genişlet</code></strong></a></li>
+    <li><a href="#esc"><strong><code>esc()</code></strong></a>
+      <ul>
+        <li><a href="#örnek-esc-göstermek-için-swap-makrosu">Örnek: <strong><code>esc()</code></strong> göstermek için <strong><code>swap</code></strong> makrosu</a></li>
+      </ul>
+    </li>
+    <li><a href="#örnek-kadar-makrosu">Örnek: <strong><code>kadar</code></strong> makrosu</a></li>
+    <li><a href="#interpolasyon-ve-assert-makrosu">İnterpolasyon ve &ldquo;assert&rdquo; makrosu</a>
+      <ul>
+        <li><a href="#bloklar-için---kullanmak-için-eğlenceli-bir-tüyo">Bloklar için { } kullanmak için eğlenceli bir tüyo</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#scottın-makrosu">Scott&rsquo;ın makrosu:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#görüntülemebir-makroyu-boşaltma"><strong>görüntüleme</strong>/<strong>bir makroyu boşaltma</strong></a></li>
+        <li><a href="#evalsymbolm-nasıl-anlaşılır"><code>eval(Symbol(&quot;@M&quot;))</code> nasıl anlaşılır?</a></li>
+      </ul>
+    </li>
+    <li><a href="#neden-code_typed-parametreleri-göstermiyor">Neden <strong><code>code_typed</code></strong> parametreleri göstermiyor?</a></li>
+    <li><a href="#heading">???</a>
+      <ul>
+        <li><a href="#modül-anladım">Modül Anladım</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/tr/">Home</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/julia-lang/">Julia Dil Eğitimi</a></li>
+<li class="breadcrumb-item active" aria-current="page">Metaprogramlama</li>
+					</ol>
+				</nav>
+			
+			<h1>Metaprogramlama</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sözdizimi">Sözdizimi</a></li>
+    <li><a href="#show-makrosunu-yeniden-uygulama">@show makrosunu yeniden uygulama</a></li>
+    <li><a href="#python-dictjson-dict-değişmezleri-için-sözdizimi-gibi">Python &lsquo;dict&rsquo;/JSON &lsquo;Dict&rsquo; değişmezleri için sözdizimi gibi.</a></li>
+    <li><a href="#giriiş">Giriiş</a></li>
+    <li><a href="#makro-tanımı">Makro tanımı</a></li>
+    <li><a href="#kullanım">Kullanım</a></li>
+    <li><a href="#yanlış-kullanım">Yanlış Kullanım</a></li>
+    <li><a href="#döngüye-kadar">Döngüye kadar</a></li>
+    <li><a href="#quotenode-metaquot-ve-exprquote">QuoteNode, Meta.quot ve Expr(:quote)</a></li>
+    <li><a href="#metaquot-ve-quotenode-arasındaki-fark-açıklandı">&lsquo;Meta.quot&rsquo; ve &lsquo;QuoteNode&rsquo; arasındaki fark açıklandı</a></li>
+    <li><a href="#peki-ya-ifadealıntı">Peki ya İfade(:alıntı)?</a></li>
+    <li><a href="#kılavuz">Kılavuz</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#sembol"><strong>Sembol</strong></a></li>
+    <li><a href="#ifade-ast"><strong>İfade</strong> (AST)</a></li>
+    <li><a href="#çok-satırlı-ifadeler-alıntı-kullanıyor">çok satırlı <code>İfade</code>ler <strong><code>alıntı</code></strong> kullanıyor</a></li>
+    <li><a href="#alıntı--bir-alıntı"><strong><code>alıntı</code></strong> -bir <strong><code>alıntı</code></strong></a></li>
+    <li><a href="#-ve--bir-şekilde-birbirinin-tersi-mi"><strong>$</strong> ve <strong>:(…)</strong> bir şekilde birbirinin tersi mi?</a></li>
+    <li><a href="#foo-ile-evalfoo-aynı-mı"><strong><code>$</code></strong><code>foo</code> ile <strong><code>eval(</code></strong><code>foo</code><strong><code>)</code></strong> aynı mı?</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#hadi-kendi-show-makromuzu-yapalım">Hadi kendi <strong><code>@show</code></strong> makromuzu yapalım:</a></li>
+    <li><a href="#expr-değerini-düşürmek-için-genişlet"><strong><code>Expr</code></strong> değerini düşürmek için <strong><code>genişlet</code></strong></a></li>
+    <li><a href="#esc"><strong><code>esc()</code></strong></a>
+      <ul>
+        <li><a href="#örnek-esc-göstermek-için-swap-makrosu">Örnek: <strong><code>esc()</code></strong> göstermek için <strong><code>swap</code></strong> makrosu</a></li>
+      </ul>
+    </li>
+    <li><a href="#örnek-kadar-makrosu">Örnek: <strong><code>kadar</code></strong> makrosu</a></li>
+    <li><a href="#interpolasyon-ve-assert-makrosu">İnterpolasyon ve &ldquo;assert&rdquo; makrosu</a>
+      <ul>
+        <li><a href="#bloklar-için---kullanmak-için-eğlenceli-bir-tüyo">Bloklar için { } kullanmak için eğlenceli bir tüyo</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#scottın-makrosu">Scott&rsquo;ın makrosu:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#görüntülemebir-makroyu-boşaltma"><strong>görüntüleme</strong>/<strong>bir makroyu boşaltma</strong></a></li>
+        <li><a href="#evalsymbolm-nasıl-anlaşılır"><code>eval(Symbol(&quot;@M&quot;))</code> nasıl anlaşılır?</a></li>
+      </ul>
+    </li>
+    <li><a href="#neden-code_typed-parametreleri-göstermiyor">Neden <strong><code>code_typed</code></strong> parametreleri göstermiyor?</a></li>
+    <li><a href="#heading">???</a>
+      <ul>
+        <li><a href="#modül-anladım">Modül Anladım</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sözdizimi">Sözdizimi</a></li>
+    <li><a href="#show-makrosunu-yeniden-uygulama">@show makrosunu yeniden uygulama</a></li>
+    <li><a href="#python-dictjson-dict-değişmezleri-için-sözdizimi-gibi">Python &lsquo;dict&rsquo;/JSON &lsquo;Dict&rsquo; değişmezleri için sözdizimi gibi.</a></li>
+    <li><a href="#giriiş">Giriiş</a></li>
+    <li><a href="#makro-tanımı">Makro tanımı</a></li>
+    <li><a href="#kullanım">Kullanım</a></li>
+    <li><a href="#yanlış-kullanım">Yanlış Kullanım</a></li>
+    <li><a href="#döngüye-kadar">Döngüye kadar</a></li>
+    <li><a href="#quotenode-metaquot-ve-exprquote">QuoteNode, Meta.quot ve Expr(:quote)</a></li>
+    <li><a href="#metaquot-ve-quotenode-arasındaki-fark-açıklandı">&lsquo;Meta.quot&rsquo; ve &lsquo;QuoteNode&rsquo; arasındaki fark açıklandı</a></li>
+    <li><a href="#peki-ya-ifadealıntı">Peki ya İfade(:alıntı)?</a></li>
+    <li><a href="#kılavuz">Kılavuz</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#sembol"><strong>Sembol</strong></a></li>
+    <li><a href="#ifade-ast"><strong>İfade</strong> (AST)</a></li>
+    <li><a href="#çok-satırlı-ifadeler-alıntı-kullanıyor">çok satırlı <code>İfade</code>ler <strong><code>alıntı</code></strong> kullanıyor</a></li>
+    <li><a href="#alıntı--bir-alıntı"><strong><code>alıntı</code></strong> -bir <strong><code>alıntı</code></strong></a></li>
+    <li><a href="#-ve--bir-şekilde-birbirinin-tersi-mi"><strong>$</strong> ve <strong>:(…)</strong> bir şekilde birbirinin tersi mi?</a></li>
+    <li><a href="#foo-ile-evalfoo-aynı-mı"><strong><code>$</code></strong><code>foo</code> ile <strong><code>eval(</code></strong><code>foo</code><strong><code>)</code></strong> aynı mı?</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#hadi-kendi-show-makromuzu-yapalım">Hadi kendi <strong><code>@show</code></strong> makromuzu yapalım:</a></li>
+    <li><a href="#expr-değerini-düşürmek-için-genişlet"><strong><code>Expr</code></strong> değerini düşürmek için <strong><code>genişlet</code></strong></a></li>
+    <li><a href="#esc"><strong><code>esc()</code></strong></a>
+      <ul>
+        <li><a href="#örnek-esc-göstermek-için-swap-makrosu">Örnek: <strong><code>esc()</code></strong> göstermek için <strong><code>swap</code></strong> makrosu</a></li>
+      </ul>
+    </li>
+    <li><a href="#örnek-kadar-makrosu">Örnek: <strong><code>kadar</code></strong> makrosu</a></li>
+    <li><a href="#interpolasyon-ve-assert-makrosu">İnterpolasyon ve &ldquo;assert&rdquo; makrosu</a>
+      <ul>
+        <li><a href="#bloklar-için---kullanmak-için-eğlenceli-bir-tüyo">Bloklar için { } kullanmak için eğlenceli bir tüyo</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#scottın-makrosu">Scott&rsquo;ın makrosu:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#görüntülemebir-makroyu-boşaltma"><strong>görüntüleme</strong>/<strong>bir makroyu boşaltma</strong></a></li>
+        <li><a href="#evalsymbolm-nasıl-anlaşılır"><code>eval(Symbol(&quot;@M&quot;))</code> nasıl anlaşılır?</a></li>
+      </ul>
+    </li>
+    <li><a href="#neden-code_typed-parametreleri-göstermiyor">Neden <strong><code>code_typed</code></strong> parametreleri göstermiyor?</a></li>
+    <li><a href="#heading">???</a>
+      <ul>
+        <li><a href="#modül-anladım">Modül Anladım</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h2 id="sözdizimi">Sözdizimi <a href="#s%c3%b6zdizimi" class="anchor" aria-hidden="true">#</a></h2>
+<ul>
+<li>makro adı(ex) &hellip; bitiş</li>
+<li>alıntı &hellip; son</li>
+<li>:(&hellip;)</li>
+<li>$x</li>
+<li>Meta.quot(x)</li>
+<li>AlıntıDüğümü(x)</li>
+<li>esc(x)</li>
+</ul>
+<p>Julia&rsquo;nın metaprogramlama özellikleri, Lisp benzeri dillerden büyük ölçüde esinlenmiştir ve bazı Lisp geçmişine sahip olanlara tanıdık gelecektir. Metaprogramlama çok güçlüdür. Doğru kullanıldığında, daha özlü ve okunabilir kodlara yol açabilir.</p>
+<p>&ldquo;alıntı &hellip; bitiş&rdquo; yarı alıntı sözdizimidir. Değerlendirilmekte olan ifadeler yerine basitçe ayrıştırılır. &ldquo;quote &hellip; end&rdquo; ifadesinin değeri, sonuçta ortaya çıkan Soyut Sözdizimi Ağacıdır (AST).</p>
+<p><code>:(...)</code> sözdizimi, <code>quote ... end</code> sözdizimine benzer, ancak daha hafiftir. Bu sözdizimi &ldquo;alıntı &hellip; bitiş&quot;ten daha özlüdür.</p>
+<p>Bir yarı alıntı içinde, &ldquo;$&rdquo; operatörü özeldir ve argümanını AST&rsquo;ye _enterpolasyon yapar. Argümanın, doğrudan AST&rsquo;ye eklenmiş bir ifade olması beklenir.</p>
+<p>&ldquo;Meta.quot(x)&rdquo; işlevi argümanını alıntılar. Bu, ifadelerin ve sembollerin kelimenin tam anlamıyla AST&rsquo;ye eklenmesine izin verdiği için, enterpolasyon için &ldquo;$&rdquo; kullanımıyla birlikte kullanışlıdır.</p>
+<h2 id="show-makrosunu-yeniden-uygulama">@show makrosunu yeniden uygulama <a href="#show-makrosunu-yeniden-uygulama" class="anchor" aria-hidden="true">#</a></h2>
+<p>Julia&rsquo;da <code>@show</code> makrosu genellikle hata ayıklama amaçları için kullanışlıdır. Hem değerlendirilecek ifadeyi hem de sonucunu görüntüler ve sonunda sonucun değerini döndürür:</p>
+<!-- tüm diller: lang-rb -->
+<pre><code>julia&gt; @show 1 + 1
+1 + 1 = 2
+2
+</code></pre>
+<p>Kendi <code>@show</code> sürümümüzü oluşturmak kolaydır:</p>
+<pre><code>julia&gt; macro myshow(expression)
+           quote
+               value = $expression
+               println($(Meta.quot(expression)), &quot; = &quot;, value)
+               value
+           end
+       end
+</code></pre>
+<p>Yeni sürümü kullanmak için <code>@myshow</code> makrosunu kullanmanız yeterlidir:</p>
+<pre><code class="language-julia">julia&gt; x = @myshow 1 + 1
+1 + 1 = 2
+2
+
+julia&gt; x
+2
+</code></pre>
+<h2 id="python-dictjson-dict-değişmezleri-için-sözdizimi-gibi">Python &lsquo;dict&rsquo;/JSON &lsquo;Dict&rsquo; değişmezleri için sözdizimi gibi. <a href="#python-dictjson-dict-de%c4%9fi%c5%9fmezleri-i%c3%a7in-s%c3%b6zdizimi-gibi" class="anchor" aria-hidden="true">#</a></h2>
+<h2 id="giriiş">Giriiş <a href="#girii%c5%9f" class="anchor" aria-hidden="true">#</a></h2>
+<p>Julia, sözlükler için aşağıdaki sözdizimini kullanır:</p>
+<!-- tüm diller: lang-rb -->
+<pre><code>Dict({k₁ =&gt; v₁, k₂ =&gt; v₂, …, kₙ₋₁ =&gt; vₙ₋₁, kₙ =&gt; vₙ)
+</code></pre>
+<p>Python ve JSON şöyle görünürken:</p>
+<pre><code>{k₁: v₁, k₂: v₂, …, kₙ₋₁: vₙ₋₁, kₙ: vₙ}
+</code></pre>
+<p><strong>Açıklayıcı amaçlarla</strong> bu sözdizimini Julia&rsquo;da da kullanabilir ve ona yeni anlambilim ekleyebiliriz (&lsquo;Dict&rsquo; sözdizimi Julia&rsquo;da önerilen deyimsel yoldur).</p>
+<p>Önce bunun ne <em>nasıl</em> bir ifade olduğunu görelim:</p>
+<pre><code>julia&gt; parse(&quot;{1:2 , 3: 4}&quot;) |&gt; Meta.show_sexpr
+(:cell1d, (:(:), 1, 2), (:(:), 3, 4))
+</code></pre>
+<p>Bu, bu &lsquo;:cell1d&rsquo; ifadesini almamız ve onu dönüştürmemiz veya aşağıdaki gibi görünmesi gereken yeni bir ifade döndürmemiz gerektiği anlamına gelir:</p>
+<pre><code>julia&gt; parse(&quot;Dict(1 =&gt; 2 , 3 =&gt; 4)&quot;) |&gt; Meta.show_sexpr
+(:call, :Dict, (:(=&gt;), 1, 2), (:(=&gt;), 3, 4))
+</code></pre>
+<h2 id="makro-tanımı">Makro tanımı <a href="#makro-tan%c4%b1m%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<p>Aşağıdaki makro, basit olmakla birlikte, bu tür kod oluşturma ve dönüştürmeyi göstermeye izin verir:</p>
+<pre><code>macro dict(expr)
+    # Check the expression has the correct form:
+    if expr.head ≠ :cell1d || any(sub_expr.head ≠ :(:) for sub_expr ∈ expr.args)
+        error(&quot;syntax: expected `{k₁: v₁, k₂: v₂, …, kₙ₋₁: vₙ₋₁, kₙ: vₙ}`&quot;)
+    end
+
+    # Create empty `:Dict` expression which will be returned:
+    block = Expr(:call, :Dict)    # :(Dict())
+
+    # Append `(key =&gt; value)` pairs to the block:
+    for pair in expr.args
+        k, v = pair.args
+        push!(block.args, :($k =&gt; $v))
+    end    # :(Dict(k₁ =&gt; v₁, k₂ =&gt; v₂, …, kₙ₋₁ =&gt; vₙ₋₁, kₙ =&gt; vₙ))
+
+    # Block is escaped so it can reach variables from it's calling scope:
+    return esc(block)
+end
+</code></pre>
+<p>Ortaya çıkan makro genişletmeyi kontrol edelim:</p>
+<pre><code>julia&gt; :(@dict {&quot;a&quot;: :b, 'c': 1, :d: 2.0}) |&gt; macroexpand
+:(Dict(&quot;a&quot; =&gt; :b,'c' =&gt; 1,:d =&gt; 2.0))
+</code></pre>
+<h2 id="kullanım">Kullanım <a href="#kullan%c4%b1m" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code>julia&gt; @dict {&quot;a&quot;: :b, 'c': 1, :d: 2.0}
+Dict{Any,Any} with 3 entries:          
+  &quot;a&quot; =&gt; :b                            
+  :d  =&gt; 2.0                           
+  'c' =&gt; 1                             
+
+julia&gt; @dict {                      
+           &quot;string&quot;: :b,            
+           'c'     : 1,             
+           :symbol : π,             
+           Function: print,         
+           (1:10)  : range(1, 10)   
+       }                            
+Dict{Any,Any} with 5 entries:       
+  1:10     =&gt; 1:10                  
+  Function =&gt; print                 
+  &quot;string&quot; =&gt; :b                    
+  :symbol  =&gt; π = 3.1415926535897...
+  'c'      =&gt; 1         
+</code></pre>
+<p>Son örnek tam olarak şuna eşdeğerdir:</p>
+<pre><code>Dict(                      
+    &quot;string&quot; =&gt; :b,            
+    'c'      =&gt; 1,             
+    :symbol  =&gt; π,             
+    Function =&gt; print,         
+    (1:10)   =&gt; range(1, 10)   
+)
+</code></pre>
+<h2 id="yanlış-kullanım">Yanlış Kullanım <a href="#yanl%c4%b1%c5%9f-kullan%c4%b1m" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code>julia&gt; @dict {&quot;one&quot;: 1, &quot;two&quot;: 2, &quot;three&quot;: 3, &quot;four&quot;: 4, &quot;five&quot; =&gt; 5}
+syntax: expected `{k₁: v₁, k₂: v₂, …, kₙ₋₁: vₙ₋₁, kₙ: vₙ}`
+
+julia&gt; @dict [&quot;one&quot;: 1, &quot;two&quot;: 2, &quot;three&quot;: 3, &quot;four&quot;: 4, &quot;five&quot; =&gt; 5]
+syntax: expected `{k₁: v₁, k₂: v₂, …, kₙ₋₁: vₙ₋₁, kₙ: vₙ}`
+</code></pre>
+<p>Julia&rsquo;nın iki nokta üst üste &ldquo;:&rdquo; için başka kullanımları olduğuna dikkat edin, bu nedenle aralık değişmez ifadelerini parantez içine almanız veya örneğin &ldquo;aralık&rdquo; işlevini kullanmanız gerekir.</p>
+<h2 id="döngüye-kadar">Döngüye kadar <a href="#d%c3%b6ng%c3%bcye-kadar" class="anchor" aria-hidden="true">#</a></h2>
+<p>Hepimiz, koşul &ldquo;true&rdquo; olarak değerlendirilirken gövdesini çalıştıran &ldquo;while&rdquo; sözdizimine alışkınız. Koşul &rsquo;true&rsquo; olarak değerlendirilene kadar bir döngü yürüten bir &lsquo;until&rsquo; döngüsü uygulamak istersek ne olur?</p>
+<p>Julia&rsquo;da bunu, koşul karşılandığında gövdesini yürütmeyi durduran bir <code>@until</code> makrosu oluşturarak yapabiliriz:</p>
+<pre><code class="language-julia">
+macro until(condition, expression)
+    quote
+        while !($condition)
+            $expression
+        end
+    end |&gt; esc
+end
+</code></pre>
+<p>Burada, tüm &ldquo;alıntı&rdquo; bloğunda &ldquo;esc&rdquo; işlevini çağırmaya eşdeğer olan &ldquo;|&gt;&rdquo; işlev zincirleme sözdizimini kullandık. &ldquo;esc&rdquo; işlevi, makro hijyeninin makronun içeriğine uygulanmasını engeller; onsuz, dış değişkenlerle çarpışmaları önlemek için makro kapsamındaki değişkenler yeniden adlandırılacaktır. Daha fazla ayrıntı için <a href="http://docs.julialang.org/en/stable/manual/metaprogramming/#hygiene">makro hijyen</a> ile ilgili Julia belgelerine bakın.</p>
+<p>Her şeyi bir &lsquo;begin &hellip; end&rsquo; bloğunun içine yerleştirerek bu döngüde birden fazla ifade kullanabilirsiniz:</p>
+<pre><code class="language-julia">julia&gt; i = 0;
+
+julia&gt; @until i == 10 begin
+           println(i)
+           i += 1
+       end
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+julia&gt; i
+10
+</code></pre>
+<h2 id="quotenode-metaquot-ve-exprquote">QuoteNode, Meta.quot ve Expr(:quote) <a href="#quotenode-metaquot-ve-exprquote" class="anchor" aria-hidden="true">#</a></h2>
+<p>Julia işlevini kullanarak bir şeyi alıntılamanın üç yolu vardır:</p>
+<pre><code>julia&gt; QuoteNode(:x)
+:(:x)
+
+julia&gt; Meta.quot(:x)
+:(:x)
+
+julia&gt; Expr(:quote, :x)
+:(:x)
+</code></pre>
+<p>&ldquo;Alıntı yapmak&rdquo; ne anlama geliyor ve ne işe yarıyor? Alıntı yapmak, ifadeleri Julia tarafından özel biçimler olarak yorumlanmaktan korumamızı sağlar. Yaygın bir kullanım durumu, sembol olarak değerlendirilen şeyleri içermesi gereken <a href="https://www.wikiod.com/tr/julia-lang/ifade">ifadeler</a> oluşturduğumuz zamandır. (Örneğin, [bu makronun][2] bir sembol olarak değerlendirilen bir ifade döndürmesi gerekir.) Sadece sembolü döndürmek işe yaramaz:</p>
+<pre><code>julia&gt; macro mysym(); :x; end
+@mysym (macro with 1 method)
+
+julia&gt; @mysym
+ERROR: UndefVarError: x not defined
+
+julia&gt; macroexpand(:(@mysym))
+:x
+</code></pre>
+<p>Burada neler oluyor? &ldquo;@mysym&rdquo;, bir ifade olarak &ldquo;x&rdquo; değişkeni olarak yorumlanan &ldquo;:x&quot;e genişler. Ancak &lsquo;x&rsquo;e henüz hiçbir şey atanmadı, bu nedenle &lsquo;x tanımlanmadı&rsquo; hatası alıyoruz.</p>
+<p>Bunu aşmak için makromuzun sonucunu alıntılamalıyız:</p>
+<pre><code>julia&gt; macro mysym2(); Meta.quot(:x); end
+@mysym2 (macro with 1 method)
+
+julia&gt; @mysym2
+:x
+
+julia&gt; macroexpand(:(@mysym2))
+:(:x)
+</code></pre>
+<p>Burada, sembolümüzü tırnak içine alınmış bir sembole dönüştürmek için <code>Meta.quot</code> fonksiyonunu kullandık, bu da istediğimiz sonuç.</p>
+<p>&ldquo;Meta.quot&rdquo; ve &ldquo;QuoteNode&rdquo; arasındaki fark nedir ve hangisini kullanmalıyım? Neredeyse tüm durumlarda, fark gerçekten önemli değil. Bazen &ldquo;Meta.quot&rdquo; yerine &ldquo;QuoteNode&rdquo; kullanmak biraz daha güvenli olabilir. Ancak farkı keşfetmek, Julia ifadelerinin ve makrolarının nasıl çalıştığı konusunda bilgilendiricidir.</p>
+<h2 id="metaquot-ve-quotenode-arasındaki-fark-açıklandı">&lsquo;Meta.quot&rsquo; ve &lsquo;QuoteNode&rsquo; arasındaki fark açıklandı <a href="#metaquot-ve-quotenode-aras%c4%b1ndaki-fark-a%c3%a7%c4%b1kland%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<p>İşte bir temel kural:</p>
+<ul>
+<li>Eğer enterpolasyonu desteklemek istiyorsanız veya desteklemek istiyorsanız, <code>Meta.quot</code> kullanın;</li>
+<li>Enterpolasyona izin veremiyorsanız veya izin vermek istemiyorsanız, <code>QuoteNode</code> kullanın.</li>
+</ul>
+<p>Kısacası, fark şudur: &ldquo;Meta.quot&rdquo; alıntılanan şey içinde enterpolasyona izin verirken, &ldquo;QuoteNode&rdquo; argümanını herhangi bir enterpolasyondan korur. Enterpolasyonu anlamak için <code>$</code> ifadesinden bahsetmek önemlidir. Julia&rsquo;da <code>$</code> ifadesi denen bir tür ifade vardır. Bu ifadeler kaçmaya izin verir. Örneğin, aşağıdaki ifadeyi göz önünde bulundurun:</p>
+<pre><code>julia&gt; ex = :( x = 1; :($x + $x) )
+quote 
+    x = 1
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+</code></pre>
+<p>Değerlendirildiği zaman, bu ifade &ldquo;1&quot;i değerlendirecek ve onu &ldquo;x&quot;e atayacak, ardından &ldquo;<em>&ldquo;nin &ldquo;x&rdquo; değeriyle değiştirileceği &ldquo;</em> + _&rdquo; biçiminde bir ifade oluşturacaktır. Bu nedenle, bunun sonucu <em>ifade</em> &lsquo;1 + 1&rsquo; olmalıdır (henüz değerlendirilmemiştir ve <em>değer</em> &lsquo;2&rsquo;den çok farklıdır). Nitekim durum şu:</p>
+<pre><code>julia&gt; eval(ex)
+:(1 + 1)
+</code></pre>
+<p>Diyelim ki bu tür ifadeleri oluşturmak için bir makro yazıyoruz. Makromuz, yukarıdaki &ldquo;ex&quot;deki &ldquo;1&quot;in yerini alacak bir argüman alacaktır. Bu argüman elbette herhangi bir ifade olabilir. İşte tam olarak istediğimiz gibi olmayan bir şey:</p>
+<pre><code>julia&gt; macro makeex(arg)
+           quote
+               :( x = $(esc($arg)); :($x + $x) )
+           end
+       end
+@makeex (macro with 1 method)
+
+julia&gt; @makeex 1
+quote 
+    x = $(Expr(:escape, 1))
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+
+julia&gt; @makeex 1 + 1
+quote 
+    x = $(Expr(:escape, 2))
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+</code></pre>
+<p>İkinci durum yanlış çünkü &lsquo;1 + 1&rsquo;i değerlendirmeden almalıyız. Bunu, argümanı &ldquo;Meta.quot&rdquo; ile alıntılayarak düzeltiriz:</p>
+<pre><code>julia&gt; macro makeex2(arg)
+           quote
+               :( x = $$(Meta.quot(arg)); :($x + $x) )
+           end
+       end
+@makeex2 (macro with 1 method)
+
+julia&gt; @makeex2 1 + 1
+quote 
+    x = 1 + 1
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+</code></pre>
+<p>Makro hijyen, bir teklifin içeriği için geçerli değildir, bu nedenle bu durumda kaçmak gerekli değildir (ve aslında yasal değildir).</p>
+<p>Daha önce belirtildiği gibi, &ldquo;Meta.quot&rdquo; enterpolasyona izin verir. Öyleyse şunu deneyelim:</p>
+<pre><code>julia&gt; @makeex2 1 + $(sin(1))
+quote 
+    x = 1 + 0.8414709848078965
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+
+julia&gt; let q = 0.5
+           @makeex2 1 + $q
+       end
+quote 
+    x = 1 + 0.5
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+</code></pre>
+<p>İlk örnekten, enterpolasyonun, ifadenin değişmez bir &lsquo;sin(1)&rsquo; olması yerine &lsquo;sin(1)&lsquo;i satır içine almamıza izin verdiğini görüyoruz. İkinci örnek, bu enterpolasyonun makronun kendi kapsamında değil, makro çağırma kapsamında yapıldığını gösterir. Bunun nedeni, makromuzun aslında herhangi bir kodu değerlendirmemiş olmasıdır; tek yaptığı kod üretmek. Kodun değerlendirilmesi (ki bu ifadeye girer), makronun oluşturduğu ifade gerçekten çalıştırıldığında yapılır.</p>
+<p>Bunun yerine &ldquo;QuoteNode&rdquo; kullansaydık ne olurdu? Tahmin edebileceğiniz gibi, &ldquo;QuoteNode&rdquo; enterpolasyonun gerçekleşmesini engellediğinden, bu işe yaramayacağı anlamına gelir.</p>
+<pre><code>julia&gt; macro makeex3(arg)
+           quote
+               :( x = $$(QuoteNode(arg)); :($x + $x) )
+           end
+       end
+@makeex3 (macro with 1 method)
+
+julia&gt; @makeex3 1 + $(sin(1))
+quote 
+    x = 1 + $(Expr(:$, :(sin(1))))
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+
+julia&gt; let q = 0.5
+           @makeex3 1 + $q
+       end
+quote 
+    x = 1 + $(Expr(:$, :q))
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+
+julia&gt; eval(@makeex3 $(sin(1)))
+ERROR: unsupported or misplaced expression $
+ in eval(::Module, ::Any) at ./boot.jl:234
+ in eval(::Any) at ./boot.jl:233
+</code></pre>
+<p>Bu örnekte, enterpolasyona izin verdiği için &ldquo;Meta.quot&rdquo; ifadesinin daha fazla esneklik sağladığı konusunda hemfikir olabiliriz. Öyleyse neden &lsquo;QuoteNode&rsquo; kullanmayı düşünebiliriz? Bazı durumlarda, enterpolasyonu gerçekten istemeyebiliriz ve aslında &lsquo;$&rsquo; ifadesinin tam anlamıyla olmasını isteyebiliriz. Bu ne zaman arzu edilir? &ldquo;+&rdquo; işaretinin soluna ve sağına ne geleceğini belirleyen ek argümanlar iletebileceğimiz bir &ldquo;@makeex&rdquo; genellemesini ele alalım:</p>
+<pre><code>julia&gt; macro makeex4(expr, left, right)
+           quote
+               quote
+                   $$(Meta.quot(expr))
+                   :($$$(Meta.quot(left)) + $$$(Meta.quot(right)))
+               end
+           end
+       end
+@makeex4 (macro with 1 method)
+
+julia&gt; @makeex4 x=1 x x
+quote  # REPL[110], line 4:
+    x = 1 # REPL[110], line 5:
+    $(Expr(:quote, :($(Expr(:$, :x)) + $(Expr(:$, :x)))))
+end
+
+julia&gt; eval(ans)
+:(1 + 1)
+</code></pre>
+<p><code>@makeex4</code> uygulamamızın bir sınırlaması, ifadeleri doğrudan ifadenin sol ve sağ tarafları olarak kullanamamamızdır, çünkü bunlar enterpolasyonludur. Başka bir deyişle, ifadeler enterpolasyon için değerlendirilebilir, ancak onların korunmasını isteyebiliriz. (Burada pek çok alıntı ve değerlendirme düzeyi olduğundan, açıklığa kavuşturalım: makromuz, değerlendirildiğinde başka bir <em>ifade</em> üreten bir <em>ifade</em> oluşturan <em>kod</em> üretir. Vay!)</p>
+<pre><code>julia&gt; @makeex4 x=1 x/2 x
+quote  # REPL[110], line 4:
+    x = 1 # REPL[110], line 5:
+    $(Expr(:quote, :($(Expr(:$, :(x / 2))) + $(Expr(:$, :x)))))
+end
+
+julia&gt; eval(ans)
+:(0.5 + 1)
+</code></pre>
+<p>Kullanıcının enterpolasyonun ne zaman olacağını ve ne zaman olmayacağını belirlemesine izin vermeliyiz. Teorik olarak, bu kolay bir düzeltme: Uygulamamızdaki `$&rsquo; işaretlerinden birini kaldırabilir ve kullanıcının kendi katkıda bulunmasına izin verebiliriz. Bunun anlamı, kullanıcı tarafından girilen ifadenin alıntılanmış bir versiyonunu (daha önce alıntıladık ve bir kez enterpolasyon yaptık) enterpolasyon yapmamızdır. Bu, birden fazla iç içe alıntılama ve alıntı yapmama düzeyi nedeniyle ilk başta biraz kafa karıştırıcı olabilen aşağıdaki koda yol açar. Her kaçışın ne için olduğunu okumaya ve anlamaya çalışın.</p>
+<pre><code>julia&gt; macro makeex5(expr, left, right)
+           quote
+               quote
+                   $$(Meta.quot(expr))
+                   :($$(Meta.quot($(Meta.quot(left)))) + $$(Meta.quot($(Meta.quot(right)))))
+               end
+           end
+       end
+@makeex5 (macro with 1 method)
+
+julia&gt; @makeex5 x=1 1/2 1/4
+quote  # REPL[121], line 4:
+    x = 1 # REPL[121], line 5:
+    $(Expr(:quote, :($(Expr(:$, :($(Expr(:quote, :(1 / 2)))))) + $(Expr(:$, :($(Expr(:quote, :(1 / 4)))))))))
+end
+
+julia&gt; eval(ans)
+:(1 / 2 + 1 / 4)
+
+julia&gt; @makeex5 y=1 $y $y
+ERROR: UndefVarError: y not defined
+</code></pre>
+<p>İşler iyi başladı ama bir şeyler ters gitti. Makronun oluşturulan kodu, makro çağırma kapsamında &ldquo;y&quot;nin kopyasını enterpolasyon yapmaya çalışıyor; ancak makro çağırma kapsamında &ldquo;y&quot;nin <em>no</em> kopyası yok. Hatamız makrodaki ikinci ve üçüncü argümanlarla enterpolasyona izin vermektir. Bu hatayı düzeltmek için <code>QuoteNode</code> kullanmalıyız.</p>
+<pre><code>julia&gt; macro makeex6(expr, left, right)
+           quote
+               quote
+                   $$(Meta.quot(expr))
+                   :($$(Meta.quot($(QuoteNode(left)))) + $$(Meta.quot($(QuoteNode(right)))))
+               end
+           end
+       end
+@makeex6 (macro with 1 method)
+
+julia&gt; @makeex6 y=1 1/2 1/4
+quote  # REPL[129], line 4:
+    y = 1 # REPL[129], line 5:
+    $(Expr(:quote, :($(Expr(:$, :($(Expr(:quote, :(1 / 2)))))) + $(Expr(:$, :($(Expr(:quote, :(1 / 4)))))))))
+end
+
+julia&gt; eval(ans)
+:(1 / 2 + 1 / 4)
+
+julia&gt; @makeex6 y=1 $y $y
+quote  # REPL[129], line 4:
+    y = 1 # REPL[129], line 5:
+    $(Expr(:quote, :($(Expr(:$, :($(Expr(:quote, :($(Expr(:$, :y)))))))) + $(Expr(:$, :($(Expr(:quote, :($(Expr(:$, :y)))))))))))
+end
+
+julia&gt; eval(ans)
+:(1 + 1)
+
+julia&gt; @makeex6 y=1 1+$y $y
+quote  # REPL[129], line 4:
+    y = 1 # REPL[129], line 5:
+    $(Expr(:quote, :($(Expr(:$, :($(Expr(:quote, :(1 + $(Expr(:$, :y)))))))) + $(Expr(:$, :($(Expr(:quote, :($(Expr(:$, :y)))))))))))
+end
+
+julia&gt; @makeex6 y=1 $y/2 $y
+quote  # REPL[129], line 4:
+    y = 1 # REPL[129], line 5:
+    $(Expr(:quote, :($(Expr(:$, :($(Expr(:quote, :($(Expr(:$, :y)) / 2)))))) + $(Expr(:$, :($(Expr(:quote, :($(Expr(:$, :y)))))))))))
+end
+
+julia&gt; eval(ans)
+:(1 / 2 + 1)
+</code></pre>
+<p><code>QuoteNode</code> kullanarak argümanlarımızı enterpolasyondan koruduk. &ldquo;QuoteNode&rdquo; yalnızca ek koruma etkisine sahip olduğundan, enterpolasyon istemediğiniz sürece &ldquo;QuoteNode&rdquo; kullanmak asla zararlı değildir. Ancak aradaki farkı anlamak, &ldquo;Meta.quot&quot;un nerede ve neden daha iyi bir seçim olabileceğini anlamayı mümkün kılar.</p>
+<p>Bu uzun alıştırma, herhangi bir makul uygulamada gösterilemeyecek kadar karmaşık bir örnekle yapılmıştır. Bu nedenle, daha önce bahsedilen aşağıdaki temel kuralı doğruladık:</p>
+<ul>
+<li>Eğer enterpolasyonu desteklemek istiyorsanız veya desteklemek istiyorsanız, <code>Meta.quot</code> kullanın;</li>
+<li>Enterpolasyona izin veremiyorsanız veya izin vermek istemiyorsanız, <code>QuoteNode</code> kullanın.</li>
+</ul>
+<h2 id="peki-ya-ifadealıntı">Peki ya İfade(:alıntı)? <a href="#peki-ya-ifadeal%c4%b1nt%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<p>&ldquo;İfade(:alıntı, x)&rdquo;, &ldquo;Meta.quot(x)&rdquo; ile eşdeğerdir. Ancak ikincisi daha deyimseldir ve tercih edilir. Metaprogramlamayı yoğun olarak kullanan kod için, genellikle bir &ldquo;use Base.Meta&rdquo; satırı kullanılır, bu da &ldquo;Meta.quot&quot;un yalnızca &ldquo;quot&rdquo; olarak adlandırılmasına olanak tanır.</p>
+<p>[2]: https://www.wikiod.com/tr/julia-lang/dize-makrolar#Yasal tanımlayıcı olmayan semboller</p>
+<h2 id="kılavuz">Kılavuz <a href="#k%c4%b1lavuz" class="anchor" aria-hidden="true">#</a></h2>
+<h1 id="πnin-metaprogramlama-bitleri-ve-bobları">π&rsquo;nin Metaprogramlama bitleri ve bobları <a href="#%cf%80nin-metaprogramlama-bitleri-ve-boblar%c4%b1" class="anchor" aria-hidden="true">#</a></h1>
+<p><strong>Hedefler:</strong></p>
+<ul>
+<li>
+<p>Kavramları uygun bağlamlarda tanıtan minimal hedefli işlevsel/faydalı/soyut olmayan örneklerle (ör. &ldquo;@swap&rdquo; veya &ldquo;@assert&rdquo;) öğretin</p>
+</li>
+<li>
+<p>Kodun açıklama paragrafları yerine kavramları göstermesine/göstermesine izin vermeyi tercih edin</p>
+</li>
+<li>
+<p>&lsquo;Gerekli okuma&rsquo;yı diğer sayfalara bağlamaktan kaçının - anlatıyı kesintiye uğratır</p>
+</li>
+<li>
+<p>Öğrenmeyi kolaylaştıracak şeyleri mantıklı bir sırayla sunun</p>
+</li>
+</ul>
+<p><strong>Kaynaklar:</strong></p>
+<p><a href="http://docs.julialang.org/en/release-0.5/manual/metaprogramming/">julialang.org</a>
+<a href="https://en.wikibooks.org/w/index.php?title=Introduction_Julia/Metaprogramming">wikibook (@Cormullion)</a>
+<a href="http://blog.leahhanson.us/post/julia/julia-introspects.html">5 katman (Leah Hanson)</a>
+[SO-Doc Alıntı (@TotalVerb)](https://www.wikiod.com/tr/julia-lang/metaprogramlama#QuoteNode, Meta.quot ve Expr(:quote))
+[SO-Doc &ndash; Yasal tanımlayıcı olmayan simgeler (@TotalVerb)](https://www.wikiod.com/tr/julia-lang/dize-makrolar#Yasal tanımlayıcı olmayan semboller tanımlayıcılar#t=201610090041530343729
+<a href="http://stackoverflow.com/questions/23480722/what-is-a-symbol-in-julia">SO: Julia&rsquo;da Bir Sembol Nedir (@StefanKarpinski)</a>
+<a href="https://discourse.julialang.org/t/simple-metaprogramming-exercises-challenges">Söylem dizisi (@p-i-)</a>
+https://www.wikiod.com/tr/julia-lang/metaprogramlama</p>
+<p>Malzemenin çoğu söylem kanalından geldi, çoğu fcard&rsquo;dan geldi&hellip; Lütfen atıfları unuttuysam beni uyarın.</p>
+<h2 id="sembol"><strong>Sembol</strong> <a href="#sembol" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code class="language-julia">julia&gt; mySymbol = Symbol(&quot;myName&quot;)  # or 'identifier'
+:myName
+
+julia&gt; myName = 42
+42
+
+julia&gt; mySymbol |&gt; eval  # 'foo |&gt; bar' puts output of 'foo' into 'bar', so 'bar(foo)'
+42
+
+julia&gt; :( $mySymbol = 1 ) |&gt; eval
+1
+
+julia&gt; myName
+1
+</code></pre>
+<p><strong>İşlevlere bayrak geçirme:</strong></p>
+<pre><code class="language-julia">function dothing(flag)
+  if flag == :thing_one
+    println(&quot;did thing one&quot;)
+  elseif flag == :thing_two
+    println(&quot;did thing two&quot;)
+  end
+end
+julia&gt; dothing(:thing_one)
+did thing one
+
+julia&gt; dothing(:thing_two)
+did thing two
+</code></pre>
+<p><strong>Bir hashkey örneği:</strong></p>
+<pre><code class="language-julia">number_names = Dict{Symbol, Int}()
+number_names[:one] = 1
+number_names[:two] = 2
+number_names[:six] = 6
+</code></pre>
+<p><strong>(Gelişmiş)</strong>
+(@fcard) <code>:foo</code> a.k.a. <code>:(foo)</code> &lsquo;foo&rsquo; geçerli bir tanımlayıcıysa bir sembol, aksi takdirde bir ifade verir.</p>
+<pre><code class="language-julia"># NOTE: Different use of ':' is:
+julia&gt; :mySymbol = Symbol('hello world')
+
+#(You can create a symbol with any name with Symbol(&quot;&lt;name&gt;&quot;), 
+# which lets us create such gems as:
+julia&gt; one_plus_one = Symbol(&quot;1 + 1&quot;)
+Symbol(&quot;1 + 1&quot;)
+
+julia&gt; eval(one_plus_one)
+ERROR: UndefVarError: 1 + 1 not defined
+...
+
+julia&gt; valid_math = :($one_plus_one = 3)
+:(1 + 1 = 3)
+
+julia&gt; one_plus_one_plus_two = :($one_plus_one + 2)
+:(1 + 1 + 2)
+
+julia&gt; eval(quote
+           $valid_math
+           @show($one_plus_one_plus_two)
+       end)
+1 + 1 + 2 = 5
+...
+</code></pre>
+<p>Temel olarak, Sembolleri hafif dizeler olarak ele alabilirsiniz. Amaçları bu değil, ama yapabilirsin, öyleyse neden olmasın. Julia&rsquo;nın Üssü bunu kendisi yapar, <code>print_with_color(:red, &quot;abc&quot;)</code> kırmızı renkli bir abc yazdırır.</p>
+<h2 id="ifade-ast"><strong>İfade</strong> (AST) <a href="#ifade-ast" class="anchor" aria-hidden="true">#</a></h2>
+<p>(Neredeyse) Julia&rsquo;daki her şey bir ifadedir, yani bir <a href="http://docs.julialang.org/en/latest/devdocs/ast/">AST</a> tutacak bir &ldquo;İfade&rdquo; örneğidir.</p>
+<pre><code class="language-julia"># when you type ...
+julia&gt; 1+1
+2
+
+# Julia is doing: eval(parse(&quot;1+1&quot;))
+# i.e. First it parses the string &quot;1+1&quot; into an `Expr` object ...
+julia&gt; ast = parse(&quot;1+1&quot;)
+:(1 + 1)
+
+# ... which it then evaluates:
+julia&gt; eval(ast)
+2
+
+# An Expr instance holds an AST (Abstract Syntax Tree).  Let's look at it:
+julia&gt; dump(ast)
+Expr
+  head: Symbol call
+  args: Array{Any}((3,))
+    1: Symbol +
+    2: Int64 1
+    3: Int64 1
+  typ: Any
+  
+# TRY: fieldnames(typeof(ast))
+ 
+julia&gt;      :(a + b*c + 1)  ==
+       parse(&quot;a + b*c + 1&quot;) ==
+       Expr(:call, :+, :a, Expr(:call, :*, :b, :c), 1)
+true
+</code></pre>
+<p><strong>İç içe &ldquo;Expr`s:</strong>&rdquo;</p>
+<pre><code class="language-julia">julia&gt; dump( :(1+2/3) )
+Expr
+  head: Symbol call
+  args: Array{Any}((3,))
+    1: Symbol +
+    2: Int64 1
+    3: Expr
+      head: Symbol call
+      args: Array{Any}((3,))
+        1: Symbol /
+        2: Int64 2
+        3: Int64 3
+      typ: Any
+  typ: Any
+  
+# Tidier rep'n using s-expr
+julia&gt; Meta.show_sexpr( :(1+2/3) ) 
+(:call, :+, 1, (:call, :/, 2, 3))
+</code></pre>
+<h2 id="çok-satırlı-ifadeler-alıntı-kullanıyor">çok satırlı <code>İfade</code>ler <strong><code>alıntı</code></strong> kullanıyor <a href="#%c3%a7ok-sat%c4%b1rl%c4%b1-ifadeler-al%c4%b1nt%c4%b1-kullan%c4%b1yor" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code class="language-julia">julia&gt; blk = quote
+           x=10
+           x+1
+       end
+quote  # REPL[121], line 2:
+    x = 10 # REPL[121], line 3:
+    x + 1
+end
+
+julia&gt; blk == :( begin  x=10; x+1  end )
+true
+
+# Note: contains debug info:
+julia&gt; Meta.show_sexpr(blk)
+(:block,
+  (:line, 2, Symbol(&quot;REPL[121]&quot;)),
+  (:(=), :x, 10),
+  (:line, 3, Symbol(&quot;REPL[121]&quot;)),
+  (:call, :+, :x, 1)
+)
+
+# ... unlike:
+julia&gt; noDbg = :( x=10; x+1 ) 
+quote 
+    x = 10
+    x + 1
+end
+</code></pre>
+<p>&hellip; yani &ldquo;alıntı&rdquo; işlevsel olarak aynıdır ancak ekstra hata ayıklama bilgisi sağlar.</p>
+<p>(*) <strong>İPUCU</strong>: &ldquo;x&quot;i blok içinde tutmak için &ldquo;let&rdquo; kullanın</p>
+<h2 id="alıntı--bir-alıntı"><strong><code>alıntı</code></strong> -bir <strong><code>alıntı</code></strong> <a href="#al%c4%b1nt%c4%b1--bir-al%c4%b1nt%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<p>&ldquo;Expr(:quote, x)&rdquo;, tırnak içindeki alıntıları temsil etmek için kullanılır.</p>
+<pre><code>Expr(:quote, :(x + y)) == :(:(x + y))
+
+Expr(:quote, Expr(:$, :x)) == :(:($x))
+</code></pre>
+<p>&ldquo;QuoteNode(x)&rdquo;, &ldquo;Expr(:quote, x)&rdquo; ile benzerdir ancak enterpolasyonu önler.</p>
+<pre><code>eval(Expr(:quote, Expr(:$, 1))) == 1
+
+eval(QuoteNode(Expr(:$, 1))) == Expr(:$, 1)
+</code></pre>
+<p>(http://stackoverflow.com/questions/41089019/disambiguate-the-various-quoting-mekanizmalar-in-julia-metaprogramming)</p>
+<h2 id="-ve--bir-şekilde-birbirinin-tersi-mi"><strong>$</strong> ve <strong>:(…)</strong> bir şekilde birbirinin tersi mi? <a href="#-ve--bir-%c5%9fekilde-birbirinin-tersi-mi" class="anchor" aria-hidden="true">#</a></h2>
+<p><code>:(foo)</code> &ldquo;değere bakma, ifadeye bak&rdquo; anlamına gelir
+&ldquo;$foo&rdquo;, &ldquo;ifadeyi değerine değiştir&rdquo; anlamına gelir</p>
+<p><code>:($(foo)) == foo</code>.
+<code>$(:(foo))</code> bir hatadır.
+<code>$(...)</code> bir işlem değildir ve kendi başına hiçbir şey yapmaz, bir &ldquo;bunu enterpolasyonla!&rdquo; alıntı sözdiziminin kullandığını işaretleyin. yani, yalnızca bir alıntı içinde bulunur.</p>
+<h2 id="foo-ile-evalfoo-aynı-mı"><strong><code>$</code></strong><code>foo</code> ile <strong><code>eval(</code></strong><code>foo</code><strong><code>)</code></strong> aynı mı? <a href="#foo-ile-evalfoo-ayn%c4%b1-m%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<p><strong>Numara!</strong>
+&ldquo;$foo&rdquo;, derleme zamanı değeriyle değiştirilir
+&ldquo;eval(foo)&rdquo;, bunu çalışma zamanında yapmak anlamına gelir</p>
+<p>&rsquo;eval&rsquo; global kapsamda gerçekleşecek
+enterpolasyon yereldir</p>
+<p>&ldquo;eval(:<expr>)&rdquo; yalnızca &ldquo;<expr>&rdquo; ile aynı değeri döndürmelidir (&quot;<expr>&rdquo; ifadesinin geçerli global alanda geçerli bir ifade olduğu varsayılırsa)</p>
+<pre><code>eval(:(1 + 2)) == 1 + 2
+
+eval(:(let x=1; x + 1 end)) == let x=1; x + 1 end
+</code></pre>
+<h1 id="makro-s"><strong><code>makro</code></strong> s <a href="#makro-s" class="anchor" aria-hidden="true">#</a></h1>
+<p>Hazır? :)</p>
+<pre><code class="language-julia"># let's try to make this!
+julia&gt; x = 5; @show x;
+x = 5
+</code></pre>
+<h2 id="hadi-kendi-show-makromuzu-yapalım">Hadi kendi <strong><code>@show</code></strong> makromuzu yapalım: <a href="#hadi-kendi-show-makromuzu-yapal%c4%b1m" class="anchor" aria-hidden="true">#</a></h2>
+<pre><code class="language-julia">macro log(x)
+  :(
+    println( &quot;Expression: &quot;, $(string(x)), &quot; has value: &quot;, $x )
+  )
+end
+
+u = 42
+f = x -&gt; x^2
+@log(u)       # Expression: u has value: 42
+@log(42)      # Expression: 42 has value: 42
+@log(f(42))   # Expression: f(42) has value: 1764
+@log(:u)      # Expression: :u has value: u
+</code></pre>
+<h2 id="expr-değerini-düşürmek-için-genişlet"><strong><code>Expr</code></strong> değerini düşürmek için <strong><code>genişlet</code></strong> <a href="#expr-de%c4%9ferini-d%c3%bc%c5%9f%c3%bcrmek-i%c3%a7in-geni%c5%9flet" class="anchor" aria-hidden="true">#</a></h2>
+<p><a href="http://blog.leahhanson.us/post/julia/julia-introspects.html">5 katman (Leah Hanson)</a> &lt;&ndash; Julia&rsquo;nın kaynak kodunu bir dize olarak nasıl aldığını, onu bir &lsquo;Expr&rsquo; olarak simgelediğini açıklıyor- ağaç (AST), tüm makroları genişletir (hala AST), <em><strong>düşür</strong></em> (AST&rsquo;yi düşürür), ardından LLVM&rsquo;ye (ve ötesine) dönüştürür - şu anda ötesinde ne olduğu konusunda endişelenmemize gerek yok! )</p>
+<p>S: &ldquo;code_lowered&rdquo; işlevlere etki ediyor. Bir &lsquo;İfade&rsquo;yi düşürmek mümkün mü?
+C: evet!</p>
+<pre><code class="language-julia"># function -&gt; lowered-AST
+julia&gt; code_lowered(*,(String,String))
+1-element Array{LambdaInfo,1}:
+ LambdaInfo template for *(s1::AbstractString, ss::AbstractString...) at strings/basic.jl:84
+
+# Expr(i.e. AST) -&gt; lowered-AST
+julia&gt; expand(:(x ? y : z))
+:(begin
+        unless x goto 3
+        return y
+        3:
+        return z
+    end)
+
+julia&gt; expand(:(y .= x.(i)))
+:((Base.broadcast!)(x,y,i))
+
+# 'Execute' AST or lowered-AST
+julia&gt; eval(ast)
+</code></pre>
+<p>Yalnızca makroları genişletmek istiyorsanız <strong><code>macroexpand</code></strong> kullanabilirsiniz:</p>
+<pre><code class="language-julia"># AST -&gt; (still nonlowered-)AST but with macros expanded:
+julia&gt; macroexpand(:(@show x))
+quote
+    (Base.println)(&quot;x = &quot;,(Base.repr)(begin  # show.jl, line 229:
+                #28#value = x
+            end))
+    #28#value
+end
+</code></pre>
+<p>&hellip; indirilmemiş bir AST döndürür, ancak tüm makrolar genişletilir.</p>
+<h2 id="esc"><strong><code>esc()</code></strong> <a href="#esc" class="anchor" aria-hidden="true">#</a></h2>
+<p>&ldquo;esc(x)&rdquo;, &ldquo;buna hijyen uygulama&rdquo; yazan bir İfade döndürür, &ldquo;İfade(:escape, x)&rdquo; ile aynıdır. Bir makroyu kendi içinde tutan şey hijyendir ve &ldquo;sızdırmalarını&rdquo; istiyorsanız bir şeyleri &ldquo;esc&rdquo; edersiniz. Örneğin.</p>
+<h3 id="örnek-esc-göstermek-için-swap-makrosu">Örnek: <strong><code>esc()</code></strong> göstermek için <strong><code>swap</code></strong> makrosu <a href="#%c3%b6rnek-esc-g%c3%b6stermek-i%c3%a7in-swap-makrosu" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code class="language-julia">macro swap(p, q)
+  quote
+    tmp = $(esc(p))
+    $(esc(p)) = $(esc(q))
+    $(esc(q)) = tmp
+  end
+end
+
+x,y = 1,2
+@swap(x,y)
+println(x,y)  # 2 1
+</code></pre>
+<p>&lsquo;$&rsquo;, &lsquo;alıntı&rsquo;dan &lsquo;kaçmamızı&rsquo; sağlar.
+Öyleyse neden sadece &ldquo;$p&rdquo; ve &ldquo;$q&rdquo; değil? yani</p>
+<pre><code class="language-julia">    # FAIL!
+    tmp = $p
+    $p = $q
+    $q = tmp
+</code></pre>
+<p>Çünkü bu, ilk önce &ldquo;p&rdquo; için &ldquo;makro&rdquo; kapsamına bakacak ve yerel bir &ldquo;p&rdquo;, yani &ldquo;p&rdquo; parametresini bulacaktır (evet, daha sonra &ldquo;p&quot;ye &ldquo;esc&rdquo; olmadan erişirseniz, makro &lsquo;p&rsquo; parametresini yerel bir değişken olarak kabul eder).</p>
+<p>Yani <code>$p = ...</code> sadece yerel <code>p</code>ye bir atamadır. çağrı bağlamında aktarılan değişkeni etkilemez.</p>
+<p>Tamam, peki ya:</p>
+<pre><code class="language-julia">    # Almost!
+    tmp = $p          # &lt;-- you might think we don't 
+    $(esc(p)) = $q    #       need to esc() the RHS
+    $(esc(q)) = tmp
+</code></pre>
+<p>Yani &ldquo;esc(p)&rdquo;, çağrı bağlamına &ldquo;p&rdquo; sızdırıyor. <em>&quot;<code>p</code></em>* olarak aldığımız *<em>makroya geçirilen şey&rdquo;</em></p>
+<pre><code class="language-julia">julia&gt; macro swap(p, q)                  
+         quote                           
+           tmp = $p                      
+           $(esc(p)) = $q                
+           $(esc(q)) = tmp               
+         end                             
+       end                               
+@swap (macro with 1 method)              
+
+julia&gt; x, y = 1, 2                       
+(1,2)                                    
+
+julia&gt; @swap(x, y);                      
+
+julia&gt; @show(x, y);                      
+x = 2                                    
+y = 1                                    
+
+julia&gt; macroexpand(:(@swap(x, y)))       
+quote  # REPL[34], line 3:               
+    #10#tmp = x # REPL[34], line 4:      
+    x = y # REPL[34], line 5:            
+    y = #10#tmp                          
+end                                      
+</code></pre>
+<p>Gördüğünüz gibi &rsquo;tmp&rsquo; hijyen tedavisi &lsquo;#10#tmp&rsquo; alır, &lsquo;x&rsquo; ve &lsquo;y&rsquo; almaz.
+Julia, &ldquo;gensym&rdquo; ile manuel olarak yapabileceğiniz bir şey olan &ldquo;tmp&rdquo; için benzersiz bir tanımlayıcı yapıyor, yani:</p>
+<pre><code class="language-julia">julia&gt; gensym(:tmp)
+Symbol(&quot;##tmp#270&quot;)
+</code></pre>
+<p>Ama: <strong>Bir sorun var:</strong></p>
+<pre><code class="language-julia">julia&gt; module Swap
+       export @swap
+
+       macro swap(p, q)
+         quote
+           tmp = $p
+           $(esc(p)) = $q
+           $(esc(q)) = tmp
+         end
+       end
+       end
+Swap
+
+julia&gt; using Swap
+
+julia&gt; x,y = 1,2
+(1,2)
+
+julia&gt; @swap(x,y)
+ERROR: UndefVarError: x not defined
+</code></pre>
+<p>Julia&rsquo;nın makro hijyeninin yaptığı başka bir şey de, eğer makro başka bir modülden geliyorsa, (bu durumda &ldquo;tmp&rdquo; gibi makronun dönen ifadesinde atanmamış olan) tüm değişkenleri geçerli modülün globalleri yapar, yani &ldquo;$p&rdquo; &ldquo;Swap.$p&rdquo; olur, aynı şekilde &ldquo;$q&rdquo; -&gt; &ldquo;Swap.$q&rdquo; olur.</p>
+<p>Genel olarak, makronun kapsamı dışında bir değişkene ihtiyacınız varsa, onu esc yapmalısınız, bu nedenle bir ifadenin LHS&rsquo;sinde veya RHS&rsquo;sinde olup olmadığına bakılmaksızın &rsquo;esc(p)&rsquo; ve &rsquo;esc(q)&rsquo; kullanmalısınız, hatta kendileri tarafından.</p>
+<p>insanlar &lsquo;gensym&rsquo;den birkaç kez bahsettiler ve yakında birkaç &lsquo;gensym&rsquo; ile tüm ifadeden kaçmanın karanlık tarafı tarafından baştan çıkarılacaksınız, ancak&hellip; Hijyenin nasıl çalıştığını anladığınızdan emin olun. ondan daha akıllı olmaya çalışmadan önce! Özellikle karmaşık bir algoritma değil, bu yüzden çok uzun sürmemeli, ama acele etmeyin! Tüm sonuçlarını anlayana kadar bu gücü kullanmayın&hellip; (@fcard)</p>
+<h2 id="örnek-kadar-makrosu">Örnek: <strong><code>kadar</code></strong> makrosu <a href="#%c3%b6rnek-kadar-makrosu" class="anchor" aria-hidden="true">#</a></h2>
+<p>(@ismael-VC)</p>
+<pre><code class="language-julia">&quot;until loop&quot;
+macro until(condition, block)
+    quote
+        while ! $condition
+            $block
+        end
+    end |&gt; esc
+end
+
+julia&gt; i=1;  @until(  i==5,  begin; print(i); i+=1; end  )
+1234
+
+</code></pre>
+<p>(@fcard) <code>|&gt;</code> Ancak tartışmalıdır. Bir çetenin henüz tartışmaya gelmemiş olmasına şaşırdım. (belki herkes bundan bıkmıştır). Makronun tamamının değilse de çoğunun yalnızca bir işleve çağrı olması için bir öneri vardır, bu nedenle:</p>
+<pre><code class="language-julia">macro until(condition, block)
+    esc(until(condition, block))
+end
+
+function until(condition, block)
+    quote
+        while !$condition
+            $block
+        end
+    end
+end
+</code></pre>
+<p>&hellip;daha güvenli bir alternatiftir.</p>
+<p>##@fcard&rsquo;ın basit makro mücadelesi</p>
+<p>Görev: İşlenenleri değiştirin, böylece <code>swaps(1/2)</code> <code>2.00</code> verir, yani <code>2/1</code></p>
+<pre><code class="language-julia">macro swaps(e)
+    e.args[2:3] = e.args[3👎2]   
+    e
+end
+@swaps(1/2)
+2.00
+</code></pre>
+<p>@fcard&rsquo;dan daha fazla makro mücadelesi <a href="https://Gist.github.com/fcard/b735e642e6613feffad2d00f3c4298bd">buradan</a></p>
+<hr>
+<h2 id="interpolasyon-ve-assert-makrosu">İnterpolasyon ve &ldquo;assert&rdquo; makrosu <a href="#interpolasyon-ve-assert-makrosu" class="anchor" aria-hidden="true">#</a></h2>
+<p>http://docs.julialang.org/en/release-0.5/manual/metaprogramming/#building-an-advanced-macro</p>
+<pre><code class="language-julia">macro assert(ex)
+    return :( $ex ? nothing : throw(AssertionError($(string(ex)))) )
+end
+</code></pre>
+<p>S: Neden son <code>$</code>?
+C: Enterpolasyon yapar, yani yürütme bu makronun çağrılmasından geçerken Julia&rsquo;yı bu &ldquo;string(ex)&ldquo;i &ldquo;değerlendirmeye&rdquo; zorlar.
+yani, sadece bu kodu çalıştırırsanız, herhangi bir değerlendirmeyi zorlamaz. Ancak, &lsquo;assert(foo)&rsquo; yaptığınız anda Julia, &lsquo;AST belirteci/İfadesini&rsquo; ne döndürdüyse onu değiştirerek bu makroyu <em><strong>çağırır</strong></em> ve &lsquo;$&rsquo; <em>will</em> harekete geçer.</p>
+<h3 id="bloklar-için---kullanmak-için-eğlenceli-bir-tüyo">Bloklar için { } kullanmak için eğlenceli bir tüyo <a href="#bloklar-i%c3%a7in---kullanmak-i%c3%a7in-e%c4%9flenceli-bir-t%c3%bcyo" class="anchor" aria-hidden="true">#</a></h3>
+<p>(@fcard) <code>{}</code> blok olarak kullanılmasını engelleyen teknik bir şey olduğunu düşünmüyorum, aslında çalışması için artık <code>{}</code> sözdizimi üzerinde punta bile yapılabilir:</p>
+<pre><code class="language-julia">julia&gt; macro c(block)
+         @assert block.head == :cell1d
+         esc(quote
+           $(block.args...)
+         end)
+       end
+@c (macro with 1 method)
+
+julia&gt; @c {
+         print(1)
+         print(2)
+         1+2
+       }
+123
+</code></pre>
+<p>*({} sözdizimi yeniden kullanıldığında/olduğunda hala çalışması olası değildir)</p>
+<hr>
+<p><strong><em>Öyleyse önce Julia makro jetonunu görür, bu nedenle eşleşen &ldquo;son&quot;a kadar jetonları okuyacak/ayrıştıracak ve ne yaratacak? &ldquo;.head=:macro&rdquo; içeren bir &ldquo;İfade&rdquo; mi? &ldquo;a+1&rdquo;&lsquo;i bir dizge olarak mı saklıyor yoksa onu &lsquo;:+(:a, 1)&rsquo; şeklinde mi ayırıyor? Nasıl görüntülenir?</em></strong></p>
+<p>?</p>
+<p>(@fcard) Bu durumda, sözcüksel kapsam nedeniyle, a, <code>@M</code>nin kapsamında tanımsızdır, dolayısıyla global değişkeni kullanır&hellip;
+Aslında aptal örneğimde flipplin&rsquo; ifadesinden kaçmayı unuttum, ancak <em>&ldquo;yalnızca aynı modül içinde çalışır&rdquo;</em> kısmı hala geçerli.</p>
+<pre><code class="language-julia">julia&gt; module M
+       macro m()
+         :(a+1)
+       end
+       end
+M
+
+julia&gt; a = 1
+1
+
+julia&gt; M.@m
+ERROR: UndefVarError: a not defined
+</code></pre>
+<p>Bunun nedeni, makronun tanımlandığı modül dışında herhangi bir modülde kullanılması durumunda, genişletilecek kodda tanımlanmayan tüm değişkenlerin makro modülünün globalleri olarak ele alınmasıdır.</p>
+<pre><code class="language-julia">julia&gt; macroexpand(:(M.@m))
+:(M.a + 1)
+</code></pre>
+<hr>
+<h1 id="ileri"><em><strong>İLERİ</strong></em> <a href="#ileri" class="anchor" aria-hidden="true">#</a></h1>
+<p>###@Ismael-VC</p>
+<pre><code class="language-julia">@eval begin
+    &quot;do-until loop&quot;
+    macro $(:do)(block, until::Symbol, condition)
+        until ≠ :until &amp;&amp; 
+            error(&quot;@do expected `until` got `$until`&quot;)
+        quote
+            let
+                $block
+                @until $condition begin
+                    $block
+                end
+            end
+        end |&gt; esc
+    end
+end
+julia&gt; i = 0            
+0                       
+
+julia&gt; @do begin        
+           @show i      
+           i += 1       
+       end until i == 5 
+i = 0                   
+i = 1                   
+i = 2                   
+i = 3                   
+i = 4
+</code></pre>
+<h3 id="scottın-makrosu">Scott&rsquo;ın makrosu: <a href="#scott%c4%b1n-makrosu" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code>&quot;&quot;&quot;
+Internal function to return captured line number information from AST
+
+##Parameters
+- a:     Expression in the julia type Expr
+
+##Return
+
+- Line number in the file where the calling macro was invoked
+&quot;&quot;&quot;
+_lin(a::Expr) = a.args[2].args[1].args[1]
+
+&quot;&quot;&quot;
+Internal function to return captured file name information from AST
+
+##Parameters
+- a:     Expression in the julia type Expr
+
+##Return
+- The name of the file where the macro was invoked
+&quot;&quot;&quot;
+_fil(a::Expr) = string(a.args[2].args[1].args[2])
+
+&quot;&quot;&quot;
+Internal function to determine if a symbol is a status code or variable
+&quot;&quot;&quot;
+function _is_status(sym::Symbol)
+    sym in (:OK, :WARNING, :ERROR) &amp;&amp; return true
+    str = string(sym)
+    length(str) &gt; 4 &amp;&amp; (str[1:4] == &quot;ERR_&quot; || str[1:5] == &quot;WARN_&quot; || str[1:5] == &quot;INFO_&quot;)
+end
+
+&quot;&quot;&quot;
+Internal function to return captured error code from AST
+
+##Parameters
+- a:     Expression in the julia type Expr
+
+##Return
+- Error code from the captured info in the AST from the calling macro
+&quot;&quot;&quot;
+_err(a::Expr) =
+    (sym = a.args[2].args[2] ; _is_status(sym) ? Expr(:., :Status, QuoteNode(sym)) : sym)
+
+&quot;&quot;&quot;
+Internal function to produce a call to the log function based on the macro arguments and the AST from the ()-&gt;ERRCODE anonymous function definition used to capture error code, file name and line number where the macro is used
+
+##Parameters
+- level:     Loglevel which has to be logged with macro
+- a:         Expression in the julia type Expr
+- msgs:      Optional message
+
+##Return
+- Statuscode
+&quot;&quot;&quot;
+function _log(level, a, msgs)
+    if isempty(msgs)
+        :( log($level, $(esc(:Symbol))($(_fil(a))), $(_lin(a)), $(_err(a)) )
+    else
+        :( log($level, $(esc(:Symbol))($(_fil(a))), $(_lin(a)), $(_err(a)), message=$(esc(msgs[1]))) )
+    end
+end
+
+macro warn(a, msgs...)  ; _log(Warning, a, msgs) ; end
+</code></pre>
+<h1 id="çöp--işlenmemiş-"><em><strong>çöp / işlenmemiş &hellip;</strong></em> <a href="#%c3%a7%c3%b6p--i%c5%9flenmemi%c5%9f-" class="anchor" aria-hidden="true">#</a></h1>
+<h3 id="görüntülemebir-makroyu-boşaltma"><strong>görüntüleme</strong>/<strong>bir makroyu boşaltma</strong> <a href="#g%c3%b6r%c3%bcnt%c3%bclemebir-makroyu-bo%c5%9faltma" class="anchor" aria-hidden="true">#</a></h3>
+<p>(@p-i-) Diyelim ki sadece makro m(); a+1; yeni bir REPL ile biter. &lsquo;a&rsquo; tanımlı değil. Nasıl &lsquo;görüntüleyebilirim&rsquo;?
+örneğin, bir makroyu &lsquo;dökmenin&rsquo; bir yolu var mı?
+Aslında yürütmeden</p>
+<p>(@fcard) Makrolardaki tüm kodlar aslında fonksiyonlara konur, böylece sadece onların indirilmiş veya türetilmiş kodlarını görüntüleyebilirsiniz.</p>
+<pre><code class="language-julia">julia&gt; macro m()  a+1  end
+@m (macro with 1 method)
+
+julia&gt; @code_typed @m
+LambdaInfo for @m()
+:(begin 
+        return Main.a + 1
+    end)
+
+julia&gt; @code_lowered @m  
+CodeInfo(:(begin
+        nothing
+        return Main.a + 1
+    end))
+# ^ or: code_lowered(eval(Symbol(&quot;@m&quot;)))[1] # ouf!
+</code></pre>
+<p>Bir makronun işlevini almanın diğer yolları:</p>
+<pre><code class="language-julia">julia&gt; macro getmacro(call) call.args[1] end
+@getmacro (macro with 1 method)
+
+julia&gt; getmacro(name) = getfield(current_module(), name.args[1])
+getmacro (generic function with 1 method)
+
+julia&gt; @getmacro @m
+@m (macro with 1 method)
+
+julia&gt; getmacro(:@m)
+@m (macro with 1 method)
+</code></pre>
+<pre><code class="language-julia">julia&gt; eval(Symbol(&quot;@M&quot;))
+@M (macro with 1 method)
+
+julia&gt; dump( eval(Symbol(&quot;@M&quot;)) )
+@M (function of type #@M)
+
+julia&gt; code_typed( eval(Symbol(&quot;@M&quot;)) )
+1-element Array{Any,1}:
+ LambdaInfo for @M()
+
+julia&gt; code_typed( eval(Symbol(&quot;@M&quot;)) )[1]
+LambdaInfo for @M()
+:(begin 
+        return $(Expr(:copyast, :($(QuoteNode(:(a + 1))))))
+    end::Expr)
+
+julia&gt; @code_typed @M
+LambdaInfo for @M()
+:(begin 
+        return $(Expr(:copyast, :($(QuoteNode(:(a + 1))))))
+    end::Expr)
+</code></pre>
+<p>^ bunun yerine &ldquo;code_typed&rdquo; kullanabilirim gibi görünüyor</p>
+<h3 id="evalsymbolm-nasıl-anlaşılır"><code>eval(Symbol(&quot;@M&quot;))</code> nasıl anlaşılır? <a href="#evalsymbolm-nas%c4%b1l-anla%c5%9f%c4%b1l%c4%b1r" class="anchor" aria-hidden="true">#</a></h3>
+<p>(@fcard) Şu anda her makronun kendisiyle ilişkilendirilmiş bir işlevi vardır. &ldquo;M&rdquo; adında bir makronuz varsa, makronun işlevine &ldquo;@M&rdquo; adı verilir. Genellikle bir fonksiyonun değerini örn. <code>eval(:print)</code> ancak bir makro işleviyle <code>Symbol(&quot;@M&quot;)</code> yapmanız gerekir, çünkü sadece <code>:@M</code> bir <code>Expr(:macrocall, Symbol(&quot;@M&quot;))</code> olur ve bunun makro genişlemeye neden olduğunu değerlendirmek.</p>
+<h2 id="neden-code_typed-parametreleri-göstermiyor">Neden <strong><code>code_typed</code></strong> parametreleri göstermiyor? <a href="#neden-code_typed-parametreleri-g%c3%b6stermiyor" class="anchor" aria-hidden="true">#</a></h2>
+<p>(@p-i-)</p>
+<pre><code class="language-julia">julia&gt; code_typed( x -&gt; x^2 )[1]
+LambdaInfo for (::##5#6)(::Any)
+:(begin 
+        return x ^ 2
+    end)
+</code></pre>
+<p>^ burada bir <code>::Any</code> parametresi görüyorum, ancak <code>x</code> belirteci ile bağlantılı görünmüyor.</p>
+<pre><code class="language-julia"> julia&gt; code_typed( print )[1]
+LambdaInfo for print(::IO, ::Char)
+:(begin 
+        (Base.write)(io,c)
+        return Base.nothing
+    end::Void)
+</code></pre>
+<p>^ benzer şekilde burada; &ldquo;io&quot;yu &ldquo;::IO&rdquo; ile bağlayacak hiçbir şey yok
+O halde bu, o belirli &lsquo;baskı&rsquo; yönteminin AST temsilinin tam bir dökümü olamaz mı?</p>
+<p>(@fcard) <code>print(::IO, ::Char)</code> sadece size hangi yöntemin olduğunu söyler, AST&rsquo;nin bir parçası değildir.
+Artık master&rsquo;da bile yok:</p>
+<pre><code class="language-julia">julia&gt; code_typed(print)[1]
+CodeInfo(:(begin
+        (Base.write)(io,c)
+        return Base.nothing
+    end))=&gt;Void
+</code></pre>
+<p>(@p-i-) Bununla ne demek istediğini anlamıyorum. Bu yöntemin gövdesi için AST&rsquo;yi terk ediyor gibi görünüyor, değil mi?
+&lsquo;code_typed&rsquo; bir işlev için AST&rsquo;yi verdiğini düşündüm. Ancak ilk adımı, yani params için belirteçleri ayarlamayı kaçırıyor gibi görünüyor.</p>
+<p>(@fcard) &ldquo;code_typed&rdquo; yalnızca vücudun AST&rsquo;sini göstermek içindir, ancak şimdilik yöntemin tam AST&rsquo;sini bir &ldquo;LambdaInfo&rdquo; (0.5) veya &ldquo;CodeInfo&rdquo; (0.6) biçiminde verir, ancak bir repl&rsquo;ye yazdırıldığında bilgilerin çoğu atlanır. Tüm detayları almak için <code>LambdaInfo</code> alanını alan bazında incelemeniz gerekecektir. &lsquo;dump&rsquo; repl&rsquo;inizi dolduracak, böylece deneyebilirsiniz:</p>
+<pre><code class="language-julia">macro method_info(call)
+  quote
+    method = @code_typed $(esc(call))
+    print_info_fields(method)
+  end
+end
+
+function print_info_fields(method)
+  for field in fieldnames(typeof(method))
+    if isdefined(method, field) &amp;&amp; !(field in [Symbol(&quot;&quot;), :code])
+      println(&quot;  $field = &quot;, getfield(method, field))
+    end
+  end
+  display(method)
+end
+
+print_info_fields(x::Pair) = print_info_fields(x[1])
+</code></pre>
+<p>Bu, bir yöntemin AST&rsquo;sinin adlandırılmış alanlarının tüm değerlerini verir:</p>
+<pre><code class="language-julia">julia&gt; @method_info print(STDOUT, 'a')
+  rettype = Void
+  sparam_syms = svec()
+  sparam_vals = svec()
+  specTypes = Tuple{Base.#print,Base.TTY,Char}
+  slottypes = Any[Base.#print,Base.TTY,Char]
+  ssavaluetypes = Any[]
+  slotnames = Any[Symbol(&quot;#self#&quot;),:io,:c]
+  slotflags = UInt8[0x00,0x00,0x00]
+  def = print(io::IO, c::Char) at char.jl:45
+  nargs = 3
+  isva = false
+  inferred = true
+  pure = false
+  inlineable = true
+  inInference = false
+  inCompile = false
+  jlcall_api = 0
+  fptr = Ptr{Void} @0x00007f7a7e96ce10
+LambdaInfo for print(::Base.TTY, ::Char)
+:(begin
+        $(Expr(:invoke, LambdaInfo for write(::Base.TTY, ::Char), :(Base.write), :(io), :(c)))
+        return Base.nothing
+    end::Void)
+</code></pre>
+<p>lil&rsquo; <code>def = print(io::IO, c::Char)</code> bölümüne bakın? Buyrun! (ayrıca <code>slotnames = [..., :io, :c]</code> bölümü)
+Ayrıca evet, çıktıdaki fark, sonuçları master&rsquo;da gösteriyor olmamdı.</p>
+<h2 id="heading">??? <a href="#heading" class="anchor" aria-hidden="true">#</a></h2>
+<p>(@Ismael-VC) böyle mi demek istiyorsun?
+http://stackoverflow.com/questions/39314925/generic-dispatch-with-symbols/39315024#39315024</p>
+<p>Bunu şu şekilde yapabilirsiniz:</p>
+<pre><code class="language-julia">julia&gt; function dispatchtest{alg}(::Type{Val{alg}})
+           println(&quot;This is the generic dispatch. The algorithm is $alg&quot;)
+       end
+dispatchtest (generic function with 1 method)
+
+julia&gt; dispatchtest(alg::Symbol) = dispatchtest(Val{alg})
+dispatchtest (generic function with 2 methods)
+
+julia&gt; function dispatchtest(::Type{Val{:Euler}})
+           println(&quot;This is for the Euler algorithm!&quot;)
+       end
+dispatchtest (generic function with 3 methods)
+
+julia&gt; dispatchtest(:Foo)
+This is the generic dispatch. The algorithm is Foo
+
+julia&gt; dispatchtest(:Euler)
+</code></pre>
+<p>Bu Euler algoritması içindir!
+@fcard&rsquo;ın genel sembol gönderimi hakkında ne düşündüğünü merak ediyorum! &mdash;^ :melek:</p>
+<h3 id="modül-anladım">Modül Anladım <a href="#mod%c3%bcl-anlad%c4%b1m" class="anchor" aria-hidden="true">#</a></h3>
+<pre><code class="language-julia">@def m begin
+  a+2
+end
+
+@m # replaces the macro at compile-time with the expression a+2
+</code></pre>
+<p>Daha doğrusu, yalnızca makronun tanımlandığı modülün en üst düzeyinde çalışır.</p>
+<pre><code class="language-julia">julia&gt; module M
+       macro m1()
+         a+1
+       end
+       end
+M
+
+julia&gt; macro m2()
+         a+1
+       end
+@m2 (macro with 1 method)
+
+julia&gt; a = 1
+1
+
+julia&gt; M.@m1
+ERROR: UndefVarError: a not defined
+
+julia&gt; @m2
+2
+
+julia&gt; let a = 20
+         @m2
+       end
+2
+</code></pre>
+<p>&rsquo;esc&rsquo; bunun olmasını engeller, ancak bunu varsayılan olarak kullanmak dil tasarımına aykırıdır.
+Bunun için iyi bir savunma, makroları insan okuyucu için izlemeyi zorlaştıran makrolar içinde adları kullanmaktan ve tanıtmaktan alıkoymaktır.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a href="/tr/julia-lang/giris/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								&larr; Giriş
+							</div>
+						</div>
+					</a>
+				<a class="ms-auto" href="/tr/julia-lang/sartllar/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Şartlılar &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/tr/about/">Hakkında</a></li>
+          <li class="list-inline-item"><a href="/tr/disclaimers/">Sorumluluk Reddi</a></li>
+          <li class="list-inline-item"><a href="/tr/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/tr/terms-of-use/">Kullanım Şartları</a></li>
+          <li class="list-inline-item"><a href="/tr/privacy-policy/">Gizlilik Politikası</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

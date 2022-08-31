@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>trago Tutorial on </title>
+    <link>https://www.wikiod.com/es/docs/gulp/</link>
+    <description>Recent content in trago Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/gulp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comenzando con trago</title>
+      <link>https://www.wikiod.com/es/gulp/comenzando-con-trago/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/gulp/comenzando-con-trago/</guid>
+      <description>Dependencia de tareas # Puede ejecutar tareas en serie, pasando un segundo parámetro a gulp.task().
+Estos parámetros son una serie de tareas que se ejecutarán y completarán antes de que se ejecute su tarea:
+var gulp = require(&#39;gulp&#39;); gulp.task(&#39;one&#39;, function() { // compile sass css }); gulp.task(&#39;two&#39;, function() { // compile coffeescript }); // task three will execute only after tasks one and two have been completed // note that task one and two run in parallel and order is not guaranteed gulp.</description>
+    </item>
+    
+    <item>
+      <title>Mostrar errores con gulp-jslint</title>
+      <link>https://www.wikiod.com/es/gulp/mostrar-errores-con-gulp-jslint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/gulp/mostrar-errores-con-gulp-jslint/</guid>
+      <description>Instalación y uso # Instalación
+$ npm install gulp-jslint --save-dev Uso
+En gulpfile.js agregue:
+var gulp = require(&#39;gulp&#39;); var jslint = require(&#39;gulp-jslint&#39;); gulp.task(&#39;lint&#39;, function(){ return gulp.src([&#39;source.js&#39;]) .pipe(jslint({ /* this object represents the JSLint directives being passed down */ })) .pipe(jslint.reporter( &#39;my-reporter&#39; )); }); para usar esta tarea:
+$ ./node_modules/gulp/bin/gulp.js lint </description>
+    </item>
+    
+    <item>
+      <title>Minimizar HTML</title>
+      <link>https://www.wikiod.com/es/gulp/minimizar-html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/gulp/minimizar-html/</guid>
+      <description>Minificar HTML usando gulp-htmlmin # Primero, instale gulp y gulp-htmlmin en el directorio del proyecto localmente
+npm install --save-dev gulp gulp-htmlmin Luego agregue la tarea minify-html a su gulpfile.js
+var gulp = require(&#39;gulp&#39;); var htmlmin = require(&#39;gulp-htmlmin&#39;); // Task to minify HTML gulp.task(&#39;minify-html&#39;, function() { return gulp.src(&#39;source/*.html&#39;) .pipe(htmlmin()) .pipe(gulp.dest(&#39;public/&#39;)); }); gulp.task(&#39;watch&#39;, function (){ gulp.watch(&#39;source/*.html&#39;, [&#39;minify-html&#39;]); // other tasks }); gulp.task(&#39;default&#39;, [&#39;minify-html&#39;, &#39;watch&#39;]); Esta tarea encuentra todos los archivos en el directorio fuente con una extensión .</description>
+    </item>
+    
+    <item>
+      <title>Crear documentación con gulp-jsdoc3</title>
+      <link>https://www.wikiod.com/es/gulp/crear-documentacion-con-gulp-jsdoc3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/gulp/crear-documentacion-con-gulp-jsdoc3/</guid>
+      <description>Instalación # En primer lugar, instale gulp y gulp-jsdoc3 en su proyecto:
+npm install gulp-jsdoc3 --save-dev Luego agréguelo a su gulpfile.js
+var gulp = require(&#39;gulp&#39;); var jsdoc = require(&#39;gulp-jsoc3&#39;); gulp.task(&#39;doc&#39;, function (cb){ gulp.src(&#39;src/*.js&#39;) .pipe(jsdoc(cb)); }); Para documentar, por ejemplo, una función, debe agregar un comentario justo en la parte superior de la función, como este:
+/** * @function example * @summary This is a short description of example * @author Whoever * @param {any} cb * @returns */ function example(cb){ //Code } Si desea conocer más etiquetas de bloque para usar, visite usejsdoc.</description>
+    </item>
+    
+    <item>
+      <title>Minimizar JS</title>
+      <link>https://www.wikiod.com/es/gulp/minimizar-js/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/gulp/minimizar-js/</guid>
+      <description>Sintaxis # ext Un objeto que especifica la fuente de salida y las extensiones de archivo minimizadas. fuente La cadena de sufijos de los nombres de archivo con los que terminan los archivos fuente de salida. min Cuando cadena: La cadena de sufijo de los nombres de archivo que generan archivos minificados termina con. When Array: las expresiones regulares que se reemplazarán con los nombres de archivo de entrada. Por ejemplo: [/.</description>
+    </item>
+    
+    <item>
+      <title>Concatenar archivos</title>
+      <link>https://www.wikiod.com/es/gulp/concatenar-archivos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/gulp/concatenar-archivos/</guid>
+      <description>Concat y Uglify archivos JS y CSS # Recuerde instalar npm todos los archivos en devDependencies primero. P.ej.
+npm install --save-dev gulp gulp-concat gulp-rename gulp-uglify gulp-uglifycss Gulpfile.js
+var gulp = require(&#39;gulp&#39;); var gulp_concat = require(&#39;gulp-concat&#39;); var gulp_rename = require(&#39;gulp-rename&#39;); var gulp_uglify = require(&#39;gulp-uglify&#39;); var uglifycss = require(&#39;gulp-uglifycss&#39;); var destDir = &#39;./public/assets/dist/&#39;; //or any folder inside your public asset folder var tempDir = &#39;./public/assets/temp/&#39;; //any place where you want to store the concatenated, but unuglified/beautified files //To concat and Uglify All JS files in a particular folder gulp.</description>
+    </item>
+    
+    <item>
+      <title>Minimizar CSS</title>
+      <link>https://www.wikiod.com/es/gulp/minimizar-css/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/gulp/minimizar-css/</guid>
+      <description>Uso de gulp-clean-css y gulp-rename # Primero, instale gulp, gulp-clean-css y [gulp-rename](https://www. npmjs.com/package/gulp-rename) al directorio del proyecto localmente
+npm install --save-dev gulp gulp-clean-css gulp-rename Luego agregue la siguiente tarea minify-css a su gulpfile.js
+var gulp = require(&#39;gulp&#39;); var cleanCSS = require(&#39;gulp-clean-css&#39;); var rename = require(&#39;gulp-rename&#39;); gulp.task(&#39;minify-css&#39;, function() { return gulp.src(&#39;css/dist/dist.css&#39;) .pipe(cleanCSS()) .pipe(rename(&#39;dist.min.css&#39;)) .pipe(gulp.dest(&#39;css/dist&#39;)); }); gulp.task(&#39;watch&#39;, function(){ gulp.watch(&#39;css/dist/**/*.css&#39;, [&#39;minify-css&#39;]); // Other watchers }); gulp.task(&#39;default&#39;, [&#39;minify-css&#39;, &#39;watch&#39;]); Aquí .pipe(cleanCSS()) ejecuta la minimización de su archivo css/dist/dist.</description>
+    </item>
+    
+    <item>
+      <title>Crear un observador</title>
+      <link>https://www.wikiod.com/es/gulp/crear-un-observador/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/gulp/crear-un-observador/</guid>
+      <description>Tarea del observador # config.paths.html representa la ruta a su archivo HTML.
+gulp.task(&amp;quot;watch&amp;quot;, function() { gulp.watch(config.paths.html, [&amp;quot;html&amp;quot;]); }); La tarea también debe agregarse por defecto:
+gulp.task(&amp;quot;default&amp;quot;, [&amp;quot;html&amp;quot;, &amp;quot;watch&amp;quot;]); </description>
+    </item>
+    
+    <item>
+      <title>Guía completa para la automatización del flujo de trabajo front-end con Gulpjs -1 de 2</title>
+      <link>https://www.wikiod.com/es/gulp/guia-completa-para-la-automatizacion-del-flujo-de-trabajo-front-end-con-gulpjs--1-de-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/gulp/guia-completa-para-la-automatizacion-del-flujo-de-trabajo-front-end-con-gulpjs--1-de-2/</guid>
+      <description>Sintaxis # npm install [nombre del complemento] &amp;ndash;save-dev npm install [nombre del complemento] &amp;ndash;save Function &amp;lt;function-name&amp;gt; (glob) { $.src(glob).pipe([plugin 1]).pipe([plugin 2])&amp;hellip;.pipe([plugin n]).pipe( $.dest(&amp;lt;destination-name&amp;gt;) } $.tarea(&amp;lt;nombre de la tarea&amp;gt;, [dependencias], &amp;lt;cuerpo&amp;gt;); Continuar leyendo: crear una tarea predeterminada y configurar la sincronización del navegador
+Referencias
+Gulp-Clean-Css Gulp-Uglify Gulp-Autoprefixer - para prefijos Css que mantienen la compatibilidad del navegador Gulp-Cached Gulp-Recordar Gulp-Jshint Guía paso a paso para la automatización del flujo de trabajo de Gulp para principiantes absolutos que documenté en mi blog</description>
+    </item>
+    
+    <item>
+      <title>Compresión de imagen sin pérdida (con gulp-imagemin)</title>
+      <link>https://www.wikiod.com/es/gulp/compresion-de-imagen-sin-perdida-con-gulp-imagemin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/gulp/compresion-de-imagen-sin-perdida-con-gulp-imagemin/</guid>
+      <description>Sintaxis # imagemin([complementos], {opciones}) Parámetros # Argumento Descripción origenRuta Directorio de origen de las imágenes (por ejemplo: /assets/images) construirRuta Ruta de destino (por ejemplo: /static/dist/) El primer argumento del constructor imagemin es la matriz de complementos. De forma predeterminada, se utilizan los siguientes complementos: [imagemin.gifsicle(), imagemin.jpegtran(), imagemin.optipng(), imagemin.svgo()]
+El segundo argumento son las opciones. En el ejemplo anterior se utilizan las siguientes opciones:
+{ progressive: true, interlaced: true, svgoPlugins: [{removeUnknownsAndDefaults: false}, {cleanupIDs: false}] } Esos son completamente opcionales.</description>
+    </item>
+    
+  </channel>
+</rss>

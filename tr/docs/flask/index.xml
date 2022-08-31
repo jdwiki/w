@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Şişe Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/flask/</link>
+    <description>Recent content in Şişe Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/flask/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flask&#39;ı kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/flask/flask-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/flask/flask-kullanmaya-baslama/</guid>
+      <description>Selam Dünya # &amp;ldquo;hello.py&amp;rdquo; oluşturun:
+from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &#39;Hello, World!&#39; Ardından şununla çalıştırın:
+export FLASK_APP=hello.py flask run * Running on http://localhost:5000/ Aşağıdaki kodu eklemek, onu doğrudan python hello.py ile çalıştırmaya izin verecektir.
+if __name__ == &#39;__main__&#39;: app.run() Kurulum - Kararlı # Flask&amp;rsquo;ı bir sanal ortama kurmak için pip kullanın.
+pip install flask Projeniz için bir sanalenv oluşturmak için adım adım talimatlar:
+mkdir project &amp;amp;&amp;amp; cd project python3 -m venv env # or `virtualenv env` for Python 2 source env/bin/activate pip install flask Asla ne yaptığınızı tam olarak anlamadığınız sürece &amp;ldquo;sudo pip install&amp;rdquo; kullanmayın.</description>
+    </item>
+    
+    <item>
+      <title>Nginx ile uWSGI web sunucusunu kullanarak Flask uygulamasını dağıtma</title>
+      <link>https://www.wikiod.com/tr/flask/nginx-ile-uwsgi-web-sunucusunu-kullanarak-flask-uygulamasn-dagtma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/flask/nginx-ile-uwsgi-web-sunucusunu-kullanarak-flask-uygulamasn-dagtma/</guid>
+      <description>Şişeden akışı etkinleştir # Flask, jeneratörleri kullanarak bir görünümden veri akışı yapmanızı sağlayan bir özelliğe sahiptir.
+app.py dosyasını değiştirelim
+&amp;ldquo;şişe içe aktarma Yanıtından&amp;rdquo; ekleyin
+&amp;rsquo;tarih saatinden içe aktarma tarihinden itibaren&amp;rsquo; ekleyin
+&amp;lsquo;zamandan içe aktarma uykusu&amp;rsquo; ekleyin
+yeni bir görünüm oluşturun:
+@app.route(&amp;quot;/time/&amp;quot;) def time(): def streamer(): while True: yield &amp;ldquo;{}
+&amp;quot;.format(datetime.now()) sleep(1)
+return Response(streamer()) Şimdi tarayıcınızı localhost/time/ konumunda açın. Site sonsuza kadar yüklenecek çünkü nginx yanıt tamamlanana kadar bekliyor. Bu durumda yanıt hiçbir zaman tamamlanmayacaktır çünkü geçerli tarih ve saati sonsuza kadar gönderecektir.</description>
+    </item>
+    
+    <item>
+      <title>sinyaller</title>
+      <link>https://www.wikiod.com/tr/flask/sinyaller/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/flask/sinyaller/</guid>
+      <description>Flask, Flaşör kullanan sinyalleri destekler. Sinyal desteği isteğe bağlıdır; bunlar yalnızca Blinker kuruluysa etkinleştirilecektir.
+pip install blinker http://flask.pocoo.org/docs/dev/signals/
+Sinyaller asenkron değildir. Bir sinyal gönderildiğinde, bağlı işlevlerin her birini sırayla sırayla yürütür.
+Sinyallere bağlanma # Bir işlevi bir sinyale bağlamak için bir sinyalin &amp;ldquo;bağlan&amp;rdquo; yöntemini kullanın. Bir sinyal gönderildiğinde, her bağlı işlev, göndericiyle birlikte çağrılır ve sinyalin sağladığı herhangi bir adlandırılmış argüman.
+from flask import template_rendered def log_template(sender, template, context, **kwargs): sender.</description>
+    </item>
+    
+    <item>
+      <title>Statik Dosyalar</title>
+      <link>https://www.wikiod.com/tr/flask/statik-dosyalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/flask/statik-dosyalar/</guid>
+      <description>Statik Dosyaları Kullanma # Web uygulamaları genellikle CSS veya JavaScript dosyaları gibi statik dosyalar gerektirir. Bir Flask uygulamasında statik dosyaları kullanmak için paketinizde veya modülünüzün yanında &amp;lsquo;static&amp;rsquo; adında bir klasör oluşturun ve bu klasör uygulamada &amp;lsquo;/static&amp;rsquo; konumunda bulunacaktır.
+Şablonları kullanmak için örnek bir proje yapısı aşağıdaki gibidir:
+MyApplication/ /static/ /style.css /script.js /templates/ /index.html /app.py app.py, şablon oluşturma özelliğine sahip temel bir Flask örneğidir.
+from flask import Flask, render_template app = Flask(__name__) @app.</description>
+    </item>
+    
+    <item>
+      <title>sayfalandırma</title>
+      <link>https://www.wikiod.com/tr/flask/sayfalandrma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/flask/sayfalandrma/</guid>
+      <description>flask-sqlalchemy Paginate ile Sayfalandırma Yolu Örneği # Bu örnekte, sayfa numarasını belirtmek için rotada bir parametre kullanıyoruz. &amp;lsquo;page=1&amp;rsquo; fonksiyon parametresinde varsayılanı 1 olarak belirledik. Veritabanında bir &amp;ldquo;Kullanıcı&amp;rdquo; nesnemiz var ve onu sorgularız, azalan düzende, en son kullanıcıları ilk önce göstererek sorgularız. Daha sonra flask-sqlalchemy&amp;rsquo;deki &amp;lsquo;query&amp;rsquo; nesnesinin paginate yöntemini kullanırız. Daha sonra bunu oluşturulmak üzere &amp;lsquo;render_template&amp;rsquo;e iletiriz.
+@app.route(&#39;/users&#39;) @app.route(&#39;/users/page/&amp;lt;int:page&amp;gt;&#39;) def all_users(page=1): try: users_list = User.query.order_by( User.id.desc() ).paginate(page, per_page=USERS_PER_PAGE) except OperationalError: flash(&amp;quot;No users in the database.</description>
+    </item>
+    
+    <item>
+      <title>Dosya Yüklemeleri</title>
+      <link>https://www.wikiod.com/tr/flask/dosya-yuklemeleri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/flask/dosya-yuklemeleri/</guid>
+      <description>Sözdizimi # request.files[&amp;rsquo;name&amp;rsquo;] # tek gerekli dosya request.files.get(&amp;rsquo;name&amp;rsquo;) # Gönderilmediyse yok request.files.getlist(&amp;rsquo;name&amp;rsquo;) # gönderilen sıfır veya daha fazla dosyanın listesi CombinedMultiDict((request.files, request.form)) # form ve dosya verilerini birleştir Dosyaları Yükleme # HTML Formu # Bir dosya tipi giriş kullanın ve tarayıcı, kullanıcının yüklenecek bir dosya seçmesine izin veren bir alan sağlayacaktır. Yalnızca &amp;lsquo;post&amp;rsquo; yöntemine sahip formlar dosya verilerini gönderebilir. Formun enctype=multipart/form-data niteliğini ayarladığınızdan emin olun. Aksi takdirde dosyanın adı gönderilir ancak dosyanın verileri gönderilmez.</description>
+    </item>
+    
+    <item>
+      <title>yönlendirme</title>
+      <link>https://www.wikiod.com/tr/flask/yonlendirme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/flask/yonlendirme/</guid>
+      <description>Temel Rotalar # Flask&amp;rsquo;taki rotalar, Flask uygulama örneğinin &amp;ldquo;route&amp;rdquo; dekoratörü kullanılarak tanımlanabilir:
+app = Flask(__name__) @app.route(&#39;/&#39;) def index(): return &#39;Hello Flask&#39; &amp;ldquo;route&amp;rdquo; dekoratörü, eşleşecek URL olan bir dize alır. Uygulama tarafından bu dizeyle eşleşen bir URL için bir istek alındığında, dekore edilen işlev (görünüm işlevi olarak da adlandırılır) çağrılır. Yani yaklaşık bir rota için:
+@app.route(&#39;/about&#39;) def about(): return &#39;About page&#39; Bu rotaların Django&amp;rsquo;da olduğu gibi normal ifadeler olmadığını not etmek önemlidir.</description>
+    </item>
+    
+    <item>
+      <title>planlar</title>
+      <link>https://www.wikiod.com/tr/flask/planlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/flask/planlar/</guid>
+      <description>Taslaklar, Flask uygulamalarının daha modüler olmasını ve birden çok modeli takip edebilmesini sağlayan, Flask uygulama geliştirmede güçlü bir kavramdır. Çok büyük Flask uygulamalarının yönetimini kolaylaştırırlar ve bu nedenle Flask uygulamalarını ölçeklendirmek için kullanılabilirler. Blueprint uygulamalarını yeniden kullanabilirsiniz, ancak ana uygulamanızda kayıtlı olması gerektiğinden bir blueprint&amp;rsquo;i tek başına çalıştıramazsınız.
+Temel bir şişe planları örneği # Minimal bir Flask uygulaması şuna benzer:
+from flask import Flask app = Flask(__name__) @app.route(&amp;quot;/&amp;quot;) def index(): return &amp;quot;Hello World!</description>
+    </item>
+    
+    <item>
+      <title>JSON ile çalışmak</title>
+      <link>https://www.wikiod.com/tr/flask/json-ile-calsmak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/flask/json-ile-calsmak/</guid>
+      <description>HTTP İsteğinden JSON Alma # HTTP isteğinin mimetipi &amp;lsquo;application/json&amp;rsquo; ise, &amp;lsquo;request.get_json()&amp;rsquo; çağrısı, ayrıştırılmış JSON verilerini döndürür (aksi halde &amp;lsquo;Yok&amp;rsquo; döndürür)
+from flask import Flask, jsonify app = Flask(__name__) @app.route(&#39;/api/echo-json&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PUT&#39;]) def add(): data = request.get_json() # ... do your business logic, and return some response # e.g. below we&#39;re just echo-ing back the received JSON data return jsonify(data) &amp;lsquo;curl&amp;rsquo; ile deneyin # -H &#39;Content-Type: application/json&#39; parametresi bunun bir JSON isteği olduğunu belirtir:</description>
+    </item>
+    
+    <item>
+      <title>Test yapmak</title>
+      <link>https://www.wikiod.com/tr/flask/test-yapmak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/flask/test-yapmak/</guid>
+      <description>Flask&amp;rsquo;ta uygulanan bir JSON API&amp;rsquo;sini test etme # Bu örnek, [pytest kullanarak bir Flask uygulamasının nasıl test edileceğini](https://www.wikiod.com/tr/flask/test-yapmak#Merhaba Dünya uygulamamızı test etme) bildiğinizi varsayar
+Aşağıda, &amp;ldquo;a&amp;rdquo; ve &amp;ldquo;b&amp;rdquo; tamsayı değerlerine sahip bir JSON girişi alan bir API bulunmaktadır. {&amp;quot;a&amp;quot;: 1, &amp;quot;b&amp;quot;: 2}, bunları toplar ve bir JSON yanıtında &amp;ldquo;a + b&amp;rdquo; toplamını döndürür; ör. {&amp;quot;toplam&amp;quot;: 3}.
+# hello_add.py from flask import Flask, request, jsonify app = Flask(__name__) @app.route(&#39;/add&#39;, methods=[&#39;POST&#39;]) def add(): data = request.</description>
+    </item>
+    
+  </channel>
+</rss>

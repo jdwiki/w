@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kovan Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/hive/</link>
+    <description>Recent content in kovan Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/hive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hive&#39;a başlarken</title>
+      <link>https://www.wikiod.com/tr/hive/hivea-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/hive/hivea-baslarken/</guid>
+      <description>Hive Kurulumu(linux) # https://hive.apache.org/downloads.html adresinden en son kararlı sürümü indirerek başlayın.
+-&amp;gt; Şimdi dosyayı şu şekilde açın:
+$ tar -xvf kovan-2.x.y-bin.tar.gz
+-&amp;gt; /usr/local/ içinde bir dizin oluşturun
+$ sudo mkdir /usr/local/hive
+-&amp;gt; Dosyayı kök dizinine taşıyın
+$ mv ~/Downloads/Hive-2.x.y /usr/local/Hive
+-&amp;gt; .bashrc&amp;rsquo;de hadoop ve Hive için ortam değişkenlerini düzenleyin
+$ gedit ~/.bashrc
+bunun gibi
+HIVE_HOME=/usr/local/Hive/Apache-Hive-2.0.1-bin/ dışa aktar
+dışa aktar YOL=$YOL:$HIVE_HOME/bin
+CLASSPATH&amp;rsquo;i dışa aktar=$CLASSPATH:/usr/local/Hadoop/lib/*:.
+CLASSPATH&amp;rsquo;i dışa aktar=$CLASSPATH:/usr/local/Hive/apache-hive-2.0.1-bin/lib/*:.
+-&amp;gt; Şimdi, zaten çalışmıyorsa hadoop&amp;rsquo;u başlatın.</description>
+    </item>
+    
+    <item>
+      <title>HIVE&#39;deki dosya biçimleri</title>
+      <link>https://www.wikiod.com/tr/hive/hivedeki-dosya-bicimleri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/hive/hivedeki-dosya-bicimleri/</guid>
+      <description>PARKE # Hive 0.13.0 ve sonraki sürümlerde sütunlu parke depolama formatı. Parke, karmaşık iç içe veri yapıları düşünülerek sıfırdan inşa edilmiştir ve Dremel belgesinde açıklanan kayıt parçalama ve montaj algoritmasını kullanır. Bu yaklaşımın, iç içe ad alanlarının basit düzleştirilmesinden daha üstün olduğuna inanıyoruz.
+Parke, çok verimli sıkıştırma ve kodlama şemalarını desteklemek için inşa edilmiştir. Birden çok proje, verilere doğru sıkıştırma ve kodlama şemasının uygulanmasının performans üzerindeki etkisini göstermiştir. Parke, sıkıştırma şemalarının sütun başına düzeyde belirtilmesine izin verir ve icat edilip uygulandıkça daha fazla kodlama eklemeye izin vermek için geleceğe hazırdır.</description>
+    </item>
+    
+    <item>
+      <title>Veritabanı ve Tablo İfadesi Oluşturun</title>
+      <link>https://www.wikiod.com/tr/hive/veritaban-ve-tablo-ifadesi-olusturun/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/hive/veritaban-ve-tablo-ifadesi-olusturun/</guid>
+      <description>Sözdizimi # CREATE [GEÇİCİ] [HARİCİ] TABLO [VAR DEĞİLSE] [db_name.]table_name
+[(col_name data_type [COMMENT col_comment], ...)] [YORUM tablosu_yorum] [PARTITIONED BY (sütun_adı veri_türü [COMMENT sütun_yorum], &amp;hellip;)] [KÜMELENEN (sütun_adı, sütun_adı, &amp;hellip;) [SIRALI (sütun_adı [ASC|DESC], &amp;hellip;)] num_buckets BUCKETS&amp;rsquo;E GÖRE] [SKEWED BY (col_name, col_name, &amp;hellip;) &amp;ndash; (Not: Hive 0.10.0 ve sonraki sürümlerde mevcuttur)] ON ((col_value, col_value, &amp;hellip;), (col_value, col_value, &amp;hellip;), &amp;hellip;) [STORED AS DIRECTORIES] [ [SATIR BİÇİMİ satır_biçimi] [file_format OLARAK DEPOLANIR] | STORED BY &amp;lsquo;storage.handler.class.name&amp;rsquo; [WITH SERDEPROPERTIES (&amp;hellip;)] ] [LOCATION hdfs_path] [TBLPROPERTIES (özellik_adı=özellik_değeri, &amp;hellip;)] [AS select_deyimi];</description>
+    </item>
+    
+    <item>
+      <title>Hive Kullanıcı Tanımlı İşlevler (UDF&#39;ler)</title>
+      <link>https://www.wikiod.com/tr/hive/hive-kullanc-tanml-islevler-udfler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/hive/hive-kullanc-tanml-islevler-udfler/</guid>
+      <description>Kovan UDF oluşturma # Bir UDF oluşturmak için UDF (org.apache.hadoop.hive.ql.exec.UDF) sınıfını genişletmemiz ve değerlendirme yöntemini uygulamamız gerekiyor.
+UDF&amp;rsquo;ye uyulduğunda ve JAR oluşturulduktan sonra, geçici/kalıcı bir işlev oluşturmak için kovan bağlamına jar eklememiz gerekir.
+import org.apache.hadoop.hive.ql.exec.UDF; class UDFExample extends UDF { public String evaluate(String input) { return new String(&amp;quot;Hello &amp;quot; + input); } } hive&amp;gt; ADD JAR &amp;lt;JAR NAME&amp;gt;.jar; hive&amp;gt; CREATE TEMPORARY FUNCTION helloworld as &#39;package.name.UDFExample&#39;; hive&amp;gt; select helloworld(name) from test; Verilen dizeyi kırpmak için UDF&amp;rsquo;yi Hive.</description>
+    </item>
+    
+    <item>
+      <title>Kullanıcı Tanımlı Toplama İşlevleri (UDAF)</title>
+      <link>https://www.wikiod.com/tr/hive/kullanc-tanml-toplama-islevleri-udaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/hive/kullanc-tanml-toplama-islevleri-udaf/</guid>
+      <description>UDAF ortalama örnek # &amp;lsquo;org.apache.hadoop.hive.ql.exec.hive.UDAF&amp;rsquo; öğesini genişleten bir Java sınıfı oluşturun UDAFEvaluator&amp;rsquo;ı uygulayan bir iç sınıf oluşturun
+Beş yöntem uygulayın
+init() – This method initializes the evaluator and resets its internal state. We are using new Column() in the code below to indicate that no values have been aggregated yet.
+iterate() – This method is called every time there is a new value to be aggregated. The evaluator should update its internal state with the result of performing the aggregation (we are doing sum – see below).</description>
+    </item>
+    
+    <item>
+      <title>Kullanıcı Tanımlı Tablo Fonksiyonları (UDTF&#39;ler)</title>
+      <link>https://www.wikiod.com/tr/hive/kullanc-tanml-tablo-fonksiyonlar-udtfler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/hive/kullanc-tanml-tablo-fonksiyonlar-udtfler/</guid>
+      <description>UDTF Örneği ve Kullanımı # org.apache.hadoop.hive.ql.udf.generic.GenericUDTF arabirimiyle temsil edilen kullanıcı tanımlı tablo işlevleri. Bu işlev, tek bir girdi için birden çok satır ve birden çok sütun çıktısının alınmasını sağlar.
+Aşağıdaki yöntemlerin üzerine yazmalıyız:
+1.we specify input and output parameters abstract StructObjectInspector initialize(ObjectInspector[] args) throws UDFArgumentException; 2.we process an input record and write out any resulting records abstract void process(Object[] record) throws HiveException; 3.function is Called to notify the UDTF that there are no more rows to process.</description>
+    </item>
+    
+    <item>
+      <title>İfade Ekle</title>
+      <link>https://www.wikiod.com/tr/hive/ifade-ekle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/hive/ifade-ekle/</guid>
+      <description>Sözdizimi # Standart sözdizimi:
+ÜZERİNE YAZMA TABLOSU EKLE tabloadı1 [PARTITION (partcol1=val1, partcol2=val2 &amp;hellip;) [EĞER VARSA]] select_statement1 FROM from_statement;
+TABLOYA EKLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 &amp;hellip;)] select_statement1 FROM from_statement;
+TABLOYA EKLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 &amp;hellip;)] (z,y) select_statement1 FROM from_statement;
+Kovan uzantısı (birden fazla ek):
+FROM from_statement ÜZERİNE YAZMA TABLOSU EKLE tabloadı1 [PARTITION (partcol1=val1, partcol2=val2 &amp;hellip;) [VAR DEĞİLSE]] select_statement1 [ÜSTÜNE YAZMA TABLOSU GİRİN tabloadı2 [PARTITION &amp;hellip; [VAR DEĞİLSE]] select_statement2] [TABLOYA EKLE tabloadı2 [PARTITION &amp;hellip;] select_statement2] &amp;hellip;;</description>
+    </item>
+    
+    <item>
+      <title>indeksleme</title>
+      <link>https://www.wikiod.com/tr/hive/indeksleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/hive/indeksleme/</guid>
+      <description>Yapı # CREATE INDEX index_name ON TABLE base_table_name (col_name, ...) AS &#39;index.handler.class.name&#39; [WITH DEFERRED REBUILD] [IDXPROPERTIES (property_name=property_value, ...)] [IN TABLE index_table_name] [PARTITIONED BY (col_name, ...)] [ [ ROW FORMAT ...] STORED AS ... | STORED BY ... ] [LOCATION hdfs_path] [TBLPROPERTIES (...)] Örnek:
+CREATE INDEX inedx_salary ON TABLE employee(salary) AS &#39;org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler&#39; WITH DEFERRED REBUILD; Dizin Değiştir
+ALTER INDEX index_name ON table_name [PARTITION (&amp;hellip;)] REBUILD
+Düşme Endeksi
+DROP INDEX &amp;lt;index_name&amp;gt; ON &amp;lt;table_name&amp;gt; CREATE INDEX&amp;rsquo;te WITH DEFERRED REBUILD belirtilirse, yeni oluşturulan dizin başlangıçta boştur (tablonun herhangi bir veri içerip içermediğine bakılmaksızın).</description>
+    </item>
+    
+    <item>
+      <title>SELECT İfadesi</title>
+      <link>https://www.wikiod.com/tr/hive/select-ifadesi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/hive/select-ifadesi/</guid>
+      <description>Sözdizimi # SEÇ [TÜMÜ | DISTINCT] select_expr, select_expr, select_expr, …. FROM tablo_referansı [NEREDE nerede_durum] [col_list&amp;rsquo;e göre grupla] [şartına sahip olmak] [kol_listesine göre SİPARİŞ] [SINIR n] Belirli Satırları Seç # Bu sorgu, &amp;ldquo;tutar&amp;rdquo; sütunundaki değerlerin 10&amp;rsquo;dan büyük olduğu ve &amp;ldquo;ABD&amp;rdquo; içindeki &amp;ldquo;bölge&amp;rdquo; sütunundaki verilerin olduğu &amp;ldquo;satışlar&amp;rdquo; tablosundaki tüm sütunları döndürür.
+SELECT * FROM sales WHERE amount &amp;gt; 10 AND region = &amp;quot;US&amp;quot; Almak istediğiniz sütunları seçmek için normal ifadeler kullanabilirsiniz. Aşağıdaki ifade, &amp;lsquo;ad&amp;rsquo; sütunundan ve &amp;lsquo;adres&amp;rsquo; önekiyle başlayan tüm sütunlardan verileri alacaktır.</description>
+    </item>
+    
+    <item>
+      <title>Hive&#39;daki Verileri Dışa Aktarma</title>
+      <link>https://www.wikiod.com/tr/hive/hivedaki-verileri-dsa-aktarma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/hive/hivedaki-verileri-dsa-aktarma/</guid>
+      <description>Kovanda dışa aktarma özelliği # Çalışanlar tablosundan /tmp/ca_employees&amp;rsquo;e veri aktarma
+YEREL DİZİNİN ÜZERİNE YAZIN &amp;lsquo;/tmp/ca_employees&amp;rsquo; SEÇİN isim, maaş, adres SEÇİN İŞÇİLERDEN NEREDE se.state = &amp;lsquo;CA&amp;rsquo;;
+Belirli koşullara göre çalışanlar tablosundan birden çok yerel dizine veri aktarma
+Aşağıdaki sorgu, belirli kriterlere göre birden çok dizine veri aktarmak için tek bir yapının nasıl kullanılabileceğini gösterir.
+FROM employees se INSERT OVERWRITE DIRECTORY &#39;/tmp/or_employees&#39; SELECT * WHERE se.cty = &#39;US&#39; and se.st = &#39;OR&#39; INSERT OVERWRITE DIRECTORY &#39;/tmp/ca_employees&#39; SELECT * WHERE se.</description>
+    </item>
+    
+  </channel>
+</rss>

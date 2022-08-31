@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>brindille Tutoriel on </title>
+    <link>https://www.wikiod.com/fr/docs/twig/</link>
+    <description>Recent content in brindille Tutoriel on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/twig/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Débuter avec brindille</title>
+      <link>https://www.wikiod.com/fr/twig/debuter-avec-brindille/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/twig/debuter-avec-brindille/</guid>
+      <description>Utilisation de base de l&amp;rsquo;API # Il peut également être installé en téléchargeant le code source et en le plaçant dans un répertoire de votre projet. Cependant, l&amp;rsquo;utilisation de composer présente de nombreux avantages.
+require &#39;/path/to/lib/Twig/Autoloader.php&#39;; Twig_Autoloader::register(); $loader = new Twig_Loader_Filesystem(&#39;/path/to/templates&#39;); $options = array( &#39;strict_variables&#39; =&amp;gt; false, &#39;debug&#39; =&amp;gt; false, &#39;cache&#39;=&amp;gt; false ); $twig = new Twig_Environment($loader, $options); Lors de la création d&amp;rsquo;une nouvelle instance Twig_Environment, vous pouvez passer un tableau d&amp;rsquo;options comme deuxième argument du constructeur.</description>
+    </item>
+    
+    <item>
+      <title>Brindille qui s&#39;étend</title>
+      <link>https://www.wikiod.com/fr/twig/brindille-qui-setend/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/twig/brindille-qui-setend/</guid>
+      <description>Twig a déjà des filtres et des fonctions intégrés. html), mais que se passe-t-il si les fonctionnalités intégrées manquent ou si vous devez accéder à certaines fonctions &amp;ldquo;PHP&amp;rdquo; par défaut dans un modèle
+Création d&amp;rsquo;une Twig_Extension # Vous pouvez regrouper toutes vos fonctions/filtres/tests/&amp;hellip; personnalisés dans une classe Twig_Extension personnalisée :
+ProjetTwigExtension
+class ProjectTwigExtension extends Twig_Extension { public function getFunctions() { return array( new Twig_SimpleFunction(&#39;twig_function_name&#39;, array($this, &#39;getTwigFunctionName&#39;)), new Twig_SimpleFunction(&#39;twig_function_foo&#39;, array($this, &#39;getTwigFunctionFoo&#39;)), ); } public function getFilters() { return array( new Twig_SimpleFilter(&#39;twig_filter_name&#39; , array($this, &#39;getTwigFilterName&#39;)), new Twig_SimpleFilter(&#39;twig_filter_foo&#39; , array($this, &#39;getTwigFilterFoo&#39;)), ); } public function getName() { return &#39;ProjectTwigExtension&#39;; } } Enregistrer l&amp;rsquo;extension dans la brindille</description>
+    </item>
+    
+    <item>
+      <title>Syntaxe de modèle de base</title>
+      <link>https://www.wikiod.com/fr/twig/syntaxe-de-modele-de-base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/twig/syntaxe-de-modele-de-base/</guid>
+      <description>Explication des constructions syntaxiques de base des modèles
+Accéder aux variables # Dans les modèles Twig, les variables sont accessibles en utilisant la notation des accolades doubles {{ variableName }}.
+Exemple de base de l&amp;rsquo;accueil d&amp;rsquo;un utilisateur
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;span&amp;gt;Hello {{ name }}&amp;lt;/span&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Accéder aux éléments du tableau # Twig en tant que paramètre peut recevoir un tableau. Pour accéder à un élément spécifique du tableau, vous pouvez utiliser la notation de support d&amp;rsquo;accès au tableau php habituelle {{ array[key] }}.</description>
+    </item>
+    
+    <item>
+      <title>Héritage de modèle</title>
+      <link>https://www.wikiod.com/fr/twig/heritage-de-modele/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/twig/heritage-de-modele/</guid>
+      <description>Utiliser un modèle de base # base.twig.html # &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;{{ title | default(&#39;Hello World&#39;) }}&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;theme.css&amp;quot;&amp;gt; {% block css %} {% endblock %} &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; {% block body %} &amp;lt;nav&amp;gt; {% block navigation %} &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;Link&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;Link&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;Link&amp;lt;/a&amp;gt; {% endblock navigation %} &amp;lt;/nav&amp;gt; &amp;lt;section id=&amp;quot;container&amp;quot;&amp;gt; &amp;lt;section id=&amp;quot;content&amp;quot;&amp;gt; {% block content %} &amp;lt;p&amp;gt; Lorem ipsum dolor sit amet. &amp;lt;/p&amp;gt; &amp;lt;/section&amp;gt; {% endblock content %} &amp;lt;/section&amp;gt; {% endblock body %} &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; page.</description>
+    </item>
+    
+    <item>
+      <title>Utilisation avancée</title>
+      <link>https://www.wikiod.com/fr/twig/utilisation-avancee/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/twig/utilisation-avancee/</guid>
+      <description>Veuillez noter que l&amp;rsquo;extension Twig n&amp;rsquo;est [pas compatible avec PHP7][1] et bien qu&amp;rsquo;il y ait une [pull request][2] pour résoudre cette situation, elle n&amp;rsquo;a pas encore été intégrée à la version 1.x. Avec la version la plus récente de Twig 2.x, l&amp;rsquo;extension C [a été supprimée] [3] mais [pourrait faire partie de la version 2.1] [4]. Certains benchmarks révèlent [des améliorations minimes][5] avec l&amp;rsquo;extension C sous PHP7.
+[1] : https://github.com/twigphp/Twig/issues/2012#issuecomment-204682406 [2] : https://github.</description>
+    </item>
+    
+  </channel>
+</rss>

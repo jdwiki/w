@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de extensão do google-chrome on </title>
+    <link>https://www.wikiod.com/pt/docs/google-chrome-extension/</link>
+    <description>Recent content in Tutorial de extensão do google-chrome on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/google-chrome-extension/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introdução ao google-chrome-extension</title>
+      <link>https://www.wikiod.com/pt/google-chrome-extension/introducao-ao-google-chrome-extension/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/google-chrome-extension/introducao-ao-google-chrome-extension/</guid>
+      <description>Exemplo de mínimo absoluto # Qualquer extensão do Chrome começa como uma extensão descompactada: uma pasta contendo os arquivos da extensão.
+Um arquivo que deve conter é manifest.json, que descreve as propriedades básicas da extensão. Muitas das propriedades nesse arquivo são opcionais, mas aqui está um arquivo manifest.json mínimo absoluto:
+{ &amp;quot;manifest_version&amp;quot;: 2, &amp;quot;name&amp;quot;: &amp;quot;My Extension&amp;quot;, &amp;quot;version&amp;quot;: &amp;quot;1.0&amp;quot; } Crie uma pasta (por exemplo, myExtension) em algum lugar, adicione manifest.json conforme listado acima.</description>
+    </item>
+    
+    <item>
+      <title>Scripts de conteúdo</title>
+      <link>https://www.wikiod.com/pt/google-chrome-extension/scripts-de-conteudo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/google-chrome-extension/scripts-de-conteudo/</guid>
+      <description>Documentação oficial # Scripts de conteúdo Política de segurança de conteúdo &amp;gt; Scripts de conteúdo Declarando scripts de conteúdo no manifesto # Scripts de conteúdo podem ser declarados em manifest.json para serem sempre injetados em páginas que correspondam a um conjunto de padrões de URL.
+Exemplo mínimo # &amp;quot;content_scripts&amp;quot; : [ { &amp;quot;js&amp;quot;: [&amp;quot;content.js&amp;quot;], &amp;quot;css&amp;quot;: [&amp;quot;content.css&amp;quot;] &amp;quot;matches&amp;quot;: [&amp;quot;http://example.com/*&amp;quot;] } ] Esta entrada de manifesto instrui o Chrome a injetar um script de conteúdo content.</description>
+    </item>
+    
+    <item>
+      <title>manifest.json</title>
+      <link>https://www.wikiod.com/pt/google-chrome-extension/manifestjson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/google-chrome-extension/manifestjson/</guid>
+      <description>Documentação oficial # Formato de arquivo de manifesto
+Formato # O arquivo de manifesto é escrito no formato JSON (JavaScript Object Notation).
+Esse formato difere das regras mais soltas de escrever literais de objeto em código JavaScript. Entre diferenças importantes:
+Cada nome de chave e literal de string deve estar entre aspas duplas.
+Correto: &amp;quot;chave&amp;quot;: &amp;quot;valor&amp;quot;
+Errado: chave: &amp;quot;valor&amp;quot;, &#39;chave&#39;: &#39;valor&#39;
+Nenhum comentário é permitido pelo formato.
+Errado: &amp;quot;key&amp;quot;: &amp;quot;value&amp;quot; // Este recurso de controle foo</description>
+    </item>
+    
+    <item>
+      <title>Passagem de mensagens</title>
+      <link>https://www.wikiod.com/pt/google-chrome-extension/passagem-de-mensagens/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/google-chrome-extension/passagem-de-mensagens/</guid>
+      <description>Documentação oficial # Mensagem Passando Mensagens nativas chrome.runtime API (a maioria das funções de mensagens e todos os eventos de mensagens) Envie uma resposta de forma assíncrona # Na tentativa de enviar uma resposta de forma assíncrona do retorno de chamada chrome.runtime.onMessage, podemos tentar este código errado: &amp;lt;! &amp;ndash; EDITORES: por favor mantenha &amp;ldquo;código errado&amp;rdquo; em uma nova linha &amp;ndash;&amp;gt;
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) { $.ajax({ url: &#39;https://www.google.com&#39;, method: &#39;GET&#39;, success: function(data) { // data won&#39;t be sent sendResponse(data); }, }); }); No entanto, descobriríamos que data nunca é enviado.</description>
+    </item>
+    
+    <item>
+      <title>Portando depara o Firefox</title>
+      <link>https://www.wikiod.com/pt/google-chrome-extension/portando-depara-o-firefox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/google-chrome-extension/portando-depara-o-firefox/</guid>
+      <description>Se você estiver usando uma versão do Firefox anterior a 48, também precisará de um chave adicional em aplicativos chamados manifest.json:
+&amp;quot;applications&amp;quot;: { &amp;quot;gecko&amp;quot;: { &amp;quot;id&amp;quot;: &amp;quot;borderify@example.com&amp;quot;, &amp;quot;strict_min_version&amp;quot;: &amp;quot;42.0&amp;quot;, &amp;quot;strict_max_version&amp;quot;: &amp;quot;50.*&amp;quot;, &amp;quot;update_url&amp;quot;: &amp;quot;https://example.com/updates.json&amp;quot; } } aplicativos
+Observação:
+Assinatura de extensão:
+Com o lançamento do Firefox 48, a assinatura de extensão não pode mais ser desabilitado na versão e na versão beta do canal usando uma preferência. Conforme descrito quando a assinatura da extensão foi anunciada, estamos publicando compilações especializadas que suportam essa preferência para que os desenvolvedores possam continue testando em relação ao código que as compilações beta e de lançamento são gerado de.</description>
+    </item>
+    
+    <item>
+      <title>Páginas de fundo</title>
+      <link>https://www.wikiod.com/pt/google-chrome-extension/paginas-de-fundo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/google-chrome-extension/paginas-de-fundo/</guid>
+      <description>Declarando a página de fundo no manifesto # Existem duas maneiras de registrar uma página de plano de fundo no manifesto da extensão.
+A propriedade scripts No caso comum, uma página de plano de fundo não requer nenhuma marcação HTML. Podemos registrar esses tipos de páginas de fundo usando a propriedade scripts.
+Neste caso, uma página de fundo será gerada pelo sistema de extensão que inclui cada um dos arquivos listados na propriedade scripts.</description>
+    </item>
+    
+    <item>
+      <title>Depurando extensões do Chrome</title>
+      <link>https://www.wikiod.com/pt/google-chrome-extension/depurando-extensoes-do-chrome/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/google-chrome-extension/depurando-extensoes-do-chrome/</guid>
+      <description>Usando as ferramentas do desenvolvedor para depurar sua extensão # Uma extensão cromada é separada em no máximo 4 partes:
+a página de fundo a página pop-up um ou mais scripts de conteúdo a página de opções Cada parte, uma vez que são inatamente separadas, requerem depuração individual.
+Lembre-se de que essas páginas são separadas, o que significa que as variáveis ​​não são compartilhadas diretamente entre elas e que um console.</description>
+    </item>
+    
+    <item>
+      <title>Integração da ferramenta do desenvolvedor</title>
+      <link>https://www.wikiod.com/pt/google-chrome-extension/integracao-da-ferramenta-do-desenvolvedor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/google-chrome-extension/integracao-da-ferramenta-do-desenvolvedor/</guid>
+      <description>Depurando a página/script em segundo plano # O script em segundo plano é como qualquer outro código JavaScript. Você pode depurá-lo usando as mesmas ferramentas que depura outro código JavaScript no Chrome.
+Para abrir as Ferramentas do desenvolvedor do Chrome, vá para chrome://extensions e ative o Modo de desenvolvedor: Agora você pode depurar qualquer extensão que tenha uma página de plano de fundo ou script. Basta rolar até a extensão que deseja depurar e clicar no link página em segundo plano para inspecioná-la.</description>
+    </item>
+    
+  </channel>
+</rss>

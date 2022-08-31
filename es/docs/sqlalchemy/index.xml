@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de sqlalchemy on </title>
+    <link>https://www.wikiod.com/es/docs/sqlalchemy/</link>
+    <description>Recent content in Tutorial de sqlalchemy on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/sqlalchemy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con sqlalchemy</title>
+      <link>https://www.wikiod.com/es/sqlalchemy/primeros-pasos-con-sqlalchemy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sqlalchemy/primeros-pasos-con-sqlalchemy/</guid>
+      <description>¡Hola Mundo! (Núcleo SQLAlchemy) # Este ejemplo muestra cómo crear una tabla, insertar datos y seleccionar de la base de datos usando SQLAlchemy Core. Para obtener información sobre: ​​[SQLAlchemy ORM, consulte aquí] 1.
+Primero, necesitaremos conectarnos a nuestra base de datos.
+from sqlalchemy import create_engine engine = create_engine(&#39;sqlite://&#39;) El motor es el punto de partida para cualquier aplicación SQLAlchemy. Es una &amp;ldquo;base de operaciones&amp;rdquo; para la base de datos real y su DBAPI, entregada a una aplicación SQLAlchemy a través de un conjunto de conexiones y un dialecto, que describe cómo hablar con un tipo específico de combinación de base de datos/DBAPI.</description>
+    </item>
+    
+    <item>
+      <title>el ORM</title>
+      <link>https://www.wikiod.com/es/sqlalchemy/el-orm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sqlalchemy/el-orm/</guid>
+      <description>El ORM de SQLAlchemy se basa en SQLAlchemy Core. Por ejemplo, aunque las clases modelo usan objetos Columna, son parte del núcleo y allí se encontrará documentación más relevante.
+Las partes principales del ORM son la sesión, la consulta y las clases asignadas (por lo general, se usa la extensión declarativa en SQLAlchemy moderno).
+Convirtiendo un resultado de consulta a dictado # Primero la configuración para el ejemplo:
+import datetime as dt from sqlalchemy import Column, Date, Integer, Text, create_engine, inspect from sqlalchemy.</description>
+    </item>
+    
+    <item>
+      <title>La sesión</title>
+      <link>https://www.wikiod.com/es/sqlalchemy/la-sesion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sqlalchemy/la-sesion/</guid>
+      <description>Una sesión realiza un seguimiento de los objetos ORM y sus cambios, gestiona las transacciones y se utiliza para realizar consultas .
+Crear una sesión # Una sesión generalmente se obtiene usando [sessionmaker](http://docs.sqlalchemy.org/en/latest/orm /session_api.html#sqlalchemy.orm.session.sessionmaker), que crea una clase Session única para su aplicación. Por lo general, la clase Session está vinculada a un motor, lo que permite que las instancias utilicen el motor implícitamente.
+from sqlalchemy.orm import sessionmaker # Initial configuration arguments Session = sessionmaker(bind=engine) El motor y la Sesión solo deben crearse una vez.</description>
+    </item>
+    
+    <item>
+      <title>Núcleo de SQLAlchemy</title>
+      <link>https://www.wikiod.com/es/sqlalchemy/nucleo-de-sqlalchemy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sqlalchemy/nucleo-de-sqlalchemy/</guid>
+      <description>Convertir resultado a dict # En SQLAlchemy core, el resultado es RowProxy. En los casos en los que desee un diccionario explícito, puede llamar a dict(fila).
+Primero la configuración para el ejemplo:
+import datetime as dt from sqlalchemy import ( Column, Date, Integer, MetaData, Table, Text, create_engine, select) metadata = MetaData() users = Table( &#39;users&#39;, metadata, Column(&#39;id&#39;, Integer, primary_key=True), Column(&#39;name&#39;, Text, nullable=False), Column(&#39;birthday&#39;, Date), ) engine = create_engine(&#39;sqlite://&#39;) metadata.create_all(bind=engine) engine.execute(users.insert(), name=&#39;Alice&#39;, birthday=dt.</description>
+    </item>
+    
+    <item>
+      <title>Flask-SQLAlchemy</title>
+      <link>https://www.wikiod.com/es/sqlalchemy/flask-sqlalchemy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sqlalchemy/flask-sqlalchemy/</guid>
+      <description>Flask-SQLAlchemy agrega algunas funciones adicionales, como la destrucción automática de la sesión, asumiendo algunas cosas que a menudo no son las que necesita.
+Una aplicación mínima # Para el caso común de tener una aplicación Flask, todo lo que tiene que hacer es crear su aplicación Flask, cargar la configuración de su elección y luego crear el objeto SQLAlchemy pasándole la aplicación.
+Una vez creado, ese objeto contiene todas las funciones y ayudantes de sqlalchemy y sqlalchemy.</description>
+    </item>
+    
+    <item>
+      <title>Conectando</title>
+      <link>https://www.wikiod.com/es/sqlalchemy/conectando/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/sqlalchemy/conectando/</guid>
+      <description>Motor # El motor se utiliza para conectarse a diferentes bases de datos mediante una URL de conexión:
+from sqlalchemy import create_engine engine = create_engine(&#39;postgresql://user:pass@localhost/test&#39;) Tenga en cuenta, sin embargo, que el motor en realidad no establece una conexión hasta que se utiliza por primera vez.
+El motor crea automáticamente un grupo de conexiones, pero abre nuevas conexiones con pereza (es decir, SQLAlchemy no abrirá 5 conexiones si solo solicita una).</description>
+    </item>
+    
+  </channel>
+</rss>

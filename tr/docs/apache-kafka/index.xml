@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apache-kafka Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/apache-kafka/</link>
+    <description>Recent content in apache-kafka Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/apache-kafka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>apache-kafka&#39;yı kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/apache-kafka/apache-kafkay-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/apache-kafka/apache-kafkay-kullanmaya-baslama/</guid>
+      <description>Kurulum veya Kurulum # Aşama 1. Java 7 veya 8&amp;rsquo;i yükleyin
+Adım 2. Apache Kafka&amp;rsquo;yı şu adresten indirin: http://kafka.Apache.org/downloads.html
+Örneğin, Apache Kafka 0.10.0.0 indirmeyi deneyeceğiz.
+Aşama 3. Sıkıştırılmış dosyayı çıkarın.
+Linux&amp;rsquo;ta:
+tar -xzf kafka_2.11-0.10.0.0.tgz Pencerede: Sağ tıklayın &amp;ndash;&amp;gt; Buraya çıkartın
+Adım 4. Zookeeper&amp;rsquo;ı başlat
+cd kafka_2.11-0.10.0.0 Linux:
+bin/zookeeper-server-start.sh config/zookeeper.properties Pencereler:
+bin/windows/zookeeper-server-start.bat config/zookeeper.properties Adım 5. Kafka sunucusunu başlat
+Linux:
+bin/kafka-server-start.sh config/server.properties Pencereler:
+bin/windows/kafka-server-start.bat config/server.properties Giriiş # Apache Kafka™ dağıtılmış bir akış platformudur.</description>
+    </item>
+    
+    <item>
+      <title>kafka konsol araçları</title>
+      <link>https://www.wikiod.com/tr/apache-kafka/kafka-konsol-araclar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/apache-kafka/kafka-konsol-araclar/</guid>
+      <description>Kafka, konuları, tüketici gruplarını yönetmek, mesajları tüketmek ve yayınlamak vb. için komut satırı araçları sunar.
+Önemli: Kafka konsol komut dosyaları, Unix tabanlı ve Windows platformları için farklıdır. Örneklerde, uzantıyı platformunuza göre eklemeniz gerekebilir.
+Linux: &amp;lsquo;.sh&amp;rsquo; uzantılı &amp;lsquo;bin/&amp;rsquo; içinde bulunan komut dosyaları.
+Windows: bin\windows\ içinde bulunan ve .bat uzantılı komut dosyaları.
+kafka-konsol-yapımcısı # Bu araç, komut satırından mesajlar üretmenizi sağlar.
+Bir konuya basit dize mesajları gönderin:
+kafka-console-producer --broker-list localhost:9092 --topic test here is a message here is another message ^D (her yeni satır yeni bir mesajdır, durdurmak için ctrl+D veya ctrl+C yazın)</description>
+    </item>
+    
+    <item>
+      <title>Tüketici Grupları ve Ofset Yönetimi</title>
+      <link>https://www.wikiod.com/tr/apache-kafka/tuketici-gruplar-ve-ofset-yonetimi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/apache-kafka/tuketici-gruplar-ve-ofset-yonetimi/</guid>
+      <description>Parametreler # parametre Tanım grup kimliği Tüketici Grubunun adı. enable.auto.commit Ofsetleri otomatik olarak taahhüt edin; varsayılan: doğru. auto.commit.interval.ms Kesinleştirmeler arasındaki milisaniye cinsinden minimum gecikme (&amp;ldquo;enable.auto.commit=true&amp;rdquo; gerektirir); varsayılan: 5000. oto.offset.sıfırlama Geçerli bir taahhütlü mahsup bulunmadığında ne yapılmalı; varsayılan: en son.(+) (+) Olası Değerler Tanım en erken Ofseti otomatik olarak en erken ofsete sıfırlayın. en son Ofseti otomatik olarak en son ofsete sıfırlayın. hiçbiri Tüketici grubu için daha önce bir mahsup bulunmazsa, tüketiciye istisna atın.</description>
+    </item>
+    
+    <item>
+      <title>Özel SerileştiriciSerileştirici</title>
+      <link>https://www.wikiod.com/tr/apache-kafka/ozel-serilestiriciserilestirici/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/apache-kafka/ozel-serilestiriciserilestirici/</guid>
+      <description>Kafka, bayt dizilerini kuyruğunda saklar ve taşır. (De)serializers, Kafka ve POJO&amp;rsquo;lar tarafından sağlanan bayt dizisi arasında çeviri yapmaktan sorumludur.
+Sözdizimi # public void config(Map&amp;lt;String, ?&amp;gt; config, boolean isKey); public T deserialize(Dize konusu, bayt[] bayt); public byte[] serialize(String topic, T obj); Parametreler # parametreler detaylar yapılandırma Oluşturulduktan sonra bir harita olarak &amp;ldquo;Üretici&amp;rdquo; veya &amp;ldquo;Tüketici&amp;quot;ye iletilen yapılandırma özellikleri (&amp;ldquo;Özellikler&amp;rdquo;). Normal kafka yapılandırmaları içerir, ancak kullanıcı tanımlı yapılandırmayla da genişletilebilir. Argümanları (de)serializer&amp;rsquo;a iletmenin en iyi yoludur.</description>
+    </item>
+    
+    <item>
+      <title>Java&#39;da ÜreticiTüketici</title>
+      <link>https://www.wikiod.com/tr/apache-kafka/javada-ureticituketici/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/apache-kafka/javada-ureticituketici/</guid>
+      <description>Bu konu, Java&amp;rsquo;da kayıtların nasıl üretileceğini ve tüketileceğini gösterir.
+SimpleConsumer (Kafka &amp;gt;= 0.9.0) # Kafka&amp;rsquo;nın 0.9 sürümü, kafka tüketicisinin tamamen yeniden tasarlanmasını sağladı. Eski &amp;ldquo;SimpleConsumer&amp;rdquo; (0.8.X) ile ilgileniyorsanız, bu sayfaya bir göz atın. Kafka kurulumunuz 0.8.X&amp;rsquo;ten daha yeniyse, aşağıdaki kodlar kutudan çıkar çıkmaz çalışmalıdır.
+Yapılandırma ve başlatma # Kafka 0.9 artık Java 6 veya Scala 2.9&amp;rsquo;u desteklememektedir. Hala Java 6 kullanıyorsanız, desteklenen bir sürüme yükseltmeyi düşünün.
+İlk önce bir maven projesi oluşturun ve pom&amp;rsquo;inize aşağıdaki bağımlılığı ekleyin:</description>
+    </item>
+    
+  </channel>
+</rss>

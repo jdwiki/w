@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel ffmpeg on </title>
+    <link>https://www.wikiod.com/fr/docs/ffmpeg/</link>
+    <description>Recent content in Tutoriel ffmpeg on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec ffmpeg</title>
+      <link>https://www.wikiod.com/fr/ffmpeg/premiers-pas-avec-ffmpeg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/ffmpeg/premiers-pas-avec-ffmpeg/</guid>
+      <description>Installation ou configuration # FFmpeg peut être installé sur un mélange de systèmes d&amp;rsquo;exploitation, y compris Unix et OS X. À l&amp;rsquo;aide d&amp;rsquo;une extension de ligne de commande, cet utilitaire peut également être installé sur Windows à l&amp;rsquo;aide d&amp;rsquo;une dll. OS X Pour installer cet utilitaire sur OS X, rendez-vous simplement sur [ffmpeg.org](https://www.ffmpeg.org/download.html#build-mac), téléchargez la version relative à l&#39;architecture de votre Mac (instructions pour trouver cette peut être trouvé [ici](https://www.chiefarchitect.com/support/article/KB-01230/determining-if-your-computer-is-32-bit-or-64-bit.html)). Ensuite, placez l&#39;application dans un répertoire accessible et exécutez-la à partir de la ligne de commande.</description>
+    </item>
+    
+    <item>
+      <title>Décodage</title>
+      <link>https://www.wikiod.com/fr/ffmpeg/decodage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/ffmpeg/decodage/</guid>
+      <description>Obtenir la vidéo/audio brute à partir de flux multimédias encodés.
+Décoder les trames # Étant donné un contexte de codec et des paquets codés à partir d&amp;rsquo;un flux multimédia, vous pouvez commencer à décoder le média en images brutes. Pour décoder une seule image, vous pouvez utiliser le code suivant :
+// A codec context, and some encoded data packet from a stream/file, given. AVCodecContext *codecContext; // See Open a codec context AVPacket *packet; // See the Reading Media topic // Send the data packet to the decoder int sendPacketResult = avcodec_send_packet(codecContext, packet); if (sendPacketResult == AVERROR(EAGAIN)){ // Decoder can&#39;t take packets right now.</description>
+    </item>
+    
+    <item>
+      <title>Médias de lecture</title>
+      <link>https://www.wikiod.com/fr/ffmpeg/medias-de-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/ffmpeg/medias-de-lecture/</guid>
+      <description>Il existe plusieurs façons de lire l&amp;rsquo;audio/vidéo dans FFmpeg.
+Lecture de la mémoire # libavformat prend généralement un nom de fichier et lit les médias directement à partir du système de fichiers. Si vous souhaitez lire à partir de la mémoire (par exemple, des flux), procédez comme suit :
+// Define your buffer size const int FILESTREAMBUFFERSZ = 8192; // A IStream - you choose where it comes from IStream* fileStreamData; // Alloc a buffer for the stream unsigned char* fileStreamBuffer = (unsigned char*)av_malloc(FILESTREAMBUFFERSZ); if (fileStreamBuffer == nullptr){ // out of memory } // Get a AVContext stream AVIOContext* ioContext = avio_alloc_context( fileStreamBuffer, // Buffer FILESTREAMBUFFERSZ, // Buffer size 0, // Buffer is only readable - set to 1 for read/write fileStreamData, // User (your) specified data FileStreamRead, // Function - Reading Packets (see example) 0, // Function - Write Packets FileStreamSeek // Function - Seek to position in stream (see example) ); if(ioContext == nullptr){ // out of memory } // Allocate a AVContext AVFormatContext *formatContext = avformat_alloc_context(); // Set up the Format Context formatContext-&amp;gt;pb = ioContext; formatContext-&amp;gt;flags |= AVFMT_FLAG_CUSTOM_IO; // we set up our own IO // Open &amp;quot;file&amp;quot; (open our custom IO) // Empty string is where filename would go.</description>
+    </item>
+    
+    <item>
+      <title>Rediffuser Ffmpeg</title>
+      <link>https://www.wikiod.com/fr/ffmpeg/rediffuser-ffmpeg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/ffmpeg/rediffuser-ffmpeg/</guid>
+      <description>Restream de périphérique simple # Ffmpeg est un couteau suisse pour le projet de streaming. Pour tout type d&amp;rsquo;appareil en streaming, il vous suffit d&amp;rsquo;obtenir les spécifications de l&amp;rsquo;appareil. Pour répertorier l&amp;rsquo;appareil
+ffmpeg -f dshow -list_devices true -i dummy L&amp;rsquo;invite de commande répertorie tous les périphériques disponibles sur la machine.
+[dshow @ 0000000004052420] DirectShow video devices [dshow @ 0000000004052420] &amp;quot;ManyCam Virtual Webcam&amp;quot; [dshow @ 0000000004052420] &amp;quot;UScreenCapture&amp;quot; [dshow @ 0000000004052420] DirectShow audio devices Pour rediffuser le périphérique audio et vidéo,</description>
+    </item>
+    
+  </channel>
+</rss>

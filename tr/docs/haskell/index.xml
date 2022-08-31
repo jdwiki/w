@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Haskell Dil Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/haskell/</link>
+    <description>Recent content in Haskell Dil Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/haskell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Haskell Dilini kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/haskell/haskell-dilini-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/haskell/haskell-dilini-kullanmaya-baslama/</guid>
+      <description>Selam Dünya! # Temel bir &amp;ldquo;Merhaba, Dünya!&amp;rdquo; program Haskell&amp;rsquo;de kısaca bir veya iki satırda ifade edilebilir:
+main :: IO () main = putStrLn &amp;quot;Hello, World!&amp;quot; İlk satır, isteğe bağlı bir tür ek açıklamasıdır ve &amp;ldquo;main&amp;rdquo; öğesinin &amp;ldquo;IO ()&amp;rdquo; türünde bir değer olduğunu belirtir ve &amp;ldquo;()&amp;rdquo; türünde bir değeri &amp;ldquo;hesaplayan&amp;rdquo; bir G/Ç eylemini temsil eder (&amp;ldquo;birim&amp;rdquo; okuyun; hiçbir bilgi taşımayan boş demet), dış dünya üzerinde bazı yan etkiler yapmanın yanı sıra (burada, terminalde bir dize yazdırma).</description>
+    </item>
+    
+    <item>
+      <title>Lens</title>
+      <link>https://www.wikiod.com/tr/haskell/lens/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/haskell/lens/</guid>
+      <description>Lens, Java&amp;rsquo;nın erişimci ve mutatör kavramlarından farklı olarak, rastgele yapıları sorgulamak ve işlemek için tek tip bir arayüz ortaya çıkaran lensler, izomorfizmler, kıvrımlar, çapraz geçişler, alıcılar ve ayarlayıcılar sağlayan Haskell için bir kütüphanedir.
+Lens nedir? # Lensler (ve diğer optikler), bazı verilere nasıl erişmek istediğimizi açıklamayı, onunla ne* yapmak istediğimizden ayırmamızı sağlar. Bir merceğin soyut kavramı ile somut uygulama arasında ayrım yapmak önemlidir. Soyut olarak anlamak, uzun vadede &amp;rsquo;lens&amp;rsquo; ile programlamayı çok daha kolay hale getirir.</description>
+    </item>
+    
+    <item>
+      <title>Ortak GHC Dil Uzantıları</title>
+      <link>https://www.wikiod.com/tr/haskell/ortak-ghc-dil-uzantlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/haskell/ortak-ghc-dil-uzantlar/</guid>
+      <description>Bu dil uzantıları, onaylanmış Haskell 2010 dil Raporu kapsamında olmadıkları için Glasgow Haskell Derleyicisi (GHC) kullanılırken genellikle mevcuttur. Bu uzantıları kullanmak için, ya bir flag kullanarak derleyiciyi bilgilendirmeli ya da bir dosyadaki &amp;lsquo;module&amp;rsquo; anahtar sözcüğünün önüne bir &amp;lsquo;LANGUAGE&amp;rsquo; programı yerleştirmelisiniz. Resmi belgeler, GCH kullanıcı kılavuzunun bölüm 7 bölümünde bulunabilir.
+&amp;lsquo;LANGUAGE&amp;rsquo; programının formatı &amp;lsquo;{-# LANGUAGE ExtensionOne, ExtensionTwo &amp;hellip; #-}&amp;rsquo; şeklindedir. Bu, &amp;ldquo;{-#&amp;rdquo; harfinin ardından &amp;ldquo;LANGUAGE&amp;rdquo;, ardından virgülle ayrılmış bir uzantı listesi ve son olarak &amp;ldquo;#-}&amp;rdquo; kapanışıdır.</description>
+    </item>
+    
+    <item>
+      <title>Ücretsiz Monadlar</title>
+      <link>https://www.wikiod.com/tr/haskell/ucretsiz-monadlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/haskell/ucretsiz-monadlar/</guid>
+      <description>Ücretsiz monad&amp;rsquo;lar, monadik hesaplamaları veri yapılarına ve yorumlayıcılara böler # Örneğin, komut isteminden okuma ve yazma komutlarını içeren bir hesaplama:
+İlk önce hesaplamamızın &amp;ldquo;komutlarını&amp;rdquo; bir Functor veri türü olarak tanımlarız.
+{-# LANGUAGE DeriveFunctor #-} data TeletypeF next = PrintLine String next | ReadLine (String -&amp;gt; next) deriving Functor Daha sonra &amp;ldquo;TeletypeF&amp;rdquo; üzerinden Serbest Monad oluşturmak için &amp;ldquo;Ücretsiz&amp;quot;i kullanırız ve bazı temel işlemler oluştururuz.
+import Control.Monad.Free (Free, liftF, iterM) type Teletype = Free TeletypeF printLine :: String -&amp;gt; Teletype () printLine str = liftF (PrintLine str ()) readLine :: Teletype String readLine = liftF (ReadLine id) &amp;ldquo;F&amp;rdquo; bir &amp;ldquo;Functor&amp;rdquo; olduğunda &amp;ldquo;Free f&amp;rdquo; bir &amp;ldquo;Monad&amp;rdquo; olduğundan, &amp;ldquo;Teletype&amp;rdquo; hesaplamaları oluşturmak için standart &amp;ldquo;Monad&amp;rdquo; birleştiricilerini (&amp;ldquo;do&amp;rdquo; notasyonu dahil) kullanabiliriz.</description>
+    </item>
+    
+    <item>
+      <title>GÇ</title>
+      <link>https://www.wikiod.com/tr/haskell/gc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/haskell/gc/</guid>
+      <description>&amp;lsquo;IO a&amp;rsquo;dan &amp;lsquo;a&amp;rsquo; &amp;ldquo;çıkarma&amp;rdquo; # Yaygın bir soru şudur: &amp;ldquo;&amp;lsquo;IO a&amp;rsquo; değerine sahibim, ancak bu &amp;lsquo;a&amp;rsquo; değerine bir şeyler yapmak istiyorum: buna nasıl erişebilirim?&amp;rdquo; Dış dünyadan gelen veriler üzerinde nasıl işlem yapılabilir (örneğin, kullanıcı tarafından yazılan bir sayıyı artırmak)?
+Mesele şu ki, saf olmayan bir şekilde elde edilen veriler üzerinde saf bir işlev kullanırsanız, sonuç hala saf değildir. Kullanıcının ne yaptığına bağlı! &amp;ldquo;IO a&amp;rdquo; türünde bir değer, (a) onu &amp;ldquo;ana&amp;rdquo; olarak birleştirerek ve (b) derleyerek ve yürüterek yalnızca çalıştırılabilen &amp;ldquo;a&amp;rdquo; türünde bir değerle sonuçlanan &amp;ldquo;yan etkili hesaplama&amp;rdquo; anlamına gelir.</description>
+    </item>
+    
+    <item>
+      <title>Monadlar</title>
+      <link>https://www.wikiod.com/tr/haskell/monadlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/haskell/monadlar/</guid>
+      <description>Bir monad, birleştirilebilir eylemlerin bir veri türüdür. &amp;ldquo;Monad&amp;rdquo;, değerleri bu tür eylemleri temsil eden tür oluşturucular sınıfıdır. Belki de &amp;lsquo;IO&amp;rsquo; en çok tanınanıdır: &amp;lsquo;IO a&amp;rsquo; değeri, &amp;ldquo;gerçek dünyadan bir &amp;lsquo;a&amp;rsquo; değeri almak için bir reçetedir&amp;rdquo;.
+Eylemlerin bileşimiyle ilgili belirli yasaları karşılayan bir &amp;ldquo;Monad m örneği&amp;rdquo; varsa, bir tür oluşturucu &amp;ldquo;m&amp;rdquo; (&amp;quot;[]&amp;quot; veya &amp;ldquo;Belki&amp;rdquo; gibi) bir monad oluşturur deriz. O zaman m a hakkında &amp;ldquo;sonucu a tipinde bir eylem&amp;rdquo; olarak akıl yürütebiliriz.</description>
+    </item>
+    
+    <item>
+      <title>Katlanabilir</title>
+      <link>https://www.wikiod.com/tr/haskell/katlanabilir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/haskell/katlanabilir/</guid>
+      <description>&amp;lsquo;Katlanabilir&amp;rsquo;, bir katlama işlemine izin veren &amp;rsquo;t :: * -&amp;gt; *&amp;rsquo; türlerinin sınıfıdır. Bir katlama, bir yapının öğelerini, bir birleştirme işlevi kullanarak iyi tanımlanmış bir sırada toplar.
+Eğer &amp;ldquo;t&amp;rdquo; &amp;ldquo;Katlanabilir&amp;rdquo; ise, herhangi bir &amp;ldquo;t a&amp;rdquo; değeri için &amp;ldquo;a&amp;quot;nın tüm öğelerine &amp;ldquo;t a&amp;quot;nın &amp;ldquo;içerisinden&amp;rdquo; sabit bir doğrusal sırada nasıl erişeceğimizi bildiğimiz anlamına gelir. foldMap :: Monoid m =&amp;gt; (a -&amp;gt; m) -&amp;gt; (t a -&amp;gt; m) ifadesinin anlamı budur: her öğeyi bir özet işleviyle &amp;ldquo;ziyaret ederiz&amp;rdquo; ve tüm özetleri bir araya toplarız.</description>
+    </item>
+    
+    <item>
+      <title>geçilebilir</title>
+      <link>https://www.wikiod.com/tr/haskell/gecilebilir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/haskell/gecilebilir/</guid>
+      <description>&amp;lsquo;Traversable&amp;rsquo; sınıfı, daha önce &amp;lsquo;mapM :: Monad m =&amp;gt; (a -&amp;gt; m b) -&amp;gt; [a] -&amp;gt; m [b]&amp;rsquo; olarak bilinen işlevi, listeler dışındaki yapılar üzerinde &amp;lsquo;Uygulamalı&amp;rsquo; etkilerle çalışmak üzere genelleştirir.
+Bir yapıyı tersten dolaşmak # Backwards uygulamalı işlev yardımıyla bir geçiş ters yönde çalıştırılabilir. , mevcut bir uygulamayı ters çevirerek oluşan etkilerin ters sırada gerçekleşmesini sağlar.
+newtype Backwards f a = Backwards { forwards :: f a } instance Applicative f =&amp;gt; Applicative (Backwards f) where pure = Backwards .</description>
+    </item>
+    
+    <item>
+      <title>Aşırı Yüklenmiş Değişmezler</title>
+      <link>https://www.wikiod.com/tr/haskell/asr-yuklenmis-degismezler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/haskell/asr-yuklenmis-degismezler/</guid>
+      <description>Tamsayı Değişmezleri # ondalık noktası olmayan bir sayıdır
+örneğin &amp;ldquo;0&amp;rdquo;, &amp;ldquo;1&amp;rdquo;, &amp;ldquo;42&amp;rdquo;, &amp;hellip;
+[Num türü sınıfının] parçası olan fromInteger öğesine örtük olarak uygulanır (https://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#t:Num) yani gerçekten de &amp;ldquo;Num a =&amp;gt; a&amp;rdquo; türüne sahip - yani herhangi bir türe sahip olabilir bir &amp;ldquo;Num&amp;rdquo; örneğidir
+Kesirli Değişmezler # ondalık virgülle **bir sayıdır
+örneğin &amp;ldquo;0.0&amp;rdquo;, &amp;ldquo;-0.1111&amp;rdquo;, &amp;hellip;
+[Fractional tip sınıfının] parçası olan fromRational öğesine örtük olarak uygulanır. (https://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#t:Fractional) yani gerçekten de `a =&amp;gt; a&amp;rsquo; tipine sahip - yani herhangi bir türe sahip olabilir.</description>
+    </item>
+    
+    <item>
+      <title>Çabuk kontrol</title>
+      <link>https://www.wikiod.com/tr/haskell/cabuk-kontrol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/haskell/cabuk-kontrol/</guid>
+      <description>Özel türler için rastgele veri oluşturma # &amp;ldquo;Arbitrary&amp;rdquo; sınıfı, QuickCheck tarafından rastgele oluşturulabilen türler içindir.
+Rastgele bir değer üretmek için &amp;ldquo;Gen&amp;rdquo; monadında çalışan &amp;ldquo;keyfi&amp;rdquo; yönteminin minimum uygulaması &amp;ldquo;keyfi&amp;rdquo; yöntemidir.
+Aşağıda, boş olmayan listelerin aşağıdaki veri türü için bir &amp;ldquo;Rastgele&amp;rdquo; örneği verilmiştir.
+import Test.QuickCheck.Arbitrary (Arbitrary(..)) import Test.QuickCheck.Gen (oneof) import Control.Applicative ((&amp;lt;$&amp;gt;), (&amp;lt;*&amp;gt;)) data NonEmpty a = End a | Cons a (NonEmpty a) instance Arbitrary a =&amp;gt; Arbitrary (NonEmpty a) where arbitrary = oneof [ -- randomly select one of the cases from the list End &amp;lt;$&amp;gt; arbitrary, -- call a&#39;s instance of Arbitrary Cons &amp;lt;$&amp;gt; arbitrary &amp;lt;*&amp;gt; -- call a&#39;s instance of Arbitrary arbitrary -- recursively call NonEmpty&#39;s instance of Arbitrary ] Önkoşullu özellikleri kontrol etmek için ima (==&amp;gt;) kullanma # prop_evenNumberPlusOneIsOdd :: Integer -&amp;gt; Property prop_evenNumberPlusOneIsOdd x = even x ==&amp;gt; odd (x + 1) Bir ön koşulun geçerli olduğu göz önüne alındığında bir özelliğin tutulduğunu kontrol etmek istiyorsanız, ==&amp;gt; operatörünü kullanabilirsiniz.</description>
+    </item>
+    
+  </channel>
+</rss>

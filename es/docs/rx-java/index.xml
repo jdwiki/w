@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de rx-java on </title>
+    <link>https://www.wikiod.com/es/docs/rx-java/</link>
+    <description>Recent content in Tutorial de rx-java on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/rx-java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con rx-java</title>
+      <link>https://www.wikiod.com/es/rx-java/primeros-pasos-con-rx-java/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/rx-java/primeros-pasos-con-rx-java/</guid>
+      <description>Una introducción a RxJava # Los conceptos centrales de RxJava son sus &amp;lsquo;Observables&amp;rsquo; y &amp;lsquo;Suscriptores&amp;rsquo;. Un &amp;lsquo;Observable&amp;rsquo; emite objetos, mientras que un &amp;lsquo;Suscriptor&amp;rsquo; los consume.
+Observable
+Observable es una clase que implementa el patrón de diseño reactivo. Estos Observables proporcionan métodos que permiten a los consumidores suscribirse a cambios de eventos. Los cambios de eventos son desencadenados por lo observable. No hay restricción en la cantidad de suscriptores que puede tener un &amp;lsquo;Observable&amp;rsquo;, o la cantidad de objetos que puede emitir un &amp;lsquo;Observable&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>contrapresión</title>
+      <link>https://www.wikiod.com/es/rx-java/contrapresion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/rx-java/contrapresion/</guid>
+      <description>Introducción # Contrapresión es cuando en una canalización de procesamiento &amp;lsquo;Observable&amp;rsquo;, algunas etapas asincrónicas no pueden procesar los valores lo suficientemente rápido y necesitan una forma de decirle al productor aguas arriba que reduzca la velocidad.
+El caso clásico de necesidad de contrapresión es cuando el productor es una fuente caliente:
+PublishSubject&amp;lt;Integer&amp;gt; source = PublishSubject.create(); source .observeOn(Schedulers.computation()) .subscribe(v -&amp;gt; compute(v), Throwable::printStackTrace); for (int i = 0; i &amp;lt; 1_000_000; i++) { source.</description>
+    </item>
+    
+    <item>
+      <title>Examen de la unidad</title>
+      <link>https://www.wikiod.com/es/rx-java/examen-de-la-unidad/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/rx-java/examen-de-la-unidad/</guid>
+      <description>Debido a que todos los métodos de Schedulers son estáticos, las pruebas unitarias que utilizan los ganchos RxJava no se pueden ejecutar en paralelo en la misma instancia de JVM. Si es así, se eliminaría un TestScheduler en medio de una prueba unitaria. Esa es básicamente la desventaja de usar la clase Schedulers.
+Programador de pruebas # TestSchedulers le permite controlar el tiempo y la ejecución de Observables en lugar de tener que hacer esperas ocupadas, unir hilos o cualquier cosa para manipular el tiempo del sistema.</description>
+    </item>
+    
+    <item>
+      <title>Android con RxJava</title>
+      <link>https://www.wikiod.com/es/rx-java/android-con-rxjava/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/rx-java/android-con-rxjava/</guid>
+      <description>RxAndroid solía ser una biblioteca con muchas funciones. Se ha dividido en muchas bibliotecas diferentes pasando de la versión 0.25.0 a la 1.x.
+aquí se mantiene una lista de bibliotecas que implementan las funciones disponibles antes de la versión 1.0.
+RxAndroid - Programadores de Android # Esto es literalmente lo único que necesita para comenzar a usar RxJava en Android.
+Incluya RxJava y RxAndroid en sus dependencias de gradle:
+// use the last version compile &#39;io.</description>
+    </item>
+    
+    <item>
+      <title>RxJava2 fluido y suscriptor</title>
+      <link>https://www.wikiod.com/es/rx-java/rxjava2-fluido-y-suscriptor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/rx-java/rxjava2-fluido-y-suscriptor/</guid>
+      <description>Este tema muestra ejemplos y documentación con respecto a los conceptos reactivos de Flowable y Subscriber que se introdujeron en la versión 2 de rxjava
+el ejemplo necesita rxjava2 como dependencia, las coordenadas maven para la versión utilizada son:
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;io.reactivex.rxjava2&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxjava&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.8&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Ejemplo de consumidor de productor con soporte de contrapresión en el productor # El TestProducer de este ejemplo produce objetos Integer en un rango dado y los envía a su Suscriptor.</description>
+    </item>
+    
+    <item>
+      <title>Observable</title>
+      <link>https://www.wikiod.com/es/rx-java/observable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/rx-java/observable/</guid>
+      <description>Crear un Observable # Hay varias formas de crear un Observable en RxJava. La forma más poderosa es usar el método Observable.create. Pero también es la forma más complicada. Así que debes evitar usarlo, tanto como sea posible.
+Emitiendo un valor existente # Si ya tiene un valor, puede usar Observable.just para emitir su valor.
+Observable.just(&amp;quot;Hello World&amp;quot;).subscribe(System.out::println); Emitiendo un valor que debe ser calculado # Si desea emitir un valor que aún no se ha calculado, o que puede tardar mucho en calcularse, puede utilizar Observable.</description>
+    </item>
+    
+    <item>
+      <title>Asignaturas</title>
+      <link>https://www.wikiod.com/es/rx-java/asignaturas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/rx-java/asignaturas/</guid>
+      <description>Sintaxis # Asunto&amp;lt;T, R&amp;gt; asunto = AsyncSubject.create(); // Asunto asíncrono predeterminado Sujeto&amp;lt;T, R&amp;gt; sujeto = BehaviorSubject.create(); // Tema de comportamiento predeterminado Asunto&amp;lt;T, R&amp;gt; asunto = PublishSubject.create(); // Asunto de publicación predeterminado Asunto&amp;lt;T, R&amp;gt; asunto = ReplaySubject.create(); // Tema de reproducción predeterminado mySafeSubject = new SerializedSubject(unSafeSubject); // Convertir un sujeto inseguro en un sujeto seguro, generalmente para sujetos de varios subprocesos Parámetros # Parámetros Detalles T Tipo de entrada R Tipo de salida Esta documentación proporciona detalles y explicaciones sobre Asunto.</description>
+    </item>
+    
+    <item>
+      <title>Operadores</title>
+      <link>https://www.wikiod.com/es/rx-java/operadores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/rx-java/operadores/</guid>
+      <description>Este documento describe el comportamiento básico de un operador.
+Operadores, una introducción # Se puede usar un operador para manipular el flujo de objetos de Observable a Subscriber.
+Observable&amp;lt;Integer&amp;gt; integerObservable = Observable.just(1, 2, 3); // creating a simple Integer observable Subscriber&amp;lt;String&amp;gt; mSubscriber = new Subscriber&amp;lt;String&amp;gt;() { @Override public void onCompleted() { System.out.println(&amp;quot;onCompleted called!&amp;quot;); } @Override public void onError(Throwable throwable) { System.out.println(&amp;quot;onError called&amp;quot;); } @Override public void onNext(String string) { System.out.println(&amp;quot;onNext called with: &amp;quot; + string); } }; // a simple String subscriber integerObservable .</description>
+    </item>
+    
+    <item>
+      <title>programadores</title>
+      <link>https://www.wikiod.com/es/rx-java/programadores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/rx-java/programadores/</guid>
+      <description>Ejemplos básicos # Los programadores son una abstracción de RxJava sobre la unidad de procesamiento. Un programador puede estar respaldado por un servicio Executor, pero puede implementar su propia implementación del programador.
+Un &amp;lsquo;Programador&amp;rsquo; debe cumplir con este requisito:
+Debe procesar la tarea no retrasada secuencialmente (orden FIFO) La tarea se puede retrasar Un Scheduler puede usarse como parámetro en algunos operadores (ejemplo: delay), o usarse con el método subscribeOn / observeOn.</description>
+    </item>
+    
+    <item>
+      <title>Actualización y RxJava</title>
+      <link>https://www.wikiod.com/es/rx-java/actualizacion-y-rxjava/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/rx-java/actualizacion-y-rxjava/</guid>
+      <description>Configure Retrofit y RxJava # Retrofit2 viene con soporte para múltiples mecanismos de ejecución conectables, uno de ellos es RxJava.
+Para usar la actualización con RxJava, primero debe agregar el adaptador Retrofit RxJava a su proyecto:
+compile &#39;com.squareup.retrofit2:adapter-rxjava:2.1.0&#39; entonces debe agregar el adaptador al crear su instancia de actualización:
+Retrofit retrofit = new Retrofit.Builder() .baseUrl(&amp;quot;https://api.example.com&amp;quot;) .addCallAdapterFactory(RxJavaCallAdapterFactory.create()) .build(); En su interfaz, cuando define la API, el tipo de devolución debe ser Observable, por ejemplo:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial plsql on </title>
+    <link>https://www.wikiod.com/pt/docs/plsql/</link>
+    <description>Recent content in Tutorial plsql on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/plsql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com plsql</title>
+      <link>https://www.wikiod.com/pt/plsql/comecando-com-plsql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/plsql/comecando-com-plsql/</guid>
+      <description>Olá Mundo # set serveroutput on DECLARE message constant varchar2(32767):= &#39;Hello, World!&#39;; BEGIN dbms_output.put_line(message); END; / O comando set serveroutput on é necessário em clientes SQL*Plus e SQL Developer para habilitar a saída de dbms_output. Sem o comando nada é exibido.
+A linha end; sinaliza o fim do bloco PL/SQL anônimo. Para executar o código a partir da linha de comando SQL, pode ser necessário digitar / no início da primeira linha em branco após a última linha do código.</description>
+    </item>
+    
+    <item>
+      <title>Procedimento PLSQL</title>
+      <link>https://www.wikiod.com/pt/plsql/procedimento-plsql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/plsql/procedimento-plsql/</guid>
+      <description>O procedimento PLSQL é um grupo de instruções SQL armazenadas no servidor para reutilização. Aumenta o desempenho porque as instruções SQL não precisam ser recompiladas toda vez que são executadas.
+Os procedimentos armazenados são úteis quando o mesmo código é exigido por vários aplicativos. Ter procedimentos armazenados elimina redundância e introduz simplicidade ao código. Quando a transferência de dados é necessária entre o cliente e o servidor, os procedimentos podem reduzir o custo de comunicação em determinadas situações.</description>
+    </item>
+    
+    <item>
+      <title>Cursores</title>
+      <link>https://www.wikiod.com/pt/plsql/cursores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/plsql/cursores/</guid>
+      <description>Sintaxe # Cursor cursor_name é your_select_statement Cursor cursor_name(param TYPE) é your_select_statement_using_param FOR x em (your_select_statement) LOOP &amp;hellip; Cursores declarados são difíceis de usar, e você deve preferir loops FOR na maioria dos casos. O que é muito interessante em cursores em comparação com loops FOR simples, é que você pode parametrizá-los.
+É melhor evitar fazer loops com PL/SQL e cursores em vez de usar Oracle SQL de qualquer maneira. No entanto, para pessoas acostumadas à linguagem procedural, pode ser muito mais fácil de entender.</description>
+    </item>
+    
+    <item>
+      <title>Coleta em massa</title>
+      <link>https://www.wikiod.com/pt/plsql/coleta-em-massa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/plsql/coleta-em-massa/</guid>
+      <description>Processamento de dados em massa # coleções locais não são permitidas em instruções select. Portanto, o primeiro passo é criar uma coleção de nível de esquema. Se a coleção não estiver no nível do esquema e estiver sendo usada em instruções SELECT, isso causará &amp;ldquo;PLS-00642: tipos de coleção local não permitidos em instruções SQL&amp;rdquo;
+CREATE OR REPLACE TYPE table1_t IS OBJECT ( a_1 INTEGER, a_2 VARCHAR2(10) ); &amp;ndash;Concede permissões na coleção para que possa ser usada publicamente no banco de dados</description>
+    </item>
+    
+    <item>
+      <title>Funções</title>
+      <link>https://www.wikiod.com/pt/plsql/funcoes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/plsql/funcoes/</guid>
+      <description>Sintaxe # CRIAR [OU SUBSTITUIR] FUNÇÃO nome_função [ (parâmetro [,parâmetro]) ]
+RETURN return_datatype SI | COMO
+[declaration_section] BEGIN executável_seção
+[EXCEPTION exception_section]
+END [nome_função];
+Chamando funções # Existem algumas maneiras de usar funções.
+Chamando uma função com uma instrução de atribuição
+DECLARE x NUMBER := functionName(); --functions can be called in declaration section BEGIN x := functionName(); END; Chamando uma função na instrução IF
+IF functionName() = 100 THEN Null; END IF; Chamando uma função em uma instrução SELECT</description>
+    </item>
+    
+    <item>
+      <title>Pacotes</title>
+      <link>https://www.wikiod.com/pt/plsql/pacotes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/plsql/pacotes/</guid>
+      <description>Sintaxe # CRIAR [OU SUBSTITUIR] PACOTE nome_do_pacote [AUTHID {CURRENT_USER | DEFINIR}]
+{IS | AS} [PRAGMA SERIALLY_REUSABLE;]
+[collection_type_definition &amp;hellip;]
+[record_type_definition &amp;hellip;]
+[definição_subtipo&amp;hellip;]
+[declaração_coleção&amp;hellip;]
+[declaração_constante&amp;hellip;]
+[exceção_declaração&amp;hellip;]
+[object_declaration&amp;hellip;]
+[record_declaration&amp;hellip;]
+[declaração_variável&amp;hellip;]
+[cursor_spec &amp;hellip;]
+[especificação_função&amp;hellip;]
+[procedure_spec&amp;hellip;]
+[call_spec&amp;hellip;]
+[PRAGMA RESTRICT_REFERENCES(afirmações) &amp;hellip;]
+END [nome_do_pacote];
+CRIAR OU SUBSTITUIR PACOTE PackageName IS FUNCTION FunctionName(parâmetro1 IN VARCHAR2, parâmetro2 IN NUMBER) RETURN VARCHAR2;
+END NomeDoPacote;
+CRIAR [OU SUBSTITUIR] CORPO DO PACOTE nome_do_pacote {IS | COMO}
+[PRAGMA SERIALLY_REUSABLE;]
+[collection_type_definition &amp;hellip;]
+[record_type_definition &amp;hellip;]</description>
+    </item>
+    
+    <item>
+      <title>Declaração IF-THEN-ELSE</title>
+      <link>https://www.wikiod.com/pt/plsql/declaracao-if-then-else/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/plsql/declaracao-if-then-else/</guid>
+      <description>Sintaxe # SE [condição 1] ENTÃO
+[instruções a serem executadas quando a condição 1 for TRUE];
+ELSIF [condição 2] ENTÃO
+[instruções a serem executadas quando a condição 2 for TRUE];
+SENÃO
+[instruções a serem executadas quando ambas as condições 1 e 2 forem FALSE];
+FIM SE;
+SE ENTÃO # DECLARE v_num1 NUMBER(10); v_num2 NUMBER(10); BEGIN v_num1 := 2; v_num2 := 1; IF v_num1 &amp;gt; v_num2 THEN dbms_output.put_line(&#39;v_num1 is bigger than v_num2&#39;); END IF; END; SE-ENTÃO-ELSE # DECLARE v_num1 NUMBER(10); v_num2 NUMBER(10); BEGIN v_num1 := 2; v_num2 := 10; IF v_num1 &amp;gt; v_num2 THEN dbms_output.</description>
+    </item>
+    
+    <item>
+      <title>Gatilhos</title>
+      <link>https://www.wikiod.com/pt/plsql/gatilhos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/plsql/gatilhos/</guid>
+      <description>Introdução:
+Triggers são um conceito útil em PL/SQL. Um gatilho é um tipo especial de procedimento armazenado que não requer ser explicitamente chamado pelo usuário. É um grupo de instruções, que é disparado automaticamente em resposta a uma ação específica de modificação de dados em uma tabela ou relação específica, ou quando certas condições especificadas são satisfeitas. Os gatilhos ajudam a manter a integridade e a segurança dos dados. Eles tornam o trabalho conveniente, realizando a ação necessária automaticamente.</description>
+    </item>
+    
+    <item>
+      <title>Ciclo</title>
+      <link>https://www.wikiod.com/pt/plsql/ciclo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/plsql/ciclo/</guid>
+      <description>Sintaxe # CIRCUITO [declarações]; SAIR QUANDO [condição para sair do loop]; FIM DO LOOP; Loop Simples # DECLARE v_counter NUMBER(2); BEGIN v_counter := 0; LOOP v_counter := v_counter + 1; dbms_output.put_line(&#39;Line number&#39; || v_counter); EXIT WHEN v_counter = 10; END LOOP; END; WHILE Loop # O loop WHILE é executado até que a condição de fim seja cumprida. Exemplo simples:
+DECLARE v_counter NUMBER(2); --declaration of counter variable BEGIN v_counter := 0; --point of start, first value of our iteration WHILE v_counter &amp;lt; 10 LOOP --exit condition dbms_output.</description>
+    </item>
+    
+    <item>
+      <title>Coleções e registros</title>
+      <link>https://www.wikiod.com/pt/plsql/colecoes-e-registros/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/plsql/colecoes-e-registros/</guid>
+      <description>Use uma coleção como um tipo de retorno para uma função de divisão # É necessário declarar o tipo; aqui t_my_list; uma coleção é uma TABLE OF something
+CREATE OR REPLACE TYPE t_my_list AS TABLE OF VARCHAR2(100); Aqui está a função. Observe o () usado como um tipo de construtor, e as palavras-chave COUNT e EXTEND que ajudam a criar e aumentar sua coleção;
+CREATE OR REPLACE FUNCTION cto_table(p_sep in Varchar2, p_list IN VARCHAR2) RETURN t_my_list AS --- this function takes a string list, element being separated by p_sep -- as separator l_string VARCHAR2(4000) := p_list || p_sep; l_sep_index PLS_INTEGER; l_index PLS_INTEGER := 1; l_tab t_my_list := t_my_list(); BEGIN LOOP l_sep_index := INSTR(l_string, p_sep, l_index); EXIT WHEN l_sep_index = 0; l_tab.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>awk tutorial on </title>
+    <link>https://www.wikiod.com/pt/docs/awk/</link>
+    <description>Recent content in awk tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/awk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com awk</title>
+      <link>https://www.wikiod.com/pt/awk/comecando-com-awk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/awk/comecando-com-awk/</guid>
+      <description>AWK por exemplos # AWK é uma linguagem de manipulação de strings, amplamente utilizada em sistemas UNIX. A ideia por trás do AWK era criar uma linguagem versátil para usar ao trabalhar em arquivos, o que não era muito complexo para entender.
+O AWK possui algumas outras variantes, mas o conceito principal é o mesmo, apenas com recursos adicionais. Essas outras variantes são NAWK e GAWK. O GAWK contém todos os recursos de ambos, enquanto o NAWK está um passo acima do AWK, se preferir.</description>
+    </item>
+    
+    <item>
+      <title>Funções de manipulação de strings</title>
+      <link>https://www.wikiod.com/pt/awk/funcoes-de-manipulacao-de-strings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/awk/funcoes-de-manipulacao-de-strings/</guid>
+      <description>Sintaxe # índice(grande, pequeno) comprimento ou comprimento() comprimento (cadeia) match(string, regex) split(string, array, separador) split(string, array) sprintf(formato, &amp;hellip;) sub(regex, subst, string) sub(regex, subst) gsub(regex, subst) gsub(regex, subst, string) substr(string, início, fim) substr(string, iniciar) abaixar (string) toupeira (corda) Parâmetros # | Parâmetro | Detalhes | | &amp;mdash;&amp;mdash;&amp;mdash; | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; &amp;ndash; | | grande | A string que é escaneada para &amp;ldquo;little&amp;rdquo;. | | fim | O índice no qual terminar a substring.</description>
+    </item>
+    
+    <item>
+      <title>Variáveis ​​incorporadas</title>
+      <link>https://www.wikiod.com/pt/awk/variaveis-incorporadas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/awk/variaveis-incorporadas/</guid>
+      <description>FS - Separador de Campo # A variável FS é usada para definir o separador de campo de entrada. Em awk, espaço e tab atuam como separadores de campo padrão. O valor do campo correspondente pode ser acessado através de $1, $2, $3&amp;hellip; e assim por diante.
+awk -F&#39;=&#39; &#39;{print $1}&#39; file -F - opção de linha de comando para definir o separador de campo de entrada.
+awk &amp;lsquo;BEGIN { FS=&amp;quot;=&amp;quot; } { print $1 }&amp;rsquo; file</description>
+    </item>
+    
+    <item>
+      <title>Variáveis</title>
+      <link>https://www.wikiod.com/pt/awk/variaveis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/awk/variaveis/</guid>
+      <description>Atribuição de variável de linha de comando # Para atribuir variáveis ​​a partir da linha de comando, -v pode ser usado:
+$ awk -v myvar=&amp;quot;hello&amp;quot; &#39;BEGIN {print myvar}&#39; hello Observe que não há espaços ao redor do sinal de igual.
+Isso permite usar variáveis ​​de shell:
+$ shell_var=&amp;quot;hello&amp;quot; $ awk -v myvar=&amp;quot;$shell_var&amp;quot; &#39;BEGIN {print myvar}&#39; hello Além disso, isso permite definir variáveis ​​internas que controlam o awk:
+Veja um exemplo com FS (separador de campo):</description>
+    </item>
+    
+    <item>
+      <title>Frases úteis - calculando a média de um CSV etc.</title>
+      <link>https://www.wikiod.com/pt/awk/frases-uteis---calculando-a-media-de-um-csv-etc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/awk/frases-uteis---calculando-a-media-de-um-csv-etc/</guid>
+      <description>Calcular a média dos valores em uma coluna a partir de dados tabulares # Dado um arquivo usando ; como delimitador de coluna. Calculamos a média dos valores na segunda coluna com o seguinte programa, a entrada fornecida é a lista de notas de um grupo de alunos:
+awk -F&#39;;&#39; &#39;{ sum += $2 } END { print(sum / NR) }&#39; &amp;lt;&amp;lt;EOF Alice;2 Victor;1 Barbara;1 Casper;4 Deborah;0 Ernest;1 Fabiola;4 Giuseppe;4 EOF A saída deste programa é 2.</description>
+    </item>
+    
+    <item>
+      <title>Processamento de dois arquivos</title>
+      <link>https://www.wikiod.com/pt/awk/processamento-de-dois-arquivos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/awk/processamento-de-dois-arquivos/</guid>
+      <description>Verifique os campos correspondentes em dois arquivos # Dados estes dois arquivos CSV:
+$ cat file1 1,line1 2,line2 3,line3 4,line4 $ cat file2 1,line3 2,line4 3,line5 4,line6 Para imprimir aquelas linhas em file2 cuja segunda coluna ocorre também no primeiro arquivo podemos dizer:
+$ awk -F, &#39;FNR==NR {lines[$2]; next} $2 in lines&#39; file1 file2 1,line3 2,line4 Aqui, lines[] contém um array que é preenchido ao ler file1 com o conteúdo do segundo campo de cada linha.</description>
+    </item>
+    
+    <item>
+      <title>Manipulação de linha</title>
+      <link>https://www.wikiod.com/pt/awk/manipulacao-de-linha/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/awk/manipulacao-de-linha/</guid>
+      <description>Extraia linhas específicas de um arquivo de texto # Suponha que temos um arquivo
+cat -n lorem_ipsum.txt 1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 2 Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 3 It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</description>
+    </item>
+    
+    <item>
+      <title>Padrões</title>
+      <link>https://www.wikiod.com/pt/awk/padroes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/awk/padroes/</guid>
+      <description>Padrões Regexp # Os padrões podem ser especificados como expressões regulares:
+/regular expression/ {action} Por exemplo:
+echo &amp;quot;user@hostname.com not an email&amp;quot; | awk &#39;/[^@]+@.+/ {print}&#39; Produz:
+user@hostname.com Observe que uma ação que consiste apenas na instrução print pode ser omitida inteiramente. O exemplo acima é equivalente a:
+echo &amp;quot;user@hostname.com not an email&amp;quot; | awk &#39;/[^@]+@.+/&#39; </description>
+    </item>
+    
+    <item>
+      <title>Padrões e ações</title>
+      <link>https://www.wikiod.com/pt/awk/padroes-e-acoes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/awk/padroes-e-acoes/</guid>
+      <description>Introdução # Um awk consiste em padrões e ações, entre colchetes, a serem tomados se um padrão corresponder. O padrão mais básico é o padrão vazio, que corresponde a qualquer registro. A ação mais básica é a ação vazia, que é equivalente a { print }, que é, por sua vez, equivalente a { print $0 }. Se tanto o padrão quanto a ação estiverem vazios, o awk simplesmente não fará nada.</description>
+    </item>
+    
+    <item>
+      <title>Funções incorporadas</title>
+      <link>https://www.wikiod.com/pt/awk/funcoes-incorporadas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/awk/funcoes-incorporadas/</guid>
+      <description>comprimento([String]) # Retorna o número de caracteres da String fornecida
+Considerações # Se um número for fornecido em vez de uma String, o resultado será o comprimento da String que representa o número fornecido. Ou seja Se executarmos length(12345) o resultado será o mesmo que length(&amp;quot;12345&amp;quot;), que é 5
+Se nenhum valor for fornecido, o resultado será o comprimento da linha real sendo processada, que é length($0)
+Pode ser usado dentro de um padrão ou dentro de blocos de código.</description>
+    </item>
+    
+  </channel>
+</rss>

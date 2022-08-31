@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>akka Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/akka/</link>
+    <description>Recent content in akka Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/akka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>akka&#39;ya başlarken</title>
+      <link>https://www.wikiod.com/tr/akka/akkaya-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/akka/akkaya-baslarken/</guid>
+      <description>Kurulum veya Kurulum # JDK 8&amp;rsquo;i (Windows, Linux) yükleyin ve yolu (Windows) ayarlayın. Scala&amp;rsquo;yı (Linux) yükleyin, Windows için http://www.scala-lang.org/download/ adresini ziyaret edin ve ikili dağıtımı indirin ve kurun, scala için ortam değişkenini PATH&amp;rsquo;de \scala&#39;da ayarlayın \bin. Typesafe activator kurulumu (Scala, Akka, Play, SBT içerir) + proje iskelesi ve şablonları. Hızlı başlangıç ​​için &amp;ldquo;mini paketi&amp;rdquo; indirin. Typesafe etkinleştiricisini çıkarın ve PATH&amp;rsquo;yi &amp;lsquo;aktivatör-x.x.xx-minimal\bin&amp;rsquo; olarak ayarlayın (aktivatörü çalıştırmak için bash ve bat komut dosyalarını içerir).</description>
+    </item>
+    
+    <item>
+      <title>akka akışları özel şekiller</title>
+      <link>https://www.wikiod.com/tr/akka/akka-akslar-ozel-sekiller/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/akka/akka-akslar-ozel-sekiller/</guid>
+      <description>akka, muhtemelen kullanımınızın %99,9&amp;rsquo;una uyması gereken bazı önceden tanımlanmış şekiller sağlar. yeni bir şekil oluşturma işlemi yalnızca bazı çok nadir durumlarda yapılmalıdır. önceden tanımlanmış şekiller şunlardır:
+&amp;ldquo;Kaynak&amp;rdquo; - 1 çıkış, giriş yok Sink - 1 giriş, çıkış yok &amp;ldquo;Akış&amp;rdquo; - 1 giriş, 1 çıkış &amp;ldquo;BidiFlow&amp;rdquo; - 2 giriş, 2 çıkış &amp;ldquo;Kapalı&amp;rdquo; - giriş yok, çıkış yok FanInN - N girişleri (N &amp;lt;= 22), 1 çıkış FanOutN - N çıkışları (N &amp;lt;= 22), 1 giriş UniformFanIn - aynı tipte herhangi bir sayıda giriş, 1 çıkış &amp;ldquo;UniformFanOut&amp;rdquo; - aynı türden herhangi bir sayıda çıkış, 1 giriş &amp;ldquo;Amorf&amp;rdquo; - herhangi bir sayıda giriş veya çıkış, ancak yazılmamış.</description>
+    </item>
+    
+    <item>
+      <title>Aktör DSL</title>
+      <link>https://www.wikiod.com/tr/akka/aktor-dsl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/akka/aktor-dsl/</guid>
+      <description>Basit Aktör DSL # Yeni bir sınıf oluşturmadan basit aktörler oluşturmak için şunları kullanabilirsiniz:
+import akka.actor.ActorDSL._ import akka.actor.ActorSystem implicit val system = ActorSystem(&amp;quot;demo&amp;quot;) val a = actor(new Act { become { case &amp;quot;hello&amp;quot; ⇒ sender() ! &amp;quot;hi&amp;quot; } }) Bağlam değiştirme # Bir context.become yayınlamanın iki olası yolu (yeni davranışı değiştirme veya ekleme), iç içe almaların dağınık olmayan bir gösterimini sağlamak için ayrı ayrı sunulur:
+val a = actor(new Act { become { // this will replace the initial (empty) behavior case &amp;quot;info&amp;quot; ⇒ sender() !</description>
+    </item>
+    
+    <item>
+      <title>Selam Dünya</title>
+      <link>https://www.wikiod.com/tr/akka/selam-dunya/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/akka/selam-dunya/</guid>
+      <description>Akka merhaba dünya (Scala) # Aktör olarak bağımlılık ekleyin (SBT örneği) libraryDependencies += &amp;quot;com.typesafe.akka&amp;quot; % &amp;quot;akka-actor_2.11&amp;quot; % &amp;quot;2.4.8&amp;quot; Oyuncu sınıfları oluşturun: Dize çıktısı için aktör:
+class OutputActor extends Actor { override def receive: Receive = { case message =&amp;gt; println(message) } } Dize değiştirme için aktör:
+class AppendActor(outputActor: ActorRef) extends Actor { override def receive: Receive = { case message: String =&amp;gt; val changed = s&amp;quot;Hello, $message!&amp;quot; outputActor ! changed case unknown =&amp;gt; println(s&amp;quot;unknown message: $unknown&amp;quot;) } } Aktör sistemleri oluşturun ve mesaj gönderin object HelloWorld extends App { val system = ActorSystem(&amp;quot;HelloWorld&amp;quot;) val outputActor = system.</description>
+    </item>
+    
+    <item>
+      <title>Akka&#39;da Denetim ve İzleme</title>
+      <link>https://www.wikiod.com/tr/akka/akkada-denetim-ve-izleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/akka/akkada-denetim-ve-izleme/</guid>
+      <description>Referanslar: akka.io/docs
+Bloguma göz atın: https://blog.knoldus.com/2016/08/07/supervision-and-monitoring-in-akka/
+Denetim nedir? # Aktörler, ebeveyn ve çocuk ilişkisi arasındaki bağımlılık ilişkisini tanımlar. Ebeveyn, çocuk oyuncuyu yarattığı için benzersizdir, bu nedenle ebeveyn, çocuğunda başarısızlıklar meydana geldiğinde tepki vermekten sorumludur.
+Ve hangi seçeneğin seçilmesi gerektiğine ebeveyn karar verir. Bir ebeveyn, çocuğundan başarısızlık sinyali aldığında, başarısızlığın niteliğine bağlı olarak ebeveyn aşağıdaki seçeneklerden karar verir:
+Sürdür: Ebeveyn, çocuk oyuncuyu kendi iç durumunu koruyarak başlatır.
+Yeniden Başlatma: Ebeveyn, alt oyuncuyu dahili durumunu temizleyerek başlatır.</description>
+    </item>
+    
+    <item>
+      <title>Akka Akışları</title>
+      <link>https://www.wikiod.com/tr/akka/akka-akslar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/akka/akka-akslar/</guid>
+      <description>Akka Akışları: Merhaba Dünya # Akka Streams, aktör davranışlarını ve mesajlarını açıkça tanımlamadan Akka çerçevesinin gücünden yararlanarak kolayca bir akış oluşturmanıza olanak tanır. Her akışta en az bir &amp;ldquo;Kaynak&amp;rdquo; (verinin kaynağı) ve en az bir &amp;ldquo;Sink&amp;rdquo; (verinin hedefi) olacaktır.
+import akka.actor.ActorSystem import akka.stream.ActorMaterializer import akka.stream.scaladsl.{Sink, Source} import java.io.File val stream = Source(Seq(&amp;quot;test1.txt&amp;quot;, &amp;quot;test2.txt&amp;quot;, &amp;quot;test3.txt&amp;quot;)) .map(new File(_)) .filter(_.exists()) .filter(_.length() != 0) .to(Sink.foreach(f =&amp;gt; println(s&amp;quot;Absolute path: ${f.getAbsolutePath}&amp;quot;))) Bu hızlı örnekte, akışa girdiğimiz dosya adlarının bir &amp;ldquo;Sırası&amp;rdquo; var.</description>
+    </item>
+    
+    <item>
+      <title>Sevkiyatçılar</title>
+      <link>https://www.wikiod.com/tr/akka/sevkiyatclar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/akka/sevkiyatclar/</guid>
+      <description>Varsayılan Gönderici # Bir Akka MessageDispatcher, Akka Actors&amp;rsquo;ı &amp;ldquo;tik&amp;rdquo; yapan şeydir, tabiri caizse makinenin motorudur. Tüm MessageDispatcher uygulamaları aynı zamanda bir ExecutionContext&amp;rsquo;tir; bu, örneğin Futures gibi isteğe bağlı kod yürütmek için kullanılabilecekleri anlamına gelir.
+Her ActorSystem, bir Actor için başka hiçbir şeyin yapılandırılmaması durumunda kullanılacak varsayılan bir dağıtıcıya sahip olacaktır. Varsayılan dağıtıcı yapılandırılabilir ve varsayılan olarak belirtilen &amp;ldquo;varsayılan-yürütücü&amp;rdquo; ile bir &amp;ldquo;Gönderici&amp;quot;dir. Geçilen bir &amp;lsquo;ExecutionContext&amp;rsquo; ile bir ActorSystem oluşturulursa, bu ExecutionContext, bu ActorSystem&amp;rsquo;deki tüm dağıtım programları için varsayılan yürütücü olarak kullanılacaktır.</description>
+    </item>
+    
+    <item>
+      <title>Bir aktöre bağımlılıkları enjekte etme</title>
+      <link>https://www.wikiod.com/tr/akka/bir-aktore-bagmllklar-enjekte-etme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/akka/bir-aktore-bagmllklar-enjekte-etme/</guid>
+      <description>Yaylı aktör # Çok özel aktör örnekleme yöntemi nedeniyle, bir aktör örneğine bağımlılıkları enjekte etmek önemsiz değildir. Aktör örneklemesine müdahale etmek ve Spring&amp;rsquo;in bağımlılıkları enjekte etmesine izin vermek için birkaç akka uzantısı uygulanmalıdır. Bunlardan ilki bir &amp;lsquo;IndirectActorProducer&amp;rsquo;:
+import akka.actor.Actor; import akka.actor.IndirectActorProducer; import java.lang.reflect.Constructor; import java.util.Arrays; import org.springframework.beans.factory.config.AutowireCapableBeanFactory; import org.springframework.context.ApplicationContext; /** * An actor producer that lets Spring autowire dependencies into created actors. */ public class SpringWiredActorProducer implements IndirectActorProducer { private final ApplicationContext applicationContext; private final Class&amp;lt;?</description>
+    </item>
+    
+    <item>
+      <title>AKA HTTP</title>
+      <link>https://www.wikiod.com/tr/akka/aka-http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/akka/aka-http/</guid>
+      <description>Akka HTTP, başlık altında akka akışlarını kullanan hafif bir HTTP sunucusu ve istemci kitaplığıdır.
+Akka HTTP sunucusu: Merhaba Dünya (Scala DSL) # Aşağıdaki uygulama, 8080 numaralı bağlantı noktasını dinleyen ve &amp;lsquo;GET /hello/world&amp;rsquo;de &amp;lsquo;Merhaba dünya&amp;rsquo;yı döndüren bir HTTP sunucusu başlatacaktır.
+import akka.actor.ActorSystem import akka.http.scaladsl.Http import akka.http.scaladsl.server.Directives._ import akka.http.scaladsl.server._ import akka.stream.ActorMaterializer import scala.concurrent.Await import scala.concurrent.duration.Duration object HelloWorld extends App { implicit val system = ActorSystem(&amp;quot;ProxySystem&amp;quot;) implicit val mat = ActorMaterializer() val route: Route = get { path(&amp;quot;hello&amp;quot; / &amp;quot;world&amp;quot;) { complete(&amp;quot;Hello world&amp;quot;) } } val bindingFuture = Http().</description>
+    </item>
+    
+  </channel>
+</rss>

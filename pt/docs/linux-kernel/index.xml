@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial linux-kernel on </title>
+    <link>https://www.wikiod.com/pt/docs/linux-kernel/</link>
+    <description>Recent content in Tutorial linux-kernel on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/linux-kernel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com Linux-kernel</title>
+      <link>https://www.wikiod.com/pt/linux-kernel/comecando-com-linux-kernel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/linux-kernel/comecando-com-linux-kernel/</guid>
+      <description>Instalação ou Configuração # O código-fonte do kernel do Linux pode ser encontrado em https://www.kernel.org/
+Baixe o extrato e entre no diretório do kernel # Digite estes comandos passo a passo em seu terminal. (Escolha a versão apropriada que você precisava em vez de linux-4.7.tar.gz )
+wget http://www.kernel.org/pub/linux/kernel/v4.7/linux-4.7.tar.gz tar zxvf linux-4.7.tar.gz cd linux-4.7 make menuconfig selecionará os recursos necessários para o kernel. Configurações antigas do kernel podem ser copiadas usando o arquivo .</description>
+    </item>
+    
+    <item>
+      <title>Rastreamento de eventos</title>
+      <link>https://www.wikiod.com/pt/linux-kernel/rastreamento-de-eventos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/linux-kernel/rastreamento-de-eventos/</guid>
+      <description>Rastreamento de eventos I2C # Nota: estou assumindo que o debugfs está montado em /sys/kernel/debug
+Se não, tente:
+mount -t debugfs none /sys/kernel/debug Mude para o diretório de rastreamento:
+cd /sys/kernel/debug/tracing/ Certifique-se de que o rastreador de função esteja desabilitado:
+echo nop &amp;gt; current_tracer Habilite todos os eventos I2C:
+echo 1 &amp;gt; events/i2c/enable Verifique se o rastreamento está ativado:
+echo 1 &amp;gt; tracing_on As mensagens de rastreamento podem ser visualizadas em /sys/kernel/debug/tracing/trace, exemplo:</description>
+    </item>
+    
+    <item>
+      <title>Driver de dispositivo Linux Hello World</title>
+      <link>https://www.wikiod.com/pt/linux-kernel/driver-de-dispositivo-linux-hello-world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/linux-kernel/driver-de-dispositivo-linux-hello-world/</guid>
+      <description>Um módulo de kernel vazio # #include &amp;lt;linux/init.h&amp;gt; #include &amp;lt;linux/module.h&amp;gt; /** * This function is called when the module is first loaded. */ static int __init hello_kernel_init(void) { printk(&amp;quot;Hello, World!\n&amp;quot;); return 0; } /** * This function is called when is called if and when the module is unloaded. */ static void __exit hello_kernel_exit(void) { printk(&amp;quot;Goodbye, cruel world...\n&amp;quot;); } /* The names of the init/exit functions are arbitrary, and they are bound using the following macro definitions */ module_init(hello_kernel_init); module_exit(hello_kernel_exit); Para escrever um driver de dispositivo Linux (dispositivo de caractere, dispositivo de bloco, etc&amp;hellip;), é necessário criar um módulo de kernel que tenha pontos de entrada e saída.</description>
+    </item>
+    
+    <item>
+      <title>Chamada do Sistema Fork</title>
+      <link>https://www.wikiod.com/pt/linux-kernel/chamada-do-sistema-fork/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/linux-kernel/chamada-do-sistema-fork/</guid>
+      <description>chamada de sistema fork() # fork() é uma chamada de sistema. fork é usado para criar um processo filho do processo em execução, que é uma réplica do processo pai (Processo que executou fork()). O processo filho é derivado do processo pai. Tanto o pai quanto o filho têm espaço de endereço diferente, cada um independente das alterações feitas nas variáveis.
+O processo filho tem seu próprio PID (identificação do processo).</description>
+    </item>
+    
+    <item>
+      <title>Pipes nomeados do Linux (FIFO)</title>
+      <link>https://www.wikiod.com/pt/linux-kernel/pipes-nomeados-do-linux-fifo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/linux-kernel/pipes-nomeados-do-linux-fifo/</guid>
+      <description>O que é Pipe Nomeado (FIFO) # A named pipe is really just a special kind of file (a FIFO file) on the local hard drive. Unlike a regular file, a FIFO file does not contain any user information. Instead, it allows two or more processes to communicate with each other by reading/writing to/from this file. A named pipe works much like a regular pipe, but does have some noticeable differences.</description>
+    </item>
+    
+    <item>
+      <title>Como encontrar a pessoa certa para obter ajuda.</title>
+      <link>https://www.wikiod.com/pt/linux-kernel/como-encontrar-a-pessoa-certa-para-obter-ajuda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/linux-kernel/como-encontrar-a-pessoa-certa-para-obter-ajuda/</guid>
+      <description>Isso deve espelhar alguns dos documentos oficiais do kernel do Linux e postar links para as versões mais recentes desses documentos em tovalds/linux no GitHub.com. A ideia é encorajar as pessoas a fazer uso dos arquivos MAINTAINERS, lista de discussão linux-kernel, git log e [scripts/get-maintainer](https://github.com/torvalds/ linux/blob/master/scripts/get_maintainer.pl), para que eles estejam familiarizados com as formas comumente usadas de identificar um ponto de contato chave.
+Encontre os mantenedores &amp;ldquo;prováveis&amp;rdquo; para o conversor serial FTDI USB # Primeiro, determine o arquivo de origem para esse driver específico.</description>
+    </item>
+    
+    <item>
+      <title>Criação e uso de threads de kernel</title>
+      <link>https://www.wikiod.com/pt/linux-kernel/criacao-e-uso-de-threads-de-kernel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/linux-kernel/criacao-e-uso-de-threads-de-kernel/</guid>
+      <description>Este tópico discute como criar e usar threads de kernel.
+Criação de threads do kernel # kern_thread.c
+#include &amp;lt;linux/module.h&amp;gt; #include &amp;lt;linux/kernel.h&amp;gt; #include &amp;lt;linux/init.h&amp;gt; #include &amp;lt;linux/kthread.h&amp;gt; #include &amp;lt;linux/sched.h&amp;gt; #define AUTHOR &amp;quot;Nachiket Kulkarni&amp;quot; #define DESCRIPTION &amp;quot;Simple module that demonstrates creation of 2 kernel threads&amp;quot; static int kthread_func(void *arg) { /* Every kthread has a struct task_struct associated with it which is it&#39;s identifier. * Whenever a thread is schedule for execution, the kernel sets &amp;quot;current&amp;quot; pointer to * it&#39;s struct task_struct.</description>
+    </item>
+    
+  </channel>
+</rss>

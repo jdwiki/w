@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vala Tutorial on </title>
+    <link>https://www.wikiod.com/pt/docs/vala/</link>
+    <description>Recent content in Vala Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/pt/docs/vala/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Começando com Vala</title>
+      <link>https://www.wikiod.com/pt/vala/comecando-com-vala/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/vala/comecando-com-vala/</guid>
+      <description>Olá Mundo! # Em foo.vala:
+void main (string[] args) { stdout.printf (&amp;quot;Hello world!&amp;quot;); } Para compilar a fonte no binário foo:
+valac foo.vala Para compilar e executar a fonte:
+vala foo.vala Instalação ou configuração # A maneira mais fácil de instalar o Vala é instalar seu pacote específico de distribuição.
+No Ubuntu:
+sudo apt install valac No Fedora:
+sudo dnf install vala No arco:
+sudo pacman -S vala No OS X, com Homebrew:</description>
+    </item>
+    
+    <item>
+      <title>Méson</title>
+      <link>https://www.wikiod.com/pt/vala/meson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/vala/meson/</guid>
+      <description>Meson é um sistema de construção de próxima geração projetado com simplicidade e clareza em mente.
+Projeto básico # project(&#39;Vala Project&#39;) glib_dep = dependency(&#39;glib-2.0&#39;) gobject_dep = dependency(&#39;gobject-2.0&#39;) executable(&#39;foo&#39;, &#39;foo.vala&#39;, dependencies: [glib_dep, gobject_dep]) Nota: ambas as dependências glib-2.0 e gobject-2.0 são necessárias, a menos que --nostdpkg seja fornecido explicitamente.
+Projeto baseado em Posix (sem GLib ou GObject) # project(&#39;Posix-based Project&#39;, &#39;vala&#39;) add_project_arguments([&#39;--nostdpkg&#39;], language: &#39;vala&#39;) posix_dep = meson.get_compiler(&#39;vala&#39;).find_library(&#39;posix&#39;) executable(&#39;foo&#39;, &#39;foo.vala&#39;, dependencies: [posix_dep]) Fontes mistas # project(&#39;Mixed sources Project&#39;, &#39;vala&#39;) glib_dep = dependency(&#39;glib-2.</description>
+    </item>
+    
+    <item>
+      <title>Aulas</title>
+      <link>https://www.wikiod.com/pt/vala/aulas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/vala/aulas/</guid>
+      <description>Vala suporta vários sabores de classes.
+As dependências glib-2.0 e gobject-2.0 são necessárias, a menos que --nostdpkg seja fornecido explicitamente.
+Classe compacta # [Compact] public class Foo { public string prop; } É usado principalmente para escrever ligações com gerenciamento de memória específico.
+Classe GObject # public class Foo : Object { public string prop { construct; get; } } Destina-se a API interospectável usando GObject Introspection. Esta é a maneira recomendada para declarar classes.</description>
+    </item>
+    
+    <item>
+      <title>Sinais</title>
+      <link>https://www.wikiod.com/pt/vala/sinais/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/vala/sinais/</guid>
+      <description>Sinal básico # Os sinais estão disponíveis apenas para classes GObject. Eles só podem ser públicos, o que significa que qualquer parte do código pode conectar manipuladores e acioná-los.
+public class Emitter : Object { // A signal is declared like a method, // but with the signal keyword. public signal void my_signal (); public void send_signal () { this.my_signal (); // Send a signal by calling it like a method.</description>
+    </item>
+    
+    <item>
+      <title>Assíncrono e Rendimento</title>
+      <link>https://www.wikiod.com/pt/vala/assincrono-e-rendimento/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/vala/assincrono-e-rendimento/</guid>
+      <description>Vala fornece duas construções de sintaxe para lidar com operações assíncronas: função async e instrução yield.
+Declare uma função assíncrona # public async int call_async () { return 1; } call_async.begin ((obj, res) =&amp;gt; { var ret = call_async.end (res); }); Para chamar uma função assíncrona de um contexto síncrono, use o método begin e passe um retorno de chamada para receber o resultado. Os dois argumentos são:
+obj é um GLib.</description>
+    </item>
+    
+    <item>
+      <title>Usando GLib.Value</title>
+      <link>https://www.wikiod.com/pt/vala/usando-glibvalue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/vala/usando-glibvalue/</guid>
+      <description>Como inicializá-lo? # Para inicializar struct, você pode fazer assim:
+public static void main (string[] args) { Value val = Value (typeof (int)); val.set_int (33); } Mas Vala traz outra forma de inicializar valores:
+public static void main (string[] args) { Value val = 33; } Seu valor é inicializado com o tipo &amp;lsquo;int&amp;rsquo; e contém o valor &amp;lsquo;33&amp;rsquo; int.
+Como usá-lo ? # Use um dos métodos get do GLib.</description>
+    </item>
+    
+    <item>
+      <title>Propriedade</title>
+      <link>https://www.wikiod.com/pt/vala/propriedade/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/vala/propriedade/</guid>
+      <description>Observe que o compilador não impedirá que você use a variável para a qual sua propriedade de valor foi transferida.
+Transferir propriedade # var foo = new uint8[12]; var bar = (owned) foo; assert (foo == null); A variável bar possuirá o valor anteriormente de propriedade de foo.
+Cópia Implícita # var foo = new uint8[12]; var bar = foo; assert (foo != bar); Neste exemplo, tanto foo quanto bar possuem uma referência forte, mas como uint8[] suporta apenas propriedade única, uma cópia é feita.</description>
+    </item>
+    
+    <item>
+      <title>Usando Vala no Windows</title>
+      <link>https://www.wikiod.com/pt/vala/usando-vala-no-windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/vala/usando-vala-no-windows/</guid>
+      <description>Este tópico se concentra em como executar o valac no Windows.
+Usando msys2 (64 bits) # Instale o msys2 (http://www.msys2.org/)
+Instale os pré-requisitos necessários para Vala
+pacman -S mingw64/mingw-w64-x86_64-gcc pacman -S mingw64/mingw-w64-x86_64-pkg-config pacman -S mingw64/mingw-w64-x86_64-vala e todos os pacotes adicionais que seu código requer, ou seja,
+pacman -S mingw64/mingw-w64-x86_64-libgee ... Inicie o shell msys2 correto
+C:\msys64\mingw64.exe Verifique as variáveis ​​de ambiente MSYSTEM e PKG_CONFIG_PATH
+$ echo $MSYSTEM MINGW64 $ echo $PKG_CONFIG_PATH /mingw64/lib/pkgconfig:/mingw64/share/pkgconfig Execute valac como de costume, mas certifique-se de sempre trabalhar no ambiente correto (consulte as etapas 3 e 4)</description>
+    </item>
+    
+    <item>
+      <title>Funções</title>
+      <link>https://www.wikiod.com/pt/vala/funcoes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/pt/vala/funcoes/</guid>
+      <description>Funções são pedaços de código que podem ser executados por outras funções do seu programa.
+Seu programa sempre começa com a função main.
+Consulte também funções assíncronas.
+Métodos são exatamente iguais a funções, mas agem em uma instância de objeto.
+Funções básicas # Uma função é definida pelo menos por seu tipo de retorno e um nome exclusivo.
+void say_hello () { print (&amp;quot;Hello, world!\n&amp;quot;); } Então, para chamá-lo basta usar o nome da função seguido de um parêntese.</description>
+    </item>
+    
+  </channel>
+</rss>

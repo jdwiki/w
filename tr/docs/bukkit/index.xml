@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bukkit Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/bukkit/</link>
+    <description>Recent content in bukkit Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/bukkit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bukkit&#39;e başlarken</title>
+      <link>https://www.wikiod.com/tr/bukkit/bukkite-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bukkit/bukkite-baslarken/</guid>
+      <description>Eklenti Oluşturma # Önkoşullar # JDK 7 veya Üzeri (Önerilen: JDK 8+) Bukkit&amp;rsquo;i Bağımlılık Olarak Ekleme # Bukkit API&amp;rsquo;sini projenize eklemenin en basit yöntemi, Bukkit.jar&amp;rsquo;ı doğrudan Spigot Deposu&amp;lsquo;den indirmektir. ) ve projenizin sınıf yoluna ekleyin. Bukkit&amp;rsquo;in eski sürümleri Bukkit Deposu adresinde bulunabilir.
+Diğeri, pom.xml dosyanıza aşağıdaki satırları ekleyerek onu Maven bağımlılığı olarak eklemektir:
+&amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;id&amp;gt;spigot-repo&amp;lt;/id&amp;gt; &amp;lt;url&amp;gt;https://hub.spigotmc.org/nexus/content/repositories/snapshots/&amp;lt;/url&amp;gt; &amp;lt;/repository&amp;gt; &amp;lt;/repositories&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;!--Bukkit API--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.bukkit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;bukkit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;{VERSION}&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; Ana sınıf # Eklentinin ana sınıfı, Bukkit&amp;rsquo;in eklentinizle etkileşim kurması için giriş noktasıdır.</description>
+    </item>
+    
+    <item>
+      <title>Zamanlayıcı Programlama</title>
+      <link>https://www.wikiod.com/tr/bukkit/zamanlayc-programlama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bukkit/zamanlayc-programlama/</guid>
+      <description>Sözdizimi # Bukkit.getScheduler().scheduleSyncRepeatingTask(Eklenti eklentisi, Çalıştırılabilir görev, int initialDelay, int tekrarlamaGecikmesi) Bukkit.getScheduler().scheduleSyncDelayedTask(Eklenti eklentisi, Çalıştırılabilir görev, int initialDelay) Bukkit.getScheduler().runTaskAsynchronously(Eklenti eklentisi, Çalıştırılabilir görev) Bukkit.getScheduler().runTask(Eklenti eklentisi, Çalıştırılabilir görev) new BukkitRunnable() { @Override public void run() { /* CODE */ } }.runTaskLater(Eklenti eklentisi, uzun gecikme); new BukkitRunnable() { @Override public void run() { /* CODE */ } }.runTaskTimer(Eklenti eklentisi, uzun başlangıçDelay, uzun tekrarlamaGecikmesi); Birkaç Bukkit API yöntemi iş parçacığı için güvenlidir ve zaman uyumsuz olarak çağrılabilir.</description>
+    </item>
+    
+    <item>
+      <title>Olay işleme</title>
+      <link>https://www.wikiod.com/tr/bukkit/olay-isleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bukkit/olay-isleme/</guid>
+      <description>Bukkit&amp;rsquo;in içinde bir şey olduğunda, bir Olay çağrılır, böylece her eklenti bir şey olduğunda ne yapacağına karar verebilir.
+Bir oyuncu bir blok oynamaya çalıştığında, bir varlık umutsuzluğa düştüğünde, biri oturum açtığında bir Etkinlik çağrılır&amp;hellip; Eklentiler belirli olayları dinleyebilir ve bununla birçok farklı şekilde ilgilenebilir, örneğin, Oyuncu, PlayerLoginEvent aracılığıyla oturum açar.
+Sözdizimi # Bukkit.getPluginManager().registerEvents(Dinleyici l, Eklenti p); Bir etkinliği kaydederken, iki kez kaydetmediyseniz bir göz atın! Veya eklentiniz kayıtlı etkinlik için iki kez hareket edecektir.</description>
+    </item>
+    
+    <item>
+      <title>Kerestecilik</title>
+      <link>https://www.wikiod.com/tr/bukkit/kerestecilik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bukkit/kerestecilik/</guid>
+      <description>Bukkit Kaydediciyi Kullanma # public class MyClass { public void foo() { Logger logger = Bukkit.getLogger(); logger.info(&amp;quot;A log message&amp;quot;); logger.log(Level.INFO, &amp;quot;Another message&amp;quot;); logger.fine(&amp;quot;A fine message&amp;quot;); // logging an exception try { // code might throw an exception } catch (SomeException ex) { // log a warning printing &amp;quot;Something went wrong&amp;quot; // together with the exception message and stacktrace logger.log(Level.WARNING, &amp;quot;Something went wrong&amp;quot;, ex); } String s = &amp;quot;Hello World!&amp;quot;; // logging an object LOG.</description>
+    </item>
+    
+    <item>
+      <title>NMS</title>
+      <link>https://www.wikiod.com/tr/bukkit/nms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bukkit/nms/</guid>
+      <description>Net.Minecraft.Server olarak da bilinen NMS, çekirdek Minecraft sunucu kodunu içeren pakettir. Bu paketteki sınıflar Mojang (Bukkit değil) tarafından yapılmıştır ve bu nedenle çoğunlukla karartılmıştır ve kullanılmaları veya değiştirilmeleri amaçlanmamıştır. Bununla birlikte, Minecraft sunucu koduyla bu düzeyde etkileşim, neredeyse her yönünü değiştirmenize olanak tanır. Bu önemlidir çünkü Bukkit&amp;rsquo;in desteklemediği çok sayıda değişiklik vardır.
+Bukkit API, eklenti geliştiricilerinin dahili kod tabanında yapılan değişiklikler hakkında endişelenmeden sunucuyla etkileşime girmesine izin veren NMS için bir sarmalayıcı veya soyutlama katmanıdır.</description>
+    </item>
+    
+    <item>
+      <title>varlıklar</title>
+      <link>https://www.wikiod.com/tr/bukkit/varlklar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bukkit/varlklar/</guid>
+      <description>Yakındaki Varlıklar # Bir varlığın yakındaki varlıklarının bir listesini almak için kullanılabilir
+List&amp;lt;Entity&amp;gt; nearby = entity.getNearbyEntities(double x, double y, double z); Bukkit daha sonra, parametre olarak aşağıdakilere sahip olan, varlık etrafında ortalanmış bir sınırlayıcı kutu hesaplayacaktır:
+x: x ekseni boyunca kutunun 1/2 boyutu y: y ekseni boyunca kutunun boyutunun 1/2&amp;rsquo;si z: z ekseni boyunca kutunun 1/2 boyutu Liste boş olabilir, yani parametrelere sahip yakınlarda varlık yoktur.
+Bu yaklaşım, örneğin bir Itemstack başlatmak ve bir oyuncu ile ne zaman çarpıştığını tespit etmek gibi özel mermilerin yakınındaki varlıkları tespit etmek için kullanılabilir.</description>
+    </item>
+    
+    <item>
+      <title>yumurta yumurtlama</title>
+      <link>https://www.wikiod.com/tr/bukkit/yumurta-yumurtlama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bukkit/yumurta-yumurtlama/</guid>
+      <description>EntityType&amp;rsquo;ı daha iyi anlamak için [Varlık Belgelerine][1] bakın
+[1]: https://www.wikiod.com/tr/bukkit/varlklar#Varlık Türü
+SpawnEgg&amp;rsquo;in ItemStack&amp;rsquo;ini Oluşturma # 1.9&amp;rsquo;un altındaki herhangi bir şey için
+SpawnEgg egg = new SpawnEgg(EntityType.CREEPER); ItemStack creeperEgg = egg.toItemStack(5); 1.9 ve üzeri için
+1.9 ve üzeri sürümlerde Spigot, NMS kullanmadan yumurtlama yumurtaları oluşturmak için bir uygulamaya sahip değildir. Bunu başarmak için, bunu gerçekleştirmek için küçük bir özel sınıf/sarmalayıcı kullanabilirsiniz:
+public ItemStack toItemStack(int amount, EntityType type) { ItemStack item = new ItemStack(Material.</description>
+    </item>
+    
+    <item>
+      <title>Yapılandırma Dosyaları</title>
+      <link>https://www.wikiod.com/tr/bukkit/yaplandrma-dosyalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bukkit/yaplandrma-dosyalar/</guid>
+      <description>Sözdizimi # String s = config.getString(&amp;quot;path.to.string&amp;quot;); int i = config.getInt(&amp;quot;path.to.int&amp;quot;); double d = config.getDouble(&amp;quot;path.to.double&amp;quot;); List&amp;lt;String&amp;gt; sl = config.getStringList(&amp;quot;path.to.stringlist&amp;quot;); List&amp;lt;Double&amp;gt; dl = config.getDoubleList(&amp;quot;path.to.doublelist&amp;quot;); List&amp;lt;Integer&amp;gt; il = config.getIntegerList(&amp;quot;path.to.integerlist&amp;quot;); Bukkit yapılandırma dosyaları doğrudan Y.A.M.L (Yine Başka Bir İşaretleme Dili) dosyalarıdır ve bu şekilde uygulanır.
+Eklenti Config.yml # Doğrudan jar dosyanızdan yüklenen bir config.yml dosyanız olabilir. Plugin.yml dosyasıyla aynı şekilde projenizin klasörüne eklenmelidir.
+Bu dosyada, yapılandırmanız için varsayılan değerlere sahipsiniz.
+Örnek yapılandırma:
+# This is an YML comment adminName: &amp;quot;Kerooker&amp;quot; moderators: [&amp;quot;Romario&amp;quot;, &amp;quot;Pelé&amp;quot;, &amp;quot;Cafú&amp;quot;] Örnek yapılandırma dosyası proje klasörüne eklenmelidir.</description>
+    </item>
+    
+    <item>
+      <title>dünya nesli</title>
+      <link>https://www.wikiod.com/tr/bukkit/dunya-nesli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bukkit/dunya-nesli/</guid>
+      <description>Boşluk Oluşturucu # Boşluk oluşturucu sınıfı:
+public class VoidGenerator extends ChunkGenerator { @SuppressWarnings(&amp;quot;deprecation&amp;quot;) public byte[] generate(World w, Random rand, int x, int z) { byte[] result = new byte[32768]; //chunksized array filled with 0 - Air //Build a platform with Bedrock where the player shall spawn later if(x == 0 &amp;amp;&amp;amp; z == 0) { result[xyz(0, 64, 0)] = (byte)Material.BEDROCK.getId(); result[xyz(1, 64, 0)] = (byte)Material.BEDROCK.getId(); result[xyz(0, 64, 1)] = (byte)Material.BEDROCK.getId(); } return result; } private Integer xyz(int x, int y, int z) { return (x * 16 + z)*128+y; //position inside the chunk } } Yeni bir Dünya oluşturmak istediğiniz herhangi bir sınıf:</description>
+    </item>
+    
+    <item>
+      <title>Oyuncuları Gizleme</title>
+      <link>https://www.wikiod.com/tr/bukkit/oyuncular-gizleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/bukkit/oyuncular-gizleme/</guid>
+      <description>Sözdizimi # void hide(Oyuncu Gizle); geçersiz gösteri (Oyuncudan Gösterilecek); boolean canSee(Oyuncu Görülecek); Olaylar, StackOverflow&amp;rsquo;un Olay Listesi belgelerinde daha iyi ele alınmıştır.
+Bir Oyuncuyu Diğer Oyunculardan Gizleme # Player playerToHide; Player playerToNotSee; playerToNotSee.hide(playerToHide); //playerToHide will no longer be seen by playerToNotSee. Oyuncu zaten gizlenmişse hiçbir şey olmaz
+Bir Oyuncuyu Başka Bir Oyuncuya Gösterme # Player toUnhide; Player toSeeAgain toSeeAgain.show(toUnhide); //Player toSeeAgain will now see Player toUnhide again. Oyuncu zaten görünürse, hiçbir şey olmaz.</description>
+    </item>
+    
+  </channel>
+</rss>

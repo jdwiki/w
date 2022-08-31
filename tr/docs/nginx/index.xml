@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/nginx/</link>
+    <description>Recent content in nginx Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nginx&#39;e başlarken</title>
+      <link>https://www.wikiod.com/tr/nginx/nginxe-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nginx/nginxe-baslarken/</guid>
+      <description>NGINX yapılandırma dosyasını yeniden yükleyin # Kök kullanıcı olarak:
+sudo nginx -s reload Ubuntu 14.04 örneği # sudo service nginx reload Ubuntu 16.04 örneği # sudo systemctl reload nginx Yeniden yüklemeden önce, sözdizimi hataları için yapılandırmayı kontrol etmek iyi bir fikirdir:
+sudo nginx -t Veya
+sudo service nginx configtest Kurulum ve kurulum # Nginx, İnternet üzerinden HTTP isteklerini sunmak için kullanılan bir Web sunucusudur.
+Nginx, Linux, Windows ve diğer işletim sistemlerinde doğrudan indirme olarak mevcuttur ve ayrıca kaynaktan oluşturulabilir.</description>
+    </item>
+    
+    <item>
+      <title>Faydalı Yönlendirmeler</title>
+      <link>https://www.wikiod.com/tr/nginx/faydal-yonlendirmeler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nginx/faydal-yonlendirmeler/</guid>
+      <description>HTTPS Yönlendirmesi # server { listen 80 default_server; listen [::]:80 default_server; server_name example.com www.example.com; return 307 https://$host$request_uri; } 301 yönlendirmesi de bir alternatiftir, ancak bir 301&amp;rsquo;e POST yapılırsa, birçok istemci isteği bir GET olarak yeniden gönderir - bu neredeyse her zaman sunucu tarafında başarısız olur. Bir 307, aynı istek türünü zorunlu kılar.
+İstekleri başka bir sunucuya yönlendir # server { server_name example.com; return 301 $scheme://example.net$request_uri; } Mobil Site Yönlendirme # Mobil kullanıcı aracısından gelen isteği algılamak ve bunları mobil siteye yönlendirmek için Nginx yapılandırması.</description>
+    </item>
+    
+    <item>
+      <title>Nginx Yapılandırmaları</title>
+      <link>https://www.wikiod.com/tr/nginx/nginx-yaplandrmalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nginx/nginx-yaplandrmalar/</guid>
+      <description>NGINX yapılandırma dosyasını test edin # Bir NGINX yapılandırma dosyasında çalıştırmadan önce sözdizimi hatalarını ve başvurulan dosyaları kontrol edebilirsiniz:
+nginx -t Alternatif olarak, hizmet komut dosyasını çalıştırabilirsiniz.
+service nginx configtest Bu komutların her ikisi de size yeni nginx yapılandırmanızın [mevcut örneğinizi öldürmeden] uygun olup olmadığını söyleyecektir. Configtest, çalışan hizmeti kullanır ve size kontrolün geçip geçmediğini söylerken, nginx -t sadece yapılandırmayı kontrol etmekle kalmaz, aynı zamanda herhangi bir bilgiyi, uyarıyı ve hata mesajlarını yazdırır.</description>
+    </item>
+    
+    <item>
+      <title>Kerestecilik</title>
+      <link>https://www.wikiod.com/tr/nginx/kerestecilik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nginx/kerestecilik/</guid>
+      <description>Temel örnek # Sözdizimi # Syntax: log_format name string ...; Syntax: access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]]; access_log off; Onları birlikte kullanmak
+log_format compression &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&amp;quot;$request&amp;quot; $status $bytes_sent &#39; &#39;&amp;quot;$http_referer&amp;quot; &amp;quot;$http_user_agent&amp;quot; &amp;quot;$gzip_ratio&amp;quot;&#39;; access_log /spool/logs/nginx-access.log compression buffer=32k; error_log /spool/logs/nginx-error.log; Günlük dosyalarını yeniden aç # Kök kullanıcı olarak çalıştırın:
+nginx -s reopen favicon.ico ve robots.txt için oturum açmaktan kaçının # location = /favicon.ico { log_not_found off; access_log off; } location = /robots.</description>
+    </item>
+    
+    <item>
+      <title>nginx ters proxy</title>
+      <link>https://www.wikiod.com/tr/nginx/nginx-ters-proxy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nginx/nginx-ters-proxy/</guid>
+      <description>basit ters proxy # # Define which servers to include in the load balancing scheme. # It&#39;s best to use the servers&#39; private IPs for better performance and security. upstream backend { ip_hash; server 10.10.10.10 slow_start=30s max_fails=3 fail_timeout=15s; server 10.10.10.12 slow_start=30s max_fails=3 fail_timeout=15s; # Activates the cache for connections to upstream servers. keepalive 20; } # This server accepts all traffic to port 80 and passes it to the upstream. # Notice that the upstream name and the proxy_pass need to match.</description>
+    </item>
+    
+    <item>
+      <title>Temiz tarayıcı URL&#39;leri sağlamak için nginx kullanma</title>
+      <link>https://www.wikiod.com/tr/nginx/temiz-tarayc-urlleri-saglamak-icin-nginx-kullanma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nginx/temiz-tarayc-urlleri-saglamak-icin-nginx-kullanma/</guid>
+      <description>Yönlendirme ve ters proxy karşılaştırması # Profesyonelce yapılmış web uygulamaları, sunucu ortamının iç detaylarını kullanıcıya göstermez. Bayinizden bir sipariş verdiğinizde, https://mydealer.com:8443/Dealerapp/entryPage.html adresini görmezsiniz (veya yazmanız gerekir) ancak uygulama sunucusunun tüm ayrıntılara ihtiyacı olmasına rağmen sadece mydealer.com&amp;rsquo;u görürsünüz. daha uzun URL&amp;rsquo;de verilir. Bu, şu yollarla elde edilebilir:
+if ($scheme = http) { return 301 https://$server_name$request_uri; } Bu bir yönlendirme yapar. İstemci güvenli bir bağlantı talep etmemiş olsa bile, tarayıcı hemen ona yönlendirilir.</description>
+    </item>
+    
+    <item>
+      <title>nginx kullanarak raylar uygulaması ile Wordpress blog entegrasyonu</title>
+      <link>https://www.wikiod.com/tr/nginx/nginx-kullanarak-raylar-uygulamas-ile-wordpress-blog-entegrasyonu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/nginx/nginx-kullanarak-raylar-uygulamas-ile-wordpress-blog-entegrasyonu/</guid>
+      <description>nginx sunucu bloğu # php5-fpm ve wordpress ayarlarını kurduktan ve yapılandırdıktan sonra /etc/nginx/conf/nginx.conf dosyasını aşağıdaki gibi yapılandırabilirsiniz.
+Sunucu bloğunun içindeki konum bloklarını tanımlamanız ve oradaki url&amp;rsquo;yi tanımlandığı gibi yeniden yazmanız gerekir.
+server { listen 443 ssl; server_name abc.co.uk; root /home/ubuntu/www/abc/current/public; try_files $uri/index.html $uri @unicorn; ssl on; ssl_certificate /etc/nginx/ssl/abc.crt; ssl_certificate_key /etc/nginx/ssl/abc.key; location /blog/wp-admin/ { root /var/www/html/; index index.php; try_files $uri $uri/ /index.php?$args; location ~* \.(js|css|xml|txt|jpg)$ { expires 14d; root /var/www/html/; access_log off; } location ~ \.</description>
+    </item>
+    
+  </channel>
+</rss>

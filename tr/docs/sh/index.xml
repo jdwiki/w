@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sh Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/sh/</link>
+    <description>Recent content in sh Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/sh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sh ile başlarken</title>
+      <link>https://www.wikiod.com/tr/sh/sh-ile-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sh/sh-ile-baslarken/</guid>
+      <description>Selam Dünya! # &amp;ldquo;eko&amp;rdquo; ile:
+$ echo Hello, world! Hello, world! &amp;ldquo;printf&amp;rdquo; ile:
+$ printf &#39;Hello, world!\n&#39; Hello, world! Dosya olarak:
+#!/bin/sh printf &#39;%s\n&#39; &#39;Hello, world!&#39; Yankı Taşınabilirliği # $ for shell in ash bash dash ksh ksh93 zsh; do &amp;gt; $shell -c &amp;quot;echo &#39;\\\\&#39;$shell&#39;\\\\&#39;&amp;quot; &amp;gt; done \\ash\\ \\bash\\ \dash\ \pdksh\ \\ksh93\\ \zsh\ &amp;rsquo;echo&amp;rsquo;, yalnızca bağımsız değişkenleri ters eğik çizgi içermiyorsa (ters katı) ve ilk bağımsız değişken kısa çizgi (kısa çizgi) ile başlamıyorsa, uygulamalar arasında tutarlı bir şekilde kullanılabilir.</description>
+    </item>
+    
+    <item>
+      <title>Aritmetik Genişletme</title>
+      <link>https://www.wikiod.com/tr/sh/aritmetik-genisletme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sh/aritmetik-genisletme/</guid>
+      <description>Aritmetik açılımlardaki sayılar aşağıdaki ERE ile eşleşmelidir:
+[-+]?(0[0-7]+|[1-9][0-9]*|0[Xx][0-9A-Fa-f]+) Aritmetik ifadeler, C&amp;rsquo;den işaretli tamsayı operatörlerini, karşılaştırmaları, Boolean ifadelerini, atamaları ve üçlü ifadeleri destekler.
+Kaynaklar # POSIX&amp;rsquo;te aritmetik genişletme Operatör önceliği Satır Sayısı # i=0 while read -r line; do i=$((i+1)) done &amp;lt; file echo $i Aşağıdakileri içeren bir dosya ile:
+Alpha Beta Gamma Delta Epsilon Yukarıdaki komut dosyası yazdırılır: &amp;ldquo;5&amp;rdquo;
+Parametre Genişletme # Döngü &amp;rsquo;n&amp;rsquo; kez:
+while [ $((i=${i:=0}+1)) -le &amp;quot;$n&amp;quot; ]; do echo line $i done &amp;ldquo;n=5&amp;rdquo; için çıktı:</description>
+    </item>
+    
+    <item>
+      <title>İş Kontrolü</title>
+      <link>https://www.wikiod.com/tr/sh/is-kontrolu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sh/is-kontrolu/</guid>
+      <description>Duraklat, arka planda çalıştır, ön planda çalıştır # Tamamlanması oldukça uzun bir süreç oluşturalım:
+$ sleep 1000 İşlemi duraklatmak için Ctrl + Z yazın:
+^Z [1]+ Stopped sleep 1000 Geçerli terminalde çalışan veya durdurulan işlemlerin listesini görmek için &amp;lsquo;işleri&amp;rsquo; kullanabilirsiniz:
+$ jobs [1]+ Stopped sleep 1000 Ön planda bir işi geri getirmek için, &amp;lsquo;jobs&amp;rsquo; tarafından sağlanan listede parantezler arasında id yazan &amp;lsquo;fg&amp;rsquo; kullanın:
+$ fg 1 sleep 1000 Bir iş durdurulduğunda, aynı kimliğe sahip &amp;ldquo;bg&amp;rdquo; komutuyla arka planda çalıştırabilirsiniz:</description>
+    </item>
+    
+    <item>
+      <title>oku komutu</title>
+      <link>https://www.wikiod.com/tr/sh/oku-komutu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sh/oku-komutu/</guid>
+      <description>Bir satırı harfi harfine oku # $ IFS= read -r foo &amp;lt;&amp;lt;EOF &amp;gt; this is a \n line &amp;gt;EOF $ printf &#39;%s\n&#39; &amp;quot;$foo&amp;quot; this is a \n line Bir satırı oku, baştaki ve sondaki boşlukları sıyır # $ read -r foo &amp;lt;&amp;lt;EOF &amp;gt; this is a line &amp;gt;EOF $ printf &#39;%s\n&#39; &amp;quot;$foo&amp;quot; this is a line </description>
+    </item>
+    
+    <item>
+      <title>GÇ Yönlendirme</title>
+      <link>https://www.wikiod.com/tr/sh/gc-yonlendirme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sh/gc-yonlendirme/</guid>
+      <description>Genellikle bir komut terminalden girdi alır ve çıktıyı tekrar terminale verir. Normalde bir komut klavyeden girdiyi okur ve sonucu ekrana verir. İşte Giriş/Çıkış Yönlendirmesinin önemi
+Sözdizimi # [fd]&amp;lt;dosya [fd]&amp;lt;&amp;amp;fd [fd]&amp;lt;&amp;amp;- [fd]&amp;gt;dosya [fd]&amp;gt;&amp;amp;fd [fd]&amp;gt;&amp;amp;- [fd]&amp;gt;|dosya [fd]&amp;raquo;dosya [fd]&amp;lt;&amp;gt;dosya [fd]&amp;laquo;[-] kelime &amp;hellip;
+kelime Kaynaklar # &amp;lsquo;Yönlendirme&amp;rsquo; ile ilgili POSIX &amp;lsquo;Kabuk Komut Dili&amp;rsquo; bölümü Çıkış Yönlendirme # Genellikle bir komutun çıktısı terminale gider. Çıktı yeniden yönlendirme kavramını kullanarak, bir komutun çıktısı bir dosyaya yeniden yönlendirilebilir.</description>
+    </item>
+    
+    <item>
+      <title>Alıntı yapmak</title>
+      <link>https://www.wikiod.com/tr/sh/alnt-yapmak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sh/alnt-yapmak/</guid>
+      <description>Referanslar # &amp;lsquo;Alıntı Yapma&amp;rsquo; ile ilgili POSIX &amp;lsquo;Kabuk Komut Dili&amp;rsquo; bölümü Tekli Alıntılar # Tek tırnaklar değişmez dizelerdir ve kaçış karakterlerinin olmaması, tek tırnaklı bir dizenin içinde bulunamayan tek karakterin tek tırnak olduğu anlamına gelir.
+$ echo &#39;$var \$var \\$var \\\$var&#39; $var \$var \\$var \\\$var $ echo &#39;&amp;quot;quoted string&amp;quot;&#39; &amp;quot;quoted string&amp;quot; $ echo &#39;var=$(echo $var)&#39; var=$(echo $var) İkili alıntı # Çift tırnak işaretleri, &amp;quot;&amp;quot;&amp;quot; sonlandırıcı, &amp;ldquo;$&amp;rdquo; genişletmeleri, &amp;quot;&amp;quot; &amp;quot; `` komut değiştirmeleri ve bu karakterlerden herhangi birinin &amp;ldquo;&amp;quot; çıkışları (ve yeni satır kaldırma) dışındaki tüm karakterleri korur.</description>
+    </item>
+    
+    <item>
+      <title>Ölçek</title>
+      <link>https://www.wikiod.com/tr/sh/olcek/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/sh/olcek/</guid>
+      <description>Sözdizimi # Ölçek test [!] [ -n | -z ] string test [!] { -b | -c | -d | -e | -f | -g | -h | -L | -p | -r | -S | -s | -u | -w | -x } file test [!] -t fd test [!] string { = | != } string test [!] integer { -eq | -ne | -gt | -ge | -lt | - } tamsayı [ ] [ [!</description>
+    </item>
+    
+  </channel>
+</rss>

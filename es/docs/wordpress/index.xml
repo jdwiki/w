@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de WordPress on </title>
+    <link>https://www.wikiod.com/es/docs/wordpress/</link>
+    <description>Recent content in Tutorial de WordPress on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comenzando con WordPress</title>
+      <link>https://www.wikiod.com/es/wordpress/comenzando-con-wordpress/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/wordpress/comenzando-con-wordpress/</guid>
+      <description>Introducción a WordPress # WordPress [WP] es un sistema de gestión de contenido de código abierto para crear aplicaciones, sitios web y blogs. WP está escrito en PHP y utiliza MySQL como almacén de datos para el contenido y la configuración del usuario. Tiene un rico ecosistema de complementos y temas y disfruta de una vibrante comunidad de código abierto, buena documentación y pocas barreras de entrada. La documentación de usabilidad y desarrollo se puede encontrar en el WP Codex.</description>
+    </item>
+    
+    <item>
+      <title>get_bloginfo()</title>
+      <link>https://www.wikiod.com/es/wordpress/get_bloginfo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/wordpress/get_bloginfo/</guid>
+      <description>Recupera información sobre el sitio actual.
+Sintaxis # get_bloginfo ($ mostrar, $ filtro) Parámetros # Parámetro Detalles $mostrar (cadena) La información de configuración del sitio para recuperar. $filtro (cadena) La especificación sobre si devolver un valor filtrado o no. $mostrar
+Valores Descripción Ejemplo &amp;rsquo;nombre&amp;rsquo; (Predeterminado) Título del sitio &#39;Matt Mullenweg&#39; &amp;lsquo;descripción&amp;rsquo; Lema del sitio &#39;Solo otro sitio de WordPress&#39; &amp;lsquo;wpurl&amp;rsquo; URL de la instalación de WordPress. Igual que la función site_url() &#39;http://ejemplo.</description>
+    </item>
+    
+    <item>
+      <title>AJAX</title>
+      <link>https://www.wikiod.com/es/wordpress/ajax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/wordpress/ajax/</guid>
+      <description>AJAX con .ajax() y WordPress Nonce # funciones.php
+//Localize the AJAX URL and Nonce add_action(&#39;wp_enqueue_scripts&#39;, &#39;example_localize_ajax&#39;); function example_localize_ajax(){ wp_localize_script(&#39;jquery&#39;, &#39;ajax&#39;, array( &#39;url&#39; =&amp;gt; admin_url(&#39;admin-ajax.php&#39;), &#39;nonce&#39; =&amp;gt; wp_create_nonce(&#39;example_ajax_nonce&#39;), )); } //Example AJAX Function add_action(&#39;wp_ajax_example_function&#39;, &#39;example_function&#39;); add_action(&#39;wp_ajax_nopriv_example_function&#39;, &#39;example_function&#39;); function example_function(){ if ( !wp_verify_nonce($_POST[&#39;nonce&#39;], &#39;example_ajax_nonce&#39;) ){ die(&#39;Permission Denied.&#39;); } $firstname = sanitize_text_field($_POST[&#39;data&#39;][&#39;firstname&#39;]); $lastname = sanitize_text_field($_POST[&#39;data&#39;][&#39;lastname&#39;]); //Do something with data here echo $firstname . &#39; &#39; . $lastname; //Echo for response wp_die(); // this is required to terminate immediately and return a proper response:- https://codex.</description>
+    </item>
+    
+    <item>
+      <title>Conceptos básicos del personalizador (agregar panel, sección, configuración, control)</title>
+      <link>https://www.wikiod.com/es/wordpress/conceptos-basicos-del-personalizador-agregar-panel-seccion-configuracion-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/wordpress/conceptos-basicos-del-personalizador-agregar-panel-seccion-configuracion-control/</guid>
+      <description>Agregar un panel de personalización # &amp;lt;?php /** * Panel: WPCustomize * * Basic Customizer panel with basic controls. * * @since 1.0.0 * @package WPC */ // Exit if accessed directly. if ( ! defined( &#39;ABSPATH&#39; ) ) { exit; } // Customize function. if ( ! function_exists( &#39;wpc_panel_wpcustomize&#39; ) ) { // Customize Register action. add_action( &#39;customize_register&#39;, &#39;wpc_panel_wpcustomize&#39; ); /** * Customize Panel. * * Adds a Panel, Section with basic controls.</description>
+    </item>
+    
+    <item>
+      <title>Tipos de publicaciones personalizadas</title>
+      <link>https://www.wikiod.com/es/wordpress/tipos-de-publicaciones-personalizadas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/wordpress/tipos-de-publicaciones-personalizadas/</guid>
+      <description>Sintaxis # register_post_type ($ post_type, $ argumentos); Parámetros # Parámetro Detalles $post_type (cadena) (Requerido) $argumentos (matriz/cadena) (Opcional) Agregar tipos de publicaciones personalizadas a la consulta principal # Registrar un tipo de publicación personalizada no significa que se agregue a la consulta principal automáticamente. Debe usar el filtro pre_get_posts para agregar tipos de publicaciones personalizadas a la consulta principal.
+// Show posts of &#39;post&#39; and &#39;book&#39; custom post types on home page add_action( &#39;pre_get_posts&#39;, &#39;add_my_post_types_to_query&#39; ); function add_my_post_types_to_query( $query ) { if ( is_home() &amp;amp;&amp;amp; $query-&amp;gt;is_main_query() ) $query-&amp;gt;set( &#39;post_type&#39;, array( &#39;post&#39;, &#39;book&#39; ) ); return $query; } Registro de un tipo de publicación personalizada # Supongamos que tiene un sitio web de biblioteca y desea tener un tipo de publicación personalizada llamada Libros.</description>
+    </item>
+    
+    <item>
+      <title>obtener_la_categoría()</title>
+      <link>https://www.wikiod.com/es/wordpress/obtener_la_categoria/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/wordpress/obtener_la_categoria/</guid>
+      <description>Esta función devuelve todas las categorías como una matriz de la publicación o página actual o la publicación o página designada.
+Sintaxis # obtener_la_categoría ($id) Parámetros # Parámetro Detalles $id (int) (Opcional) valor predeterminado para el ID de publicación actual. El ID de la publicación. Tenga en cuenta que get_the_category() devuelve una matriz, lo que significa que no puede repetir directamente el valor devuelto.
+Aquí hay una lista de objetos de cada categoría que puede imprimir:</description>
+    </item>
+    
+    <item>
+      <title>The Loop (bucle principal de WordPress)</title>
+      <link>https://www.wikiod.com/es/wordpress/the-loop-bucle-principal-de-wordpress/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/wordpress/the-loop-bucle-principal-de-wordpress/</guid>
+      <description>Sintaxis de bucle alternativa # También puede usar bucle con corchetes como este:
+if ( have_posts() ) { while ( have_posts() ) { the_post(); var_dump( $post ); } } Estructura básica de bucle de WordPress # Cada vez que WordPress carga la página, se ejecutará bucle principal.
+El bucle es la forma de iterar sobre todos los elementos relacionados con la página en la que se encuentra actualmente.
+El bucle principal funcionará en un objeto WP_Query global.</description>
+    </item>
+    
+    <item>
+      <title>Código corto</title>
+      <link>https://www.wikiod.com/es/wordpress/codigo-corto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/wordpress/codigo-corto/</guid>
+      <description>Agregar nuevos códigos cortos # function footag_func( $atts ) { return &amp;quot;foo = {$atts[&#39;foo&#39;]}&amp;quot;; } add_shortcode( &#39;footag&#39;, &#39;footag_func&#39; ); En los complementos podemos agregar códigos cortos usando la función add_shortcode.
+El código abreviado se puede usar en cualquier página o publicación de Wordpress simplemente encerrándolo entre corchetes.
+[footag] Registro de código abreviado # Shortcode es un pequeño fragmento de código que se puede agregar al editor de WordPress y generará algo diferente una vez que la página se publique o se obtenga una vista previa.</description>
+    </item>
+    
+    <item>
+      <title>Función añadir_acción()</title>
+      <link>https://www.wikiod.com/es/wordpress/funcion-anadir_accion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/wordpress/funcion-anadir_accion/</guid>
+      <description>Sintaxis # add_action ($ etiqueta, $ function_to_add) add_action ($etiqueta, $función_a_agregar, $prioridad) add_action ($etiqueta, $función_a_agregar, $prioridad, $args_aceptados) Parámetros # Parámetro Detalles $etiqueta (cadena) (Obligatorio) El nombre de la acción a la que está vinculada $function_to_add $función_a_añadir (llamable) (Obligatorio) La función que debe llamarse cuando se ejecuta la acción indicada por $tag $prioridad (int) (Opcional) Valor predeterminado: 10 Se utiliza para especificar el orden en que se ejecutan las funciones asociadas con una acción en particular.</description>
+    </item>
+    
+    <item>
+      <title>agregar_menu_pagina()</title>
+      <link>https://www.wikiod.com/es/wordpress/agregar_menu_pagina/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/wordpress/agregar_menu_pagina/</guid>
+      <description>Esta función es para agregar un elemento en la barra de navegación del panel de administración.
+Sintaxis # add_menu_page ($page_title, $menu_title, $capacidad, $menu_slug, $función, $icon_url, $posición) Parámetros # Parámetro Detalles $título_página (cadena) El texto que se mostrará en las etiquetas de título de la página cuando se seleccione el menú. $menú_título (cadena) El texto que se utilizará para el menú. $capacidad (cadena) La capacidad requerida para que este menú se muestre al usuario.</description>
+    </item>
+    
+  </channel>
+</rss>

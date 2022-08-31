@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Perl Dili Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/perl/</link>
+    <description>Recent content in Perl Dili Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/perl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Perl Dilini kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/perl/perl-dilini-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/perl/perl-dilini-kullanmaya-baslama/</guid>
+      <description>Perl&amp;rsquo;i kullanmaya başlama # Perl, ne demek istediğinizi yapmaya çalışır:
+print &amp;quot;Hello World\n&amp;quot;; İki zor bit, satırın sonundaki noktalı virgül ve yeni satır (satır besleme) ekleyen &amp;ldquo;\n&amp;quot;dir. Perl&amp;rsquo;in nispeten yeni bir sürümüne sahipseniz, satırbaşının otomatik olarak eklenmesi için &amp;ldquo;yazdır&amp;rdquo; yerine &amp;ldquo;say&amp;rdquo; kullanabilirsiniz:
+use feature &#39;say&#39;; say &amp;quot;Hello World&amp;quot;; Say özelliği ayrıca bir &amp;ldquo;v5.10 kullan&amp;rdquo; (veya üstü) bildirimi ile otomatik olarak etkinleştirilir:
+use v5.10; say &amp;quot;Hello World&amp;quot;; son sürüm &amp;ldquo;-e&amp;rdquo; seçeneğini kullanarak komut satırında Perl kullanmak oldukça yaygındır:</description>
+    </item>
+    
+    <item>
+      <title>Dosya GÇ (dosya okuma ve yazma)</title>
+      <link>https://www.wikiod.com/tr/perl/dosya-gc-dosya-okuma-ve-yazma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/perl/dosya-gc-dosya-okuma-ve-yazma/</guid>
+      <description>Parametreler # Mod Açıklama &amp;gt; Yazın (kesin). Mevcut dosyaların üzerine yazacaktır. Dosya bulunamadığında yeni bir dosya oluşturur &amp;gt;&amp;gt; Yazın (ekleyin). Dosyaların üzerine yazmaz, ancak sonuna yeni içerik ekler. Ayrıca mevcut olmayan bir dosyayı açmak için kullanılırsa bir dosya oluşturur. &amp;lt; Okumak. Dosyayı salt okunur modda açar. +&amp;lt; Okuma yazma. Dosyayı oluşturmayacak veya kırpmayacak. +&amp;gt; Oku / Yaz (kesme). Dosyayı oluşturacak ve kesecek. +&amp;gt;&amp;gt; Oku / Yaz (ekle). Dosyayı oluşturacak ancak kesmeyecek.</description>
+    </item>
+    
+    <item>
+      <title>Bir dosyanın içeriğini bir değişkene okumak</title>
+      <link>https://www.wikiod.com/tr/perl/bir-dosyann-icerigini-bir-degiskene-okumak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/perl/bir-dosyann-icerigini-bir-degiskene-okumak/</guid>
+      <description>Yol::Küçük # [The Manual Way](https://www.wikiod.com/tr/perl/bir-dosyann-icerigini-bir-degiskene-okumak#manuel yol) deyimini birkaç kez kullanma bir komut dosyasında kısa sürede sıkıcı hale gelir, bu nedenle bir modül denemek isteyebilirsiniz.
+use Path::Tiny; my $contents = path($filename)-&amp;gt;slurp; Dosya kodlamaları, satır sonları vb. üzerinde kontrole ihtiyacınız varsa bir &amp;ldquo;binmode&amp;rdquo; seçeneğini iletebilirsiniz. - bkz. &amp;ldquo;man perlio&amp;rdquo;:
+my $contents = path($filename)-&amp;gt;slurp( {binmode =&amp;gt; &amp;quot;:encoding(UTF-8)&amp;quot;} ); Path::Tiny ayrıca dosyalarla uğraşmak için birçok başka fonksiyona sahiptir. iyi bir seçim ol.
+Manuel yol # open my $fh, &#39;&amp;lt;&#39;, $filename or die &amp;quot;Could not open $filename for reading: $!</description>
+    </item>
+    
+    <item>
+      <title>Nesneye Yönelik Perl</title>
+      <link>https://www.wikiod.com/tr/perl/nesneye-yonelik-perl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/perl/nesneye-yonelik-perl/</guid>
+      <description>Modern Perl&amp;rsquo;de sınıfları tanımlama # Mevcut olmasına rağmen, modern Perl&amp;rsquo;de [sıfırdan](https://www.wikiod.com/tr/perl/nesneye-yonelik-perl#Sınıfları Tanımlama) bir sınıf tanımlanması önerilmez. Daha fazla özellik ve kolaylık sağlayan yardımcı OO sistemlerinden birini kullanın. Bu sistemler arasında:
+Moose - Perl 6 OO tasarımından esinlenilmiştir
+Class::Accessor - Moose&amp;rsquo;a hafif bir alternatif
+Class::Tiny - gerçekten minimal sınıf oluşturucu
+Geyik
+package Foo; use Moose; has bar =&amp;gt; (is =&amp;gt; &#39;ro&#39;); # a read-only property has baz =&amp;gt; (is =&amp;gt; &#39;rw&#39;, isa =&amp;gt; &#39;Bool&#39;); # a read-write boolean property sub qux { my $self = shift; my $barIsBaz = $self-&amp;gt;bar eq &#39;baz&#39;; # property getter $self-&amp;gt;baz($barIsBaz); # property setter } Sınıf::Accessor (Moose sözdizimi)</description>
+    </item>
+    
+    <item>
+      <title>Listeler</title>
+      <link>https://www.wikiod.com/tr/perl/listeler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/perl/listeler/</guid>
+      <description>Liste olarak dizi # Dizi, Perl&amp;rsquo;in temel değişken türlerinden biridir. Sıfır veya daha fazla skaler sıralı bir dizi olan bir liste içerir. Dizi, perldata içinde belgelendiği gibi liste verilerini tutan (ve erişim sağlayan) değişkendir.
+Bir diziye bir liste atayabilirsiniz:
+my @foo = ( 4, 5, 6 ); Bir listenin beklendiği her yerde bir dizi kullanabilirsiniz:
+join &#39;-&#39;, ( 4, 5, 6 ); join &#39;-&#39;, @foo; Bazı operatörler, bir dizinin içerdiği listeyi değiştirdikleri için yalnızca dizilerle çalışır:</description>
+    </item>
+    
+    <item>
+      <title>Doğru ve yanlış</title>
+      <link>https://www.wikiod.com/tr/perl/dogru-ve-yanls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/perl/dogru-ve-yanls/</guid>
+      <description>Sözdizimi # undef # Yanlış &amp;rsquo;&amp;rsquo; # Tanımlı, Yanlış 0 # Tanımlı, Uzunluğu Var, Yanlış &amp;lsquo;0&amp;rsquo; # Tanımlı, Uzunluğu Var, Yanlış Perl&amp;rsquo;in bir boolean veri türü olmadığı gibi, diğer birçok dilde olduğu gibi &amp;ldquo;true&amp;rdquo; ve &amp;ldquo;false&amp;rdquo; anahtar sözcükleri de yoktur. Bununla birlikte, her skaler değer, bir boole bağlamında değerlendirildiğinde (örneğin, bir if ifadesindeki veya bir while döngüsündeki koşul) doğru veya yanlış olarak değerlendirilir.
+Aşağıdaki değerler yanlış kabul edilir: # &#39;&#39;, boş dize.</description>
+    </item>
+    
+    <item>
+      <title>Hata Ayıklama Çıkışı</title>
+      <link>https://www.wikiod.com/tr/perl/hata-ayklama-cks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/perl/hata-ayklama-cks/</guid>
+      <description>Tarzla Damping # Bazen Data::Dumper yeterli olmaz. İncelemek istediğiniz bir Moose nesnesi var mı? Aynı yapının büyük sayıları? Eşyaların sıralanmasını ister misiniz? Renkli? Data::Printer arkadaşınızdır.
+use Data::Printer; p $data_structure; Data::Printer, &amp;ldquo;warn&amp;rdquo; gibi STDERR&amp;rsquo;ye yazar. Bu, çıktıyı bulmayı kolaylaştırır. Varsayılan olarak, hash anahtarlarını sıralar ve nesnelere bakar.
+use Data::Printer; use LWP::UserAgent; my $ua = LWP::UserAgent-&amp;gt;new; p $ua; Nesnenin tüm yöntemlerine bakacak ve ayrıca içindekileri listeleyecektir.
+LWP::UserAgent { Parents LWP::MemberMixin public methods (45) : add_handler, agent, clone, conn_cache, cookie_jar, credentials, default_header, default_headers, delete, env_proxy, from, get, get_basic_credentials, get_my_handler, handlers, head, is_online, is_protocol_supported, local_address, max_redirect, max_size, mirror, new, no_proxy, parse_head, post, prepare_request, progress, protocols_allowed, protocols_forbidden, proxy, put, redirect_ok, remove_handler, request, requests_redirectable, run_handlers, send_request, set_my_handler, show_progress, simple_request, ssl_opts, timeout, use_alarm, use_eval private methods (4) : _agent, _need_proxy, _new_response, _process_colonic_headers internals: { def_headers HTTP::Headers, handlers { response_header HTTP::Config }, local_address undef, max_redirect 7, max_size undef, no_proxy [], protocols_allowed undef, protocols_forbidden undef, proxy {}, requests_redirectable [ [0] &amp;quot;GET&amp;quot;, [1] &amp;quot;HEAD&amp;quot; ], show_progress undef, ssl_opts { verify_hostname 1 }, timeout 180, use_eval 1 } } Belirli nesneleri belirli bir şekilde seri hale getirmek veya isteğe bağlı bir derinliğe kadar nesneleri dahil etmek için daha fazla yapılandırabilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>Paketler ve modüller</title>
+      <link>https://www.wikiod.com/tr/perl/paketler-ve-moduller/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/perl/paketler-ve-moduller/</guid>
+      <description>Sözdizimi # Modül::Ad gerektirir; # @INC&amp;rsquo;den isimle iste &amp;ldquo;path/to/file.pm&amp;rdquo; gerektirir; # @INC&amp;rsquo;den göreli yola göre gerektir Modül::Ad kullanın; # BEGIN&amp;rsquo;de gerekli ve varsayılan içe aktarma Module::Name() kullanın; # BEGIN&amp;rsquo;de gerekli ve içe aktarma yok Modül::Ad (@ARGS) kullanın; # BEGIN&amp;rsquo;de argümanlarla gerektirir ve içe aktarır Modül::Ad VERSİYONU&amp;rsquo;nu kullanın; # gerektirir, sürüm kontrolü ve BEGIN&amp;rsquo;de varsayılan içe aktarma Modül::Ad VERSİYONU (); # gerektirir, sürüm kontrolü ve BEGIN&amp;rsquo;de içe aktarma yok Modül::Ad VERSİYONU (@ARGS) kullanın; # gerektirir, sürüm kontrolü, BEGIN&amp;rsquo;de bağımsız değişkenlerle içe aktarma &amp;ldquo;path/to/file.</description>
+    </item>
+    
+    <item>
+      <title>Değişkenler</title>
+      <link>https://www.wikiod.com/tr/perl/degiskenler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/perl/degiskenler/</guid>
+      <description>Sözdizimi # benim # Sözcük beyanım #küresel beyannamemiz $foo # Skaler @foo # Dizi $#foo # Dizi Son Dizini %foo # Karma ${$foo} # Skaler De-Referans @{$foo} # Dizi Referanssız $#{$foo} # Dizi-DeRef Son Dizini %{$foo} # Hash De-Reference $foo[$index] # Dizi indekslenir ${$foo}[$index] # Dizi De-Reference ve dizine alın. $foo-&amp;gt;[$index] # Array De-Reference ve indekslenme (Basitleştirilmiş) $foo{$key} # Hash, anahtar için değer alır ${$foo}{$key} # Hash Dereference ve anahtar için değer al $foo-&amp;gt;{$key} # Hash Dereference ve anahtar için değer al (Basitleştirilmiş) \$x # Skalere Referans \@x # Diziye Referans \%x # Hash&amp;rsquo;e Referans = # Anonim Diziye Referans (Satır İçi) ={ } # Anonim Karma Referansı (Satır içi) Skaler # Skalerler Perl&amp;rsquo;in en temel veri türüdür.</description>
+    </item>
+    
+    <item>
+      <title>alt programlar</title>
+      <link>https://www.wikiod.com/tr/perl/alt-programlar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/perl/alt-programlar/</guid>
+      <description>Altyordamlar, argümanlarını @_ adlı sihirli değişkene alır. Paketinden çıkarılması gerekmese de, okunabilirliğe yardımcı olduğu ve &amp;ldquo;@_&amp;rdquo; argümanları referansla iletildiği (değiştirilebildiği) için yanlışlıkla değişiklikleri önlediği için önerilir.
+Alt rutinler oluşturma # Alt rutinler, &amp;lsquo;sub&amp;rsquo; anahtar sözcüğünü takiben bir tanımlayıcı ve parantez içine alınmış bir kod bloğu kullanılarak oluşturulur.
+Argümanlara, tüm argümanları bir dizi olarak içeren @_ özel değişkenini kullanarak erişebilirsiniz.
+sub function_name { my ($arg1, $arg2, @more_args) = @_; # ... } &amp;ldquo;Shift&amp;rdquo; işlevi, bir altyordamda kullanıldığında varsayılan olarak &amp;ldquo;@_&amp;rdquo; kaydırmaya ayarlandığından, bir altyordamın başlangıcında bağımsız değişkenleri sırayla yerel değişkenlere çıkarmak yaygın bir kalıptır:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriel apache-spark on </title>
+    <link>https://www.wikiod.com/fr/docs/apache-spark/</link>
+    <description>Recent content in Tutoriel apache-spark on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/fr/docs/apache-spark/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Premiers pas avec apache-spark</title>
+      <link>https://www.wikiod.com/fr/apache-spark/premiers-pas-avec-apache-spark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/apache-spark/premiers-pas-avec-apache-spark/</guid>
+      <description>Introduction # Prototype:
+agrégat(zeroValue, seqOp, combOp)
+La description:
+aggregate() vous permet de prendre un RDD et de générer une valeur unique d&amp;rsquo;un type différent de celui qui était stocké dans le RDD d&amp;rsquo;origine.
+Paramètres:
+zeroValue : la valeur d&amp;rsquo;initialisation, pour votre résultat, dans la format. seqOp : l&amp;rsquo;opération que vous souhaitez appliquer aux enregistrements RDD. Fonctionne une fois pour every record in a partition. combOp : Définit comment les objets résultants (un pour chaque partition), gets combined.</description>
+    </item>
+    
+    <item>
+      <title>Fonctions de fenêtre dans Spark SQL</title>
+      <link>https://www.wikiod.com/fr/apache-spark/fonctions-de-fenetre-dans-spark-sql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/apache-spark/fonctions-de-fenetre-dans-spark-sql/</guid>
+      <description>Introduction # Les fonctions de fenêtre sont utilisées pour effectuer des opérations (généralement une agrégation) sur un ensemble de lignes appelées collectivement fenêtre. Les fonctions de fenêtre fonctionnent dans Spark 1.4 ou version ultérieure. Les fonctions de fenêtre fournissent plus d&amp;rsquo;opérations que les fonctions intégrées ou UDF, telles que substr ou round (largement utilisées avant Spark 1.4). Les fonctions de fenêtre permettent aux utilisateurs de Spark SQL de calculer des résultats tels que le rang d&amp;rsquo;une ligne donnée ou une moyenne mobile sur une plage de lignes d&amp;rsquo;entrée.</description>
+    </item>
+    
+    <item>
+      <title>Cloisons</title>
+      <link>https://www.wikiod.com/fr/apache-spark/cloisons/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/apache-spark/cloisons/</guid>
+      <description>Le nombre de partitions est critique pour les performances d&amp;rsquo;une application et/ou la réussite de son arrêt.
+Un jeu de données distribué résilient (RDD) est l&amp;rsquo;abstraction principale de Spark. Un RDD est divisé en partitions, ce qui signifie qu&amp;rsquo;une partition fait partie de l&amp;rsquo;ensemble de données, une tranche de celui-ci ou, en d&amp;rsquo;autres termes, un morceau de celui-ci.
+Plus le nombre de partitions est grand, plus la taille de chaque partition est petite.</description>
+    </item>
+    
+    <item>
+      <title>Variables partagées</title>
+      <link>https://www.wikiod.com/fr/apache-spark/variables-partagees/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/apache-spark/variables-partagees/</guid>
+      <description>Accumulateurs # Les accumulateurs sont des variables en écriture seule qui peuvent être créées avec SparkContext.accumulator :
+val accumulator = sc.accumulator(0, name = &amp;quot;My accumulator&amp;quot;) // name is optional modifié avec += :
+val someRDD = sc.parallelize(Array(1, 2, 3, 4)) someRDD.foreach(element =&amp;gt; accumulator += element) et accessible avec la méthode value :
+accumulator.value // &#39;value&#39; is now equal to 10 L&amp;rsquo;utilisation d&amp;rsquo;accumulateurs est compliquée par la garantie d&amp;rsquo;exécution au moins une fois de Spark pour les transformations.</description>
+    </item>
+    
+    <item>
+      <title>Opérations avec état dans Spark Streaming</title>
+      <link>https://www.wikiod.com/fr/apache-spark/operations-avec-etat-dans-spark-streaming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/apache-spark/operations-avec-etat-dans-spark-streaming/</guid>
+      <description>PairDStreamFunctions.updateStateByKey # updateState par clé peut être utilisé pour créer un DStream avec état basé sur les données à venir. Il nécessite une fonction :
+object UpdateStateFunctions { def updateState(current: Seq[Double], previous: Option[StatCounter]) = { previous.map(s =&amp;gt; s.merge(current)).orElse(Some(StatCounter(current))) } } qui prend une séquence des valeurs &amp;ldquo;actuelles&amp;rdquo;, une &amp;ldquo;Option&amp;rdquo; de l&amp;rsquo;état précédent et renvoie une &amp;ldquo;Option&amp;rdquo; de l&amp;rsquo;état mis à jour. Mettre tout cela ensemble :
+import org.apache.spark._ import org.apache.spark.streaming.dstream.DStream import scala.</description>
+    </item>
+    
+    <item>
+      <title>Migration de Spark 1.6 vers Spark 2.0</title>
+      <link>https://www.wikiod.com/fr/apache-spark/migration-de-spark-16-vers-spark-20/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/apache-spark/migration-de-spark-16-vers-spark-20/</guid>
+      <description>Spark 2.0 est sorti et contient de nombreuses améliorations et nouvelles fonctionnalités. Si vous utilisez Spark 1.6 et que vous souhaitez maintenant mettre à niveau votre application pour utiliser Spark 2.0, vous devez prendre en compte certains changements dans l&amp;rsquo;API. Voici quelques-unes des modifications du code qui doivent être apportées.
+Mettre à jour le fichier build.sbt # Mettez à jour build.sbt avec :
+scalaVersion := &amp;quot;2.11.8&amp;quot; // Make sure to have installed Scala 11 sparkVersion := &amp;quot;2.</description>
+    </item>
+    
+    <item>
+      <title>Lanceur d&#39;étincelles</title>
+      <link>https://www.wikiod.com/fr/apache-spark/lanceur-detincelles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/apache-spark/lanceur-detincelles/</guid>
+      <description>Spark Launcher peut aider le développeur à interroger l&amp;rsquo;état du travail Spark soumis. Il existe essentiellement huit statuts qui peuvent être interrogés. Ils sont répertoriés ci-dessous avec leur signification ::
+/** The application has not reported back yet. */ UNKNOWN(false), /** The application has connected to the handle. */ CONNECTED(false), /** The application has been submitted to the cluster. */ SUBMITTED(false), /** The application is running. */ RUNNING(false), /** The application finished with a successful status.</description>
+    </item>
+    
+    <item>
+      <title>Tests unitaires</title>
+      <link>https://www.wikiod.com/fr/apache-spark/tests-unitaires/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/apache-spark/tests-unitaires/</guid>
+      <description>Test unitaire de comptage de mots (Scala + JUnit) # Par exemple, nous avons WordCountService avec la méthode countWords :
+class WordCountService { def countWords(url: String): Map[String, Int] = { val sparkConf = new SparkConf().setMaster(&amp;quot;spark://somehost:7077&amp;quot;).setAppName(&amp;quot;WordCount&amp;quot;)) val sc = new SparkContext(sparkConf) val textFile = sc.textFile(url) textFile.flatMap(line =&amp;gt; line.split(&amp;quot; &amp;quot;)) .map(word =&amp;gt; (word, 1)) .reduceByKey(_ + _).collect().toMap } } Ce service semble très moche et pas adapté aux tests unitaires. SparkContext doit être injecté dans ce service.</description>
+    </item>
+    
+    <item>
+      <title>Gestion de JSON dans Spark</title>
+      <link>https://www.wikiod.com/fr/apache-spark/gestion-de-json-dans-spark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/apache-spark/gestion-de-json-dans-spark/</guid>
+      <description>Mappage de JSON à une classe personnalisée avec Gson # Avec [Gson][1], vous pouvez lire l&amp;rsquo;ensemble de données JSON et les mapper à une classe personnalisée MyClass.
+Comme [Gson][2] n&amp;rsquo;est pas sérialisable, chaque exécuteur a besoin de son propre objet [Gson][3]. De plus, MyClass doit être sérialisable afin de le transmettre entre les exécuteurs.
+Notez que le(s) fichier(s) proposé(s) en tant que fichier JSON n&amp;rsquo;est pas un fichier JSON typique. Chaque ligne doit contenir un objet JSON valide distinct et autonome.</description>
+    </item>
+    
+    <item>
+      <title>Fichiers texte et opérations dans Scala</title>
+      <link>https://www.wikiod.com/fr/apache-spark/fichiers-texte-et-operations-dans-scala/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/fr/apache-spark/fichiers-texte-et-operations-dans-scala/</guid>
+      <description>Lire des fichiers texte et effectuer des opérations dessus.
+Exemple d&amp;rsquo;utilisation # Lire le fichier texte à partir du chemin :
+val sc: org.apache.spark.SparkContext = ??? sc.textFile(path=&amp;quot;/path/to/input/file&amp;quot;) Lire les fichiers à l&amp;rsquo;aide de caractères génériques :
+sc.textFile(path=&amp;quot;/path/to/*/*&amp;quot;) Lire les fichiers en spécifiant le nombre minimum de partitions :
+sc.textFile(path=&amp;quot;/path/to/input/file&amp;quot;, minPartitions=3) Joindre deux fichiers lus avec textFile() # Jointures dans Spark :
+Lire le fichier texte 1
+val txt1=sc.textFile(path=&amp;quot;/path/to/input/file1&amp;quot;) Par exemple:</description>
+    </item>
+    
+  </channel>
+</rss>

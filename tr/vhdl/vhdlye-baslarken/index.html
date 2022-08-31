@@ -1,0 +1,12789 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-500.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://www.wikiod.com/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+
+  <link rel="stylesheet" href="https://www.wikiod.com/main.7636753edc6f50e96b0045eba39982b1b0b2b6947250d1080bec1f4cbe52399ea6bcecac0e0b6026886b51bdbde879ec9a9820765b03caead79d8ddf3b79336f.css" integrity="sha512-djZ1PtxvUOlrAEXro5mCsbCytpRyUNEIC&#43;wfTL5SOZ6mvOysDgtgJohrUb296HnsmpggdlsDyurXnY3fO3kzbw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>vhdl&#39;ye başlarken - WikiOD</title>
+<meta name="description" content="Sinyallere karşı değişkenler, VHDL&amp;rsquo;nin simülasyon semantiğine kısa bir genel bakış # Bu örnek, VHDL dilinin en temel yönlerinden biriyle ilgilidir: simülasyon semantiği. VHDL&amp;rsquo;ye yeni başlayanlar için tasarlanmıştır ve birçok ayrıntının atlandığı basitleştirilmiş bir görünüm sunar (ertelenen işlemler, VHDL Prosedürel Arayüzü, paylaşılan değişkenler&amp;hellip;) Gerçek tam anlambilimle ilgilenen okuyucular, Dil Referans Kılavuzuna (LRM) başvurmalıdır.
+Sinyaller ve değişkenler # Çoğu klasik zorunlu programlama dili değişkenleri kullanır. Onlar değer kaplarıdır. Bir değişkende bir değeri saklamak için bir atama operatörü kullanılır:">
+  <link rel="canonical" href="https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/">
+<meta property="og:locale" content="tr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vhdl&#39;ye başlarken">
+<meta property="og:description" content="Sinyallere karşı değişkenler, VHDL&rsquo;nin simülasyon semantiğine kısa bir genel bakış # Bu örnek, VHDL dilinin en temel yönlerinden biriyle ilgilidir: simülasyon semantiği. VHDL&rsquo;ye yeni başlayanlar için tasarlanmıştır ve birçok ayrıntının atlandığı basitleştirilmiş bir görünüm sunar (ertelenen işlemler, VHDL Prosedürel Arayüzü, paylaşılan değişkenler&hellip;) Gerçek tam anlambilimle ilgilenen okuyucular, Dil Referans Kılavuzuna (LRM) başvurmalıdır.
+Sinyaller ve değişkenler # Çoğu klasik zorunlu programlama dili değişkenleri kullanır. Onlar değer kaplarıdır. Bir değişkende bir değeri saklamak için bir atama operatörü kullanılır:">
+<meta property="og:url" content="https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/">
+<meta property="og:site_name" content="WikiOD">
+
+  <meta property="og:image" content="https://www.wikiod.com/wikiod_logo.png"/>
+      <meta property="og:image:alt" content="WikiOD">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wikiod">
+<meta name="twitter:creator" content="@wikiod">
+<meta name="twitter:title" content="vhdl&#39;ye başlarken">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.wikiod.com/wikiod_logo.png">
+    <meta name="twitter:image:alt" content="vhdl&#39;ye başlarken">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://www.wikiod.com/#/schema/organization/1",
+      "name": "WikiOD",
+      "url": "https://www.wikiod.com/",
+      "sameAs": [
+        "https://twitter.com/wikiod"
+        , "https://github.com/wikiod-com"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/#/schema/image/1",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "width":  512 ,
+          "height":  512 ,
+          "caption": "WikiOD"
+        },
+        "image": {
+          "@id": "https://www.wikiod.com/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wikiod.com/#/schema/website/1",
+      "url": "https://www.wikiod.com/",
+      "name": "WikiOD",
+      "description": "WikiOD\u0027ye Hoş Geldiniz - Wiki Çevrimiçi Belgeleme WikiOD, tüm programlama dilleri, eğitimle ilgili konular ve kavramların en yüksek kalitede çevrimiçi belgelerini oluşturmak için ortak bir yazma projesidir.",
+      "publisher": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/",
+      "url": "https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/",
+      "name": "vhdl\u0027ye başlarken",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://www.wikiod.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://www.wikiod.com/#/schema/organization/1"
+        },
+      "datePublished": "0001-01-01T00:00:00CET",
+      "dateModified": "0001-01-01T00:00:00CET",
+      "breadcrumb": {
+        "@id": "https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/#/schema/image/2"
+      },
+      "inLanguage": "tr",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/",
+          "url": "https://www.wikiod.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/",
+          "url": "https://www.wikiod.com/tr/",
+          "name": "Tr"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://www.wikiod.com/tr/vhdl/",
+          "url": "https://www.wikiod.com/tr/vhdl/",
+          "name": "Vhdl"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.wikiod.com/#/schema/article/1",
+          "headline": "vhdl\u0027ye başlarken",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/"
+          },
+          "datePublished": "0001-01-01T00:00:00CET",
+          "dateModified": "0001-01-01T00:00:00CET",
+          "author": {
+            "@id": "https://www.wikiod.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://www.wikiod.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.wikiod.com/#/schema/person/2",
+          "name": "WikiOD",
+          "sameAs": [
+            "https://twitter.com/wikiod"
+            , "https://github.com/wikiod-com"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/#/schema/image/2",
+          "url": "https://www.wikiod.com/wikiod_logo.png",
+          "contentUrl": "https://www.wikiod.com/wikiod_logo.png",
+          "caption": "vhdl\u0027ye başlarken"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="icon" href="https://www.wikiod.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.wikiod.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.wikiod.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.wikiod.com/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://www.wikiod.com/site.webmanifest">
+
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9345677191971886" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZZF8Q2L4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y7ZZF8Q2L4');
+</script>
+
+</head>
+
+  <body class="docs single">
+    <div class="sticky-top">
+<div class="header-bar"></div>
+
+<header class="navbar navbar-expand-lg navbar-light doks-navbar">
+  <nav class="container-xxl flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+
+    <a class="navbar-brand order-0" href="/tr/" aria-label="WikiOD">
+      WikiOD
+    </a>
+
+    <button class="btn btn-link order-0 ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button>
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="header-bar"></div>
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Araştır docs</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="doks-sidebar mt-n3">
+          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+            
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/vhdl/"><h3 class="h6 text-uppercase mb-2">vhdl Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/">vhdl&#39;ye başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/ozetle-vhdl-kullanan-dijital-donanm-tasarm/">Özetle VHDL kullanan dijital donanım tasarımı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/korumal-turler/">Korumalı türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/beklemek/">Beklemek</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/cozunurluk-islevleri-cozulmemis-ve-cozulmus-turler/">Çözünürlük işlevleri, çözülmemiş ve çözülmüş türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/d-flip-floplar-dff-ve-mandallar/">D-Flip-Flop&#39;lar (DFF) ve mandallar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/statik-zamanlama-analizi---bir-tasarmn-zamanlamada-basarsz-olmas-ne-anlama-gelir/">Statik Zamanlama Analizi - bir tasarımın zamanlamada başarısız olması ne anlama gelir?</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/yorumlar/">Yorumlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/hatralar/">Hatıralar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/degismezler/">değişmezler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/tanmlayclar/">tanımlayıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/ozyineleme/">özyineleme</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <button class="btn btn-menu order-2 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDoks" aria-controls="offcanvasDoks" aria-label="Open main menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="offcanvas offcanvas-end border-0 py-lg-1" tabindex="-1" id="offcanvasDoks" data-bs-backdrop="true" aria-labelledby="offcanvasDoksLabel">
+      <div class="header-bar d-lg-none"></div>
+      <div class="offcanvas-header d-lg-none">
+        <h2 class="h5 offcanvas-title ps-2" id="offcanvasDoksLabel"><a class="text-dark" href="/tr/">WikiOD</a></h2>
+        <button type="button" class="btn-close text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close main menu"></button>
+      </div>
+      <div class="offcanvas-body p-4 p-lg-0">
+        <ul class="nav flex-column flex-lg-row align-items-lg-center mt-2 mt-lg-0 ms-lg-2 me-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/docs/">öğreticiler</a>
+              </li>
+            
+          
+              <li class="nav-item">
+                <a class="nav-link ps-0 py-1" href="/tr/blog/">Nesne</a>
+              </li>
+            
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <ul class="nav flex-column flex-lg-row">
+          </ul>
+
+        <hr class="text-black-50 my-4 d-lg-none">
+        <button id="mode" class="btn btn-link" type="button" aria-label="Toggle user interface mode">
+          <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+          <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        </button>
+        <hr class="text-black-50 my-4 d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-doks-light dropdown-toggle" id="doks-languages" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            Türk
+            <span class="dropdown-caret"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-languages">
+
+            <li><a class="dropdown-item current" aria-current="true" href="/tr/vhdl/vhdlye-baslarken/">Türk</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            
+                <li><a class="dropdown-item" rel="alternate" href="/vhdl/getting-started-with-vhdl/" hreflang="en" lang="en">English</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/es/vhdl/comenzando-con-vhdl/" hreflang="es" lang="es">Español</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/fr/vhdl/premiers-pas-avec-vhdl/" hreflang="fr" lang="fr">Français</a></li>
+              
+                <li><a class="dropdown-item" rel="alternate" href="/pt/vhdl/introducao-ao-vhdl/" hreflang="pt" lang="pt">Português</a></li>
+              
+          </ul>
+        </div>
+        </div>
+    </div>
+  </nav>
+</header>
+
+
+</div>
+<div class="container-xxl">
+  <aside class="doks-sidebar">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+      
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/vhdl/"><h3 class="h6 text-uppercase mb-2">vhdl Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/">vhdl&#39;ye başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/ozetle-vhdl-kullanan-dijital-donanm-tasarm/">Özetle VHDL kullanan dijital donanım tasarımı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/korumal-turler/">Korumalı türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/beklemek/">Beklemek</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/cozunurluk-islevleri-cozulmemis-ve-cozulmus-turler/">Çözünürlük işlevleri, çözülmemiş ve çözülmüş türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/d-flip-floplar-dff-ve-mandallar/">D-Flip-Flop&#39;lar (DFF) ve mandallar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/statik-zamanlama-analizi---bir-tasarmn-zamanlamada-basarsz-olmas-ne-anlama-gelir/">Statik Zamanlama Analizi - bir tasarımın zamanlamada başarısız olması ne anlama gelir?</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/yorumlar/">Yorumlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/hatralar/">Hatıralar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/degismezler/">değişmezler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/tanmlayclar/">tanımlayıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/ozyineleme/">özyineleme</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+    </nav>
+  </aside>
+</div>
+
+
+    <div class="wrap container-xxl" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav id="sidebar-default" class="docs-links" aria-label="Main navigation">
+				
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+    
+    <a href="https://www.wikiod.com/tr/docs/vhdl/"><h3 class="h6 text-uppercase mb-2">vhdl Eğitimi</h3></a>
+    <ul class="list-unstyled">
+      
+      
+        
+          
+          <li><a class="docs-link active" href="https://www.wikiod.com/tr/vhdl/vhdlye-baslarken/">vhdl&#39;ye başlarken</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/ozetle-vhdl-kullanan-dijital-donanm-tasarm/">Özetle VHDL kullanan dijital donanım tasarımı</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/korumal-turler/">Korumalı türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/beklemek/">Beklemek</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/cozunurluk-islevleri-cozulmemis-ve-cozulmus-turler/">Çözünürlük işlevleri, çözülmemiş ve çözülmüş türler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/d-flip-floplar-dff-ve-mandallar/">D-Flip-Flop&#39;lar (DFF) ve mandallar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/statik-zamanlama-analizi---bir-tasarmn-zamanlamada-basarsz-olmas-ne-anlama-gelir/">Statik Zamanlama Analizi - bir tasarımın zamanlamada başarısız olması ne anlama gelir?</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/yorumlar/">Yorumlar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/hatralar/">Hatıralar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/degismezler/">değişmezler</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/tanmlayclar/">tanımlayıcılar</a></li>
+        
+      
+      
+        
+          
+          <li><a class="docs-link" href="https://www.wikiod.com/tr/vhdl/ozyineleme/">özyineleme</a></li>
+        
+      
+    </ul>
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sinyallere-karşı-değişkenler-vhdlnin-simülasyon-semantiğine-kısa-bir-genel-bakış">Sinyallere karşı değişkenler, VHDL&rsquo;nin simülasyon semantiğine kısa bir genel bakış</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#başlatma-aşaması">Başlatma aşaması:</a></li>
+    <li><a href="#simülasyon-döngüsü-1">Simülasyon döngüsü #1</a></li>
+    <li><a href="#simülasyon-döngüsü-2">Simülasyon döngüsü #2</a></li>
+    <li><a href="#simülasyon-döngüsü-3">Simülasyon döngüsü #3</a></li>
+    <li><a href="#simülasyon-döngüsü-4">Simülasyon döngüsü #4</a></li>
+    <li><a href="#simülasyon-döngüsü-5">Simülasyon döngüsü #5</a></li>
+    <li><a href="#simülasyon-döngüsü-6">Simülasyon döngüsü #6</a></li>
+    <li><a href="#simülasyon-döngüsü-7">Simülasyon döngüsü #7</a></li>
+    <li><a href="#simülasyon-döngüsü-8">Simülasyon döngüsü #8</a></li>
+    <li><a href="#simülasyon-döngüsü-9">Simülasyon döngüsü #9</a></li>
+    <li><a href="#simülasyon-döngüsü-10">Simülasyon döngüsü #10</a></li>
+    <li><a href="#simülasyon-döngüsü-11">Simülasyon döngüsü #11</a></li>
+    <li><a href="#senkron-sayaç">Senkron sayaç</a></li>
+    <li><a href="#kurulum-veya-kurulum">Kurulum veya Kurulum</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#selam-dünya">Selam Dünya</a></li>
+    <li><a href="#selam-dünya-1">Selam Dünya</a></li>
+    <li><a href="#senkron-sayaç-için-bir-simülasyon-ortamı">Senkron sayaç için bir simülasyon ortamı</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sinyallere-karşı-değişkenler-vhdlnin-simülasyon-semantiğine-kısa-bir-genel-bakış">Sinyallere karşı değişkenler, VHDL&rsquo;nin simülasyon semantiğine kısa bir genel bakış</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#başlatma-aşaması">Başlatma aşaması:</a></li>
+    <li><a href="#simülasyon-döngüsü-1">Simülasyon döngüsü #1</a></li>
+    <li><a href="#simülasyon-döngüsü-2">Simülasyon döngüsü #2</a></li>
+    <li><a href="#simülasyon-döngüsü-3">Simülasyon döngüsü #3</a></li>
+    <li><a href="#simülasyon-döngüsü-4">Simülasyon döngüsü #4</a></li>
+    <li><a href="#simülasyon-döngüsü-5">Simülasyon döngüsü #5</a></li>
+    <li><a href="#simülasyon-döngüsü-6">Simülasyon döngüsü #6</a></li>
+    <li><a href="#simülasyon-döngüsü-7">Simülasyon döngüsü #7</a></li>
+    <li><a href="#simülasyon-döngüsü-8">Simülasyon döngüsü #8</a></li>
+    <li><a href="#simülasyon-döngüsü-9">Simülasyon döngüsü #9</a></li>
+    <li><a href="#simülasyon-döngüsü-10">Simülasyon döngüsü #10</a></li>
+    <li><a href="#simülasyon-döngüsü-11">Simülasyon döngüsü #11</a></li>
+    <li><a href="#senkron-sayaç">Senkron sayaç</a></li>
+    <li><a href="#kurulum-veya-kurulum">Kurulum veya Kurulum</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#selam-dünya">Selam Dünya</a></li>
+    <li><a href="#selam-dünya-1">Selam Dünya</a></li>
+    <li><a href="#senkron-sayaç-için-bir-simülasyon-ortamı">Senkron sayaç için bir simülasyon ortamı</a></li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9">
+		
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/tr/">Home</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/">Docs</a></li>
+<li class="breadcrumb-item"><a href="/tr/docs/vhdl/">vhdl Eğitimi</a></li>
+<li class="breadcrumb-item active" aria-current="page">vhdl&#39;ye başlarken</li>
+					</ol>
+				</nav>
+			
+			<h1>vhdl&#39;ye başlarken</h1>
+			<p class="lead"></p>
+			<nav class="d-xl-none" aria-label="Quaternary navigation">
+				<div class="d-xl-none">
+  <button class="btn btn-outline-primary btn-sm doks-toc-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#onThisPage" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle On this page navigation">
+    <span>Bu sayfada</span>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </span>
+  </button>
+  <div class="collapse" id="onThisPage">
+    <div class="card card-body mt-3 py-1">
+      <div class="page-links">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sinyallere-karşı-değişkenler-vhdlnin-simülasyon-semantiğine-kısa-bir-genel-bakış">Sinyallere karşı değişkenler, VHDL&rsquo;nin simülasyon semantiğine kısa bir genel bakış</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#başlatma-aşaması">Başlatma aşaması:</a></li>
+    <li><a href="#simülasyon-döngüsü-1">Simülasyon döngüsü #1</a></li>
+    <li><a href="#simülasyon-döngüsü-2">Simülasyon döngüsü #2</a></li>
+    <li><a href="#simülasyon-döngüsü-3">Simülasyon döngüsü #3</a></li>
+    <li><a href="#simülasyon-döngüsü-4">Simülasyon döngüsü #4</a></li>
+    <li><a href="#simülasyon-döngüsü-5">Simülasyon döngüsü #5</a></li>
+    <li><a href="#simülasyon-döngüsü-6">Simülasyon döngüsü #6</a></li>
+    <li><a href="#simülasyon-döngüsü-7">Simülasyon döngüsü #7</a></li>
+    <li><a href="#simülasyon-döngüsü-8">Simülasyon döngüsü #8</a></li>
+    <li><a href="#simülasyon-döngüsü-9">Simülasyon döngüsü #9</a></li>
+    <li><a href="#simülasyon-döngüsü-10">Simülasyon döngüsü #10</a></li>
+    <li><a href="#simülasyon-döngüsü-11">Simülasyon döngüsü #11</a></li>
+    <li><a href="#senkron-sayaç">Senkron sayaç</a></li>
+    <li><a href="#kurulum-veya-kurulum">Kurulum veya Kurulum</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#selam-dünya">Selam Dünya</a></li>
+    <li><a href="#selam-dünya-1">Selam Dünya</a></li>
+    <li><a href="#senkron-sayaç-için-bir-simülasyon-ortamı">Senkron sayaç için bir simülasyon ortamı</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-links d-none d-xl-block">
+  <h3>Bu sayfada</h3>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sinyallere-karşı-değişkenler-vhdlnin-simülasyon-semantiğine-kısa-bir-genel-bakış">Sinyallere karşı değişkenler, VHDL&rsquo;nin simülasyon semantiğine kısa bir genel bakış</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#başlatma-aşaması">Başlatma aşaması:</a></li>
+    <li><a href="#simülasyon-döngüsü-1">Simülasyon döngüsü #1</a></li>
+    <li><a href="#simülasyon-döngüsü-2">Simülasyon döngüsü #2</a></li>
+    <li><a href="#simülasyon-döngüsü-3">Simülasyon döngüsü #3</a></li>
+    <li><a href="#simülasyon-döngüsü-4">Simülasyon döngüsü #4</a></li>
+    <li><a href="#simülasyon-döngüsü-5">Simülasyon döngüsü #5</a></li>
+    <li><a href="#simülasyon-döngüsü-6">Simülasyon döngüsü #6</a></li>
+    <li><a href="#simülasyon-döngüsü-7">Simülasyon döngüsü #7</a></li>
+    <li><a href="#simülasyon-döngüsü-8">Simülasyon döngüsü #8</a></li>
+    <li><a href="#simülasyon-döngüsü-9">Simülasyon döngüsü #9</a></li>
+    <li><a href="#simülasyon-döngüsü-10">Simülasyon döngüsü #10</a></li>
+    <li><a href="#simülasyon-döngüsü-11">Simülasyon döngüsü #11</a></li>
+    <li><a href="#senkron-sayaç">Senkron sayaç</a></li>
+    <li><a href="#kurulum-veya-kurulum">Kurulum veya Kurulum</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#selam-dünya">Selam Dünya</a></li>
+    <li><a href="#selam-dünya-1">Selam Dünya</a></li>
+    <li><a href="#senkron-sayaç-için-bir-simülasyon-ortamı">Senkron sayaç için bir simülasyon ortamı</a></li>
+  </ul>
+</nav>
+  </div>
+
+			</nav>
+			<h2 id="sinyallere-karşı-değişkenler-vhdlnin-simülasyon-semantiğine-kısa-bir-genel-bakış">Sinyallere karşı değişkenler, VHDL&rsquo;nin simülasyon semantiğine kısa bir genel bakış <a href="#sinyallere-kar%c5%9f%c4%b1-de%c4%9fi%c5%9fkenler-vhdlnin-sim%c3%bclasyon-semanti%c4%9fine-k%c4%b1sa-bir-genel-bak%c4%b1%c5%9f" class="anchor" aria-hidden="true">#</a></h2>
+<!-- vim: metin genişliğini ayarlayın=0: -->
+<!-- Başlık: Sinyallere karşı değişkenler, VHDL'nin simülasyon semantiğine kısa bir genel bakış -->
+<p>Bu örnek, VHDL dilinin en temel yönlerinden biriyle ilgilidir: simülasyon semantiği. VHDL&rsquo;ye yeni başlayanlar için tasarlanmıştır ve birçok ayrıntının atlandığı basitleştirilmiş bir görünüm sunar (ertelenen işlemler, VHDL Prosedürel Arayüzü, paylaşılan değişkenler&hellip;) Gerçek tam anlambilimle ilgilenen okuyucular, Dil Referans Kılavuzuna (LRM) başvurmalıdır.</p>
+<h1 id="sinyaller-ve-değişkenler">Sinyaller ve değişkenler <a href="#sinyaller-ve-de%c4%9fi%c5%9fkenler" class="anchor" aria-hidden="true">#</a></h1>
+<p>Çoğu klasik zorunlu programlama dili değişkenleri kullanır. Onlar değer kaplarıdır. Bir değişkende bir değeri saklamak için bir atama operatörü kullanılır:</p>
+<pre><code>a = 15;
+</code></pre>
+<p>ve şu anda bir değişkende saklanan değer okunabilir ve diğer ifadelerde kullanılabilir:</p>
+<pre><code>if(a == 15) { print &quot;Fifteen&quot; }
+</code></pre>
+<p>VHDL ayrıca değişkenleri kullanır ve çoğu zorunlu dilde olduğu gibi tam olarak aynı role sahiptirler. Ancak VHDL, başka bir tür değer kabı da sunar: sinyal. Sinyaller ayrıca değerleri saklar, ayrıca atanabilir ve okunabilir. Sinyallerde saklanabilecek değerlerin türü (neredeyse) değişkenlerdekiyle aynıdır.</p>
+<p>Öyleyse neden iki çeşit değer konteynerine sahipsin? Bu sorunun cevabı esastır ve dilin kalbinde yer alır. Değişkenler ve sinyaller arasındaki farkı anlamak, VHDL&rsquo;de herhangi bir şey programlamaya çalışmadan önce yapılacak ilk şeydir.</p>
+<p>Bu farkı somut bir örnek üzerinde açıklayalım: takas.</p>
+<blockquote>
+<p>Not: Aşağıdaki tüm kod parçacıkları süreçlerin parçalarıdır. Süreçlerin ne olduğunu daha sonra göreceğiz.</p>
+</blockquote>
+<pre><code>    tmp := a;
+    a   := b;
+    b   := tmp;
+</code></pre>
+<p>&ldquo;a&rdquo; ve &ldquo;b&rdquo; değişkenlerini değiştirir. Bu 3 talimatı yürüttükten sonra, &lsquo;a&rsquo;nın yeni içeriği &lsquo;b&rsquo;nin eski içeriğidir ve bunun tersi de geçerlidir. Çoğu programlama dilinde olduğu gibi, üçüncü bir geçici değişkene (<code>tmp</code>) ihtiyaç vardır. Değişkenler yerine sinyalleri takas etmek isteseydik şunu yazardık:</p>
+<pre><code>    r &lt;= s;
+    s &lt;= r;
+</code></pre>
+<p>veya:</p>
+<pre><code>    s &lt;= r;
+    r &lt;= s;
+</code></pre>
+<p>aynı sonuçla ve üçüncü bir geçici sinyale ihtiyaç duymadan!</p>
+<blockquote>
+<p>Not: VHDL sinyal atama operatörü <code>&lt;=</code> değişken atama operatörü <code>:=</code> farklıdır.</p>
+</blockquote>
+<p>&ldquo;print&rdquo; alt programının parametresinin ondalık gösterimini yazdırdığını varsaydığımız ikinci bir örneğe bakalım. &ldquo;a&rdquo; bir tamsayı değişkeniyse ve geçerli değeri 15 ise, şunu yürütür:</p>
+<pre><code>    a := 2 * a;
+    a := a - 5;
+    a := a / 5;
+    print(a);
+</code></pre>
+<p>yazdıracak:</p>
+<pre><code>5
+</code></pre>
+<p>Bu adımı bir hata ayıklayıcıda adım adım uygularsak, &lsquo;a&rsquo; değerinin ilk 15&rsquo;ten 30&rsquo;a, 25&rsquo;e ve son olarak 5&rsquo;e değiştiğini görebiliriz.</p>
+<p>Ancak <code>s</code> bir tamsayı sinyaliyse ve mevcut değeri 15 ise, şunu yürütür:</p>
+<pre><code>    s &lt;= 2 * s;
+    s &lt;= s - 5;
+    s &lt;= s / 5;
+    print(s);
+    wait on s;
+    print(s);
+</code></pre>
+<p>yazdıracak:</p>
+<pre><code>15
+3
+</code></pre>
+<p>Bu adımı bir hata ayıklayıcıda adım adım uygularsak, &lsquo;bekle&rsquo; komutundan sonraya kadar &rsquo;s&rsquo; değerinde herhangi bir değişiklik görmeyeceğiz. Üstelik <code>s</code>nin son değeri 15, 30, 25 veya 5 değil 3 olacak!</p>
+<p>Bu görünüşte garip davranış, aşağıdaki bölümlerde göreceğimiz gibi, dijital donanımın temelde paralel doğasından kaynaklanmaktadır.</p>
+<h1 id="paralellik">paralellik <a href="#paralellik" class="anchor" aria-hidden="true">#</a></h1>
+<p>VHDL, bir Donanım Tanımlama Dili (HDL) olduğundan, doğası gereği paraleldir. Bir VHDL programı, paralel olarak çalışan sıralı programların bir koleksiyonudur. Bu sıralı programlara süreçler denir:</p>
+<pre><code>P1: process
+begin
+  instruction1;
+  instruction2;
+  ...
+  instructionN;
+end process P1;
+
+P2: process
+begin
+  ...
+end process P2;
+</code></pre>
+<p>Süreçler, tıpkı modelledikleri donanımlar gibi asla bitmez: sonsuz döngülerdir. Son komutu yürüttükten sonra yürütme ilkiyle devam eder.</p>
+<p>Paralelliğin şu veya bu biçimini destekleyen herhangi bir programlama dilinde olduğu gibi, bir VHDL simülasyonu sırasında hangi işlemin (ve ne zaman) yürütüleceğine karar vermekten bir zamanlayıcı sorumludur. Ayrıca dil, süreçler arası iletişim ve senkronizasyon için özel yapılar sunar.</p>
+<h1 id="planlama">Planlama <a href="#planlama" class="anchor" aria-hidden="true">#</a></h1>
+<p>Programlayıcı tüm süreçlerin bir listesini tutar ve her biri için &ldquo;çalışıyor&rdquo;, &ldquo;çalıştırılabilir&rdquo; veya &ldquo;askıya alınmış&rdquo; olabilen mevcut durumunu kaydeder. &lsquo;Çalışıyor&rsquo; durumunda en fazla bir süreç vardır: şu anda yürütülmekte olan. Halihazırda çalışan süreç bir &lsquo;bekle&rsquo; talimatı yürütmediği sürece, çalışmaya devam eder ve başka herhangi bir işlemin yürütülmesini engeller. VHDL zamanlayıcı önleyici değildir: kendini askıya almak ve diğer işlemlerin çalışmasına izin vermek her işlemin sorumluluğundadır. Bu, VHDL&rsquo;ye yeni başlayanların sıklıkla karşılaştığı sorunlardan biridir: serbest çalışma süreci.</p>
+<pre><code>  P3: process
+    variable a: integer;
+  begin
+    a := s;
+    a := 2 * a;
+    r &lt;= a;
+  end process P3;
+</code></pre>
+<blockquote>
+<p>Not: &lsquo;a&rsquo; değişkeni yerel olarak bildirilirken, &rsquo;s&rsquo; ve &lsquo;r&rsquo; sinyalleri başka bir yerde, daha yüksek bir düzeyde bildirilir. VHDL değişkenleri, onları bildiren işlem için yereldir ve diğer işlemler tarafından görülemez. Başka bir işlem de &lsquo;a&rsquo; adında bir değişken bildirebilir, bu, &lsquo;P3&rsquo; işlemininkiyle aynı değişken olmaz.</p>
+</blockquote>
+<p>Programlayıcı &lsquo;P3&rsquo; sürecini sürdürür başlatmaz simülasyon takılıp kalacak, simülasyonun geçerli zamanı artık ilerlemeyecek ve bunu durdurmanın tek yolu simülasyonu öldürmek veya kesmek olacaktır. Bunun nedeni, &ldquo;P3&quot;ün &ldquo;wait&rdquo; ifadesinin olmaması ve bu nedenle sonsuza kadar &ldquo;çalışıyor&rdquo; durumunda kalması ve 3 talimatının üzerinden geçmesidir. &lsquo;Çalışabilir&rsquo; olsa bile, başka hiçbir sürece çalışma şansı verilmeyecektir.</p>
+<p>Bir &lsquo;wait&rsquo; ifadesi içeren işlemler bile aynı soruna neden olabilir:</p>
+<pre><code>  P4: process
+    variable a: integer;
+  begin
+    a := s;
+    a := 2 * a;
+    if a = 16 then
+      wait on s;
+    end if;
+    r &lt;= a;
+  end process P4;
+</code></pre>
+<blockquote>
+<p>Not: VHDL eşitlik operatörü <code>=</code> şeklindedir.</p>
+</blockquote>
+<p>&rsquo;s&rsquo; sinyalinin değeri 3 iken &lsquo;P4&rsquo; işlemi devam ettirilirse, &lsquo;a = 16&rsquo; koşulu asla doğru olmayacağından sonsuza kadar çalışacaktır.</p>
+<p>VHDL programımızın bu tür patolojik süreçleri içermediğini varsayalım. Çalışan süreç bir &lsquo;bekle&rsquo; talimatı yürüttüğünde, hemen askıya alınır ve zamanlayıcı bunu &lsquo;askıya alınmış&rsquo; duruma getirir. &lsquo;wait&rsquo; komutu aynı zamanda işlemin tekrar &lsquo;çalıştırılabilir&rsquo; hale gelmesinin koşulunu da taşır. Örnek:</p>
+<pre><code>    wait on s;
+</code></pre>
+<p><em>sinyal <code>s</code> değeri değişene kadar beni askıya al</em> anlamına gelir. Bu durum zamanlayıcı tarafından kaydedilir. Programlayıcı daha sonra &lsquo;çalıştırılabilir&rsquo; arasından başka bir süreç seçer, onu &lsquo;çalışır&rsquo; duruma getirir ve yürütür. Ve aynısı, tüm &ldquo;çalıştırılabilir&rdquo; süreçler yürütülüp askıya alınana kadar tekrarlanır.</p>
+<blockquote>
+<p><strong>Önemli not:</strong> birkaç süreç &lsquo;çalıştırılabilir&rsquo; olduğunda, VHDL standardı zamanlayıcının hangisini çalıştıracağını nasıl seçeceğini belirtmez. Sonuç olarak, simülatöre, simülatörün sürümüne, işletim sistemine veya başka herhangi bir şeye bağlı olarak, aynı VHDL modelinin iki simülasyonu bir noktada farklı seçimler yapabilir ve yürütmek için farklı bir süreç seçebilir. Bu seçimin simülasyon sonuçları üzerinde bir etkisi olsaydı, VHDL&rsquo;nin deterministik olmadığını söyleyebiliriz. Determinizm genellikle istenmeyen bir durum olduğundan, deterministik olmayan durumlardan kaçınmak programcıların sorumluluğundadır. Neyse ki, VHDL bununla ilgileniyor ve sinyallerin resme girdiği yer burası.</p>
+</blockquote>
+<h1 id="sinyaller-ve-süreçler-arası-iletişim">Sinyaller ve süreçler arası iletişim <a href="#sinyaller-ve-s%c3%bcre%c3%a7ler-aras%c4%b1-ileti%c5%9fim" class="anchor" aria-hidden="true">#</a></h1>
+<p>VHDL, iki spesifik özelliği kullanarak determinizmden kaçınır:</p>
+<ol>
+<li><strong>Süreçler yalnızca sinyaller aracılığıyla bilgi alışverişinde bulunabilir</strong></li>
+</ol>
+<pre><code>  signal r, s: integer;  -- Common to all processes
+...
+  P5: process
+    variable a: integer; -- Different from variable a of process P6
+  begin
+    a := s + 1;
+    r &lt;= a;
+    a := r + 1;
+    wait on s;
+  end process P5;
+
+  P6: process
+    variable a: integer; -- Different from variable a of process P5
+  begin
+    a := r + 1;
+    s &lt;= a;
+    wait on r;
+  end process P6;
+</code></pre>
+<blockquote>
+<p>Not: VHDL yorumları <code>--</code> den satırın sonuna kadar uzanır.</p>
+</blockquote>
+<ol start="2">
+<li><strong>Bir VHDL sinyalinin değeri, işlemlerin yürütülmesi sırasında değişmez</strong></li>
+</ol>
+<p>Her sinyal atandığında, atanan değer programlayıcı tarafından kaydedilir, ancak sinyalin mevcut değeri değişmeden kalır. Bu, atandıktan hemen sonra yeni değerlerini alan değişkenlerle ilgili bir başka önemli farktır.</p>
+<p>Yukarıdaki &ldquo;P5&rdquo; işleminin yürütülmesine bakalım ve zamanlayıcı tarafından yeniden başlatıldığında &ldquo;a=5&rdquo;, &ldquo;s=1&rdquo; ve &ldquo;r=0&rdquo; olduğunu varsayalım. &lsquo;a := s + 1;&rsquo; komutu yürütüldükten sonra, &lsquo;a&rsquo; değişkeninin değeri değişir ve 2 (1+1) olur. Bir sonraki <code>r &lt;= a;</code> talimatını yürütürken, <code>r</code>ye atanan <code>a</code>nın (2) yeni değeridir. Ancak &lsquo;r&rsquo; bir sinyal olduğundan, &lsquo;r&rsquo;nin mevcut değeri hala 0&rsquo;dır. Dolayısıyla, &lsquo;a := r + 1;&rsquo; yürütülürken, &lsquo;a&rsquo; değişkeni (hemen) 1 (0+1) değerini alır, değil Sezginin söyleyeceği gibi 3 (2+1).</p>
+<p>&lsquo;r&rsquo; sinyali gerçekten ne zaman yeni değerini alacak? Zamanlayıcı, çalıştırılabilir tüm süreçleri yürüttüğünde ve hepsi askıya alınacaktır. Bu aynı zamanda şu şekilde de anılır: <em>bir <strong>delta</strong> döngüden sonra</em>. Ancak o zaman programlayıcı, sinyallere atanmış tüm değerlere bakacak ve sinyallerin değerlerini fiilen güncelleyecektir. Bir VHDL simülasyonu, yürütme aşamalarının ve sinyal güncelleme aşamalarının bir değişimidir. Yürütme aşamalarında sinyallerin değeri dondurulur. Sembolik olarak, bir yürütme aşaması ile bir sonraki sinyal güncelleme aşaması arasında bir delta_ zaman geçtiğini söylüyoruz. Bu gerçek zaman değil. Bir <em>delta</em> döngüsünün fiziksel süresi yoktur.</p>
+<p>Bu gecikmeli sinyal güncelleme mekanizması sayesinde VHDL deterministiktir. Prosesler sadece sinyallerle haberleşebilir ve proseslerin yürütülmesi sırasında sinyaller değişmez. Bu nedenle, işlemlerin yürütme sırası önemli değildir: yürütme sırasında dış ortamları (sinyaller) değişmez. Bunu, başlangıç ​​durumunun &lsquo;P5.a=5&rsquo;, &lsquo;P6.a=10&rsquo;, &rsquo;s=17&rsquo;, &lsquo;r=0&rsquo; olduğu &lsquo;P5&rsquo; ve &lsquo;P6&rsquo; süreçleriyle önceki örnekte gösterelim. ve zamanlayıcının önce &ldquo;P5&quot;i ve sonra &ldquo;P6&quot;yı çalıştırmaya karar verdiği yer. Aşağıdaki tablo, iki değişkenin değerini, her bir işlemin her bir talimatını yürüttükten sonra sinyallerin mevcut ve sonraki değerlerini gösterir:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">süreç / talimat</th>
+<th style="text-align:left">&lsquo;P5.a&rsquo;</th>
+<th style="text-align:left">&lsquo;P6.a&rsquo;</th>
+<th style="text-align:left"><code>s.akım</code></th>
+<th style="text-align:left"><code>s.sonraki</code></th>
+<th style="text-align:left"><code>r.akım</code></th>
+<th style="text-align:left"><code>r.sonraki</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Başlangıç ​​durumu</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / a: = s + 1</code></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / r &lt;= bir</code></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / a: = r + 1</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left">`P5 / s&rsquo;de bekle&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / a := r + 1</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / s &lt;= bir</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / r'de bekle</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyal güncellemesinden sonra</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>Aynı başlangıç ​​koşullarıyla, zamanlayıcı önce &ldquo;P6&quot;yı ve sonra &ldquo;P5&quot;i çalıştırmaya karar verirse:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">süreç / talimat</th>
+<th style="text-align:left">&lsquo;P5.a&rsquo;</th>
+<th style="text-align:left">&lsquo;P6.a&rsquo;</th>
+<th style="text-align:left"><code>s.akım</code></th>
+<th style="text-align:left"><code>s.sonraki</code></th>
+<th style="text-align:left"><code>r.akım</code></th>
+<th style="text-align:left"><code>r.sonraki</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Başlangıç ​​durumu</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / a := r + 1</code></td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / s &lt;= bir</code></td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P6 / r'de bekle</code></td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / a: = s + 1</code></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / r &lt;= bir</code></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P5 / a: = r + 1</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left">`P5 / s&rsquo;de bekle&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">18</td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyal güncellemesinden sonra</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">18</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>Gördüğümüz gibi, iki işlemimizin yürütülmesinden sonra, yürütme sırası ne olursa olsun sonuç aynıdır.</p>
+<p>Bu sezgisel sinyal atama semantiği, VHDL&rsquo;ye yeni başlayanların sıklıkla karşılaştığı ikinci tip problemlerin nedenidir: görünüşe göre bir delta döngüsü geciktirildiği için işe yaramayan atama. Bir hata ayıklayıcıda adım adım &ldquo;P5&rdquo; işlemi çalıştırıldığında, &ldquo;r&rdquo; 18 ve &ldquo;a&quot;ya &ldquo;r + 1&rdquo; atandıktan sonra, &ldquo;a&quot;nın değerinin 19 olması beklenebilir, ancak hata ayıklayıcı inatla &lsquo;r=0&rsquo; ve &lsquo;a=1&rsquo; diyor&hellip;</p>
+<blockquote>
+<p>Not: aynı sinyal, aynı yürütme aşaması sırasında birkaç kez atanabilir. Bu durumda, sinyalin bir sonraki değerine karar veren son atamadır. Diğer atamaların hiçbir etkisi yoktur, sanki hiç infaz edilmemişler gibi.</p>
+</blockquote>
+<p>Anladığımızı kontrol etmenin zamanı geldi: lütfen ilk takas örneğimize geri dönün ve nedenini anlamaya çalışın:</p>
+<pre><code>  process
+  begin
+    ---
+    s &lt;= r;
+    r &lt;= s;
+    ---
+  end process;
+</code></pre>
+<p>aslında üçüncü bir geçici sinyale ihtiyaç duymadan &ldquo;r&rdquo; ve &ldquo;s&rdquo; sinyallerini değiştirir ve neden:</p>
+<pre><code>  process
+  begin
+    ---
+    r &lt;= s;
+    s &lt;= r;
+    ---
+  end process;
+</code></pre>
+<p>kesinlikle eşdeğer olacaktır. Ayrıca, eğer <code>s</code> bir tamsayı sinyaliyse ve mevcut değeri 15 ise nedenini anlamaya çalışın ve şunu yürütürüz:</p>
+<pre><code>  process
+  begin
+    ---
+    s &lt;= 2 * s;
+    s &lt;= s - 5;
+    s &lt;= s / 5;
+    print(s);
+    wait on s;
+    print(s);
+    ---
+  end process;
+</code></pre>
+<p>&rsquo;s&rsquo; sinyalinin ilk iki atamasının etkisi yoktur, neden &rsquo;s&rsquo; sonunda 3 atanmıştır ve iki yazdırılan değer neden 15 ve 3&rsquo;tür.</p>
+<h1 id="fiziksel-zaman">Fiziksel zaman <a href="#fiziksel-zaman" class="anchor" aria-hidden="true">#</a></h1>
+<p>Donanımı modellemek için, bazı işlemlerin aldığı fiziksel zamanı modelleyebilmek çok faydalıdır. İşte bunun VHDL&rsquo;de nasıl yapılabileceğine bir örnek. Örnek, senkronize bir sayacı modellemektedir ve bu, derlenebilen ve simüle edilebilen tam, kendi kendine yeten bir VHDL kodudur:</p>
+<pre><code>-- File counter.vhd
+entity counter is
+end entity counter;
+
+architecture arc of counter is
+  signal clk: bit; -- Type bit has two values: '0' and '1'
+  signal c, nc: natural; -- Natural (non-negative) integers
+begin
+  P1: process
+  begin
+    clk &lt;= '0';
+    wait for 10 ns; -- Ten nano-seconds delay
+    clk &lt;= '1';
+    wait for 10 ns; -- Ten nano-seconds delay
+  end process P1;
+
+  P2: process
+  begin
+    if clk = '1' and clk'event then
+      c &lt;= nc;
+    end if;
+    wait on clk;
+  end process P2;
+
+  P3: process
+  begin
+    nc &lt;= c + 1 after 5 ns; -- Five nano-seconds delay
+    wait on c;
+  end process P3;
+end architecture arc;
+</code></pre>
+<p>&lsquo;P1&rsquo; işleminde &lsquo;wait&rsquo; komutu, şimdiye kadar gördüğümüz gibi bir sinyalin değeri değişene kadar beklemek için değil, belirli bir süre beklemek için kullanılır. Bu süreç bir saat üretecini modeller. <code>clk</code> sinyali sistemimizin saatidir, 20 ns (50 MHz) periyotlu periyodik ve görev döngüsüne sahiptir.</p>
+<p>&ldquo;P2&rdquo; işlemi, &ldquo;clk&quot;nin yükselen kenarı yeni oluştuysa, &ldquo;nc&rdquo; girişinin değerini &ldquo;c&rdquo; çıkışına atayan ve ardından bir sonraki &ldquo;clk&rdquo; değer değişimini bekleyen bir register modeller.</p>
+<p>&lsquo;P3&rsquo; işlemi, 5 ns&rsquo;lik bir fiziksel gecikme ile &rsquo;nc&rsquo; çıkışına birer birer artırılan &lsquo;c&rsquo; girişinin değerini atayan bir artırıcıyı modeller. Daha sonra <code>c</code> girişinin değeri değişene kadar bekler. Bu da yeni. Şimdiye kadar sinyalleri her zaman şu şekilde atadık:</p>
+<pre><code>  s &lt;= value;
+</code></pre>
+<p>önceki bölümlerde açıklanan nedenlerle, dolaylı olarak şu şekilde çevirebiliriz:</p>
+<pre><code>  s &lt;= value; -- after delta
+</code></pre>
+<p>Bu küçük dijital donanım sistemi aşağıdaki şekille temsil edilebilir:</p>
+<p><a href="http://i.stack.imgur.com/0Lcry.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/0Lcry.png" alt="Senkronize bir sayaç"></a></p>
+<p>Fiziksel zamanın tanıtılmasıyla ve <em>delta</em> ile ölçülen sembolik bir zamanımız olduğunu bilerek, şimdi iki boyutlu bir zamanımız var ve &lsquo;T+D&rsquo;yi belirteceğiz, burada &lsquo;T&rsquo; nano saniye cinsinden ölçülen fiziksel bir zaman ve &ldquo;D&rdquo; bir dizi delta (fiziksel süresi olmayan).</p>
+<h1 id="resmin-tamamı">Resmin tamamı <a href="#resmin-tamam%c4%b1" class="anchor" aria-hidden="true">#</a></h1>
+<p>VHDL simülasyonunun henüz tartışmadığımız önemli bir yönü var: bir yürütme aşamasından sonra tüm işlemler &lsquo;askıya alınmış&rsquo; durumda. Planlayıcının daha sonra atanan sinyallerin değerlerini güncellediğini gayri resmi olarak belirttik. Ancak, senkron sayıcı örneğimizde, aynı anda &lsquo;clk&rsquo;, &lsquo;c&rsquo; ve &rsquo;nc&rsquo; sinyallerini güncelleyecek mi? Peki ya fiziksel gecikmeler? Peki tüm süreçler &ldquo;askıya alınmış&rdquo; durumdayken ve hiçbiri &ldquo;çalıştırılabilir&rdquo; durumdayken ne olacak?</p>
+<p>Tam (ancak basitleştirilmiş) simülasyon algoritması aşağıdaki gibidir:</p>
+<ol>
+<li>Başlatma
+<ul>
+<li>Set current time <code>Tc</code> to 0+0 (0 ns, 0 delta-cycle)</li>
+<li>Initialize all signals.</li>
+<li>Execute each process until it suspends on a <code>wait</code> statement.
+<ul>
+<li>Record the values and delays of signal assignments.</li>
+<li>Record the conditions for the process to resume (delay or signal change).</li>
+</ul>
+</li>
+<li>Compute the next time <code>Tn</code> as the earliest of:
+<ul>
+<li>The resume time of processes suspended by a <code>wait for &lt;delay&gt;</code>.</li>
+<li>The next time at which a signal value shall change.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li>Simülasyon döngüsü
+<ul>
+<li><code>Tc=Tn</code>.</li>
+<li>Update signals that need to be.</li>
+<li>Put in <code>run-able</code> state all processes that were waiting for a value change of one of the signals that has been updated.</li>
+<li>Put in <code>run-able</code> state all processes that were suspended by a <code>wait for &lt;delay&gt;</code> statement and for which the resume time is <code>Tc</code>.</li>
+<li>Execute all run-able processes until they suspend.
+<ul>
+<li>Record the values and delays of signal assignments.</li>
+<li>Record the conditions for the process to resume (delay or signal change).</li>
+</ul>
+</li>
+<li>Compute the next time <code>Tn</code> as the earliest of:
+<ul>
+<li>The resume time of processes suspended by a <code>wait for &lt;delay&gt;</code>.</li>
+<li>The next time at which a signal value shall change.</li>
+</ul>
+</li>
+<li>If <code>Tn</code> is infinity, stop simulation. Else, start a new simulation cycle.</li>
+</ul>
+</li>
+</ol>
+<h1 id="manuel-simülasyon">Manuel simülasyon <a href="#manuel-sim%c3%bclasyon" class="anchor" aria-hidden="true">#</a></h1>
+<p>Sonuç olarak, şimdi basitleştirilmiş simülasyon algoritmasını yukarıda sunulan senkron sayaç üzerinde manuel olarak uygulayalım. Birkaç işlem çalıştırılabilir olduğunda, sıranın <code>P3</code>&gt;<code>P2</code>&gt;<code>P1</code> olacağına keyfi olarak karar veririz. Aşağıdaki tablolar, başlatma ve ilk simülasyon döngüleri sırasında sistemin durumunun gelişimini temsil eder. Her sinyalin, mevcut değerin gösterildiği kendi sütunu vardır. Bir sinyal ataması yürütüldüğünde, programlanan değer mevcut değere eklenir, örn. &lsquo;a/b@T+D&rsquo;, mevcut değer &lsquo;a&rsquo; ise ve sonraki değer &lsquo;T+D&rsquo; zamanında &lsquo;b&rsquo; olacaktır (fiziksel zaman artı delta döngüleri). Son 3 sütun, askıya alınan süreçlerin yeniden başlatılması durumunu gösterir (değişmesi gereken sinyallerin adı veya sürecin devam edeceği zaman).</p>
+<h2 id="başlatma-aşaması">Başlatma aşaması: <a href="#ba%c5%9flatma-a%c5%9famas%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Tüm sinyalleri başlat</td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">`P3/nc&lt;=c+1 5 ns&rsquo;den sonra&rsquo;</td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">`P3/c&rsquo;de bekle&rsquo;</td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/if clk='1'...</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/son eğer</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">`P2/clk&rsquo;de bekle&rsquo;</td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/clk&lt;='0'</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;0&rsquo;@0+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/10 ns bekle</code></td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;0&rsquo;@0+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">0+0</td>
+<td style="text-align:left">0+1</td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;0&rsquo;@0+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="simülasyon-döngüsü-1">Simülasyon döngüsü #1 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-1" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">0+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;0&rsquo;@0+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">0+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">0+1</td>
+<td style="text-align:left">5+0</td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Not: İlk simülasyon döngüsü sırasında hiçbir yürütme aşaması yoktur çünkü 3 sürecimizden hiçbiri devam etme koşulu karşılanmamıştır. &lsquo;P2&rsquo;, &lsquo;clk&rsquo; değerinde bir değişiklik bekliyor ve &lsquo;clk&rsquo; üzerinde bir <em>işlem</em> var, ancak eski ve yeni değerler aynı olduğu için bu bir <em>değişim</em> değeri değil.</p>
+</blockquote>
+<h2 id="simülasyon-döngüsü-2">Simülasyon döngüsü #2 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-2" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0/1@5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">5+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">5+0</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Not: Yine, yürütme aşaması yoktur. <code>nc</code> değişti ama <code>nc</code> üzerinde bekleyen bir işlem yok.</p>
+</blockquote>
+<h2 id="simülasyon-döngüsü-3">Simülasyon döngüsü #3 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-3" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/clk&lt;='1'</code></td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@10+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/10 ns bekle</code></td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@10+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">10+0</td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@10+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="simülasyon-döngüsü-4">Simülasyon döngüsü #4 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-4" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@10+1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/if clk='1'...</code></td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/c&lt;=nc</code></td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0/1@10+2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/son eğer</code></td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0/1@10+2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">`P2/clk&rsquo;de bekle&rsquo;</td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0/1@10+2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">10+1</td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0/1@10+2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="simülasyon-döngüsü-5">Simülasyon döngüsü #5 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-5" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">0/1@10+2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">`P3/nc&lt;=c+1 5 ns&rsquo;den sonra&rsquo;</td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1/2@15+0</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">`P3/c&rsquo;de bekle&rsquo;</td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1/2@15+0</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">10+2</td>
+<td style="text-align:left">15+0</td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1/2@15+0</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Not: Biz &lsquo;15+0&rsquo; olarak planlarken, &rsquo;nc&rsquo; güncellemesinin &lsquo;15+2&rsquo; olarak planlanacağı düşünülebilir. Geçerli bir zamana (&lsquo;10+2&rsquo;) sıfır olmayan bir fiziksel gecikme (burada &lsquo;5 ns&rsquo;) eklenirken, delta döngüleri kaybolur. Aslında, delta döngüleri sadece aynı fiziksel zaman &ldquo;T&rdquo; ile farklı simülasyon süreleri &lsquo;T+0&rsquo;, &lsquo;T+1&rsquo;&hellip; ayırt etmek için yararlıdır. Fiziksel zaman değişir değişmez delta döngüleri sıfırlanabilir.</p>
+</blockquote>
+<h2 id="simülasyon-döngüsü-6">Simülasyon döngüsü #6 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-6" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">15+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1/2@15+0</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">15+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">15+0</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Not: Yine, yürütme aşaması yoktur. <code>nc</code> değişti ama <code>nc</code> üzerinde bekleyen bir işlem yok.</p>
+</blockquote>
+<h2 id="simülasyon-döngüsü-7">Simülasyon döngüsü #7 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-7" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/clk&lt;='0'</code></td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;/&lsquo;0&rsquo;@20+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/10 ns bekle</code></td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;/&lsquo;0&rsquo;@20+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">20+0</td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left">&lsquo;1&rsquo;/&lsquo;0&rsquo;@20+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="simülasyon-döngüsü-8">Simülasyon döngüsü #8 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-8" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;/&lsquo;0&rsquo;@20+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/if clk='1'...</code></td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/son eğer</code></td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">`P2/clk&rsquo;de bekle&rsquo;</td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">20+1</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="simülasyon-döngüsü-9">Simülasyon döngüsü #9 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-9" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/clk&lt;='1'</code></td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@30+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P1/10 ns bekle</code></td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@30+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">30+0</td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@30+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="simülasyon-döngüsü-10">Simülasyon döngüsü #10 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-10" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;0&rsquo;/&lsquo;1&rsquo;@30+1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/if clk='1'...</code></td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/c&lt;=nc</code></td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1/2@30+2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P2/son eğer</code></td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1/2@30+2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">`P2/clk&rsquo;de bekle&rsquo;</td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1/2@30+2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">30+1</td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1/2@30+2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="simülasyon-döngüsü-11">Simülasyon döngüsü #11 <a href="#sim%c3%bclasyon-d%c3%b6ng%c3%bcs%c3%bc-11" class="anchor" aria-hidden="true">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">operasyonlar</th>
+<th style="text-align:left"><code>Tc</code></th>
+<th style="text-align:left"><code>Tn</code></th>
+<th style="text-align:left">&lsquo;clk&rsquo;</th>
+<th style="text-align:left"><code>c</code></th>
+<th style="text-align:left">&rsquo;nc&rsquo;</th>
+<th style="text-align:left">&ldquo;P1&rdquo;</th>
+<th style="text-align:left">&ldquo;P2&rdquo;</th>
+<th style="text-align:left">&ldquo;P3&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Geçerli saati ayarla</td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">1/2@30+2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Sinyalleri güncelle</td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">`P3/nc&lt;=c+1 5 ns&rsquo;den sonra&rsquo;</td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">2/3@35+0</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">`P3/c&rsquo;de bekle&rsquo;</td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">2/3@35+0</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Bir dahaki sefere hesapla</td>
+<td style="text-align:left">30+2</td>
+<td style="text-align:left">35+0</td>
+<td style="text-align:left">&lsquo;1&rsquo;</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">2/3@35+0</td>
+<td style="text-align:left">40+0</td>
+<td style="text-align:left">&lsquo;clk&rsquo;</td>
+<td style="text-align:left"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="senkron-sayaç">Senkron sayaç <a href="#senkron-saya%c3%a7" class="anchor" aria-hidden="true">#</a></h2>
+<!-- vim: metin genişliğini ayarlayın=0: -->
+<!-- Başlık: Senkron sayaç -->
+<pre><code>-- File counter.vhd
+-- The entity is the interface part. It has a name and a set of input / output
+-- ports. Ports have a name, a direction and a type. The bit type has only two
+-- values: '0' and '1'. It is one of the standard types.
+entity counter is
+  port(
+    clock: in  bit;    -- We are using the rising edge of CLOCK
+    reset: in  bit;    -- Synchronous and active HIGH
+    data:  out natural -- The current value of the counter
+  );
+end entity counter;
+
+-- The architecture describes the internals. It is always associated
+-- to an entity.
+architecture sync of counter is
+  -- The internal signals we use to count. Natural is another standard
+  -- type. VHDL is not case sensitive.
+  signal current_value: natural;
+  signal NEXT_VALUE:    natural;
+begin
+  -- A process is a concurrent statement. It is an infinite loop.
+  process
+  begin
+    -- The wait statement is a synchronization instruction. We wait
+    -- until clock changes and its new value is '1' (a rising edge).
+    wait until clock = '1';
+    -- Our reset is synchronous: we consider it only at rising edges
+    -- of our clock.
+    if reset = '1' then
+      -- &lt;= is the signal assignment operator.
+      current_value &lt;= 0;
+    else
+      current_value &lt;= next_value;
+    end if;
+  end process;
+
+  -- Another process. The sensitivity list is another way to express
+  -- synchronization constraints. It (approximately) means: wait until
+  -- one of the signals in the list changes and then execute the process
+  -- body. Sensitivity list and wait statements cannot be used together 
+  -- in the same process.
+  process(current_value)
+  begin
+    next_value &lt;= current_value + 1;
+  end process;
+
+  -- A concurrent signal assignment, which is just a shorthand for the
+  -- (trivial) equivalent process.
+  data &lt;= current_value;
+end architecture sync;
+</code></pre>
+<h2 id="kurulum-veya-kurulum">Kurulum veya Kurulum <a href="#kurulum-veya-kurulum" class="anchor" aria-hidden="true">#</a></h2>
+<!-- vim: metin genişliğini ayarlayın=0: -->
+<!-- Başlık: Kurulum veya kurulum -->
+<p>Bir VHDL programı simüle edilebilir veya sentezlenebilir. Simülasyon, diğer programlama dillerindeki yürütmeye en çok benzeyen şeydir. Sentez, bir VHDL programını bir mantık kapıları ağına dönüştürür. Birçok VHDL simülasyon ve sentez aracı, ticari Elektronik Tasarım Otomasyonu (EDA) paketlerinin parçalarıdır. Sıklıkla Verilog, SystemVerilog veya SystemC gibi diğer Donanım Tanımlama Dillerini (HDL) de işlerler. Bazı ücretsiz ve açık kaynaklı uygulamalar mevcuttur.</p>
+<h1 id="vhdl-simülasyonu">VHDL simülasyonu <a href="#vhdl-sim%c3%bclasyonu" class="anchor" aria-hidden="true">#</a></h1>
+<p><a href="https://github.com/tgingold/ghdl.git">GHDL</a> muhtemelen en olgun ücretsiz ve açık kaynaklı VHDL simülatörüdür. Kullanılan arka uca bağlı olarak üç farklı şekilde gelir: &ldquo;gcc&rdquo;, &ldquo;llvm&rdquo; veya &ldquo;mcode&rdquo;. Aşağıdaki örnekler, bir GNU/Linux işletim sistemi altında Mentor Graphics&rsquo;in ticari HDL simülatörü olan GHDL (&ldquo;mcode&rdquo; sürümü) ve Modelsim&rsquo;in nasıl kullanılacağını gösterir. Diğer araçlar ve diğer işletim sistemleri ile işler çok benzer olacaktır.</p>
+<h2 id="selam-dünya">Selam Dünya <a href="#selam-d%c3%bcnya" class="anchor" aria-hidden="true">#</a></h2>
+<p>Aşağıdakileri içeren bir &ldquo;hello_world.vhd&rdquo; dosyası oluşturun:</p>
+<pre><code>-- File hello_world.vhd
+entity hello_world is
+end entity hello_world;
+
+architecture arc of hello_world is
+begin
+  assert false report &quot;Hello world!&quot; severity note;
+end architecture arc;
+</code></pre>
+<p>Bir VHDL derleme birimi, tek başına derlenebilen eksiksiz bir VHDL programıdır. <em>Varlıklar</em>, bir dijital devrenin harici arayüzünü, yani giriş ve çıkış portlarını tanımlamak için kullanılan VHDL derleme birimleridir. Örneğimizde, &rsquo;entity&rsquo;, &lsquo;hello_world&rsquo; olarak adlandırılmıştır ve boştur. Modellediğimiz devre bir kara kutudur, girişi ve çıkışı yoktur. <em>Mimariler</em> başka bir derleme birimi türüdür. Her zaman bir &ldquo;varlık&rdquo; ile ilişkilendirilirler ve dijital devrenin davranışını tanımlamak için kullanılırlar. Bir <em>varlık</em>, varlığın davranışını tanımlamak için bir veya daha fazla <em>mimariye</em> sahip olabilir. Örneğimizde <em>entity</em>, yalnızca bir VHDL ifadesi içeren &lsquo;arc&rsquo; adlı yalnızca bir <em>mimari</em> ile ilişkilendirilir:</p>
+<pre><code>  assert false report &quot;Hello world!&quot; severity note;
+</code></pre>
+<p>İfade, simülasyonun başlangıcında yürütülecek ve standart çıktıya <code>Merhaba dünya!</code> mesajını yazdıracaktır. Simülasyon daha sonra sona erecek çünkü yapılacak başka bir şey yok. Yazdığımız VHDL kaynak dosyası iki derleme birimi içeriyor. Bunları iki farklı dosyaya ayırabilirdik ama hiçbirini farklı dosyalara bölemezdik: Bir derleme birimi tamamen tek bir kaynak dosyada yer almalıdır. Bu mimarinin sentezlenemeyeceğine dikkat edin, çünkü doğrudan mantık kapılarına çevrilebilecek bir işlevi tanımlamaz.</p>
+<p>Programı GHDL ile analiz edin ve çalıştırın:</p>
+<pre><code>$ mkdir gh_work
+$ ghdl -a --workdir=gh_work hello_world.vhd
+$ ghdl -r --workdir=gh_work hello_world
+hello_world.vhd:6:8:@0ms:(assertion note): Hello world!
+</code></pre>
+<p>gh_work&rsquo; dizini, GHDL&rsquo;nin oluşturduğu dosyaları depoladığı yerdir. <code>--workdir=gh_work</code> seçeneği bunu söylüyor. Analiz aşaması, sözdiziminin doğruluğunu kontrol eder ve kaynak dosyada bulunan derleme birimlerini açıklayan bir metin dosyası üretir. Çalıştırma aşaması aslında programı derler, bağlar ve yürütür. GHDL&rsquo;nin &ldquo;mcode&rdquo; sürümünde ikili dosyaların oluşturulmadığını unutmayın. Program, onu her simüle ettiğimizde yeniden derlenir. &ldquo;gcc&rdquo; veya &ldquo;llvm&rdquo; sürümleri farklı davranır. Ayrıca, ghdl -r&rsquo;nin, ghdl -a&rsquo;nın yaptığı gibi bir VHDL kaynak dosyasının adını değil, bir derleme biriminin adını aldığını unutmayın. Bizim durumumuzda ona &rsquo;entity&rsquo; adını veriyoruz. İlişkili yalnızca bir &ldquo;mimarisi&rdquo; olduğundan, hangisini simüle edeceğinizi belirtmeye gerek yoktur.</p>
+<p>Modelsim ile:</p>
+<pre><code>$ vlib ms_work
+$ vmap work ms_work
+$ vcom hello_world.vhd
+$ vsim -c hello_world -do 'run -all; quit'
+...
+# ** Note: Hello world!
+#    Time: 0 ns  Iteration: 0  Instance: /hello_world
+...
+</code></pre>
+<p>&ldquo;vlib&rdquo;, &ldquo;vmap&rdquo;, &ldquo;vcom&rdquo; ve &ldquo;vsim&rdquo;, Modelsim&rsquo;in sağladığı dört komuttur. <code>vlib</code>, oluşturulan dosyaların saklanacağı bir dizin (<code>ms_work</code>) oluşturur. &ldquo;vmap&rdquo;, &ldquo;vlib&rdquo; tarafından oluşturulan bir dizini mantıksal bir adla (&ldquo;iş&rdquo;) ilişkilendirir. &lsquo;vcom&rsquo; bir VHDL kaynak dosyasını derler ve varsayılan olarak sonucu &lsquo;çalışma&rsquo; mantıksal adıyla ilişkili dizinde saklar. Son olarak, &lsquo;vsim&rsquo; programı simüle eder ve GHDL ile aynı türde çıktılar üretir. &lsquo;vsim&rsquo;in istediği şeyin bir kaynak dosya değil, önceden derlenmiş bir derleme biriminin adı olduğuna tekrar dikkat edin. <code>-c</code> seçeneği, simülatöre varsayılan Grafik Kullanıcı Arayüzü (GUI) modu yerine komut satırı modunda çalışmasını söyler. <code>-do</code> seçeneği, tasarımı yükledikten sonra yürütülecek bir TCL betiğini iletmek için kullanılır. TCL, EDA araçlarında çok sık kullanılan bir betik dilidir. <code>-do</code> seçeneğinin değeri bir dosyanın adı veya örneğimizde olduğu gibi bir dizi TCL komutu olabilir. <code>çalıştır -hepsi; çıkın</code> simülatöre, simülasyonu doğal olarak bitene kadar - veya sonsuza kadar sürecekse sonsuza kadar - çalıştırmasını ve ardından bırakmasını söyleyin.</p>
+<h2 id="selam-dünya-1">Selam Dünya <a href="#selam-d%c3%bcnya-1" class="anchor" aria-hidden="true">#</a></h2>
+<!-- vim: metin genişliğini ayarlayın=0: -->
+<!-- Başlık: Merhaba dünya -->
+<p>Klasik &ldquo;Merhaba dünya!&rdquo; Yazmanın birçok yolu vardır. VHDL&rsquo;de mesaj. En basiti muhtemelen şöyle bir şeydir:</p>
+<pre><code>-- File hello_world.vhd
+entity hello_world is
+end entity hello_world;
+
+architecture arc of hello_world is
+begin
+  assert false report &quot;Hello world!&quot; severity note;
+end architecture arc;
+</code></pre>
+<h2 id="senkron-sayaç-için-bir-simülasyon-ortamı">Senkron sayaç için bir simülasyon ortamı <a href="#senkron-saya%c3%a7-i%c3%a7in-bir-sim%c3%bclasyon-ortam%c4%b1" class="anchor" aria-hidden="true">#</a></h2>
+<!-- vim: metin genişliğini ayarlayın=0: -->
+<!-- Başlık: Senkron sayaç için bir simülasyon ortamı -->
+<h1 id="simülasyon-ortamları">Simülasyon ortamları <a href="#sim%c3%bclasyon-ortamlar%c4%b1" class="anchor" aria-hidden="true">#</a></h1>
+<p>Bir VHDL tasarımı için bir simülasyon ortamı (Test Edilen Tasarım veya DUT), en azından aşağıdakileri sağlayan başka bir VHDL tasarımıdır:</p>
+<ul>
+<li>DUT&rsquo;nin giriş ve çıkış portlarına karşılık gelen sinyalleri bildirir.</li>
+<li>DUT&rsquo;u başlatır ve portlarını beyan edilen sinyallere bağlar.</li>
+<li>DUT&rsquo;nin giriş bağlantı noktalarına bağlı sinyalleri yönlendiren süreçleri başlatır.</li>
+</ul>
+<p>İsteğe bağlı olarak, bir simülasyon ortamı, örneğin arayüzlerdeki trafik oluşturucular, iletişim protokollerini kontrol etmek için monitörler, DUT çıktılarının otomatik doğrulayıcıları gibi DUT dışındaki diğer tasarımları somutlaştırabilir&hellip;</p>
+<p>Simülasyon ortamı analiz edilir, detaylandırılır ve yürütülür. Çoğu simülatör, gözlemlemek, grafik dalga biçimlerini çizmek, kaynak koduna kesme noktaları koymak, kaynak koduna adım atmak için bir dizi sinyal seçme imkanı sunar&hellip;</p>
+<p>İdeal olarak, bir simülasyon ortamı sağlam bir regresyonsuz test olarak kullanılabilir olmalıdır, yani DUT belirtimlerinin ihlallerini otomatik olarak tespit etmeli, faydalı hata mesajlarını bildirmeli ve DUT işlevlerinin makul bir kapsamını garanti etmelidir. Bu tür simülasyon ortamları mevcut olduğunda, simülasyon izlerinin sıkıcı ve hataya açık görsel incelemelerine gerek kalmadan işlevsel olarak doğru olup olmadığını kontrol etmek için DUT&rsquo;un her değişikliğinde yeniden çalıştırılabilirler.</p>
+<p>Pratikte ideal ve hatta sadece iyi simülasyon ortamları tasarlamak zordur. Genellikle DUT&rsquo;un kendisini tasarlamaktan daha zordur.</p>
+<p>Bu örnekte, [Senkron sayaç](https://www.wikiod.com/tr/vhdl/vhdlye-baslarken#senkron sayaç) örneği için bir simülasyon ortamı sunuyoruz. GHDL ve Modelsim kullanarak nasıl çalıştırılacağını ve GHDL ile <a href="http://gtkwave.sourceforge.net/">GTKWave</a> ve Modelsim ile yerleşik dalga formu görüntüleyici kullanarak grafik dalga formlarının nasıl gözlemleneceğini gösteriyoruz. Daha sonra simülasyonların ilginç bir yönünü tartışıyoruz: onları nasıl durdurabiliriz?</p>
+<h1 id="senkron-sayaç-için-ilk-simülasyon-ortamı">Senkron sayaç için ilk simülasyon ortamı <a href="#senkron-saya%c3%a7-i%c3%a7in-ilk-sim%c3%bclasyon-ortam%c4%b1" class="anchor" aria-hidden="true">#</a></h1>
+<p>Senkron sayıcının iki giriş portu ve bir çıkış portu vardır. Çok basit bir simülasyon ortamı şunlar olabilir:</p>
+<pre><code>-- File counter_sim.vhd
+-- Entities of simulation environments are frequently black boxes without
+-- ports.
+entity counter_sim is
+end entity counter_sim;
+
+architecture sim of counter_sim is
+
+  -- One signal per port of the DUT. Signals can have the same name as
+  -- the corresponding port but they do not need to.
+  signal clk:  bit;
+  signal rst:  bit;
+  signal data: natural;
+
+begin
+
+  -- Instantiation of the DUT
+  u0: entity work.counter(sync)
+  port map(
+    clock =&gt; clk,
+    reset =&gt; rst,
+    data  =&gt; data
+  );
+
+  -- A clock generating process with a 2ns clock period. The process
+  -- being an infinite loop, the clock will never stop toggling.
+  process
+  begin
+    clk &lt;= '0';
+    wait for 1 ns;
+    clk &lt;= '1';
+    wait for 1 ns;
+  end process;
+
+  -- The process that handles the reset: active from beginning of
+  -- simulation until the 5th rising edge of the clock.
+  process
+  begin
+    rst  &lt;= '1';
+    for i in 1 to 5 loop
+      wait until rising_edge(clk);
+    end loop;
+    rst  &lt;= '0';
+    wait; -- Eternal wait. Stops the process forever.
+  end process;
+
+end architecture sim;
+</code></pre>
+<h1 id="ghdl-ile-simülasyon">GHDL ile simülasyon <a href="#ghdl-ile-sim%c3%bclasyon" class="anchor" aria-hidden="true">#</a></h1>
+<p>Bunu GHDL ile derleyip simüle edelim:</p>
+<pre><code>$ mkdir gh_work
+$ ghdl -a --workdir=gh_work counter_sim.vhd
+counter_sim.vhd:27:24: unit &quot;counter&quot; not found in 'library &quot;work&quot;'
+counter_sim.vhd:50:35: no declaration for &quot;rising_edge&quot;
+</code></pre>
+<p>Ardından hata mesajları bize iki önemli şey söyler:</p>
+<ul>
+<li>GHDL çözümleyicisi, tasarımımızın &ldquo;sayaç&rdquo; adlı bir varlığı somutlaştırdığını keşfetti, ancak bu varlık kitaplık &ldquo;çalışmasında&rdquo; bulunamadı. Bunun nedeni, &lsquo;counter_sim&rsquo;den önce &lsquo;counter&rsquo;ı derlemememizdir. Varlıkları somutlaştıran VHDL tasarımlarını derlerken, alt düzeyler her zaman üst düzeylerden önce derlenmelidir (hiyerarşik tasarımlar ayrıca yukarıdan aşağıya derlenebilir, ancak yalnızca varlıkları değil &ldquo;bileşeni&rdquo; somutlaştırırlarsa).</li>
+<li>Tasarımımızın kullandığı &lsquo;rising_edge&rsquo; fonksiyonu tanımlı değil. Bunun nedeni, bu işlevin VHDL 2008&rsquo;de tanıtılmış olması ve GHDL&rsquo;ye dilin bu sürümünü kullanmasını söylememiş olmamızdır (varsayılan olarak, VHDL 1987 sözdiziminin toleransıyla VHDL 1993&rsquo;ü kullanır).</li>
+</ul>
+<p>İki hatayı düzeltelim ve simülasyonu başlatalım:</p>
+<pre><code>$ ghdl -a --workdir=gh_work --std=08 counter.vhd counter_sim.vhd
+$ ghdl -r --workdir=gh_work --std=08 counter_sim sim
+^C
+</code></pre>
+<p>__ ve__ simülasyonu analizi için <code>--std=08</code> seçeneğinin gerekli olduğuna dikkat edin. Simülasyonu bir kaynak dosyada değil, &ldquo;counter_sim&rdquo; varlığı, &ldquo;sim&rdquo; mimarisinde başlattığımızı da unutmayın.</p>
+<p>Simülasyon ortamımız hiç bitmeyen bir sürece (saati oluşturan süreç) sahip olduğundan simülasyon durmaz ve onu manuel olarak kesmemiz gerekir. Bunun yerine <code>--stop-time</code> seçeneği ile bir durma zamanı belirtebiliriz:</p>
+<pre><code>$ ghdl -r --workdir=gh_work --std=08 counter_sim sim --stop-time=60ns
+ghdl:info: simulation stopped by --stop-time
+</code></pre>
+<p>Olduğu gibi, simülasyon bize DUT&rsquo;ımızın davranışı hakkında fazla bir şey söylemez. Sinyallerin değer değişikliklerini bir dosyaya dökelim:</p>
+<pre><code>$ ghdl -r --workdir=gh_work --std=08 counter_sim sim --stop-time=60ns --vcd=counter_sim.vcd
+Vcd.Avhpi_Error!
+ghdl:info: simulation stopped by --stop-time
+</code></pre>
+<p>(hata mesajını dikkate almayın, bu GHDL&rsquo;de düzeltilmesi gereken ve hiçbir sonucu olmayan bir şeydir). Bir &ldquo;counter_sim.vcd&rdquo; dosyası oluşturuldu. Simülasyon sırasındaki tüm sinyal değişikliklerini VCD (ASCII) formatında içerir. GTKWave bize ilgili grafik dalga formlarını gösterebilir:</p>
+<pre><code>$ gtkwave counter_sim.vcd
+</code></pre>
+<p>burada sayacın beklendiği gibi çalıştığını görebiliriz.</p>
+<p><a href="http://i.stack.imgur.com/0Lcry.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/0Lcry.png" alt="GTKWave dalga formu"></a></p>
+<h1 id="modelsim-ile-simülasyon">Modelsim ile Simülasyon <a href="#modelsim-ile-sim%c3%bclasyon" class="anchor" aria-hidden="true">#</a></h1>
+<p>Prensip Modelsim ile tamamen aynıdır:</p>
+<pre><code>$ vlib ms_work
+...
+$ vmap work ms_work
+...
+$ vcom -nologo -quiet -2008 counter.vhd counter_sim.vhd
+$ vsim -voptargs=&quot;+acc&quot; 'counter_sim(sim)' -do 'add wave /*; run 60ns'
+</code></pre>
+<p><a href="http://i.stack.imgur.com/xhAgo.png"><img class="img-fluid lazyload blur-up" src="http://i.stack.imgur.com/xhAgo.png" alt="buraya resim açıklamasını girin"></a></p>
+<p>&ldquo;vsim&quot;e geçirilen &ldquo;-voptargs=&quot;+acc&rdquo;` seçeneğine dikkat edin: simülatörün &ldquo;veri&rdquo; sinyalini optimize etmesini engeller ve dalga formlarında görmemizi sağlar.</p>
+<h1 id="incelikle-biten-simülasyonlar">İncelikle biten simülasyonlar <a href="#incelikle-biten-sim%c3%bclasyonlar" class="anchor" aria-hidden="true">#</a></h1>
+<p>Her iki simülatörde de hiç bitmeyen simülasyonu kesintiye uğratmak veya özel bir seçenekle bir durma zamanı belirlemek zorunda kaldık. Bu çok uygun değil. Çoğu durumda bir simülasyonun bitiş zamanını tahmin etmek zordur. Belirli bir koşula ulaşıldığında, örneğin sayacın mevcut değeri 20&rsquo;ye ulaştığında, simülasyonu simülasyon ortamının VHDL kodunun içinden durdurmak çok daha iyi olacaktır. sıfırlamayı işleyen süreç:</p>
+<pre><code>  process
+  begin
+    rst &lt;= '1';
+    for i in 1 to 5 loop
+      wait until rising_edge(clk);
+    end loop;
+    rst &lt;= '0';
+    loop
+      wait until rising_edge(clk);
+      assert data /= 20 report &quot;End of simulation&quot; severity failure;
+    end loop;
+  end process;
+</code></pre>
+<p>&lsquo;veri&rsquo; 20&rsquo;den farklı olduğu sürece simülasyon devam eder. &ldquo;veri&rdquo; 20&rsquo;ye ulaştığında simülasyon bir hata mesajıyla çöküyor:</p>
+<pre><code>$ ghdl -a --workdir=gh_work --std=08 counter_sim.vhd
+$ ghdl -r --workdir=gh_work --std=08 counter_sim sim
+counter_sim.vhd:90:24:@51ns:(assertion failure): End of simulation
+ghdl:error: assertion failed
+  from: process work.counter_sim(sim2).P1 at counter_sim.vhd:90
+ghdl:error: simulation failed
+</code></pre>
+<p>Yalnızca simülasyon ortamını yeniden derlediğimize dikkat edin: değişen tek tasarım bu ve en üst düzey. Yalnızca &ldquo;counter.vhd&quot;yi değiştirmiş olsaydık, her ikisini de yeniden derlememiz gerekirdi: değiştiği için &ldquo;counter.vhd&rdquo; ve &ldquo;counter.vhd&quot;ye bağlı olduğu için &ldquo;counter_sim.vhd&rdquo;.</p>
+<p>Simülasyonu bir hata mesajıyla çökertmek pek şık değil. Otomatik bir regresyon olmayan testin geçip geçmediğine karar vermek için simülasyon mesajlarını otomatik olarak ayrıştırırken bile sorun olabilir. Daha iyi ve çok daha zarif bir çözüm, bir koşula ulaşıldığında tüm süreçleri durdurmaktır. Bu, örneğin bir &lsquo;boolean&rsquo; Simülasyon Sonu (&rsquo;eof&rsquo;) sinyali eklenerek yapılabilir. Varsayılan olarak simülasyonun başında &lsquo;false&rsquo; olarak başlatılır. Simülasyonu bitirme zamanı geldiğinde, süreçlerimizden biri onu &rsquo;true&rsquo; olarak ayarlayacaktır. Diğer tüm işlemler bu sinyali izleyecek ve &ldquo;gerçek&rdquo; hale geldiğinde sonsuz bir &ldquo;bekleme&rdquo; ile duracaktır:</p>
+<pre><code>  signal eos:  boolean;
+...
+  process
+  begin
+    clk &lt;= '0';
+    wait for 1 ns;
+    clk &lt;= '1';
+    wait for 1 ns;
+    if eos then
+      report &quot;End of simulation&quot;;
+      wait;
+    end if;
+  end process;
+
+  process
+  begin
+    rst &lt;= '1';
+    for i in 1 to 5 loop
+      wait until rising_edge(clk);
+    end loop;
+    rst &lt;= '0';
+    for i in 1 to 20 loop
+      wait until rising_edge(clk);
+    end loop;
+    eos &lt;= true;
+    wait;
+  end process;
+</code></pre>
+<pre><code>$ ghdl -a --workdir=gh_work --std=08 counter_sim.vhd
+$ ghdl -r --workdir=gh_work --std=08 counter_sim sim
+counter_sim.vhd:120:24:@50ns:(report note): End of simulation
+</code></pre>
+<p>Son olarak, VHDL 2008&rsquo;de standart &ldquo;env&rdquo; paketi ve bildirdiği &ldquo;stop&rdquo; ve &ldquo;finish&rdquo; prosedürleriyle sunulan daha da iyi bir çözüm var:</p>
+<pre><code>use std.env.all;
+...
+  process
+  begin
+    rst    &lt;= '1';
+    for i in 1 to 5 loop
+      wait until rising_edge(clk);
+    end loop;
+    rst    &lt;= '0';
+    for i in 1 to 20 loop
+      wait until rising_edge(clk);
+    end loop;
+    finish;
+  end process;
+</code></pre>
+<pre><code>$ ghdl -a --workdir=gh_work --std=08 counter_sim.vhd
+$ ghdl -r --workdir=gh_work --std=08 counter_sim sim
+simulation finished @49ns
+</code></pre>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	
+		<a class="ms-auto" href="/tr/vhdl/ozetle-vhdl-kullanan-dijital-donanm-tasarm/">
+						<div class="card my-1">
+							<div class="card-body py-2">
+								Özetle VHDL kullanan dijital donanım tasarımı &rarr;
+							</div>
+						</div>
+					</a>
+				
+	
+	</div>
+
+			
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2018-2022 Wikiod.</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="/tr/about/">Hakkında</a></li>
+          <li class="list-inline-item"><a href="/tr/disclaimers/">Sorumluluk Reddi</a></li>
+          <li class="list-inline-item"><a href="/tr/dcma/">DCMA</a></li>
+          <li class="list-inline-item"><a href="/tr/terms-of-use/">Kullanım Şartları</a></li>
+          <li class="list-inline-item"><a href="/tr/privacy-policy/">Gizlilik Politikası</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/bootstrap.min.54bf0932b8a36d0e152b1635b099a6ef1394d35327e2437550a075c9c8ed1bd8aed5847c21b36fc02ed24014c031d9ca24017b0c78b1639d7e2fa8329898b842.js" integrity="sha512-VL8JMrijbQ4VKxY1sJmm7xOU01Mn4kN1UKB1ycjtG9iu1YR8IbNvwC7SQBTAMdnKJAF7DHixY51&#43;L6gymJi4Qg==" crossorigin="anonymous" defer></script>
+  <script src="/js/highlight.min.56a414730f1135fe77b5ea30bf74a2cc4101a6f386e85e5b789c800570cc33d33054000f45932c053a59b41018f72687867254a80e1b9710671852492533162f.js" integrity="sha512-VqQUcw8RNf53teowv3SizEEBpvOG6F5beJyABXDMM9MwVAAPRZMsBTpZtBAY9yaHhnJUqA4blxBnGFJJJTMWLw==" crossorigin="anonymous" defer></script>
+  <script src="/main.min.4971645518aa07968852c38e2c8051abe697181395ad03d5fa0eb28e42edf5f54f801de05c98298ce77b65223caf97b7ea259fbca096e64b3840985ec069e2ef.js" integrity="sha512-SXFkVRiqB5aIUsOOLIBRq&#43;aXGBOVrQPV&#43;g6yjkLt9fVPgB3gXJgpjOd7ZSI8r5e36iWfvKCW5ks4QJhewGni7w==" crossorigin="anonymous" defer></script>
+  
+    
+  </body>
+</html>

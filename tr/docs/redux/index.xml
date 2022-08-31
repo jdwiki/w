@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redux Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/redux/</link>
+    <description>Recent content in redux Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/redux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redux&#39;u kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/redux/reduxu-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/redux/reduxu-kullanmaya-baslama/</guid>
+      <description>Kurulum veya Kurulum # Temel kurulum:
+Redux javascript dosyasını bu link kullanarak indirebilirsiniz.
+Ayrıca bower kullanarak redux yükleyebilirsiniz:
+bower install https://npmcdn.com/redux@latest/dist/redux.min.js Ardından, sayfanıza redux eklemeniz gerekir:
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/path/to/redux.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; // Redux is available as `window.Redux` variable. &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; Npm kurulumu:
+npm kullanıyorsanız, redux&amp;rsquo;u yüklemek için şunları çalıştırmanız gerekir:
+npm install redux --save Daha sonra, redux kullanmak için buna ihtiyaç duymanız gerekir (webpack gibi modül paketleyici kullandığınızı varsayarak):</description>
+    </item>
+    
+    <item>
+      <title>Eşzamansız Veri Akışı</title>
+      <link>https://www.wikiod.com/tr/redux/eszamansz-veri-aks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/redux/eszamansz-veri-aks/</guid>
+      <description>Redux-thunk: temel bilgiler # Redux&amp;rsquo;un kendisi tamamen senkronize olsa da, asenkron eylemleri işlemek için &amp;ldquo;redux-thunk&amp;rdquo; gibi bir ara yazılım kullanabilirsiniz.
+Bir &amp;ldquo;thunk&amp;rdquo;, geri arama için başka bir addır. Genellikle olan bir fonksiyondur daha sonra çağrılacak bir argüman olarak iletildi.
+Kullanmak için ara yazılımı redux mağazanıza uygulayın:
+import ReduxThunk from &#39;redux-thunk&#39;; const store = createStore( reducer, applyMiddleware(ReduxThunk) ); Bu, düz bir nesne yerine &amp;lsquo;gönderme&amp;rsquo; için bir thunk iletmenizi sağlar. Ara katman yazılımı thunk&amp;rsquo;ı tanıyacak ve onu arayacaktır.</description>
+    </item>
+    
+    <item>
+      <title>Pure Redux - Herhangi bir çerçeve olmadan Redux</title>
+      <link>https://www.wikiod.com/tr/redux/pure-redux---herhangi-bir-cerceve-olmadan-redux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/redux/pure-redux---herhangi-bir-cerceve-olmadan-redux/</guid>
+      <description>Parametreler # parametre Açıklama eylem En azından &amp;rsquo;type&amp;rsquo; özelliğine sahip bir nesne olmalıdır. Diğer herhangi bir özellik iletilebilir ve redüktör işlevi içinde erişilebilir olacaktır. Webpack ve Browserify gibi paketleyiciler kullanmıyorsanız, ilk satırı şu şekilde değiştirin:
+const { createStore } = Redux; Veya mağazayı oluştururken doğrudan Redux global&amp;rsquo;den arayın:
+const store = Redux.createStore(counter); Tam örnek # &amp;ldquo;index.html&amp;rdquo; # &amp;lt;button id=&amp;quot;increment&amp;quot;&amp;gt;Increment&amp;lt;/button&amp;gt; &amp;lt;button id=&amp;quot;decrement&amp;quot;&amp;gt;Decrement&amp;lt;/button&amp;gt; &amp;lt;p id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/p&amp;gt; &amp;ldquo;index.js&amp;rdquo; # import { createStore } from &#39;redux&#39;; function counter(state = 0, action) { switch (action.</description>
+    </item>
+    
+    <item>
+      <title>Redux uygulamalarını test etme</title>
+      <link>https://www.wikiod.com/tr/redux/redux-uygulamalarn-test-etme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/redux/redux-uygulamalarn-test-etme/</guid>
+      <description>Redux + Moka # Redux çok işlevseldir, bu nedenle birim testi çok basittir.
+Eylem yaratıcısı:
+export function showSidebar () { return { type: &#39;SHOW_SIDEBAR&#39; } } Eylem oluşturucular birim testi:
+import expect from &#39;expect&#39; import actions from &#39;./actions&#39; import * as type from &#39;./constants&#39; describe(&#39;actions&#39;, () =&amp;gt; { it(&#39;should show sidebar&#39;, () =&amp;gt; { const expectedAction = { type: type.SHOW_SIDEBAR } expect(actions.showSidebar()).toEqual(expectedAction) }) }) Redux mağazasını Mocha ve Chai ile test etme # import { expect } from &#39;chai&#39;; import { createStore } from &#39;redux&#39;; describe(&#39;redux store test demonstration&#39;, () =&amp;gt; { describe(&#39;testReducer&#39;, () =&amp;gt; { it(&#39;should increment value on TEST_ACTION&#39;, () =&amp;gt; { // define a test reducer with initial state: test: 0 const testReducer = (state = { test: 0 }, action) =&amp;gt; { switch (action.</description>
+    </item>
+    
+    <item>
+      <title>Redux nasıl bağlanır ve tepki verilir</title>
+      <link>https://www.wikiod.com/tr/redux/redux-nasl-baglanr-ve-tepki-verilir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/redux/redux-nasl-baglanr-ve-tepki-verilir/</guid>
+      <description>Sözdizimi # &amp;ldquo;&amp;lt;Sağlayıcı mağazası&amp;gt;&amp;rdquo; connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [seçenekler]) Parametreler # argüman Açıklama mağaza Redux mağazası mapStateToProps Kullanıcı tarafından sağlanan eşleme: (state, ownProps) =&amp;gt; resultProps Sağlayıcı # Redux mağazanızı React bileşenlerinize kolayca bağlamak için ek bir kitaplık kullanabilirsiniz: react-redux.
+İlk olarak, uygulamanızı alt bileşenler tarafından kullanılmak üzere mağazanızdan geçen bir bileşen olan bir &amp;ldquo;Sağlayıcı&amp;rdquo; içine sarmanız gerekir:
+import { Provider } from &#39;react-redux&#39;; /// ... store = createStore() const App = () =&amp;gt; ( &amp;lt;Provider store={store}&amp;gt; &amp;lt;MyComponent&amp;gt; &amp;lt;/Provider&amp;gt; ) Türetilmiş verileri not alma # Redux mağazanızda ham verileri tutarsınız.</description>
+    </item>
+    
+    <item>
+      <title>redüktör</title>
+      <link>https://www.wikiod.com/tr/redux/reduktor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/redux/reduktor/</guid>
+      <description>Azaltıcılar, başlatılan eylemlere göre uygulama durumunu değiştirir.
+Durum değişmezdir, yani redüktörler saf olmalıdır: aynı girdi için her zaman aynı çıktıyı almalısınız. Bu nedenle redüktörlerde değişkenlik yasaktır.
+Temel redüktör # Temel bir redüktör şöyle görünür:
+// Import the action types to recognise them import { ACTION_ERROR, ACTION_ENTITIES_LOADED, ACTION_ENTITY_CREATED } from &#39;./actions&#39;; // Set up a default state const initialState = { error: undefined, entities: [] }; // If no state is provided, we take the default state export default (state = initilState, action) =&amp;gt; { // Based on the type of action received, we calculate the new state switch(action.</description>
+    </item>
+    
+  </channel>
+</rss>

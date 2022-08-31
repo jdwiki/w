@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wcf Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/wcf/</link>
+    <description>Recent content in wcf Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/wcf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wcf&#39;ye başlarken</title>
+      <link>https://www.wikiod.com/tr/wcf/wcfye-baslarken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wcf/wcfye-baslarken/</guid>
+      <description>WCF Huzurlu Hizmet Demosu # svc
+public class WCFRestfulService : IWCFRestfulService { public string GetServiceName(int Id) { return &amp;quot;This is a WCF Restful Service&amp;quot;; } } Arayüz
+[ServiceContract(Name = &amp;quot;WCRestfulService &amp;quot;)] public interface IWCFRestfulService { [OperationContract] [WebInvoke(Method = &amp;quot;GET&amp;quot;, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = &amp;quot;GetServiceName?Id={Id}&amp;quot;)] string GetServiceName(int Id); } svc İşaretleme (svc dosyasına sağ tıklayın ve İşaretlemeyi görüntüle&amp;rsquo;ye tıklayın)
+&amp;lt;%@ ServiceHost Language=&amp;quot;C#&amp;quot; Debug=&amp;quot;true&amp;quot; Service=&amp;quot;NamespaceName.WCFRestfulService&amp;quot; CodeBehind=&amp;quot;WCFRestfulService.svc.cs&amp;quot; %&amp;gt; Web Yapılandırması</description>
+    </item>
+    
+    <item>
+      <title>WCF hizmetiyle bağımlılık ekleme kapsayıcısı nasıl kullanılır?</title>
+      <link>https://www.wikiod.com/tr/wcf/wcf-hizmetiyle-bagmllk-ekleme-kapsaycs-nasl-kullanlr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wcf/wcf-hizmetiyle-bagmllk-ekleme-kapsaycs-nasl-kullanlr/</guid>
+      <description>Bağımlılık Enjeksiyon Konteyneri (Castle Windsor) Kullanacak Bir WCF Hizmeti Nasıl Yapılandırılır # Bu örneğin iki bölümü vardır - Windsor Kalesi&amp;rsquo;ni WCF hizmetinize eklemek için bazı temel adımlar ve ardından Windsor&amp;rsquo;un kapsayıcısını nasıl yapılandırdığımızı ve kullandığımızı gösteren basit, somut bir örnek.
+Bu da örneği biraz uzun kılıyor. Bir DI kabı kullanmayı zaten anlıyorsanız, muhtemelen yalnızca standart adım adımlarını önemsiyorsunuzdur. Bir DI kapsayıcı kullanmak tanıdık değilse, mantıklı olması için biraz daha fazla zaman alır - her şeyin uçtan uca çalıştığını görmek - mantıklı.</description>
+    </item>
+    
+    <item>
+      <title>ilk hizmetiniz</title>
+      <link>https://www.wikiod.com/tr/wcf/ilk-hizmetiniz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wcf/ilk-hizmetiniz/</guid>
+      <description>Hizmetinize bir meta veri uç noktası ekleme # SOAP hizmetleri, istemciler tarafından çağrılabilecek yöntemleri açıklayan meta verileri yayınlayabilir. İstemciler, otomatik olarak kod oluşturmak için Visual Studio gibi araçları kullanabilir (istemci proxy&amp;rsquo;leri olarak bilinir). Proxy&amp;rsquo;ler, bir hizmeti çağırmanın karmaşıklığını gizler. Bir hizmeti çağırmak için, yalnızca bir istemci proxy&amp;rsquo;sinde bir yöntem çağrılır.
+Öncelikle hizmetinize bir meta veri bitiş noktası eklemelisiniz. Hizmetinizin &amp;ldquo;İlk hizmet ve ana bilgisayar&amp;rdquo; örneğinde tanımlananla aynı göründüğünü varsayarak, yapılandırma dosyasında aşağıdaki değişiklikleri yapabilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>WCF Dinlendirici Hizmet</title>
+      <link>https://www.wikiod.com/tr/wcf/wcf-dinlendirici-hizmet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wcf/wcf-dinlendirici-hizmet/</guid>
+      <description>WCF Hızlı Hizmet # [ServiceContract] public interface IBookService { [OperationContract] [WebGet] List&amp;lt;Book&amp;gt; GetBooksList(); [OperationContract] [WebGet(UriTemplate = &amp;quot;Book/{id}&amp;quot;)] Book GetBookById(string id); [OperationContract] [WebInvoke(UriTemplate = &amp;quot;AddBook/{name}&amp;quot;)] void AddBook(string name); [OperationContract] [WebInvoke(UriTemplate = &amp;quot;UpdateBook/{id}/{name}&amp;quot;)] void UpdateBook(string id, string name); [OperationContract] [WebInvoke(UriTemplate = &amp;quot;DeleteBook/{id}&amp;quot;)] void DeleteBook(string id); } Hizmetin Uygulanması
+Artık hizmet uygulama kısmı, ilgili tüm işlemleri gerçekleştirmek için varlık çerçevesi tarafından oluşturulan bağlamı ve varlıkları kullanacaktır.
+public class BookService : IBookService { public List&amp;lt;Book&amp;gt; GetBooksList() { using (SampleDbEntities entities = new SampleDbEntities()) { return entities.</description>
+    </item>
+    
+    <item>
+      <title>İzleme</title>
+      <link>https://www.wikiod.com/tr/wcf/izleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wcf/izleme/</guid>
+      <description>İzleme Ayarları # WCF izleme, System.Diagnostics&amp;rsquo;in üzerine kurulmuştur. İzlemeyi kullanmak için, izleme kaynaklarını yapılandırma dosyasında veya kodda tanımlamanız gerekir.
+İzleme varsayılan olarak etkin değildir. İzlemeyi etkinleştirmek için, bir izleme dinleyicisi oluşturmalı ve yapılandırmada seçilen izleme kaynağı için &amp;ldquo;Kapalı&amp;rdquo; dışında bir izleme düzeyi ayarlamalısınız; aksi takdirde, WCF herhangi bir iz oluşturmaz.
+Aşağıdaki örnek, mesaj günlüğünün nasıl etkinleştirileceğini ve ek seçeneklerin nasıl belirleneceğini gösterir:
+&amp;lt;configuration&amp;gt; &amp;lt;system.diagnostics&amp;gt; &amp;lt;sources&amp;gt; &amp;lt;source name=&amp;quot;System.ServiceModel&amp;quot; switchValue=&amp;quot;All&amp;quot; propagateActivity=&amp;quot;true&amp;quot; &amp;gt; &amp;lt;listeners&amp;gt; &amp;lt;add name=&amp;quot;wcf_trace&amp;quot;/&amp;gt; &amp;lt;/listeners&amp;gt; &amp;lt;/source&amp;gt; &amp;lt;source name=&amp;quot;System.</description>
+    </item>
+    
+    <item>
+      <title>WCF Güvenliği</title>
+      <link>https://www.wikiod.com/tr/wcf/wcf-guvenligi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wcf/wcf-guvenligi/</guid>
+      <description>WCF Güvenliği # Güvenlik, uygulamaya yönelik herhangi bir programlama teknolojisinin veya çerçevesinin kritik bir parçasıdır. hizmet odaklı uygulamalar
+WCF için sıfırdan inşa edilmiştir mesaj ve hizmet düzeyinde gerekli güvenlik altyapısının sağlanması.
+Aşağıdaki bölümlerde, nasıl kullanılacağını göreceksiniz WCF&amp;rsquo;deki birçok kullanılabilir güvenlik ayarı ve bazı yaygın dağıtım senaryoları.
+Mesaj koruması için WCF, iki geleneksel güvenlik modelini, taşıma güvenliğini destekler. ve mesaj güvenliği.
+Bağlantılar, iletişim protokolünü belirlemeye ve hizmetler için kodlamaya ek olarak, ayrıca mesaj koruma ayarlarını ve kimlik doğrulama şemasını yapılandırmanıza da izin verir.</description>
+    </item>
+    
+    <item>
+      <title>seri hale getirme</title>
+      <link>https://www.wikiod.com/tr/wcf/seri-hale-getirme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wcf/seri-hale-getirme/</guid>
+      <description>WCF&amp;rsquo;de Serileştirme # Serileştirme, nesneyi depolamak veya belleğe, veritabanına veya dosyaya iletmek için bir nesneyi bir bayt akışına dönüştürme işlemidir. Microsoft sayfası Serileştirme
+Aşağıdaki örnek, WCF&amp;rsquo;de Serileştirmeyi gösterir:
+[ServiceContract(Namespace=&amp;quot;http://Microsoft.ServiceModel.Samples&amp;quot;)] public interface IPerson { [OperationContract] void Add(Person person); [DataContract] public class Person { private int id; [DataMember] public int Age{ set; get;} } } [DataContract] Niteliği sınıflarla birlikte kullanılır. Burada &amp;lsquo;Person&amp;rsquo; sınıfı ile dekore edilmiştir.
+Yöntemler için [OperationContract] kullanılır. Burada &amp;lsquo;Add&amp;rsquo; yöntemi ile dekore edilmiştir.</description>
+    </item>
+    
+    <item>
+      <title>İstisnaları işleme</title>
+      <link>https://www.wikiod.com/tr/wcf/istisnalar-isleme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wcf/istisnalar-isleme/</guid>
+      <description>Daha fazla okuma
+FaultException hakkında daha fazla bilgi: MSDN FaultException
+Özel bir hata günlüğü çerçevesi kullanma # Tüm istisnaların günlüğe kaydedildiğinden emin olmak için özel bir hata günlüğü çerçevesini entegre etmek bazen yararlıdır.
+[ServiceContract] [ErrorHandler] public interface IMyService { } [AttributeUsage(AttributeTargets.Interface)] public class CustomErrorHandler : Attribute, IContractBehavior, IErrorHandler { public bool HandleError(Exception error) { return false; } public void ProvideFault(Exception error, MessageVersion version, ref Message fault) { if (error == null) { return; } //my custom logging framework } public void ApplyDispatchBehavior(ContractDescription contractDescription, ServiceEndpoint endpoint, DispatchRuntime dispatchRuntime) { dispatchRuntime.</description>
+    </item>
+    
+    <item>
+      <title>C# uygulama kodunda WCF izlemeyi Devre Dışı BırakmaEtkinleştirme</title>
+      <link>https://www.wikiod.com/tr/wcf/c-uygulama-kodunda-wcf-izlemeyi-devre-ds-brakmaetkinlestirme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wcf/c-uygulama-kodunda-wcf-izlemeyi-devre-ds-brakmaetkinlestirme/</guid>
+      <description>Tek yol: C# kodunuzda tanımlanan özel bir dinleyici kullanın # Bunu düzeltmem biraz zaman aldı, bu yüzden bir çözümü paylaşmaya karar verdim çünkü başka birini birkaç gün deneme yanılmadan kurtarabilir.
+Sorun: C# .NET uygulamamda WCF izlemeyi etkinleştirebilmek/devre dışı bırakabilmek ve izleme çıktı dosya adını seçebilmek istiyorum. Kullanıcıların .config dosyasını düzenlemesini istemiyorum, orada hata için çok fazla yer var.
+İşte bir çözüm.
+Uygulamanın .config dosyası:
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot;?&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;system.diagnostics&amp;gt; &amp;lt;trace autoflush=&amp;quot;true&amp;quot;/&amp;gt; &amp;lt;sources&amp;gt; &amp;lt;source name=&amp;quot;System.</description>
+    </item>
+    
+    <item>
+      <title>DataContractSerializer, bir Opt-In ve Opt-Out serileştiricisidir.</title>
+      <link>https://www.wikiod.com/tr/wcf/datacontractserializer-bir-opt-in-ve-opt-out-serilestiricisidir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/wcf/datacontractserializer-bir-opt-in-ve-opt-out-serilestiricisidir/</guid>
+      <description>aslında çok basit: Opt-In yaklaşımı, DataContract&amp;rsquo;ın parçası olduğu düşünülen özelliklerin açıkça işaretlenmesi gerektiğini söyler, aksi takdirde yoksayılır, Opt-Out, açıkça işaretlenmedikçe tüm özelliklerin DataContract&amp;rsquo;ın parçası olduğu varsayılacağı anlamına gelir.
+Serileştiriciyi etkinleştirme nedir # /// &amp;lt;summary&amp;gt; /// Defines a student. /// &amp;lt;/summary&amp;gt; [DataContract] public class Student { /// &amp;lt;summary&amp;gt; /// Gets or sets the student number. /// &amp;lt;/summary&amp;gt; [DataMember] public string StudentNumber { get; set; } /// &amp;lt;summary&amp;gt; /// Gets or sets the first name.</description>
+    </item>
+    
+  </channel>
+</rss>

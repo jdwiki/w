@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SCons Eğitimi on </title>
+    <link>https://www.wikiod.com/tr/docs/scons/</link>
+    <description>Recent content in SCons Eğitimi on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/tr/docs/scons/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SCons&#39;u kullanmaya başlama</title>
+      <link>https://www.wikiod.com/tr/scons/sconsu-kullanmaya-baslama/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/scons/sconsu-kullanmaya-baslama/</guid>
+      <description>Başlarken # SCons çalışıyor, &amp;ldquo;SConstruct&amp;rdquo; adlı bir dosya oluşturun:
+print(&#39;..Building World&#39;) Şimdi &amp;lsquo;scons&amp;rsquo;u çalıştırın:
+$ scons scons: Reading SConscript files ... ..Building World scons: done reading SConscript files. scons: Building targets ... scons: `.&#39; is up to date. scons: done building targets. SConstruct, ek SCons işlevlerine sahip bir Python betiğidir.
+Zip(&#39;archive&#39;, [&#39;SConstruct&#39;]) Yukarıdaki komut dosyası, SCons tarafından sağlanan &amp;lsquo;Zip()&amp;rsquo; işlevini kullanarak kendisini &amp;lsquo;archive.zip&amp;rsquo; içine paketler. &amp;ldquo;Zip&amp;rdquo; bir Oluşturucudur - birden çok kaynaktan ilk argümanla belirtilen hedef oluşturur ve bu, inşaatçılar için konvansiyonel olarak ikinci argüman olarak gelir.</description>
+    </item>
+    
+    <item>
+      <title>SCons&#39;u çalıştırma</title>
+      <link>https://www.wikiod.com/tr/scons/sconsu-calstrma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/scons/sconsu-calstrma/</guid>
+      <description>SCons, Python 2&amp;rsquo;de yazılmıştır ve çalışması için herhangi bir bağımlılığa ihtiyaç duymaz. Komut dosyalarını proje kaynak ağacınıza kopyalayabilir ve buradan çalıştırabilirsiniz. Veya işletim sisteminiz için paketlenmiş sürümü kullanmak isteyebilirsiniz.
+Linux&amp;rsquo;a yükleme # Debian veya Ubuntu&amp;rsquo;da SCons&amp;rsquo;u kullanarak yükleyebilirsiniz.
+$ sudo apt-get install scons [YUM] (https://en.wikipedia.org/wiki/Yellowdog_Updater,_Modified) tabanlı sistemlerde,
+$ sudo yum install scons Bir RPM kullanarak indirip çalıştırarak yükleyebilirsiniz.
+$ sudo rpm -Uvh http://prdownloads.sourceforge.net/scons/scons-2.5.0-1.noarch.rpm Windows&amp;rsquo;a yükleme # http://scons.org/pages/download.html adresinden yükleyiciyi alın</description>
+    </item>
+    
+    <item>
+      <title>SCons çalıştırma aşamaları</title>
+      <link>https://www.wikiod.com/tr/scons/scons-calstrma-asamalar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/scons/scons-calstrma-asamalar/</guid>
+      <description>SCons, çok adımlı bir yapı sistemidir. İlk önce Python kodunu yürütmek ve hedeflerle &amp;lsquo;inşa grafiği&amp;rsquo; oluşturmak için tüm &amp;lsquo;SConstruct&amp;rsquo; ve &amp;lsquo;SConscript&amp;rsquo;i okur. Ardından, &amp;lsquo;inşa grafiğinden&amp;rsquo; hangi hedeflerin güncellenmesi gerektiğini tespit etmek için dosya sistemini tarar ve bundan sonra eski hedefler oluşturmak için komutu yürütür.
+SCons aşamalarını inceleme # &amp;lsquo;scons&amp;rsquo;, çalışan aşamaların kendisini tanımlar. Boş bir &amp;ldquo;SConstruct&amp;rdquo; üzerinde çalıştırmak şunu verir:
+$ scons scons: Reading SConscript files ... scons: done reading SConscript files.</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://www.wikiod.com/tr/scons/c-/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/tr/scons/c-/</guid>
+      <description>Basit Bir Yapı # Basit bir C++ projesi oluşturmak çok kolaydır. İşte bunu yapan bir SConstruct dosyası örneği:
+env=Environment() env.Program(&#39;hello&#39;, Glob(&#39;src/*.cpp&#39;)) Bu, &amp;ldquo;src&amp;rdquo; içindeki &amp;ldquo;cpp&amp;rdquo; uzantılı tüm kaynaklardan oluşan yürütülebilir &amp;ldquo;merhaba&amp;quot;yı oluşturur.
+Çeşitli Yapı Seçeneklerini Belirtme # Bu örnek, daha ayrıntılı yapı ayarlarını gösterir:
+env=Environment( CPPPATH=&#39;/usr/include/boost/&#39;, CPPDEFINES=[&#39;foo&#39;], LIBS=[&#39;bar&#39;], SCONS_CXX_STANDARD=&#39;c++11&#39;) env.Program(&#39;hello&#39;, Glob(&#39;src/*.cpp&#39;)) Bu, aşağıdaki ayarlarla &amp;ldquo;src&amp;rdquo; içindeki tüm &amp;ldquo;cpp&amp;rdquo; dosyalarından yürütülebilir &amp;ldquo;merhaba&amp;quot;yı oluşturur:
+Arama yolu `/usr/include/boost&amp;rsquo; şeklindedir.
+Sabit &amp;lsquo;FOO&amp;rsquo; tanımlanır
+bar ile yürütülebilir bağlantılar</description>
+    </item>
+    
+  </channel>
+</rss>

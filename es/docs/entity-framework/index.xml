@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de Entity Framework on </title>
+    <link>https://www.wikiod.com/es/docs/entity-framework/</link>
+    <description>Recent content in Tutorial de Entity Framework on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/entity-framework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primeros pasos con Entity Framework</title>
+      <link>https://www.wikiod.com/es/entity-framework/primeros-pasos-con-entity-framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/entity-framework/primeros-pasos-con-entity-framework/</guid>
+      <description>Instalación del paquete NuGet de Entity Framework # En su Visual Studio, abra la ventana Solution Explorer, luego haga clic con el botón derecho en su proyecto y luego seleccione Administrar paquetes NuGet en el menú:
+En la ventana que se abre, escriba EntityFramework en el cuadro de búsqueda en la parte superior derecha.
+O si está utilizando Visual Studio 2015, verá algo como esto:
+Luego haga clic en Instalar.</description>
+    </item>
+    
+    <item>
+      <title>Seguimiento frente a no seguimiento</title>
+      <link>https://www.wikiod.com/es/entity-framework/seguimiento-frente-a-no-seguimiento/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/entity-framework/seguimiento-frente-a-no-seguimiento/</guid>
+      <description>El seguimiento del comportamiento controla si Entity Framework mantendrá o no información sobre una instancia de entidad en su rastreador de cambios. Si se realiza un seguimiento de una entidad, cualquier cambio detectado en la entidad se mantendrá en la base de datos durante SaveChanges().
+Consultas sin seguimiento # Las consultas de seguimiento no son útiles cuando los resultados se utilizan en un escenario solo lectura Son más rápidos de ejecutar porque no hay necesidad de cambiar la configuración información de seguimiento Ejemplo :</description>
+    </item>
+    
+    <item>
+      <title>Cargando entidades relacionadas</title>
+      <link>https://www.wikiod.com/es/entity-framework/cargando-entidades-relacionadas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/entity-framework/cargando-entidades-relacionadas/</guid>
+      <description>Si los modelos están correctamente relacionados, puede cargar fácilmente datos relacionados utilizando EntityFramework. Tienes tres opciones para elegir: carga diferida, carga ansiosa y carga explícita.
+Modelos utilizados en los ejemplos:
+public class Company { public int Id { get; set; } public string FullName { get; set; } public string ShortName { get; set; } // Navigation properties public virtual Person Founder { get; set; } public virtual ICollection&amp;lt;Address&amp;gt; Addresses { get; set; } } public class Address { public int Id { get; set; } public int CompanyId { get; set; } public int CountryId { get; set; } public int CityId { get; set; } public string Street { get; set; } // Navigation properties public virtual Company Company { get; set; } public virtual Country Country { get; set; } public virtual City City { get; set; } } Carga ansiosa # Carga ansiosa le permite cargar todas las entidades necesarias a la vez.</description>
+    </item>
+    
+    <item>
+      <title>Mejores prácticas para Entity Framework (simple y profesional)</title>
+      <link>https://www.wikiod.com/es/entity-framework/mejores-practicas-para-entity-framework-simple-y-profesional/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/entity-framework/mejores-practicas-para-entity-framework-simple-y-profesional/</guid>
+      <description>Este artículo es para presentar una práctica simple y profesional para usar Entity Framework.
+Simple: porque solo necesita una clase (con una interfaz)
+Profesional: porque aplica principios de arquitectura SOLID
+No quiero hablar más&amp;hellip; ¡vamos a disfrutarlo!
+1- Entity Framework @ Capa de datos (Conceptos básicos) # En este artículo usaremos una base de datos simple llamada “Empresa” con dos tablas:
+[dbo].[Categorías]([ID de categoría], [Nombre de categoría])
+[dbo].[Productos]([ProductID], [CategoryID], [ProductName])</description>
+    </item>
+    
+    <item>
+      <title>Anotaciones de datos Code First</title>
+      <link>https://www.wikiod.com/es/entity-framework/anotaciones-de-datos-code-first/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/entity-framework/anotaciones-de-datos-code-first/</guid>
+      <description>Entity Framework Code-First proporciona un conjunto de atributos de anotación de datos, que puede aplicar a las clases y propiedades de su dominio. Los atributos de DataAnnotation anulan las convenciones Code-First predeterminadas.
+System.ComponentModel.DataAnnotations incluye atributos que afectan la nulabilidad o el tamaño de la columna. El espacio de nombres System.ComponentModel.DataAnnotations.Schema incluye atributos que afectan el esquema de la base de datos. Nota: Las anotaciones de datos solo le brindan un subconjunto de opciones de configuración.</description>
+    </item>
+    
+    <item>
+      <title>Técnicas de optimización en EF</title>
+      <link>https://www.wikiod.com/es/entity-framework/tecnicas-de-optimizacion-en-ef/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/entity-framework/tecnicas-de-optimizacion-en-ef/</guid>
+      <description>Uso de AsNoTracking # Mal ejemplo:
+var location = dbContext.Location .Where(l =&amp;gt; l.Location.ID == location_ID) .SingleOrDefault(); return location; Dado que el código anterior simplemente devuelve una entidad sin modificarla ni agregarla, podemos evitar el costo de seguimiento.
+Buen ejemplo:
+var location = dbContext.Location.AsNoTracking() .Where(l =&amp;gt; l.Location.ID == location_ID) .SingleOrDefault(); return location; Cuando usamos la función AsNoTracking(), le estamos diciendo explícitamente a Entity Framework que el contexto no rastrea las entidades. Esto puede ser especialmente útil cuando se recuperan grandes cantidades de datos de su almacén de datos.</description>
+    </item>
+    
+    <item>
+      <title>Convenciones de Code First</title>
+      <link>https://www.wikiod.com/es/entity-framework/convenciones-de-code-first/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/entity-framework/convenciones-de-code-first/</guid>
+      <description>La convención es un conjunto de reglas predeterminadas para configurar automáticamente un modelo conceptual basado en definiciones de clase de dominio cuando se trabaja con Code-First. Las convenciones Code-First se definen en el espacio de nombres System.Data.Entity.ModelConfiguration.Conventions (EF 5 y EF 6).
+Eliminación de convenciones # Puede eliminar cualquiera de las convenciones definidas en el espacio de nombres System.Data.Entity.ModelConfiguration.Conventions anulando el método OnModelCreating.
+El siguiente ejemplo elimina PluralizingTableNameConvention.
+public class EshopContext : DbContext { public DbSet&amp;lt;Product&amp;gt; Products { set; get; } .</description>
+    </item>
+    
+    <item>
+      <title>Código primero API fluida</title>
+      <link>https://www.wikiod.com/es/entity-framework/codigo-primero-api-fluida/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/entity-framework/codigo-primero-api-fluida/</guid>
+      <description>Hay dos formas generales de especificar CÓMO Entity Framework asignará clases POCO a tablas de base de datos, columnas, etc.: Anotaciones de datos y API fluida.
+Si bien las anotaciones de datos son fáciles de leer y comprender, carecen de ciertas funciones, como especificar el comportamiento &amp;ldquo;Cascada al eliminar&amp;rdquo; para una entidad. La API fluida, por otro lado, es un poco más compleja de usar, pero proporciona un conjunto de características mucho más avanzadas.</description>
+    </item>
+    
+    <item>
+      <title>Migraciones de Code First de entidad-marco</title>
+      <link>https://www.wikiod.com/es/entity-framework/migraciones-de-code-first-de-entidad-marco/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/entity-framework/migraciones-de-code-first-de-entidad-marco/</guid>
+      <description>Habilitar migraciones # Para habilitar las migraciones de Code First en el marco de la entidad, use el comando
+Enable-Migrations en la Consola del administrador de paquetes.
+Debe tener una implementación DbContext válida que contenga los objetos de su base de datos administrados por EF. En este ejemplo, el contexto de la base de datos contendrá los objetos BlogPost y Author:
+internal class DatabaseContext: DbContext { public DbSet&amp;lt;Author&amp;gt; Authors { get; set; } public DbSet&amp;lt;BlogPost&amp;gt; BlogPosts { get; set; } } Después de ejecutar el comando, debería aparecer el siguiente resultado:</description>
+    </item>
+    
+    <item>
+      <title>Plantillas .t4 en el marco de la entidad</title>
+      <link>https://www.wikiod.com/es/entity-framework/plantillas-t4-en-el-marco-de-la-entidad/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/entity-framework/plantillas-t4-en-el-marco-de-la-entidad/</guid>
+      <description>Adición dinámica de interfaces al modelo # Cuando se trabaja con un modelo existente que es bastante grande y se regenera con bastante frecuencia en los casos en que se necesita abstracción, puede ser costoso redecorar manualmente el modelo con interfaces. En tales casos, es posible que desee agregar algún comportamiento dinámico a la generación del modelo.
+El siguiente ejemplo mostrará cómo agregar automáticamente interfaces en clases que tienen nombres de columna específicos:</description>
+    </item>
+    
+  </channel>
+</rss>

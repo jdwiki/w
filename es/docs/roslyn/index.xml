@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial de Roslyn on </title>
+    <link>https://www.wikiod.com/es/docs/roslyn/</link>
+    <description>Recent content in Tutorial de Roslyn on </description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.wikiod.com/es/docs/roslyn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Empezando con Roslyn</title>
+      <link>https://www.wikiod.com/es/roslyn/empezando-con-roslyn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/roslyn/empezando-con-roslyn/</guid>
+      <description>Instalación o configuración # Para comenzar a jugar con Roslyn, necesitará los siguientes paquetes de NuGet:
+Los compiladores C# y VB - Microsoft.Net.Compilers. Para instalarlo, puede ejecutar el siguiente comando en la consola del administrador de paquetes:
+nuget install Microsoft.Net.Compilers
+Las API y servicios de lenguaje - Microsoft.CodeAnalysis. Para instalarlo, puede ejecutar el siguiente comando en la consola del administrador de paquetes:
+nuget install Microsoft.CodeAnalysis
+Además, es bueno instalar las plantillas SDK de la plataforma del compilador .</description>
+    </item>
+    
+    <item>
+      <title>Uso de espacios de trabajo</title>
+      <link>https://www.wikiod.com/es/roslyn/uso-de-espacios-de-trabajo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/roslyn/uso-de-espacios-de-trabajo/</guid>
+      <description>El espacio de trabajo es una representación programática de la jerarquía de C# que consta de una solución, proyectos secundarios y documentos secundarios.
+Actualmente no hay ningún espacio de trabajo de MSBuild que admita proyectos compatibles con .NET Standard. Para obtener más información, consulte [aquí] 1. Creando un MSBuildWorspace, cargando una solución y obteniendo todos los documentos en toda esa solución # El MSBuildWorspace se basa en el concepto de manejar soluciones de MSBuild (archivos .</description>
+    </item>
+    
+    <item>
+      <title>Analiza el código fuente con Roslyn</title>
+      <link>https://www.wikiod.com/es/roslyn/analiza-el-codigo-fuente-con-roslyn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/roslyn/analiza-el-codigo-fuente-con-roslyn/</guid>
+      <description>Analice una aplicación simple &amp;ldquo;Hello World&amp;rdquo; en C# # Cree una nueva aplicación de consola con una línea en el método Main: Console.WriteLine(&amp;quot;Hello World&amp;quot;)
+Recuerde la ruta al archivo .csproj y reemplácelo en el ejemplo.
+Cree una nueva Aplicación de consola e instale el paquete NuGet Microsoft.CodeAnalysis y pruebe el siguiente código:
+const string projectPath = @&amp;quot;C:\HelloWorldApplication\HelloWorldProject.csproj&amp;quot;; // Creating a build workspace. var workspace = MSBuildWorkspace.Create(); // Opening the Hello World project.</description>
+    </item>
+    
+    <item>
+      <title>Cambiar el código fuente con Roslyn</title>
+      <link>https://www.wikiod.com/es/roslyn/cambiar-el-codigo-fuente-con-roslyn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/roslyn/cambiar-el-codigo-fuente-con-roslyn/</guid>
+      <description>Ejemplos prácticos del uso de Roslyn para transformaciones de código fuente.
+Los árboles de sintaxis de Roslyn son inmutables. Al llamar a un método como ReplaceNodes, generamos un nuevo nodo en lugar de modificar el existente. Esto requiere que siempre cambies el objeto en el que has estado trabajando. Reemplace los atributos existentes para todos los métodos en C# usando el árbol de sintaxis # El siguiente fragmento reemplaza todos los atributos llamados &amp;ldquo;PreviousAttribute&amp;rdquo; por un atributo llamado &amp;ldquo;ReplacementAttribute&amp;rdquo; para una solución completa.</description>
+    </item>
+    
+    <item>
+      <title>Árbol de sintaxis</title>
+      <link>https://www.wikiod.com/es/roslyn/arbol-de-sintaxis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/roslyn/arbol-de-sintaxis/</guid>
+      <description>Una de las partes principales del compilador Roslyn es la API de sintaxis. Expone los árboles de sintaxis que usan los compiladores para comprender los programas de Visual Basic y C#.
+El árbol de sintaxis es un Árbol de análisis en el contexto del compilador Roslyn. Recorriendo el árbol de sintaxis usando LINQ # Puede navegar fácilmente por un árbol de sintaxis usando LINQ. Por ejemplo, es fácil obtener todos los nodos ClassDeclarationSyntax (clases declaradas), que tienen un nombre que comienza con la letra A:</description>
+    </item>
+    
+    <item>
+      <title>modelo semántico</title>
+      <link>https://www.wikiod.com/es/roslyn/modelo-semantico/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.wikiod.com/es/roslyn/modelo-semantico/</guid>
+      <description>En contraste con la API de sintaxis, expone todo tipo de información de nivel de sintaxis, el modelo semántico le da a nuestro código más &amp;ldquo;significado&amp;rdquo; y nos permite responder preguntas como &amp;ldquo;¿Qué nombres están dentro del alcance en esta ubicación?&amp;rdquo;, &amp;ldquo;¿Qué miembros son accesibles desde este método?&amp;rdquo;, &amp;ldquo;¿Qué variables se utilizan en este bloque de texto?&amp;rdquo;, &amp;ldquo;¿A qué se refiere este nombre/expresión?&amp;rdquo;.
+Consultar el modelo semántico es más costoso que consultar el árbol de sintaxis, debido al hecho de que lo más común es que desencadene una compilación.</description>
+    </item>
+    
+  </channel>
+</rss>
